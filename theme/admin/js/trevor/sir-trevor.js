@@ -617,7 +617,7 @@
     if(_.isUndefined(shouldWrap)) { shouldWrap = false; }
   
     if (shouldWrap) {
-     // html = "<div>" + html;
+      html = "<div>" + html;
     }
   
     html = html.replace(/\[([^\]]+)\]\(([^\)]+)\)/gm,function(match, p1, p2){
@@ -663,8 +663,8 @@
     }
   
     if (shouldWrap) {
-      html = html.replace(/\r?\n\r?\n/gm, "<br>");
-      html = html.replace(/\r?\n/gm, "");
+      html = html.replace(/\r?\n\r?\n/gm, "</div><div><br></div><div>");
+      html = html.replace(/\r?\n/gm, "</div><div>");
     }
   
     html = html.replace(/\t/g, "&nbsp;&nbsp;&nbsp;&nbsp;")
@@ -682,7 +682,7 @@
                .replace(/\\\-/g, "-");
   
     if (shouldWrap) {
-     // html += "</div>";
+      html += "</div>";
     }
   
     return html;
@@ -737,8 +737,7 @@
       return "_" + p1.replace(/<(.)?br(.)?>/g, '') + "_" + p2;
     }
   
-   //ars edit
-   /* markdown = markdown.replace(/<(\w+)(?:\s+\w+="[^"]+(?:"\$[^"]+"[^"]+)?")*>\s*<\/\1>/gim, '') //Empty elements
+    markdown = markdown.replace(/<(\w+)(?:\s+\w+="[^"]+(?:"\$[^"]+"[^"]+)?")*>\s*<\/\1>/gim, '') //Empty elements
                         .replace(/\n/mg,"")
                         .replace(/<a.*?href=[""'](.*?)[""'].*?>(.*?)<\/a>/gim, function(match, p1, p2){
                           return "[" + p2.trim().replace(/<(.)?br(.)?>/g, '') + "]("+ p1 +")";
@@ -746,7 +745,7 @@
                         .replace(/<strong>(?:\s*)(.*?)(\s)*?<\/strong>/gim, replaceBolds)
                         .replace(/<b>(?:\s*)(.*?)(\s*)?<\/b>/gim, replaceBolds)
                         .replace(/<em>(?:\s*)(.*?)(\s*)?<\/em>/gim, replaceItalics)
-                        .replace(/<i>(?:\s*)(.*?)(\s*)?<\/i>/gim, replaceItalics);*/
+                        .replace(/<i>(?:\s*)(.*?)(\s*)?<\/i>/gim, replaceItalics);
   
   
     // Use custom formatters toMarkdown functions (if any exist)
@@ -762,14 +761,13 @@
     }
   
     // Do our generic stripping out
-   //ars edited
-   /* markdown = markdown.replace(/([^<>]+)(<div>)/g,"$1\n$2")                                 // Divitis style line breaks (handle the first line)
+    markdown = markdown.replace(/([^<>]+)(<div>)/g,"$1\n$2")                                 // Divitis style line breaks (handle the first line)
                    .replace(/<div><div>/g,'\n<div>')                                         // ^ (double opening divs with one close from Chrome)
                    .replace(/(?:<div>)([^<>]+)(?:<div>)/g,"$1\n")                            // ^ (handle nested divs that start with content)
                    .replace(/(?:<div>)(?:<br>)?([^<>]+)(?:<br>)?(?:<\/div>)/g,"$1\n")        // ^ (handle content inside divs)
                    .replace(/<\/p>/g,"\n\n")                                               // P tags as line breaks
                    .replace(/<(.)?br(.)?>/g,"\n")                                            // Convert normal line breaks
-                   .replace(/&lt;/g,"<").replace(/&gt;/g,">");     */                            // Encoding
+                   .replace(/&lt;/g,"<").replace(/&gt;/g,">");                                 // Encoding
   
     // Use custom block toMarkdown functions (if any exist)
     var block;

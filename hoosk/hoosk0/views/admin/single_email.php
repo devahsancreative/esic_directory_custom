@@ -1,6 +1,9 @@
 <?php echo $header; ?>
 
 <style>
+.mailbox-read-info .col-md-2 {
+    width: 10.666667% !important;
+	}
 .custom_li_style li {
     
 	list-style: none;
@@ -78,32 +81,33 @@
             
             <div class="box-body no-padding">
               <div class="mailbox-read-info">
-              <div class="row">
-                <div class="col-md-2 col-sm-12">
-                   <h3>Subject:</h3>
-                </div>  
-                <div class="col-md-10 col-sm-12">
-                   <h3 id="subject">
-				     <?= $sent_message->subject; ?>
-                   </h3>
-                </div>  
-              </div>
-             
+              
+             <div class="row">
+                 <div class="col-md-2 col-sm-12"> 
+                    <h3 class="box-title">To:</h3>
+                 </div> 
+                 
+                <div class="col-md-10 col-sm-12">   
+                    <h5 id="to"><?= $sent_message->sendto; ?></h5>
+                 </div>   
+            </div>
                <div class="row">
                  <div class="col-md-12 col-sm-12"> 
                       <h5>  <span class="mailbox-read-time pull-right" id="sent_date"><?= $sent_message->date; ?></span></h5>
                  </div>
                </div>
                 
+               
                <div class="row">
-                <div class="col-md-2 col-sm-12"> 
-                    <h3>To:</h3>
-                 </div> 
-                 
-                <div class="col-md-10 col-sm-12">   
-                    <h5 id="to"><?= $sent_message->sendto; ?></h5>
-                 </div>   
-                 </div>
+                <div class="col-md-2 col-sm-12">
+                   <h3 class="box-title">Subject:</h3>
+                </div>  
+                <div class="col-md-10 col-sm-12">
+                   <h5 id="subject">
+				     <?= $sent_message->subject; ?>
+                   </h5>
+                </div>  
+              </div>
               </div>
               <!-- /.mailbox-read-info -->
               <div class="mailbox-controls with-border text-center">
