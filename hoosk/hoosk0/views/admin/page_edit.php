@@ -458,6 +458,9 @@ footer.main-footer {
 
 <script src="<?php echo ADMIN_THEME; ?>/js/trevor/sir-trevor-bootstrap.js"></script>
 
+<script src="<?php echo ADMIN_THEME; ?>/js/trevor/custom/justify.js"></script>
+		  <link rel="stylesheet" href="<?= ADMIN_THEME ?>/js/trevor/custom/justify.css">
+
 <script type="text/javascript">
 
 	new SirTrevor.Editor({ el: $('.js-st-instance'),
