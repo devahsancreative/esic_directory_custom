@@ -1,0 +1,196 @@
+body.menu-open #navmobile {
+    z-index: 1
+}
+
+body div#main-content,
+body div#main-wrap {
+    z-index: auto
+} 
+
+@media (max-width:1024px) {
+    #navmobile {
+        z-index: -1
+    }
+	 
+}
+
+body #SignupForm * {
+    word-break: break-word
+}
+
+.next,
+.submit {
+    float: right
+}
+
+.clear {
+    clear: both
+}
+
+.button-container {
+    text-align:left;
+    margin: 10px 0
+}
+#dateInsertDiv {
+    display: none
+}
+
+#SubmitForm,
+#back {
+    float: none
+}
+
+.prev,
+.select2Style {
+    float: left
+}
+
+form .address-container label {
+    display: block
+}
+
+form .address-container input#address {
+    width: 40%
+}
+
+form .address-container input {
+    width: 23%;
+    display: inline-block
+}
+
+form .required-fields {
+    color: #ec1515;
+    font-size: 15px;
+    vertical-align: middle;
+    margin-left: 2px
+}
+
+.selectorDiv {
+    background: rgba(66, 66, 66, .1);
+    margin-top: 8px;
+    padding: 10px;
+    display: none
+}
+
+.addNewToSelector,
+a.addBtn {
+    display: inline-block;
+    float: left
+}
+
+a.addBtn {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    padding: 3px 7px;
+    cursor: pointer
+}
+
+#selectorDiv,
+fieldset>div {
+    background: rgba(66, 66, 66, .1)
+}
+
+a.addBtn span {
+    left: 1px
+}
+
+.wrap {
+    max-width: 980px;
+    margin: 10px auto 0
+}
+
+#steps {
+    margin: 80px 0 0
+}
+
+.commands {
+    overflow: hidden;
+    margin-top: 30px
+}
+
+.error {
+    color: #b33
+}
+
+#progress {
+    position: relative;
+    height: 5px;
+    background-color: #eee;
+    margin-bottom: 20px
+}
+
+#progress-complete {
+    border: 0;
+    position: absolute;
+    height: 5px;
+    min-width: 10px;
+    background-color: #337ab7;
+    transition: width .2s ease-in-out
+}
+
+fieldset {
+    background: rgba(232, 234, 246, .87);
+    padding: 10px
+}
+
+fieldset>div {
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px
+}
+
+legend {
+    background-color: #424242;
+    color: #fff;
+    text-align: center;
+    height: 60px;
+    padding: 15px 0
+}
+
+#mainFormDiv {
+    box-shadow: 0 0 9px rgba(0, 0, 0, .3);
+    background-image: url(uploads/8/4/3/6/84367404/background-images/561993498.jpg)!important
+}
+
+#SaveAccount {
+    margin-top: 5px;
+    margin-bottom: 5px;
+	float:right;
+}
+
+#selectorDiv {
+    margin-top: 8px;
+    padding: 10px
+}
+
+#SignupFormStep2 {
+    display: none
+}
+
+body #mainFormDiv {
+    padding-bottom: 10px
+}
+
+body .g-recaptcha div {
+    max-width: 100%;
+    width: 100%!important
+}
+
+@media (max-width:550px) {
+    body #SignupFormStep2 legend,
+    body #form1 legend {
+        height: inherit;
+        min-height: 65px
+    }
+    #footer-wrap table td[class*=col-],
+    table th[class*=col-] {
+        position: inherit!important;
+        display: inherit!important;
+        float: inherit!important
+    }
+	body .g-recaptcha{
+		float:none !important;
+  	}
+}
