@@ -140,11 +140,13 @@
                     <div class="form-group">
                          <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <input id="NameFirst" name="firstName" type="text" placeholder="First" class="form-control"
+                                <input id="NameFirst" name="firstName" type="text"
+                                       value="<?php echo set_value('firstName'); ?>"placeholder="First" class="form-control"
                                       required />
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <input id="NameLast" name="lastName" type="text" placeholder="Last" class="form-control"
+                                <input id="NameLast" name="lastName"
+                                       value="<?php echo set_value('lastName'); ?>"       type="text" placeholder="Last" class="form-control"
                                       required />
                             </div>
                         </div>
@@ -153,12 +155,15 @@
                     <div class="form-group">
                         
                         <input id="Email" name="email" type="email" class="form-control" 
-                        placeholder="xyz@example.com" required />
+                        placeholder="xyz@example.com"
+                               value="<?php echo set_value('email'); ?>"required />
+
                     </div>
                     
                         <label for="Website">Website Address<span class="required-fields">*</span></label>
                        <div class="form-group">
-                        <input id="Website" name="website" type="text" class="form-control" placeholder=" www.example.com" required />
+                        <input id="Website" name="website" type="text"
+                               value="<?php echo set_value('website'); ?>"       class="form-control" placeholder=" www.example.com" required />
                     </div>
                     
                     
@@ -178,47 +183,52 @@
 								}*/
                          </script>
                        
-                        <input id="Company" name="company" type="text"   class="form-control" placeholder="Company" />
+                        <input id="Company" name="company" type="text"
+                               value="<?php echo set_value('company'); ?>" class="form-control" placeholder="Company" />
                     </div>
                    
                      <label for="Address">Address</label>
   <div class="form-group">
-           <div class="row">
-              <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                 <input id="street_number" name="street_number" type="text" class="form-control" placeholder="Street Number" />
-              </div>
-              <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                 
-                 <input id="Address" name="address" type="text" class="form-control" placeholder="Street Name" />
-              </div>
-              <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">                                  
-                 <input id="town" name="town" type="text" class="form-control" placeholder="Town" />
-              </div>
-              <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">  
-                 <input id="state" name="state" type="text" class="form-control" placeholder="State" />
-              </div> 
-              </div>  
-              <div class="row">
-              <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12" style="margin-top:10px">
-                 <input id="post_code" name="post_code" type="text" class="form-control" placeholder="Post Code" /> 
-               </div>  
-              </div>   
-             </div>
+       <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+            <input id="street_number" name="street_number"
+                   value="<?php echo set_value('street_number'); ?>"type="text" class="form-control" placeholder="Street Number" />
+        </div>
+       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+             <input id="Address" name="address" type="text"
+                    value="<?php echo set_value('address'); ?>"class="form-control" placeholder="Street Name" />
+       </div>
+      <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+           <input id="town" name="town" type="text"
+                  value="<?php echo set_value('town'); ?>"class="form-control" placeholder="Town" />
+      </div>
+    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+          <input id="state" name="state" type="text" class="form-control"
+                 value="<?php echo set_value('state'); ?>"  placeholder="State" />
+    </div>
+     </div>
+      <div class="row">
+       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12" style="margin-top:10px">
+           <input id="post_code" name="post_code"
+                  value="<?php echo set_value('post_code'); ?>" type="text" class="form-control" placeholder="Post Code" />
+     </div>
+     </div>
+  </div>
                    
                       
-                       
-                       
+
+
                         <label for="Business">Business Name (if different)</label>
                          <div class="form-group">
                         <input id="Business" name="business" type="text" class="form-control" placeholder="Business Name" />
                     </div>
-                    
+
                         <label for="tinyDescription">Short Description of Business</label>
                         <div class="form-group">
                         <textarea id="tinyDescription" class="form-control" name="tinyDescription"></textarea>
-                        
+
                     </div>
-                    
+
                         <label for="shortDescription">Detail Description of Business</label>
                         <div class="form-group">
                         <textarea id="shortDescription" class="form-control" name="shortDescription"></textarea>
@@ -230,10 +240,10 @@
                  <input id="facebook" name="facebook" type="text" class="form-control" placeholder="Facebook" />
               </div>
               <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                 
+
                  <input id="twitter" name="twitter" type="text" class="form-control" placeholder="Twitter" />
               </div>
-              <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">                                  
+              <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                  <input id="google" name="google" type="text" class="form-control" placeholder="Google+" />
               </div>
               <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">  
@@ -242,7 +252,7 @@
               </div>  
               <div class="row">
               <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12" style="margin-top:10px">
-                 <input id="instagram" name="instagram" type="text" class="form-control" placeholder="Instagram" /> 
+                 <input id="instagram" name="instagram" type="text" class="form-control" placeholder="Instagram" />
                </div>  
               </div>   
              </div>
@@ -663,14 +673,13 @@
                     </div>
                 </fieldset>
                 <div class="button-container">
-                <script src='https://www.google.com/recaptcha/api.js'></script>
-                <div class="g-recaptcha" data-sitekey="6LdnMw0UAAAAACUs5JmUj6d0GEApig3pvo8_q4f3" style="transform:scale(0.77);-webkit-transform:scale(0.77);transform-origin:0 0;-webkit-transform-origin:0 0;float: right;"></div>
-                    <input type="hidden" class="hiddenRecaptcha required" name="hiddenRecaptcha" id="hiddenRecaptcha">
-                    <!--div class="g-recaptcha" data-sitekey="6LdkvgcUAAAAAJmtbVlO47p0o07zgjaa2g8RWTC2"></div-->
-                    <!--<button id="back"  class="btn btn-primary submit">Back</button>-->
-                    <button id="SubmitForm" type="button" class="btn btn-primary submit">Submit</button>
-                    <div  style="clear:both;"></div>
-                </div>
+     <!-- <script src='https://www.google.com/recaptcha/api.js'></script>
+      <div class="g-recaptcha" data-sitekey="6LdnMw0UAAAAACUs5JmUj6d0GEApig3pvo8_q4f3" style="transform:scale(0.77);-webkit-transform:scale(0.77);transform-origin:0 0;-webkit-transform-origin:0 0;float: right;"></div>
+        <input type="hidden" class="hiddenRecaptcha required" name="hiddenRecaptcha" id="hiddenRecaptcha">-->
+
+        <button id="SubmitForm" type="button" class="btn btn-primary submit">Submit</button>
+       <div  style="clear:both;"></div>
+    </div>
             </div>
         </form>
     </div></div>

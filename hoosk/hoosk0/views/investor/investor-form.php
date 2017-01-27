@@ -92,6 +92,10 @@
    label#message {
           color: red;
     }
+   div#infoMessage p
+   {
+     color: red;
+   }
    
    
     </style>
@@ -100,7 +104,8 @@
     <div class="col-lg-12" id="mainFormDiv">
    
         <form  action="<?php echo base_url('Investor/submit')?>" method="post" enctype="multipart/form-data" data-url="<?= base_url();?>Investor/submit" >
-              <div id="form1">
+
+            <div id="form1">
                 <fieldset>
               <legend>Early Stage Investor Pre-assessment</legend>
                  <?php if($this->session->userdata('msg')){?>
@@ -116,12 +121,16 @@
                     <div class="form-group">
                          <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <input id="NameFirst" name="firstName" type="text" placeholder="First" class="form-control"
-                                      required />
+                                <input id="NameFirst" name="firstName" type="text" placeholder="First"
+                                       value="<?php echo set_value('firstName'); ?>"class="form-control"
+                                     />
+                                <div id="infoMessage"><?php echo form_error('firstName'); ?></div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <input id="NameLast" name="lastName" type="text" placeholder="Last" class="form-control"
-                                      required />
+                                <input id="NameLast" name="lastName" type="text" placeholder="Last"
+                                       value="<?php echo set_value('lastName'); ?>"class="form-control"
+                                      />
+                                <div id="infoMessage"><?php echo form_error('lastName'); ?></div>
                             </div>
                         </div>
                     </div>.
@@ -131,8 +140,10 @@
                     
                     <div class="form-group">
                         
-                        <input id="email" name="email" type="email" class="form-control" 
-                        placeholder="xyz@example.com" required /><label id="message"></label>
+                        <input id="email" name="email" type="email"
+                               value="<?php echo set_value('email'); ?>"class="form-control"
+                        placeholder="xyz@example.com"/><label id="message"></label>
+                        <div id="infoMessage"><?php echo form_error('email'); ?></div>
                     </div>
              </fieldset>
 <fieldset>

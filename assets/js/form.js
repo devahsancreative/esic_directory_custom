@@ -126,10 +126,10 @@ var baseUrl =  $('#SignupForm').attr('data-url');
             $('#error-box').remove();
             $('#loading-submit').show();
 
-            if(grecaptcha.getResponse() == '') {
-
-            $("#mainFormDiv").append('<span id="error-box" style="background: rgba(255, 255, 255, 0.8);padding: 5px;color: #333;font-weight: bold; border: 2px solid #333;width: 100%;display: block;">Please Check The Recaptcha and trg again</span>');
-            $('#loading-submit').hide();
+            //if(grecaptcha.getResponse() == '') {
+            if(1==2){          // change into above line
+           // $("#mainFormDiv").append('<span id="error-box" style="background: rgba(255, 255, 255, 0.8);padding: 5px;color: #333;font-weight: bold; border: 2px solid #333;width: 100%;display: block;">Please Check The Recaptcha and trg again</span>');
+          //  $('#loading-submit').hide();
             }else{
              var formData = new FormData();
                 $.ajax({

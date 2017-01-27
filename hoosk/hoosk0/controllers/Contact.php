@@ -86,6 +86,7 @@ public function manage_contact($param = NULL){
             $selectData = array('
            id AS ID,
            firstName AS FirstName,
+           send_date AS send_date,
 		   email AS Email,
 		   ',false);
 			  

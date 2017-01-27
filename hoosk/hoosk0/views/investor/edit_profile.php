@@ -710,7 +710,7 @@ margin: 10px 0px;
  </div>
 </div>
 
- <div class="post question-post question-1 <?php if($User->al_fd_company == '1'){echo ' display-block';
+ <div class="post question-post question-1 displycompanydetail <?php if($User->al_fd_company == '1'){echo 'display-block';
  }else{echo 'display-none';}
  ?>" data-id="question-1">
   <div class="">
@@ -721,9 +721,10 @@ margin: 10px 0px;
                       <span class="question-points"></span>
         </span>
   </div>
- <p class="answer-solution">Company Name:  <?= $User->company_name?></p>
- <p class="answer-solution">Company Email: <?= $User->company_email?></p>
-      <div class="edit-question" id="q4">
+
+ <p class="answer-solution show_company_n">Company Name:   <?= $User->company_name?></p>
+ <p class="answer-solution show_company_e">Company Email:  <?= $User->company_email?></p>
+      <div class="edit-question ser" id="q4">
          <div class="form-group">
                   <label>Comapny Name:</label>
                   <input type="text" name="company_name" id="company_name" 
@@ -965,9 +966,10 @@ I claimed a tax offset for an ESIC investment last year and DO plan to carry it 
               <label for="Name">Email:<span class="required-fields"></span></label>
                 <div class="form-group">
               <input id="email" name="email" type="email" placeholder="Email" class="form-control" 
-                       value="<? if(!empty($User->email)){echo $User->email; }?>" required="required">
+                       value="<?php if(!empty($User->email)){echo $User->email; }?>" required="required">
                        <label id="message" class="text-red"></label>
                        <label id="email-error" class="text-red"></label>
+                    <div id="infoMessage"><?php echo form_error('email'); ?></div>
                  </div>
          </div>
          <div class="col-md-6 col-sm-12">
@@ -975,6 +977,7 @@ I claimed a tax offset for an ESIC investment last year and DO plan to carry it 
                 <div class="form-group">
               <input id="currentpassword" name="old-password" type="text" placeholder="Current Password" 
               value="" class="form-control" > <label id="pass-error" class="text-red"></label>
+               <div id="infoMessage"><?php echo form_error('password'); ?></div>
                  </div>
          </div>
           
@@ -1198,10 +1201,10 @@ $('#currentpassword').blur(function(){            // password check
 $("#save_security").on("click", function () {
 	         var current_e= $(this);
 	         var email    = $("#email").val();
-			 var newp     = $("#password").val();
-		     var cnp      = $("#cpassword").val();
+			 var newp     = $("#password").val();  // add new password
+		     var cnp      = $("#cpassword").val(); // retype new  password
 			 var password = $("#currentpassword").val();
-			 var oldpass  = '<?= $User->password?>';
+			 var oldpass  = '<?= $User->password?>';     //old password
 			  if(newp !=cnp)
 					{ 
 					  $('#error').html('Password did not match').show().delay(5000).fadeOut();
@@ -1216,11 +1219,11 @@ $("#save_security").on("click", function () {
 			        $('#email-error').html('The email is already taken, choose another one').show().delay(5000).fadeOut();
 				    return false;
 				  }	  
-			else if(password !=oldpass)
+			/*else if(password !=oldpass)
 			      {
 					 $('#pass-error').html('Please Enter a valid Password').show().delay(5000).fadeOut();
-				      return false;  
-				  }	  
+				      return false;
+				  } */
 			else{ 
 				 var user_id   = <?=$User->userID?>;
 				 var email     = $("#email").val();
@@ -1302,8 +1305,12 @@ $(".save_quesiton").on("click", function () {
 					success: function (output) {
 					if (output == 'ok') 
 					{
-					  if(value == "1"){ 
-					  	$(currentl_element).closest('.question-post').find(".answer-solution").text("Yes");
+					  if(value == "1"){
+					      $(currentl_element).closest('.question-post').find(".answer-solution").text("Yes");
+                             if(qno=="al_fd_company"){
+                                 $('.displycompanydetail').addClass('display-block');
+                                 $('.displycompanydetail').removeClass('display-none');
+                                }
 					  }else if(value == "0"){ 
 					  	$(currentl_element).closest('.question-post').find(".answer-solution").text("No");
 					  }	 
@@ -1318,7 +1325,7 @@ $(".save_quesiton").on("click", function () {
 		  
 $(".save_company_details").on("click", function () {  
 	          var user_id     =  <?=$User->userID?>;
-			  var current_e    = $(this);
+			  var current_es    = $(this);
 			  var c_name      =  $(this).closest('.form-group').find('#company_name').val(); //$(".e_st_investor").val();
 			  var c_email     =  $(this).closest('.form-group').find('#company_email').val(); //$(".e_st_investor").val();
 			  var postData  = {
@@ -1333,9 +1340,12 @@ $(".save_company_details").on("click", function () {
 					success: function (output) {
 					if (output == 'ok') 
 					{
-					 $('#mydiv').addClass('.alert alert-success');
+                     $(current_es).closest(".ser").removeClass('in');
+					 $('#mydiv').addClass('alert alert-success');
 					 $('#mydiv').html('Your Information  updated Successfully!').show().delay(5000).fadeOut(3000);
-					 $(current_e).closest('.edit-question').removeClass('in');
+                     $('.show_company_n').html("Company Name:   "+c_name);
+                     $('.show_company_e').html("Company Email:  "+c_email);
+
 				    }
 					}
 				});

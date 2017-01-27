@@ -1,7 +1,37 @@
 <?php echo $header; ?>
 
 <style>
-.btn{
+    .form-controlsbutton {
+        margin-top: 25px;
+    }
+    .form-actions a {
+        position: relative;
+        float: left;
+        padding: 6px 12px;
+        margin-left: -1px;
+        line-height: 1.42857143;
+        color: #337ab7;
+        text-decoration: none;
+        background: #fff;
+        color: #666;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+    }
+    .form-actions strong {
+        position: relative;
+        float: left;
+        padding: 7px 12px;
+        margin-left: -1px;
+        line-height: 1.42857143;
+        text-decoration: none;
+        z-index: 3;
+        color: #fff;
+        cursor: pointer;
+        background-color: #337ab7;
+        border-color: #fff;
+        border-radius: 3px;
+    }
+ .btn{
     float: left !important;
     margin-right: 2px !important;
 }
@@ -45,6 +75,44 @@
 </div>
   
 <div class="container-fluid">
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h3 class="box-title">Filter By</h3>
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+            <form action="<?php base_url()?>" method="post">
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>User Name</label>
+                            <input type="text" id="Sea" name="username"
+                                   class="form-control select2"
+                                   placeholder="Search By User Name">
+                        </div><!-- /.form-group -->
+                    </div><!-- /.col -->
+                    <div class="col-md-4">
+                        <div class="form-group form-controlsbutton">
+
+
+                            <input type="submit" id="" class="btn btn-sm btn-primary" value="Search">
+                            <input type="submit" id="" class="btn btn-sm btn-primary" value="Reset">
+                        </div><!-- /.form-group -->
+                    </div><!-- /.col -->
+
+
+                </div>
+            </form>
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer clearfix">
+        </div>
+        <!-- /.box-footer -->
+    </div>
 
   	<div class="row">
 

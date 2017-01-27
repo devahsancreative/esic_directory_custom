@@ -147,12 +147,16 @@
     <li class="<?php if ($current == "Admin/social") { echo "active"; } ?>"><a href="<?php echo BASE_URL ; ?>/admin/social"><i class="fa fa-share-alt"></i> <span><?php echo $this->lang->line('nav_social'); ?></span> </a> </li>
     
     <li class="<?php if ($current == "Admin/settings") { echo "active"; } ?>"><a href="<?php echo BASE_URL ; ?>/admin/settings"><i class="fa fa-cogs"></i> <span><?php echo $this->lang->line('nav_settings'); ?></span> </a> </li>
-    
-       
 
+
+    <li>
+        <a href="<?php echo BASE_URL ; ?>/sitemap.xml" target="_blank">
+            <i class="fa fa-sitemap"></i> <span>Sitemap</span></a>
+   </li>
     <li>
         <a href="<?php echo BASE_URL ; ?>/admin/logout"><i class="fa fa-fw fa-power-off"></i> <span><?php echo $this->lang->line('nav_logout'); ?></span></a>
     </li>
+
     
  <!------------------------------------- Others User permission  ----------------------------------------------------->
  
@@ -179,7 +183,8 @@
    <li class="<?php if ($current == "Admin/details") { echo "active"; } ?>"><a href="<?= base_url('admin/details')."/".$id;?>"><i class="fa fa-list"></i> <span>Edit Profile</span></a></li>
    
    <?php } ?>
-    
+
+
 	   <li>
         <a href="<?php echo BASE_URL ; ?>/admin/logout"><i class="fa fa-fw fa-power-off"></i> <span><?php echo $this->lang->line('nav_logout'); ?></span></a>
     </li>

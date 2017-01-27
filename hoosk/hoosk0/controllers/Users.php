@@ -30,7 +30,10 @@ class Users extends MY_Controller {
 	public function index()
 	{
 		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
-		$this->load->library('pagination');
+        $userRole = $this->session->userdata('userRole');
+        if($userRole == 1){
+        $this->load->library('pagination');
+        $search = $this->input->post('username');
 		$result_per_page =15;  // the number of result per page
 		$config['base_url'] = BASE_URL. '/admin/users/';
 		$config['total_rows'] = $this->Hoosk_model->countUsers();
@@ -40,26 +43,35 @@ class Users extends MY_Controller {
         $this->pagination->initialize($config);
 
 		//Get users from database
-		$this->data['users'] = $this->Hoosk_model->getUsers($result_per_page, $this->uri->segment(3));
+		$this->data['users'] = $this->Hoosk_model->getUsers($result_per_page, $this->uri->segment(3),$search);
 		$this->data['roles'] = $this->Hoosk_model->getRoles();
 
 		//Load the view
 		$this->data['header'] = $this->load->view('admin/header', $this->data, true);
 		$this->data['footer'] = $this->load->view('admin/footer', '', true);
 		$this->load->view('admin/users', $this->data);
+        }else{
+            $this->load->view('admin/page_not_found');
+        }
 	}
 
 	public function addUser()
 	{
 		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		//Load the form helper
-		$this->load->helper('form');
-		//Load the view
-		$this->data['roles'] = $this->Hoosk_model->getRoles();
-		$this->data['header'] = $this->load->view('admin/header', $this->data, true);
-		$this->data['footer'] = $this->load->view('admin/footer', '', true);
-		$this->load->view('admin/user_new', $this->data);
-	}
+        $userRole = $this->session->userdata('userRole');
+        if($userRole == 1){
+            $this->load->helper('form');
+            //Load the view
+            $this->data['roles'] = $this->Hoosk_model->getRoles();
+            $this->data['header'] = $this->load->view('admin/header', $this->data, true);
+            $this->data['footer'] = $this->load->view('admin/footer', '', true);
+            $this->load->view('admin/user_new', $this->data);
+      }else{
+            $this->load->view('admin/page_not_found');
+        }
+}
+
 
 	public function confirm()
 	{
@@ -89,14 +101,19 @@ class Users extends MY_Controller {
 	{
 		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		//Load the form helper
-		$this->load->helper('form');
-		//Get user details from database
-		$this->data['users'] = $this->Hoosk_model->getUser($this->uri->segment(4));
-		$this->data['roles'] = $this->Hoosk_model->getRoles();
-		//Load the view
-		$this->data['header'] = $this->load->view('admin/header', $this->data, true);
-		$this->data['footer'] = $this->load->view('admin/footer', '', true);
-		$this->load->view('admin/user_edit', $this->data);
+        $userRole = $this->session->userdata('userRole');
+        if($userRole == 1){
+            $this->load->helper('form');
+            //Get user details from database
+            $this->data['users'] = $this->Hoosk_model->getUser($this->uri->segment(4));
+            $this->data['roles'] = $this->Hoosk_model->getRoles();
+            //Load the view
+            $this->data['header'] = $this->load->view('admin/header', $this->data, true);
+            $this->data['footer'] = $this->load->view('admin/footer', '', true);
+            $this->load->view('admin/user_edit', $this->data);
+        }else{
+            $this->load->view('admin/page_not_found');
+        }
 	}
 
 	public function edited()
@@ -246,14 +263,19 @@ class Users extends MY_Controller {
 	
 public function email(){   //Email form  
 	
-	    Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
-		$this->load->helper('form');
+    Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
+    $userRole = $this->session->userdata('userRole');
+    if($userRole == 1){
+        $this->load->helper('form');
 		$this->data['users_data'] = $this->common_model->select('user');
 		$this->data['Count_email_message'] = $this->common_model->Count_Tottle_Rows('esic_email');
 		$this->data['Count_contact_message'] = $this->common_model->Count_Tottle_Rows('esic_contact');
 		$this->data['header'] = $this->load->view('admin/header', $this->data, true);
 		$this->data['footer'] = $this->load->view('admin/footer', '', true);
 		$this->load->view('admin/email', $this->data);
+}  else{
+       $this->load->view('admin/page_not_found');
+}
 	 }
 	
 public function send_email()    //compose email
@@ -319,7 +341,10 @@ public function send_email()    //compose email
 
 
 public function sent($param = NULL){ //Mange Sent Emails
-    if($param === 'listing'){
+    Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
+    $userRole = $this->session->userdata('userRole');
+    if($userRole == 1) {
+        if ($param === 'listing') {
 
             $selectData = array('
 
@@ -327,15 +352,15 @@ public function sent($param = NULL){ //Mange Sent Emails
 		   sendto AS sendto,
            subject AS Subject,
 		   date AS Date,
-		    ',false);
-			  
- 
- $addColumns = array(
+		    ', false);
 
-                'ViewEditActionButtons' => array('<a href="'.base_url().'admin/users/single_email/$1"><i data-toggle="tooltip" title="View Email" class=" ml-fa fa fa-eye fa-6 " text-success></i></a><a href="#" data-target=".approval-modal" data-toggle="modal"><i data-toggle="tooltip" title="Trash" data-placement="left"  class="fa fa-trash-o text-red ml-fa"></i></a>','ID')
+
+            $addColumns = array(
+
+                'ViewEditActionButtons' => array('<a href="' . base_url() . 'admin/users/single_email/$1"><i data-toggle="tooltip" title="View Email" class=" ml-fa fa fa-eye fa-6 " text-success></i></a><a href="#" data-target=".approval-modal" data-toggle="modal"><i data-toggle="tooltip" title="Trash" data-placement="left"  class="fa fa-trash-o text-red ml-fa"></i></a>', 'ID')
 
             );
-            $returnedData = $this->Common_model->select_fields_joined_DT($selectData,'esic_email','','','','','',$addColumns);
+            $returnedData = $this->Common_model->select_fields_joined_DT($selectData, 'esic_email', '', '', '', '', '', $addColumns);
 
             print_r($returnedData);
 
@@ -343,7 +368,7 @@ public function sent($param = NULL){ //Mange Sent Emails
 
         }
 
-        if($param === 'allvalues'){
+        if ($param === 'allvalues') {
 
             $returnedData = $this->Common_model->select('esic_email');
 
@@ -353,9 +378,9 @@ public function sent($param = NULL){ //Mange Sent Emails
 
         }
 
-        if($param === 'delete'){
+        if ($param === 'delete') {
 
-            if(!$this->input->post()){
+            if (!$this->input->post()) {
 
                 echo "FAIL::No Value Posted";
 
@@ -364,15 +389,12 @@ public function sent($param = NULL){ //Mange Sent Emails
             }
 
 
-
             $id = $this->input->post('id');
 
             $value = $this->input->post('value');
-		  
 
 
-
-            if(empty($id) or !is_numeric($id)){
+            if (empty($id) or !is_numeric($id)) {
 
                 echo "FAIL::Posted values are not VALID";
 
@@ -381,8 +403,7 @@ public function sent($param = NULL){ //Mange Sent Emails
             }
 
 
-
-            if(empty($value)){
+            if (empty($value)) {
 
                 echo "FAIL::Posted values are not VALID";
 
@@ -390,10 +411,9 @@ public function sent($param = NULL){ //Mange Sent Emails
 
             }
 
-            $data='';
+            $data = '';
 
-            if($value == 'delete'){
-
+            if ($value == 'delete') {
 
 
                 $whereUpdate = array(
@@ -401,11 +421,11 @@ public function sent($param = NULL){ //Mange Sent Emails
                     'id' => $id
 
                 );
-               $returnedData = $this->Common_model->delete('esic_email',$whereUpdate);
+                $returnedData = $this->Common_model->delete('esic_email', $whereUpdate);
 
                 echo "OK::Record Deleted";
 
-            }else{
+            } else {
 
                 echo "FAIL::Record Not Deleted";
 
@@ -414,14 +434,14 @@ public function sent($param = NULL){ //Mange Sent Emails
             return NULL;
 
         }
-		 $data['Count_contact_message'] = $this->common_model->Count_Tottle_Rows('esic_contact');
-		 $data['Count_email_message'] = $this->common_model->Count_Tottle_Rows('esic_email');
-         $this->show_admin('admin/sent_email',$data);
-          return NULL;
-
+        $data['Count_contact_message'] = $this->common_model->Count_Tottle_Rows('esic_contact');
+        $data['Count_email_message'] = $this->common_model->Count_Tottle_Rows('esic_email');
+        $this->show_admin('admin/sent_email', $data);
+        return NULL;
+    }else {
+        $this->load->view('admin/page_not_found');
+          }
     }
- 
-	  
 
 public function single_email($id=NULL){   // View Sent Email 
 	

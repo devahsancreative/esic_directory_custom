@@ -240,7 +240,10 @@ class Hoosk_model extends CI_Model {
            /* Dashboard  End  */
 	
 
-    function getUsers($limit, $offset=0) {
+    function getUsers($limit, $offset=0,$search=NULL) {
+
+        echo $search;
+
 
         // Get a list of all user accounts
 
@@ -251,7 +254,9 @@ class Hoosk_model extends CI_Model {
 		$this->db->limit($limit, $offset);
 
         $this->db->join('users_role', 'users_role.id = hoosk_user.userRole');
-
+        if(!empty($search)){
+            $this->db->like('userName',$search);
+        }
         $query = $this->db->get('hoosk_user');
 
         if ($query->num_rows() > 0) {

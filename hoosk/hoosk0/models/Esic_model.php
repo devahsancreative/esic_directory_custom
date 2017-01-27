@@ -310,5 +310,18 @@ public function update_social($id=NULL,$data=NULL,$data2=NULL) // use to Update 
 		  return "ok";
         }
 		 
- } 
+ }
+ public function get_site_data() // use to get all page url
+    {
+       $query = $this->db->get('hoosk_page_attributes');
+        if ($query->num_rows() > 0)
+        {
+          return $query->result_array();
+        }
+        else{
+
+            return false;
+        }
+
+    }
 }

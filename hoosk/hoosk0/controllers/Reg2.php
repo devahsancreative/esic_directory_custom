@@ -5,6 +5,8 @@ class Reg2 extends MY_Controller {
     {
 		
         parent::__construct();
+        $this->load->library('form_validation');
+        $this->load->helper(array('form','url'));
 		
  
 	 }
@@ -34,22 +36,27 @@ class Reg2 extends MY_Controller {
     public function submit(){
 
         $cop_date = ''; 
-        $expiry_date = ''; 
-       
+        $expiry_date = '';
+
+
+        /*$this->form_validation->set_rules('email', 'Email','trim|required|valid_email');
+        if ($this->form_validation->run() != FAlSE) {
+
+        }*/
 	    $rights_no_             = implode("|",$this->input->post('rights_no_'));
 		$innovation_no_         = implode("|",$this->input->post('innovation_no_'));
 		$P_C_no                 = implode("|",$this->input->post('P_C_no_'));
-	    $firstName              = $this->input->post('firstName');
-        $lastName               = $this->input->post('lastName');
+	    $firstName              = strip_tags($this->input->post('firstName'));
+        $lastName               = strip_tags($this->input->post('lastName'));
         $email                  = $this->input->post('email');
         $website                = $this->input->post('website');
-        $company                = $this->input->post('company');
+        $company                = strip_tags($this->input->post('company'));
         $address                = $this->input->post('address');
-		$street_number          = $this->input->post('street_number');
-		$post_code              = $this->input->post('post_code');
-        $state                  = $this->input->post('state');
-        $town                   = $this->input->post('town');
-        $business               = $this->input->post('business');
+		$street_number          = strip_tags($this->input->post('street_number'));
+		$post_code              = strip_tags($this->input->post('post_code'));
+        $state                  = strip_tags($this->input->post('state'));
+        $town                   = strip_tags($this->input->post('town'));
+        $business               = strip_tags($this->input->post('business'));
 	    $shortDescription       = $this->input->post('shortDescription');
         $tinyDescription        = $this->input->post('tinyDescription');
         $date_pickter_format    = $this->input->post('cop_date');
@@ -63,7 +70,6 @@ class Reg2 extends MY_Controller {
         }
         $added_date             =  date('Y-m-d');
         $acn                    = $this->input->post('acn');
-
         $mExpense               = $this->input->post('1mExpense');
         $assessableIncomeYear   = $this->input->post('assessableIncomeYear');
         $listedInSExchange      = $this->input->post('listedInSExchange');
@@ -223,8 +229,8 @@ class Reg2 extends MY_Controller {
             if(!empty($question->solutionValue)){
                 $dataArrayToInsert = array(
                     'questionID' => $question->id,
-                    'userID' => $insertID,
-                    'Solution' => $question->solutionValue,
+                    'userID'     => $insertID,
+                    'Solution'   => $question->solutionValue,
                     'type' => ''
                 );
                 $solutionInsertID = $this->Common_model->insert_record('esic_questions_answers',$dataArrayToInsert);

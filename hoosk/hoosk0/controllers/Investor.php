@@ -191,154 +191,156 @@ public function  investor_list($param=NULL){
 		$this->load->view('theme/footer');
 		}
  public function submit(){             // Insert investor form
- 
-        $firstName              = $this->input->post('firstName');
-        $lastName               = $this->input->post('lastName');
-        $email                  = $this->input->post('email');
-        $early_stage_investor   = $this->input->post('early_stage_investor');
-        $rebate                 = $this->input->post('rebate');
-        $al_fd_company          = $this->input->post('al_fd_company');
-		$company_name           = $this->input->post('company_name');
-		$company_email          = $this->input->post('company_email');
-        $hold_investment        = $this->input->post('hold_investment');
-        $affiliate_ESIC         = $this->input->post('affiliate_ESIC');
-        $ent_con_ESIC           = $this->input->post('ent_con_ESIC');
-	    $widely_held_company    = $this->input->post('widely_held_company');
-        $situation1             = $this->input->post('situation1');
-        $situation2             = $this->input->post('situation2');
-		$situation3             = $this->input->post('situation3');
-        $Act_2001               = $this->input->post('Act_2001');
-		$info_ESICs             = $this->input->post('info_ESICs');
-		$added_date             =  date('Y-m-d');
-		
-		// upload certificate image
-		  if(!empty($_FILES['certificate']['name'])){ 
-		        $config['allowed_types'] = "gif|jpg|png|jpeg|pdf|doc|docx|ppt|pptx|pps|ppsx";  
-		        $config['upload_path']  = 'uploads/investor/';
-                $config['file_name']    = $_FILES['certificate']['name'];
-                $this->load->library('upload',$config);
-                $this->upload->initialize($config);
-                if($this->upload->do_upload('certificate'))
-				     {    
-					 }
-					else{
-						echo $this->upload->display_errors();
-			        	exit;
-						} 
-				
-				$image_name = str_replace(" ","_",$_FILES['certificate']['name']);
-            //  echo   $filepath        = base_url().'uploads/investor/'.$name; 
-		   } 	
-			//end imgae code 
-       
-	   if(empty($firstName) || empty($lastName)){
-            echo "FAIL::Please Enter Complete Name";
-            exit;
-        }
 
-       if(filter_var($email,FILTER_VALIDATE_EMAIL) === false){
-            echo "FAIL::Please Enter a valid Email Address";
-            exit;
-        } 
-		
-		 $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+         $firstName = strip_tags($this->input->post('firstName'));
+         $lastName  = strip_tags($this->input->post('lastName'));
+         $email     = strip_tags($this->input->post('email'));
+         $early_stage_investor = $this->input->post('early_stage_investor');
+         $rebate          = $this->input->post('rebate');
+         $al_fd_company   = $this->input->post('al_fd_company');
+         $company_name    = $this->input->post('company_name');
+         $company_email   = $this->input->post('company_email');
+         $hold_investment = $this->input->post('hold_investment');
+         $affiliate_ESIC  = $this->input->post('affiliate_ESIC');
+         $ent_con_ESIC    = $this->input->post('ent_con_ESIC');
+         $widely_held_company = $this->input->post('widely_held_company');
+         $situation1 = $this->input->post('situation1');
+         $situation2 = $this->input->post('situation2');
+         $situation3 = $this->input->post('situation3');
+         $Act_2001   = $this->input->post('Act_2001');
+         $info_ESICs = $this->input->post('info_ESICs');
+         $added_date = date('Y-m-d');
+
+         // upload certificate image
+         if (!empty($_FILES['certificate']['name'])) {
+             $config['allowed_types'] = "gif|jpg|png|jpeg|pdf|doc|docx|ppt|pptx|pps|ppsx";
+             $config['upload_path'] = 'uploads/investor/';
+             $config['file_name'] = $_FILES['certificate']['name'];
+             $this->load->library('upload', $config);
+             $this->upload->initialize($config);
+             if ($this->upload->do_upload('certificate')) {
+             } else {
+                 echo $this->upload->display_errors();
+                 exit;
+             }
+
+             $image_name = str_replace(" ", "_", $_FILES['certificate']['name']);
+             //  echo   $filepath        = base_url().'uploads/investor/'.$name;
+         }
+         //end imgae code
+
+         if (empty($firstName) || empty($lastName)) {
+             echo "FAIL::Please Enter Complete Name";
+             exit;
+         }
+
+         if (filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
+             echo "FAIL::Please Enter a valid Email Address";
+             exit;
+         }
+
+         $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
          $count = mb_strlen($chars);
 
-         for ($i = 0, $result = ''; $i < 10; $i++) 
-		   {
-           $index = rand(0, $count - 1);
-           $result .= mb_substr($chars, $index, 1);
-           }
-	 
-	          $Send_password   = $result;
-	          $password   = md5($result.SALT);
-        
-		$userName =$firstName.$lastName;
-		$userName   = str_replace(" ","_", $userName);
-	    $userInsertArray = array(
-		    'userName'             => $userName,
-            'firstName'       	   => $firstName,
-            'lastName'        	   => $lastName,
-            'email'            	   => $email,
-			'password'             => $password,
-			'userRole'             => 3,
-          ); 
-		 
+         for ($i = 0, $result = ''; $i < 10; $i++) {
+             $index = rand(0, $count - 1);
+             $result .= mb_substr($chars, $index, 1);
+         }
+
+         $Send_password = $result;
+         $password = md5($result . SALT);
+
+         $userName = $firstName . $lastName;
+         $userName = str_replace(" ", "_", $userName);
+         $userInsertArray = array(
+             'userName' => $userName,
+             'firstName'=> $firstName,
+             'lastName' => $lastName,
+             'email'    => $email,
+             'password' => $password,
+             'userRole' => 3,
+            // 'RS'       => $Send_password // temprerry save password just for testing remove it
+         );
 
 
-        $fk_investor_ID = $this->Common_model->insert_record('hoosk_user',$userInsertArray);
-		
-	    $userInvestorArray = array(
-            'fk_investor_ID'       => $fk_investor_ID,
-            'e_st_investor'   	   => $early_stage_investor,
-            'rebate'         	   => $rebate,
-            'al_fd_company'   	   => $al_fd_company,
-			'company_name'   	   => $company_name,
-			'company_email'   	   => $company_email,
-            'hold_investment' 	   => $hold_investment,
-            'affiliate_ESIC'  	   => $affiliate_ESIC,
-            'ent_con_ESIC'    	   => $ent_con_ESIC,
-		    'widely_held_company'  => $widely_held_company,
-			'situation1'       	   => $situation1,
-            'situation2'      	   => $situation2,
-            'situation3'      	   => $situation3,
-            'Act_2001'             => $Act_2001,
-            'info_ESICs'           => $info_ESICs,
-            'added_date'           => $added_date,
-			'certificate'          => $image_name
-         ); 
-		 
-		 $add_fk_user_id = array(
-		                       'fk_user_id' => $fk_investor_ID
-		                );
-		 
-		 		
-		            $this->Common_model->insert_record('investor_social',$add_fk_user_id); 
-        $insertID = $this->Common_model->insert_record('esic_investor',$userInvestorArray);
-		
-		if($insertID > 0){  
-		   
-			//email
-			 
-			$settings   = $this->Hoosk_model->getSettings();
-			$siteEmail  = $settings[0]['siteEmail'];
-			$subject    = "Esic Directory User Name  And Password";
-			$message    = "Hi"."  ". $firstName." ".$lastName."You can login and update your info";
-			
-			$message    .= "Your User name:   " .$userName."   "."Your Password:   ".$Send_password;
-			
-			
-			$this->load->library('email'); 
-			 
-			$config = array();
-			$config['useragent']   = "CodeIgniter";
-			$config['protocol']    = "smtp";
-			$config['smtp_host']   = "gator3083";
-			$config['smtp_port']   = "25";
-			$config['mailtype']    = 'html';
-			$config['charset']     = 'utf-8';
-			$config['newline']     = "\r\n";
-			$config['wordwrap']    = TRUE; 
-			$this->email->initialize($config);
-	   
-			$this->email->from($siteEmail, 'From: Esic Directory');
-			$this->email->to($email);
-            $this->email->subject($subject); 
-            $this->email->message($message); 
-		    $this->email->send();
-			//email end
-		 
-                $this->session->set_userdata('msg','Thank you. Your Information has been added Successfully');
-			    header('Location:'.base_url().'investor_pre_assessment');
-            }
-		
-	        elseif(empty($insertID) || !is_numeric($insertID))
-			{
-				echo $this->db->last_query();
-				$this->db->trans_rollback();
-				die("FAIL::Something Went wrong, Could Not Insert");
-            }
-		 
+         $fk_investor_ID = $this->Common_model->insert_record('hoosk_user', $userInsertArray);
+
+         $userInvestorArray = array(
+             'fk_investor_ID' => $fk_investor_ID,
+             'e_st_investor' => $early_stage_investor,
+             'rebate' => $rebate,
+             'al_fd_company' => $al_fd_company,
+             'company_name' => $company_name,
+             'company_email' => $company_email,
+             'hold_investment' => $hold_investment,
+             'affiliate_ESIC' => $affiliate_ESIC,
+             'ent_con_ESIC' => $ent_con_ESIC,
+             'widely_held_company' => $widely_held_company,
+             'situation1'  => $situation1,
+             'situation2'  => $situation2,
+             'situation3'  => $situation3,
+             'Act_2001'    => $Act_2001,
+             'info_ESICs'  => $info_ESICs,
+             'added_date'  => $added_date,
+             'certificate' => $image_name,
+             'status'      => 0
+         );
+
+         $add_fk_user_id = array(
+             'fk_user_id' => $fk_investor_ID
+         );
+
+
+         $this->Common_model->insert_record('investor_social', $add_fk_user_id);
+         $insertID = $this->Common_model->insert_record('esic_investor', $userInvestorArray);
+
+         if ($insertID > 0) {
+
+             //email
+
+             $settings = $this->Hoosk_model->getSettings();
+             $siteEmail = $settings[0]['siteEmail'];
+             $subject = "Esic Directory User Name  And Password";
+             $message = "Hi" . "  " . $firstName . " " . $lastName . "You can login and update your info";
+
+             $message .= "Your User name:   " . $userName . "   " . "Your Password:   " . $Send_password;
+
+
+             $this->load->library('email');
+
+             $config = array();
+             $config['useragent'] = "CodeIgniter";
+             $config['protocol'] = "smtp";
+             $config['smtp_host'] = "gator3083";
+             $config['smtp_port'] = "25";
+             $config['mailtype'] = 'html';
+             $config['charset'] = 'utf-8';
+             $config['newline'] = "\r\n";
+             $config['wordwrap'] = TRUE;
+             $this->email->initialize($config);
+
+             $this->email->from($siteEmail, 'From: Esic Directory');
+             $this->email->to($email);
+             $this->email->subject($subject);
+             $this->email->message($message);
+             $this->email->send();
+             //email end
+
+             $this->session->set_userdata('msg', 'Thank you. Your Information has been added Successfully');
+             header('Location:' . base_url() . 'investor_pre_assessment');
+         } elseif (empty($insertID) || !is_numeric($insertID)) {
+             echo $this->db->last_query();
+             $this->db->trans_rollback();
+             die("FAIL::Something Went wrong, Could Not Insert");
+         }
+ else
+     {
+         $this->load->view('theme/header');
+         $this->load->view('investor/investor-form');
+         $this->load->view('theme/footer');
+     }
+
+
  }
  public function email_check()     
     {
@@ -357,7 +359,7 @@ public function  investor_list($param=NULL){
  public function password_check()     
     {
            $id   = $this->input->post('id');
-           $pass = $this->input->post('password');
+           $pass = md5($this->input->post('password').SALT);
 		   $ok   = $this->Investor_model->password_check($id,$pass);
 		   echo $ok;	 
 	 }	
@@ -395,18 +397,22 @@ public function edit_profile($id=NULL){
 			}	
 	}	
 public function edit_investor_profile($para=NULL){
-	    Admincontrol_helper::is_logged_in($this->session->userdata('userID'));   
-           
-		   if($para == 'security'){
-			   
-			 $id    = $this->input->post('id');
-			 $email = $this->input->post('email');
-			 $pass  = $this->input->post('password');
-			 $cpass = $this->input->post('cpassword');
-			 $ok    = $this->Investor_model->update_security($id,$email,$pass,$cpass);
-			 
-			 echo $ok;  
-		 }
+
+	     Admincontrol_helper::is_logged_in($this->session->userdata('userID'));
+         if($para == 'security'){
+           $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|is_unique[hoosk_user.email]');
+             $this->form_validation->set_rules('password', 'Password', 'trim|required');
+           if ($this->form_validation->run() != FAlSE) {
+               $id = $this->input->post('id');
+
+               $email = $this->input->post('email');
+               $pass  = md5($this->input->post('password').SALT); //new password
+               $cpass = md5($this->input->post('cpassword').SALT);//Current password
+               $ok = $this->Investor_model->update_security($id, $email, $pass, $cpass);
+
+               echo $ok;
+           }
+         }
 		 elseif($para == "social"){
 			 
 		      $id       = $this->input->post('id');
@@ -442,7 +448,7 @@ public function edit_investor_profile($para=NULL){
 		}
 	elseif($para == "company_detail"){
 	          $id       = $this->input->post('id');
-			  $c_name   = $this->input->post('c_name');
+			  $c_name   = strip_tags( $this->input->post('c_name'));
 			  $c_email  = $this->input->post('c_email');
 			  $data     = array(
 			              'company_name'  => $c_name,
@@ -467,14 +473,16 @@ public function edit_investor_profile($para=NULL){
      }    
 	
 		
-elseif($para == "about"){                                            //update first name and last name 
+elseif($para == "about"){                                            //update first name and last name  and about
 	          $id           = $this->input->post('id');
 			  $value        = $this->input->post('value');
 			  $input_id     = $this->input->post('input_id');
 			  if($input_id == '1'){
-			     $data      = array('firstName' => $value);
+                  $value    = strip_tags($value);
+			      $data     = array('firstName' => $value);
 			  }
 			  elseif($input_id == '2'){
+                 $value    = strip_tags($value);
 			     $data      = array('lastName'  => $value);
 			  }
 			  elseif($input_id == '3'){
@@ -485,7 +493,7 @@ elseif($para == "about"){                                            //update fi
      } 
 elseif($para == "address"){
 	          $id       = $this->input->post('id');
-			  $address  = $this->input->post('address');
+			  $address  = strip_tags($this->input->post('address'));
 			  $data     = array(  
 			              'address' => $address,
 						 );
@@ -499,7 +507,7 @@ public function edit_certificate_picture($id=NULL)
     {
 		       $id  = $id;
 		 if(!empty($_FILES['certificate']['name'])){ 
-		        $config['allowed_types'] = "gif|jpg|png|jpeg|pdf|zip|xlsx|cad|pdf|doc|docx|ppt|pptx|pps|ppsx|odt|xls|xlsx|mp3|m4a|ogg|wav|mp4|m4v|mov|wmv";  
+		        $config['allowed_types'] = "gif|jpg|png|jpeg|pdf|pdf|doc|docx";
 		        $config['upload_path']  = 'uploads/investor/';
                 $config['file_name']    = $_FILES['certificate']['name'];
                 $this->load->library('upload',$config);
