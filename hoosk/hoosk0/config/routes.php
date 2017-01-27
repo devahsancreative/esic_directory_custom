@@ -51,10 +51,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 
+$route['oauth_Login'] = "Oauth_Login";
 $route['sitemap\.xml'] = "Update_sitemap/index";
 
 //$route['sitemap']        = "Sitemap/index";
 $route['attachments'] = "Admin/upload";
+
 $route['admin'] = "Admin";
 $route['admin/status/(:any)'] = "Admin/index/$1";
 $route['admin/assessment_dashboard'] = "Admin/assessment_dashboard";

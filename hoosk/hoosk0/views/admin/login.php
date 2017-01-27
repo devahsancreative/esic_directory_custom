@@ -1,5 +1,10 @@
 <?php echo $header; ?>
 
+
+
+
+
+
 <div class="container">
 
         <div class="row">
@@ -9,6 +14,7 @@
                 <div class="login-panel panel panel-default">
 
                     <div class="panel-heading">
+
        
                     
 <?php /*?><?php echo BASE_URL; ?>/images/<?php echo $settings['siteLogo']; ?><?php */?>
@@ -20,6 +26,17 @@
 
                     <div class="panel-body">
 
+
+
+                        <?php if (@$user_profile): ?>
+                            <pre>
+            <?php echo print_r($user_profile, TRUE) ?>
+        </pre>
+                            <a href="<?= $logout_url ?>">Logout</a>
+                        <?php else: ?>
+
+                            <a href="<?= $login_url ?>">Login</a>
+                        <?php endif; ?>
                     <?php if (isset($error)){
 
 					if ($error == "1"){
