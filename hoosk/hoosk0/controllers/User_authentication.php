@@ -15,7 +15,7 @@ class User_Authentication extends My_Controller
 		$appId = '1854896641432731';
 		$appSecret = 'd9fdf021543cc3b533a7917877f99483';
         //$redirectUrl = base_url() . 'user_authentication/';
-        //$redirectUrl = base_url() . 'user_authentication/';
+        $redirectUrl = 'http://localhost/esic_directory_custom/admin/user_Authentication/';
 		$fbPermissions = 'email';
 		
 		//Call Facebook API

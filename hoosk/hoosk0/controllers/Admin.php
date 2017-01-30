@@ -16,7 +16,7 @@ class Admin extends MY_Controller {
 		define ('SITE_NAME', $this->Hoosk_model->getSiteName());
 		define('THEME', $this->Hoosk_model->getTheme());
 		define ('THEME_FOLDER', BASE_URL.'/theme/'.THEME);
-        $this->load->library('facebook');
+        //$this->load->library('facebook');
 
         $this->load->model("Common_model");
         $this->load->model("Imagecreate_model");
@@ -150,42 +150,12 @@ public function upload()
 
 	public function login()
 	{
-
-           $fb_config = array(
-                'appId'  => '1854896641432731',
-                'secret' => 'd9fdf021543cc3b533a7917877f99483'
-            );
-            $this->load->library('facebook', $fb_config);
-
-            $user = $this->facebook->getUser();
-
-            if ($user) {
-                try {
-                    $this->data['user_profile'] = $this->facebook->api('/me');
-                } catch (FacebookApiException $e) {
-                    $user = null;
-                }
-            }
-
-            if ($user) {
-                $data['logout_url'] = $this->facebook
-                    ->getLogoutUrl();
-            } else {
-
-                $this->data['login_url'] = $this->facebook
-                    ->getLoginUrl();
-            }
-
-          //  $this->load->view('admin/login',$data);
-
-        //Load the form helper
-		$this->load->helper('form');
-		
-		$this->data['settings'] = $this->Hoosk_model->getSettings(); 
+        $this->load->helper('form');
+        $this->data['settings'] = $this->Hoosk_model->getSettings();
 		$this->data['header'] = $this->load->view('admin/headerlog', '', true);
 		$this->data['footer'] = $this->load->view('admin/footer', '', true);
 
-      //  $this->load->view('admin/login', $this->data);
+
         $this->load->view('admin/login',$this->data);
          }
 

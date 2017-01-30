@@ -2,11 +2,10 @@
 class Oauth_loging extends CI_Controller {
     function __construct() {
         parent::__construct();
-        $this->load->library('facebook');
+       // $this->load->library('facebook');
     }
     public function index(){
-         echo  "asdas";
-        exit;
+
         if (isset($_GET['code']) AND !empty($_GET['code'])) {
             $code = $_GET['code'];
             // parsing the result to getting access token.
