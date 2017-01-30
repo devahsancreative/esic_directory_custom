@@ -151,20 +151,17 @@ public function upload()
 	public function login()
 	{
 
-         $fb_config = array(
+           $fb_config = array(
                 'appId'  => '1854896641432731',
                 'secret' => 'd9fdf021543cc3b533a7917877f99483'
             );
-
             $this->load->library('facebook', $fb_config);
 
             $user = $this->facebook->getUser();
-        echo "up";
-     print_r($user);
+
             if ($user) {
                 try {
-                    $this->data['user_profile'] = $this->facebook
-                        ->api('/me');
+                    $this->data['user_profile'] = $this->facebook->api('/me');
                 } catch (FacebookApiException $e) {
                     $user = null;
                 }
@@ -174,27 +171,24 @@ public function upload()
                 $data['logout_url'] = $this->facebook
                     ->getLogoutUrl();
             } else {
-                echo "down";
+
                 $this->data['login_url'] = $this->facebook
                     ->getLoginUrl();
             }
 
           //  $this->load->view('admin/login',$data);
 
-
-
-
-		//Load the form helper
+        //Load the form helper
 		$this->load->helper('form');
 		
 		$this->data['settings'] = $this->Hoosk_model->getSettings(); 
 		$this->data['header'] = $this->load->view('admin/headerlog', '', true);
 		$this->data['footer'] = $this->load->view('admin/footer', '', true);
-       // exit;
+
       //  $this->load->view('admin/login', $this->data);
         $this->load->view('admin/login',$this->data);
-	}
-	
+         }
+
 	public function loginCheck()
  	{
 		$username=$this->input->post('username');
