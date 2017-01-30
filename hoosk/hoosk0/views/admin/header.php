@@ -127,9 +127,7 @@ if($class   == 'Pages'){?>
 <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>  
     
     <script>
-
-        //Update Haider Commented Out the TinyMCE
-/*	 tinymce.init({
+	 tinymce.init({
     selector: "body div.st-text-block",
     theme: "modern",
 	menubar: false,
@@ -144,9 +142,7 @@ if($class   == 'Pages'){?>
     inline: true,
     toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image     | print preview media| table",
     statusbar: false
-    });*/
-
-        //End of Haider Comment Update
+    });
        /* tinymce.init({
     selector: "body div.st-text-block",
     theme: "modern",

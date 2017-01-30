@@ -757,7 +757,7 @@
 
 <?php if ($this->router->fetch_class() !== 'Navigation' ){ ?>
 
-            <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+            <script src="<?= base_url()?>/assets/js/jquery-2.2.4.js"></script>
 
 <?php
 
@@ -894,9 +894,6 @@
 
 
 <?php } ?>
-
-
- 
 
 </body>
 
