@@ -18,15 +18,15 @@ define ('DB_PASS', 'chocolate');
 //Database Name 
 
 //define ('DB_NAME', 'creative_esic_directory');
-define ('DB_NAME', 'creative_esic_directory_local');
+define ('DB_NAME', 'esic_directory');
 
 //Base URL 
 
-define ('BASE_URL', 'http://localhost/esic_directory_custom');
-define ('VIEW_URL', 'http://localhost/esic_directory_custom/hoosk/hoosk0/views/');
+define ('BASE_URL', 'http://localhost/esic_directory');
+define ('VIEW_URL', 'http://localhost/esic_directory/hoosk/hoosk0/views/');
 
 //Email/Cookie URL 
 
-define ('EMAIL_URL', 'http://localhost/esic_directory_custom');
+define ('EMAIL_URL', 'http://localhost/esic_directory');
 
 ?>
