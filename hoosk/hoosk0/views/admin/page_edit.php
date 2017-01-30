@@ -58,91 +58,11 @@
                         echo $set;
 						} else {
 					 	$set = $p['pageContent'];
-/*							echo '<pre>';
-							    var_dump($set);
-							echo '</pre>';*/
-						
-						//Arsalan edit 
-						$set2_decode = json_decode($p['pageContent'],true);
-/*						ob_start();
-						print_r($p);
-						$buffer = ob_get_clean();
-						echo "<pre>  p  = ".htmlentities($buffer)."</pre>";*/
-						
-						 
-						
-/*						ob_start();
-						print_r($set2_decode);
-						$buffer = ob_get_clean();
-						echo "<pre>   set2_decode = ".htmlentities($buffer)."</pre>";*/
-						 
- //function start		
-function doSomething(&$main_arry)
-{ 
-	foreach ($main_arry as $n => &$v)
-    {   
-		if($n == 'type' && ( $v == 'text' || $v == 'heading') ){
-			$data_key_only = array_keys($main_arry['data']);
-			for($k=(count($data_key_only)-1); $k>-1; $k-- ){
-				if (substr($data_key_only[$k], 0, 4) == 'mce_' && $main_arry['data'][$data_key_only[$k]] != ''){
-					 $main_arry['data']['text'] = $main_arry['data'][$data_key_only[$k]];
-					  break;  
-				}
-			}
-		}else{
-            if(is_array($v)) doSomething($v);
-		}            
-    } 
-}
-//function end here
 
-/*echo 'Before : <pre>';
-    var_dump($set2_decode);
-echo '</pre>';*/
-
-doSomething($set2_decode);
-
-						
-						$set = json_encode($set2_decode);
-						
-/*						ob_start();
-						print_r($set2_decode);
-						$buffer = ob_get_clean();
-						echo "<pre> after set2_decode = ".htmlentities($buffer)."</pre>";*/
-/*							echo "<pre> after set2_decode:<br />";
-							htmlentities(print_r($set2_decode),true);
-							echo "</pre>";*/
-
-					 
-						 
-						//exit; 
-						//Arsalan edit end here
-						}    
-/*//						echo " <pre>   data  ";  print_r( $data ); echo " </pre> ";
-						echo " <pre>   Set  ";  print_r( $set2 ); echo " </pre> ";
-						$testDecode = json_decode($set2);
-						echo 'After Decode the Wrong..: <pre>';
-						    var_dump($testDecode);
-						echo '</pre>';*/
-
-
-
-//						    var_dump(json_decode($set));
+						}
 
 						echo form_textarea($data, set_value('content',$set, FALSE));
 						?>
-<!--<textarea id="content" name="content" class="js-st-instance">--><?//=$set?><!--</textarea>-->
-
-			 <?php
-						
-						//echo form_textarea($data, set_value('content',$set2, FALSE));   
-						//echo display_ckeditor($ckeditor); 
-					
-					?>
-             <?php //  print_r($set);?>
-             
-            <?php // echo    form_textarea($data, set_value('content',$this->input->post('content'), FALSE)); ?>
-					
            
            <div class="panel-footer">
                     <a class="btn btn-primary" data-toggle="modal" href="#attributes"><?php echo $this->lang->line('btn_next'); ?></a>
@@ -280,17 +200,6 @@ doSomething($set2_decode);
       <!-- /row --> 
     </div>
     <!-- /container --> 
-<!--<script src="--><?php //echo ADMIN_THEME; ?><!--/js/trevor/underscore.js"></script>-->
-<!--<script src="--><?php //echo ADMIN_THEME; ?><!--/js/trevor/eventable.js"></script>-->
-<!--<script src="--><?php //echo ADMIN_THEME; ?><!--/js/trevor/sortable.min.js"></script>-->
-<!--<script src="--><?php //echo ADMIN_THEME; ?><!--/js/trevor/sir-trevor.js"></script>-->
-<!--<script src="--><?php //echo ADMIN_THEME; ?><!--/js/trevor/sir-trevor-bootstrap.js"></script>-->
-
-<!--<script src="--><?php //echo ADMIN_THEME; ?><!--/js/sirTrevor/new/index.js"></script>-->
-
-<!--<link rel="stylesheet" href="--><?php //echo ADMIN_THEME; ?><!--/js/sirTrevor/sir-trevor.css" type="text/css">-->
-<!--<script src="--><?php //echo ADMIN_THEME; ?><!--/js/sirTrevor/sir-trevor.js"></script>-->
-
 
 <!--		  bower work-->
 		  <script src="<?php echo ADMIN_THEME; ?>/js/sirTrevor/bower_components/es5-shim/es5-shim.js" type="text/javascript" charset="utf-8"></script>
@@ -313,17 +222,17 @@ doSomething($set2_decode);
 
 <script type="text/javascript">
 /*	new SirTrevor.Editor({ el: $('.js-st-instance'),
-  	blockTypes: ["Columns", "Heading", "Text", "ImageExtended", "Quote", "Accordion", "Button", "Video", "List", "Iframe"]
-	});
+ blockTypes: ["Columns", "Heading", "Text", "ImageExtended", "Quote", "Accordion", "Button", "Video", "List", "Iframe"]
+ });
 
 
-/!*	const editor = new SirTrevor.Editor({
-		el: document.querySelector('.js-st-instance'),
-		defaultType: 'Text',
+ /!*	const editor = new SirTrevor.Editor({
+ el: document.querySelector('.js-st-instance'),
+ defaultType: 'Text',
 
-		iconUrl: 'build/sir-trevor-icons.svg'
-	});*!/
-	SirTrevor.onBeforeSubmit();*/
+ iconUrl: 'build/sir-trevor-icons.svg'
+ });*!/
+ SirTrevor.onBeforeSubmit();*/
 
 	$(function(){
 		SirTrevor.config.debug = true;
@@ -351,10 +260,7 @@ doSomething($set2_decode);
 				"Markdown"
 			]
 		});
-/*		$('form').bind('submit', function () {
-			$('#st-json-debug').text(window.editor.store.toString(true));
-			return false;
-		});*/
+		
 		SirTrevor.onBeforeSubmit();
 	});
 </script>
