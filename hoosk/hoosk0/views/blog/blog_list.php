@@ -62,7 +62,7 @@
 						    $id   = $blog_lists->id;
 			           ?>
                     <li><a href="<?php echo  base_url().'blog/'.$id."/".$links ?>" class="blog-title-link blog-link" >
-                          <? echo  $blog_lists->title; ?>  </a> 
+                          <?=  $blog_lists->title; ?>  </a>
                     </li>
                     <?php }} ?>
                      

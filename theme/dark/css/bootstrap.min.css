@@ -3361,7 +3361,7 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 .navbar-toggle .icon-bar+.icon-bar {
 	margin-top: 4px
 }
-@media (min-width:768px) {
+@media (min-width:992px) {
 .navbar-toggle {
 	display: none
 }
