@@ -150,13 +150,73 @@ public function upload()
 
 	public function login()
 	{
+
+      //  $this->load->helper('form');
+      //  $this->data['settings'] = $this->Hoosk_model->getSettings();
+		//$this->data['header'] = $this->load->view('admin/headerlog', '', true);
+		//$this->data['footer'] = $this->load->view('admin/footer', '', true);
+      //  $this->load->view('admin/login',$this->data);
         $this->load->helper('form');
-        $this->data['settings'] = $this->Hoosk_model->getSettings();
-		$this->data['header'] = $this->load->view('admin/headerlog', '', true);
-		$this->data['footer'] = $this->load->view('admin/footer', '', true);
+        $data['settings'] = $this->Hoosk_model->getSettings();
 
+        include_once APPPATH."libraries/facebook-api-php-codexworld/facebook.php";
+        $appId = '1854896641432731';
+        $appSecret = 'd9fdf021543cc3b533a7917877f99483';
+        //$redirectUrl = base_url() . 'user_authentication/';
+        $redirectUrl = base_url().'/admin';
+        $fbPermissions = 'email';
 
-        $this->load->view('admin/login',$this->data);
+        //Call Facebook API
+        $facebook = new Facebook(array(
+            'appId'  => $appId,
+            'secret' => $appSecret
+
+        ));
+        $fbuser = $facebook->getUser();
+
+        if ($fbuser) {
+            $userProfile = $facebook->api('/me?fields=id,first_name,last_name,email,gender,locale,picture');
+            //      print_r($userProfile);
+
+            $userData['oauth_provider'] = 'facebook';
+            $userData['oauth_uid'] = $userProfile['id'];
+            $userData['first_name'] = $userProfile['first_name'];
+            $userData['last_name'] = $userProfile['last_name'];
+            $userData['email'] = $userProfile['email'];
+            $userData['gender'] = $userProfile['gender'];
+            $userData['locale'] = $userProfile['locale'];
+            $userData['profile_url'] = 'https://www.facebook.com/'.$userProfile['id'];
+            $userData['picture_url'] = $userProfile['picture']['data']['url'];
+            // Insert or update user data
+
+            //$userID = $this->user->checkUser($userData);
+            $userID = 1;
+            if(!empty($userID)){
+
+                 $data = array(
+
+                        'userID'   => 1, //get from data base
+
+                        'userName' => $userData['first_name'] . $userData['last_name'],
+
+                       // 'userRole' => $rows->userRole, //get from data base
+                        'userRole' => 1, //get from data base
+                        'logged_in' => TRUE,
+
+                    );
+                    $this->session->set_userdata($data);
+
+                    return true;
+                } else {
+                $data['userData'] = array();
+                }
+        } else {
+            $fbuser = '';
+            $data['authUrl'] = $facebook->getLoginUrl(array('redirect_uri'=>$redirectUrl,'scope'=>$fbPermissions));
+        }
+        $data['header'] = $this->load->view('admin/headerlog', '', true);
+        $data['footer'] = $this->load->view('admin/footer', '', true);
+        $this->load->view('admin/login',$data);
          }
 
 	public function loginCheck()
@@ -168,12 +228,12 @@ public function upload()
 			redirect('/admin', 'refresh');
 		}
 		else
-		{ 
+		{
 			$this->data['error'] = "1";
 			$this->login();
 		}
 	}
-	
+
 	public function logout()
 	{
 		$data = array(
@@ -185,22 +245,22 @@ public function upload()
 		$this->session->sess_destroy();
 		$this->login();
 	}
-	
-	
+
+
 	public function settings()
 	{
 		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		$userRole = $this->session->userdata('userRole');
 		if($userRole == 1){
-			
+
 			//Load the form helper
 			$this->load->helper('form');
 			$this->load->helper('directory');
-		  
+
 			$this->data['themesdir'] = directory_map(DoucmentUrl.'/theme/', 1);
 			$this->data['langdir'] = directory_map(APPPATH.'/language/', 1);
-	
-			$this->data['settings'] = $this->Hoosk_model->getSettings(); 
+
+			$this->data['settings'] = $this->Hoosk_model->getSettings();
 			$this->data['current'] = $this->uri->segment(2);
 			$this->data['header'] = $this->load->view('admin/header', $this->data, true);
 			$this->data['footer'] = $this->load->view('admin/footer', '', true);
@@ -209,11 +269,11 @@ public function upload()
 			  $this->load->view('admin/page_not_found');
 			 }
 	}
-	
+
 	public function updateSettings()
 	{
 		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
-		
+
 		if ($this->input->post('siteLogo') != ""){
 		//path to save the image
 		$path_upload = DoucmentUrl.'/uploads/';
@@ -233,13 +293,13 @@ public function upload()
 		}
 		else
 		{
-			
+
 			$this->Hoosk_model->updateSettings();
 			redirect('/admin/settings', 'refresh');
 		}
-		
+
 	}
-	
+
 	public function uploadLogo()
 	{
 		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
@@ -259,7 +319,7 @@ public function upload()
 			}
 		}
 	}
-	
+
 public function social()
 	{
 		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
@@ -267,8 +327,8 @@ public function social()
 		if($userRole == 1){
 	    	//Load the form helper
 			$this->load->helper('form');
-	
-			$this->data['social'] = $this->Hoosk_model->getSocial(); 
+
+			$this->data['social'] = $this->Hoosk_model->getSocial();
 			$this->data['current'] = $this->uri->segment(2);
 			$this->data['header'] = $this->load->view('admin/header', $this->data, true);
 			$this->data['footer'] = $this->load->view('admin/footer', '', true);
@@ -277,7 +337,7 @@ public function social()
 			  $this->load->view('admin/page_not_found');
 			 }
 	}
-	
+
 	public function updateSocial()
 	{
 		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
@@ -302,8 +362,8 @@ public function social()
 			ES.color AS color,
              CASE WHEN ES.id > 0 THEN CONCAT("<span class=\'label \' style=\' background-color:",color,"\'> ", ES.status," </span>") ELSE CONCAT ("<span class=\'label label-warning\'> ", ES.status, " </span>") END AS Status 
             ',false);
-			  /*?>CASE WHEN user.status = 1 THEN CONCAT("<span class=\'label status label-danger\'> ", ES.status," </span>") WHEN user.status = 7 THEN CONCAT ("<span class=\'label status label-success\'> ", ES.status, " </span>") ELSE CONCAT ("<span class=\'label status label-warning\'> ", ES.status, " </span>") END AS Status<?php 
-			   CONCAT(`h_user.firstName`," ",`h_user.lastName`) AS FullName, */ 
+			  /*?>CASE WHEN user.status = 1 THEN CONCAT("<span class=\'label status label-danger\'> ", ES.status," </span>") WHEN user.status = 7 THEN CONCAT ("<span class=\'label status label-success\'> ", ES.status, " </span>") ELSE CONCAT ("<span class=\'label status label-warning\'> ", ES.status, " </span>") END AS Status<?php
+			   CONCAT(`h_user.firstName`," ",`h_user.lastName`) AS FullName, */
             $joins = array(
                 array(
                     'table' 	=> 'esic_status ES',
@@ -316,8 +376,8 @@ public function social()
                     'type' 		=> 'LEFT'
                 )
             );
-           
-       
+
+
             $addColumns = array(
                 'ViewEditActionButtons' => array('<a href="'.base_url("admin/details/$1").'"><span aria-hidden="true" class="glyphicon glyphicon-edit text-green "></span></a> &nbsp; <a href="#" data-target=".approval-modal" data-toggle="modal"><i class="fa fa-check"></i></a> &nbsp; <a href="#" data-target=".delete-modal" data-toggle="modal"><i class="fa fa-trash-o"></i></a>','UserID')
             );
@@ -335,16 +395,16 @@ public function social()
  }
 
     public function assessment_list(){
-       
+
 	   $userID = $this->input->post('id');
 	   $status = $this->input->post('value');
        $statusValue = $this->input->post('statusValue');
-	   
+
 	  if(!isset($userID) || empty($userID)){
             echo "FAIL::Something went wrong with the post, Please Contact System Administrator for Further Assistance";
             return;
         }
-		 
+
         if($status === 'delete'){
             $whereUpdate = array( 'userID' 	=> $userID);
             $where2 = array( 'userID'  => $userID);
@@ -375,7 +435,7 @@ public function social()
 		Admincontrol_helper::is_logged_in($this->session->userdata('userID'));
 		$userRole = $this->session->userdata('userRole');
 		$id = $this->session->userdata('userID');
-		if($userRole != 1 && $userID == $id){                //for assessment user can only update its own profile 
+		if($userRole != 1 && $userID == $id){                //for assessment user can only update its own profile
 
            $status = $this->input->post('value');
            $selectData = array('
@@ -434,7 +494,6 @@ public function social()
         );
         $data = array();
         $returnedData = $this->Common_model->select_fields_where_like_join('user',$selectData,$joins,$where,FALSE,'','');
-
         $selectData2 = array('
                     esic_questions_answers.questionID as questionID,
                     esic_questions_answers.Solution as solution,
@@ -459,7 +518,7 @@ public function social()
                 'condition' => 'h_user.userID = esic_questions_answers.userID',
                 'type' 		=> 'LEFT'
             )
-			
+
         );
         $data2 = array();
         $returnedData2 = $this->Common_model->select_fields_where_like_join('esic_questions_answers',$selectData2,$joins2,$where2,FALSE,'','');
@@ -653,7 +712,7 @@ public function social()
                 'condition' => 'h_user.userID = esic_questions_answers.userID',
                 'type' 		=> 'LEFT'
             )
-			
+
         );
         $data2 = array();
         $returnedData2 = $this->Common_model->select_fields_where_like_join('esic_questions_answers',$selectData2,$joins2,$where2,FALSE,'','');
@@ -768,7 +827,7 @@ public function social()
 		}
 	   else{
 		     $this->load->view('admin/page_not_found');
-		   }		
+		   }
     }
     public function getanswers(){
         $questionID 	= $this->input->post('dataQuestionId');

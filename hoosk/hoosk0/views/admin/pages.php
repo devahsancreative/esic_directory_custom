@@ -137,19 +137,19 @@
 
                     <?php 
 
-					foreach ($pages as $p) {
+	foreach ($pages as $p) {
 
-						echo '<tr>';
+		echo '<tr>';
 
-							echo '<td>'.$p['navTitle'].'</td>';
-
-							echo '<td>'.$p['pageUpdated'].'</td>';
-
-							echo '<td>'.$p['pageCreated'].'</td>';
-
-							echo '<td class="td-actions"><a href="'.BASE_URL.'/admin/pages/jumbo/'.$p['pageID'].'" class="btn btn-small btn-primary">'.$this->lang->line('btn_jumbotron').'</a> <a href="'.BASE_URL.'/admin/pages/edit/'.$p['pageID'].'" class="btn btn-small btn-success"><i class="fa fa-pencil"> </i></a> <a data-toggle="modal" data-target="#ajaxModal" class="btn btn-danger btn-small" href="'.BASE_URL.'/admin/pages/delete/'.$p['pageID'].'"><i class="fa fa-remove"> </i></a></td>';
-
-						echo '</tr>';
+		echo '<td>'.$p['navTitle'].'</td>';
+        echo '<td>'.$p['pageUpdated'].'</td>';
+        echo '<td>'.$p['pageCreated'].'</td>';
+        echo '<td class="td-actions">
+        <a href="'.BASE_URL.'/'.$p['pageURL'].'" class="btn btn-small btn-success" target="_blank"><i class="fa fa-eye"> </i></a> 
+        <a href="'.BASE_URL.'/admin/pages/jumbo/'.$p['pageID'].'" class="btn btn-small btn-primary">'.$this->lang->line('btn_jumbotron').'</a> 
+		<a href="'.BASE_URL.'/admin/pages/edit/'.$p['pageID'].'" class="btn btn-small btn-success"><i class="fa fa-pencil"> </i></a> 
+		<a data-toggle="modal" data-target="#ajaxModal" class="btn btn-danger btn-small" href="'.BASE_URL.'/admin/pages/delete/'.$p['pageID'].'"><i class="fa fa-remove"> </i></a></td>';
+        echo '</tr>';
 
 					} ?>
 
