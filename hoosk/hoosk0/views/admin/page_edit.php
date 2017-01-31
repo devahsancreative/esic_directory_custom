@@ -221,19 +221,6 @@
 
 
 <script type="text/javascript">
-/*	new SirTrevor.Editor({ el: $('.js-st-instance'),
- blockTypes: ["Columns", "Heading", "Text", "ImageExtended", "Quote", "Accordion", "Button", "Video", "List", "Iframe"]
- });
-
-
- /!*	const editor = new SirTrevor.Editor({
- el: document.querySelector('.js-st-instance'),
- defaultType: 'Text',
-
- iconUrl: 'build/sir-trevor-icons.svg'
- });*!/
- SirTrevor.onBeforeSubmit();*/
-
 	$(function(){
 		SirTrevor.config.debug = true;
 		SirTrevor.config.scribeDebug = true;
@@ -271,5 +258,4 @@ function formSubmit(){
 	document.getElementById("contentForm").submit();
 }
 </script>
-<!-- <script src="https://code.jquery.com/jquery-1.10.2.js"></script>-->
 <?php echo $footer; ?>
