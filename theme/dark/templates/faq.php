@@ -9,18 +9,7 @@
         padding-bottom: 0px !important;
 
     }
-    .logotext{
-        position: absolute;
-        top: 100px;
-        left: 170px;
-        z-index: 100;
-        color: white;
-        display: -webkit-box;
 
-    }
-    .bimage{
-        z-index: 10;
-    }
     .img-responsive{
 
       width: 100% !important;

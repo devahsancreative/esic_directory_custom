@@ -9,23 +9,8 @@
         padding-bottom: 0px !important;
 
     }
-    .logotext{
-        position: absolute;
-        top: 100px;
-        left: 200px;
-        z-index: 100;
-        color: white;
-        display: -webkit-box;
 
-    }
-    .bimage{
-        z-index: 10;
-    }
-    .img-responsive{
 
-      width: 100% !important;
-
-    }
     .jumbotron .container {
 
         width: 100% !important;
@@ -58,7 +43,7 @@
 
         </div>
         <div class="logotext">
-            <a class="" href="<?php echo BASE_URL; ?>"><img src="<?php echo BASE_URL; ?>/images/<?php echo $settings['siteLogo']; ?>"
+            <a class="" href="<?php echo BASE_URL; ?>"><img  class="img-responsive"  src="<?php echo BASE_URL; ?>/images/<?php echo $settings['siteLogo']; ?>"
                                                             alt="Hoosk"></a>
 
 
