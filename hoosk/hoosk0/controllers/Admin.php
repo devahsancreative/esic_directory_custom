@@ -384,6 +384,7 @@ public function social()
                     user.company as Company,
                     user.business as Business,
                     user.businessShortDescription as BusinessShortDesc,
+                    user.businessShortDescriptionJSON as BusinessShortDescJSON,
                     user.tinyDescription as tinyDescription,
                     user.score as Score,
                     user.logo as Logo,
@@ -433,6 +434,7 @@ public function social()
         );
         $data = array();
         $returnedData = $this->Common_model->select_fields_where_like_join('user',$selectData,$joins,$where,FALSE,'','');
+
         $selectData2 = array('
                     esic_questions_answers.questionID as questionID,
                     esic_questions_answers.Solution as solution,
@@ -515,6 +517,7 @@ public function social()
                 'expiry_date_value'       => date("d-m-Y", strtotime($returnedData[0]->expiry_date)),
                 'corporate_date_value'    => date("d-m-Y", strtotime($returnedData[0]->corporate_date)),
                 'BusinessShortDesc' => $returnedData[0]->BusinessShortDesc,
+                'BusinessShortDescJSON' => $returnedData[0]->BusinessShortDescJSON,
                 'tinyDescription' => $returnedData[0]->tinyDescription,
                 'ShowExpiryDate' => $returnedData[0]->ShowExpiryDate
             );
@@ -576,6 +579,7 @@ public function social()
                     user.company as Company,
                     user.business as Business,
                     user.businessShortDescription as BusinessShortDesc,
+                    user.businessShortDescriptionJSON as BusinessShortDescJSON,
                     user.tinyDescription as tinyDescription,
                     user.score as Score,
                     user.logo as Logo,
@@ -707,6 +711,7 @@ public function social()
                 'expiry_date_value'       => date("d-m-Y", strtotime($returnedData[0]->expiry_date)),
                 'corporate_date_value'    => date("d-m-Y", strtotime($returnedData[0]->corporate_date)),
                 'BusinessShortDesc' => $returnedData[0]->BusinessShortDesc,
+                'BusinessShortDescJSON' => $returnedData[0]->BusinessShortDescJSON,
                 'tinyDescription' => $returnedData[0]->tinyDescription,
                 'ShowExpiryDate' => $returnedData[0]->ShowExpiryDate
             );
@@ -758,6 +763,7 @@ public function social()
 
         }
 		$data['social'] = $this->Esic_model->get_user_Social($userID);
+		$data['uID'] = base64_encode($userID);
         $this->show_admin("admin/reg_details",$data);
 		}
 	   else{
@@ -860,7 +866,13 @@ public function social()
         exit();
     }
     public function savedesc(){
-        $userID        = $this->input->post('userID');
+		$uID_encoded = $this->input->post('uID');
+		if(!empty($uID_encoded))
+			$uID = base64_decode($uID_encoded);
+
+
+
+/*        $userID        = $this->input->post('userID');
         $descDataText  = $this->input->post('descDataText');
         if(!isset($userID) || empty($userID) || !isset($descDataText) || empty($descDataText)){
             echo "FAIL::Something went wrong with the post, Please Contact System Administrator for Further Assistance";
@@ -872,8 +884,18 @@ public function social()
         $whereUpdate = array('userID' => $userID);
         $this->Common_model->update('user',$whereUpdate,$updateArray);
         echo 'OK::'.urldecode($descDataText).'';
-        exit();
+        exit();*/
+
+
+		//Haider COde. Changed for Editor.
+		$this->load->library('Sioen');
+		$this->Hoosk_model->UpdateEsicPageDescription($uID);
+		//Return to page list
+		redirect('/admin/details/'.$uID, 'refresh');
     }
+	public function save_desc_editor(){
+		echo 'Hello WOrld';
+	}
     public function saveshortdesc(){
         $userID        = $this->input->post('userID');
         $descDataText  = $this->input->post('descDataText');

@@ -34,38 +34,6 @@ $(function(){
                     }
                 });
             });
-            tinyMCE.init({
-                selector: '#short-desc-textarea',
-                height: 200,
-                //automatic_uploads: true,
-                //images_upload_base_path: baseUrl + 'tinyimage',
-                //imageupload_url:baseUrl + 'tinyimage',
-                //images_upload_credentials: true,
-                //relative_urls: false,
-                //remove_script_host: false,
-                plugins: [
-                    'hr anchor',
-                    'searchreplace wordcount visualblocks visualchars code fullscreen',
-                    'insertdatetime nonbreaking  directionality paste code'
-                ],
-                toolbar: 'undo redo preview| styleselect | bold italic |  outdent indent'
-            });
-            tinyMCE.init({
-                selector: '#desc-textarea',
-                height: 500,
-                automatic_uploads: true,
-                images_upload_base_path: baseUrl + 'tinyimage',
-                imageupload_url:baseUrl + 'tinyimage',
-                images_upload_credentials: true,
-                relative_urls: false,
-                remove_script_host: false,
-                plugins: [
-                    'advlist autolink lists link image imagetools jbimages charmap print preview hr anchor pagebreak',
-                    'searchreplace wordcount visualblocks visualchars code fullscreen',
-                    'insertdatetime media nonbreaking table contextmenu directionality paste code'
-                ],
-                toolbar: 'undo redo preview| styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image jbimages'
-            });
 
             $("body").on("click", ".save-desc", function (e) {
                 e.preventDefault();
@@ -324,23 +292,48 @@ $(function(){
                     }
                 });
             });
+/*
+     $("#desc-edit").on("click", function (event) {
+     event.preventDefault();
+     var userId = $(this).attr('data-user-id');
+     var textArea = $('#desc-textarea');
+     var ansDiv = $('.edit-desc');
+     var saveBtn = $('#save-desc');
+     var descText = $('#desc-text pre');
+     ansDiv.show();
+     descText.hide();
+     var descDataText = descText.text();
+     descText.text('');
+     textArea.val($.trim(descDataText));
+     ansDiv.children('.form-group').append('<div class="question-action-buttons"><button id="save-desc" data-user-id="'+userId+'" class="save-desc">Save</button></div>');
+     $(this).hide();
+     }); */
+
+
+    //Haider COde
             $("#desc-edit").on("click", function (event) {
                 event.preventDefault();
-                var userId = $(this).attr('data-user-id');
-                var textArea = $('#desc-textarea');
-                var ansDiv = $('.edit-desc');
-                var saveBtn = $('#save-desc');
-                var descText = $('#desc-text pre');
-                ansDiv.show();
-                descText.hide();
-                var descDataText = descText.text();
-                descText.text('');
-                textArea.val($.trim(descDataText));
-                ansDiv.children('.form-group').append('<div class="question-action-buttons"><button id="save-desc" data-user-id="'+userId+'" class="save-desc">Save</button></div>');
-                $(this).hide();
-                
-              
+                tinymce.init({
+                    selector: "body div.st-text-block",
+                    theme: "modern",
+                    menubar: false,
+                    plugins: [
+                        ["advlist autolink link image lists charmap preview hr anchor pagebreak spellchecker"],
+                        ["searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking"],
+                        ["save table contextmenu directionality emoticons template paste"]
+                    ],
+
+                    add_unload_trigger: false,
+                    schema: "html5",
+                    inline: true,
+                    toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image     | print preview media| table",
+                    statusbar: false
+                });
             });
+
+    //End Haider Code
+
+
             $("#short-desc-edit").on("click", function (event) {
                 event.preventDefault();
                 var userId = $(this).attr('data-user-id');

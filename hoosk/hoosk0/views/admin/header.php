@@ -123,9 +123,12 @@
 <?php 
 
 $class   = $this->router->fetch_class();   // it is use only in add new page and edit page condition is use to safe 
-if($class   == 'Pages'){?>
-<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>  
-    
+$method   = $this->router->fetch_method();   // it is use only in add new page and edit page condition is use to safe
+
+if($class   == 'Pages' || (strtolower($class).'/'.strtolower($method) === 'admin/details')){?>
+<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+<!--    <script src="--><?php //echo ADMIN_THEME; ?><!--/js/sirTrevor/node_modules/tinymce/tinymce.min.js"></script>-->
+
     <script>
 	 tinymce.init({
     selector: "body div.st-text-block",
@@ -143,23 +146,6 @@ if($class   == 'Pages'){?>
     toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image     | print preview media| table",
     statusbar: false
     });
-       /* tinymce.init({
-    selector: "body div.st-text-block",
-    theme: "modern",
-	 plugins: [
-        ["advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker"],
-        ["searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking"],
-        ["save table contextmenu directionality emoticons template paste"]
-    ],
-	
-    add_unload_trigger: false,
-    schema: "html5",
-    inline: true,
-    toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image     | print preview media",
-    statusbar: false
-    });*/
-	///tinyMCE.execCommand('mceAddControl', true, ".st-text-block");
-    
     
     </script>
 <?php } ?>    
