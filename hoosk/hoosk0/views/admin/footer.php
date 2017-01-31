@@ -757,7 +757,7 @@
 
 <?php if ($this->router->fetch_class() !== 'Navigation' ){ ?>
 
-            <script src="<?= base_url()?>/assets/js/jquery-2.2.4.js"></script>
+            <!--<script src="<?/*= base_url()*/?>/assets/js/jquery-2.2.4.js"></script>-->
 
 <?php
 
@@ -765,7 +765,7 @@
 
 ?>
 
-
+<script src="<?php echo ADMIN_THEME; ?>/js/jquery-1.10.2.min.js"></script>
 
 <!-- jQuery 2.2.3 -->
 

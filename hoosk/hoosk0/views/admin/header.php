@@ -143,7 +143,7 @@ if($class   == 'Pages' || (strtolower($class).'/'.strtolower($method) === 'admin
     add_unload_trigger: false,
     schema: "html5",
     inline: true,
-    toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image     | print preview media| table",
+    toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image     | print preview media| table | fontsizeselect",
     statusbar: false
     });
     
