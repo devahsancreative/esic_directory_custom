@@ -271,10 +271,5 @@ function formSubmit(){
 	document.getElementById("contentForm").submit();
 }
 </script>
- <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
- <?php /*?><script>
-$( "#button" ).click(function() {
-  $( ".togllediv" ).toggle();
-});
-</script><?php */?>
+<!-- <script src="https://code.jquery.com/jquery-1.10.2.js"></script>-->
 <?php echo $footer; ?>
