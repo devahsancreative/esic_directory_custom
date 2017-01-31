@@ -1,0 +1,32 @@
+{
+  "name": "sir-trevor-columns-block",
+  "main": [
+    "dist/sir-trevor-columns-block.js",
+    "dist/sir-trevor-columns-block.min.js",
+    "dist/sir-trevor-columns-block.css",
+    "dist/sir-trevor-columns-block.all.css",
+    "dist/sir-trevor-columns-block.css.map",
+    "dist/fonts/*"
+  ],
+  "version": "0.3.0",
+  "ignore": [
+    "example",
+    "icons",
+    "scss",
+    "src"
+  ],
+  "dependencies": {
+    "mr-trevor-js": "*"
+  },
+  "homepage": "https://github.com/e1himself/sir-trevor-columns-block",
+  "_release": "0.3.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.3.0",
+    "commit": "f5b0a187a40bbf76949ece5e55c30bea87c8cefd"
+  },
+  "_source": "https://github.com/e1himself/sir-trevor-columns-block.git",
+  "_target": "^0.3.0",
+  "_originalSource": "e1himself/sir-trevor-columns-block",
+  "_direct": true
+}

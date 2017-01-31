@@ -1,0 +1,30 @@
+{
+  "name": "mr-trevor-js",
+  "version": "0.5.3",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "es5-shim": "~v4.0.3",
+    "es6-shim": "~0.21.0",
+    "Eventable": "~1.0.1",
+    "jquery": ">=1.9.1"
+  },
+  "main": [
+    "sir-trevor.js",
+    "sir-trevor.css",
+    "sir-trevor-icons.css"
+  ],
+  "homepage": "https://github.com/e1himself/mr-trevor-js-bower",
+  "_release": "0.5.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.5.3",
+    "commit": "ac9a5a4433e14477758b5eaf002099afdc805cd4"
+  },
+  "_source": "https://github.com/e1himself/mr-trevor-js-bower.git",
+  "_target": "*",
+  "_originalSource": "mr-trevor-js"
+}
