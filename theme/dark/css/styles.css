@@ -21,7 +21,7 @@
         
     display: block;
     font-family: 'Lato', sans-serif;
-    color: #ffffff;
+    color: #66695A;
     padding: 20px 15px 20px;
     list-style-type: none;
     font-size: 0.8em;
@@ -57,7 +57,7 @@
 .btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
     color: #fff;
     background-color: #494949; 
-    border-color: #494949
+    border-color: #494949;
 	text-decoration: none !important; 
 }
  
@@ -79,13 +79,22 @@ a:hover, a:focus {
 
 		}
 .dropdown-menu {
-		background-color: rgba(0, 0, 0, 0.6)!important;
-			}
+                background-color: #eeeeee !important;
+			   }
 .dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus{
-		background-color: rgba(0, 0, 0, 0.6)  !important;
+    color: #777 !important;
+    background-color: #dddddd !important;
 			}
 .dropdown-menu>li>a{
-		color:#fff !important;
+    color: #777 !important;
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    white-space: nowrap;
+    list-style-type: none;
+    font-size: 0.8em;
+    font-weight: bold;
+    text-transform: uppercase;
 		}
 /*footer style*/
 
@@ -100,7 +109,7 @@ a:hover, a:focus {
 .footermenu .navbar-nav>li
   {
    float: left;
-   display: #b0b0b6;
+   /*display: !*#b0b0b6*!;*/
    float: left;
    width: 300px;
 }
@@ -225,8 +234,33 @@ li.dropdown:hover .dropdown-menu /* Drop Down Menu */
 		margin-bottom: 0px !important;
 	    }
 	}
+/*================== Common  style  ====================*/
+.navbar-inverse {
+    background-color: #eeeeee !important;
+    opacity: 1 !important;
+}
+.navbar-inverse .navbar-nav>li>a {
+    color: #777 !important;
+
+}
+.navbar-inverse .navbar-nav>.active>a,
+.navbar-inverse .navbar-nav>li>a:hover {
+     color: #777 !important;
+     background-color: #dddddd !important;
+ }
 
 
+.navbar-inverse .navbar-nav>li>a:focus{
+    background-color: #dddddd !important;
+}
+.navbar-inverse .navbar-toggle .icon-bar {
+    background-color: blue !important;
+}
+@media (max-width:768px) {
+    .navbar-nav > li > a {
+         border-bottom: 1px solid gray;
+    }
+}
 /*================== Style for site logo image  ====================*/
 .bimage{
     z-index: 10;

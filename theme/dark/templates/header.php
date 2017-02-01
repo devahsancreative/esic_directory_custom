@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 	<head>
 
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -34,7 +35,9 @@
 
 
 <?php hooskNav('header') ?>
+
 </div>
+
     </div><!-- /.container -->
 </nav><!-- /.navbar -->
 

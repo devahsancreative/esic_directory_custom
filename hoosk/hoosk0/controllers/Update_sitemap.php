@@ -7,6 +7,7 @@ class Update_sitemap extends MY_Controller
     {
         parent::__construct();
         $this->load->model("Esic_model");
+        $this->load->model("Common_model");
     }
 
     public function index()
@@ -14,7 +15,7 @@ class Update_sitemap extends MY_Controller
 
 
         $data['data'] = $this->Esic_model->get_site_data();
-
+        $data['company'] = $this->Common_model->select('user');
         header("Content-Type: text/xml;charset=iso-8859-1");
         $this->load->view("sitemap/sitemap",$data);
 
