@@ -965,6 +965,7 @@ public function social()
 
         $updateArray = array();
         $updateArray['tinyDescription'] = $descDataText;
+        //$updateArray['status'] = 1;
         $whereUpdate = array('userID' => $userID);
         $this->Common_model->update('user',$whereUpdate,$updateArray);
         echo 'OK::'.urldecode($descDataText).'';

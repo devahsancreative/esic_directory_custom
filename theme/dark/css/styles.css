@@ -256,11 +256,7 @@ li.dropdown:hover .dropdown-menu /* Drop Down Menu */
 .navbar-inverse .navbar-toggle .icon-bar {
     background-color: blue !important;
 }
-@media (max-width:768px) {
-    .navbar-nav > li > a {
-         border-bottom: 1px solid gray;
-    }
-}
+
 /*================== Style for site logo image  ====================*/
 .bimage{
     z-index: 10;

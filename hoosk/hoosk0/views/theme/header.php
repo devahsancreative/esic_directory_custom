@@ -63,7 +63,8 @@
     <div class="collapse navbar-collapse">
            
  
-<?php hooskNav('header') ?>
+
+        <ul class="nav navbar-nav"><li><a href="<?php   ?>" >login</a></li></ul>
 </div>
     </div><!-- /.container -->
 </nav><!-- /.navbar -->

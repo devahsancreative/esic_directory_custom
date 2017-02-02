@@ -35,7 +35,7 @@
 
 
 <?php hooskNav('header') ?>
-
+		<ul class="nav navbar-nav"><li><a href="<?= BASE_URL ?>/admin" >login</a></li></ul>
 </div>
 
     </div><!-- /.container -->
