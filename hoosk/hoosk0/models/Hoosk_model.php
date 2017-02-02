@@ -787,6 +787,31 @@ class Hoosk_model extends CI_Model {
 
     }
 
+    function UpdateEsicPageDescription($id) {
+        // use to add 'page data into database
+
+
+        $sirTrevorInput = $this->input->post('desc-content');
+
+	   	if ($sirTrevorInput != ""){
+	    $converter = new Converter();
+        $HTMLContent = $converter->toHtml($sirTrevorInput);
+
+       	} else {
+
+		$HTMLContent = "";
+
+		}
+
+        //Update in User Table the Buisness Description where User ID is ------
+        $contentdata = array(
+            'businessShortDescriptionJSON' => $sirTrevorInput,
+            'businessShortDescription' => $HTMLContent
+        );
+        $this->db->where("id", $id);
+        $this->db->update('user', $contentdata);
+    }
+
 
 
 	 function updateJumbotron($id) {
