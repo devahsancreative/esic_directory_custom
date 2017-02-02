@@ -1,4 +1,7 @@
-   <style>
+<link href="<?php echo ADMIN_THEME; ?>/js/trevor/sir-trevor.css" rel="stylesheet">
+<link href="<?php echo ADMIN_THEME; ?>/js/trevor/sir-trevor-bootstrap.css" rel="stylesheet">
+<link href="<?php echo ADMIN_THEME; ?>/js/trevor/sir-trevor-icons.css" rel="stylesheet">
+<style>
    .seprator{
 	   margin-top:20px;
 	   }
@@ -369,6 +372,22 @@ margin: 10px 0px;
 
 }
 
+
+       /*Edit from Haider*/
+   .modal-dialog {
+       width: 80%;
+       height: auto;
+       margin: 0 auto;
+       padding: 0;
+       position: relative;
+       top: 0; left: 0; bottom: 0; right: 0;
+   }
+
+   .modal-content {
+       height: auto;
+       min-height: 100%;
+       border-radius: 0;
+   }
 </style>
 <?php
 $ci =& get_instance();
@@ -1010,7 +1029,7 @@ $ci =& get_instance();
                   <li>
                     <div class="timeline-item">
                       <h3 class="timeline-header">Detail Description  
-                        <a href="#" id="desc-edit" data-user-id="<?= $userProfile['userID'];?>" class="pull-right btn-box-tool desc-edit">
+                        <a href="#" id="desc-edit" data-toggle="modal" data-target="#desc-edit-modal" data-user-id="<?= $userProfile['userID'];?>" class="pull-right btn-box-tool desc-edit">
                           <i class="fa fa-pencil"></i>
                         </a>
                       </h3>
@@ -1031,7 +1050,7 @@ $ci =& get_instance();
                   <li>
                     <div class="timeline-item">
                       <h3 class="timeline-header">Detail Description  
-                        <a href="#" id="desc-edit" data-user-id="<?= $userProfile['userID'];?>" class="pull-right btn-box-tool desc-edit">
+                        <a href="#" id="desc-edit" data-toggle="modal" data-target="#desc-edit-modal" data-user-id="<?= $userProfile['userID'];?>" class="pull-right btn-box-tool desc-edit">
                           <i class="fa fa-plus"></i>
                         </a>
                       </h3>
@@ -1140,9 +1159,6 @@ $ci =& get_instance();
                
                  </div>
          </div>
-       
-                 
-                 
               </div>
             </div>
             <!-- /.tab-content -->
@@ -1196,6 +1212,33 @@ $ci =& get_instance();
     </div>
 </div>
 
+   <!-- Modal -->
+   <div class="modal fade" id="desc-edit-modal" tabindex="-1" role="dialog" aria-labelledby="editDescriptionPage" aria-hidden="true">
+       <div class="modal-dialog">
+           <div class="modal-content">
+               <div class="modal-header">
+                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                   <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+               </div>
+               <form  method="POST" action="<?=BASE_URL.'/admin/savedesc'?>" id="descriptionPage">
+                   <input type="hidden" name="uID" value="<?=(isset($uID)?$uID:'')?>" >
+               <div class="modal-body">
+                   <?php
+//                   $set = ;
+                   echo '<textarea class="js-st-instance" id="desc-content" name="desc-content">'.
+                       (isset($userProfile['BusinessShortDescJSON'])?$userProfile['BusinessShortDescJSON']:"")
+                    .'</textarea>';
+                   ?>
+
+               </div>
+               <div class="modal-footer">
+                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                   <button type="submit" class="btn btn-primary">Save changes</button>
+               </div>
+               </form>
+           </div>
+       </div>
+   </div>
 
 <!---------------------------Other js is in Admindetails.js ------------------------------------------------->
 <script>
@@ -1231,5 +1274,79 @@ $("#save_social").on("click", function () {
 					}
 				});
 		  });
+
+
+    function centerModal() {
+        $(this).css('display', 'block');
+        var $dialog  = $(this).find(".modal-dialog"),
+            offset       = ($(window).height() - $dialog.height()) / 2,
+            bottomMargin = parseInt($dialog.css('marginBottom'), 10);
+
+        // Make sure you don't hide the top part of the modal w/ a negative margin if it's longer than the screen height, and keep the margin equal to the bottom margin of the modal
+        if(offset < bottomMargin) offset = bottomMargin;
+        $dialog.css("margin-top", offset);
+    }
+
+    $(document).on('show.bs.modal', '#desc-edit-modal', centerModal);
+    $(window).on("resize", function () {
+        $('.modal:visible').each(centerModal);
+    });
   }); 
 </script>
+
+   <!--		  bower work-->
+   <script src="<?php echo ADMIN_THEME; ?>/js/sirTrevor/bower_components/es5-shim/es5-shim.js" type="text/javascript" charset="utf-8"></script>
+   <!-- es6-shim should be bundled in with SirTrevor for now -->
+   <!-- <script src="../node_modules/es6-shim/es6-shim.js" type="text/javascript" charset="utf-8"></script> -->
+   <script src="<?php echo ADMIN_THEME; ?>/js/sirTrevor/bower_components/jquery/dist/jquery.js" type="text/javascript" charset="utf-8"></script>
+   <script src="<?php echo ADMIN_THEME; ?>/js/sirTrevor/bower_components/mr-trevor-js/sir-trevor.js" type="text/javascript" charset="utf-8"></script>
+
+   <script src="<?php echo ADMIN_THEME; ?>/js/sirTrevor/bower_components/sir-trevor-columns-block/dist/sir-trevor-columns-block.js" type="text/javascript" charset="utf-8"></script>
+   <script src="<?php echo ADMIN_THEME; ?>/js/sirTrevor/bower_components/underscore/underscore.js" type="text/javascript" charset="utf-8"></script>
+   <script src="<?php echo ADMIN_THEME; ?>/js/sirTrevor/bower_components/sir-trevor-js-generator/block.js" type="text/javascript" charset="utf-8"></script>
+   <script src="<?php echo ADMIN_THEME; ?>/js/sirTrevor/iFrame.js" type="text/javascript" charset="utf-8"></script>
+   <script src="<?php echo ADMIN_THEME; ?>/js/sirTrevor/image-extended.js" type="text/javascript" charset="utf-8"></script>
+
+   <!--		  TinyMCE-->
+   <script src="<?php echo ADMIN_THEME; ?>/js/sirTrevor/mce/sir-trevor-tinymce.js" type="text/javascript" charset="utf-8"></script>
+
+
+
+   <script type="text/javascript">
+       $(function(){
+           SirTrevor.config.debug = true;
+           SirTrevor.config.scribeDebug = true;
+           SirTrevor.config.language = "en";
+           SirTrevor.setBlockOptions("Text", {
+               onBlockRender: function() {
+                   console.log("Text block rendered");
+               }
+           });
+           window.editor = new SirTrevor.Editor({
+               el: $('.js-st-instance'),
+               blockTypes: [
+                   "Columns",
+                   "Heading",
+                   "Text",
+                   "List",
+                   "Quote",
+                   "ImageExtended",
+                   "Video",
+                   "Tweet",
+                   "Accordion",
+                   "Button",
+                   "Iframe"
+               ]
+           });
+
+           SirTrevor.onBeforeSubmit();
+       });
+   </script>
+   <script type="text/javascript">
+       function formSubmit(){
+
+           SirTrevor.onBeforeSubmit();
+           document.getElementById("descriptionPage").submit();
+       }
+   </script>
+   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
