@@ -181,7 +181,7 @@
 <!------------------------------------  Assessment  edit profile  ----------------------------------------->
 
    <li class="<?php if ($current == "Admin/details") { echo "active"; } ?>"><a href="<?= base_url('admin/details')."/".$id;?>"><i class="fa fa-list"></i> <span>Edit Profile</span></a></li>
-   
+            <li class="<?php if ($current == "Admin/manage_profile") { echo "active"; } ?>"><a href="<?= base_url('admin/manage_profile')."/".$id;?>"><i class="fa fa-list"></i> <span>Manage Profile</span></a></li>
    <?php } ?>
 
 

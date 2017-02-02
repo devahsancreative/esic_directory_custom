@@ -9,10 +9,10 @@
 
                     <div class="panel-heading">
 
-       
-                    
+
+
 <?php /*?><?php echo BASE_URL; ?>/images/<?php echo $settings['siteLogo']; ?><?php */?>
-                    <img src="<?php echo ADMIN_THEME; ?>/images/large_logo.png" class="login_logo" 
+                    <img src="<?php echo ADMIN_THEME; ?>/images/large_logo.png" class="login_logo"
 
                     style="max-width: 350px;"/>
 
@@ -52,7 +52,7 @@
 
                                             );
 
-                                
+
 
                                             echo form_input($data); ?>
 
@@ -76,13 +76,13 @@
 
                                         );
 
-                            
+
 
                                         echo form_password($data); ?>
 
                                 </div>
 
-					
+
 
                                 <div class="form-group">
 

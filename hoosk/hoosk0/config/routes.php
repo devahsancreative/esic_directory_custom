@@ -99,8 +99,10 @@ $route['admin/users/sent/delete'] = "Users/sent/delete";
 
 
 //Add of Esic Weebly Live
- 
 
+// manage pre assessment profile
+$route['admin/manage_profile']        = "Admin/manage_profile";
+$route['admin/manage_profile/(:any)'] = "Admin/manage_profile/$1";
  
 
 

@@ -431,11 +431,11 @@ public function social()
         $this->Common_model->update('user',$whereUpdate,$updateArray);
         echo 'OK::';
     }
-    public function details($userID){
+    public function details($userID){   // edit pre asssessment page
 		Admincontrol_helper::is_logged_in($this->session->userdata('userID'));
 		$userRole = $this->session->userdata('userRole');
 		$id = $this->session->userdata('userID');
-		if($userRole != 1 && $userID == $id){                //for assessment user can only update its own profile
+		if($userRole != 1 && $userID == $id){  //for assessment user can only update its own profile
 
            $status = $this->input->post('value');
            $selectData = array('
@@ -3143,5 +3143,49 @@ public function  UpDateSocials(){
 		    $ok       = $this->Esic_model->update_social($id,$data,$data2);
 		    echo $ok;  
 		}		
-	
+	//for manage assessment user profile
+    public function manage_profile($list=NULL){
+        Admincontrol_helper::is_logged_in($this->session->userdata('userID'));
+        $userID = $this->session->userdata('userID');
+          if($list === 'listing'){
+          $selectData = array('
+            h_user.userID as UserID,
+			CONCAT(`h_user`.`firstName`," ",`h_user`.`lastName`) AS FullName,
+            h_user.email AS Email,
+			company AS Company,
+            ES.id as StatusID, 
+            CASE WHEN user.Publish = 1 THEN CONCAT("<span class=\'label status label-success\'> Published </span>") WHEN user.Publish = 0 THEN CONCAT ("<span class=\'label status label-danger\'>Draft</span>") ELSE CONCAT ("<span class=\'label status label-warning\'> ", Publish, " </span>") END AS  Publish,
+            ES.color AS color,
+             CASE WHEN ES.id > 0 THEN CONCAT("<span class=\'label \' style=\' background-color:",color,"\'> ", ES.status," </span>") ELSE CONCAT ("<span class=\'label label-warning\'> ", ES.status, " </span>") END AS Status 
+            ',false);
+
+                $joins = array(
+                  array(
+                      'table' 	=> 'esic_status ES',
+                      'condition' => 'ES.id = user.status',
+                      'type' 		=> 'LEFT'
+                  ),
+                  array(
+                      'table' 	=> 'hoosk_user h_user',
+                      'condition' => 'h_user.userID = user.userID',
+                      'type' 		=> 'LEFT'
+                  )
+                );
+
+                $where = array(
+
+                    "h_user.userID" => $userID
+                );
+                $addColumns = array(
+                    'ViewEditActionButtons' => array('<a href="'.base_url("admin/details/$1").'"><span aria-hidden="true" class="glyphicon glyphicon-edit text-green "></span></a> &nbsp;  &nbsp; <a href="#" data-target=".delete-modal" data-toggle="modal"><i class="fa fa-trash-o"></i></a>','UserID')
+                );
+                $returnedData = $this->Common_model->select_fields_joined_DT($selectData,'user',$joins,$where,'','','',$addColumns);
+                print_r($returnedData);
+                return NULL;
+            }
+
+            $data['title'] = 'Pre-assessment List';
+            $this->show_admin("admin/manage_profile",$data);
+
+    }
 }

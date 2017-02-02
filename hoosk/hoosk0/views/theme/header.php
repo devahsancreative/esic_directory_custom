@@ -1,3 +1,5 @@
+
+<!--this header is use for custom pages that are use to direct link contact us and in other forms --->
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -63,8 +65,8 @@
     <div class="collapse navbar-collapse">
            
  
-
-        <ul class="nav navbar-nav"><li><a href="<?php   ?>" >login</a></li></ul>
+<?php hooskNav('header') ?>
+        <ul class="nav navbar-nav"><li><a href="<?= base_url()?>admin" >login</a></li></ul>
 </div>
     </div><!-- /.container -->
 </nav><!-- /.navbar -->
