@@ -23,7 +23,7 @@
                 /*  Buisness */ {
                     "mData": "Business"
                 },
-                 
+
                 /* Last User Login */ {
                     "mData": "Status"
                 },
@@ -35,14 +35,14 @@
                     "render": function ( data, type, row ) {
                         if(data!=''){
                             if(data== 0){
-                                return '<span class="label publish label-danger" data-target=".publish-modal" data-toggle="modal" >UnPublished</span>'; 
+                                return '<span class="label publish label-danger" data-target=".publish-modal" data-toggle="modal" >UnPublished</span>';
                             }else if(data == 1){
-                                return '<span class="label publish label-success" data-target=".unpublish-modal" data-toggle="modal" >Published</span>'; 
+                                return '<span class="label publish label-success" data-target=".unpublish-modal" data-toggle="modal" >Published</span>';
                             }else{
-                                return '<span class="label publish label-success" data-target=".unpublish-modal" data-toggle="modal" >Unknown</span>'; 
+                                return '<span class="label publish label-success" data-target=".unpublish-modal" data-toggle="modal" >Unknown</span>';
                             }
                         }
-                        return '<span class="label publish label-success" data-target=".unpublish-modal" data-toggle="modal" >Unknown</span>'; 
+                        return '<span class="label publish label-success" data-target=".unpublish-modal" data-toggle="modal" >Unknown</span>';
                     }
                 }
             ];
@@ -65,7 +65,7 @@
            /*  $(document).bind('click',"#regList_paginate .pagination li",function(evt){
                     var pageNumber = oTable.fnPagingInfo().iPage;//becaue it get 0 for page 1
                     localStorage.setItem("pageNumber", pageNumber);
-          });*/ 
+          });*/
 		   oTable = $('#regList').DataTable();  // // Search by Title
            $('#Search_by_Name').keyup(function(){
            oTable.column(1).search($(this).val()).draw() ;
@@ -74,10 +74,10 @@
 		   $('#Search_by_Email').keyup(function(){
 		   oTable.column(2).search($(this).val()).draw() ;
 		   })
-		   oTable = $('#regList').DataTable();  ////Search by Tags    
+		   oTable = $('#regList').DataTable();  ////Search by Tags
 		   $('#Search_by_Company').keyup(function(){
 		   oTable.column(3).search($(this).val()).draw() ;
-		   }) 
+		   })
 
             //Some Action To Perform When Modal Is Shown.
 			$(".approval-modal").on("shown.bs.modal", function (e) {
@@ -95,15 +95,15 @@
                         $('#editStatusTextBox').html('');
 	                        $.each(data, function( key, value ) {
 							  $('#editStatusTextBox').append('<option value="'+value.id+'">'+value.status+'</option>');
-							}); 
+							});
 						var StatusText = $.trim(button.parents("tr").find('.status').text());
-					    var StatusID = $('#editStatusTextBox option').filter(function () { 
-					              return $(this).html() == StatusText; 
-					     }).val(); 	
-					    $("#editStatusTextBox").val(StatusID); 
+					    var StatusID = $('#editStatusTextBox option').filter(function () {
+					              return $(this).html() == StatusText;
+					     }).val();
+					    $("#editStatusTextBox").val(StatusID);
                     }
                 });
-  
+
             });
 
                $("#saveStatus").on("click", function () {
@@ -137,9 +137,9 @@
                  var modal = $(this);
                  modal.find("input#hiddenUserID").val(ID);
                  var publishText = $.trim(button.parents("tr").find('.publish').text());
-                 $("#editStatusTextBox").val(publishText); 
-                 
-  
+                 $("#editStatusTextBox").val(publishText);
+
+
             });
 
              $("#yesPublish").on("click", function () {
@@ -173,9 +173,9 @@
                  var modal = $(this);
                  modal.find("input#hiddenUserID").val(ID);
                  var publishText = $.trim(button.parents("tr").find('.unpublish').text());
-                 $("#editStatusTextBox").val(publishText); 
-                 
-  
+                 $("#editStatusTextBox").val(publishText);
+
+
             });
 
             $("#yesUnPublish").on("click", function () {
@@ -208,7 +208,7 @@
                 var ID = button.parents("tr").attr("data-id");
                 var modal = $(this);
                 modal.find("input#hiddenUserID").val(ID);
-            }); 
+            });
 
             $("#yesDelete").on("click", function () {
                 var hiddenModalUserID = $(this).parents(".modal-content").find("#hiddenUserID").val();
@@ -233,8 +233,8 @@
                 });
             });
 
-       /* });   ADD FROM ADMIN-DETAILS.JS 
-		
+       /* });   ADD FROM ADMIN-DETAILS.JS
+
 <>
 $(function(){*/
             //Some Action To Perform When Modal Is Shown.
@@ -245,7 +245,7 @@ $(function(){*/
                 console.log('ID = '+ID);
                 modal.find("input#hiddenUserID").val(ID);
                 modal.find("#saveStatus").attr('data-id',ID);
-                
+
             });*/
 
            /* $("#saveStatus").on("click", function () {
@@ -271,7 +271,7 @@ $(function(){*/
                         }
                     }
                 });
-            });*/ //not in use 
+            });*/ //not in use
             tinyMCE.init({
                 selector: '#short-desc-textarea',
                 height: 200,
@@ -577,10 +577,11 @@ $(function(){*/
                 textArea.val($.trim(descDataText));
                 ansDiv.children('.form-group').append('<div class="question-action-buttons"><button id="save-desc" data-user-id="'+userId+'" class="save-desc">Save</button></div>');
                 $(this).hide();
-                
-              
+
+
             });
             $("#short-desc-edit").on("click", function (event) {
+                 
                 event.preventDefault();
                 var userId = $(this).attr('data-user-id');
                 var textArea = $('#short-desc-textarea');
@@ -594,8 +595,8 @@ $(function(){*/
                 textArea.val($.trim(descDataText));
                 ansDiv.children('.form-group').append('<div class="question-action-buttons"><button id="save-short-desc" data-user-id="'+userId+'" class="save-short-desc">Save</button></div>');
                 $(this).hide();
-                
-              
+
+
             });
             $("body").on("click", ".date-edit", function (e) {
                 e.preventDefault();
@@ -603,8 +604,8 @@ $(function(){*/
                 var dateType = $(this).attr('data-date-type');
                 var dateValue = $(this).attr('data-date-value');
                 // DateEditModal
-                
-              
+
+
             });
 
             $('.DateEditModal').on('shown.bs.modal',function(e){
@@ -640,14 +641,14 @@ $(function(){*/
                         }
                     }
                 });
-              
-            }); 
+
+            });
             $("body").on("click", "#full-edit", function (e) {
                 e.preventDefault();
                $('.profile-username').hide();
                $('.editable.fullname').show();
                $('.editable.fullname input').focus();
-              
+
             });
             $( ".fullname" ).focusout(function() {
                var userId = $('#profile-box-container').attr('data-user-id');
@@ -676,7 +677,7 @@ $(function(){*/
                $('.editable.website').show()
                $('#web-edit').hide();
                $('.editable.website input').focus();
-              
+
             });
             $( "#web-input" ).focusout(function() {
                var userId = $('#profile-box-container').attr('data-user-id');
@@ -700,13 +701,13 @@ $(function(){*/
                         }
                     }
                 });
-            });          
+            });
             $("body").on("click", "#company-edit", function (e) {
                 e.preventDefault();
                $('.company-text').hide();
                $('.editable.company').show()
                $('.editable.company input').focus();
-              
+
             });
             $("#company-input").focusout(function() {
                var userId = $('#profile-box-container').attr('data-user-id');
@@ -734,7 +735,7 @@ $(function(){*/
                $('.email-text').hide();
                $('.editable.email').show()
                $('.editable.email input').focus();
-              
+
             });
             $("#email-input").focusout(function() {
                var userId = $('#profile-box-container').attr('data-user-id');
@@ -762,7 +763,7 @@ $(function(){*/
                $('.acn-text').hide();
                $('.editable.acn').show()
                $('.editable.acn input').focus();
-              
+
             });
             $("#acn-input").focusout(function() {
                var userId = $('#profile-box-container').attr('data-user-id');
@@ -784,7 +785,7 @@ $(function(){*/
                         }
                     }
                 });
-            });               
+            });
             $("body").on("click", "#ipAddress-edit", function (e) {
                 e.preventDefault();
                $('.ipAddress-text').hide();
@@ -792,7 +793,7 @@ $(function(){*/
                $('.editable.ipAddress input').focus();
                var oldIpAddress = $(this).parents('.ipAddress-text').find('.text-muted').text();
                 $('.editable.ipAddress input').val(oldIpAddress);
-              
+
             });
             $("#ipAddress-input").focusout(function() {
                var userId = $('#profile-box-container').attr('data-user-id');
@@ -825,7 +826,7 @@ $(function(){*/
                 $('.editable.address #street-input').val(street);
                 $('.editable.address #town-input').val(town);
                 $('.editable.address #state-input').val(state);
-              
+
             });
             $("body").on("click", "#address-save", function (e) {
                var userId = $('#profile-box-container').attr('data-user-id');
@@ -853,13 +854,13 @@ $(function(){*/
                         }
                     }
                 });
-            });                        
+            });
             $("body").on("click", "#bsName-edit", function (e) {
                 e.preventDefault();
                $('.bsName-text').hide();
                $('.editable.bsName').show()
                $('.editable.bsName input').focus();
-              
+
             });
             $("#bsName-input").focusout(function() {
                var userId = $('#profile-box-container').attr('data-user-id');
@@ -890,7 +891,7 @@ $(function(){*/
                 var ansDiv  = $('.edit-sector');
                 var answer  = $('.edit-sector select').val();
                 var editText= $('.sector-text p');
-                
+
                 var postData = {
                     userID: userId,
                     answer: answer
@@ -922,7 +923,7 @@ $(function(){*/
                     success: function (output) {
                        var data = output.split("::");
                         if(data[0] === 'OK'){
-                          $('.thumbsUp-container').find('p').text(0);                              
+                          $('.thumbsUp-container').find('p').text(0);
                         }
                     }
                 });
@@ -951,8 +952,8 @@ $(function(){*/
                         ansDiv.slideDown('slow');
                     }
                 });
-            });                                        
-                
+            });
+
             $('#edit-logo').change(function(event) {
                 var input = $(this)[0];
                 var userId  = $('#profile-box-container').attr('data-user-id');
@@ -963,7 +964,7 @@ $(function(){*/
                         var formData = new FormData();
                         formData.append('logo', input.files[0]);
                         formData.append('userID', userId);
-                        $.ajax({       
+                        $.ajax({
                                 crossOrigin: true,
                                 type: 'POST',
                                 url: baseUrl + "admin/savelogo",
@@ -979,7 +980,7 @@ $(function(){*/
                                 $('#loading-image-logo').hide();
                             }
                        });
-                    
+
                      };
                     reader.readAsDataURL(input.files[0]);
                 }else{
@@ -996,7 +997,7 @@ $(function(){*/
                         var formData = new FormData();
                         formData.append('bannerImage', input.files[0]);
                         formData.append('userID', userId);
-                        $.ajax({       
+                        $.ajax({
                                 crossOrigin: true,
                                 type: 'POST',
                                 url: baseUrl + "admin/saveBannerImage",
@@ -1012,7 +1013,7 @@ $(function(){*/
                                 $('#loading-image-banner').hide();
                             }
                        });
-                    
+
                      }
                     reader.readAsDataURL(input.files[0]);
                 }else{
@@ -1029,7 +1030,7 @@ $(function(){*/
                         var formData = new FormData();
                         formData.append('productImage', input.files[0]);
                         formData.append('userID', userId);
-                        $.ajax({       
+                        $.ajax({
                                 crossOrigin: true,
                                 type: 'POST',
                                 url: baseUrl + "admin/saveProductImage",
@@ -1045,7 +1046,7 @@ $(function(){*/
                                 $('#loading-image-product').hide();
                             }
                        });
-                    
+
                      }
                     reader.readAsDataURL(input.files[0]);
                 }else{
@@ -1060,4 +1061,3 @@ $(function(){*/
                 }
             });
         });
-		

@@ -806,9 +806,10 @@ class Hoosk_model extends CI_Model {
         //Update in User Table the Buisness Description where User ID is ------
         $contentdata = array(
             'businessShortDescriptionJSON' => $sirTrevorInput,
-            'businessShortDescription' => $HTMLContent
+            'businessShortDescription' => $HTMLContent,
+            'status'                   => 1
         );
-        $this->db->where("id", $id);
+        $this->db->where("userID", $id);
         $this->db->update('user', $contentdata);
     }
 

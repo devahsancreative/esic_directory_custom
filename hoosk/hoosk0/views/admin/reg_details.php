@@ -1240,7 +1240,7 @@ $ci =& get_instance();
        </div>
    </div>
 
-<!---------------------------Other js is in Admindetails.js ------------------------------------------------->
+<!---------------------------Other js is in Admin-details.js ------------------------------------------------->
 <script>
 $(document).ready(function(){ 
 $("#save_social").on("click", function () {

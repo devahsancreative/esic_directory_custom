@@ -12,11 +12,11 @@
 	 width:100% !important;
 	 }
 .alert-success {
-    
+
     width: 98%!important;
     height: 6%!important;
     padding: 9px!important;
-}	 
+}
 </style>
  
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-wysiwyg/0.3.3/bootstrap3-wysihtml5.css" integrity="sha256-vZaxbFq+7enj8wcy4kYnymKZuYhDaGHBhuuts0C2x+I=" crossorigin="anonymous" />

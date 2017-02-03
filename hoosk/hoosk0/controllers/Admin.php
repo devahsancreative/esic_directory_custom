@@ -408,6 +408,7 @@ public function social()
         if($status === 'delete'){
             $whereUpdate = array( 'userID' 	=> $userID);
             $where2 = array( 'userID'  => $userID);
+            //$this->Common_model->delete('hoosk_user',$whereUpdate);
             $this->Common_model->delete('user',$whereUpdate);
             $this->Common_model->delete('esic_questions_answers',$where2);
             echo 'OK::';
@@ -418,15 +419,17 @@ public function social()
         if($status === 'approve' && !empty($statusValue)){
             $updateArray['status'] = $statusValue;
         }
+
         if($status === 'publish'){
-            $updateArray['Publish'] = 1;
+          //  $updateArray['Publish'] = 1;
+            $this->Common_model->update_user_data($userID);
         }
         if($status === 'unpublish'){
-            $updateArray['Publish'] = 0;
+           // $updateArray['Publish'] = 0;
         }
         $whereUpdate = array(
-            'userID' => $userID
-        );
+            'userID' => $userID,
+         );
 
         $this->Common_model->update('user',$whereUpdate,$updateArray);
         echo 'OK::';
@@ -441,36 +444,36 @@ public function social()
            $selectData = array('
                     CONCAT(`h_user`.`firstName`," ",`h_user`.`lastName`) AS FullName,
                     h_user.email as Email,
-                    user.company as Company,
-                    user.business as Business,
-                    user.businessShortDescription as BusinessShortDesc,
-                    user.businessShortDescriptionJSON as BusinessShortDescJSON,
-                    user.tinyDescription as tinyDescription,
-                    user.score as Score,
-                    user.logo as Logo,
-                    user.productImage as productImage,
-                    user.bannerImage as bannerImage,
-                    user.website as Web,
-                    user.thumbsUp as thumbsUp,
-                    user.business as business,
-                    user.address as address,
-					user.street_number as street_number,
-					user.post_code as post_code,
-                    user.town as town,
-                    user.state as state,
-                    user.acn_number as acn_number,
-                    user.expiry_date as expiry_date,
-                    user.showExpDate as ShowExpiryDate,
-                    user.corporate_date as corporate_date,
-                    user.added_date as added_date,
-                    user.ipAddress as ipAddress,
-                    user.sectorID as sectorID,
-                    user.RnDID as RnDID,
-                    user.AccCoID as AccCoID,
-                    user.AccID as AccID,
-                    user.inID as inID,
+                    user_draft.company as Company,
+                    user_draft.business as Business,
+                    user_draft.businessShortDescription as BusinessShortDesc,
+                    user_draft.businessShortDescriptionJSON as BusinessShortDescJSON,
+                    user_draft.tinyDescription as tinyDescription,
+                    user_draft.score as Score,
+                    user_draft.logo as Logo,
+                    user_draft.productImage as productImage,
+                    user_draft.bannerImage as bannerImage,
+                    user_draft.website as Web,
+                    user_draft.thumbsUp as thumbsUp,
+                    user_draft.business as business,
+                    user_draft.address as address,
+					user_draft.street_number as street_number,
+					user_draft.post_code as post_code,
+                    user_draft.town as town,
+                    user_draft.state as state,
+                    user_draft.acn_number as acn_number,
+                    user_draft.expiry_date as expiry_date,
+                    user_draft.showExpDate as ShowExpiryDate,
+                    user_draft.corporate_date as corporate_date,
+                    user_draft.added_date as added_date,
+                    user_draft.ipAddress as ipAddress,
+                    user_draft.sectorID as sectorID,
+                    user_draft.RnDID as RnDID,
+                    user_draft.AccCoID as AccCoID,
+                    user_draft.AccID as AccID,
+                    user_draft.inID as inID,
                     ESEC.sector as sector,
-                    user.Publish as Publish
+                    user_draft.Publish as Publish
 				   ',false);
         //EQS.SolVal as solval,
         //      EQS.Points as points,
@@ -478,22 +481,22 @@ public function social()
         $joins = array(
             array(
                 'table' 	=> 'esic_status ES',
-                'condition' => 'ES.id = user.status',
+                'condition' => 'ES.id = user_draft.status',
                 'type' 		=> 'LEFT'
             ),
             array(
                 'table' 	=> 'esic_sectors ESEC',
-                'condition' => 'ESEC.id = user.sectorID',
+                'condition' => 'ESEC.id = user_draft.sectorID',
                 'type' 		=> 'LEFT'
             ),
 			 array(
                 'table' 	=> 'hoosk_user h_user',
-                'condition' => 'h_user.userID = user.userID',
+                'condition' => 'h_user.userID = user_draft.userID',
                 'type' 		=> 'LEFT'
             )
         );
         $data = array();
-        $returnedData = $this->Common_model->select_fields_where_like_join('user',$selectData,$joins,$where,FALSE,'','');
+        $returnedData = $this->Common_model->select_fields_where_like_join('user_draft',$selectData,$joins,$where,FALSE,'','');
         $selectData2 = array('
                     esic_questions_answers.questionID as questionID,
                     esic_questions_answers.Solution as solution,
@@ -628,6 +631,7 @@ public function social()
 
         }
 		$data['social'] = $this->Esic_model->get_user_Social($userID);
+        $data['uID'] = base64_encode($userID);
         $this->show_admin("admin/reg_details",$data);
     }
 	elseif($userRole == 1){
@@ -851,6 +855,9 @@ public function social()
             echo "FAIL::Something went wrong with the post, Please Contact System Administrator for Further Assistance";
             return;
         }
+        $where= array("userID"=>$userID);
+        $updateData = array("status"=>1);
+        $this->Common_model->update('user',$where,$updateData);
         $selectData = array('score AS score',false);
         $where = array(
             'questionID' => $dataQuestionId,
@@ -906,6 +913,7 @@ public function social()
             $whereUpdate3 = array('id' => $userID);
             $this->Common_model->update('user',$whereUpdate3,$updateArray3);
         }
+        $this->Common_model->save_darft($userID);
         exit();
     }
     public function savedate(){
@@ -920,14 +928,17 @@ public function social()
         $updateArray = array();
         $updateArray[$dateType] = $EditedDate;
         $whereUpdate = array('userID' => $userID);
-        $this->Common_model->update('user',$whereUpdate,$updateArray);
+        $this->Common_model->save_darft($userID);
+        $this->Common_model->update('user_draft',$whereUpdate,$updateArray);
         echo 'OK::'.$EditedDate.'';
         exit();
     }
     public function savedesc(){
 		$uID_encoded = $this->input->post('uID');
-		if(!empty($uID_encoded))
-			$uID = base64_decode($uID_encoded);
+        if(!empty($uID_encoded))
+		$uID = base64_decode($uID_encoded);
+
+
 
 
 
@@ -965,9 +976,10 @@ public function social()
 
         $updateArray = array();
         $updateArray['tinyDescription'] = $descDataText;
-        //$updateArray['status'] = 1;
+        $updateArray['status'] = 1;
         $whereUpdate = array('userID' => $userID);
-        $this->Common_model->update('user',$whereUpdate,$updateArray);
+        $this->Common_model->save_darft($userID);
+        $this->Common_model->update('user_draft',$whereUpdate,$updateArray);
         echo 'OK::'.urldecode($descDataText).'';
         exit();
     }
@@ -1015,12 +1027,13 @@ public function social()
         $where = array(
             'userID' => $userID
         );
-        $returnedData = $this->Common_model->select_fields_where('user',$selectData, $where, false, '', '', '','','',false);
+        $returnedData = $this->Common_model->select_fields_where('user_draft',$selectData, $where, false, '', '', '','','',false);
         $logo = $returnedData[0]->logo;
         if(!empty($logo) && is_file(FCPATH.'/'.$logo)){
             unlink('./'.$logo);
         }
-        $resultUpdate = $this->Common_model->update('user',$where,$insertDataArray);
+        $this->Common_model->save_darft($userID);
+        $resultUpdate = $this->Common_model->update('user_draft',$where,$insertDataArray);
         if($resultUpdate === true){
             echo "OK::Record Updated Successfully";
         }else{
@@ -1069,12 +1082,13 @@ public function social()
         $where = array(
             'userID' => $userID
         );
-        $returnedData = $this->Common_model->select_fields_where('user',$selectData, $where, false, '', '', '','','',false);
+        $returnedData = $this->Common_model->select_fields_where('user_draft',$selectData, $where, false, '', '', '','','',false);
         $bannerImage = $returnedData[0]->bannerImage;
         if(!empty($bannerImage) && is_file(FCPATH.'/'.$bannerImage)){
             unlink('./'.$bannerImage);
         }
-        $resultUpdate = $this->Common_model->update('user',$where,$insertDataArray);
+        $this->Common_model->save_darft($userID);
+        $resultUpdate = $this->Common_model->update('user_draft',$where,$insertDataArray);
         if($resultUpdate === true){
             echo "OK::Record Updated Successfully";
         }else{
@@ -1123,12 +1137,13 @@ public function social()
         $where = array(
             'userID' => $userID
         );
-        $returnedData = $this->Common_model->select_fields_where('user',$selectData, $where, false, '', '', '','','',false);
+        $returnedData = $this->Common_model->select_fields_where('user_draft',$selectData, $where, false, '', '', '','','',false);
         $productImage = $returnedData[0]->productImage;
         if(!empty($productImage) && is_file(FCPATH.'/'.$productImage)){
             unlink('./'.$productImage);
         }
-        $resultUpdate = $this->Common_model->update('user',$where,$insertDataArray);
+        $this->Common_model->save_darft($userID);
+        $resultUpdate = $this->Common_model->update('user_draft',$where,$insertDataArray);
         if($resultUpdate === true){
             echo "OK::Record Updated Successfully";
         }else{
@@ -1147,7 +1162,7 @@ public function social()
         $updateArray['firstName'] = $fullName;
         $updateArray['lastName']  = '';
         $whereUpdate = array('id' => $userID);
-        $this->Common_model->update('user',$whereUpdate,$updateArray);
+        $this->Common_model->update('hoosk_user',$whereUpdate,$updateArray);
         echo 'OK::'.$fullName.'';
         exit();
     }
@@ -1161,7 +1176,8 @@ public function social()
         $updateArray = array();
         $updateArray['thumbsUp'] = 0;
         $whereUpdate = array('id' => $userID);
-        $this->Common_model->update('user',$whereUpdate,$updateArray);
+        $this->Common_model->save_darft($userID);
+        $this->Common_model->update('user_draft',$whereUpdate,$updateArray);
         echo 'OK::';
         exit();
     }
@@ -1176,7 +1192,8 @@ public function social()
         $updateArray = array();
         $updateArray['website'] = $website;
         $whereUpdate = array('userID' => $userID);
-        $this->Common_model->update('user',$whereUpdate,$updateArray);
+        $this->Common_model->save_darft($userID);
+        $this->Common_model->update('user_draft',$whereUpdate,$updateArray);
         echo 'OK::'.$website.'';
         exit();
     }
@@ -1190,8 +1207,10 @@ public function social()
 
         $updateArray = array();
         $updateArray['Company'] = $company;
+        $updateArray['status'] = 1;
         $whereUpdate = array('id' => $userID);
-        $this->Common_model->update('user',$whereUpdate,$updateArray);
+        $this->Common_model->save_darft($userID);
+        $this->Common_model->update('user_draft',$whereUpdate,$updateArray);
         echo 'OK::'.$company.'';
         exit();
     }
@@ -1221,7 +1240,8 @@ public function social()
         $updateArray = array();
         $updateArray['ipAddress'] = $ip;
         $whereUpdate = array('userID' => $userID);
-        $this->Common_model->update('user',$whereUpdate,$updateArray);
+        $this->Common_model->save_darft($userID);
+        $this->Common_model->update('user_draft',$whereUpdate,$updateArray);
         echo 'OK::'.$ip.'';
         exit();
     }
@@ -1236,7 +1256,8 @@ public function social()
         $updateArray = array();
         $updateArray['acn_number'] = $acn;
         $whereUpdate = array('userID' => $userID);
-        $this->Common_model->update('user',$whereUpdate,$updateArray);
+        $this->Common_model->save_darft($userID);
+        $this->Common_model->update('user_draft',$whereUpdate,$updateArray);
         echo 'OK::'.$acn.'';
         exit();
     }
@@ -1260,7 +1281,8 @@ public function social()
 		$updateArray['post_code']     = $post_input;
 
         $whereUpdate = array('userID' => $userID);
-        $this->Common_model->update('user',$whereUpdate,$updateArray);
+        $this->Common_model->save_darft($userID);
+        $this->Common_model->update('user_draft',$whereUpdate,$updateArray);
         echo 'OK::'.$street_number.'::'.$street_name.''.'::'.$town.''.'::'.$state.''.'::'.$post_input.'';
         exit();
     }
@@ -1275,7 +1297,10 @@ public function social()
         $updateArray = array();
         $updateArray['business'] = $bsName;
         $whereUpdate = array('userID' => $userID);
-        $this->Common_model->update('user',$whereUpdate,$updateArray);
+        $this->Common_model->save_darft($userID);
+        $this->Common_model->update('user_draft',$whereUpdate,$updateArray);
+
+
         echo 'OK::'.$bsName.'';
         exit();
     }
@@ -1299,7 +1324,8 @@ public function social()
         $updateArray = array();
         $updateArray['sectorID'] = $sectorID;
         $whereUpdate = array('userID' => $userID);
-        $this->Common_model->update('user',$whereUpdate,$updateArray);
+        $this->Common_model->save_darft($userID);
+        $this->Common_model->update('user_draft',$whereUpdate,$updateArray);
         echo 'OK::'.$sectorID.'';
     }
 public function manage_status($param = NULL){
@@ -3154,7 +3180,7 @@ public function  UpDateSocials(){
             h_user.email AS Email,
 			company AS Company,
             ES.id as StatusID, 
-            CASE WHEN user.Publish = 1 THEN CONCAT("<span class=\'label status label-success\'> Published </span>") WHEN user.Publish = 0 THEN CONCAT ("<span class=\'label status label-danger\'>Draft</span>") ELSE CONCAT ("<span class=\'label status label-warning\'> ", Publish, " </span>") END AS  Publish,
+            CASE WHEN user_draft.Publish = 1 THEN CONCAT("<span class=\'label status label-success\'> Published </span>") WHEN user_draft.Publish = 0 THEN CONCAT ("<span class=\'label status label-danger\'>Draft</span>") ELSE CONCAT ("<span class=\'label status label-warning\'> ", Publish, " </span>") END AS  Publish,
             ES.color AS color,
              CASE WHEN ES.id > 0 THEN CONCAT("<span class=\'label \' style=\' background-color:",color,"\'> ", ES.status," </span>") ELSE CONCAT ("<span class=\'label label-warning\'> ", ES.status, " </span>") END AS Status 
             ',false);
@@ -3162,12 +3188,12 @@ public function  UpDateSocials(){
                 $joins = array(
                   array(
                       'table' 	=> 'esic_status ES',
-                      'condition' => 'ES.id = user.status',
+                      'condition' => 'ES.id = user_draft.status',
                       'type' 		=> 'LEFT'
                   ),
                   array(
                       'table' 	=> 'hoosk_user h_user',
-                      'condition' => 'h_user.userID = user.userID',
+                      'condition' => 'h_user.userID = user_draft.userID',
                       'type' 		=> 'LEFT'
                   )
                 );
@@ -3179,7 +3205,7 @@ public function  UpDateSocials(){
                 $addColumns = array(
                     'ViewEditActionButtons' => array('<a href="'.base_url("admin/details/$1").'"><span aria-hidden="true" class="glyphicon glyphicon-edit text-green "></span></a> &nbsp;  &nbsp; <a href="#" data-target=".delete-modal" data-toggle="modal"><i class="fa fa-trash-o"></i></a>','UserID')
                 );
-                $returnedData = $this->Common_model->select_fields_joined_DT($selectData,'user',$joins,$where,'','','',$addColumns);
+                $returnedData = $this->Common_model->select_fields_joined_DT($selectData,'user_draft',$joins,$where,'','','',$addColumns);
                 print_r($returnedData);
                 return NULL;
             }

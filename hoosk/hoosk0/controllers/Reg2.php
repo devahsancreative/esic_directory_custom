@@ -202,7 +202,7 @@ class Reg2 extends MY_Controller {
         ); 
 		
         $this->db->trans_begin();
-
+        $this->Common_model->insert_record('user_draft',$userInsertArray);
         $insertID = $this->Common_model->insert_record('user',$userInsertArray);
         if(empty($insertID) || !is_numeric($insertID)){
             echo $this->db->last_query();

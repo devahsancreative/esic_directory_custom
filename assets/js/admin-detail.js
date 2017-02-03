@@ -312,6 +312,7 @@ $(function(){
 
     //Haider COde
             $("#desc-edit").on("click", function (event) {
+
                 event.preventDefault();
                 tinymce.init({
                     selector: "body div.st-text-block",
@@ -334,23 +335,25 @@ $(function(){
     //End Haider Code
 
 
-            $("#short-desc-edit").on("click", function (event) {
-                event.preventDefault();
-                var userId = $(this).attr('data-user-id');
-                var textArea = $('#short-desc-textarea');
-                var ansDiv = $('.edit-short-desc');
-                var saveBtn = $('#save-short-desc');
-                var descText = $('#short-desc-text pre');
-                ansDiv.show();
-                descText.hide();
-                var descDataText = descText.text();
-                descText.text('');
-                textArea.val($.trim(descDataText));
-                ansDiv.children('.form-group').append('<div class="question-action-buttons"><button id="save-short-desc" data-user-id="'+userId+'" class="save-short-desc">Save</button></div>');
-                $(this).hide();
-                
-              
-            });
+       $(document).on("click","#short-desc-edit", function (event) {
+
+
+        event.preventDefault();
+        var userId = $(this).attr('data-user-id');
+        var textArea = $('#short-desc-textarea');
+        var ansDiv = $('.edit-short-desc');
+        var saveBtn = $('#save-short-desc');
+        var descText = $('#short-desc-text pre');
+        ansDiv.show();
+        descText.hide();
+        var descDataText = descText.text();
+        descText.text('');
+        textArea.val($.trim(descDataText));
+        ansDiv.children('.form-group').append('<div class="question-action-buttons"><button id="save-short-desc" data-user-id="'+userId+'" class="save-short-desc">Save</button></div>');
+        $(this).hide();
+
+
+      });
             $("body").on("click", ".date-edit", function (e) {
                 e.preventDefault();
                 var userId = $('#profile-box-container').attr('data-user-id');
