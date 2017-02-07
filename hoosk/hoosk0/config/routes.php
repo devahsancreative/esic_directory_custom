@@ -112,6 +112,9 @@ $route['admin/assessments_list/(:any)'] = "Admin/assessments_list/$1";
 
 $route['admin/assessment_list']       	= "Admin/assessment_list";
 $route['admin/assessment_list/(:any)']  = "Admin/assessment_list/$1";
+$route['admin/publish_assessment_list']  = "Admin/publish_assessment_list";
+$route['admin/publish_assessment_list/(:any)']  = "Admin/publish_assessment_list/$1";
+
 
 //$route['admin/details']      	= "Admin/details";
 $route['admin/details/(:any)']      	= "Admin/details/$1";

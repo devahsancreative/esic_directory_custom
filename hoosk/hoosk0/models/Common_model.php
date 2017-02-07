@@ -1031,7 +1031,7 @@ public function save_darft($userID = NULL){
     return false;
 }
  }
-public function update_user_data($userID=NULL){
+public function update_user_data($userID=NULL){ // not in use
         $this->db->where("userID",$userID);  // get record from draft to user table
         $query  = $this->db->get('user_draft');
         if($query->result_array() > 0) {
@@ -1084,4 +1084,59 @@ public function update_user_data($userID=NULL){
 
 }
 
+
+
+
+public function publish_assessment_list($userID=NULL){
+    $this->db->where("userID",$userID);  // get record from draft to user table
+    $query  = $this->db->get('user_draft');
+    if($query->result_array() > 0) {
+        foreach ($query->result_array() as $row) {
+            $data = array(
+                'userID'        => $row['userID'],
+                'thumbsUp'      => $row['thumbsUp'],
+                'company'       => $row['company'],
+                'address'       => $row['address'],
+                'street_number' => $row['street_number'],
+                'post_code'     => $row['post_code'],
+                'town'          => $row['town'],
+                'state'         => $row['state'],
+                'logo'          => $row['logo'],
+                'bannerImage'   => $row['bannerImage'],
+                'productImage'  => $row['productImage'],
+                'business'      => $row['business'],
+                'businessShortDescription' => $row['businessShortDescription'],
+                'tinyDescription'          => $row['tinyDescription'],
+                'score'                    => $row['score'],
+                'status'         =>'1',
+                'corporate_date' => $row['corporate_date'],
+                'expiry_date'    => $row['expiry_date'],
+                'added_date'     => $row['added_date'],
+                'acn_number'     => $row['acn_number'],
+                'website'        => $row['website'],
+                'ipAddress'      => $row['ipAddress'],
+                'sectorID'       => $row['sectorID'],
+                'RnDID'          => $row['RnDID'],
+                'AccCoID'        => $row['AccCoID'],
+                'AccID'          => $row['AccID'],
+                'inID'           => $row['inID'],
+                'showExpDate'    => $row['showExpDate'],
+                'Publish'        => '1',
+                'P_C_no'         => $row['P_C_no'],
+                'rights'         => $row['rights'],
+                'innovation_right'             => $row['innovation_right'],
+                'businessShortDescriptionJSON' => $row['businessShortDescriptionJSON'],
+            );
+            $this->db->where("userID",$userID);
+            $this->db->update('user',$data);
+            return true;
+        }
+        return true;
+    }else{
+
+        return false;
+    }
+
+
+}
 }

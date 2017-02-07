@@ -65,7 +65,34 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    
+    <!-- Model -->
+    <div class="modal change-status">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Publish</h4>
+                </div>
+
+                <div class="modal-body">
+                    <div class="row">
+                        <input type="hidden" id="hiddenUserID">
+                        <div class="col-md-12">
+                            <p>Are You Sure To Publish ?</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" id="yes-change-status">Yes</button>
+                    <button type="button" class="btn btn-danger mright" data-dismiss="modal" aria-label="Close" id="nodelete">No</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
 <!-- Js file name : Adminfooter.js in assets js -->
 <script>
     $(function () {
@@ -122,7 +149,30 @@
 
 
 
+        $(".change-status").on("shown.bs.modal", function (e) {
 
+            var button = $(e.relatedTarget); // Button that triggered the modal
+            var ID = button.parents("tr").attr("data-id");
+            var modal = $(this);
+            modal.find("input#hiddenUserID").val(ID);
+          //  modal.find(".modal-body").find('p > strong').text(' "' + Status + '"');
+        });
+        $("#yes-change-status").on("click", function () {
+            var hiddenModalID = $(this).parents(".modal-content").find("#hiddenUserID").val();
+            var postData = {id: hiddenModalID};
+            $.ajax({
+                url: baseUrl + "admin/publish_assessment_list",
+                data: postData,
+                type: "POST",
+                success: function (output) {
+                    var data = output.split("::");
+                    if (data[0] == 'OK') {
+                        $(".change-status").modal('hide');
+                        //oTable.draw();
+                    }
+                }
+            });
+        });
 
   });
 

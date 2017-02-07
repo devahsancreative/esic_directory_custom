@@ -127,7 +127,7 @@
 						  $id   = $blog_datas->id;
 			           ?>
                     <li><a href="<?php echo  base_url().'blog/'.$id."/".$link ?>" class="blog-title-link blog-link" >
-                          <? echo  $blog_datas->title; ?>  </a> 
+                          <?php echo  $blog_datas->title; ?>  </a>
                     </li>
                     <?php }} ?>
            

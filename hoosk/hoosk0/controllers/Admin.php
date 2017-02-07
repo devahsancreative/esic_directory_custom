@@ -421,11 +421,11 @@ public function social()
         }
 
         if($status === 'publish'){
-          //  $updateArray['Publish'] = 1;
-            $this->Common_model->update_user_data($userID);
+               $updateArray['Publish'] = 1;
+           // $this->Common_model->update_user_data($userID);
         }
         if($status === 'unpublish'){
-           // $updateArray['Publish'] = 0;
+            $updateArray['Publish'] = 0;
         }
         $whereUpdate = array(
             'userID' => $userID,
@@ -3180,7 +3180,7 @@ public function  UpDateSocials(){
             h_user.email AS Email,
 			company AS Company,
             ES.id as StatusID, 
-            CASE WHEN user_draft.Publish = 1 THEN CONCAT("<span class=\'label status label-success\'> Published </span>") WHEN user_draft.Publish = 0 THEN CONCAT ("<span class=\'label status label-danger\'>Draft</span>") ELSE CONCAT ("<span class=\'label status label-warning\'> ", Publish, " </span>") END AS  Publish,
+            CASE WHEN user_draft.Publish = 1 THEN CONCAT("<span class=\'label status label-success pub\'> Published </span>") WHEN user_draft.Publish = 0 THEN CONCAT ("<span class=\'label status label-danger\'>Draft</span>") ELSE CONCAT ("<span class=\'label status label-warning\'> ", Publish, " </span>") END AS  Publish,
             ES.color AS color,
              CASE WHEN ES.id > 0 THEN CONCAT("<span class=\'label \' style=\' background-color:",color,"\'> ", ES.status," </span>") ELSE CONCAT ("<span class=\'label label-warning\'> ", ES.status, " </span>") END AS Status 
             ',false);
@@ -3203,7 +3203,7 @@ public function  UpDateSocials(){
                     "h_user.userID" => $userID
                 );
                 $addColumns = array(
-                    'ViewEditActionButtons' => array('<a href="'.base_url("admin/details/$1").'"><span aria-hidden="true" class="glyphicon glyphicon-edit text-green "></span></a> &nbsp;  &nbsp; <a href="#" data-target=".delete-modal" data-toggle="modal"><i class="fa fa-trash-o"></i></a>','UserID')
+                    'ViewEditActionButtons' => array('<a href="'.base_url("admin/details/$1").'"><span aria-hidden="true" class="glyphicon glyphicon-edit text-green "></span></a> &nbsp; <a href="#" data-target=".change-status" data-toggle="modal"><i data-toggle="tooltip" title="Publish" data-placement="left" class="fa fa-check ml-fa"></i></a> &nbsp; <a href="#" data-target=".delete-modal" data-toggle="modal"><i class="fa fa-trash-o"></i></a>','UserID')
                 );
                 $returnedData = $this->Common_model->select_fields_joined_DT($selectData,'user_draft',$joins,$where,'','','',$addColumns);
                 print_r($returnedData);
@@ -3214,4 +3214,12 @@ public function  UpDateSocials(){
             $this->show_admin("admin/manage_profile",$data);
 
     }
+public function publish_assessment_list(){
+
+    $id = $this->input->post('id');
+    $this->Common_model->publish_assessment_list($id);
+
+    echo "OK::Your Profile is successfully published";
+
+}
 }
