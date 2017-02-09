@@ -3460,6 +3460,7 @@ this.ready();
 
   SirTrevor.onBeforeSubmit = function(should_validate) {
     // Loop through all of our instances and do our form submits on them
+
     var errors = 0;
     _.each(SirTrevor.instances, function(inst, i) {
       errors += inst.onFormSubmit(should_validate);

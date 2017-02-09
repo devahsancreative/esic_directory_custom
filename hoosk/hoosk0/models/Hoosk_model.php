@@ -710,12 +710,12 @@ class Hoosk_model extends CI_Model {
 	   	if ($this->input->post('content') != ""){
 
         $sirTrevorInput = $this->input->post('content');
-
 	    $converter = new Converter();
 
-        $HTMLContent = $converter->toHtml($sirTrevorInput);
+      $HTMLContent = $converter->toHtml($sirTrevorInput);
 
-        
+
+
 
        	}
 

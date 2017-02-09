@@ -48,7 +48,6 @@
 					        $data = array(
                             'id'          => 'content',
                             'name'        => 'content',
- 							
                              'class'       => 'js-st-instance',   
 							  );
 			 
@@ -60,7 +59,6 @@
 					 	$set = $p['pageContent'];
 
 						}
-
 						echo form_textarea($data, set_value('content',$set, FALSE));
 						?>
            
@@ -210,14 +208,17 @@
 
 		  <script src="<?php echo ADMIN_THEME; ?>/js/sirTrevor/bower_components/sir-trevor-columns-block/dist/sir-trevor-columns-block.js" type="text/javascript" charset="utf-8"></script>
 		  <script src="<?php echo ADMIN_THEME; ?>/js/sirTrevor/bower_components/underscore/underscore.js" type="text/javascript" charset="utf-8"></script>
-		  <script src="<?php echo ADMIN_THEME; ?>/js/sirTrevor/bower_components/sir-trevor-js-generator/blocks.js" type="text/javascript" charset="utf-8"></script>
-		  <script src="<?php echo ADMIN_THEME; ?>/js/sirTrevor/iFrame.js" type="text/javascript" charset="utf-8"></script>
+
+		  <!--  <script src="<?php // echo ADMIN_THEME; ?> /js/sirTrevor/bower_components/sir-trevor-js-generator/blocks.js" type="text/javascript" charset="utf-8"></script>
+
+		  -->  <script src="<?php echo ADMIN_THEME; ?>/js/sirTrevor/iFrame.js" type="text/javascript" charset="utf-8"></script>
 		  <script src="<?php echo ADMIN_THEME; ?>/js/sirTrevor/image-extended.js" type="text/javascript" charset="utf-8"></script>
-		  <script src="<?php echo ADMIN_THEME; ?>/js/sirTrevor/markdown.js" type="text/javascript" charset="utf-8"></script>
-
+		  <!--<script src="<?php//echo ADMIN_THEME; ?>/js/sirTrevor/markdown.js" type="text/javascript" charset="utf-8"></script>
+          --->
 <!--		  TinyMCE-->
-		  <script src="<?php echo ADMIN_THEME; ?>/js/sirTrevor/mce/sir-trevor-tinymce.js" type="text/javascript" charset="utf-8"></script>
 
+		  <script src="<?php echo ADMIN_THEME; ?>/js/sirTrevor/mce/sir-trevor-tinymce.js" type="text/javascript" charset="utf-8"></script>
+          <script src="<?php echo ADMIN_THEME; ?>/js/sirTrevor/Button.js" type="text/javascript" charset="utf-8"></script>
 
 
 <script type="text/javascript">
@@ -241,20 +242,21 @@
 				"ImageExtended",
 				"Video",
 				"Tweet",
-				"Accordion",
+				//"Accordion",
 				"Button",
-				"Iframe",
-				"Markdown"
+				"Iframe"
+				//"Markdown"
 			]
 		});
-		
+
 		SirTrevor.onBeforeSubmit();
 	});
 </script>
 <script type="text/javascript">
 function formSubmit(){
-	
+
 	SirTrevor.onBeforeSubmit();
+
 	document.getElementById("contentForm").submit();
 }
 </script>

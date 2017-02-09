@@ -133,9 +133,13 @@ class Pages extends MY_Controller {
 	}
 
 	public function edited()
-	{ 
-	        	     
-		 
+	{
+
+        /*echo $this->uri->segment(4);
+        $mypost = $this->input->post();
+        echo '<pre>';
+        print_r($mypost);
+        echo '</pre>';*/
 	     Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		//Load the form validation library
 		$this->load->library('form_validation');
@@ -153,6 +157,7 @@ class Pages extends MY_Controller {
 			//Validation passed
 			//Update the page
 			$this->load->library('Sioen');
+
 			$this->Hoosk_model->updatePage($this->uri->segment(4));
 			//Return to page list
 

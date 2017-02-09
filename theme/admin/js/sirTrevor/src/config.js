@@ -54,7 +54,7 @@ module.exports = {
     blockLimit: 0,
     blockTypeLimits: {},
     required: [],
-    uploadUrl: '/attachments',
+    uploadUrl:'/attachments',
     attachmentName: 'attachment[name]',
     attachmentFile: 'attachment[file]',
     attachmentUid: 'attachment[uid]',

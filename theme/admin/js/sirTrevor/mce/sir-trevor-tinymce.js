@@ -1,4 +1,5 @@
 (function() {
+
     var super_initialize, tinymce_defaults;
 
     tinymce_defaults = {
@@ -7,12 +8,13 @@
         inline: true,
         hidden_input: false,
         menubar: false,
+        plugins: "textcolor colorpicker",  //added by hamid raza
 /*        plugins: ['advlist autolink lists link image charmap print preview hr anchor pagebreak',
             'searchreplace wordcount visualblocks visualchars code fullscreen',
             'insertdatetime media nonbreaking save table contextmenu directionality',
             'emoticons template paste textcolor colorpicker textpattern imagetools'
         ],*/
-        toolbar: "undo redo | styleselect | fontsizeselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link",
+        toolbar: "undo redo | styleselect | fontsizeselect | forecolor | backcolor | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link",
         fontsize_formats: "8px 10px 12px 14px 18px 24px 36px 40px"
     };
 

@@ -123,11 +123,12 @@ public function upload()
 
 
 		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
-		$attachment = $this->input->post('attachment');
+		$attachment   = $this->input->post('attachment');
 		$uploadedFile = $_FILES['attachment']['tmp_name']['file'];
 
         //explode to get only folder name
 		 $path = DoucmentUrl.'/images';//change it
+
 
       //  $path = BASE_URL.'/images';
 

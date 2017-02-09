@@ -14,7 +14,7 @@ module.exports = require('./src/');
 },{"./src/":176}],2:[function(require,module,exports){
 // Array.prototype.find - MIT License (c) 2013 Paul Miller <http://paulmillr.com>
 // For all details and docs: https://github.com/paulmillr/array.prototype.find
-// Fixes and tests supplied by Duncan Hall <http://duncanhall.net> 
+// Fixes and tests supplied by Duncan Hall <http://duncanhall.net>
 (function(globals){
   if (Array.prototype.find) return;
 
@@ -2409,7 +2409,7 @@ module.exports = function isArguments(value) {
       var array = this._array;
       var maxIndex = array.length - 1;
       var ii = 0;
-      return new Iterator(function() 
+      return new Iterator(function()
         {return ii > maxIndex ?
           iteratorDone() :
           iteratorValue(type, ii, array[reverse ? maxIndex - ii++ : ii++])}
@@ -3204,7 +3204,7 @@ module.exports = function isArguments(value) {
         return flipSequence;
       };
     }
-    reversedSequence.get = function(key, notSetValue) 
+    reversedSequence.get = function(key, notSetValue)
       {return iterable.get(useKeys ? key : -1 - key, notSetValue)};
     reversedSequence.has = function(key )
       {return iterable.has(useKeys ? key : -1 - key)};
@@ -3383,7 +3383,7 @@ module.exports = function isArguments(value) {
         return this.cacheResult().__iterate(fn, reverse);
       }
       var iterations = 0;
-      iterable.__iterate(function(v, k, c) 
+      iterable.__iterate(function(v, k, c)
         {return predicate.call(context, v, k, c) && ++iterations && fn(v, k, this$0)}
       );
       return iterations;
@@ -3574,7 +3574,7 @@ module.exports = function isArguments(value) {
     interposedSequence.size = iterable.size && iterable.size * 2 -1;
     interposedSequence.__iterateUncached = function(fn, reverse) {var this$0 = this;
       var iterations = 0;
-      iterable.__iterate(function(v, k) 
+      iterable.__iterate(function(v, k)
         {return (!iterations || fn(separator, iterations++, this$0) !== false) &&
         fn(v, iterations++, this$0) !== false},
         reverse
@@ -4450,7 +4450,7 @@ module.exports = function isArguments(value) {
   }
 
   function deepMerger(merger) {
-    return function(existing, value) 
+    return function(existing, value)
       {return existing && existing.mergeDeepWith && isIterable(value) ?
         existing.mergeDeepWith(merger, value) :
         merger ? merger(existing, value) : value};
@@ -6121,7 +6121,7 @@ module.exports = function isArguments(value) {
 
     Repeat.prototype.__iterator = function(type, reverse) {var this$0 = this;
       var ii = 0;
-      return new Iterator(function() 
+      return new Iterator(function()
         {return ii < this$0.size ? iteratorValue(type, ii++, this$0._value) : iteratorDone()}
       );
     };
@@ -9246,7 +9246,7 @@ module.exports = function () {
         left: o.left,
         top: o.top
       })
-        
+
       if (target) {
         target.insertBefore(el, target.firstChild||null)
       }
@@ -11191,7 +11191,7 @@ module.exports = Block.extend({
 
     var source = this.providers[data.source];
 
-    var protocol = window.location.protocol === "file:" ? 
+    var protocol = window.location.protocol === "file:" ?
       "http:" : window.location.protocol;
 
     var aspectRatioClass = source.square ?
@@ -11223,7 +11223,7 @@ module.exports = Block.extend({
   handleDropPaste: function(url){
     if (!utils.isURI(url)) { return; }
 
-    for(var key in this.providers) { 
+    for(var key in this.providers) {
       if (!this.providers.hasOwnProperty(key)) { continue; }
       this.setAndLoadData(
         this.matchVideoProvider(this.providers[key], key, url)
@@ -11295,7 +11295,7 @@ module.exports = {
     blockLimit: 0,
     blockTypeLimits: {},
     required: [],
-    uploadUrl: '/attachments',
+    uploadUrl: base_url+'/attachments',
     baseImageUrl: '/sir-trevor-uploads/',
     errorsContainer: undefined,
     convertFromMarkdown: true,
@@ -12309,7 +12309,7 @@ $.fn.caretToEnd = function(){
 "use strict";
 
 /*
-  Backbone Inheritence 
+  Backbone Inheritence
   --
   From: https://github.com/documentcloud/backbone/blob/master/backbone.js
   Backbone.js 0.9.2
