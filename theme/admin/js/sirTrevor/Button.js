@@ -119,14 +119,14 @@
             })(this));
 
             //Change from Haider
-/*            $html_value = this.$('[name=html]');
+            $html_value = this.$('[name=html]');
             $html_value.on('change keyup', (function(_this) {
                 return function() {
                     //get current value first. then assign it to the textbox
                     var button = _this.getButton().html();
                     return  bigBtn.html(button);
                 };
-            })(this));*/
+            })(this));
             //End of Haider Change
             return $block_checkbox.trigger('change');
         },
