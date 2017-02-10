@@ -12,6 +12,9 @@ background-color: #494949;
 border-color: #494949;
 text-decoration: none !important;
 }
+table td {
+    width:100px;
+}
 </style>
 <link href="<?php echo ADMIN_THEME; ?>/js/trevor/sir-trevor.css" rel="stylesheet">
 <link href="<?php echo ADMIN_THEME; ?>/js/trevor/sir-trevor-bootstrap.css" rel="stylesheet">
