@@ -239,7 +239,7 @@
 				"Text",
 				"List",
 				"Quote",
-				"ImageExtended",
+				"Image",
 				"Video",
 				"Tweet",
 				//"Accordion",
@@ -256,7 +256,6 @@
 function formSubmit(){
 
 	SirTrevor.onBeforeSubmit();
-
 	document.getElementById("contentForm").submit();
 }
 </script>

@@ -21,7 +21,7 @@
         },
         type: "button",
         title: 'Button',
-        editorHTML: '<div class="st-button-form-wrapper form-inline well" style="margin: 10px; display: none;"> <div class="form-group"> Size: <select name="size"></select> </div> <div class="form-group"> Style: <select name="style"></select> </div> <div class="form-group"> Full width: <input type="checkbox" name="is_block"/> </div> <div class="form-group"> URL: <input type="text" name="url" value=""/> </div> <button type="button">OK</button> </div> <div class="st-button-wrapper" style="text-align: center; min-height: 0">' + button_template + '</div>',
+        editorHTML: '<div class="st-button-form-wrapper form-inline well" style="margin: 10px; display: none;"> <div class="form-group"> Size: <select name="size"></select> </div> <div class="form-group"> Style: <select name="style"></select> </div> <div class="form-group"> Full width: <input type="checkbox" name="is_block"/> </div> <div class="form-group"> URL: <input type="text" name="url" value=""/> </div><div class="form-group"> Value: <input type="text" name="html" value=""/> </div> <button type="button">OK</button> </div> <div class="st-button-wrapper" style="text-align: center; min-height: 0">' + button_template + '</div>',
         icon_name: 'button',
         loadData: function(data) {
             return this.$find('.btn').html(SirTrevor.toHTML(data.text, this.type));
@@ -63,7 +63,8 @@
             })(this));
         },
         onBlockRender: function() {
-            var $block_checkbox, $sizes_select, $styles_select;
+            var $block_checkbox, $sizes_select, $styles_select,$html_value;
+            var bigBtn = this.getButton();
             this.getWrapper().on('click keyup', (function(_this) {
                 return function() {
                     return _this.checkForButton();
@@ -116,6 +117,17 @@
                     return _this.getButton().toggleClass('btn-block', $block_checkbox.is(':checked'));
                 };
             })(this));
+
+            //Change from Haider
+/*            $html_value = this.$('[name=html]');
+            $html_value.on('change keyup', (function(_this) {
+                return function() {
+                    //get current value first. then assign it to the textbox
+                    var button = _this.getButton().html();
+                    return  bigBtn.html(button);
+                };
+            })(this));*/
+            //End of Haider Change
             return $block_checkbox.trigger('change');
         },
         checkForButton: function() {
@@ -139,6 +151,7 @@
             return this.$('.st-button-wrapper .btn');
         },
         toData: function() {
+            console.log('toData');
             var data;
             data = {};
             this.$('select, input').each(function() {
