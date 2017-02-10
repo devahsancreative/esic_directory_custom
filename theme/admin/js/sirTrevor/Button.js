@@ -64,7 +64,6 @@
         },
         onBlockRender: function() {
             var $block_checkbox, $sizes_select, $styles_select,$html_value;
-            var bigBtn = this.getButton();
             this.getWrapper().on('click keyup', (function(_this) {
                 return function() {
                     return _this.checkForButton();
@@ -123,8 +122,9 @@
             $html_value.on('change keyup', (function(_this) {
                 return function() {
                     //get current value first. then assign it to the textbox
-                    var button = _this.getButton().html();
-                    return  bigBtn.html(button);
+                    console.log('just pressed a key');
+                    var value = $(this).val();
+                    return _this.getButton().html(value);
                 };
             })(this));
             //End of Haider Change
