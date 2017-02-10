@@ -1,4 +1,18 @@
 <?php echo $header;?>
+<style>
+.main-footer{
+ margin: 0;
+}
+.btn-dark{
+    background-color: #6d6d6d;
+}
+.btn-dark:hover{
+color: #fff;
+background-color: #494949;
+border-color: #494949;
+text-decoration: none !important;
+}
+</style>
 <link href="<?php echo ADMIN_THEME; ?>/js/trevor/sir-trevor.css" rel="stylesheet">
 <link href="<?php echo ADMIN_THEME; ?>/js/trevor/sir-trevor-bootstrap.css" rel="stylesheet">
 <link href="<?php echo ADMIN_THEME; ?>/js/trevor/sir-trevor-icons.css" rel="stylesheet">

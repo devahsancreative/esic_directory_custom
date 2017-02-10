@@ -41,7 +41,8 @@
 
 /*added by Hamid Raza */
 
-.btn-primary {
+.btn-dark {
+    color: #fff;
     font-size: 1em !important;
     height: auto !important;
     line-height: 1.25 !important;
@@ -54,7 +55,7 @@
 	text-align:center !important;
 }
 
-.btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+.btn-dark:hover, .btn-dark:focus, .btn-dark.focus, .btn-dark:active, .btn-dark.active, .open>.dropdown-toggle.btn-dark {
     color: #fff;
     background-color: #494949; 
     border-color: #494949;
