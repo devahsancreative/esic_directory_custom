@@ -17,7 +17,9 @@
             'btn-success': 'Success',
             'btn-info': 'Info',
             'btn-warning': 'Warning',
-            'btn-danger': 'Danger'
+            'btn-danger': 'Danger',
+            'btn-dark': 'Dark'
+
         },
         type: "button",
         title: 'Button',
