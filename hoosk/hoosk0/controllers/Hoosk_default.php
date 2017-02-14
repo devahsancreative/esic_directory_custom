@@ -7,11 +7,13 @@ class Hoosk_default extends CI_Controller {
 		parent::__construct();
 	
 		$this->load->model('Hoosk_page_model');
+        $this->load->model('Hoosk_model');
 		$this->load->helper('hoosk_page_helper');
 		define ('SITE_NAME', $this->Hoosk_page_model->getSiteName());
 		define ('THEME', $this->Hoosk_page_model->getTheme());
 		define ('THEME_FOLDER', BASE_URL.'/theme/'.THEME);
 		$this->data['settings']=$this->Hoosk_page_model->getSettings();
+        $this->data['settings_footer'] = $this->Hoosk_model->getSettings();
 	}
 	
 	

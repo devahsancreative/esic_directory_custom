@@ -2,8 +2,7 @@
 <html lang="en">
 
 	<head>
-
-		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
 		<title><?php echo $page['pageTitle']; ?> | <?php echo $settings['siteTitle']; ?> </title>
 		<meta name="description" content="<?php echo $page['pageDescription']; ?> " />
@@ -15,8 +14,10 @@
 		<![endif]-->
 		<link href="<?php echo THEME_FOLDER; ?>/css/socicon.css" rel="stylesheet">
 		<link href="<?php echo THEME_FOLDER; ?>/css/styles.css" rel="stylesheet">
+		<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 	</head>
 <body>
+
 
 
 <nav class="navbar navbar-fixed-top navbar-inverse">

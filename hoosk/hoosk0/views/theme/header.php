@@ -13,10 +13,7 @@
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-		<link href="<?php echo THEME_FOLDER; ?>css/socicon.css" rel="stylesheet">
-		<link href="<?php echo THEME_FOLDER; ?>css/styles.css" rel="stylesheet">
-        
-        
+
         
 		<!--link href="<?php// echo THEME_FOLDER; ?>css/bootstrap.min.css" rel="stylesheet"-->
 	    <link href="<?php echo THEME_FOLDER; ?>css/socicon.css" rel="stylesheet">

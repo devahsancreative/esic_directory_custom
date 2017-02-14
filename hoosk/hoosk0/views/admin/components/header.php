@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>ESIC Directory <?=isset($title)?" | ".$title:"";?></title>
@@ -8,26 +9,26 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.6 -->
     <link rel="stylesheet" href="<?= base_url()?>assets/vendors/bootstrap/css/bootstrap.min.css">
-    
-      
+
+
     <!-- Font Awesome -->
 <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">-->
     <link rel="stylesheet" href="<?php echo base_url()?>assets/vendors/font-awesome/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
- 
-    
+
+
     <!-- DataTables -->
     <link rel="stylesheet" href="<?= base_url()?>assets/vendors/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="<?= base_url()?>assets/vendors/datatables/responsive.bootstrap.css">
-    
+
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= base_url()?>assets/css/AdminLTE.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="<?= base_url()?>assets/css/_all-skins.min.css">
     <link href="<?= base_url()?>assets/vendors/select2/dist/css/select2.min.css" rel="stylesheet" />
-  
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -39,12 +40,12 @@
      .add-New-container{
             text-align: right;
             padding: 5px 0px;
-      }  
+      }
       .addNewBtn{
             background-color: #337ab7;
             color: #fff;
             padding: 5px 20px;
-      }  
+      }
     </style>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -108,4 +109,3 @@
     </header>
     <!-- Left side column. contains the logo and sidebar -->
     <?php $this->load->view('admin/components/main-sidebar/main'); ?>
-	

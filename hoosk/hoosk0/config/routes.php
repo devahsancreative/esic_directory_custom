@@ -311,7 +311,8 @@ $route['Reg/addAcceleratorProgramme'] 	= "Reg/addAcceleratorProgramme";
 // Reg2 Controller
 $route['Reg2']  = "Reg2";
 $route['Reg2/index'] 	= "Reg2/index";
-$route['innovators/esic_pre_assessment'] 	= "Reg2/index";
+//$route['innovators/esic_pre_assessment'] 	= "Reg2/index";
+$route['innovators'] 	= "Reg2/index";
 
 $route['Reg2/submit'] 	= "Reg2/submit";
 $route['Reg2/step2'] 	= "Reg2/step2";

@@ -30,13 +30,8 @@
 .ShowInnovationDiv .addBtn{
 	   margin-top:3px;
 	   }
-	    .navbar-inverse{
-			background-color: rgba(0, 0, 0, 0.6);
-		 }
-		 .navbar-nav>li>a
-		 {
-		  color:#FFF!important;
-		 }
+
+
         #mainFormDiv {
           /*background-color: #424242;*/
 		  background-color:#ffffff;/*added by Hamid Raza*/

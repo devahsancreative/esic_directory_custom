@@ -60,7 +60,11 @@
 <div class="container">
     <?php echo $page['pageContentHTML']; ?>
 
-  	<hr>
+sadasdadasd
+    <hr>
+    <div class="map"> <iframe frameborder="0" id="mapjam-iframe" src="//embeds.mapjam.com/v2/map-embed.html?app_url=https://mapjam.com/&cdn_url=//mapjamjson.global.ssl.fastly.net/&map_id=esicdirectory&access_token=&content_action=side_popup&map_width=800px&map_height=600px&container=mapjam-1&domain=mapjam.com" style="width: 100%;height: 600px;margin-bottom:5px;"></iframe><div style="margin-bottom:5px;text-align: left;font-size: 12px;color: #12bf9c;"> <a href="//mapjam.com" title="Create a map" target="_blank"> Create a map </a> </div>
+
+
 </div>
 <!-- /CONTENT ============-->
 
