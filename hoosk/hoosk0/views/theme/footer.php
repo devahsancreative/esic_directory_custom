@@ -1,15 +1,15 @@
  <!--views theme footer for static pages forms etc Hamid Raza -->
-  <div class="container footer footer-wraper">
+  <div class=" footer footer-wraper">
 
-    <div class="row">
-         <div class="col-md-4 col-xs-12 col-sm-6 text-center footermenu">
+    <div class="container row">
+         <div class="col-md-4 col-xs-12 col-sm-6 footermenu">
               <?php hooskNav('footer'); ?>
               <p> <?php  echo $settings['siteFooter']; ?> </p>
          </div>
-         <div class="col-md-4 col-xs-12 col-sm-6   text-center footermenu">
+         <div class="col-md-4col-xs-12 col-sm-6  footermenu">
                <?php hooskNav('footer-cen'); ?>
          </div>
-    <div class="col-md-4 col-xs-12 col-sm-6   text-center social">
+    <div class="col-md-4 col-xs-12 col-sm-6  social">
          <?php getSocial(); ?>
 		 <?php  $settings = $this->Hoosk_model->getSettings();?>
         <ul>
@@ -21,7 +21,7 @@
     </div>
 
    <?= $settings[0]['footer_bottom_text']?>
-	  
+
 
    
     </div>

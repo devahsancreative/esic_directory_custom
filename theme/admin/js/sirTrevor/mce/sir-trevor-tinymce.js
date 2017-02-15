@@ -16,7 +16,7 @@
         ],*/
 
         toolbar: "undo redo | styleselect | fontsizeselect | forecolor | backcolor | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link | table",
-        fontsize_formats: "8px 10px 12px 14px 18px 24px 36px 40px"
+        fontsize_formats: "8px 10px 12px 14px 18px 24px 28px 30px 36px 40px"
 
     };
 

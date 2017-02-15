@@ -3,6 +3,10 @@
 .main-footer{
  margin: 0;
 }
+.btn-blue{
+    background-color: #00a3fe;
+    color:#ffffff;
+}
 .btn-dark{
     background-color: #6d6d6d;
 }

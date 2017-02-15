@@ -35,6 +35,7 @@
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
     <![endif]-->
     <style type="text/css" media="screen">
      .add-New-container{

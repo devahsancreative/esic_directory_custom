@@ -18,7 +18,8 @@
             'btn-info': 'Info',
             'btn-warning': 'Warning',
             'btn-danger': 'Danger',
-            'btn-dark': 'Dark'
+            'btn-dark': 'Dark',
+            'btn-blue': 'Blue'
 
         },
         type: "button",

@@ -32,7 +32,7 @@
 <link href="<?= base_url();?>assets/css/form2.css" rel="stylesheet">
 <link href="<?= base_url();?>assets/css/boxlisting2.css" rel="stylesheet">
 <link href="<?= base_url();?>assets/vendors/select2/dist/css/select2.min.css" rel="stylesheet" />
-
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
 
  <!--script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script-->
    <script src="https://code.jquery.com/jquery-1.12.4.js"  integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="

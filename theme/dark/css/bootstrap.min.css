@@ -3,7 +3,7 @@
  * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  *//*! normalize.css v3.0.2 | MIT License | git.io/normalize */html {
-	font-family: sans-serif;
+	font-family: 'open sans',sans-serif;
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%
 }
@@ -922,7 +922,7 @@ hr {
 	clip: auto
 }
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-	font-family: inherit;
+	font-family: 'open sans', Sans-Serif;
 	font-weight: 500;
 	line-height: 1.3;
 	color: inherit

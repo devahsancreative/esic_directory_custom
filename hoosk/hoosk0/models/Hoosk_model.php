@@ -1143,7 +1143,7 @@ class Hoosk_model extends CI_Model {
 
 		$data = array(
 
-			'siteTheme' => $this->input->post('siteTheme'),
+			//'siteTheme' => $this->input->post('siteTheme'),
 
 			'siteLang' => $this->input->post('siteLang'),
 

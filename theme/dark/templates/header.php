@@ -15,12 +15,42 @@
 		<link href="<?php echo THEME_FOLDER; ?>/css/socicon.css" rel="stylesheet">
 		<link href="<?php echo THEME_FOLDER; ?>/css/styles.css" rel="stylesheet">
 		<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
 	</head>
 <body>
 
 
 
 <nav class="navbar navbar-fixed-top navbar-inverse">
+
+	<!---- left side menu ------>
+
+	<div id="wrapper">
+		<div class="overlay"></div>
+
+		<!-- Sidebar -->
+		<nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+
+		<div class="leftsidebar">	<?php hooskNav('sidebar') ?>
+			<ul class="nav navbar-nav"><li><a href="<?= BASE_URL ?>/admin" >login</a></li></ul>
+		</div>
+
+		</nav>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+				<span class="hamb-top"></span>
+				<span class="hamb-middle"></span>
+				<span class="hamb-bottom"></span>
+			</button>
+
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
     <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -31,12 +61,16 @@
       <!--<a class="navbar-brand" href="<?php // echo BASE_URL; ?>">
           <img src="<?php // echo BASE_URL; ?>/images/<?php // echo $settings['siteLogo']; ?>" alt="Hoosk">
       </a>--->
-      </div>
+
+
+	</div>
+
+
     <div class="collapse navbar-collapse">
 
 
 <?php hooskNav('header') ?>
-		<ul class="nav navbar-nav"><li><a href="<?= BASE_URL ?>/admin" >login</a></li></ul>
+
 </div>
 
     </div><!-- /.container -->
