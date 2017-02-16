@@ -70,6 +70,21 @@
 
 
 <?php hooskNav('header') ?>
+		<div class="container">
+			<form class="searchbox">
+				<input type="search" placeholder="Search......" name="search" class="searchbox-input" onkeyup="buttonUp();" required>
+				<input type="submit" class="searchbox-submit" value="GO">
+				<span class="searchbox-icon">GO</span>
+			</form>
+		</div>
+
+		<div class="container">
+			<form class="searchbox">
+				<input type="search" placeholder="Search......" name="search" class="searchbox-input" onkeyup="buttonUp();" required>
+				<input type="submit" class="searchbox-submit" value="GO">
+				<span class="searchbox-icon">GO</span>
+			</form>
+		</div>
 
 </div>
 
