@@ -70,21 +70,104 @@
 
 
 <?php hooskNav('header') ?>
-		<div class="container">
-			<form class="searchbox">
-				<input type="search" placeholder="Search......" name="search" class="searchbox-input" onkeyup="buttonUp();" required>
-				<input type="submit" class="searchbox-submit" value="GO">
-				<span class="searchbox-icon">GO</span>
-			</form>
+		<div class="searchbar">
+		   <form id="demo-2">
+			  <input type="search" placeholder="Search">
+		   </form>
 		</div>
 
-		<div class="container">
-			<form class="searchbox">
-				<input type="search" placeholder="Search......" name="search" class="searchbox-input" onkeyup="buttonUp();" required>
-				<input type="submit" class="searchbox-submit" value="GO">
-				<span class="searchbox-icon">GO</span>
-			</form>
-		</div>
+<style>
+
+	.searchbar a {
+		color: #69C;
+		text-decoration: none;
+	}
+	.searchbar a:hover {
+		color: #F60;
+	}
+	.searchbar h1 {
+		font: 1.7em;
+		line-height: 110%;
+		color: #000;
+	}
+	.searchbar p {
+		margin: 0 0 20px;
+	}
+
+
+	.searchbar input {
+		outline: none;
+	}
+	.searchbar input[type=search] {
+		background-color: #f7f4f4 !important;
+		-webkit-appearance: textfield;
+		-webkit-box-sizing: content-box;
+		font-family: inherit;
+		font-size: 100%;
+	}
+	.searchbar input::-webkit-search-decoration,
+	.searchbar input::-webkit-search-cancel-button {
+		display: none;
+	}
+
+
+	.searchbar input[type=search] {
+		background: #ededed url(http://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+		border: solid 1px #ccc;
+		padding: 8px 12px 8px 8px;
+		margin: 9px  10%;
+		width: 55px;
+
+		-webkit-border-radius: 10em;
+		-moz-border-radius: 10em;
+		border-radius: 10em;
+
+		-webkit-transition: all .5s;
+		-moz-transition: all .5s;
+		transition: all .5s;
+	}
+	.searchbar input[type=search]:focus {
+		width: 200px !important;
+		background-color: #C2CCD1;
+		border-color: #66CC75;
+
+		-webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+		-moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+		box-shadow: 0 0 5px rgba(109,207,246,.5);
+	}
+
+
+	.searchbar input:-moz-placeholder {
+		color: #999;
+	}
+	.searchbar input::-webkit-input-placeholder {
+		color: #999;
+	}
+
+	/* Demo 2 */
+	.searchbar #demo-2 input[type=search] {
+		width: 15px;
+		padding-left: 10px;
+		color: transparent;
+		cursor: pointer;
+	}
+	.searchbar #demo-2 input[type=search]:hover {
+		background-color: #fff;
+	}
+	.searchbar #demo-2 input[type=search]:focus {
+		width: 130px;
+		padding-left: 32px;
+		color: #000;
+		background-color: #fff;
+		cursor: auto;
+	}
+	.searchbar #demo-2 input:-moz-placeholder {
+		color: transparent;
+	}
+	.searchbar #demo-2 input::-webkit-input-placeholder {
+		color: transparent;
+	}
+</style>
 
 </div>
 
