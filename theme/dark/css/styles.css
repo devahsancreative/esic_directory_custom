@@ -108,21 +108,23 @@ td, th {
 }
  .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover{
 
-     color: #fff !important;
-     background-color: #00a3fe !important;
+     color: black !important;
+     background-color:  rgba(153, 153, 153, 0.61) !important;
+}
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus{
+
+    color: black !important;
+    background-color: rgba(153, 153, 153, 0.61) !important;
+}
+.nav>li>a:hover, .nav>li>a:focus {
+    color: black !important;
+    background-color: rgba(153, 153, 153, 0.61) !important;
 }
 .navbar-nav > li > a {
-    text-transform:capitalize;
-
+    text-transform:uppercase;
+    color: black !important;
     padding: 18px 12px 18px !important;
-   /* display: block;
-    font-family: 'Lato', sans-serif;
-    color: #66695A;
 
-    list-style-type: none;
-    font-size: 0.8em;
-    font-weight: bold;
-    */
 }
 
 .btn-lg, .btn-sm, .btn-xs {margin:5px 0;display:inline-block;}
@@ -197,11 +199,11 @@ a:hover, a:focus {
 .footer .container {
    text-align: center;
    margin: 0 auto !important;
-   background: rgb(0, 163, 254) !important;
+   background: rgba(204, 204, 204, 0.960784); !important;
 }
 .footermenu .nav>li>a:hover, .nav>li>a:focus {
 
-    background-color: #00a3fe;
+    background-color: rgba(204, 204, 204, 0.960784);
     font-family: "Open Sans";
     font-weight: normal;
     font-size: 12px;
@@ -217,7 +219,7 @@ a:hover, a:focus {
 
 }
 .paragraph_footer p{
-    color: #fff;
+
     font-family: "Open Sans";
     font-weight: normal;
     font-size: 12px;
@@ -225,7 +227,7 @@ a:hover, a:focus {
 }
 .footer-wraper p{
 
-    color: #fff !important;
+
     text-align: center;
     font-family: "Open Sans";
     font-weight: normal;
@@ -267,13 +269,12 @@ a:hover, a:focus {
    width: 100%;
 }
 .footermenu .navbar-nav > li > a {
-   color: #fff !important;
+
     float: none;
     text-align: center;
  }
 .footer-wraper{
-    background: rgb(0, 163, 254) !important;
-    color: #fff !important;
+    background: rgba(204, 204, 204, 0.960784) !important;
     margin: 24px 0 0 0 !important;
     width: 100% !important;
     z-index: 10;
@@ -391,8 +392,11 @@ li.dropdown:hover .dropdown-menu /* Drop Down Menu */
 	    }
 	}
 /*================== Common  style  ====================*/
+.navbar-inverse2{
+    background-color: rgba(204, 204, 204, 0.67) !important;
+}
 .navbar-inverse {
-    background-color: hsla(201, 100%, 50%, .5) !important;
+    /* background-color: hsla(201, 100%, 50%, .5) !important; */
     opacity: 1 !important;
     border-top: 3px solid #4c83c3 !important ;
     border-bottom: aliceblue !important;
@@ -403,15 +407,8 @@ li.dropdown:hover .dropdown-menu /* Drop Down Menu */
     font-size: inherit !important;
 
 }
-.navbar-inverse .navbar-nav>li>a:hover {
-    color: #fff !important;
-    background-color: #00a3fe !important;
- }
- .navbar-inverse .navbar-nav>.active
- {
-     color: #777 !important;
-     background-color: #dddddd !important;
- }
+
+
 
 
 .navbar-inverse .navbar-nav>li>a:focus{
@@ -464,8 +461,9 @@ li.dropdown:hover .dropdown-menu /* Drop Down Menu */
 
 
 /*header style */
+
 .leftsidebar .navbar-nav > li > a {
-    text-transform: capitalize;
+    text-transform:uppercase;
     padding: 9px 12px 9px !important;
 }
 .leftsidebar .nav .navbar-nav  li {
@@ -510,7 +508,7 @@ li.dropdown:hover .dropdown-menu /* Drop Down Menu */
     margin-left: -220px;
     overflow-y: auto;
     overflow-x: hidden;
-    background: #00a3fe !important;
+
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;

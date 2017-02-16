@@ -64918,3 +64918,6381 @@ DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
 DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
 INFO - 1 --> Final output sent to browser
 DEBUG - 1 --> Total execution time: 2.0961
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Controller Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Controller Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Controller Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Loader Class Initialized
+DEBUG - 1 --> Total execution time: 2.3361
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> Total execution time: 2.2291
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Language Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> Total execution time: 2.3391
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> Total execution time: 2.3521
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.3071
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> Total execution time: 2.3581
+DEBUG - 1 --> Total execution time: 2.5511
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.4461
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.4081
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Config Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+DEBUG - 1 --> UTF-8 Support Enabled
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Input Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Controller Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 3.0412
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 3.5822
+DEBUG - 1 --> Total execution time: 3.8772
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 3.2152
+DEBUG - 1 --> Total execution time: 4.0422
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 3.6372
+DEBUG - 1 --> Total execution time: 4.4553
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Config Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Language Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> Total execution time: 2.3331
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.7692
+DEBUG - 1 --> Total execution time: 2.3241
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> Total execution time: 2.2471
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> Total execution time: 2.6592
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> Total execution time: 2.3101
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.9672
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.7592
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.2061
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.2761
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.2571
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.2041
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Config Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.5351
+DEBUG - 1 --> Total execution time: 2.4031
+DEBUG - 1 --> Total execution time: 2.2251
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.2481
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.2651
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Input Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Language Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> Total execution time: 2.2581
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> Total execution time: 2.1421
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.1841
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Language Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> Total execution time: 2.8122
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> Total execution time: 2.6702
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.8532
+DEBUG - 1 --> Total execution time: 2.5951
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Input Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Loader Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Loader Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Language Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Controller Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Language Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Language Class Initialized
+DEBUG - 1 --> Total execution time: 2.4791
+INFO - 1 --> Loader Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Total execution time: 2.5421
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> Total execution time: 2.6892
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Input Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Language Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Input Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Input Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> Total execution time: 3.2742
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Controller Class Initialized
+DEBUG - 1 --> Total execution time: 3.0692
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> Total execution time: 2.8262
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Total execution time: 3.1312
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Language Class Initialized
+DEBUG - 1 --> Total execution time: 3.2812
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Input Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Controller Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> Total execution time: 3.3212
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Language Class Initialized
+DEBUG - 1 --> Total execution time: 2.9452
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> Total execution time: 3.5572
+DEBUG - 1 --> Total execution time: 3.0602
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Controller Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Controller Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+DEBUG - 1 --> UTF-8 Support Enabled
+DEBUG - 1 --> Total execution time: 2.9042
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> Total execution time: 2.8612
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.7762
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Language Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Loader Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Total execution time: 2.4451
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Total execution time: 2.5631
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Loader Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Total execution time: 3.1932
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> Total execution time: 3.3662
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> Total execution time: 3.1712
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> Total execution time: 3.5282
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> Total execution time: 3.5232
+DEBUG - 1 --> Total execution time: 3.5792
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 4.0022
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Language Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> Total execution time: 2.3211
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.3141
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.4861
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.2951
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Language Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> Total execution time: 2.6142
+DEBUG - 1 --> Total execution time: 2.5111
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> Total execution time: 2.4301
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.5301
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.2581
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Config Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Language Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Controller Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.4291
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> Total execution time: 2.8592
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> Total execution time: 2.5321
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.9902
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> Total execution time: 2.3741
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> Total execution time: 2.3061
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.2611
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> Total execution time: 2.7042
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.3161
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Language Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Loader Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Controller Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Loader Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Controller Class Initialized
+DEBUG - 1 --> Total execution time: 2.4361
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Total execution time: 2.3311
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> Total execution time: 2.4661
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.4941
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> Total execution time: 2.3651
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.2141
+DEBUG - 1 --> Total execution time: 2.3911
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.8852
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Loader Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> Total execution time: 2.5211
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> Total execution time: 2.9112
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.7872
+DEBUG - 1 --> Total execution time: 2.6011
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.5711
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Config Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Input Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Language Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> Total execution time: 2.3911
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> Total execution time: 2.6291
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> Total execution time: 2.2731
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.7702
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Input Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Language Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> Total execution time: 2.4171
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> Total execution time: 2.3291
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.3791
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Controller Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> Total execution time: 3.0942
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.9852
+DEBUG - 1 --> Total execution time: 2.9642
+DEBUG - 1 --> Total execution time: 2.8482
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Loader Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Controller Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> Total execution time: 2.6682
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.7762
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> Total execution time: 3.4222
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 3.3092
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Language Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> Total execution time: 2.2741
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.4391
+DEBUG - 1 --> Total execution time: 2.7942
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Config Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Input Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> Total execution time: 2.3251
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.7192
+DEBUG - 1 --> Total execution time: 2.3511
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> Total execution time: 2.4031
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.3191
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.6872
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.6161
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.6632
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> Total execution time: 2.5441
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> Total execution time: 2.7492
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.8112
+DEBUG - 1 --> Total execution time: 2.6312
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Language Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.3051
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> Total execution time: 2.3201
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.3491
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Config Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 1 --> UTF-8 Support Enabled
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Loader Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Input Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Controller Class Initialized
+DEBUG - 1 --> Total execution time: 2.6802
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Loader Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Controller Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> Total execution time: 3.1182
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> Total execution time: 3.9292
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Total execution time: 3.7072
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> Total execution time: 3.6152
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 3.8912
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> Total execution time: 2.5351
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> Total execution time: 2.3301
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.1831
+DEBUG - 1 --> Total execution time: 2.5331
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.2831
+DEBUG - 1 --> Total execution time: 2.4331
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Helper loaded: admincontrol_helper
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Helper loaded: url_helper
+INFO - 1 --> Helper loaded: admincontrol_helper
+INFO - 1 --> Helper loaded: url_helper
+INFO - 1 --> Helper loaded: hoosk_admin_helper
+DEBUG - 1 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+INFO - 1 --> Helper loaded: my_site_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Session: Class initialized using 'database' driver.
+DEBUG - 1 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+INFO - 1 --> Session: Class initialized using 'database' driver.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language file loaded: language/english/admin_lang.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language file loaded: language/english/admin_lang.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> Datatables class already loaded. Second attempt ignored.
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Helper loaded: cookie_helper
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/page_not_found.php
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Helper loaded: admincontrol_helper
+INFO - 1 --> Helper loaded: url_helper
+INFO - 1 --> Helper loaded: hoosk_admin_helper
+INFO - 1 --> Helper loaded: my_site_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+INFO - 1 --> Session: Class initialized using 'database' driver.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language file loaded: language/english/admin_lang.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Datatables class already loaded. Second attempt ignored.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: cookie_helper
+DEBUG - 1 --> Session class already loaded. Second attempt ignored.
+INFO - 1 --> Helper loaded: form_helper
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/headerlog.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/footer.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/login.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 5.4743
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Helper loaded: admincontrol_helper
+INFO - 1 --> Helper loaded: url_helper
+INFO - 1 --> Helper loaded: hoosk_admin_helper
+INFO - 1 --> Helper loaded: my_site_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+INFO - 1 --> Session: Class initialized using 'database' driver.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language file loaded: language/english/admin_lang.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Datatables class already loaded. Second attempt ignored.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: cookie_helper
+DEBUG - 1 --> Session class already loaded. Second attempt ignored.
+INFO - 1 --> Helper loaded: form_helper
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/headerlog.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/footer.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/login.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 4.2092
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Helper loaded: admincontrol_helper
+INFO - 1 --> Helper loaded: url_helper
+INFO - 1 --> Helper loaded: hoosk_admin_helper
+INFO - 1 --> Helper loaded: my_site_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+INFO - 1 --> Session: Class initialized using 'database' driver.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language file loaded: language/english/admin_lang.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Datatables class already loaded. Second attempt ignored.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: cookie_helper
+DEBUG - 1 --> Session class already loaded. Second attempt ignored.
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Helper loaded: admincontrol_helper
+INFO - 1 --> Helper loaded: url_helper
+INFO - 1 --> Helper loaded: hoosk_admin_helper
+INFO - 1 --> Helper loaded: my_site_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+INFO - 1 --> Session: Class initialized using 'database' driver.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language file loaded: language/english/admin_lang.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Datatables class already loaded. Second attempt ignored.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: cookie_helper
+DEBUG - 1 --> Session class already loaded. Second attempt ignored.
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/user-panel.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/form.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/menu.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/main.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/header.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/footer.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/home.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 6.0393
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Helper loaded: admincontrol_helper
+INFO - 1 --> Helper loaded: url_helper
+INFO - 1 --> Helper loaded: hoosk_admin_helper
+INFO - 1 --> Helper loaded: my_site_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+INFO - 1 --> Session: Class initialized using 'database' driver.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language file loaded: language/english/admin_lang.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Datatables class already loaded. Second attempt ignored.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: cookie_helper
+DEBUG - 1 --> Session class already loaded. Second attempt ignored.
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 3.7442
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Helper loaded: admincontrol_helper
+INFO - 1 --> Helper loaded: url_helper
+INFO - 1 --> Helper loaded: hoosk_admin_helper
+INFO - 1 --> Helper loaded: my_site_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+INFO - 1 --> Session: Class initialized using 'database' driver.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language file loaded: language/english/admin_lang.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Datatables class already loaded. Second attempt ignored.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: cookie_helper
+INFO - 1 --> Helper loaded: file_helper
+DEBUG - 1 --> Session class already loaded. Second attempt ignored.
+INFO - 1 --> Language file loaded: language/english/pagination_lang.php
+INFO - 1 --> Pagination Class Initialized
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/user-panel.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/form.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/menu.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/main.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/header.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/footer.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/pages.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 4.7193
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Helper loaded: admincontrol_helper
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Helper loaded: url_helper
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Helper loaded: hoosk_admin_helper
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Helper loaded: my_site_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Helper loaded: admincontrol_helper
+DEBUG - 1 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+INFO - 1 --> Helper loaded: url_helper
+INFO - 1 --> Session: Class initialized using 'database' driver.
+INFO - 1 --> Helper loaded: hoosk_admin_helper
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: my_site_helper
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Language file loaded: language/english/admin_lang.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Datatables class already loaded. Second attempt ignored.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: cookie_helper
+INFO - 1 --> Helper loaded: file_helper
+DEBUG - 1 --> Session class already loaded. Second attempt ignored.
+INFO - 1 --> Helper loaded: form_helper
+INFO - 1 --> Helper loaded: ckeditor_helper
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/user-panel.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/form.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/menu.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/main.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/header.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/footer.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/page_edit.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 5.0253
+INFO - 1 --> Session: Class initialized using 'database' driver.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language file loaded: language/english/admin_lang.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Datatables class already loaded. Second attempt ignored.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: cookie_helper
+INFO - 1 --> Helper loaded: file_helper
+DEBUG - 1 --> Session class already loaded. Second attempt ignored.
+INFO - 1 --> Language file loaded: language/english/pagination_lang.php
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Pagination Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/user-panel.php
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/form.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/menu.php
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/main.php
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/header.php
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/footer.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/pages.php
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+DEBUG - 1 --> Total execution time: 7.3994
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Helper loaded: admincontrol_helper
+INFO - 1 --> Helper loaded: url_helper
+INFO - 1 --> Helper loaded: hoosk_admin_helper
+INFO - 1 --> Helper loaded: my_site_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+INFO - 1 --> Session: Class initialized using 'database' driver.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language file loaded: language/english/admin_lang.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Datatables class already loaded. Second attempt ignored.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: cookie_helper
+INFO - 1 --> Helper loaded: file_helper
+DEBUG - 1 --> Session class already loaded. Second attempt ignored.
+INFO - 1 --> Helper loaded: form_helper
+INFO - 1 --> Helper loaded: ckeditor_helper
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/user-panel.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/form.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/menu.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/main.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/header.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/footer.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/page_edit.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 5.1293
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Helper loaded: admincontrol_helper
+INFO - 1 --> Helper loaded: url_helper
+INFO - 1 --> Helper loaded: hoosk_admin_helper
+INFO - 1 --> Helper loaded: my_site_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+INFO - 1 --> Session: Class initialized using 'database' driver.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language file loaded: language/english/admin_lang.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Datatables class already loaded. Second attempt ignored.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: cookie_helper
+DEBUG - 1 --> Session class already loaded. Second attempt ignored.
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Helper loaded: admincontrol_helper
+INFO - 1 --> Helper loaded: url_helper
+INFO - 1 --> Helper loaded: hoosk_admin_helper
+INFO - 1 --> Helper loaded: my_site_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+INFO - 1 --> Session: Class initialized using 'database' driver.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language file loaded: language/english/admin_lang.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Datatables class already loaded. Second attempt ignored.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: cookie_helper
+DEBUG - 1 --> Session class already loaded. Second attempt ignored.
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/user-panel.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/form.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/menu.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/main.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/header.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/footer.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/home.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 4.4243
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Helper loaded: admincontrol_helper
+INFO - 1 --> Helper loaded: url_helper
+INFO - 1 --> Helper loaded: hoosk_admin_helper
+INFO - 1 --> Helper loaded: my_site_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+INFO - 1 --> Session: Class initialized using 'database' driver.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language file loaded: language/english/admin_lang.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Datatables class already loaded. Second attempt ignored.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: cookie_helper
+DEBUG - 1 --> Session class already loaded. Second attempt ignored.
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 4.0722
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Helper loaded: admincontrol_helper
+INFO - 1 --> Helper loaded: url_helper
+INFO - 1 --> Helper loaded: hoosk_admin_helper
+INFO - 1 --> Helper loaded: my_site_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+INFO - 1 --> Session: Class initialized using 'database' driver.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language file loaded: language/english/admin_lang.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Datatables class already loaded. Second attempt ignored.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: cookie_helper
+INFO - 1 --> Helper loaded: file_helper
+DEBUG - 1 --> Session class already loaded. Second attempt ignored.
+INFO - 1 --> Language file loaded: language/english/pagination_lang.php
+INFO - 1 --> Pagination Class Initialized
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/user-panel.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/form.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/menu.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/main.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/header.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/footer.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/pages.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 4.2422
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Helper loaded: admincontrol_helper
+INFO - 1 --> Helper loaded: url_helper
+INFO - 1 --> Helper loaded: hoosk_admin_helper
+INFO - 1 --> Helper loaded: my_site_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+INFO - 1 --> Session: Class initialized using 'database' driver.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language file loaded: language/english/admin_lang.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Datatables class already loaded. Second attempt ignored.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: cookie_helper
+INFO - 1 --> Helper loaded: file_helper
+DEBUG - 1 --> Session class already loaded. Second attempt ignored.
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/page_delete.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 3.5472
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Helper loaded: admincontrol_helper
+INFO - 1 --> Helper loaded: url_helper
+INFO - 1 --> Helper loaded: hoosk_admin_helper
+INFO - 1 --> Helper loaded: my_site_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+INFO - 1 --> Session: Class initialized using 'database' driver.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language file loaded: language/english/admin_lang.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Datatables class already loaded. Second attempt ignored.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: cookie_helper
+INFO - 1 --> Helper loaded: file_helper
+DEBUG - 1 --> Session class already loaded. Second attempt ignored.
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Helper loaded: admincontrol_helper
+INFO - 1 --> Helper loaded: url_helper
+INFO - 1 --> Helper loaded: hoosk_admin_helper
+INFO - 1 --> Helper loaded: my_site_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+INFO - 1 --> Session: Class initialized using 'database' driver.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language file loaded: language/english/admin_lang.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Datatables class already loaded. Second attempt ignored.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: cookie_helper
+INFO - 1 --> Helper loaded: file_helper
+DEBUG - 1 --> Session class already loaded. Second attempt ignored.
+INFO - 1 --> Language file loaded: language/english/pagination_lang.php
+INFO - 1 --> Pagination Class Initialized
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/user-panel.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/form.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/menu.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/main.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/header.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/footer.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/pages.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 4.1722
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Helper loaded: admincontrol_helper
+INFO - 1 --> Helper loaded: url_helper
+INFO - 1 --> Helper loaded: hoosk_admin_helper
+INFO - 1 --> Helper loaded: my_site_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+INFO - 1 --> Session: Class initialized using 'database' driver.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language file loaded: language/english/admin_lang.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Datatables class already loaded. Second attempt ignored.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: cookie_helper
+INFO - 1 --> Helper loaded: file_helper
+DEBUG - 1 --> Session class already loaded. Second attempt ignored.
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/page_delete.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 3.5692
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Helper loaded: admincontrol_helper
+INFO - 1 --> Helper loaded: url_helper
+INFO - 1 --> Helper loaded: hoosk_admin_helper
+INFO - 1 --> Helper loaded: my_site_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+INFO - 1 --> Session: Class initialized using 'database' driver.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language file loaded: language/english/admin_lang.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Datatables class already loaded. Second attempt ignored.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: cookie_helper
+INFO - 1 --> Helper loaded: file_helper
+DEBUG - 1 --> Session class already loaded. Second attempt ignored.
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Helper loaded: admincontrol_helper
+INFO - 1 --> Helper loaded: url_helper
+INFO - 1 --> Helper loaded: hoosk_admin_helper
+INFO - 1 --> Helper loaded: my_site_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+INFO - 1 --> Session: Class initialized using 'database' driver.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language file loaded: language/english/admin_lang.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Datatables class already loaded. Second attempt ignored.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: cookie_helper
+INFO - 1 --> Helper loaded: file_helper
+DEBUG - 1 --> Session class already loaded. Second attempt ignored.
+INFO - 1 --> Language file loaded: language/english/pagination_lang.php
+INFO - 1 --> Pagination Class Initialized
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/user-panel.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/form.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/menu.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/main.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/header.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/footer.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/pages.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 4.1722
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Helper loaded: admincontrol_helper
+INFO - 1 --> Helper loaded: url_helper
+INFO - 1 --> Helper loaded: hoosk_admin_helper
+INFO - 1 --> Helper loaded: my_site_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+INFO - 1 --> Session: Class initialized using 'database' driver.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language file loaded: language/english/admin_lang.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Datatables class already loaded. Second attempt ignored.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: cookie_helper
+INFO - 1 --> Helper loaded: file_helper
+DEBUG - 1 --> Session class already loaded. Second attempt ignored.
+INFO - 1 --> Language file loaded: language/english/pagination_lang.php
+INFO - 1 --> Pagination Class Initialized
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/user-panel.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/form.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/menu.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/main.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/header.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/footer.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/pages.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 4.2702
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Helper loaded: admincontrol_helper
+INFO - 1 --> Helper loaded: url_helper
+INFO - 1 --> Helper loaded: hoosk_admin_helper
+INFO - 1 --> Helper loaded: my_site_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+INFO - 1 --> Session: Class initialized using 'database' driver.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language file loaded: language/english/admin_lang.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Datatables class already loaded. Second attempt ignored.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: cookie_helper
+INFO - 1 --> Helper loaded: file_helper
+DEBUG - 1 --> Session class already loaded. Second attempt ignored.
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/page_delete.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 3.4022
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Helper loaded: admincontrol_helper
+INFO - 1 --> Helper loaded: url_helper
+INFO - 1 --> Helper loaded: hoosk_admin_helper
+INFO - 1 --> Helper loaded: my_site_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+INFO - 1 --> Session: Class initialized using 'database' driver.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language file loaded: language/english/admin_lang.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Datatables class already loaded. Second attempt ignored.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: cookie_helper
+INFO - 1 --> Helper loaded: file_helper
+DEBUG - 1 --> Session class already loaded. Second attempt ignored.
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Helper loaded: admincontrol_helper
+INFO - 1 --> Helper loaded: url_helper
+INFO - 1 --> Helper loaded: hoosk_admin_helper
+INFO - 1 --> Helper loaded: my_site_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+INFO - 1 --> Session: Class initialized using 'database' driver.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language file loaded: language/english/admin_lang.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Datatables class already loaded. Second attempt ignored.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: cookie_helper
+INFO - 1 --> Helper loaded: file_helper
+DEBUG - 1 --> Session class already loaded. Second attempt ignored.
+INFO - 1 --> Language file loaded: language/english/pagination_lang.php
+INFO - 1 --> Pagination Class Initialized
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/user-panel.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/form.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/menu.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/main.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/header.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/footer.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/pages.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 4.2092
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Helper loaded: admincontrol_helper
+INFO - 1 --> Helper loaded: url_helper
+INFO - 1 --> Helper loaded: hoosk_admin_helper
+INFO - 1 --> Helper loaded: my_site_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+INFO - 1 --> Session: Class initialized using 'database' driver.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language file loaded: language/english/admin_lang.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Datatables class already loaded. Second attempt ignored.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: cookie_helper
+INFO - 1 --> Helper loaded: file_helper
+DEBUG - 1 --> Session class already loaded. Second attempt ignored.
+INFO - 1 --> Helper loaded: form_helper
+INFO - 1 --> Form Validation Class Initialized
+INFO - 1 --> Language file loaded: language/english/form_validation_lang.php
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Helper loaded: admincontrol_helper
+INFO - 1 --> Helper loaded: url_helper
+INFO - 1 --> Helper loaded: hoosk_admin_helper
+INFO - 1 --> Helper loaded: my_site_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+INFO - 1 --> Session: Class initialized using 'database' driver.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language file loaded: language/english/admin_lang.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Datatables class already loaded. Second attempt ignored.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: cookie_helper
+INFO - 1 --> Helper loaded: file_helper
+DEBUG - 1 --> Session class already loaded. Second attempt ignored.
+INFO - 1 --> Language file loaded: language/english/pagination_lang.php
+INFO - 1 --> Pagination Class Initialized
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/user-panel.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/form.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/menu.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/main.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/header.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/footer.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/pages.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 4.5243
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Helper loaded: admincontrol_helper
+INFO - 1 --> Helper loaded: url_helper
+INFO - 1 --> Helper loaded: hoosk_admin_helper
+INFO - 1 --> Helper loaded: my_site_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+INFO - 1 --> Session: Class initialized using 'database' driver.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language file loaded: language/english/admin_lang.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Datatables class already loaded. Second attempt ignored.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: cookie_helper
+INFO - 1 --> Helper loaded: file_helper
+DEBUG - 1 --> Session class already loaded. Second attempt ignored.
+INFO - 1 --> Helper loaded: form_helper
+INFO - 1 --> Form Validation Class Initialized
+INFO - 1 --> Language file loaded: language/english/form_validation_lang.php
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Helper loaded: admincontrol_helper
+INFO - 1 --> Helper loaded: url_helper
+INFO - 1 --> Helper loaded: hoosk_admin_helper
+INFO - 1 --> Helper loaded: my_site_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+INFO - 1 --> Session: Class initialized using 'database' driver.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language file loaded: language/english/admin_lang.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Datatables class already loaded. Second attempt ignored.
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: cookie_helper
+INFO - 1 --> Helper loaded: file_helper
+DEBUG - 1 --> Session class already loaded. Second attempt ignored.
+INFO - 1 --> Language file loaded: language/english/pagination_lang.php
+INFO - 1 --> Pagination Class Initialized
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/user-panel.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/form.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/menu.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/main.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/header.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/footer.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/pages.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 4.2122
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: admincontrol_helper
+INFO - 1 --> Helper loaded: url_helper
+DEBUG - 1 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+INFO - 1 --> Session: Class initialized using 'database' driver.
+INFO - 1 --> Language file loaded: language/english/admin_lang.php
+INFO - 1 --> Language file loaded: language/english/pagination_lang.php
+INFO - 1 --> Pagination Class Initialized
+INFO - 1 --> Helper loaded: form_helper
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/user-panel.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/form.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/menu.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/main.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/header.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/footer.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/navigation.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 3.5052
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: admincontrol_helper
+INFO - 1 --> Helper loaded: url_helper
+DEBUG - 1 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+INFO - 1 --> Session: Class initialized using 'database' driver.
+INFO - 1 --> Language file loaded: language/english/admin_lang.php
+INFO - 1 --> Helper loaded: form_helper
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/user-panel.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/form.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/menu.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/main.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/header.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/footer.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/nav_edit.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 3.3822
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: admincontrol_helper
+INFO - 1 --> Helper loaded: url_helper
+DEBUG - 1 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+INFO - 1 --> Session: Class initialized using 'database' driver.
+INFO - 1 --> Language file loaded: language/english/admin_lang.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/nav_add.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.5141
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: admincontrol_helper
+INFO - 1 --> Helper loaded: url_helper
+DEBUG - 1 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+INFO - 1 --> Session: Class initialized using 'database' driver.
+INFO - 1 --> Language file loaded: language/english/admin_lang.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/nav_add.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.4531
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: admincontrol_helper
+INFO - 1 --> Helper loaded: url_helper
+DEBUG - 1 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+INFO - 1 --> Session: Class initialized using 'database' driver.
+INFO - 1 --> Language file loaded: language/english/admin_lang.php
+INFO - 1 --> Helper loaded: form_helper
+INFO - 1 --> Form Validation Class Initialized
+INFO - 1 --> Language file loaded: language/english/form_validation_lang.php
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: admincontrol_helper
+INFO - 1 --> Helper loaded: url_helper
+DEBUG - 1 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Session: Class initialized using 'database' driver.
+INFO - 1 --> Language file loaded: language/english/admin_lang.php
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Language file loaded: language/english/pagination_lang.php
+INFO - 1 --> Pagination Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Helper loaded: form_helper
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/user-panel.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/form.php
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/menu.php
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/components/main-sidebar/main.php
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/header.php
+INFO - 1 --> Language Class Initialized
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/footer.php
+DEBUG - 1 --> File loaded: D:\wamp\htdocs\esic_directory_custom\hoosk\hoosk0\views\admin/navigation.php
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 3.4482
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.3311
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Input Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Controller Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Loader Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Controller Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Controller Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Loader Class Initialized
+DEBUG - 1 --> Total execution time: 2.7532
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Controller Class Initialized
+DEBUG - 1 --> Total execution time: 2.6882
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> Total execution time: 2.8262
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> Total execution time: 3.3282
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.9402
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.8892
+DEBUG - 1 --> Total execution time: 2.7012
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Language Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Input Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> Total execution time: 2.3441
+DEBUG - 1 --> Total execution time: 2.5321
+DEBUG - 1 --> Total execution time: 2.7492
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> Total execution time: 2.6262
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.6792
+DEBUG - 1 --> Total execution time: 2.4451
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Input Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> Total execution time: 2.2561
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Total execution time: 2.5371
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.7342
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Controller Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Total execution time: 2.5371
+DEBUG - 1 --> Total execution time: 3.1312
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 3.0542
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 3.0852
+DEBUG - 1 --> Total execution time: 2.9312
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.3941
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Input Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Input Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> Total execution time: 2.4801
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.4971
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.3391
+DEBUG - 1 --> Total execution time: 2.2801
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Language Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> Total execution time: 2.3491
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.4041
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.9462
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Input Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> Total execution time: 2.3981
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> Total execution time: 2.3181
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.5341
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Language Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Loader Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Loader Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Controller Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> Total execution time: 2.4531
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Total execution time: 2.6121
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Total execution time: 2.4861
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> Total execution time: 2.5241
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> Total execution time: 2.5691
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.6132
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.4671
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> Total execution time: 2.5891
+DEBUG - 1 --> Total execution time: 2.2651
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.7532
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Language Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.2991
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.3291
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 3.2532
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.5001
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Config Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Input Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Loader Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Language Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Controller Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Loader Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Language Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Loader Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Loader Class Initialized
+DEBUG - 1 --> Total execution time: 2.6622
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Controller Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> Total execution time: 2.6742
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.8342
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> Total execution time: 2.5971
+DEBUG - 1 --> Total execution time: 2.7832
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> Total execution time: 2.8372
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.5171
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 3.0552
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> Total execution time: 2.4401
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> Total execution time: 2.3581
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.3971
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Input Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Total execution time: 2.5431
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> Total execution time: 2.4841
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.7742
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Database Driver Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.5291
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> Total execution time: 2.3341
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 3.0502
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Input Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> Total execution time: 2.3001
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.2981
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.7902
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> Total execution time: 2.6862
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.8342
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.7782
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Loader Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> Total execution time: 2.4591
+INFO - 1 --> Final output sent to browser
+INFO - 1 --> Model Class Initialized
+DEBUG - 1 --> Total execution time: 2.4211
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 3.0202
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+INFO - 1 --> Config Class Initialized
+INFO - 1 --> Hooks Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+DEBUG - 1 --> UTF-8 Support Enabled
+INFO - 1 --> Utf8 Class Initialized
+INFO - 1 --> URI Class Initialized
+INFO - 1 --> URI Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+DEBUG - 1 --> No URI present. Default controller set.
+INFO - 1 --> Router Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+INFO - 1 --> Output Class Initialized
+INFO - 1 --> Security Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+DEBUG - 1 --> Global POST, GET and COOKIE data sanitized
+INFO - 1 --> Input Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Language Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Loader Class Initialized
+INFO - 1 --> Controller Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Database Driver Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+INFO - 1 --> Model Class Initialized
+INFO - 1 --> Helper loaded: hoosk_page_helper
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/header.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> File loaded: theme/dark\/templates/footer.php
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> File loaded: theme/dark\/templates/faq.php
+DEBUG - 1 --> Total execution time: 2.5731
+INFO - 1 --> Final output sent to browser
+DEBUG - 1 --> Total execution time: 2.4941

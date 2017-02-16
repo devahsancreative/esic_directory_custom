@@ -21,7 +21,7 @@
 
 
 
-<nav class="navbar navbar-fixed-top navbar-inverse">
+<nav class="navbar navbar-fixed-top navbar-inverse navbar-inverse2">
 
 	<!---- left side menu ------>
 

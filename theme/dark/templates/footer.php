@@ -58,13 +58,17 @@
             jQuery('[data-toggle="offcanvas"]').click(function () {
                 jQuery('#wrapper').toggleClass('toggled');
             });
-            $(window).scroll(function (event) {
+            jQuery(window).scroll(function (event) {
                 if($(window).scrollTop()>300){
-                    $('.nav_bar_two').css('top',0);
-                    $('.zone_wrapper').css('top','72px');
+                    $(".navbar-inverse").removeClass("navbar-inverse2");
+                    $('.navbar-inverse').css('background-color','rgba(204, 204, 204, 0.96)');
+
                 } else {
-                    $('.nav_bar_two').css('top','72px');
-                    $('.zone_wrapper').css('top','122px');
+                    $('.navbar-inverse').css('background-color','rgba(204, 204, 204, 0.67)');
+                    $('.navbar-inverse').css('opacity',1);
+
+
+
                 }
 
             });
