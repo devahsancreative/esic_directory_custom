@@ -16,6 +16,7 @@
 		<link href="<?php echo THEME_FOLDER; ?>/css/styles.css" rel="stylesheet">
 		<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+		<link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" integrity="sha384-dNpIIXE8U05kAbPhy3G1cz+yZmTzA6CY8Vg/u2L9xRnHjJiAK76m2BIEaSEV+/aU" crossorigin="anonymous">
 	</head>
 <body>
 
@@ -23,7 +24,7 @@
 
 <nav class="navbar navbar-fixed-top navbar-inverse navbar-inverse2">
 
-	<!---- left side menu ------>
+<!---- left side menu ------>
 
 	<div id="wrapper">
 		<div class="overlay"></div>
@@ -31,11 +32,12 @@
 		<!-- Sidebar -->
 		<nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
 
-		<div class="leftsidebar">	<?php hooskNav('sidebar') ?>
+		   <div class="leftsidebar">	<?php hooskNav('sidebar') ?>
 			<ul class="nav navbar-nav"><li><a href="<?= BASE_URL ?>/admin" >login</a></li></ul>
-		</div>
+		  </div>
 
 		</nav>
+
 		<!-- /#sidebar-wrapper -->
 
 		<!-- Page Content -->
@@ -48,16 +50,19 @@
 
 		</div>
 		<!-- /#page-content-wrapper -->
+		<a class="" href="<?php echo BASE_URL; ?>"><img class="img-responsive_logo " src="<?php echo BASE_URL; ?>/images/<?php echo $settings['siteLogo']; ?>"
+														alt="Hoosk"></a>
 
 	</div>
+	<ul class="nav navbar-nav login_button"><li><a href="<?= BASE_URL ?>/admin" ><i class="fa fa-sign-in" aria-hidden="true"></i> login </a></li></ul>
 	<!-- /#wrapper -->
     <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
+     <div class="navbar-header">
+       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+       </button>
       <!--<a class="navbar-brand" href="<?php // echo BASE_URL; ?>">
           <img src="<?php // echo BASE_URL; ?>/images/<?php // echo $settings['siteLogo']; ?>" alt="Hoosk">
       </a>--->
@@ -68,17 +73,32 @@
 
     <div class="collapse navbar-collapse">
 
-
-<?php hooskNav('header') ?>
 		<div class="searchbar">
-		   <form id="demo-2">
-			  <input type="search" placeholder="Search">
-		   </form>
+			<form id="demo-2">
+				<input type="search" placeholder="Find ESIC">
+			</form>
 		</div>
+    <?php hooskNav('header') ?>
+
+
 
 <style>
+	.login_button{
+		float: right;
+		margin-right: 1%;
+	}
+	.login-icon{
 
+	}
+/*search box style */
+.searchbar   {
+width: 244px;
+display: block;
+position: relative;
+float: left;
+}
 	.searchbar a {
+
 		color: #69C;
 		text-decoration: none;
 	}
@@ -99,7 +119,7 @@
 		outline: none;
 	}
 	.searchbar input[type=search] {
-		background-color: #f7f4f4 !important;
+		background-color: #fff !important;
 		-webkit-appearance: textfield;
 		-webkit-box-sizing: content-box;
 		font-family: inherit;
@@ -107,15 +127,15 @@
 	}
 	.searchbar input::-webkit-search-decoration,
 	.searchbar input::-webkit-search-cancel-button {
-		display: none;
+		/*display: none;*/
 	}
 
 
 	.searchbar input[type=search] {
-		background: #ededed url(http://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+		background: #fff url(http://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
 		border: solid 1px #ccc;
-		padding: 8px 12px 8px 8px;
-		margin: 9px  10%;
+		padding: 3px 5px 5px 5px;
+		margin: 13px 10%;
 		width: 55px;
 
 		-webkit-border-radius: 10em;
@@ -127,8 +147,8 @@
 		transition: all .5s;
 	}
 	.searchbar input[type=search]:focus {
-		width: 200px !important;
-		background-color: #C2CCD1;
+		width: 148px !important;
+		background-color: #fff;
 		border-color: #66CC75;
 
 		-webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
@@ -138,15 +158,20 @@
 
 
 	.searchbar input:-moz-placeholder {
-		color: #999;
+		color: black  ;
+		font-family: "Open Sans";
+		padding-left: 10px;
 	}
 	.searchbar input::-webkit-input-placeholder {
-		color: #999;
-	}
+		color: black  ;
+		font-family: "Open Sans";
+		padding-left: 30px;
+	 }
 
 	/* Demo 2 */
 	.searchbar #demo-2 input[type=search] {
-		width: 15px;
+		width: 170px;
+		font-family: "Open Sans";
 		padding-left: 10px;
 		color: transparent;
 		cursor: pointer;
@@ -162,15 +187,21 @@
 		cursor: auto;
 	}
 	.searchbar #demo-2 input:-moz-placeholder {
-		color: transparent;
+		color: black  ;
+		font-family: "Open Sans";
+		padding-left: 30px;
 	}
 	.searchbar #demo-2 input::-webkit-input-placeholder {
-		color: transparent;
+		color: black;
+		font-family: "Open Sans";
+		padding-left: 30px;
 	}
 </style>
 
 </div>
+	</div>
 
-    </div><!-- /.container -->
-</nav><!-- /.navbar -->
+   <!-- /.container -->
+
+	</nav><!-- /.navbar -->
 
