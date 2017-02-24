@@ -7,9 +7,24 @@ class Reg2 extends MY_Controller {
         parent::__construct();
         $this->load->library('form_validation');
         $this->load->helper(array('form','url'));
-		
- 
-	 }
+
+        // use for Header And Footer
+        $this->load->model('Hoosk_page_model');
+        $this->load->model('Hoosk_model');
+        $totSegments = $this->uri->total_segments();
+        if(!is_numeric($this->uri->segment($totSegments))){
+            $pageURL = $this->uri->segment($totSegments);
+        } else if(is_numeric($this->uri->segment($totSegments))){
+            $pageURL = $this->uri->segment($totSegments-1);
+        }
+        if ($pageURL == ""){ $pageURL = "home"; }
+        $this->data['page']=$this->Hoosk_page_model->getPage($pageURL);
+
+        $this->data['settings']=$this->Hoosk_page_model->getSettings();// use for header title
+        $this->data['settings_footer'] = $this->Hoosk_model->getSettings(); //use for footer
+
+
+    }
     public function index(){
        $selectData = array('score AS score',false);
 				
@@ -19,18 +34,40 @@ class Reg2 extends MY_Controller {
              );
 			
         $selectData ='*';
-      	$data['userID'] = $this->input->get('id');
-       	$data['statusApp'] = $this->Common_model->select('esic_appstatus');
-	    $data['RnDs'] = $this->Common_model->select_fields_where('esic_rnd',$selectData, $where);
-        $data['institutions'] = $this->Common_model->select_fields_where('esic_institution',$selectData, $where, false, '', '', '','','',false);
-        $data['accelerationCommercials'] = $this->Common_model->select_fields_where('esic_acceleration',$selectData, $where, false, '', '', '','','',false);
-        $data['acceleratorProgramme'] = $this->Common_model->select_fields_where('esic_acceleration_logo',$selectData, $where, false, '', '', '','','',false);
-        $data['sectors'] = $this->Common_model->select_fields_where('esic_sectors',$selectData, $where, false, '', '', '','','',false);
-        $data['company'] = $this->Common_model->select('user');
-		
- 		$this->load->view('theme/header', $data);
-        $this->load->view('regForm/reg_form_bootstrap2', $data);
-		$this->load->view('theme/footer');
+        $this->data['userID'] = $this->input->get('id');
+        $this->data['statusApp'] = $this->Common_model->select('esic_appstatus');
+        $this->data['RnDs'] = $this->Common_model->select_fields_where('esic_rnd',$selectData, $where);
+        $this->data['institutions'] = $this->Common_model->select_fields_where('esic_institution',$selectData, $where, false, '', '', '','','',false);
+        $this->data['accelerationCommercials'] = $this->Common_model->select_fields_where('esic_acceleration',$selectData, $where, false, '', '', '','','',false);
+        $this->data['acceleratorProgramme'] = $this->Common_model->select_fields_where('esic_acceleration_logo',$selectData, $where, false, '', '', '','','',false);
+        $this->data['sectors'] = $this->Common_model->select_fields_where('esic_sectors',$selectData, $where, false, '', '', '','','',false);
+        $this->data['company'] = $this->Common_model->select('user');
+
+
+
+        // use for pag builder data from hoosk default
+        $totSegments = $this->uri->total_segments();
+        if(!is_numeric($this->uri->segment($totSegments))){
+            $pageURL = $this->uri->segment($totSegments);
+        } else if(is_numeric($this->uri->segment($totSegments))){
+            $pageURL = $this->uri->segment($totSegments-1);
+        }
+        if ($pageURL == ""){ $pageURL = "home"; }
+
+        $this->data['page']=$this->Hoosk_page_model->getPage($pageURL);
+
+        if ($this->data['page']['pageTemplate'] != "") {
+            // end from hoosk Default
+
+            $this->load->view('theme/header', $this->data);
+            $this->load->view('theme/'.$this->data['page']['pageTemplate'], $this->data);
+            $this->load->view('regForm/reg_form_bootstrap2', $this->data);
+
+            $this->load->view('theme/footer');
+        }
+        else {
+            $this->error();
+        }
     }
    
     public function submit(){

@@ -33,7 +33,7 @@
 		<nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
 
 		   <div class="leftsidebar">	<?php hooskNav('sidebar') ?>
-			<ul class="nav navbar-nav"><li><a href="<?= BASE_URL ?>/admin" >login</a></li></ul>
+			<ul class="nav navbar-nav left-login-b"><li><a href="<?= BASE_URL ?>/admin" >login</a></li></ul>
 		  </div>
 
 		</nav>
@@ -71,7 +71,7 @@
 	</div>
 
 
-    <div class="collapse navbar-collapse">
+    <div class="collapse navbar-collapse right_sidebar">
 
 		<div class="searchbar">
 			<form id="demo-2">

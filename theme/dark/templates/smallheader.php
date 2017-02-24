@@ -1,7 +1,37 @@
 <?php echo $header; ?>   
     <!-- JUMBOTRON
 =================================-->
+<style>
 
+    .jumbotron.errorpadding
+    {
+        padding-top: 0;
+        padding-bottom: 0px !important;
+
+    }
+    .logotext{
+        position: absolute;
+        top: 100px;
+        left: 170px;
+        z-index: 100;
+        color: white;
+        display: -webkit-box;
+
+    }
+    .bimage{
+        z-index: 10;
+    }
+    .img-responsive{
+
+      width: 100% !important;
+
+    }
+    .jumbotron .container {
+
+        width: 100% !important;
+    }
+
+</style>
 
 
 <div class="jumbotron text-center <?php if (($page['enableJumbotron'] == 1) && ($page['enableSlider'] == 1)) { echo "carouselpadding"; } elseif (($page['enableJumbotron'] == 1) && ($page['enableSlider'] == 0)) { echo "errorpadding"; } elseif (($page['enableJumbotron'] == 0) && ($page['enableSlider'] == 1)) { echo "slider-padding"; } ?>">
@@ -21,38 +51,20 @@
 
     <div class="container">
     <?php if ($page['enableJumbotron'] == 0) { ?><div class="row bimage headerstyle jumbotron"></div><?php } else{?>
-      <div class="row bimage banner_image">
+      <div class="row bimage">
 			<?php  if ($page['enableJumbotron'] == 1) { echo $page['jumbotronHTML']; } ?>
          </div>
          <?php } ?>
-        <!---logo image and page title hide by Hamid Raza -->
-        <!--<div class="logotext">
-            <a class="" href="<?php /*echo BASE_URL; */?>"><img class="img-responsive " src="<?php /*echo BASE_URL; */?>/images/<?php /*echo $settings['siteLogo']; */?>"
+        
+        <div class="logotext">
+            <a class="" href="<?php echo BASE_URL; ?>"><img src="<?php echo BASE_URL; ?>/images/<?php echo $settings['siteLogo']; ?>"
                                                             alt="Hoosk"></a>
 
 
             <h2>|<span class="wsite-text wsite-headline text-uppercase">
-                  <?php /*echo  $page['pageTitle']; */?></span></h2>
-
-        </div>-->
-        <div class="header_search logotext">
-
-           <div class="row">
-
-              <div class="col-md-9 col-sm-8 col-xs-12">
-                  <label class="label_find"><h4>Find ESIC</h4></label>
-                  <input type="text" name="search" class="form-control" placeholder="Find ESIC">
-              </div>
-              <div class="col-md-3 col-sm-4 col-xs-12">
-                  <label><h4></h4></label>
-                  <button   class="btn btn-lg btn-blue search-button">Find ESIC</button>
-               </div>
-
-          </div>
+                  <?php echo  $page['pageTitle']; ?></span></h2>
 
         </div>
-
-
       </div>
     </div> 
 </div>
@@ -62,10 +74,7 @@
 <div class="container">
     <?php echo $page['pageContentHTML']; ?>
 
-
-    <hr>
-    <!--<div class="map"> <iframe frameborder="0" id="mapjam-iframe" src="//embeds.mapjam.com/v2/map-embed.html?app_url=https://mapjam.com/&cdn_url=//mapjamjson.global.ssl.fastly.net/&map_id=esicdirectory&access_token=&content_action=side_popup&map_width=800px&map_height=600px&container=mapjam-1&domain=mapjam.com" style="width: 100%;height: 600px;margin-bottom:5px;"></iframe>
-</div>-->
+  	<hr>
 </div>
 <!-- /CONTENT ============-->
 

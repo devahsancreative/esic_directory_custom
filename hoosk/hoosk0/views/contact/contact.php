@@ -1,16 +1,14 @@
 
 <style type="text/css">
-    .navbar-inverse{
-        background-color: rgba(0, 0, 0, 0.6);
-    }
-    .navbar-nav>li>a
-    {
-        color:#FFF!important;
-    }
+
     #mainFormDiv {
         /*background-color: #424242;*/
         background-color:#ffffff;/*added by Hamid Raza*/
         box-shadow: 0 0 9px rgba(0,0,0,0.3);
+    }
+    .btn-dark{
+     float: left;
+        margin-left: 15px;
     }
     #loading-submit{
         display: none;
@@ -39,15 +37,7 @@
     body{
         background-color:#f7f7f7;
     }
-    b, strong {
-        /*font-weight: 700;
-        display: block;
-        clear: both;
-        margin: 15px 0px 15px 0px;
-        font-size: 12px;
-        font-weight: bold;
-        color: #333;*/
-    }
+
     input[type=checkbox], input[type=radio] {
         margin:2px;
     }
@@ -75,26 +65,9 @@
     #banner-inner{
         width:100% !important;
     }
-    .btn-primary {
-        font-size: 1em !important;
-        height: auto !important;
-        line-height: 1.25 !important;
-        font-family: 'Lato', sans-serif;
-        background-color: #6d6d6d;
-        border-radius: 3px !important;
-        display: block;
-        max-width: 200px;
-        margin-left: 17px;
-        margin-bottom: 20px;
-    }
-    text-align: center !important;
-    @media only screen and (min-width: 1026px) and (max-width: 1200px){
-        #nav-wrap ul li {
-            display: inline-block !important;
-            float: left !important;
-        }
 
-    }
+
+
     @media only screen and (max-width: 1200px){
 
         .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9{
@@ -103,7 +76,38 @@
         }
 
     }
+    @media only screen and (max-width: 1200px){
 
+
+        body #mainFormDiv {
+
+            height: 430px;
+        }
+
+    }
+    @media only screen and (max-width: 992px){
+
+        .wrap{
+            margin-bottom:20px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        body #mainFormDiv {
+
+            height: 440px;
+        }
+
+    }
+
+    @media only screen and (max-width: 768px){
+
+
+        body #mainFormDiv {
+
+            height: 470px;
+        }
+
+    }
 </style>
 
 
@@ -154,7 +158,7 @@
                 </fieldset>
 
                 <div class="button-container">
-                    <input type="submit" class="btn btn-primary" value="Submit">
+                    <input type="submit" class="btn btn-dark" value="Submit">
                 </div>
 
         </form>

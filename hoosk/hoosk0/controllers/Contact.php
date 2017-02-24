@@ -13,8 +13,27 @@ public function __construct()
 		 
         $this->load->model("Esic_model");
 		$this->load->model("common_model");
-		 $this->load->helper('cookie');
-	  }
+        $this->load->helper('cookie');
+
+        // use for Header And Footer
+        $this->load->model('Hoosk_page_model');
+        $this->load->model('Hoosk_model');
+        $totSegments = $this->uri->total_segments();
+        if(!is_numeric($this->uri->segment($totSegments))){
+            $pageURL = $this->uri->segment($totSegments);
+        } else if(is_numeric($this->uri->segment($totSegments))){
+            $pageURL = $this->uri->segment($totSegments-1);
+        }
+        if ($pageURL == ""){ $pageURL = "home"; }
+        $this->data['page']=$this->Hoosk_page_model->getPage($pageURL);
+
+        $this->data['settings']=$this->Hoosk_page_model->getSettings();// use for header title
+        $this->data['settings_footer'] = $this->Hoosk_model->getSettings(); //use for footer
+
+
+
+
+    }
 public function index(){
 	 $data['Count_contact_message'] = $this->common_model->Count_Tottle_Rows('esic_contact');
 	 $data['Count_email_message'] = $this->common_model->Count_Tottle_Rows('esic_email');
@@ -25,8 +44,8 @@ public function index(){
   }
 public function contact_us(){
 	    
- 		$this->load->view('theme/header');
-        $this->load->view("contact/contact");
+ 		$this->load->view('theme/header',$this->data);
+        $this->load->view("contact/contact",$this->data);
 		$this->load->view('theme/footer');
     }
 public function submit(){

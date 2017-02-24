@@ -27,6 +27,7 @@ class Hoosk_default extends CI_Controller {
 		$pageURL = $this->uri->segment($totSegments-1);
 		}
 		if ($pageURL == ""){ $pageURL = "home"; }
+
 		$this->data['page']=$this->Hoosk_page_model->getPage($pageURL);
 
 		if ($this->data['page']['pageTemplate'] != ""){

@@ -9,7 +9,24 @@ class Investor extends MY_Controller {
 		$this->load->model('Investor_model');
 		$this->load->library('form_validation');
 		$this->load->helper(array('form','url'));
-  }
+
+        // use for Header And Footer
+        $this->load->model('Hoosk_page_model');
+
+        $totSegments = $this->uri->total_segments();
+        if(!is_numeric($this->uri->segment($totSegments))){
+            $pageURL = $this->uri->segment($totSegments);
+        } else if(is_numeric($this->uri->segment($totSegments))){
+            $pageURL = $this->uri->segment($totSegments-1);
+        }
+        if ($pageURL == ""){ $pageURL = "home"; }
+        $this->data['page']=$this->Hoosk_page_model->getPage($pageURL);
+
+        $this->data['settings']=$this->Hoosk_page_model->getSettings();// use for header title
+        $this->data['settings_footer'] = $this->Hoosk_model->getSettings(); //use for footer
+
+
+    }
  public function index(){
        $selectData = array('score AS score',false);
 				
@@ -186,8 +203,9 @@ public function  investor_list($param=NULL){
 	
  public function investor_form(){     
 		
-		$this->load->view('theme/header');
-        $this->load->view('investor/investor-form');
+		$this->load->view('theme/header',$this->data);
+        $this->load->view('theme/'.$this->data['page']['pageTemplate'], $this->data);
+        $this->load->view('investor/investor-form',$this->data);
 		$this->load->view('theme/footer');
 		}
  public function submit(){             // Insert investor form

@@ -1,5 +1,11 @@
 <?php echo $header; ?>
-<!-- JUMBOTRON 
+    <style>
+        .container-fluid {
+            background: #fff;
+        }
+    </style>
+<!-- JUMBOTRON
+
 =================================-->
 <div class="jumbotron text-center <?php if (($page['enableJumbotron'] == 1) && ($page['enableSlider'] == 1)) { echo "carouselpadding"; } elseif (($page['enableJumbotron'] == 1) && ($page['enableSlider'] == 0)) { echo "errorpadding"; } elseif (($page['enableJumbotron'] == 0) && ($page['enableSlider'] == 1)) { echo "slider-padding"; } ?>">
 	<?php if ($page['enableSlider'] == 1) { ?>
@@ -26,10 +32,12 @@
 <!-- /JUMBOTRON container-->
 <!-- CONTENT
 =================================-->
+    <div class="container-fluid">
 <div class="container">
     <?php echo $page['pageContentHTML']; ?>
   	<hr>
 </div>
+    </div>
 <!-- /CONTENT ============-->
 
 <?php echo $footer; ?>

@@ -1,39 +1,25 @@
 
 
 <style>
-   .navbar-inverse{
-			background-color: rgba(0, 0, 0, 0.6) !important;
-		 }
-		 .navbar-nav>li>a
-		 {
-		  color:#FFF!important;
-		 }
+
 #banner, .container:before{
  	content:inherit !important;
 	}
 #banner-inner{
 	width:100% !important; 
  	}	
-.no-header-page #banner-wrap{
-	    /*background: #edeff2  !important;*/
-	 }
-@media only screen and (min-width: 1026px) and (max-width: 1200px){
-#nav-wrap ul li {
-     display: inline-block !important;
-    float: left !important;
-}
 
-}	 	
+
 </style>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+<!--<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">-->
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">--->->
 <link rel="stylesheet" type="text/css" href="<?=BASE_URL;?>/assets/css/boxlisting.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
-<!-- Latest compiled and minified CSS -->
+--><!-- Latest compiled and minified CSS -->
 <!--
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>

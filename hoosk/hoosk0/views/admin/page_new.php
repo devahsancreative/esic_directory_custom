@@ -1,8 +1,24 @@
 <?php echo $header; ?>
 <style>
-.main-footer{
-	margin:0;
-	}
+    .main-footer{
+        margin: 0;
+    }
+    .btn-blue{
+        background-color: #00a3fe;
+        color:#ffffff;
+    }
+    .btn-dark{
+        background-color: #6d6d6d;
+    }
+    .btn-dark:hover{
+        color: #fff;
+        background-color: #494949;
+        border-color: #494949;
+        text-decoration: none !important;
+    }
+    table td {
+        width:100px;
+    }
 </style>
 
 <link href="<?php echo ADMIN_THEME; ?>/js/trevor/sir-trevor.css" rel="stylesheet">
@@ -405,14 +421,14 @@
 
 	  <script src="<?php echo ADMIN_THEME; ?>/js/sirTrevor/bower_components/sir-trevor-columns-block/dist/sir-trevor-columns-block.js" type="text/javascript" charset="utf-8"></script>
 	  <script src="<?php echo ADMIN_THEME; ?>/js/sirTrevor/bower_components/underscore/underscore.js" type="text/javascript" charset="utf-8"></script>
-	  <script src="<?php echo ADMIN_THEME; ?>/js/sirTrevor/bower_components/sir-trevor-js-generator/blocks.js" type="text/javascript" charset="utf-8"></script>
+	 <!-- <script src="<?php /*echo ADMIN_THEME; */?>/js/sirTrevor/bower_components/sir-trevor-js-generator/blocks.js" type="text/javascript" charset="utf-8"></script>-->
 	  <script src="<?php echo ADMIN_THEME; ?>/js/sirTrevor/iFrame.js" type="text/javascript" charset="utf-8"></script>
 	  <script src="<?php echo ADMIN_THEME; ?>/js/sirTrevor/image-extended.js" type="text/javascript" charset="utf-8"></script>
-	  <script src="<?php echo ADMIN_THEME; ?>/js/sirTrevor/markdown.js" type="text/javascript" charset="utf-8"></script>
+	  <!--<script src="<?php /*echo ADMIN_THEME; */?>/js/sirTrevor/markdown.js" type="text/javascript" charset="utf-8"></script>-->
 
 	  <!--		  TinyMCE-->
 	  <script src="<?php echo ADMIN_THEME; ?>/js/sirTrevor/mce/sir-trevor-tinymce.js" type="text/javascript" charset="utf-8"></script>
-
+      <script src="<?php echo ADMIN_THEME; ?>/js/sirTrevor/Button.js" type="text/javascript" charset="utf-8"></script>
 
 
 	  <script type="text/javascript">
@@ -430,24 +446,24 @@
 			el: $('.js-st-instance'),
 			blockTypes: [
 				"Columns",
-				"Heading",
+				/*"Heading",*/
 				"Text",
 				"List",
 				"Quote",
 				"ImageExtended",
 				"Video",
 				"Tweet",
-				"Accordion",
+				/*"Accordion",*/
 				"Button",
 				"Iframe",
-				"Markdown"
+				/*"Markdown"*/
 			]
 		});
 
 		SirTrevor.onBeforeSubmit();
 	});
 
-	SirTrevor.onBeforeSubmit();
+	//SirTrevor.onBeforeSubmit();
 
 
 </script>

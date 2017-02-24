@@ -8,6 +8,7 @@ class Blog extends MY_Controller {
 		define("HOOSK_ADMIN",1);
 		$this->load->model('Hoosk_model');
 		$this->load->model('common_model');
+        $this->load->model('Hoosk_page_model');
 		$this->load->helper(array('admincontrol', 'url', 'hoosk_admin'));
 		$this->load->library('session');
 		define ('LANG', $this->Hoosk_model->getLang());
@@ -17,6 +18,19 @@ class Blog extends MY_Controller {
 		define ('SITE_NAME', $this->Hoosk_model->getSiteName());
 		define('THEME', $this->Hoosk_model->getTheme());
 		define ('THEME_FOLDER', BASE_URL.'/theme/'.THEME);
+
+            // use for Header And Footer
+        $totSegments = $this->uri->total_segments();
+        if(!is_numeric($this->uri->segment($totSegments))){
+            $pageURL = $this->uri->segment($totSegments);
+        } else if(is_numeric($this->uri->segment($totSegments))){
+            $pageURL = $this->uri->segment($totSegments-1);
+        }
+        if ($pageURL == ""){ $pageURL = "home"; }
+        $this->data['page']=$this->Hoosk_page_model->getPage($pageURL);
+
+        $this->data['settings']=$this->Hoosk_page_model->getSettings();// use for header title
+        $this->data['settings_footer'] = $this->Hoosk_model->getSettings(); //use for footer
 	}
  public function index(){
 	    $userRole = $this->session->userdata('userRole');
@@ -287,14 +301,14 @@ public function lists(){ //display list of blogs on front page
 	 
 	  $this->pagination->initialize($config);
 		
-	  $this->data['blog_data']       = $this->common_model->get_blog_lists(3,$this->uri->segment(3)); 
-	  $this->data['blog_list']       = $this->common_model->get_blog_lists_sidebar(); 
-		
-		
-	  $this->load->view('theme/header');
+	  $this->data['blog_data']       = $this->common_model->get_blog_lists(3,$this->uri->segment(3));
+	  $this->data['blog_list']       = $this->common_model->get_blog_lists_sidebar();
+
+
+	  $this->load->view('theme/header',$this->data);
       $this->load->view("blog/blog_list",$this->data);
 	  $this->load->view('theme/footer');
-	 }	 
+	 }
 	 
 	 
 public function details($p1=NULL,$p2=NULL){//display single blogs 
@@ -305,12 +319,9 @@ public function details($p1=NULL,$p2=NULL){//display single blogs
 		$this->data['blog_all_data']      = $this->common_model->get_blog_lists();  
 		$this->data['comments_data']      = $this->common_model->get_comments_data('esic_comment',$p1); 
 		$this->data['esic_comment_reply'] = $this->common_model->esic_comment_reply('esic_comment_reply',$p1);
-		//echo "<pre>";
-		//print_r($this->data['esic_comment_reply']);
-		//echo "<pre>";
-		//exit;
+
 		
-		$this->load->view('theme/header');
+		$this->load->view('theme/header',$this->data);
         $this->load->view("blog/single",$this->data);
 		$this->load->view('theme/footer');
 	}

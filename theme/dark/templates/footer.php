@@ -64,7 +64,7 @@
 
 
 </div>-->
-<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script src="<?php echo ADMIN_THEME; ?>/js/jquery-1.10.2.min.js"></script>
 <script>
     jQuery(document).ready(function () {
 
@@ -84,15 +84,21 @@
                 trigger.addClass('is-closed');
                 isClosed = false;
             } else {
+
+                jQuery('img-responsive_logo').addClass('responsive_logo_hide');
                 overlay.show();
                 trigger.removeClass('is-closed');
                 trigger.addClass('is-open');
                 isClosed = true;
+
             }
         }
 
         jQuery('[data-toggle="offcanvas"]').click(function () {
             jQuery('#wrapper').toggleClass('toggled');
+        });
+        jQuery('.navbar-toggle').click(function(){
+            jQuery('.navbar-collapse').toggleClass('in');
         });
     });
     /*  jQuery(window).scroll(function (event) {

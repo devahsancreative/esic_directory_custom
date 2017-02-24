@@ -1,7 +1,7 @@
 <?php echo $header; ?>  
     <!-- JUMBOTRON
 =================================-->
-<style>
+<!--<style>
 
     .jumbotron.errorpadding
     {
@@ -31,7 +31,7 @@
         width: 100% !important;
     }
 
-</style>
+</style>-->
 
 
 <div class="jumbotron text-center <?php if (($page['enableJumbotron'] == 1) && ($page['enableSlider'] == 1)) { echo "carouselpadding"; } elseif (($page['enableJumbotron'] == 1) && ($page['enableSlider'] == 0)) { echo "errorpadding"; } elseif (($page['enableJumbotron'] == 0) && ($page['enableSlider'] == 1)) { echo "slider-padding"; } ?>">
@@ -88,7 +88,7 @@
 
 
 
- <style type="text/css">
+ <!--<style type="text/css">
 	    .navbar-inverse{
 			background-color: rgba(0, 0, 0, 0.6);
 		 }
@@ -176,7 +176,7 @@
 	 
 	 }
  
-    </style>
+    </style>-->
     <div class="clear"></div>
 <div class="row wrap">
     <div class="col-lg-12" id="mainFormDiv">

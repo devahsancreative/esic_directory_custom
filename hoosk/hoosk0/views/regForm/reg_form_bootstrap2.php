@@ -64,15 +64,7 @@
 		 body{
 			background-color:#f7f7f7;
 			 } 
-	 b, strong {
-		/*font-weight: 700;
-		display: block;
-        clear: both;
-        margin: 15px 0px 15px 0px;
-        font-size: 12px;
-        font-weight: bold;
-        color: #333;*/
-    } 
+
 	input[type=checkbox], input[type=radio] {
      margin:2px;
      }

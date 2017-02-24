@@ -225,7 +225,7 @@ table td {
 		  <!-- es6-shim should be bundled in with SirTrevor for now -->
 		  <!-- <script src="../node_modules/es6-shim/es6-shim.js" type="text/javascript" charset="utf-8"></script> -->
 		  <script src="<?php echo ADMIN_THEME; ?>/js/sirTrevor/bower_components/jquery/dist/jquery.js" type="text/javascript" charset="utf-8"></script>
-		  <script src="<?php echo ADMIN_THEME; ?>/js/sirTrevor/bower_components/mr-trevor-js/sir-trevor.js" type="text/javascript" charset="utf-8"></script>
+		  <script src="<?php echo ADMIN_THEME; ?>/js/sirTrevor/sir-trevor.js" type="text/javascript"></script>
 
 		  <script src="<?php echo ADMIN_THEME; ?>/js/sirTrevor/bower_components/sir-trevor-columns-block/dist/sir-trevor-columns-block.js" type="text/javascript" charset="utf-8"></script>
 		  <script src="<?php echo ADMIN_THEME; ?>/js/sirTrevor/bower_components/underscore/underscore.js" type="text/javascript" charset="utf-8"></script>
@@ -239,7 +239,9 @@ table td {
 <!--		  TinyMCE-->
 
 		  <script src="<?php echo ADMIN_THEME; ?>/js/sirTrevor/mce/sir-trevor-tinymce.js" type="text/javascript" charset="utf-8"></script>
-          <script src="<?php echo ADMIN_THEME; ?>/js/sirTrevor/Button.js" type="text/javascript" charset="utf-8"></script>
+          <script src="<?php echo ADMIN_THEME; ?>/js/sirTrevor/Button.js" type="text/javascript"></script>
+
+
 
 
 <script type="text/javascript">
@@ -256,11 +258,12 @@ table td {
 			el: $('.js-st-instance'),
 			blockTypes: [
 				"Columns",
-				"Heading",
+				/*"Heading",*/
 				"Text",
 				"List",
 				"Quote",
 				"Image",
+				"Video",
 				"Video",
 				"Tweet",
 				//"Accordion",

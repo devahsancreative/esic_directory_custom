@@ -11173,11 +11173,10 @@ module.exports = Block.extend({
       html: "<iframe src=\"<%= protocol %>//player.vimeo.com/video/<%= remote_id %>?title=0&byline=0\" width=\"580\" height=\"320\" frameborder=\"0\"></iframe>"
     },
     youtube: {
-      regex: /^.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/,
+      regex: /^.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*!/,
       html: "<iframe src=\"<%= protocol %>//www.youtube.com/embed/<%= remote_id %>\" width=\"580\" height=\"320\" frameborder=\"0\" allowfullscreen></iframe>"
     }
   },
-
   type: 'video',
   title: function() { return i18n.t('blocks:video:title'); },
 
@@ -11187,6 +11186,8 @@ module.exports = Block.extend({
   icon_name: 'video',
 
   loadData: function(data){
+    
+    console.log(data);
     if (!this.providers.hasOwnProperty(data.source)) { return; }
 
     var source = this.providers[data.source];

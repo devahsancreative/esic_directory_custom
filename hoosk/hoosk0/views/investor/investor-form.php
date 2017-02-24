@@ -1,15 +1,9 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <link rel="stylesheet" href="<?=base_url?>/css/perfect-scrollbar.css" integrity="sha256-ta5Rg+2Um6yl0RZxK/ujdFyXEmPKuX0PPgNPx0pAlPY=" crossorigin="anonymous" />
     <style type="text/css">
-	    .navbar-inverse{
-			background-color: rgba(0, 0, 0, 0.6);
-		 }
-		 .navbar-nav>li>a
-		 {
-		  color:#FFF!important;
-		 }
+
         #mainFormDiv {
-          /*background-color: #424242;*/
+
 		  background-color:#ffffff;/*added by Hamid Raza*/
           box-shadow: 0 0 9px rgba(0,0,0,0.3);
                }

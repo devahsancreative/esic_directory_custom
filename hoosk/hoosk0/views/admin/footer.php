@@ -768,7 +768,7 @@
 <!-- Comment  by hamid Raza because it conflict with navigation draga and drop--->
 
  <?php  $classname = $this->router->fetch_class();
- echo  $classname;
+ //echo  $classname;
  if($classname != "Navigation"){
  ?>
   <script src="<?php echo ADMIN_THEME; ?>/js/jquery-1.10.2.min.js"></script>
@@ -900,7 +900,25 @@
 
 
 <?php } ?>
+<script type="text/javascript">
+    $('#remote-modals').on("hidden.bs.modal", ".modal:not(.local-modal)", function (e) {
+        $(e.target).removeData("bs.modal").find(".modal-content").empty();
+    });
 
+    $(document).ready(function() {
+        $(".URLField").blur(function() {
+            var identbefore=$(".URLField").val();
+            var ident=identbefore.toLowerCase();
+            ident=ident.replace(/ /g,'-');
+            ident=ident.replace(/_/g,'-');
+            ident=ident.replace(/[^\w-]+/g,'');
+            $(".URLField").val(ident);
+            if( identbefore.length >ident.length ) {
+                alert("URL amended\nPlease use only a-z,0-9 or dash");
+            }
+        });
+    });
+</script>
 </body>
 
 </html>

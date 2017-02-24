@@ -1,7 +1,25 @@
 <div id="main-content" class="container blog">
    <div class="row">
-        
-             
+
+       <div class="col-md-4 blog_side_bar">
+           <h3 class="blog-title Latest-Blogs"> <a href="#" class="blog-title-link blog-link"> Latest Blogs  </a> </h3>
+           <ul class="blog-list">
+               <?php
+               if($blog_list){
+                   foreach($blog_list as $blog_lists){
+                       $links = str_replace(" ","_",$blog_lists->title);
+                       $links = str_replace("'","",$links);
+                       $id   = $blog_lists->id;
+                       ?>
+                       <li><a href="<?php echo  base_url().'blog/'.$id."/".$links ?>" class="blog-title-link blog-link" >
+                               <?=  $blog_lists->title; ?>  </a>
+                       </li>
+                   <?php }} ?>
+
+
+           </ul>
+
+       </div>
        <div class="col-md-8">
               
             <?php      
@@ -51,25 +69,7 @@
          
                
  </div>
-            <div class="col-md-4 blog_side_bar">
-                <h3 class="blog-title Latest-Blogs"> <a href="#" class="blog-title-link blog-link"> Latest Blogs  </a> </h3>
-                <ul class="blog-list">
-                     <?php  
-					  if($blog_list){ 
-					     foreach($blog_list as $blog_lists){
-						    $links = str_replace(" ","_",$blog_lists->title);
-						    $links = str_replace("'","",$links);
-						    $id   = $blog_lists->id;
-			           ?>
-                    <li><a href="<?php echo  base_url().'blog/'.$id."/".$links ?>" class="blog-title-link blog-link" >
-                          <?=  $blog_lists->title; ?>  </a>
-                    </li>
-                    <?php }} ?>
-                     
-           
-                </ul> 
-            
-            </div>
+
         
    </div>
 
