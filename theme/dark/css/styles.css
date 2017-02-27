@@ -4,7 +4,18 @@ body {
      font-family: "Open Sans";
 }
 
-
+iframe {
+    width:100% !important;
+    height:430px !important;
+}
+.col-md-6 iframe {
+    width:100% !important;
+    height:220px !important;
+}
+.col-md-4 iframe {
+    width:100% !important;
+    height:160px !important;
+}
 
  /*header Style*/
 
@@ -101,6 +112,18 @@ label.label_find {
     }
     .Latest-Blogs {
         margin-left: 0px !important;
+    }
+    iframe {  /*use for video*/
+        width:100% !important;
+        height:350px !important;
+    }
+    .col-md-6 iframe {
+        width:100% !important;
+        height:300px !important;
+    }
+    .col-md-4 iframe {
+        width:100% !important;
+        height:300px !important;
     }
 }
 @media only screen and (max-width: 910px) and (min-device-width: 768px) {
@@ -742,7 +765,7 @@ li.dropdown:hover .dropdown-menu /* Drop Down Menu */
 }
 .logotext{
     position: absolute;
-    top: 50px;
+    top: 100px;
     z-index: 100;
     color: white;
     margin-left: auto;

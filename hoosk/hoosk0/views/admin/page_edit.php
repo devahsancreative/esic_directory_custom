@@ -264,7 +264,6 @@ table td {
 				"Quote",
 				"Image",
 				"Video",
-				"Video",
 				"Tweet",
 				//"Accordion",
 				"Button",

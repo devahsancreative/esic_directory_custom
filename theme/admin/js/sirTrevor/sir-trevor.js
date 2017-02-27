@@ -10301,29 +10301,110 @@ Object.assign(Block.prototype, SimpleBlock.fn, require('./block-validations'), {
    * Can be overwritten, although hopefully this will cover most situations.
    * If you want to get the data of your block use block.getBlockData()
    */
-  _serializeData: function() {
-    utils.log("toData for " + this.blockID);
+   _serializeData: function() {
+                if(this.blockStorage.type == 'video'){
+                 var VideoUrl = document.getElementById(this.blockID);
+                   if($(VideoUrl).find('.st-block__paste-input').length){
+                     VideoUrl = $(VideoUrl).find('.st-block__paste-input').val();
+                     var VideoDataArray =  this.parseVideo(VideoUrl);
+                    
+                      if(!this.blockStorage.data.remote_id){  
+                        this.blockStorage.data.remote_id = VideoDataArray.id;
+                        this.blockStorage.data.source = VideoDataArray.type;
+                      }
+                      if(this.blockStorage.data.remote_id == ''){
+                        this.blockStorage.data.remote_id = VideoDataArray.id;
+                        this.blockStorage.data.source = VideoDataArray.type;
+                      }  
+                   }
+                  
+                }
 
-    var data = {};
+                var data = {};
 
-    /* Simple to start. Add conditions later */
-    if (this.hasTextBlock()) {
-      data.text = this.getTextBlockHTML();
-      data.isHtml = true;
-    }
+                /* Simple to start. Add conditions later */
+                if (this.hasTextBlock()) {
+                    data.text = this.getTextBlockHTML();
+                    data.isHtml = true;
+                }
 
-    // Add any inputs to the data attr
-    if (this.$(':input').not('.st-paste-block').length > 0) {
-      this.$(':input').each(function(index,input){
-        if (input.getAttribute('name')) {
-          data[input.getAttribute('name')] = input.value;
-        }
-      });
-    }
+                // Add any inputs to the data attr
+                if (this.$(':input').not('.st-paste-block').length > 0) {
+                    this.$(':input').each(function(index,input){
+                        if (input.getAttribute('name')) {
+                            data[input.getAttribute('name')] = input.value;
+                        }
+                    });
+                }
 
-    return data;
-  },
+                return data;
+            },
+            YouTubeGetID: function (url){
+              var ID = '';
+              if(url != undefined){
+                url = url.replace(/(>|<)/gi,'').split(/(vi\/|v=|\/v\/|youtu\.be\/|\/embed\/)/);
+                if(url[2] !== undefined) {
+                  ID = url[2].split(/[^0-9a-z_\-]/i);
+                  ID = ID[0];
+                }
+                else {
+                  ID = url;
+                }
+              }else{
+                ID = false;
+                
+              }
+              return ID;
 
+            },
+            parseVideo: function (url){
+              // - Supported YouTube URL formats:
+              //   - http://www.youtube.com/watch?v=My2FRPA3Gf8
+              //   - http://youtu.be/My2FRPA3Gf8
+              //   - https://youtube.googleapis.com/v/My2FRPA3Gf8
+              // - Supported Vimeo URL formats:
+              //   - http://vimeo.com/25451551
+              //   - http://player.vimeo.com/video/25451551
+              // - Also supports relative URLs:
+              //   - //player.vimeo.com/video/25451551
+
+              url.match(/(http:|https:|)\/\/(player.|www.)?(vimeo\.com|youtu(be\.com|\.be|be\.googleapis\.com))\/(video\/|embed\/|watch\?v=|v\/)?([A-Za-z0-9._%-]*)(\&\S+)?/);
+
+              if (RegExp.$3.indexOf('youtu') > -1) {
+                  var type = 'youtube';
+              } else if (RegExp.$3.indexOf('vimeo') > -1) {
+                  var type = 'vimeo';
+              }
+
+              return {
+                  type: type,
+                  id: RegExp.$6
+              };
+          },
+          createVideo: function (url, width, height) {
+              // Returns an iframe of the video with the specified URL.
+              var videoObj = parseVideo(url);
+              var $iframe = $('<iframe>', { width: width, height: height });
+              $iframe.attr('frameborder', 0);
+              if (videoObj.type == 'youtube') {
+                  $iframe.attr('src', '//www.youtube.com/embed/' + videoObj.id);
+              } else if (videoObj.type == 'vimeo') {
+                  $iframe.attr('src', '//player.vimeo.com/video/' + videoObj.id);
+              }
+              return $iframe;
+          },
+          getVideoThumbnail: function (url, cb) {
+                // Obtains the video's thumbnail and passed it back to a callback function.
+                var videoObj = parseVideo(url);
+                if (videoObj.type == 'youtube') {
+                    cb('//img.youtube.com/vi/' + videoObj.id + '/maxresdefault.jpg');
+                } else if (videoObj.type == 'vimeo') {
+                    // Requires jQuery
+                    $.get('http://vimeo.com/api/v2/video/' + videoObj.id + '.json', function(data) {
+                        cb(data[0].thumbnail_large);
+                    });
+                }
+          },
   /* Generic implementation to tell us when the block is active */
   focus: function() {
     this.getTextBlock().focus();
