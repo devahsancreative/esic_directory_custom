@@ -19,6 +19,10 @@ text-decoration: none !important;
 table td {
     width:100px;
 }
+.btn-block{
+    display: initial !important;
+    width: auto !important;
+}
 </style>
 <link href="<?php echo ADMIN_THEME; ?>/js/trevor/sir-trevor.css" rel="stylesheet">
 <link href="<?php echo ADMIN_THEME; ?>/js/trevor/sir-trevor-bootstrap.css" rel="stylesheet">

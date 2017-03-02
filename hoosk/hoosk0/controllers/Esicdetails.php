@@ -4,7 +4,22 @@ class Esicdetails extends MY_Controller{
     {
         parent::__construct();
 		$this->load->model('Esic_model');
-        
+        $this->load->model('Hoosk_page_model');
+        $this->load->model('Hoosk_model');
+        // use for Header And Footer
+        $totSegments = $this->uri->total_segments();
+        if(!is_numeric($this->uri->segment($totSegments))){
+            $pageURL = $this->uri->segment($totSegments);
+        } else if(is_numeric($this->uri->segment($totSegments))){
+            $pageURL = $this->uri->segment($totSegments-1);
+        }
+        if ($pageURL == ""){ $pageURL = "home"; }
+        $data['page']=$this->Hoosk_page_model->getPage($pageURL);
+
+        $data['settings']=$this->Hoosk_page_model->getSettings();// use for header title
+        $data['settings_footer'] = $this->Hoosk_model->getSettings(); //use for footer
+
+
 
 
     }
@@ -15,6 +30,7 @@ class Esicdetails extends MY_Controller{
 		
 		 
       	$alias = str_replace('_',' ',$alias);
+        $alias = str_replace('+','_',$alias);
 
 		$data['social'] = $this->Esic_model->get_user_details($alias);
 		 

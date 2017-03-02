@@ -1,4 +1,15 @@
 <?php echo $header; ?>
+<style>
+    .btn-signin{
+         background-color: #00a65a;
+     }
+    .btn-fb-signin a {
+        color: #fff8f8;
+    }
+    .fa-facebook {
+        margin-right: 10px;
+    }
+    </style>
  <div class="container">
 
         <div class="row">
@@ -83,15 +94,18 @@
                                 </div>
 
 
-
                                 <div class="form-group">
 
-                                	<input type="submit" class="btn btn-info btn-block" value="<?php echo $this->lang->line('login_signin'); ?>">
+                                	<input type="submit" class="btn btn-success btn-signin btn-block" value="<?php echo $this->lang->line('login_signin'); ?>">
 
                                 </div>
 
-                                <hr>
 
+                                <div class="form-group">
+
+                                    <button class="btn btn-info btn-block btn-fb-signin"> <a class="button button--social-login button--facebook" id="fbLogin" href="<?php echo $this->facebook->login_url(); ?>">
+                                    <i class="icon fa fa-facebook"></i>Login With Facebook</a></button>
+                                </div>
                                 <a href="<?php echo BASE_URL; ?>/admin/user/forgot" class="text-info"><?php echo $this->lang->line('login_reset'); ?></a>
 
                             </fieldset>
@@ -125,3 +139,14 @@
 
 
 </html>
+
+<script>
+    $(function(){
+
+        // Initiate Facebook JS SDK
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId   : '1854896641432731', // Your app id o
+                cookie  : true,  // enable cookies to allow the server to access the session
+                xfbml   : false,  // disable xfbml improves the page load time
+

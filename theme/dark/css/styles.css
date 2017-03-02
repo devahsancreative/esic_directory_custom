@@ -21,6 +21,7 @@ iframe {
 
 label.label_find {
     float: left;
+    padding: 0px 30px;
 }
 .search-button {
     margin: 47px 0px !important;
@@ -33,17 +34,28 @@ label.label_find {
     margin-top: 110px;
     left: 0;
     right: 0;
-    background: rgba(51, 51, 51, 0.5);
+    /*background: rgba(51, 51, 51, 0.5);*/
     border-radius: 8px;
-    padding: 6px 54px;
+    /*padding: 6px 54px;*/
     height: 167px;
-    width: 700px;
+    width: 500px;
     position: absolute;
     z-index: 100;
     color: white;
 
 
 }
+.logotext{
+    position: absolute;
+    top: 150px;
+    /*left: 230px;*/
+    z-index: 100;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
 .jumbotron.errorpadding
 {
     padding-top: 0;
@@ -60,7 +72,132 @@ label.label_find {
 
     width: 100% !important;
 }
+/* style for google custom Search list front page*/
 
+.gsc-results-wrapper-overlay {
+
+    margin-top: 50px !important;
+    margin-left: 40px !important;
+}
+.gsc-input {
+    color: #666;
+}
+.gsc-control-cse{
+
+    background: rgba(51, 51, 51, 0.5) !important;
+    border-radius: 5px;
+}
+.cse .gsc-control-cse, .gsc-control-cse{
+    border: none !important;
+
+}
+.gsc-search-box table{
+    background: rgba(51, 51, 51, 0.5) !important;
+    border-radius: 5px;
+
+}
+.gsc-search-box table td{
+    padding: 10px 0px 10px 10px;
+    border-bottom: none #eee;
+}
+input.gsc-input {
+    border-color: #BBBBBB;
+    border-radius: 3px;
+}
+
+    input.gsc-input {
+    border-color: #BBBBBB;
+    background: none !important;
+    text-indent: 0px !important;
+}
+
+.header_search   table {
+    background-color: #fff !important;
+}
+
+    /* style for blog list front page*/
+
+
+.blog{
+    margin-top:70px;
+    margin-bottom:70px;
+
+}
+.blog-content{
+    text-align: justify;
+    clear: both;
+    margin-bottom: 15px;
+}
+.blog-title a {
+
+    font-size: 20px;
+}
+.paragraph p{
+    color: #999;
+    line-height: 2;
+    padding: .5em 0;
+    margin: 0;
+    font-size: 16px;
+}
+
+.blog-date{
+    font-size: 13px;
+    float: left;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1;
+    display: block;
+}
+.date-text{
+    cursor: pointer;
+    float: left;
+    margin: 0 8px 0 0;
+    padding: 0 0 4px 0;
+}
+.blog-comments{
+    float: right;
+    margin: 0 !important;
+    padding: 0 0 4px 0 !important;
+    line-height: 1;
+    font-size:13px;
+}
+.blog-list li{
+    cursor: pointer;
+    text-decoration:none;
+    line-height: 1;
+    display: block;
+    margin-top:10px;
+}
+.blog-list li a{
+    cursor: pointer;
+    text-decoration:none;
+    line-height: 1;
+    display: block;
+    margin-top:16px;
+
+}
+.Latest-Blogs{
+    margin-left: 39px;
+}
+.blog-post-separator {
+    margin-top: 38px;
+    border-bottom: 3px solid #efefef;
+}
+.blog-separator {
+    margin: 10px;
+}
+.btn-reply{
+    margin-left: 20px;
+    margin-bottom: 20px !important;
+    background-color: #626262 !important;;
+}
+.blog_side_bar{
+    float: right;
+    position: fixed;
+    right: 0;
+
+}
+/* blog list  page  end*/
 
 /* media Queries */
 @media (min-width: 1200px){
@@ -73,10 +210,34 @@ label.label_find {
     /*header Style*/
     .header_search{
         margin-top: 160px;
-        padding: 6px 54px;
+        /*padding: 6px 54px;*/
         height: 167px;
         width: 550px;
     }
+.gsc-search-box table td
+  {
+    border-bottom: none #eee;
+    width: 90% !important;
+    display: inline-block;
+
+}
+    label.label_find {
+        float: left;
+        padding: 0px 58px;
+        margin-bottom: 0px;
+    }
+    .gsc-search-box table  td:nth-child(2){
+        width: 20% !important;
+
+    }
+    .gsc-search-box table  td:nth-child(3){
+        display: none;
+        width: 0% !important;
+
+    }
+
+
+
     .banner_image img {
         height: 650px;
     }
@@ -89,7 +250,8 @@ label.label_find {
     }
     .logotext{
         position: absolute;
-        top: 100px;
+        top: 160px;
+        left: 0;
         z-index: 100;
         color: white;
         /*display: -webkit-box;*/
@@ -102,7 +264,7 @@ label.label_find {
 
     }
     .blog_side_bar{
-        float: left;
+        float: none !important;
         position: relative !important;
         width: 100%;
 
@@ -130,17 +292,34 @@ label.label_find {
     body {
         margin-top: 100px !important;
     }
+    .gsc-results-wrapper-overlay {
+
+        margin-top: 50px !important;
+        margin-left: 40px !important;
+    }
+    .gsc-results-wrapper-overlay {
+        margin-top: 120px !important;
+        margin-left: 30px !important;
+    }
 }
 @media only screen and (max-width: 768px){
 
     /*header Style*/
     .header_search{
-        margin-top: 160px;
+        margin-top: 90px;
         padding: 0px 20px;
         height: 190px;
         width: 550px;
     }
+    .logotext{
 
+        top: 90px;
+
+    }
+    .gsc-results-wrapper-overlay {
+        margin-top: 60px !important;
+        margin-left: 20px !important;
+    }
     .banner_image img {
         height: 600px;
     }
@@ -187,7 +366,10 @@ label.label_find {
         margin-left: 20px;
         margin-right: 20px;
     }
+    label.label_find {
 
+        padding: 0px 50px;
+    }
 
 }
 @media only screen and (max-width: 762px){
@@ -207,11 +389,16 @@ label.label_find {
 }
 @media only screen and (max-width: 568px){
 
+    .logotext {
+
+        top: 80px;
+
+    }
     .header_search{
-        margin-top: 118px;
+        margin-top: 80px;
         padding: 0px 16px;
-        height: 190px;
-        width: 400px;
+        height: 170px;
+        max-width: 90%;
     }
     .banner_image img {
         height: 450px;
@@ -240,12 +427,14 @@ label.label_find {
 
 }
 @media only screen and (max-width: 430px){
-
+    .navbar-toggle{
+        margin-right: 0px;
+    }
     .header_search{
-        margin-top: 20px;
-        padding: 0px 5px;
+        margin-top: 0px;
+        /*padding: 0px 5px;*/
         height: 160px;
-        width: 250px;
+       /* width: 250px;*/
     }
     .banner_image img {
         height: 280px;
@@ -275,7 +464,7 @@ label.label_find {
 
     }
     .container {
-        padding-right: 0px;
+       /* padding-right: 0px;*/
         -moz-padding-end: 15px;
     }
     .container>.navbar-header, .container-fluid>.navbar-header, .container>.navbar-collapse, .container-fluid>.navbar-collapse {
@@ -645,87 +834,7 @@ li.dropdown:hover .dropdown-menu /* Drop Down Menu */
 	 display:block !important;
 
 }
-/* style for blog list front page*/
-.blog{
-	 margin-top:70px;
-	 margin-bottom:70px;
 
-	}
-.blog-content{
-	text-align: justify;
-    clear: both;
-    margin-bottom: 15px;
-}
-.blog-title a {
-
-    font-size: 20px;
-}
-.paragraph p{
-	color: #999;
-	line-height: 2;
-    padding: .5em 0;
-	margin: 0;
-	font-size: 16px;
-	}
-
-.blog-date{
-	font-size: 13px;
-    float: left;
-    margin: 0 !important;
-    padding: 0 !important;
-    line-height: 1;
-	display: block;
-	}
-.date-text{
-    cursor: pointer;
-    float: left;
-    margin: 0 8px 0 0;
-    padding: 0 0 4px 0;
-}
-.blog-comments{
-	float: right;
-    margin: 0 !important;
-    padding: 0 0 4px 0 !important;
-    line-height: 1;
-	font-size:13px;
-	}
-.blog-list li{
-	cursor: pointer;
-	text-decoration:none;
-	line-height: 1;
-	display: block;
-	margin-top:10px;
-	}
-.blog-list li a{
-	cursor: pointer;
-	text-decoration:none;
-	line-height: 1;
-	display: block;
-	margin-top:16px;
-
-	}
-.Latest-Blogs{
-	margin-left: 39px;
-	}
-.blog-post-separator {
-    margin-top: 38px;
-    border-bottom: 3px solid #efefef;
-}
-.blog-separator {
-    margin: 10px;
-}
-.btn-reply{
-	margin-left: 20px;
-   margin-bottom: 20px !important;
-    background-color: #626262 !important;;
-	}
-.blog_side_bar{
-    float: right;
-    position: fixed;
-    right: 0;
-
- }
-/* blog list  page  end*/
 
 @media screen and (min-width: 768px){
 	.jumbotron{
@@ -763,17 +872,10 @@ li.dropdown:hover .dropdown-menu /* Drop Down Menu */
     z-index: 10;
 
 }
-.logotext{
-    position: absolute;
-    top: 100px;
-    z-index: 100;
-    color: white;
-    margin-left: auto;
-    margin-right: auto;
 
+.container.home {   /*for default header top margin  home template */
+    margin-top: 40px;
 }
-
-
 
 .responsive_logo_hide{
     display: none;

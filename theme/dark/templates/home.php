@@ -26,7 +26,7 @@
 <!-- /JUMBOTRON container-->
 <!-- CONTENT
 =================================-->
-<div class="container">
+<div class="container home">
     <?php echo $page['pageContentHTML']; ?>
   	<hr>
 </div>

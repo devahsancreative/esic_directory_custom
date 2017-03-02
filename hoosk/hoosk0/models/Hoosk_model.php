@@ -420,6 +420,45 @@ class Hoosk_model extends CI_Model {
         return array();
     }
 
+    function facebook_login($email) {
+
+        $this->db->select("*");
+
+        $this->db->where("email", $email);
+
+        $query = $this->db->get("hoosk_user");
+
+        if ($query->num_rows() > 0) {
+
+            foreach ($query->result() as $rows) {
+
+                $data = array(
+
+                    'userID' => $rows->userID,
+
+                    'userName' => $rows->userName,
+
+                    'userRole' => $rows->userRole,
+
+                    'logged_in' => TRUE,
+
+                );
+
+
+
+                $this->session->set_userdata($data);
+
+                return true;
+
+            }
+
+        } else {
+
+            return false;
+
+        }
+
+    }
     function login($username, $password) {
 
         $this->db->select("*");
@@ -1500,7 +1539,8 @@ class Hoosk_model extends CI_Model {
 
     /*     * *************************** */
 
-	
+
+
 
 	function getSocial(){
 

@@ -39,14 +39,29 @@
 
            <div class="row">
 
-              <div class="col-md-9 col-sm-8 col-xs-12">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+
                   <label class="label_find"><h4>Find ESIC</h4></label>
-                  <input type="text" name="search" class="form-control" placeholder="Find ESIC">
+
+                  <script>
+                      (function() {
+                          var cx = '001114046497267301926:xk7qgywhyng';
+                          var gcse = document.createElement('script');
+                          gcse.type = 'text/javascript';
+                          gcse.async = true;
+                          gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                          var s = document.getElementsByTagName('script')[0];
+                          s.parentNode.insertBefore(gcse, s);
+                      })();
+                  </script>
+                  <gcse:search></gcse:search>
+
+
               </div>
-              <div class="col-md-3 col-sm-4 col-xs-12">
+              <!--<div class="col-md-3 col-sm-4 col-xs-12">
                   <label><h4></h4></label>
                   <button   class="btn btn-lg btn-blue search-button">Find ESIC</button>
-               </div>
+               </div>-->
 
           </div>
 
@@ -70,3 +85,25 @@
 <!-- /CONTENT ============-->
 
 <?php echo $footer; ?>
+<script>
+    $(function(){
+        $('div.leftsidebar a').click(function(){
+
+            var alink = $(this).attr('href');
+            var result = alink.substring(alink.lastIndexOf("#") + 1);
+            var ID = "#"+result;
+            $('html, body').animate({
+                scrollTop: $(ID).offset().top -80}, 2000);
+
+        });
+
+    });
+
+
+    $(document).ready(function() {
+        $(window).load(function() {
+          var pageNum = $('.gsc-input').attr('placeholder','Search any thing Withen the website');
+         });
+    });
+
+    </script>

@@ -6,7 +6,9 @@ if(!empty($list) && is_array($list)){
 			    	$web='';
 			    	$desc='';
 			    	$img ='';
-					$user['alias'] = str_replace(' ','_',$user['Company']);
+					   $user['alias'] = str_replace(' ','_',$user['Company']);
+					   $user['alias'] = str_replace('+','_',$user['alias']);
+
 			    	if(!empty($user['Status'])){
 			    		$status = $user['Status'];
 			    	}

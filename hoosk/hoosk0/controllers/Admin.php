@@ -10,6 +10,7 @@ class Admin extends MY_Controller {
 		define("HOOSK_ADMIN",1);
 		$this->load->helper(array('admincontrol', 'url', 'hoosk_admin'));
 		$this->load->library('session');
+        $this->load->library('facebook');
         $this->load->model('Hoosk_model');
 		define ('LANG', $this->Hoosk_model->getLang());
 		$this->lang->load('admin', LANG);
@@ -150,73 +151,13 @@ public function upload()
 	}
 
 	public function login()
-	{
+	{$this->load->helper('form');
 
-      //  $this->load->helper('form');
-      //  $this->data['settings'] = $this->Hoosk_model->getSettings();
-		//$this->data['header'] = $this->load->view('admin/headerlog', '', true);
-		//$this->data['footer'] = $this->load->view('admin/footer', '', true);
-      //  $this->load->view('admin/login',$this->data);
-        $this->load->helper('form');
         $data['settings'] = $this->Hoosk_model->getSettings();
-
-        include_once APPPATH."libraries/facebook-api-php-codexworld/facebook.php";
-        $appId = '1854896641432731';
-        $appSecret = 'd9fdf021543cc3b533a7917877f99483';
-        //$redirectUrl = base_url() . 'user_authentication/';
-        $redirectUrl = base_url().'/admin';
-        $fbPermissions = 'email';
-
-        //Call Facebook API
-        $facebook = new Facebook(array(
-            'appId'  => $appId,
-            'secret' => $appSecret
-
-        ));
-        $fbuser = $facebook->getUser();
-
-        if ($fbuser) {
-            $userProfile = $facebook->api('/me?fields=id,first_name,last_name,email,gender,locale,picture');
-            //      print_r($userProfile);
-
-            $userData['oauth_provider'] = 'facebook';
-            $userData['oauth_uid'] = $userProfile['id'];
-            $userData['first_name'] = $userProfile['first_name'];
-            $userData['last_name'] = $userProfile['last_name'];
-            $userData['email'] = $userProfile['email'];
-            $userData['gender'] = $userProfile['gender'];
-            $userData['locale'] = $userProfile['locale'];
-            $userData['profile_url'] = 'https://www.facebook.com/'.$userProfile['id'];
-            $userData['picture_url'] = $userProfile['picture']['data']['url'];
-            // Insert or update user data
-
-            //$userID = $this->user->checkUser($userData);
-            $userID = 1;
-            if(!empty($userID)){
-
-                 $data = array(
-
-                        'userID'   => 1, //get from data base
-
-                        'userName' => $userData['first_name'] . $userData['last_name'],
-
-                       // 'userRole' => $rows->userRole, //get from data base
-                        'userRole' => 1, //get from data base
-                        'logged_in' => TRUE,
-
-                    );
-                    $this->session->set_userdata($data);
-
-                    return true;
-                } else {
-                $data['userData'] = array();
-                }
-        } else {
-            $fbuser = '';
-            $data['authUrl'] = $facebook->getLoginUrl(array('redirect_uri'=>$redirectUrl,'scope'=>$fbPermissions));
-        }
         $data['header'] = $this->load->view('admin/headerlog', '', true);
+
         $data['footer'] = $this->load->view('admin/footer', '', true);
+
         $this->load->view('admin/login',$data);
          }
 
@@ -244,6 +185,7 @@ public function upload()
 		);
 		$this->session->unset_userdata($data);
 		$this->session->sess_destroy();
+        $this->facebook->destroy_session();
 		$this->login();
 	}
 
@@ -330,7 +272,7 @@ public function social()
 			$this->load->helper('form');
 
 			$this->data['social'] = $this->Hoosk_model->getSocial();
-			$this->data['current'] = $this->uri->segment(2);
+            $this->data['current'] = $this->uri->segment(2);
 			$this->data['header'] = $this->load->view('admin/header', $this->data, true);
 			$this->data['footer'] = $this->load->view('admin/footer', '', true);
 			$this->load->view('admin/social', $this->data);
@@ -3223,4 +3165,34 @@ public function publish_assessment_list(){
     echo "OK::Your Profile is successfully published";
 
 }
+
+
+
+    public function fb(){
+        $data['user'] = array();
+
+        // Check if user is logged in
+        if ($this->facebook->is_authenticated())
+        {
+
+            $user = $this->facebook->request('get', '/me?fields=id,name,email,gender,first_name,last_name,locale,timezone,location');
+
+           $id          = $user['id'];
+           $first_name  = $user['first_name'];
+           $lastname    = $user['last_name'];
+           $email       = $user['email'];
+
+             
+
+            $result=$this->Hoosk_model->facebook_login($email);
+            if($result) {
+                redirect('/admin', 'refresh');
+            }
+            else
+            {
+                $this->data['error'] = "1";
+                $this->login();
+            }
+        }
+    }
 }
