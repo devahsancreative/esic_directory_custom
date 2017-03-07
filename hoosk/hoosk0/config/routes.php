@@ -70,9 +70,12 @@ $route['admin/logout'] = "Admin/logout";
 $route['admin/users'] = "Users";
 $route['admin/users/new'] = "Users/addUser";
 $route['admin/users/new/add'] = "Users/confirm";
-$route['admin/users/delete/(:any)'] = "Users/delete";
-$route['admin/users/edit/(:any)'] = "Users/editUser";
-$route['admin/users/edited/(:any)'] = "Users/edited";
+$route['admin/users/edit_profile_picture'] = "Users/edit_profile_picture";
+$route['admin/users/edit_profile_picture/(:any)'] = "Users/edit_profile_picture/$1";
+
+$route['admin/users/delete/(:any)'] = "Users/delete/$1";
+$route['admin/users/edit/(:any)'] = "Users/editUser/$1";
+$route['admin/users/edited/(:any)'] = "Users/edited/$1";
 $route['admin/user/forgot'] = 'Admin/users/forgot'; //
 $route['admin/users/(:any)'] = "Users";
 $route['admin/reset/(:any)'] = 'Admin/users/getPassword'; //

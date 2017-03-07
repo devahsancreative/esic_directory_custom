@@ -84,6 +84,14 @@
             padding: 5px 20px;
 
         }
+        #upload_Profile_image{
+
+            padding: 2px 50px 2px 1px;
+        }
+        .p_b{
+            margin: 2px;
+        }
+
 		
 
     </style>
@@ -199,7 +207,7 @@ if($class   == 'Pages' || (strtolower($class).'/'.strtolower($method) === 'admin
 			  
 			 
 			  if(!empty($image[0]->p_image) && $userRole == 1){?>
-				  <img src="<?=base_url()."uploads/admin/". $image[0]->p_image;?>" class="user-image" alt="User Image">
+				  <img src="<?= base_url(). 'uploads/investor/'. $image[0]->p_image ?>" id="Profile_image" class="user-image" alt="User Image">
 				 <?php } 
                  
 			  elseif(!empty($image[0]->logo) && $userRole == 2){// super admin logo  ?>
@@ -227,29 +235,35 @@ if($class   == 'Pages' || (strtolower($class).'/'.strtolower($method) === 'admin
 
  <li class="user-header">
 
- <?php  print_r($users);
- if($userRole == 1){
-
-
-     $logoImage = '';
-     if(!empty($users->p_image)){
-         $logoImage = base_url().'/uploads/investor/'.$users->p_image;
-     }else{
-         $logoImage = base_url('pictures/defaultLogo.png');
-     }
-
-     ?>
-
-     <img src="<?= $logoImage; ?>" id="Profile_image" class="img-circle" alt="User Image">
- <?php }
-
-
-               if(!empty($image[0]->p_image) && $userRole == 1){?>
+ <?php
 
 
 
 
-			    <?php } 
+
+
+               if(!empty($image[0]->p_image && $userRole == 1)){
+
+
+                   $logoImage = '';
+                   if(!empty($image[0]->p_image)){
+                       $logoImage = base_url().'/uploads/investor/'.$image[0]->p_image;
+                   }
+
+                   ?>
+
+                   <img src="<?= base_url(). 'uploads/investor/'. $image[0]->p_image ?>" id="Profile_image" class="img-circle" alt="User Image">
+
+                   <form method="post" enctype="multipart/form-data" id="save_Profile_image">
+
+                       <input type="file" id="upload_Profile_image" class="btn btn-sm btn-default" name="image">
+                       <input type="hidden" id="" name="id" value="<?= $image[0]->p_image  ?>">
+                       <input type="submit" value="save" class="btn btn-sm btn-default p_b">
+
+                   </form>
+
+
+			    <?php  }
                  
 			  elseif(!empty($image[0]->logo) && $userRole == 2){// super admin logo  ?>
                  <img src="<?=base_url(). $image[0]->logo;?>" class="img-circle" alt="User Image">
@@ -261,21 +275,25 @@ if($class   == 'Pages' || (strtolower($class).'/'.strtolower($method) === 'admin
 			  else{
 
 
+                  $logoImage = '';
+                  if(!empty($users[0]['p_image'])){
+                  $logoImage = base_url().'/uploads/investor/'.$users[0]['p_image'];
+                  }
+
+                  ?>
+
+                  <img src="<?= base_url(). 'uploads/investor/'. $users[0]['p_image'] ?>" id="Profile_image" class="img-circle" alt="User Image">
+
+                      <form method="post" enctype="multipart/form-data" id="save_Profile_image">
+
+                          <input type="file" id="upload_Profile_image" name="image">
+                          <input type="hidden" id="" name="id" value="<?= $users[0]['userID'];  ?>">
+                          <input type="submit" value="save">
+
+                      </form>
 
 
-
-                   $logoImage = '';
-                   if(!empty($users->p_image)){
-                       $logoImage = base_url().'/uploads/investor/'.$users->p_image;
-                   }else{
-                       $logoImage = base_url('pictures/defaultLogo.png');
-                   }
-
-                   ?>
-
-                       <img src="<?= $logoImage; ?>" id="Profile_image" class="img-circle" alt="User Image">
-
-				  <?php  } ?>
+				  <?php   } ?>
  <p>
      <?php echo $this->session->userdata('userName'); ?>
 
@@ -335,17 +353,18 @@ if($class   == 'Pages' || (strtolower($class).'/'.strtolower($method) === 'admin
 
     <script>
         $(function(){
-            $("#Profile_image").on('click',(function(e){ //upload profile Image
+            $("#save_Profile_image").on('submit',(function(e){ //upload profile Image
                 var current = $(this);
                 e.preventDefault();
                 $.ajax({
-                    url :  baseUrl + "admin/users/edit_profile_picture/<?=$User->userID?>",
+                    url :  baseUrl + "admin/users/edit_profile_picture",
                     type: "POST",
                     data:  new FormData(this),
                     contentType: false,
                     cache: false,
                     processData:false,
                     success: function(data){
+
                         $("#Profile_image").attr("src","<?= base_url()?>uploads/investor/" + data);
                         $('#mydiv2').addClass('.alert alert-success');
                         $('#mydiv2').html('Your Information  updated Successfully!').show().delay(5000).fadeOut(3000);

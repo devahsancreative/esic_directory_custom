@@ -377,6 +377,7 @@
   <script>
  tinymce.init({
   selector: 'textarea',
+    // file_browser_callback_types: 'file image media'
   height: 300,
   menubar: false,
   plugins: [

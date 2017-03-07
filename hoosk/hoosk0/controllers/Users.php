@@ -157,14 +157,18 @@ class Users extends MY_Controller {
             }
 
             $image_name = str_replace(" ","_",$_FILES['image']['name']);
-            //  echo   $filepath        = base_url().'uploads/investor/'.$name;
+          // echo   $filepath        = base_url().'uploads/investor/'.$name;
         }
         //end imgae code
         $data     = array(
-            'image' => $image_name,
+            'P_image' => $image_name,
         );
+          $id = $this->input->post("id");
+
+
+
         if($image_name){
-            //$ok       = $this->Investor_model->update_certificate($id,$data);
+           $ok       = $this->Hoosk_model->update_p_image($id,$data);
         }
         else{
             $ok = "ok";

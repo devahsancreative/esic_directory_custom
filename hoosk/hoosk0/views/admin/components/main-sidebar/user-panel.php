@@ -6,7 +6,7 @@
 			 $image    = $this->Common_model->user_logo($userID,$userRole); 
 			 
 			  if(!empty($image[0]->p_image) && $userRole == 1){?>
-				  <img src="<?=base_url()."uploads/admin/". $image[0]->p_image;?>" class="img-circle" alt="User Image">
+				  <img src="<?= base_url(). 'uploads/investor/'. $image[0]->p_image ?>" id="Profile_image" class="img-circle" alt="User Image">
 				 <?php } 
                  
 			  elseif(!empty($image[0]->logo) && $userRole == 2){// super admin logo  ?>

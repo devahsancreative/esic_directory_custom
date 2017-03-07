@@ -292,6 +292,13 @@ class Hoosk_model extends CI_Model {
         return array();
 
     }
+    public function  update_p_image	($id=NULL,$data=NULL) // use to udate both user profile and certificate
+    {
+        $this->db->where('userID',$id);
+        $this->db->update('hoosk_user',$data);
+        return "ok";
+
+    }
 
 
 
