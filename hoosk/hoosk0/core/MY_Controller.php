@@ -13,6 +13,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link        http://community-auth.com
  */
 
+/**
+ * @property common_model $common_model It resides all the methods which can be used in most of the controllers.
+ */
 
 class MY_Controller extends CI_Controller
 {
@@ -36,8 +39,13 @@ parent::__construct();
         $this->load->model('Common_model');
 		$this->load->model('Esic_model');
 		$this->load->model("Imagecreate_model");
-		
-	
+
+        //We Need Some Settings from Database.
+        //Load Values from DB
+        $config = $this->db->get('hoosk_social_setting')->result();
+        //Assign Values to Config File.
+        $this->config->set_item('facebook_app_id', $config[0]->api_id);
+        $this->config->set_item('facebook_app_secret', $config[0]->api_key);
 	}
 	public function show_admin($viewPath, $data = NULL, $bool = false){
 	      $this->load->view('admin/header',$data, $bool);
