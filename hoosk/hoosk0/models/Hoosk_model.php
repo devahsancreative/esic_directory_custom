@@ -1557,6 +1557,21 @@ class Hoosk_model extends CI_Model {
         return array();
 
 	}
+    function getSocial_creaditional(){
+
+        $this->db->select("*");
+
+        $query = $this->db->get('hoosk_social_setting');
+
+        if ($query->num_rows() > 0) {
+
+            return $query->result_array();
+
+        }
+
+        return array();
+
+    }
 
 	
 
@@ -1595,6 +1610,16 @@ class Hoosk_model extends CI_Model {
 		}
 
 	}
+	public function social_creaditional($fb_id,$fb_sec){
+
+	    $this->db->where('pk_id',1);
+        $data = array(
+            'api_id'  =>$fb_id,
+            'api_key' =>$fb_sec
+           );
+        $ok = $this->db->update('hoosk_social_setting',$data);
+        return;
+    }
 
 }
 

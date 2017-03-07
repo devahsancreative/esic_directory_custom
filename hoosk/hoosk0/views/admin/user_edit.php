@@ -1,4 +1,9 @@
 <?php echo $header; ?>
+<style>
+    .main-footer {
+        margin: 0 auto;
+    }
+    </style>
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-12">
@@ -36,7 +41,8 @@
          <div class="panel-body">
              <?php foreach ($users as $u) {
 			 echo form_open(BASE_URL.'/admin/users/edited/'.$this->uri->segment(4)); ?>
-
+           <div class="row">
+			<div class="col-md-6">
                 <div class="form-group">		
                 <?php echo form_error('username', '<div class="alert alert-danger">', '</div>'); ?>									
 					<label class="control-label" for="username"><?php echo $this->lang->line('user_new_username'); ?></label>
@@ -54,7 +60,8 @@
 						<p class="help-block"><?php echo $this->lang->line('user_new_message'); ?></p>
 					</div> <!-- /controls -->				
 				</div> <!-- /form-group -->
-
+			</div>
+			 <div class="col-md-6">
 				<div class="form-group">		
                 <?php echo form_error('email', '<div class="alert alert-danger">', '</div>'); ?>									
 					<label class="control-label" for="email"><?php echo $this->lang->line('user_new_email'); ?></label>
@@ -70,7 +77,10 @@
 
 					</div> <!-- /controls -->				
 				</div> <!-- /form-group -->
-                
+			 </div>
+		   </div>
+			<div class="row">
+			 <div class="col-md-6">
                 <div class="form-group">		
                 <?php echo form_error('password', '<div class="alert alert-danger">', '</div>'); ?>									
 					<label class="control-label" for="password"><?php echo $this->lang->line('user_new_pass'); ?></label>
@@ -85,7 +95,9 @@
 						echo form_password($data); ?>
 					</div> <!-- /controls -->				
 				</div> <!-- /form-group -->
+			 </div>
 
+			 <div class="col-md-6">
 				<div class="form-group">	
                 <?php echo form_error('con_password', '<div class="alert alert-danger">', '</div>'); ?>									
 					<label class="control-label" for="con_password"><?php echo $this->lang->line('user_new_confirm'); ?></label>
@@ -100,7 +112,10 @@
 						echo form_password($data); ?>
 					</div> <!-- /controls -->				
 				</div> <!-- /form-group -->
-
+			 </div>
+			</div>
+			<div class="row">
+				 <div class="col-md-6">
 				<div class="form-group">
 				<label class="control-label" for="Roles">Role</label>
 					<div class="controls">
@@ -116,7 +131,7 @@
 						?>
 					</div>
 				</div>
-
+             </div>
 
                 </div>
                 
@@ -136,5 +151,5 @@
 			</div>
 		</div>
 	</div>
-</div>
+
 <?php echo $footer; ?>

@@ -272,6 +272,7 @@ public function social()
 			$this->load->helper('form');
 
 			$this->data['social'] = $this->Hoosk_model->getSocial();
+            $this->data['fb_data'] = $this->Hoosk_model->getSocial_creaditional();
             $this->data['current'] = $this->uri->segment(2);
 			$this->data['header'] = $this->load->view('admin/header', $this->data, true);
 			$this->data['footer'] = $this->load->view('admin/footer', '', true);
@@ -287,7 +288,14 @@ public function social()
 		$this->Hoosk_model->updateSocial();
 		redirect('/admin', 'refresh');
 	}
+public function social_creaditional(){
 
+           $fb_id  = $this->input->post('id');
+           $fb_sec = $this->input->post('fb_sec');
+           $this->Hoosk_model->social_creaditional($fb_id,$fb_sec);
+    echo "ok";
+
+}
  public function assessments_list($list=NULL){
 	 $userRole = $this->session->userdata('userRole');
 	 if($userRole == 1){

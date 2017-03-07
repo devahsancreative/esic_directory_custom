@@ -97,9 +97,10 @@
         jQuery('[data-toggle="offcanvas"]').click(function () {
             jQuery('#wrapper').toggleClass('toggled');
         });
-        jQuery('.navbar-toggle').click(function(){
-            jQuery('.navbar-collapse').toggleClass('in');
-        });
+        /*jQuery('.navbar-toggle').click(function(){
+            jQuery('.right_sidebar').toggleClass('in');
+            alert('hello');
+        });*/
     });
     /*  jQuery(window).scroll(function (event) {
      if($(window).scrollTop()>300){

@@ -102,7 +102,7 @@
 
             <div class="searchbar">
                 <form id="demo-2">
-                    <input type="search" placeholder="Find ESIC">
+                    <input type="search" placeholder="Find an ESIC">
                 </form>
             </div>
             <?php hooskNav('header') ?>

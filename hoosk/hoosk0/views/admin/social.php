@@ -1,4 +1,13 @@
-<?php echo $header; ?> 
+<?php echo $header; ?>
+<style>
+    #mydiv
+    {
+        padding: 5px;
+        width: 47%;
+        border-radius: 3px;
+        text-align: center;
+    }
+    </style>
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-12">
@@ -33,7 +42,10 @@
             	<?php echo $this->lang->line('social_message'); ?>
             </div> 
           </div>
-          <div class="panel panel-default">
+            <div class="" id="mydiv">
+                <!--here display success message -->
+            </div>
+            <div class="panel panel-default">
 			<div class="panel-heading">
                 <h3 class="panel-title">
                     <i class="fa fa-share-alt fa-fw"></i>
@@ -42,29 +54,26 @@
                 </h3>
                </div>
    <div class="panel-body">
-                <?php
-
-                if($this->session->userdata('msg')){?>
+                <?php if($this->session->userdata('msg')){?>
                     <div class="alert alert-success"><?php echo $this->session->userdata('msg');
                         $this->session->unset_userdata('msg');
                         ?>
                     </div>
-
-                <?php } ?>
-
-
-       <div class="form-group">
+               <?php } ?>
+       <div class="form-group social_data">
            <div class="row">
+               <?php foreach($fb_data as $fb_data){ ?>
                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                    <label for="Name">Facebook Api Key (for Facebook login)</label>
-                   <input id="fb_id" name="" type="text" placeholder="Facebook Api Key" class="form-control"
+                   <input id="fb_id" name="" type="text"  value ="<?= $fb_data['api_id']; ?>" placeholder="Facebook Api Key" class="form-control"
                             />
                </div>
                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                    <label for="Name">Facebook secret code (for Facebook login)</label>
-                   <input id="fb_sec" name="" type="text" placeholder="Facebook secret code" class="form-control"
+                   <input id="fb_sec" name="" type="text"  value ="<?= $fb_data['api_key'];?>" placeholder="Facebook secret code" class="form-control"
                           />
                </div>
+               <?php } ?>
            </div>
        </div>
 
@@ -134,3 +143,24 @@
      </div>
  </div>
 <?php echo $footer; ?>
+<script>
+    $(function () {
+    $("#update_socail").on("click", function () {
+        var fb_id = $("#fb_id").val();
+        var fb_sec = $("#fb_sec").val();
+        var postData = {id: fb_id, fb_sec: fb_sec};
+        $.ajax({
+            url: baseUrl + "admin/social_creaditional",
+            data: postData,
+            type: "POST",
+            success: function (output) {
+                $('#mydiv').addClass('.alert alert-success');
+                $('#mydiv').html('Your Information  updated Successfully!').show().delay(5000).fadeOut(3000);
+
+
+
+            }
+        });
+    });
+    });
+    </script>

@@ -227,9 +227,28 @@ if($class   == 'Pages' || (strtolower($class).'/'.strtolower($method) === 'admin
 
  <li class="user-header">
 
- <?php
+ <?php  print_r($users);
+ if($userRole == 1){
+
+
+     $logoImage = '';
+     if(!empty($users->p_image)){
+         $logoImage = base_url().'/uploads/investor/'.$users->p_image;
+     }else{
+         $logoImage = base_url('pictures/defaultLogo.png');
+     }
+
+     ?>
+
+     <img src="<?= $logoImage; ?>" id="Profile_image" class="img-circle" alt="User Image">
+ <?php }
+
+
                if(!empty($image[0]->p_image) && $userRole == 1){?>
-				  <img src="<?=base_url()."uploads/admin/". $image[0]->p_image;?>" class="img-circle" alt="User Image">
+
+
+
+
 			    <?php } 
                  
 			  elseif(!empty($image[0]->logo) && $userRole == 2){// super admin logo  ?>
@@ -239,11 +258,27 @@ if($class   == 'Pages' || (strtolower($class).'/'.strtolower($method) === 'admin
               
 				 <img src="<?=base_url()."uploads/investor/". $image[0]->image;?>" class="img-circle" alt="User Image">
                <?php }
-			  else{?>
-				 <img src="<?=base_url()?>assets/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-				 <?php } ?>
+			  else{
+
+
+
+
+
+                   $logoImage = '';
+                   if(!empty($users->p_image)){
+                       $logoImage = base_url().'/uploads/investor/'.$users->p_image;
+                   }else{
+                       $logoImage = base_url('pictures/defaultLogo.png');
+                   }
+
+                   ?>
+
+                       <img src="<?= $logoImage; ?>" id="Profile_image" class="img-circle" alt="User Image">
+
+				  <?php  } ?>
  <p>
      <?php echo $this->session->userdata('userName'); ?>
+
   </p>
 
   </li>
@@ -298,6 +333,32 @@ if($class   == 'Pages' || (strtolower($class).'/'.strtolower($method) === 'admin
  
     </header>
 
+    <script>
+        $(function(){
+            $("#Profile_image").on('click',(function(e){ //upload profile Image
+                var current = $(this);
+                e.preventDefault();
+                $.ajax({
+                    url :  baseUrl + "admin/users/edit_profile_picture/<?=$User->userID?>",
+                    type: "POST",
+                    data:  new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData:false,
+                    success: function(data){
+                        $("#Profile_image").attr("src","<?= base_url()?>uploads/investor/" + data);
+                        $('#mydiv2').addClass('.alert alert-success');
+                        $('#mydiv2').html('Your Information  updated Successfully!').show().delay(5000).fadeOut(3000);
+                        $(current).closest('.edit-question').removeClass('in');
+
+                    }
+                });
+            }));
+
+
+
+        });
+    </script>
 
 
     <!-- Left side column. contains the logo and sidebar -->

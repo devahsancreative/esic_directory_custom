@@ -19,6 +19,44 @@ iframe {
 
  /*header Style*/
 
+.header_search .form-control {
+    height: 40px;
+    margin: 0 auto;
+    padding: 0px 35px;
+    background: #fff url(http://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+}
+.header_search .btn {
+    padding: 10px;
+    min-width: 220px;
+}
+.header_search .dropdown-menu {
+    left: 240px;
+    min-width: 220px;
+    top: inherit;
+}
+.header_search .dropdown-menu li{
+    width:100%;
+    border-bottom:1px solid gainsboro;
+    margin: 0 auto;
+}
+.header_search .dropdown-menu li a {
+    line-height: 26px;
+}
+.header_search .dropdown-menu li>:hover, .header_search .dropdown-menu li>:focus {
+
+    background-color: rgba(153, 153, 153, 0.1) !important;
+}
+.custom-line {
+    margin-top: 0px;
+    margin-bottom: 5px;
+    border: 0;
+    max-width: 80%;
+    border-top: 2px solid rgba(255, 255, 255, 0.5);
+}
+.custom-row{
+    max-width: 95%;
+    margin-left: 20px;
+}
 label.label_find {
     float: left;
     padding: 0px 30px;
@@ -31,29 +69,42 @@ label.label_find {
     height: 650px;
 }
 .header_search {
-    margin-top: 110px;
+    /*margin-top: 110px;*/
     left: 0;
     right: 0;
-    /*background: rgba(51, 51, 51, 0.5);*/
+    background: rgba(51, 51, 51, 0.5);
     border-radius: 8px;
-    /*padding: 6px 54px;*/
-    height: 167px;
-    width: 500px;
+    padding: 20px 20px;
+    height: 250px;
+    max-width: 700px;
     position: absolute;
     z-index: 100;
     color: white;
 
 
 }
+
 .logotext{
     position: absolute;
-    top: 150px;
+    top: 200px;
     /*left: 230px;*/
     z-index: 100;
     color: white;
     margin-left: auto;
     margin-right: auto;
 
+}
+
+.open {
+   position: relative;
+}
+.header_search .dropdown-menu {
+    left: 0;
+    right: 0;
+    min-width: 220px;
+    top: inherit;
+    max-width: 150px;
+    margin: 0 auto;
 }
 
 .jumbotron.errorpadding
@@ -211,9 +262,10 @@ input.gsc-input {
     .header_search{
         margin-top: 160px;
         /*padding: 6px 54px;*/
-        height: 167px;
+        height: 240px;
         width: 550px;
     }
+
 .gsc-search-box table td
   {
     border-bottom: none #eee;
@@ -239,7 +291,7 @@ input.gsc-input {
 
 
     .banner_image img {
-        height: 650px;
+        height: 450px;
     }
     .leftsidebar .navbar-nav > li > a {
         text-transform: uppercase;
@@ -250,14 +302,14 @@ input.gsc-input {
     }
     .logotext{
         position: absolute;
-        top: 160px;
+        top:  0px;
         left: 0;
         z-index: 100;
         color: white;
         /*display: -webkit-box;*/
         margin-left: auto;
         margin-right: auto;
-        max-width: 59%;
+        max-width: 75%;
     }
     .social {
         width:100% !important;
@@ -301,19 +353,34 @@ input.gsc-input {
         margin-top: 120px !important;
         margin-left: 30px !important;
     }
-}
+    .logotext {
+
+        top: 55px;
+
+    }
+    .custom-row {
+        max-width: 95%;
+        margin-left: 10px;
+    }
+ }
+
 @media only screen and (max-width: 768px){
 
     /*header Style*/
     .header_search{
         margin-top: 90px;
         padding: 0px 20px;
-        height: 190px;
+        height: 280px;
         width: 550px;
+    }
+
+    .custom-row {
+        max-width: 95%;
+        margin-left: 12px;
     }
     .logotext{
 
-        top: 90px;
+        max-width: 80%;
 
     }
     .gsc-results-wrapper-overlay {
@@ -321,7 +388,7 @@ input.gsc-input {
         margin-left: 20px !important;
     }
     .banner_image img {
-        height: 600px;
+        height: 400px;
     }
     .search-button {
         margin: 0px 0px !important;
@@ -388,20 +455,23 @@ input.gsc-input {
 
 }
 @media only screen and (max-width: 568px){
-
+.custom-row {
+    max-width: 95%;
+    margin-left: 8px;
+}
     .logotext {
 
-        top: 80px;
+        top: 0px;
 
     }
     .header_search{
-        margin-top: 80px;
+        margin-top: 68px;
         padding: 0px 16px;
-        height: 170px;
+        height: 270px;
         max-width: 90%;
     }
     .banner_image img {
-        height: 450px;
+        height: 350px;
     }
     .search-button {
         margin: 0px 0px !important;
@@ -426,18 +496,50 @@ input.gsc-input {
     }
 
 }
-@media only screen and (max-width: 430px){
-    .navbar-toggle{
+@media only screen and (max-width: 430px) {
+    .navbar-toggle {
         margin-right: 0px;
     }
-    .header_search{
-        margin-top: 0px;
-        /*padding: 0px 5px;*/
-        height: 160px;
-       /* width: 250px;*/
+
+    .header_search {
+        margin-top: 60px;
+        height: 185px;
+
     }
+
+    .header_search h3 {
+        margin-bottom: 0px !important;
+        margin-top: 0px !important;
+        font-size: 18px !important;
+    }
+
+    .header_search .form-control {
+        height: 30px;
+    }
+
+    .header_search .col-xs-12 {
+        padding-bottom: 0px;
+    }
+
+    .header_search .btn {
+        padding: 6px;
+        min-width: 190px;
+        margin-top: 12px;
+
+    }
+
+    .header_search .dropdown-menu {
+        left: 0;
+        right: 0;
+        min-width: 190px;
+        top: inherit;
+        max-width: 150px;
+        margin: 0 auto;
+    }
+
+
     .banner_image img {
-        height: 280px;
+        height: 250px;
     }
     .search-button {
         margin: 0px 0px !important;
@@ -1200,4 +1302,16 @@ li.dropdown:hover .dropdown-menu /* Drop Down Menu */
     right: 0;
     bottom: 0;
     z-index: 1;
+}
+
+/** King Styles **/
+.jumbotron.full-screen{
+    background-size: cover!important;
+    height: 100vh;
+    position: relative;
+    background-position: center !important;
+    background-attachment: scroll;
+}
+.logotext {
+    top: 40vh;
 }

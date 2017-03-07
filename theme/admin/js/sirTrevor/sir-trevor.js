@@ -9931,9 +9931,9 @@ Object.assign(BlockReorder.prototype, require('./function-bind'), require('./ren
     ev.preventDefault();
     ev.stopPropagation(); // to prevent event handling on outer blocks
 
-    var dropped_on = this.$block,
-    item_id = ev.originalEvent.dataTransfer.getData("text/plain"),
-    block = $('#' + item_id);
+    var dropped_on = this.$block;
+    var item_id = this.$block.attr('id'); //ev.originalEvent.dataTransfer.getData("text/plain");Khan
+    var block = $('#' + this.$block.attr('id'));
 
     if (!_.isUndefined(item_id) && !_.isEmpty(block) &&
         dropped_on.attr('id') !== item_id &&
@@ -12099,9 +12099,10 @@ Object.assign(FloatingBlockControls.prototype, require('./function-bind'), requi
     ev.preventDefault();
     ev.stopPropagation(); // to prevent event handling on outer blocks
 
-    var dropped_on = this.$el,
-    item_id = ev.originalEvent.dataTransfer.getData("text/plain"),
-    block = $('#' + item_id);
+    var dropped_on = this.$el;
+    var item_id = ev.originalEvent.dataTransfer.getData("text/plain");
+    var block = $('#' + item_id);
+
 
     if (!_.isUndefined(item_id) &&
         !_.isEmpty(block) &&

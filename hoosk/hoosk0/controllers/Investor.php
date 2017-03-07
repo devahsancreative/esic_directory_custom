@@ -201,8 +201,9 @@ public function  investor_list($param=NULL){
 		 }
     }	
 	
- public function investor_form(){     
-		
+ public function investor_form(){
+
+
 		$this->load->view('theme/header',$this->data);
         $this->load->view('theme/'.$this->data['page']['pageTemplate'], $this->data);
         $this->load->view('investor/investor-form',$this->data);

@@ -263,6 +263,8 @@ $route['Esic2/info/(:any)'] = "Esic2/info/$1";
 
 $route['esic_database/company/(:any)'] = "Esicdetails/getdetails/$1";
 $route['admin/UpDateSocials']  = "admin/UpDateSocials";
+$route['admin/social_creaditional']  = "admin/social_creaditional";
+
 
 
 // Esicdetails Controller

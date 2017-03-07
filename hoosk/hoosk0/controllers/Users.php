@@ -139,8 +139,41 @@ class Users extends MY_Controller {
 	  	}
 	}
 
+    public function edit_profile_picture($id=NULL)
+    {
+        $id  = $id;
+        if(!empty($_FILES['image']['name'])){
+            $config['allowed_types'] = "gif|jpg|png|jpeg";
+            $config['upload_path']  = 'uploads/investor/';
+            $config['file_name']    = $_FILES['image']['name'];
+            $this->load->library('upload',$config);
+            $this->upload->initialize($config);
+            if($this->upload->do_upload('image'))
+            {
+            }
+            else{
+                echo $this->upload->display_errors();
+                exit;
+            }
 
-		function delete()
+            $image_name = str_replace(" ","_",$_FILES['image']['name']);
+            //  echo   $filepath        = base_url().'uploads/investor/'.$name;
+        }
+        //end imgae code
+        $data     = array(
+            'image' => $image_name,
+        );
+        if($image_name){
+            //$ok       = $this->Investor_model->update_certificate($id,$data);
+        }
+        else{
+            $ok = "ok";
+        }
+        echo $image_name;
+
+
+    }
+    function delete()
 	{
 		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		if($this->input->post('deleteid')):

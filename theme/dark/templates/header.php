@@ -75,7 +75,7 @@
 
 		<div class="searchbar">
 			<form id="demo-2">
-				<input type="search" placeholder="Find ESIC">
+				<input type="search" placeholder="Find an ESIC">
 			</form>
 		</div>
     <?php hooskNav('header') ?>
@@ -170,10 +170,10 @@ float: left;
 
 	/* Demo 2 */
 	.searchbar #demo-2 input[type=search] {
-		width: 170px;
+		width: 150px;
 		font-family: "Open Sans";
-		padding-left: 10px;
-		color: transparent;
+		padding-left: 35px;
+		color: black;
 		cursor: pointer;
 	}
 	.searchbar #demo-2 input[type=search]:hover {
@@ -197,6 +197,8 @@ float: left;
 		padding-left: 30px;
 	}
 </style>
+
+
 
 </div>
 	</div>

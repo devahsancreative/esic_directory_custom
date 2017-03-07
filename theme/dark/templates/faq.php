@@ -1,10 +1,30 @@
 <?php echo $header; ?>   
     <!-- JUMBOTRON
 =================================-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<?php
+$background = '';
+if ($page['enableJumbotron'] == 1) {
+    $background =$page['jumbotronHTML'];
+    $doc=new DOMDocument();
+    $doc->loadHTML($background);
+    $xml=simplexml_import_dom($doc); // just to make xpath more simple
+    $images=$xml->xpath('//img');
+    foreach ($images as $img) {
+        $background = $img['src'];
+    }
 
 
 
-<div class="jumbotron text-center <?php if (($page['enableJumbotron'] == 1) && ($page['enableSlider'] == 1)) { echo "carouselpadding"; } elseif (($page['enableJumbotron'] == 1) && ($page['enableSlider'] == 0)) { echo "errorpadding"; } elseif (($page['enableJumbotron'] == 0) && ($page['enableSlider'] == 1)) { echo "slider-padding"; } ?>">
+}
+
+?>
+<div class="jumbotron full-screen text-center <?php if (($page['enableJumbotron'] == 1) && ($page['enableSlider'] == 1)) { echo "carouselpadding"; } elseif (($page['enableJumbotron'] == 1) && ($page['enableSlider'] == 0)) { echo "errorpadding"; } elseif (($page['enableJumbotron'] == 0) && ($page['enableSlider'] == 1)) { echo "slider-padding"; } ?>"
+style="background: url(<?=$background; ?>) no-repeat"
+
+>
 	<?php if ($page['enableSlider'] == 1) { ?>
     <div id="carousel" class="carousel slide " data-ride="carousel">
         <?php getCarousel($page['pageID']); ?>
@@ -22,7 +42,7 @@
     <div class="container">
     <?php if ($page['enableJumbotron'] == 0) { ?><div class="row bimage headerstyle jumbotron"></div><?php } else{?>
       <div class="row bimage banner_image">
-			<?php  if ($page['enableJumbotron'] == 1) { echo $page['jumbotronHTML']; } ?>
+			<?php // if ($page['enableJumbotron'] == 1) { echo $page['jumbotronHTML']; } ?>
          </div>
          <?php } ?>
         <!---logo image and page title hide by Hamid Raza -->
@@ -36,34 +56,53 @@
 
         </div>-->
         <div class="header_search logotext">
+            <div class="row">
+                <h3> Find Investors OR Innovators</h3>
+            </div>
+            <hr class="custom-line">
 
-           <div class="row">
+           <div class="row custom-row">
 
-              <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="col-md-6 col-sm-6 col-xs-12">
 
-                  <label class="label_find"><h4>Find ESIC</h4></label>
 
-                  <script>
-                      (function() {
-                          var cx = '001114046497267301926:xk7qgywhyng';
-                          var gcse = document.createElement('script');
-                          gcse.type = 'text/javascript';
-                          gcse.async = true;
-                          gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-                          var s = document.getElementsByTagName('script')[0];
-                          s.parentNode.insertBefore(gcse, s);
-                      })();
-                  </script>
-                  <gcse:search></gcse:search>
-
+                  <input type="text" name="" class="form-control" placeholder="Investors  ">
 
               </div>
+               <div class="col-md-6 col-sm-6 col-xs-12">
+
+
+                   <input type="text" name="" class="form-control" placeholder="Innovators  ">
+
+               </div>
+
               <!--<div class="col-md-3 col-sm-4 col-xs-12">
                   <label><h4></h4></label>
                   <button   class="btn btn-lg btn-blue search-button">Find ESIC</button>
                </div>-->
 
           </div>
+
+
+            <div class="row">
+
+                <div class=" ">
+                    <a  class="btn dropdown-toggle  btn-primary" data-toggle="dropdown" href="#">
+                        Add listing
+                        <span class="caret"></span>
+                     </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">ESIC</a></li>
+                        <li><a href="#">Investor</a></li>
+                        <li><a href="#">Accelerator</a></li>
+                        <li><a href="#">Research Partner</a></li>
+                        <li><a href="#">R&D Tax Consultant</a></li>
+                        <li><a href="#">Lawyer</a></li>
+                        <li><a href="#">Grant Consultant</a></li>
+
+                    </ul>
+                </div>
+            </div>
 
         </div>
 
@@ -100,10 +139,6 @@
     });
 
 
-    $(document).ready(function() {
-        $(window).load(function() {
-          var pageNum = $('.gsc-input').attr('placeholder','Search any thing Withen the website');
-         });
-    });
+
 
     </script>
