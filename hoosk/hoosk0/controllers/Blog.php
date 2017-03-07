@@ -34,8 +34,12 @@ class Blog extends MY_Controller {
 	}
  public function index(){
 	    $userRole = $this->session->userdata('userRole');
+	    //Get the min and max dates from the blog
+     $data = [];
+     $data = array('min(`date`) as minDate, max(`date`) as maxDate',false);
+        $data['minMaxDate'] = $this->common_model->select_fields('esic_blog',$data, true);
 		if($userRole == 1){
-	    $this->show_admin('blog/blog');
+	    $this->show_admin('blog/blog',$data);
 	    return NULL;
 		}
 		else{
@@ -50,8 +54,6 @@ class Blog extends MY_Controller {
 	  if($userRole == 1){
      
       if($param === 'listing'){
-		 
-             
             $selectData = array('
 
            id AS ID,
@@ -69,8 +71,17 @@ class Blog extends MY_Controller {
 ><i  data-placement="left" data-toggle="tooltip" title="View Blog" class=" ml-fa fa fa-eye fa-6  " text-success></i></a><a href="#" data-target=".change-status" data-toggle="modal"><i data-toggle="tooltip" title="Change Status" data-placement="left" class="fa fa-check ml-fa"></i></a><a href="'.BASE_URL.'/admin/blog/add_blog/$1" id="edit"><i data-toggle="tooltip" title="Edit Blog" data-placement="left"  class="fa fa-pencil ml-fa"></i></a><a href="#" data-target=".approval-modal-forstatus" data-toggle="modal"><i data-toggle="tooltip" title="Trash" data-placement="left"  class="fa fa-trash-o text-red ml-fa"></i></a>','ID')
 
             );
-			$returnedData = $this->Common_model->select_fields_joined_DT($selectData,'esic_blog','','','','','',$addColumns);
+            $where = '';
+            $postedDateRange = $this->input->post('dateRange');
+            if(!empty($postedDateRange)){
+                $datesArray = explode(' - ',$postedDateRange);
+                $dateStart = date('Y-m-d', strtotime($datesArray[0]));
+                $dateEnd = date('Y-m-d', strtotime($datesArray[1]));
 
+                $where = 'CAST(eb.`date` AS DATE) BETWEEN "'.$dateStart.'" AND "'.$dateEnd.'"';
+            }
+
+			$returnedData = $this->Common_model->select_fields_joined_DT($selectData,'esic_blog eb','',$where,'','','',$addColumns);
             print_r($returnedData);
            
             return NULL;
@@ -223,7 +234,8 @@ class Blog extends MY_Controller {
       }
 	   $insert = array(
 						 'title'       => $title,
-						 'date'        => date("F j, Y, g:i a"),
+//						 'date'        => date("F j, Y, g:i a"),
+						 'date'        => date('Y-m-d H:i:s'),
 						 'author'      => $author,
 						 'description' => $description,
 						 'tags'        => $tags,
@@ -561,4 +573,3 @@ public function change_comments_reply_status($id=NULL,$status=NULL){
 		   
 	 		 
   
- 

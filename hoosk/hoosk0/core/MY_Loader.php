@@ -172,9 +172,15 @@ class MY_Loader extends CI_Loader {
 			$_ci_CI->output->append_output(ob_get_contents());
 			@ob_end_clean();
 		}
-		
-		
-		
+
+
+        //We Need Some Settings from Database.
+        //Load Values from DB
+        $config = $this->db->get('hoosk_social_setting')->result();
+		//Assign Values to Config File.
+        $this->config->set_item('facebook_app_id', $config[0]->api_id);
+        $this->config->set_item('facebook_app_secret', $config[0]->api_key);
+
 	}
 
 	

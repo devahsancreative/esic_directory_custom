@@ -287,6 +287,32 @@ input#myInputTextField {
             });
             removeWidth(oTable);
 
+
+             $('#datePickerRange').on('change',function(){
+                 var currentDateRange = $(this).val();
+/*                 console.log(currentDateRange);
+                 //Now we need to send the filtered value to the ajax request
+//                 oTable.fnDestroy();
+                 regTableSelector.dataTable().fnDestroy();
+                 var filter = regTableSelector.dataTable().aoData.push({"name":"dateRangeBox", "value":currentDateRange});
+                 commonDataTables(regTableSelector,url_DT,aoColumns_DT,sDom_DT,HiddenColumnID_DT,"","",filter)*/
+
+                 var oSettings = regTableSelector.dataTable().fnSettings();
+                 var oSettingsTemp = oSettings;
+                 if(oSettings != null) {
+                     oSettings.aoServerParams.splice("fn",1);
+                     oSettings.aoServerParams.push({"fn": function (aoData) {
+                         aoData.push({
+                             "name": "dateRange",
+                             "value": currentDateRange
+                         });
+                     }});
+
+                     regTableSelector.dataTable().fnDraw();
+                     oSettings = oSettingsTemp
+                 }
+             });//End of on Change Function.
+
             //Code for search box
             $("#search-input").on("keyup", function (e) {
                 oTable.fnFilter($(this).val());
@@ -371,17 +397,24 @@ input#myInputTextField {
             });
  
   $('#datePickerRange').daterangepicker(
-              {
-                  locale: {
-                    format: 'DD-MM-YYYY'
-                  }
-              });
- });          
+      {
+          locale: {
+              format: 'DD-MM-YYYY'
+          },
+
+          <?php
+          if(isset($minMaxDate)){
+            ?>
+          startDate:"<?=date('d-m-y',strtotime($minMaxDate->minDate))?>",
+          endDate:"<?=date('d-m-y',strtotime($minMaxDate->maxDate))?>"
+          <?php
+          }
+          ?>
+      });
+ });
  
    setTimeout(function() {
                  $('#mydiv').fadeOut(3000);
 				 }, 2000); 
-				 
- 
-  
+
  </script>
