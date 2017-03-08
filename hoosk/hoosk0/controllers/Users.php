@@ -189,50 +189,9 @@ class Users extends MY_Controller {
 		endif;
 	}
 
-	/************** Forgotten Password Resets **************/
-
-	public function forgot()
-	{
-		$this->load->library('form_validation');
-		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|callback_email_check');
-		if ($this->form_validation->run() == FALSE)
-		{
-			$this->data['header'] = $this->load->view('admin/headerlog', $this->data, true);
-			$this->data['footer'] = $this->load->view('admin/footer', '', true);
-			$this->load->view('admin/email_check', $this->data);
-		}
-		else
-		{
-			$email= $this->input->post('email');
-			$this->load->helper('string');
-			$rs= random_string('alnum', 12);
-			$data = array(
-			'rs' => $rs
-			);
-			$this->db->where('email', $email);
-			$this->db->update('hoosk_user', $data);
-
-			//now we will send an email
-			$config['protocol'] = 'sendmail';
-			$config['mailpath'] = '/usr/sbin/sendmail';
-			$config['charset'] = 'iso-8859-1';
-			$config['wordwrap'] = TRUE;
 
 
-			$this->load->library('email', $config);
 
-			$this->email->from('password@'.EMAIL_URL, SITE_NAME);
-			$this->email->to($email);
-
-			$this->email->subject($this->lang->line('email_reset_subject'));
-			$this->email->message($this->lang->line('email_reset_message')."\r\n".BASE_URL.'/admin/reset/'.$rs );
-
-			$this->email->send();
-			$this->data['header'] = $this->load->view('admin/headerlog', $this->data, true);
-			$this->data['footer'] = $this->load->view('admin/footer', '', true);
-			$this->load->view('admin/check', $this->data);
-		}
- }
 
 	public function email_check($str)
 	{

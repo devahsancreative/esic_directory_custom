@@ -31,9 +31,9 @@ class Investor extends MY_Controller {
        $selectData = array('score AS score',false);
 				
        $where = array(
-               'trashed !=' => 1,
-              'insertionType !=' => 2
-             );
+            'trashed !=' => 1,
+            'insertionType !=' => 2
+        );
 			
         $selectData ='*';
       	$data['userID'] = $this->input->get('id');
@@ -50,7 +50,47 @@ class Investor extends MY_Controller {
 		$this->load->view('theme/footer');
     }  //not in use
 	
-public function  investor_list($param=NULL){
+public function investor_search(){
+
+    $resultsFor = $this->input->post('resultsFor');
+    $keyword    = $this->input->post('keyword');
+
+    $selectData = '*';
+    $where = 'email LIKE "%' .$keyword.'%" OR company_name LIKE "%' .$keyword.'%" OR firstName LIKE "%' .$keyword.'%" OR lastName LIKE "%' .$keyword.'%"';
+    $joins = array(
+            array(
+                'table'     => 'esic_investor EI',
+                'condition' => 'EI.fk_investor_ID = hoosk_user.userID',
+                'type'      => 'RIGHT'
+             ),
+             array(
+                'table'     => 'investor_social EIS',
+                'condition' => 'EIS.fk_user_ID = hoosk_user.userID',
+                'type'      => 'LEFT'
+             )
+    );
+
+    $data['list'] = $this->Common_model->select_fields_where_like_join('hoosk_user',$selectData,$joins,$where);
+    $data['Title'] = 'Investors';
+    $this->load->view('theme/header');
+    $this->load->view('theme/listing',$data);
+    $this->load->view('theme/footer');
+}
+public function innovator_search(){
+        $keyword    = $this->input->post('keyword');
+        $page        =  0;
+        $secSelect   =  '';
+        $comSelect   =  '';
+        $searchInput =  $keyword ;
+        $orderSelect =  '';
+        $orderSelectValue = '';  
+        $this->load->model('Esic_model');
+        $data['list'] = $this->Esic_model->getfilterlist($page,$searchInput,$secSelect,$comSelect,$orderSelect,$orderSelectValue);
+        $this->load->view('theme/header');
+        $this->load->view("box_listing/getlist",$data);
+        $this->load->view('theme/footer');
+}
+public function investor_list($param=NULL){
 	
 	
 	Admincontrol_helper::is_logged_in($this->session->userdata('userID'));
@@ -201,9 +241,8 @@ public function  investor_list($param=NULL){
 		 }
     }	
 	
- public function investor_form(){
-
-
+ public function investor_form(){     
+		
 		$this->load->view('theme/header',$this->data);
         $this->load->view('theme/'.$this->data['page']['pageTemplate'], $this->data);
         $this->load->view('investor/investor-form',$this->data);

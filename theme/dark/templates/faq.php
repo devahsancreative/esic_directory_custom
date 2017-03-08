@@ -4,27 +4,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<?php
-$background = '';
-if ($page['enableJumbotron'] == 1) {
-    $background =$page['jumbotronHTML'];
-    $doc=new DOMDocument();
-    $doc->loadHTML($background);
-    $xml=simplexml_import_dom($doc); // just to make xpath more simple
-    $images=$xml->xpath('//img');
-    foreach ($images as $img) {
-        $background = $img['src'];
-    }
 
-
-
-}
-
-?>
-<div class="jumbotron full-screen text-center <?php if (($page['enableJumbotron'] == 1) && ($page['enableSlider'] == 1)) { echo "carouselpadding"; } elseif (($page['enableJumbotron'] == 1) && ($page['enableSlider'] == 0)) { echo "errorpadding"; } elseif (($page['enableJumbotron'] == 0) && ($page['enableSlider'] == 1)) { echo "slider-padding"; } ?>"
-style="background: url(<?=$background; ?>) no-repeat"
-
->
+<div class="jumbotron text-center <?php if (($page['enableJumbotron'] == 1) && ($page['enableSlider'] == 1)) { echo "carouselpadding"; } elseif (($page['enableJumbotron'] == 1) && ($page['enableSlider'] == 0)) { echo "errorpadding"; } elseif (($page['enableJumbotron'] == 0) && ($page['enableSlider'] == 1)) { echo "slider-padding"; } ?>">
 	<?php if ($page['enableSlider'] == 1) { ?>
     <div id="carousel" class="carousel slide " data-ride="carousel">
         <?php getCarousel($page['pageID']); ?>
@@ -42,7 +23,7 @@ style="background: url(<?=$background; ?>) no-repeat"
     <div class="container">
     <?php if ($page['enableJumbotron'] == 0) { ?><div class="row bimage headerstyle jumbotron"></div><?php } else{?>
       <div class="row bimage banner_image">
-			<?php // if ($page['enableJumbotron'] == 1) { echo $page['jumbotronHTML']; } ?>
+			<?php  if ($page['enableJumbotron'] == 1) { echo $page['jumbotronHTML']; } ?>
          </div>
          <?php } ?>
         <!---logo image and page title hide by Hamid Raza -->
@@ -60,28 +41,22 @@ style="background: url(<?=$background; ?>) no-repeat"
                 <h3> Find Investors OR Innovators</h3>
             </div>
             <hr class="custom-line">
-
            <div class="row custom-row">
-
               <div class="col-md-6 col-sm-6 col-xs-12">
-
-
-                  <input type="text" name="" class="form-control" placeholder="Investors  ">
-
+	              	<form action="results_investors" method="post" accept-charset="utf-8">
+						<input type="text" name="keyword" class="form-control" placeholder="Investors">
+						<input type="hidden" name="resultsFor" value="investors">
+						<input type="submit" value="" class="form-control submit-icon" >
+	              	</form>
               </div>
                <div class="col-md-6 col-sm-6 col-xs-12">
-
-
-                   <input type="text" name="" class="form-control" placeholder="Innovators  ">
-
+               		<form action="results_innovators" method="post" accept-charset="utf-8">
+                  	 	<input type="text" name="keyword" class="form-control" placeholder="Innovators">
+                  	 	<input type="hidden" name="resultsFor" value="innovators">
+                  	 	<input type="submit" value="" class="form-control submit-icon" >
+                  	 </form>
                </div>
-
-              <!--<div class="col-md-3 col-sm-4 col-xs-12">
-                  <label><h4></h4></label>
-                  <button   class="btn btn-lg btn-blue search-button">Find ESIC</button>
-               </div>-->
-
-          </div>
+           </div>
 
 
             <div class="row">

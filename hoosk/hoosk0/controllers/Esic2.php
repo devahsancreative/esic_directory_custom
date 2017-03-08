@@ -53,15 +53,31 @@ class Esic2 extends MY_Controller{
         $this->load->view("box_listing/getlist",$data);
     }
     public function getfilterlist(){
-        $page        =  $_GET['page'];
-        $secSelect   =  $_GET['secSelect'];
-        $comSelect   =  $_GET['comSelect'];
-        $searchInput =  $_GET['searchInput'];
-        $orderSelect =  $_GET['orderSelect'];
-        $orderSelectValue = $_GET['orderSelectValue'];  
-        $this->load->model('Esic_model');
-        $data['list'] = $this->Esic_model->getfilterlist($page,$searchInput,$secSelect,$comSelect,$orderSelect,$orderSelectValue);
-        $this->load->view("box_listing/getlist",$data);
+         $this->load->model('Esic_model');
+
+        if($this->input->post('keyword')){
+
+            $this->load->view('theme/header');
+            $searchInput   = $this->input->post('keyword');
+            $data['sectors'] = $this->Common_model->select('esic_sectors');
+            $data['company'] = $this->Common_model->select('user');
+            $data['Statuss'] = $this->Common_model->select('esic_status');
+            $page = 0;
+            $data['list'] = $this->Esic_model->getfilterlist($page,$searchInput,'','','','');
+            $this->load->view("box_listing/db_search_list",$data);
+            $this->load->view('theme/footer');
+
+        }else{
+
+            $page        =  $_GET['page'];
+            $secSelect   =  $_GET['secSelect'];
+            $comSelect   =  $_GET['comSelect'];
+            $searchInput =  $_GET['searchInput'];
+            $orderSelect =  $_GET['orderSelect'];
+            $orderSelectValue = $_GET['orderSelectValue'];  
+            $data['list'] = $this->Esic_model->getfilterlist($page,$searchInput,$secSelect,$comSelect,$orderSelect,$orderSelectValue);
+            $this->load->view("box_listing/getlist",$data);
+        }
     }
     public function updatethumbs(){
         $userID = $this->input->post('userID');
