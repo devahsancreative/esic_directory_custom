@@ -1,30 +1,49 @@
-<?php echo $header; ?>   
-    <!-- JUMBOTRON
+<?php echo $header; ?>
+<!-- JUMBOTRON
 =================================-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+<?php
+$background = '';
+if ($page['enableJumbotron'] == 1) {
+    $background =$page['jumbotronHTML'];
+    $doc=new DOMDocument();
+    $doc->loadHTML($background);
+    $xml=simplexml_import_dom($doc); // just to make xpath more simple
+    $images=$xml->xpath('//img');
+    foreach ($images as $img) {
+        $background = $img['src'];
+    }
 
-<div class="jumbotron text-center <?php if (($page['enableJumbotron'] == 1) && ($page['enableSlider'] == 1)) { echo "carouselpadding"; } elseif (($page['enableJumbotron'] == 1) && ($page['enableSlider'] == 0)) { echo "errorpadding"; } elseif (($page['enableJumbotron'] == 0) && ($page['enableSlider'] == 1)) { echo "slider-padding"; } ?>">
-	<?php if ($page['enableSlider'] == 1) { ?>
-    <div id="carousel" class="carousel slide " data-ride="carousel">
-        <?php getCarousel($page['pageID']); ?>
-      <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
+
+
+}
+
+?>
+<div class="jumbotron full-screen text-center <?php if (($page['enableJumbotron'] == 1) && ($page['enableSlider'] == 1)) { echo "carouselpadding"; } elseif (($page['enableJumbotron'] == 1) && ($page['enableSlider'] == 0)) { echo "errorpadding"; } elseif (($page['enableJumbotron'] == 0) && ($page['enableSlider'] == 1)) { echo "slider-padding"; } ?>"
+     style="background: url(<?=$background; ?>) no-repeat"
+
+>
+    <?php if ($page['enableSlider'] == 1) { ?>
+        <div id="carousel" class="carousel slide " data-ride="carousel">
+            <?php getCarousel($page['pageID']); ?>
+            <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
     <?php } ?>
 
     <div class="container">
-    <?php if ($page['enableJumbotron'] == 0) { ?><div class="row bimage headerstyle jumbotron"></div><?php } else{?>
-      <div class="row bimage banner_image">
-			<?php  if ($page['enableJumbotron'] == 1) { echo $page['jumbotronHTML']; } ?>
-         </div>
+        <?php if ($page['enableJumbotron'] == 0) { ?><div class="row bimage headerstyle jumbotron"></div><?php } else{?>
+            <div class="row bimage banner_image">
+                <?php // if ($page['enableJumbotron'] == 1) { echo $page['jumbotronHTML']; } ?>
+            </div>
          <?php } ?>
         <!---logo image and page title hide by Hamid Raza -->
         <!--<div class="logotext">
