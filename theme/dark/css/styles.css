@@ -53,6 +53,30 @@ iframe {
     max-width: 80%;
     border-top: 2px solid rgba(255, 255, 255, 0.5);
 }
+.investor_custom-line {
+    margin-top: 0px;
+    margin-bottom: 15px;
+    border: 0;
+    max-width: 40%;
+    border-top: 2px solid rgba(255, 255, 255, 0.5);
+}
+.investor_row{
+    max-width: 75%;
+    margin: 0 auto;
+}
+.investor_custom-line {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    border: 0;
+    max-width: 40%;
+    border-top: 2px solid rgba(255, 255, 255, 0.5);
+}
+.investor_custom-row {
+    max-width: 50%;
+
+    margin: 0 auto;
+}
+
 .custom-row{
     max-width: 95%;
     margin-left: 20px;
@@ -258,6 +282,10 @@ input.gsc-input {
 }
 @media only screen and (max-width: 992px){
 
+    .investor_row {
+        max-width: 100%;
+        margin: 0 auto;
+    }
     /*header Style*/
     .header_search{
         margin-top: 160px;
@@ -302,7 +330,7 @@ input.gsc-input {
     }
     .logotext{
         position: absolute;
-        top:  0px;
+        top: 12vh !important;
         left: 0;
         z-index: 100;
         color: white;
@@ -368,7 +396,7 @@ input.gsc-input {
 
     /*header Style*/
     .header_search{
-        margin-top: 90px;
+        margin-top: 154px  !important;
         padding: 0px 20px;
         height: 280px;
         width: 550px;
@@ -378,6 +406,7 @@ input.gsc-input {
         max-width: 95%;
         margin-left: 12px;
     }
+
     .logotext{
 
         max-width: 80%;
@@ -455,7 +484,16 @@ input.gsc-input {
 
 }
 @media only screen and (max-width: 568px){
-.custom-row {
+
+    .investor_custom-row {
+        max-width: 95%;
+        margin: 0 auto;
+    }
+    .top_investor.header_search {
+        margin-top: 60px;
+        height: 220px;
+    }
+    .custom-row {
     max-width: 95%;
     margin-left: 8px;
 }
@@ -522,7 +560,7 @@ input.gsc-input {
     }
 
     .header_search .btn {
-        padding: 6px;
+        padding: 3px;
         min-width: 190px;
         margin-top: 12px;
 
@@ -574,6 +612,19 @@ input.gsc-input {
         margin-left: -15px;
         -moz-margin-end: -15px;
     }
+	.header_search form .form-control.submit-icon {
+    max-width: 20px;
+    height: 20px!important;
+    background: url(http://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+    border: none;
+    float: right;
+    padding: 12px 15px !important;
+    right: 10px;
+    position: absolute;
+    top: 3px;
+    background-color: #eee;
+    background-position: 5px 5px !important;
+}
 }
 /* End Media Queries  */
 

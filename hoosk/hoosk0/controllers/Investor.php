@@ -72,7 +72,7 @@ class Investor extends MY_Controller {
 
         $data['list'] = $this->Common_model->select_fields_where_like_join('hoosk_user',$selectData,$joins,$where);
         $data['Title'] = 'Investors';
-        $this->load->view('theme/header');
+        $this->load->view('theme/header',$this->data);
         $this->load->view('theme/listing',$data);
         $this->load->view('theme/footer');
     }
@@ -86,7 +86,7 @@ class Investor extends MY_Controller {
         $orderSelectValue = '';
         $this->load->model('Esic_model');
         $data['list'] = $this->Esic_model->getfilterlist($page,$searchInput,$secSelect,$comSelect,$orderSelect,$orderSelectValue);
-        $this->load->view('theme/header');
+        $this->load->view('theme/header',$this->data);
         $this->load->view("box_listing/getlist",$data);
         $this->load->view('theme/footer');
     }
@@ -353,17 +353,12 @@ class Investor extends MY_Controller {
         $insertID = $this->Common_model->insert_record('esic_investor', $userInvestorArray);
 
         if ($insertID > 0) {
-
             //email
-
             $settings = $this->Hoosk_model->getSettings();
             $siteEmail = $settings[0]['siteEmail'];
             $subject = "Esic Directory User Name  And Password";
-            $message = "Hi" . "  " . $firstName . " " . $lastName . "You can login and update your info";
-
-            $message .= "Your User name:   " . $userName . "   " . "Your Password:   " . $Send_password;
-
-
+            $message = "<h4>Hi</h4><h5>". "  " . $firstName . " " . $lastName  . "  </h5> You can login and update your info <br>";
+            $message .= "<h4>Your User name:   </h4>" . $userName . "    " . "<br><h4>Your Password:   </h4>" . $Send_password;
             $this->load->library('email');
 
             $config = array();
@@ -380,7 +375,7 @@ class Investor extends MY_Controller {
             $this->email->from($siteEmail, 'From: Esic Directory');
             $this->email->to($email);
             $this->email->subject($subject);
-            $this->email->message($message);
+            $this->email->message($message."<br><br>".base_url()."/admin");
             $this->email->send();
             //email end
 

@@ -1,5 +1,5 @@
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-<link rel="stylesheet" href="<?=base_url?>/css/perfect-scrollbar.css" integrity="sha256-ta5Rg+2Um6yl0RZxK/ujdFyXEmPKuX0PPgNPx0pAlPY=" crossorigin="anonymous" />
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+<!--<link rel="stylesheet" href="<?/*= base_url() */?>css/perfect-scrollbar.css"  />-->
     <style type="text/css">
 
         #mainFormDiv {
@@ -287,7 +287,7 @@
 </fieldset>
 
    <div class="button-container">
-                    <button type="submit" id="" class="btn btn-primary">Submit</button>
+                    <button type="submit" id="sumit_form" class="btn btn-primary">Submit</button>
                 </div>
               </div>
             <div class="clear"></div>
@@ -315,12 +315,16 @@ $("#show_contact").addClass("hide_contact");
 
 
 $(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip(); 
+    //$('[data-toggle="tooltip"]').tooltip();
 
 	 /// email exist code 
    
      $('#email').blur(function(){
         var email_val = $("#email").val();
+         if(email_val == ''){
+             $('#message').html('').html('Please enter a Valid Email Address').show().delay(5000).fadeOut();
+
+         }
         var filter = /^[a-zA-Z0-9]+[a-zA-Z0-9_.-]+[a-zA-Z0-9_-]+@[a-zA-Z0-9]+[a-zA-Z0-9.-]+[a-zA-Z0-9]+.[a-z]{2,4}$/;
         if(filter.test(email_val)){
             // show loader
@@ -333,7 +337,17 @@ $(document).ready(function(){
         }
     
     
-    }); 
+    });
+    $("#sumit_form").on("click", function () {
+        var current_e= $(this);
+        var Fname    = $("#NameFirst").val();
+        var Lname     = $("#NameLast").val();
+        if(Fname =='' || Lname=='')
+        {
+            $('#email-error').html('Please Enter Your Name').show().delay(5000).fadeOut();
+            return false;
+        }
+    });
 	});
 setTimeout(function() {
                  $('#mydiv').fadeOut(5000);

@@ -73,7 +73,7 @@
 
                                 'class'       => 'form-control',
 
-                                'value'		=> set_value('username'),
+                                'value'		=> set_value('password'),
 
                                 'placeholder'	=> $this->lang->line('login_username')
 
@@ -97,7 +97,7 @@
 
                                 'class'       => 'form-control',
 
-                                'value'		=> set_value('password'),
+                                'value'		  =>'',
 
                                 'placeholder'	=> $this->lang->line('login_password')
 
