@@ -142,7 +142,9 @@
           <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">
-                    <?php  echo $this->lang->line('menu_new_nav'); ?>
+                    <?php
+                    //Navigation
+                    echo $this->lang->line('menu_new_nav'); ?>
                 </h3>
             </div>
             <div class="panel-body">
@@ -171,6 +173,96 @@
       <!-- /row -->
     </div>
     <!-- /container -->
+<!-- Modal -->
+<style type="text/css">
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+
+    .switch input {display:none;}
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    input:checked + .slider {
+        background-color: #2196F3;
+    }
+
+    input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 34px;
+    }
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+</style>
+<div class="modal fade" id="editIDModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Edit Menu</h4>
+            </div>
+            <div class="modal-body">
+                <form name="editMenuModalForm" method="POST" action="<?=base_url().''?>">
+
+                    <div class="form-group" style="text-align: right">
+                        <!-- Rectangular switch -->
+                        <span style="float: left;font-weight:bold;">Enable TOS</span>
+                        <label class="switch">
+                            <input type="checkbox" id="tosCheckBox" name="tosCheckBox">
+                            <div class="slider"></div>
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tosTextBox">Terms and Conditions</label>
+                        <textarea class="form-control" id="tosTextBox" name="tosTextBox"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="saveMenuChanges">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script type="text/javascript">
 
@@ -290,5 +382,58 @@ function serializeNav(){
   document.getElementById('seriaNav').value = document.getElementById("mainNav").innerHTML;
   document.getElementById("navForm").submit();
  }
+
+
+ $(function(){
+
+     //Show and Hide the edit pencil buttons.
+    $('.dd-item').on('mouseenter',function(){
+        var htmlToAppend = '<a class="right editID" data-toggle="modal" data-target="#editIDModal"><i class="fa fa-pencil"></i></a>';
+        var innerHtml = $(this).find('a').after(htmlToAppend);
+    }).on('mouseleave',function (e) {
+        $(this).find('a.editID').remove();
+    });
+
+
+
+    //Perform event on Modal Trigger
+     $('#editIDModal').on('shown.bs.modal',function(e){
+        var modal = $(this);
+        var checkbox = modal.find('#tosCheckBox');
+        if(checkbox.is(':checked')){
+            $('#tosTextBox').prop('disabled',false);
+         }else{
+            $('#tosTextBox').prop('disabled',true);
+        }
+     });
+
+    //Enable Disable Tos
+     $('#tosCheckBox').on('change',function(){
+         var tosTextBox = $('#tosTextBox');
+        if($(this).is(':checked')){
+            tosTextBox.prop('disabled',false);
+        }else{
+            tosTextBox.prop('disabled',true);
+        }
+     });
+
+    //save changes of menus
+     $('#saveMenuChanges').on('click',function(){
+        var form = $(this).parents('modal-content').find('form');
+        var tosCheckBox = form.find('input#tosCheckBox');
+        var relatedToS = form.find('input#tosTextBox');
+//        var menuLabel = form.find('input#menuLabel');
+         var formData = {menuID:tosCheckBox,tos:relatedToS};
+         $.ajax({
+             url: form.attr('action'),
+             data: formData,
+             type:'POST',
+             success:function (output) {
+                 console.log(output);
+             }
+         });
+     });
+
+ });//End of $(function()
 </script>
 <?php echo $footer; ?>

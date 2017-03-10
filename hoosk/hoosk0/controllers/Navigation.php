@@ -1,5 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
+/**
+ * @property common_model $common_model It resides all the methods which can be used in most of the controllers.
+ */
 class Navigation extends CI_Controller {
 
 	function __construct()
@@ -79,6 +81,25 @@ class Navigation extends CI_Controller {
 			  $this->load->view('admin/page_not_found');
 			 }	
 	}
+
+	public function editNavMenuID(){
+        Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
+        $userRole = $this->session->userdata('userRole');
+        if($userRole == 1){
+            $this->load->view('admin/page_not_found');
+            return null;
+        }
+
+        //Now if Passed the Authorization, then we can have the value updated.
+
+        $menuID = $this->input->post('menuID');
+        $navigationID = $this->input->post('navID');
+        $where = [
+            'navSlug' => 'header'
+        ];
+        $this->common_model->update('hoosk_navigation');
+
+    }
 
 	public function navAdd()
 	{
