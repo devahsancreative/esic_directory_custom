@@ -736,6 +736,18 @@ $route['results_innovators'] = "Esic2/getfilterlist";
 
 
 
+//Angular js
+
+$route['Angular'] = "Angular/index";
+$route['templates/(:any)'] = "templates/view/$1";
+$route['items'] = "items/index";
+$route['itemsCreate']['post'] = "items/store";
+$route['itemsEdit/(:any)'] = "items/edit/$1";
+$route['itemsUpdate/(:any)']['put'] = "items/update/$1";
+$route['itemsDelete/(:any)']['delete'] = "items/delete/$1";
+
+
+
 // Default
 $route['(.+)'] = "hoosk_default";
 
