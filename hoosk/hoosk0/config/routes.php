@@ -672,6 +672,7 @@ $route['admin/navigation'] = "Navigation";
 $route['admin/navigation/new'] = "Navigation/newNav";
 
 $route['admin/navigation/edit/(:any)'] = "Navigation/editNav";
+$route['admin/navigation/updateNavTos'] = "Navigation/updateNavTos";
 
 $route['admin/navigation/delete/(:any)'] = "Navigation/deleteNav";
 

@@ -31,6 +31,25 @@
     </div>
 </div>
 
+<div id="tosModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Terms and Conditions</h4>
+            </div>
+            <div class="modal-body">
+                <p id="tosContent"></p>
+            </div>
+            <div class="modal-footer" style="text-align: left">
+                <span id="timerFooter" style="display: inline-block;margin-top: 8px;vertical-align: bottom;">Modal disappears in : <strong>32</strong></span>
+                <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!--<div class="footer footer-wraper">
 
@@ -65,6 +84,8 @@
 
 </div>-->
 <script src="<?php echo ADMIN_THEME; ?>/js/jquery-1.10.2.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <script>
     jQuery(document).ready(function () {
 
@@ -117,6 +138,55 @@
 
      });
      });*/
+
+    $(function(){
+        console.log('im running..');
+        var data_array = JSON.parse(tosJSON);
+
+        //For Header.
+        $.each(data_array, function(key, value){
+            var menuRef = value.menu;
+            var enabledTos = value.navTos;
+            var tos = value.text;
+
+            //Hamid Named it right sidebar but it is actually top navigation bar
+            var topNavigationBar = $('div.right_sidebar');
+//            var menu = topNavigationBar.find('a[href="'+menuRef+'"]');
+            var url = "<?=BASE_URL?>/"+menuRef;
+            console.log('URL:'+url);
+            var menu = topNavigationBar.find('a[href="'+url+'"]');
+            console.log(menu);
+            console.log(menuRef);
+            //if Menu Matched and tos has been enabled then we can let the user show the tos.
+            if(menu.length > 0 && parseInt(enabledTos)==1){
+                //This means have founded the menu..
+
+                menu.on('click',function(e){
+                   e.preventDefault();
+                    var modal = $('#tosModal');
+                    modal.find('#tosContent').html(tos);
+                    $('#tosModal').modal('show');
+
+                    var sec = 15;
+                    var timer = setInterval(function() {
+                        $('#hideMsg span').text(sec--);
+                        if (sec == -1) {
+                            $('#hideMsg').fadeOut('fast');
+                            clearInterval(timer);
+                        }
+                    }, 1000);
+
+
+                });
+            }
+
+
+
+
+        });
+    });
 </script>
+
+
 </body>
 </html>

@@ -239,7 +239,12 @@
                 <h4 class="modal-title" id="myModalLabel">Edit Menu</h4>
             </div>
             <div class="modal-body">
-                <form name="editMenuModalForm" method="POST" action="<?=base_url().''?>">
+                <form name="editMenuModalForm" method="POST" action="<?=base_url().'admin/navigation/updateNavTos'?>">
+
+                    <div class="form-group">
+                        <label style="display: block;">Menu <span style= "float: right;" id="menuTitle">Esic Database</span></label>
+                        <input type="hidden" id="menuRef">
+                    </div>
 
                     <div class="form-group" style="text-align: right">
                         <!-- Rectangular switch -->
@@ -388,8 +393,10 @@ function serializeNav(){
 
      //Show and Hide the edit pencil buttons.
     $('.dd-item').on('mouseenter',function(){
-        var htmlToAppend = '<a class="right editID" data-toggle="modal" data-target="#editIDModal"><i class="fa fa-pencil"></i></a>';
-        var innerHtml = $(this).find('a').after(htmlToAppend);
+        var menuRef = $(this).attr('data-href');
+        var menuTitle = $(this).attr('data-title');
+        var htmlToAppend = '<a class="right editID" data-toggle="modal" data-target="#editIDModal" data-menu="'+menuRef+'" data-menu-title="'+menuTitle+'"><i class="fa fa-pencil"></i></a>';
+        $(this).find('a').after(htmlToAppend);
     }).on('mouseleave',function (e) {
         $(this).find('a.editID').remove();
     });
@@ -399,6 +406,13 @@ function serializeNav(){
     //Perform event on Modal Trigger
      $('#editIDModal').on('shown.bs.modal',function(e){
         var modal = $(this);
+        var button = e.relatedTarget;
+        var menuRef = $(button).attr('data-menu');
+        var menuTitle = $(button).attr('data-menu-title');
+
+        //Assign the Menu Title
+        modal.find('#menuTitle').text(menuTitle);
+        modal.find('#menuRef').val(menuRef);
         var checkbox = modal.find('#tosCheckBox');
         if(checkbox.is(':checked')){
             $('#tosTextBox').prop('disabled',false);
@@ -418,14 +432,26 @@ function serializeNav(){
      });
 
     //save changes of menus
-     $('#saveMenuChanges').on('click',function(){
-        var form = $(this).parents('modal-content').find('form');
+     $('#saveMenuChanges').on('click',function(e){
+         e.preventDefault();
+        var form = $(this).parents('.modal-content').find('form');
         var tosCheckBox = form.find('input#tosCheckBox');
-        var relatedToS = form.find('input#tosTextBox');
+        if(tosCheckBox.is(':checked')){
+            tosCheckBox = 1;
+        }else{
+            tosCheckBox = 0;
+        }
+
+        var relatedToS = form.find('#tosTextBox');
+        var menuTitle = form.find('#menuTitle').text();
+        var menuRef = form.find('input#menuRef');
+        var slug = "<?=$this->uri->segment(4)?>";
 //        var menuLabel = form.find('input#menuLabel');
-         var formData = {menuID:tosCheckBox,tos:relatedToS};
+         var formData = {enableTos:tosCheckBox,tos:relatedToS.val(),menu:menuRef.val(),slug:slug,menuTitle:menuTitle};
+         var url = form.attr('action');
+        console.log(url);
          $.ajax({
-             url: form.attr('action'),
+             url: url,
              data: formData,
              type:'POST',
              success:function (output) {

@@ -80,8 +80,6 @@
 		</div>
     <?php hooskNav('header') ?>
 
-
-
 <style>
 	.login_button{
 		float: right;
@@ -206,4 +204,5 @@ float: left;
    <!-- /.container -->
 
 	</nav><!-- /.navbar -->
+
 

@@ -82,22 +82,54 @@ class Navigation extends CI_Controller {
 			 }	
 	}
 
-	public function editNavMenuID(){
+	public function updateNavTos(){
+
         Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
         $userRole = $this->session->userdata('userRole');
-        if($userRole == 1){
+        //if not belongs to Admin Role then just don't do any thing.
+        if(intval($userRole) !== 1){
             $this->load->view('admin/page_not_found');
             return null;
         }
-
         //Now if Passed the Authorization, then we can have the value updated.
 
-        $menuID = $this->input->post('menuID');
-        $navigationID = $this->input->post('navID');
+        //Will be used for enabled and Disabled of Tos for a Particular Menu
+        $tosEnable = $this->input->post('enableTos');
+        //Menu Href will be used as reference.
+        $tosMenu = $this->input->post('menu');
+        //This is just a title of the menu storing for later use.
+        $menuTitle = $this->input->post('menuTitle');
+        //This is the main text containing terms and conditions.
+        $tosText = $this->input->post('tos');
+        //this is just the slug, showing menus belongs to what group.
+        $navSlug = $this->input->post('slug');
+        if($tosEnable){
+            $tosEnable = 1;
+        }else{
+            $tosEnable = 0;
+        }
+
         $where = [
-            'navSlug' => 'header'
+            'navSlug' => $navSlug
         ];
-        $this->common_model->update('hoosk_navigation');
+        $tosTextArray = [
+            'navTos'=> $tosEnable,
+            "text" => $tosText,
+            "menu" => $tosMenu
+        ];
+        $tosTextMenusArray = [];
+        array_push($tosTextMenusArray,$tosTextArray);
+        $dataToUpdate = [
+            'tosText'=> json_encode($tosTextMenusArray)
+        ];
+
+
+        $result = $this->Common_model->update('hoosk_navigation',$where, $dataToUpdate);
+        if($result){
+            echo "OK::Successfully Added Updated the TOS Configurations for Menu ".$menuTitle."::success";
+        }else{
+            echo "FAIL::Something went wrong, please contact SYSTEM ADMINISTRATOR for further assistance.::error";
+        }
 
     }
 
