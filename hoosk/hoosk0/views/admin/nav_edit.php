@@ -409,11 +409,46 @@ function serializeNav(){
         var button = e.relatedTarget;
         var menuRef = $(button).attr('data-menu');
         var menuTitle = $(button).attr('data-menu-title');
+         var slug = "<?=$this->uri->segment(4)?>";
+         var checkbox = modal.find('#tosCheckBox');
+
+
+        //First Lets gets the Information for the database for the tos
+         $.ajax({
+             url: "<?=base_url()?>admin/navigation/getNavTos",
+             data: {slug:slug,menu:menuRef},
+             type:"POST",
+             success:function (output) {
+                 if(output){
+                     try{
+                         var data = JSON.parse(output);
+                         var enabledTos = data.navTos;
+                         var tosText = data.text;
+                     }
+                     catch (ex){
+                         console.log(output);
+                     }
+
+                     //Now Assign Values to its fields.
+                     if(enabledTos == 1){
+                         checkbox.prop('checked',true);
+                         $('#tosTextBox').prop('disabled',false);
+                     }else{
+                         checkbox.prop('checked',false);
+                         $('#tosTextBox').prop('disabled',true);
+                     }
+                     modal.find('#tosTextBox').val(tosText);
+                 }
+                 else{
+                     // Reset the fields if data is empty
+                     modal.find('form')[0].reset();
+                 }
+             }
+         });
 
         //Assign the Menu Title
         modal.find('#menuTitle').text(menuTitle);
         modal.find('#menuRef').val(menuRef);
-        var checkbox = modal.find('#tosCheckBox');
         if(checkbox.is(':checked')){
             $('#tosTextBox').prop('disabled',false);
          }else{
@@ -434,6 +469,7 @@ function serializeNav(){
     //save changes of menus
      $('#saveMenuChanges').on('click',function(e){
          e.preventDefault();
+         var modal = $(this).parents('.modal');
         var form = $(this).parents('.modal-content').find('form');
         var tosCheckBox = form.find('input#tosCheckBox');
         if(tosCheckBox.is(':checked')){
@@ -455,7 +491,10 @@ function serializeNav(){
              data: formData,
              type:'POST',
              success:function (output) {
-                 console.log(output);
+                 var data = output.split('::');
+                 if(data[1] == 'OK'){
+                     $('#saveMenuChanges').parents('.modal').modal('hide');
+                 }
              }
          });
      });
