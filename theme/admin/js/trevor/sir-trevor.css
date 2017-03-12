@@ -525,4 +525,20 @@ ul.st-text-block {
   font-style: italic; }
 
 .st-format-btn--Unlink {
-  text-decoration: line-through; }
+  text-decoration: line-through;
+}
+
+.st-block.st-drag-over > .st-block__inner {
+   border:solid 2px #72afd2;
+ }
+.st-block.st-block--dragging > .st-block__inner {
+  border:solid 2px #72afd2;
+}
+.st-block-ui-btn, .st-block-control-ui-btn {
+    float: left;
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+    font-size: 1.2em;
+    border: 1px solid #34e0c2;
+  }

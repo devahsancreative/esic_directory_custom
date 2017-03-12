@@ -327,10 +327,13 @@ $(function(){
                     add_unload_trigger: false,
                     schema: "html5",
                     inline: true,
-                    toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image     | print preview media| table",
+                    spellchecker_rpc_url: base_url+'spellchecker.php',
+                    toolbar: "spellchecker | undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media| table",
                     statusbar: false
                 });
+                //console.log(base_url+'spellchecker.php');
             });
+
 
     //End Haider Code
 

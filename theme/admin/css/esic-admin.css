@@ -40,14 +40,18 @@ html body{
 
 .right {
 
-    float: right;
+float: right;
 
-    line-height: 28px;
+line-height: 28px;
 
-    margin-right: 8px
-
+margin-right: 8px;
 }
 
+.left {
+    float: left;
+    line-height: 28px;
+    margin-right: 8px;
+}
 
 
 .dd-list {
