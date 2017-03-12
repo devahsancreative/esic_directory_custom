@@ -118,11 +118,14 @@
         jQuery('[data-toggle="offcanvas"]').click(function () {
             jQuery('#wrapper').toggleClass('toggled');
         });
-        /*jQuery('.navbar-toggle').click(function(){
-            jQuery('.right_sidebar').toggleClass('in');
-            alert('hello');
-        });*/
+        jQuery('#navbar-toggle-button').click(function(){
+            jQuery('#navbar-collapse-main').slideToggle( "slow");
+            //jQuery('#navbar-collapse-main').toggleClass('in');
+        });
+
+
     });
+
     /*  jQuery(window).scroll(function (event) {
      if($(window).scrollTop()>300){
      $(".navbar-inverse").removeClass("navbar-inverse2");

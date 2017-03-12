@@ -50,35 +50,34 @@
 
 		</div>
 		<!-- /#page-content-wrapper -->
-		<a class="" href="<?php echo BASE_URL; ?>"><img class="img-responsive_logo " src="<?php echo BASE_URL; ?>/images/<?php echo $settings['siteLogo']; ?>"
-														alt="Hoosk"></a>
+		<a class="navbar_logo" href="<?php echo BASE_URL; ?>">
+            <img class="img-responsive_logo " src="<?php echo BASE_URL; ?>/images/<?php echo $settings['siteLogo']; ?>"
+														alt="Hoosk" />
+        </a>
+        <ul class="nav navbar-nav login_button">
+            <li>
+                <a href="<?= BASE_URL ?>/admin" >
+                    <i class="fa fa-sign-in" aria-hidden="true"></i> login
+                </a>
+            </li>
+        </ul>
+         <div class="navbar-header">
+           <button id="navbar-toggle-button" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+           </button>
+        </div>
 
-	</div>
-	<ul class="nav navbar-nav login_button"><li><a href="<?= BASE_URL ?>/admin" ><i class="fa fa-sign-in" aria-hidden="true"></i> login </a></li></ul>
-	<!-- /#wrapper -->
-    <div class="container">
-     <div class="navbar-header">
-       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-         <span class="icon-bar"></span>
-         <span class="icon-bar"></span>
-         <span class="icon-bar"></span>
-       </button>
-      <!--<a class="navbar-brand" href="<?php // echo BASE_URL; ?>">
-          <img src="<?php // echo BASE_URL; ?>/images/<?php // echo $settings['siteLogo']; ?>" alt="Hoosk">
-      </a>--->
+        <div class="navbar-collapse right_sidebar" id="navbar-collapse-main" style="display: none;">
 
-
-	</div>
-
-
-    <div class="collapse navbar-collapse right_sidebar">
-
-		<div class="searchbar">
-			<form id="demo-2">
-				<input type="search" placeholder="Find an ESIC">
-			</form>
-		</div>
-    <?php hooskNav('header') ?>
+            <div class="searchbar">
+                <form id="demo-2">
+                    <input type="search" placeholder="Find an ESIC">
+                </form>
+            </div>
+        <?php hooskNav('header') ?>
 
 <style>
 	.login_button{
@@ -197,7 +196,7 @@ float: left;
 </style>
 
 
-
+</div>
 </div>
 	</div>
 
