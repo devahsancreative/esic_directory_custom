@@ -9,6 +9,7 @@ class Hoosk_default extends CI_Controller {
 		$this->load->model('Hoosk_page_model');
         $this->load->model('Hoosk_model');
 		$this->load->helper('hoosk_page_helper');
+		$this->load->helper('my_site_helper');
 		define ('SITE_NAME', $this->Hoosk_page_model->getSiteName());
 		define ('THEME', $this->Hoosk_page_model->getTheme());
 		define ('THEME_FOLDER', BASE_URL.'/theme/'.THEME);
@@ -28,12 +29,11 @@ class Hoosk_default extends CI_Controller {
 		}
 		if ($pageURL == ""){ $pageURL = "home"; }
 
-		$this->data['page']=$this->Hoosk_page_model->getPage($pageURL);
+		$pageData=$this->Hoosk_page_model->getPage($pageURL);
+		//Replace the Short Codes with their defined values in the database.
+        $this->data['page'] = render_slider($pageData);
 
 		if ($this->data['page']['pageTemplate'] != ""){
-
-
-
 		$this->data['header'] = $this->load->view('templates/header', $this->data, true);
 		$this->data['footer'] = $this->load->view('templates/footer', '', true);
 		$this->load->view('templates/'.$this->data['page']['pageTemplate'], $this->data);
