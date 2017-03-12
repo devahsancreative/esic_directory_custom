@@ -126,11 +126,36 @@ class Navigation extends CI_Controller {
 
         $result = $this->Common_model->update('hoosk_navigation',$where, $dataToUpdate);
         if($result){
-            echo "OK::Successfully Added Updated the TOS Configurations for Menu ".$menuTitle."::success";
+            echo "::OK::Successfully Added Updated the TOS Configurations for Menu ".$menuTitle."::success";
         }else{
             echo "FAIL::Something went wrong, please contact SYSTEM ADMINISTRATOR for further assistance.::error";
         }
 
+    }
+
+    public function getNavTos(){
+	    $slug = $this->input->post('slug');
+	    $menu = $this->input->post('menu');
+	    if(empty($slug)){
+	        return null;
+        }
+        $where = [ 'navSlug' => $slug ];
+        $navigation = $this->Common_model->select_fields_where('hoosk_navigation','*',$where,true);
+        if(empty($navigation)){
+           return null;
+        }
+
+        $tosDetails = $navigation->tosText;
+        if(!empty($tosDetails)){
+            $tosDetailsArray = json_decode($tosDetails);
+            foreach($tosDetailsArray as $tosDetails){
+                if($tosDetails->menu === $menu){
+                    echo json_encode($tosDetails);
+                }
+            }
+        }
+//        return json_encode($tosDetails);
+//        echo $tosDetails;
     }
 
 	public function navAdd()
