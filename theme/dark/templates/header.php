@@ -24,7 +24,7 @@
 
 <nav class="navbar navbar-fixed-top navbar-inverse navbar-inverse2">
 
-<!---- left side menu ------>
+<!-- left side menu -->
 
 	<div id="wrapper">
 		<div class="overlay"></div>
@@ -63,14 +63,13 @@
         </ul>
          <div class="navbar-header">
            <button id="navbar-toggle-button" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="">
-               <span class="sr-only">Toggle navigation</span>
                <span class="icon-bar"></span>
                <span class="icon-bar"></span>
                <span class="icon-bar"></span>
            </button>
         </div>
 
-        <div class="navbar-collapse right_sidebar" id="navbar-collapse-main" style="display: none;">
+        <div class="navbar-collapse right_sidebar" id="navbar-collapse-main">
 
             <div class="searchbar">
                 <form id="demo-2">
@@ -80,13 +79,21 @@
         <?php hooskNav('header') ?>
 
 <style>
-	.login_button{
+@media (min-width: 767px){
+	#navbar-collapse-main{
+		display: block!important;
+	}
+}
+@media (max-width: 768px){
+	#navbar-collapse-main{
+		display: none;
+	}
+}
+.login_button{
 		float: right;
 		margin-right: 1%;
-	}
-	.login-icon{
-
-	}
+}
+.login-icon{}
 /*search box style */
 .searchbar   {
 width: 244px;
