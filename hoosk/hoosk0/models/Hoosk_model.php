@@ -985,8 +985,11 @@ class Hoosk_model extends CI_Model {
 
         return $this->db->count_all('hoosk_navigation');
 
-    }	
+    }
 
+    function countSliders(){
+        return $this->db->count_all('esic_slider');
+    }
 
 
     function getAllNav($limit, $offset=0) {
@@ -1007,6 +1010,23 @@ class Hoosk_model extends CI_Model {
 
         return array();
 
+    }
+
+
+    function getAllSliders($limit, $offset=0) {
+
+        // Get a list of all pages
+
+        $this->db->select("*");
+
+		$this->db->limit($limit, $offset);
+
+        $query = $this->db->get('esic_slider');
+
+        if ($query->num_rows() > 0) {
+            return $query->result_array();
+        }
+        return array();
     }
 
 	

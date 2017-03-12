@@ -646,3 +646,33 @@ if(!function_exists("getUserProfileImage")) {
         }
     }
 }
+
+if(!function_exists("render_slider")){
+    function render_slider($pageData){
+
+        $ci =& get_instance();
+
+        $sliderLayouts = $ci->db->get('esic_slider_layouts');
+        $sliderLayouts = $sliderLayouts->result_array();
+
+
+        //we would get array of elements in $text array representing the short codes
+        $text = [];
+        if(!empty($sliderLayouts)){
+            foreach($sliderLayouts as $key => $layout){
+                $text[$layout['shortCode']] = $layout['htmlCode'];
+            }
+        }
+
+        //replacing values and assigning to pageContent variable.
+        $pageContent = preg_replace_callback('/{{([^}]+)}}/', function ($m) use ($text) {
+            return $text[$m[1]];
+        }, $pageData['pageContentHTML']);
+
+        //replacing the original content with the updated one.
+        $pageData['pageContentHTML'] = $pageContent;
+
+        //finally returning the replaced content.
+        return $pageData;
+    }
+}

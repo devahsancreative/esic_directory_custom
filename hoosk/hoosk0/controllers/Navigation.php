@@ -126,7 +126,7 @@ class Navigation extends CI_Controller {
 
         $result = $this->Common_model->update('hoosk_navigation',$where, $dataToUpdate);
         if($result){
-            echo "::OK::Successfully Added Updated the TOS Configurations for Menu ".$menuTitle."::success";
+            echo "OK::Successfully Added Updated the TOS Configurations for Menu ".$menuTitle."::success";
         }else{
             echo "FAIL::Something went wrong, please contact SYSTEM ADMINISTRATOR for further assistance.::error";
         }

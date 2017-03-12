@@ -42,8 +42,9 @@ class BaseConverter implements ConverterInterface
 						}
 					}
 				}          
-			} 
-		return Markdown::defaultTransform($data['text']);
+			}
+		$markDownVersion = Markdown::defaultTransform($data['text']);
+		return $markDownVersion;
     }
 
     protected function htmlToMarkdown($html)

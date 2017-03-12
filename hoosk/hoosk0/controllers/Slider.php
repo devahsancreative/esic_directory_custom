@@ -23,8 +23,18 @@ class Slider extends MY_Controller
 
     public function index(){
 
-        //Lets Fetch all the records from the database.
-        $this->data['sliders'] = $this->Common_model->select_fields('esic_slider','*');
+
+        $this->load->library('pagination');
+        $result_per_page =15;  // the number of result per page
+        $config['base_url'] = BASE_URL. '/admin/slider/';
+        $config['total_rows'] = $this->Hoosk_model->countSliders();
+        $config['per_page'] = $result_per_page;
+        $config['full_tag_open'] = '<div class="form-actions">';
+        $config['full_tag_close'] = '</div>';
+        $this->pagination->initialize($config);
+
+        //Get pages from database
+        $this->data['sliders'] = $this->Hoosk_model->getAllSliders($result_per_page, $this->uri->segment(3));
 
 
         //Loading the View and passing data to the view.
