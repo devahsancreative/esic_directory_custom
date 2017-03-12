@@ -44,8 +44,8 @@
                 <p id="tosContent"></p>
             </div>
             <div class="modal-footer" style="text-align: left">
-                <span id="timerFooter" style="display: inline-block;margin-top: 8px;vertical-align: bottom;">Modal disappears in : <strong>32</strong></span>
-                <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Close</button>
+                <span id="timerFooter" style="display: inline-block;margin-top: 8px;vertical-align: bottom;">Modal disappears in : <strong></strong></span>
+                <button id="agreeAndAccept" type="button" class="btn btn-success pull-right" data-dismiss="modal">Agree and Accept</button>
             </div>
         </div>
     </div>
@@ -169,12 +169,17 @@
 
                     var sec = 15;
                     var timer = setInterval(function() {
-                        $('#hideMsg span').text(sec--);
+                        $('#timerFooter strong').text(sec--);
                         if (sec == -1) {
-                            $('#hideMsg').fadeOut('fast');
+                            modal.modal('hide');
                             clearInterval(timer);
                         }
                     }, 1000);
+
+                    modal.find('#agreeAndAccept').on('click',function(e){
+                        e.stopPropagation();
+                        window.location.href = url;
+                    });
 
 
                 });
