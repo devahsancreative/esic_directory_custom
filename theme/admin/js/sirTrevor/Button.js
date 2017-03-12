@@ -11,6 +11,11 @@
             '': 'Default',
             'btn-lg': 'Large'
         },
+        button_alignment: {
+            'left': 'Left',
+            'center': 'Center',
+            'right': 'Right'
+        },
         button_styles: {
             'btn-default': 'Default',
             'btn-primary': 'Primary',
@@ -24,7 +29,7 @@
         },
         type: "button",
         title: 'Button',
-        editorHTML: '<div class="st-button-form-wrapper form-inline well" style="margin: 10px; display: none;"> <div class="form-group"> Size: <select name="size"></select> </div> <div class="form-group"> Style: <select name="style"></select> </div> <div class="form-group"> Full width: <input type="checkbox" name="is_block"/> </div> <div class="form-group"> URL: <input type="text" name="url" value=""/> </div><div class="form-group"> Value: <input type="text" name="html" value=""/> </div> <button type="button">OK</button> </div> <div class="st-button-wrapper" style="text-align: center; min-height: 0">' + button_template + '</div>',
+        editorHTML: '<div class="st-button-form-wrapper form-inline well" style="margin: 10px; display: none;"> <div class="form-group"> Size: <select name="size"></select> </div> <div class="form-group"> Alignment: <select name="alignment"></select> </div> <div class="form-group"> Style: <select name="style"></select> </div> <div class="form-group"> Full width: <input type="checkbox" name="is_block"/> </div> <div class="form-group"> URL: <input type="text" name="url" value=""/> </div><div class="form-group"> Value: <input type="text" name="html" value=""/> </div> <button type="button">OK</button> </div> <div class="st-button-wrapper" style="text-align: center; min-height: 0">' + button_template + '</div>',
         icon_name: 'button',
         loadData: function(data) {
             return this.$find('.btn').html(SirTrevor.toHTML(data.text, this.type));
@@ -32,7 +37,7 @@
         },
 
         _setBlockInner: function() {
-            var $sizes_select, $styles_select, size, size_class, style, style_class, _ref, _ref1;
+            var $alignment_select, alignment, alignment_class, $sizes_select, $styles_select, size, size_class, style, style_class, _ref, _ref1;
             SirTrevor.Block.prototype._setBlockInner.apply(this, arguments);
             $styles_select = this.$('[name=style]');
             _ref = this.button_styles;
@@ -42,6 +47,15 @@
                 $styles_select.append($('<option/>').attr('value', style_class).text(style));
             }
             $styles_select.val('btn-default');
+
+            $alignment_select = this.$('[name=alignment]');
+            _ref = this.button_alignment;
+            for (alignment_class in _ref) {
+                if (!__hasProp.call(_ref, alignment_class)) continue;
+                alignment = _ref[alignment_class];
+                $alignment_select.append($('<option/>').attr('value', alignment_class).text(alignment));
+            }
+            $alignment_select.val('center');
             $sizes_select = this.$('[name=size]');
             _ref1 = this.button_sizes;
             for (size_class in _ref1) {
@@ -98,6 +112,24 @@
                 };
             })(this));
             $styles_select.trigger('change');
+
+            $alignment_select = this.$('[name=alignment]');
+            $alignment_select.on('change click', (function(_this) {
+                return function() {
+                    var btn, selected_alignment_class, alignment_class, _ref, _results;
+                    selected_alignment_class = $alignment_select.val();
+                    btn = _this.getButton();
+                    _ref = _this.button_alignment;
+                    _results = [];
+                    for (alignment_class in _ref) {
+                        if (!__hasProp.call(_ref, alignment_class)) continue;
+                        _results.push(btn.toggleClass(alignment_class, alignment_class === selected_alignment_class));
+                    }
+                    return _results;
+                };
+            })(this));
+            $alignment_select.trigger('change');
+
             $sizes_select = this.$('[name=size]');
             $sizes_select.on('change click', (function(_this) {
                 return function() {

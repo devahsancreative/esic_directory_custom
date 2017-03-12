@@ -236,31 +236,20 @@ if($class   == 'Pages' || (strtolower($class).'/'.strtolower($method) === 'admin
  <li class="user-header">
 
  <?php
-
-
-
-
-
-
-               if(!empty($image[0]->p_image && $userRole == 1)){
-
-
-                   $logoImage = '';
-                   if(!empty($image[0]->p_image)){
-                       $logoImage = base_url().'/uploads/investor/'.$image[0]->p_image;
-                   }
-
-                   ?>
-
-                   <img src="<?= base_url(). 'uploads/investor/'. $image[0]->p_image ?>" id="Profile_image" class="img-circle" alt="User Image">
-
-                   <form method="post" enctype="multipart/form-data" id="save_Profile_image">
-
-                       <input type="file" id="upload_Profile_image" class="btn btn-sm btn-default" name="image">
-                       <input type="hidden" id="" name="id" value="<?= $image[0]->p_image  ?>">
-                       <input type="submit" value="save" class="btn btn-sm btn-default p_b">
-
-                   </form>
+ if(!empty($image[0]->p_image && $userRole == 1)){
+  $logoImage = '';
+   if(!empty($image[0]->p_image)){
+      $logoImage = base_url().'uploads/investor/'.$image[0]->p_image;
+   }else{
+      $logoImage =  base_url().'assets/img/user2-160x160.jpg';
+   }
+ ?>
+  <img src="<?= $logoImage ?>" id="Profile_image" class="img-circle" alt="User Image">
+<!--form method="post" enctype="multipart/form-data" id="save_Profile_image">
+  <input type="file" id="upload_Profile_image" class="btn btn-sm btn-default" name="image">
+  <input type="hidden" id="" name="id" value="<?= $image[0]->p_image  ?>">
+  <input type="submit" value="save" class="btn btn-sm btn-default p_b">
+</form-->
 
 
 			    <?php  }
@@ -277,20 +266,22 @@ if($class   == 'Pages' || (strtolower($class).'/'.strtolower($method) === 'admin
 
                   $logoImage = '';
                   if(!empty($users[0]['p_image'])){
-                  $logoImage = base_url().'/uploads/investor/'.$users[0]['p_image'];
+                    $logoImage = base_url().'/uploads/investor/'.$users[0]['p_image'];
+                  }else{
+                    $logoImage =  base_url().'assets/img/user2-160x160.jpg';
                   }
 
                   ?>
 
-                  <img src="<?= base_url(). 'uploads/investor/'. $users[0]['p_image'] ?>" id="Profile_image" class="img-circle" alt="User Image">
+                  <img src="<?= $logoImage ?>" id="Profile_image" class="img-circle" alt="User Image">
 
-                      <form method="post" enctype="multipart/form-data" id="save_Profile_image">
+                      <!--form method="post" enctype="multipart/form-data" id="save_Profile_image">
 
                           <input type="file" id="upload_Profile_image" name="image">
                           <input type="hidden" id="" name="id" value="<?= $users[0]['userID'];  ?>">
                           <input type="submit" value="save">
 
-                      </form>
+                      </form-->
 
 
 				  <?php   } ?>
