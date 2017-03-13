@@ -10,7 +10,7 @@
         menubar: false,
         browser_spellcheck : true,
         contextmenu: false,
-        spellchecker_rpc_url: base_url+'spellchecker.php',
+        spellchecker_rpc_url: base_url+'assets/tinymce/js/tinymce/plugins/spellchecker/spellchecker.php',
         plugins: "spellchecker textcolor colorpicker table media code",  //added by hamid raza
 /*        plugins: ['advlist autolink lists link image charmap print preview hr anchor pagebreak',
             'searchreplace wordcount visualblocks visualchars code fullscreen',
