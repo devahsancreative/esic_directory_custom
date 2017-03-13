@@ -1,8 +1,8 @@
 <?php echo $header; ?>
 <!-- JUMBOTRON
 =================================-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
 
 <?php
 $background = '';
@@ -39,7 +39,7 @@ if ($page['enableJumbotron'] == 1) {
         </div>
     <?php } ?>
 
-    <div class="container">
+    <div class="container top_investor">
         <?php if ($page['enableJumbotron'] == 0) { ?><div class="row bimage headerstyle jumbotron"></div><?php } else{?>
             <div class="row bimage banner_image">
                 <?php // if ($page['enableJumbotron'] == 1) { echo $page['jumbotronHTML']; } ?>
@@ -55,48 +55,29 @@ if ($page['enableJumbotron'] == 1) {
                   <?php /*echo  $page['pageTitle']; */?></span></h2>
 
         </div>-->
-        <div class="header_search logotext">
+        <div class="header_search logotext investor">
             <div class="row">
-                <h3> Find Investors OR Innovators</h3>
+                <h3> Find Investors </h3>
             </div>
-            <hr class="custom-line">
-           <div class="row custom-row">
-              <div class="col-md-6 col-sm-6 col-xs-12">
+            <hr class="investor_custom-line">
+           <div class="row investor_custom-row">
+             
 	              	<form action="results_investors" method="post" accept-charset="utf-8">
 						<input type="text" name="keyword" class="form-control" placeholder="Investors">
 						<input type="hidden" name="resultsFor" value="investors">
 						<input type="submit" value="" class="form-control submit-icon" >
 	              	</form>
+           </div>
+           <div class=" row investor_row">
+             <div class="col-md-6 col-sm-6 col-xs-12">
+	              	 <input type="button" value="Learn More" class="btn btn-sm btn-primary"> 
               </div>
                <div class="col-md-6 col-sm-6 col-xs-12">
-               		<form action="results_innovators" method="post" accept-charset="utf-8">
-                  	 	<input type="text" name="keyword" class="form-control" placeholder="Innovators">
-                  	 	<input type="hidden" name="resultsFor" value="innovators">
-                  	 	<input type="submit" value="" class="form-control submit-icon" >
-                  	 </form>
-               </div>
+                 <input type="button" value="Investor Eligibility" class="btn btn-sm btn-primary">
+              </div>
            </div>
 
-
-            <div class="row">
-
-                <div class=" ">
-                    <a  class="btn dropdown-toggle  btn-primary" data-toggle="dropdown" href="#">
-                        Add listing
-                        <span class="caret"></span>
-                     </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">ESIC</a></li>
-                        <li><a href="#">Investor</a></li>
-                        <li><a href="#">Accelerator</a></li>
-                        <li><a href="#">Research Partner</a></li>
-                        <li><a href="#">R&D Tax Consultant</a></li>
-                        <li><a href="#">Lawyer</a></li>
-                        <li><a href="#">Grant Consultant</a></li>
-
-                    </ul>
-                </div>
-            </div>
+            
 
         </div>
 

@@ -5,6 +5,17 @@ body {
      word-break: break-word;
 }
 
+/*slider style*/
+.carousel-control {
+    padding-top:12%;
+    width: 5%;
+    background: none !important;
+    font-size: 40px;
+}
+.well{
+    background: none !important;
+}
+/*slider style end */
 iframe {
     width:100% !important;
     height:430px !important;
@@ -54,6 +65,30 @@ iframe {
     max-width: 80%;
     border-top: 2px solid rgba(255, 255, 255, 0.5);
 }
+.investor_custom-line {
+    margin-top: 0px;
+    margin-bottom: 15px;
+    border: 0;
+    max-width: 40%;
+    border-top: 2px solid rgba(255, 255, 255, 0.5);
+}
+.investor_row{
+    max-width: 75%;
+    margin: 0 auto;
+}
+.investor_custom-line {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    border: 0;
+    max-width: 40%;
+    border-top: 2px solid rgba(255, 255, 255, 0.5);
+}
+.investor_custom-row {
+    max-width: 50%;
+
+    margin: 0 auto;
+}
+
 .custom-row{
     max-width: 95%;
     margin-left: 20px;
@@ -255,6 +290,10 @@ input.gsc-input {
 }
 @media only screen and (max-width: 992px){
 
+    .investor_row {
+        max-width: 100%;
+        margin: 0 auto;
+    }
     /*header Style*/
     .header_search{
         /* margin-top: 160px; */
@@ -448,6 +487,24 @@ input.gsc-input {
     max-width: 100%;
     margin-left: 0px;
 }
+
+    .investor_custom-row {
+        max-width: 95%;
+        margin: 0 auto;
+    }
+    .top_investor.header_search {
+        margin-top: 60px;
+        height: 220px;
+    }
+    .custom-row {
+    max-width: 95%;
+    margin-left: 8px;
+}
+    .logotext {
+
+        top: 0px;
+
+    }
     .header_search{
         /* margin-top: 68px; */
         /* padding: 0px 16px; */
@@ -1344,15 +1401,15 @@ margin: 10px auto;
 
 }
 .range-filters label{
-    
+
 margin: 15px 0px;
-    
+
 padding: 15px 0px 0px;
-    
+
 font-size: 15px;
-    
+
 border-top: solid 4px #eee;
-    
+
 display: block;
 }
 .range-filters span{
@@ -1377,7 +1434,7 @@ display: block;
     /*border-radius: 0px 25% 0px 25%;*/
     /*background-color: #466579;*/
     width: 95%;
-   /* box-shadow: 
+   /* box-shadow:
     inset 0 7em 10em -5em rgba(255,255,255,0.6),
      0 0.3em 0.5em -0.2em rgb(255, 255, 255),
       0 1em 2em -0.75em rgba(234, 234, 234, 0.75),
@@ -1398,7 +1455,7 @@ display: block;
     height: 50px;
 }
 .item-container-top{
-	padding: 20px 10px;
+    padding: 20px 10px;
     /*background: #eee;*/
     /*border-radius: 0px 15px 15px 0px;*/
     /*border: solid 2px #fff;*/
@@ -1524,7 +1581,9 @@ display: block;
 
 @media (max-width: 300px){
     img.img-responsive_logo {
-        width: 100%;
-        max-width: 70%;
+
+width: 100%;
+
+max-width: 70%;
     }
 }

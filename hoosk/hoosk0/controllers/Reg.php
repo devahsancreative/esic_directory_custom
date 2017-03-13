@@ -28,7 +28,6 @@ class Reg extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('Common_model');
-        $this->load->helper('my_site_helper');
         $this->load->model("Imagecreate_model");
 
         header("Access-Control-Allow-Origin: *");

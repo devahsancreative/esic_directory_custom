@@ -425,7 +425,7 @@ $route['blog/insert_comment/(:any)/(:any)']  	= "blog/insert_comment/$1/$2";
 
 //investor front end Routes nvestor/submit
 
-$route['investor_pre_assessment']  	= "Investor/investor_form";
+$route['investor-pre-assessment']  	= "Investor/investor_form";
 
 $route['Investor/submit']  	= "Investor/submit";
 
@@ -677,6 +677,7 @@ $route['admin/navigation/getNavTos'] = "Navigation/getNavTos";
 
 //sliders
 $route['admin/slider'] = "Slider/index"; //list all the sliders
+$route['admin/slider/updateSliderLayout'] = "Slider/updateSliderLayout"; //updates the layout for the Slider
 
 $route['admin/navigation/delete/(:any)'] = "Navigation/deleteNav";
 

@@ -6,9 +6,6 @@ class Esic2 extends MY_Controller{
     {
         parent::__construct();
 
-        //header("Access-Control-Allow-Origin: *");
-        // header("Access-Control-Allow-Methods: PUT, GET, POST");
-        //header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
 
 
         $this->load->model("Esic_model");
@@ -39,12 +36,12 @@ class Esic2 extends MY_Controller{
         $this->data['company'] = $this->Common_model->select('user');
         $this->data['Statuss'] = $this->Common_model->select('esic_status');
 
-        $page = 0;
+	    $page = 0;
         $this->data['usersResult'] = $this->Esic_model->getlist($page);
-        $this->load->view('theme/header', $this->data);
+	    $this->load->view('theme/header', $this->data);
         $this->load->view("box_listing/db_list",$this->data);
-        $this->load->view('theme/footer');
-    }
+		$this->load->view('theme/footer');
+     }
 
     public function getlist(){
         $page =  $_GET['page'];
@@ -53,11 +50,11 @@ class Esic2 extends MY_Controller{
         $this->load->view("box_listing/getlist",$data);
     }
     public function getfilterlist(){
-        $this->load->model('Esic_model');
+         $this->load->model('Esic_model');
 
         if($this->input->post('keyword')){
 
-            $this->load->view('theme/header');
+            $this->load->view('theme/header',$this->data);
             $searchInput   = $this->input->post('keyword');
             $data['sectors'] = $this->Common_model->select('esic_sectors');
             $data['company'] = $this->Common_model->select('user');
@@ -75,6 +72,7 @@ class Esic2 extends MY_Controller{
             $searchInput =  $_GET['searchInput'];
             $orderSelect =  $_GET['orderSelect'];
             $orderSelectValue = $_GET['orderSelectValue'];
+            
             $data['list'] = $this->Esic_model->getfilterlist($page,$searchInput,$secSelect,$comSelect,$orderSelect,$orderSelectValue);
             $this->load->view("box_listing/getlist",$data);
         }

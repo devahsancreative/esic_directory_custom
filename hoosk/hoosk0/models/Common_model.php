@@ -21,9 +21,13 @@ class common_model extends CI_Model
     }
 
     // Select Queries
-    function select($tbl = '')
+    function select($tbl = '', $array=false)
     {
         $query = $this->db->get($tbl);
+
+        if($array===true){
+            return $query->result_array();
+        }
         return $query->result();
     }
 
@@ -955,7 +959,10 @@ public function change_comments_reply_status($tbl, $id, $status){
 		$this->db->update($tbl, $data);
 		return $data['status'];
 		 
-	} 	  
+	}
+
+
+	//Deprecated Useless Method :(
 public function user_logo($userID=NULL,$userRole=NULL){
 	
     if($userRole == "1"){

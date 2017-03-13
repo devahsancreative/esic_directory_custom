@@ -1,5 +1,5 @@
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-<link rel="stylesheet" href="<?=base_url?>/css/perfect-scrollbar.css" integrity="sha256-ta5Rg+2Um6yl0RZxK/ujdFyXEmPKuX0PPgNPx0pAlPY=" crossorigin="anonymous" />
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+<!--<link rel="stylesheet" href="<?/*= base_url() */?>css/perfect-scrollbar.css"  />-->
     <style type="text/css">
 
         #mainFormDiv {
@@ -118,12 +118,14 @@
                                 <input id="NameFirst" name="firstName" type="text" placeholder="First"
                                        value="<?php echo set_value('firstName'); ?>"class="form-control"
                                      />
+                                <label id="first_name"></label>
                                 <div id="infoMessage"><?php echo form_error('firstName'); ?></div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <input id="NameLast" name="lastName" type="text" placeholder="Last"
                                        value="<?php echo set_value('lastName'); ?>"class="form-control"
                                       />
+                                <label id="last_name"></label>
                                 <div id="infoMessage"><?php echo form_error('lastName'); ?></div>
                             </div>
                         </div>
@@ -287,7 +289,7 @@
 </fieldset>
 
    <div class="button-container">
-                    <button type="submit" id="" class="btn btn-primary">Submit</button>
+                    <button type="submit" id="sumit_form" class="btn btn-primary">Submit</button>
                 </div>
               </div>
             <div class="clear"></div>
@@ -315,12 +317,16 @@ $("#show_contact").addClass("hide_contact");
 
 
 $(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip(); 
+    //$('[data-toggle="tooltip"]').tooltip();
 
 	 /// email exist code 
    
      $('#email').blur(function(){
         var email_val = $("#email").val();
+         if(email_val == ''){
+             $('#message').html('').html('Please enter a Valid Email Address').show().delay(5000).fadeOut();
+
+         }
         var filter = /^[a-zA-Z0-9]+[a-zA-Z0-9_.-]+[a-zA-Z0-9_-]+@[a-zA-Z0-9]+[a-zA-Z0-9.-]+[a-zA-Z0-9]+.[a-z]{2,4}$/;
         if(filter.test(email_val)){
             // show loader
@@ -333,7 +339,30 @@ $(document).ready(function(){
         }
     
     
-    }); 
+    });
+    $("#sumit_form").on("click", function () {
+        var current_e= $(this);
+        var Fname    = $("#NameFirst").val();
+        var Lname     = $("#NameLast").val();
+        if(Fname =='')
+        {
+            alert(Fname);
+
+            $('#first_name').html('Please Enter Your First Name').show().delay(5000).fadeOut();
+         //   var scrollPos = $('#NameFirst').offset();
+//alert(scrollPosition); // This alert always says 'null', why ?
+          //  $(window).scroll(scrollPos);
+            var errorDiv = $('#NameFirst:visible').first();
+            var scrollPos = errorDiv.offset().top;
+            $(window).scrollTop(scrollPos).offset();
+
+            return false;
+        }else if(Lname==''){
+            $('#last_name').html('Please Enter Your Last Name').show().delay(5000).fadeOut();
+            return false;
+
+        }
+    });
 	});
 setTimeout(function() {
                  $('#mydiv').fadeOut(5000);

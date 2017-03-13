@@ -669,8 +669,6 @@ if(!function_exists("render_slider")){
             )
         );
         $sliderLayouts = $ci->Common_model->select_fields_where_like_join('esic_slider es', $selectData, $joins,'',false,'','','','','',true);
-
-
         //we would get array of elements in $text array representing the short codes
         $text = [];
         if(!empty($sliderLayouts)){
@@ -682,8 +680,10 @@ if(!function_exists("render_slider")){
         //replacing values and assigning to pageContent variable.
         $pageContent = preg_replace_callback('/{{([^}]+)}}/', function ($m) use ($text,$ci) {
             //Now what we need to do is get the layout first.
-            $neededSlider = $text[$m[1]];
-            var_dump($neededSlider);
+            $stripped = array_map(function($v){
+                return trim(strip_tags($v));
+            }, $m);
+            $neededSlider = $text[$stripped[1]];
 
             //now need to get the slider join.
             switch($neededSlider['joinTable']){
@@ -697,14 +697,16 @@ if(!function_exists("render_slider")){
                     break;
                 case 'esic_investor':
                     break;
+                case 'esic_innovators':
+                    break;
+                Default:
+                    $selectJoinData = '*';
+                    break;
             }
-
 
             $sliderData = $ci->Common_model->select_fields($neededSlider['joinTable'],$selectJoinData,false,'','',true);
 
             $renderedHTML = $neededSlider['htmlCode']($sliderData);
-
-
             return $renderedHTML;
 //            return $text[$m[1]];
         }, $pageData['pageContentHTML']);
@@ -714,5 +716,70 @@ if(!function_exists("render_slider")){
 
         //finally returning the replaced content.
         return $pageData;
+    }
+}
+
+
+function get_user_image($userRole,$userID){
+    $ci =& get_instance();
+    $ci->load->model('Common_model');
+
+    //$userRole = $this->session->userdata('userRole');
+    //$userID   = $this->session->userdata('userID');
+
+    if(empty($userRole) || empty($userID)){
+        echo 'Invalid Parameters';
+        return false;
+    }
+
+    //Default Image Defined Here
+    $defaultUserImage = base_url()."assets/img/user2-160x160.jpg";
+
+    //Defining User Roles
+    //Role = 1 = Admin
+    //Role = 2 = Assessment
+    //Role = 3 = Investor
+
+    if($userRole == 1){
+        $table = 'hoosk_user';
+        $selectData = [
+          'p_image as avatar',
+            false
+        ];
+        $where = ['userID' =>$userID];
+        $basePath = base_url(). 'uploads/investor/';
+
+    }elseif ($userRole == 2){
+        $table = 'user';
+        $selectData = [
+            'logo as avatar',
+            false
+        ];
+        $where = ['userID' =>$userID];
+        $basePath = base_url();
+
+    }elseif ($userRole == 3){
+        $table = 'esic_investor';
+        $selectData = [
+            'image as avatar',
+            false
+        ];
+        $where = ['fk_investor_ID' =>$userID];
+        $basePath = base_url(). 'uploads/investor/';
+
+    }
+
+    //Finally run the query
+    $userProfileImage = $ci->Common_model->select_fields_where($table,$selectData,$where,true);
+
+    if(!empty($userProfileImage)){
+        $path = $basePath->$userProfileImage->avatar;
+        if(file_exists($path) and is_file($path)){
+            return $path;
+        }else{
+            return $defaultUserImage;
+        }
+    }else{
+        return $defaultUserImage;
     }
 }
