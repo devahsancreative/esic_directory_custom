@@ -5,6 +5,17 @@ body {
      word-break: break-word;
 }
 
+/*slider style*/
+.carousel-control {
+    padding-top:12%;
+    width: 5%;
+    background: none !important;
+    font-size: 40px;
+}
+.well{
+    background: none !important;
+}
+/*slider style end */
 iframe {
     width:100% !important;
     height:430px !important;
