@@ -12,9 +12,9 @@ if(!function_exists('sliderWithSearch')){
 }
 if(!function_exists('sliderWithOutSearch')){
     function sliderWithOutSearch($data){
- echo '<pre>';
+/* echo '<pre>';
         print_r($data);
-        echo '</pre>';
+        echo '</pre>';*/
 
         $html = '<div class="container">
     <div class="col-md-12">
@@ -89,12 +89,12 @@ if(!function_exists('sliderWithOutSearch')){
     </style>
 <script>
 
-    $(document).ready(function() {
-        $('#myCarousel').carousel({
+    jquery(document).ready(function() {
+        jquery('#myCarousel').carousel({
             interval: 10000
         })
 
-        $('#myCarousel').on('slid.bs.carousel', function() {
+        jquery('#myCarousel').on('slid.bs.carousel', function() {
             //alert("slid");
         });
     });

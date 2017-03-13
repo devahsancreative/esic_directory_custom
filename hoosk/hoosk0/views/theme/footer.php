@@ -69,21 +69,15 @@
             jQuery('.navbar-collapse').toggleClass('in');
         });*/
     });
-    /*  jQuery(window).scroll(function (event) {
-     if($(window).scrollTop()>300){
-     $(".navbar-inverse").removeClass("navbar-inverse2");
-     $('.navbar-inverse').css('background-color','rgba(204, 204, 204, 0.96)');
+    jQuery(document).ready(function() {
+        jQuery('#myCarousel').carousel({
+            interval: 10000
+        })
 
-     } else {
-     $('.navbar-inverse').css('background-color','rgba(204, 204, 204, 0.67)');
-     $('.navbar-inverse').css('opacity',1);
-
-
-
-     }
-
-     });
-     });*/
+        jQuery('#myCarousel').on('slid.bs.carousel', function() {
+            //alert("slid");
+        });
+    });
 </script>
 </body>
 </html>
