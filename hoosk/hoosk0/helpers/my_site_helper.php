@@ -696,6 +696,12 @@ if(!function_exists("render_slider")){
                     ];
                     break;
                 case 'esic_investor':
+                    $selectJoinData = [
+                        '
+                            image as Image
+                        ',
+                        false
+                    ];
                     break;
                 case 'esic_innovators':
                     break;
