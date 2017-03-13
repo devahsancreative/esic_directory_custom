@@ -425,7 +425,7 @@ $route['blog/insert_comment/(:any)/(:any)']  	= "blog/insert_comment/$1/$2";
 
 //investor front end Routes nvestor/submit
 
-$route['investor_pre_assessment']  	= "Investor/investor_form";
+$route['investor-pre-assessment']  	= "Investor/investor_form";
 
 $route['Investor/submit']  	= "Investor/submit";
 
