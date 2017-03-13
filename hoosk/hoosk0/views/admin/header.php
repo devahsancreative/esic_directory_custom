@@ -8,7 +8,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title><?php echo SITE_NAME; ?>  <?=isset($title)?" | ".$title:"";?></title>
+    <title><?php echo SITE_NAME; ?>  <?= isset($title) ? " | " . $title : ""; ?></title>
 
     <!-- Tell the browser to be responsive to screen width -->
 
@@ -16,13 +16,13 @@
 
     <!-- Bootstrap 3.3.6 -->
 
-    <link rel="stylesheet" href="<?= base_url()?>assets/vendors/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/vendors/bootstrap/css/bootstrap.min.css">
 
     <!-- Font Awesome -->
 
     <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">-->
 
-    <link rel="stylesheet" href="<?php echo base_url()?>assets/vendors/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/vendors/font-awesome/css/font-awesome.min.css">
 
     <!-- Ionicons -->
 
@@ -30,25 +30,22 @@
 
     <!-- DataTables -->
 
-    <link rel="stylesheet" href="<?= base_url()?>assets/vendors/datatables/dataTables.bootstrap.css">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/vendors/datatables/dataTables.bootstrap.css">
 
-    <link rel="stylesheet" href="<?= base_url()?>assets/vendors/datatables/responsive.bootstrap.css">
-
+    <link rel="stylesheet" href="<?= base_url() ?>assets/vendors/datatables/responsive.bootstrap.css">
 
 
     <!-- Theme style -->
 
-    <link rel="stylesheet" href="<?= base_url()?>assets/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/css/AdminLTE.min.css">
 
     <!-- AdminLTE Skins. Choose a skin from the css/skins
 
          folder instead of downloading all of them to reduce the load. -->
 
-    <link rel="stylesheet" href="<?= base_url()?>assets/css/_all-skins.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/css/_all-skins.min.css">
 
     <link rel="stylesheet" href="<?= ADMIN_THEME ?>/css/esic-admin.css">
-    
-
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -62,12 +59,11 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
 
-
     <![endif]-->
 
     <style type="text/css" media="screen">
 
-        .add-New-container{
+        .add-New-container {
 
             text-align: right;
 
@@ -75,7 +71,7 @@
 
         }
 
-        .addNewBtn{
+        .addNewBtn {
 
             background-color: #337ab7;
 
@@ -84,28 +80,26 @@
             padding: 5px 20px;
 
         }
-        #upload_Profile_image{
+
+        #upload_Profile_image {
 
             padding: 2px 50px 2px 1px;
         }
-        .p_b{
+
+        .p_b {
             margin: 2px;
         }
 
-		
 
     </style>
 
 
-
-<script src="<?php echo ADMIN_THEME; ?>/js/jquery-1.10.2.min.js"></script> 
-
+    <script src="<?php echo ADMIN_THEME; ?>/js/jquery-1.10.2.min.js"></script>
 
 
-<script src="<?php echo ADMIN_THEME; ?>/js/jquery-ui-1.9.2.js"></script> 
+    <script src="<?php echo ADMIN_THEME; ?>/js/jquery-ui-1.9.2.js"></script>
 
-<script src="<?php echo ADMIN_THEME; ?>/js/jquery.nestable.js"></script>
-
+    <script src="<?php echo ADMIN_THEME; ?>/js/jquery.nestable.js"></script>
 
 
     <script type="text/javascript">
@@ -115,42 +109,43 @@
     </script>
 
 
+    <script src="<?php echo ADMIN_THEME; ?>/js/excanvas.min.js"></script>
 
-<script src="<?php echo ADMIN_THEME; ?>/js/excanvas.min.js"></script> 
+    <!--script src="<?php //echo ADMIN_THEME; ?>/js/bootstrap.js"></script-->
 
-<!--script src="<?php //echo ADMIN_THEME; ?>/js/bootstrap.js"></script-->
+    <script src="<?php echo ADMIN_THEME; ?>/js/base.js"></script>
 
-<script src="<?php echo ADMIN_THEME; ?>/js/base.js"></script>
+    <?php
 
-<?php 
+    $class = $this->router->fetch_class();   // it is use only in add new page and edit page condition is use to safe
+    $method = $this->router->fetch_method();   // it is use only in add new page and edit page condition is use to safe
 
-$class   = $this->router->fetch_class();   // it is use only in add new page and edit page condition is use to safe 
-$method   = $this->router->fetch_method();   // it is use only in add new page and edit page condition is use to safe
+    if ($class == 'Pages' || (strtolower($class) . '/' . strtolower($method) === 'admin/details')) {
+        ?>
+        <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+        <!--    <script src="--><?php //echo ADMIN_THEME;
+        ?><!--/js/sirTrevor/node_modules/tinymce/tinymce.min.js"></script>-->
 
-if($class   == 'Pages' || (strtolower($class).'/'.strtolower($method) === 'admin/details')){?>
-<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
-<!--    <script src="--><?php //echo ADMIN_THEME; ?><!--/js/sirTrevor/node_modules/tinymce/tinymce.min.js"></script>-->
+        <script>
+            tinymce.init({
+                selector: "body div.st-text-block",
+                theme: "modern",
+                menubar: false,
+                plugins: [
+                    ["advlist autolink link image lists charmap preview hr anchor pagebreak spellchecker"],
+                    ["searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking"],
+                    ["save table contextmenu directionality emoticons template paste"]
+                ],
 
-    <script>
-	 tinymce.init({
-    selector: "body div.st-text-block",
-    theme: "modern",
-	menubar: false,
-	 plugins: [
-        ["advlist autolink link image lists charmap preview hr anchor pagebreak spellchecker"],
-        ["searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking"],
-        ["save table contextmenu directionality emoticons template paste"]
-    ],
-	
-    add_unload_trigger: false,
-    schema: "html5",
-    inline: true,
-    toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image     | print preview media| table | fontsizeselect",
-    statusbar: false
-    });
-    
-    </script>
-<?php } ?>    
+                add_unload_trigger: false,
+                schema: "html5",
+                inline: true,
+                toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image     | print preview media| table | fontsizeselect",
+                statusbar: false
+            });
+
+        </script>
+    <?php } ?>
 
 
 </head>
@@ -161,22 +156,18 @@ if($class   == 'Pages' || (strtolower($class).'/'.strtolower($method) === 'admin
 
     <header class="main-header">
 
-         
 
-        <a href="<?=base_url('Admin')?>" class="logo">
+        <a href="<?= base_url('Admin') ?>" class="logo">
 
-               
 
             <span class="logo-mini"><b>E</b>sic</span>
 
-              
 
             <span class="logo-lg"><b>ESIC</b> <?php // echo $this->session->userdata('userName'); ?></span>
 
         </a>
 
-        
-          
+
         <nav class="navbar navbar-static-top">
 
             <!-- Sidebar toggle button-->
@@ -194,169 +185,99 @@ if($class   == 'Pages' || (strtolower($class).'/'.strtolower($method) === 'admin
             </a>
 
 
-
-<div class="navbar-custom-menu">
-   <ul class="nav navbar-nav">
-     <!-- User Account: style can be found in dropdown.less -->
-       <li class="dropdown user user-menu">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-           <?php  
-		         $userRole = $this->session->userdata('userRole');
-		         $userID   = $this->session->userdata('userID');
-				 $image    = $this->Common_model->user_logo($userID,$userRole); 
-			  
-			 
-			  if(!empty($image[0]->p_image) && $userRole == 1){?>
-				  <img src="<?= base_url(). 'uploads/investor/'. $image[0]->p_image ?>" id="Profile_image" class="user-image" alt="User Image">
-				 <?php } 
-                 
-			  elseif(!empty($image[0]->logo) && $userRole == 2){// super admin logo  ?>
-                 <img src="<?=base_url(). $image[0]->logo;?>" class="user-image" alt="User Image">
-			   <?php } 
-			  elseif(!empty($image[0]->image) && $userRole == 3){?>
-              
-				 <img src="<?=base_url()."uploads/investor/". $image[0]->image;?>" class="user-image" alt="User Image">
-               <?php }
-			  else{?>
-				 
-				 <img src="<?=base_url()?>assets/img/user2-160x160.jpg" class="user-image" alt="User Image">
-				 <?php } ?>
-			
-
-                 
-
-                 <span class="hidden-xs"><?php echo $this->session->userdata('userName'); ?></span>
-
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <!-- User Account: style can be found in dropdown.less -->
+                    <li class="dropdown user user-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <?php
+                            $userRole = $this->session->userdata('userRole');
+                            $userID = $this->session->userdata('userID');
+                            //Get User Image
+                            $imagePath = get_user_image($userRole, $userID); ?>
+                            <img src="<?= $imagePath ?>" class="user-image" alt="User Image">
+                            <span class="hidden-xs"><?php echo $this->session->userdata('userName'); ?></span>
                         </a>
 
                         <ul class="dropdown-menu">
 
                             <!-- User image -->
 
- <li class="user-header">
+                            <li class="user-header">
+                                <img src="<?= $imagePath ?>" id="Profile_image" class="img-circle" alt="User Image">
+                                <p>
+                                    <?php echo $this->session->userdata('userName'); ?>
 
- <?php
- if(!empty($image[0]->p_image && $userRole == 1)){
-  $logoImage = '';
-   if(!empty($image[0]->p_image)){
-      $logoImage = base_url().'uploads/investor/'.$image[0]->p_image;
-   }else{
-      $logoImage =  base_url().'assets/img/user2-160x160.jpg';
-   }
- ?>
-  <img src="<?= $logoImage ?>" id="Profile_image" class="img-circle" alt="User Image">
-<!--form method="post" enctype="multipart/form-data" id="save_Profile_image">
-  <input type="file" id="upload_Profile_image" class="btn btn-sm btn-default" name="image">
-  <input type="hidden" id="" name="id" value="<?= $image[0]->p_image  ?>">
-  <input type="submit" value="save" class="btn btn-sm btn-default p_b">
-</form-->
+                                </p>
 
-
-			    <?php  }
-                 
-			  elseif(!empty($image[0]->logo) && $userRole == 2){// super admin logo  ?>
-                 <img src="<?=base_url(). $image[0]->logo;?>" class="img-circle" alt="User Image">
-			   <?php } 
-			  elseif(!empty($image[0]->image) && $userRole == 3){?>
-              
-				 <img src="<?=base_url()."uploads/investor/". $image[0]->image;?>" class="img-circle" alt="User Image">
-               <?php }
-			  else{
-
-
-                  $logoImage = '';
-                  if(!empty($users[0]['p_image'])){
-                    $logoImage = base_url().'/uploads/investor/'.$users[0]['p_image'];
-                  }else{
-                    $logoImage =  base_url().'assets/img/user2-160x160.jpg';
-                  }
-
-                  ?>
-
-                  <img src="<?= $logoImage ?>" id="Profile_image" class="img-circle" alt="User Image">
-
-                      <!--form method="post" enctype="multipart/form-data" id="save_Profile_image">
-
-                          <input type="file" id="upload_Profile_image" name="image">
-                          <input type="hidden" id="" name="id" value="<?= $users[0]['userID'];  ?>">
-                          <input type="submit" value="save">
-
-                      </form-->
-
-
-				  <?php   } ?>
- <p>
-     <?php echo $this->session->userdata('userName'); ?>
-
-  </p>
-
-  </li>
+                            </li>
 
                             <!-- Menu Footer-->
 
                             <li class="user-footer">
 
                                 <div class="pull-left">
-<?php 
-             if($userRole == 1){?>
-				  <a href="<?= base_url()?>admin/users/edit/<?=$userID?>" class="btn btn-default btn-flat">Profile</a>
-			    <?php } 
-                 
-			  elseif($userRole == 2){// super admin logo  ?>
-                  <a href="<?= base_url()?>admin/details/<?=$userID?>" class="btn btn-default btn-flat">Profile</a>
-			   <?php } 
-			  elseif($userRole == 3){?>
-              
-				 <a href="<?= base_url()?>admin/investor/edit_profile/<?=$userID?>" class="btn btn-default btn-flat">Profile</a>
-               <?php }
-			  else{?>
-				 
-				 <a href="#" class="btn btn-default btn-flat">Profile</a>
-				 <?php } ?>
+                                    <?php
+                                    if ($userRole == 1) {
+                                        ?>
+                                        <a href="<?= base_url() ?>admin/users/edit/<?= $userID ?>"
+                                           class="btn btn-default btn-flat">Profile</a>
+                                    <?php } elseif ($userRole == 2) {// super admin logo
+                                        ?>
+                                        <a href="<?= base_url() ?>admin/details/<?= $userID ?>"
+                                           class="btn btn-default btn-flat">Profile</a>
+                                    <?php } elseif ($userRole == 3) {
+                                        ?>
+
+                                        <a href="<?= base_url() ?>admin/investor/edit_profile/<?= $userID ?>"
+                                           class="btn btn-default btn-flat">Profile</a>
+                                    <?php } else {
+                                        ?>
+
+                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                    <?php } ?>
 
                                 </div>
 
                                 <div class="pull-right">
 
-                                   
 
-                                    <a href="<?php echo BASE_URL ; ?>/admin/logout" class="btn btn-default btn-flat">Sign out</a>
+                                    <a href="<?php echo BASE_URL; ?>/admin/logout" class="btn btn-default btn-flat">Sign
+                                        out</a>
 
                                 </div>
 
                             </li>
-                                     
-                          
+
 
                         </ul>
 
                     </li>
 
-                     
 
                 </ul>
 
             </div>
 
         </nav>
- 
+
     </header>
 
     <script>
-        $(function(){
-            $("#save_Profile_image").on('submit',(function(e){ //upload profile Image
+        $(function () {
+            $("#save_Profile_image").on('submit', (function (e) { //upload profile Image
                 var current = $(this);
                 e.preventDefault();
                 $.ajax({
-                    url :  baseUrl + "admin/users/edit_profile_picture",
+                    url: baseUrl + "admin/users/edit_profile_picture",
                     type: "POST",
-                    data:  new FormData(this),
+                    data: new FormData(this),
                     contentType: false,
                     cache: false,
-                    processData:false,
-                    success: function(data){
+                    processData: false,
+                    success: function (data) {
 
-                        $("#Profile_image").attr("src","<?= base_url()?>uploads/investor/" + data);
+                        $("#Profile_image").attr("src", "<?= base_url()?>uploads/investor/" + data);
                         $('#mydiv2').addClass('.alert alert-success');
                         $('#mydiv2').html('Your Information  updated Successfully!').show().delay(5000).fadeOut(3000);
                         $(current).closest('.edit-question').removeClass('in');
@@ -364,7 +285,6 @@ if($class   == 'Pages' || (strtolower($class).'/'.strtolower($method) === 'admin
                     }
                 });
             }));
-
 
 
         });
@@ -375,8 +295,7 @@ if($class   == 'Pages' || (strtolower($class).'/'.strtolower($method) === 'admin
 
     <?php $this->load->view('admin/components/main-sidebar/main'); ?>
 
-        <!-- Navigation -->
-
+    <!-- Navigation -->
 
 
     <!-- Content Wrapper. Contains page content -->
@@ -384,7 +303,6 @@ if($class   == 'Pages' || (strtolower($class).'/'.strtolower($method) === 'admin
     <div class="content-wrapper">
 
         <!-- Content Header (Page header) -->
-
 
 
         <div id="page-wrapper">
