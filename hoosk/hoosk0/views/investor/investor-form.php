@@ -118,12 +118,14 @@
                                 <input id="NameFirst" name="firstName" type="text" placeholder="First"
                                        value="<?php echo set_value('firstName'); ?>"class="form-control"
                                      />
+                                <label id="first_name"></label>
                                 <div id="infoMessage"><?php echo form_error('firstName'); ?></div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <input id="NameLast" name="lastName" type="text" placeholder="Last"
                                        value="<?php echo set_value('lastName'); ?>"class="form-control"
                                       />
+                                <label id="last_name"></label>
                                 <div id="infoMessage"><?php echo form_error('lastName'); ?></div>
                             </div>
                         </div>
@@ -342,10 +344,23 @@ $(document).ready(function(){
         var current_e= $(this);
         var Fname    = $("#NameFirst").val();
         var Lname     = $("#NameLast").val();
-        if(Fname =='' || Lname=='')
+        if(Fname =='')
         {
-            $('#email-error').html('Please Enter Your Name').show().delay(5000).fadeOut();
+            alert(Fname);
+
+            $('#first_name').html('Please Enter Your First Name').show().delay(5000).fadeOut();
+         //   var scrollPos = $('#NameFirst').offset();
+//alert(scrollPosition); // This alert always says 'null', why ?
+          //  $(window).scroll(scrollPos);
+            var errorDiv = $('#NameFirst:visible').first();
+            var scrollPos = errorDiv.offset().top;
+            $(window).scrollTop(scrollPos).offset();
+
             return false;
+        }else if(Lname==''){
+            $('#last_name').html('Please Enter Your Last Name').show().delay(5000).fadeOut();
+            return false;
+
         }
     });
 	});
