@@ -21,9 +21,13 @@ class common_model extends CI_Model
     }
 
     // Select Queries
-    function select($tbl = '')
+    function select($tbl = '', $array=false)
     {
         $query = $this->db->get($tbl);
+
+        if($array===true){
+            return $query->result_array();
+        }
         return $query->result();
     }
 
