@@ -719,8 +719,67 @@ if(!function_exists("render_slider")){
     }
 }
 
-if(!function_exists('userImage')){
-    function userImage($imagePath){
 
+function get_user_image($userRole,$userID){
+    $ci =& get_instance();
+    $ci->load->model('Common_model');
+
+    //$userRole = $this->session->userdata('userRole');
+    //$userID   = $this->session->userdata('userID');
+
+    if(empty($userRole) || empty($userID)){
+        echo 'Invalid Parameters';
+        return false;
+    }
+
+    //Default Image Defined Here
+    $defaultUserImage = base_url()."assets/img/user2-160x160.jpg";
+
+    //Defining User Roles
+    //Role = 1 = Admin
+    //Role = 2 = Assessment
+    //Role = 3 = Investor
+
+    if($userRole == 1){
+        $table = 'hoosk_user';
+        $selectData = [
+          'p_image as avatar',
+            false
+        ];
+        $where = ['userID' =>$userID];
+        $basePath = base_url(). 'uploads/investor/';
+
+    }elseif ($userRole == 2){
+        $table = 'user';
+        $selectData = [
+            'logo as avatar',
+            false
+        ];
+        $where = ['userID' =>$userID];
+        $basePath = base_url();
+
+    }elseif ($userRole == 3){
+        $table = 'esic_investor';
+        $selectData = [
+            'image as avatar',
+            false
+        ];
+        $where = ['fk_investor_ID' =>$userID];
+        $basePath = base_url(). 'uploads/investor/';
+
+    }
+
+    //Finally run the query
+    $userProfileImage = $ci->Common_model->select_fields_where($table,$selectData,$where,true);
+
+    if(!empty($userProfileImage)){
+        $path = $basePath->$userProfileImage->avatar;
+        if(file_exists($path) and is_file($path)){
+            return $path;
+        }else{
+            return $defaultUserImage;
+        }
+    }else{
+        return $defaultUserImage;
     }
 }
