@@ -672,6 +672,11 @@ $route['admin/navigation'] = "Navigation";
 $route['admin/navigation/new'] = "Navigation/newNav";
 
 $route['admin/navigation/edit/(:any)'] = "Navigation/editNav";
+$route['admin/navigation/updateNavTos'] = "Navigation/updateNavTos";
+$route['admin/navigation/getNavTos'] = "Navigation/getNavTos";
+
+//sliders
+$route['admin/slider'] = "Slider/index"; //list all the sliders
 
 $route['admin/navigation/delete/(:any)'] = "Navigation/deleteNav";
 
@@ -733,6 +738,18 @@ $route['article/(:any)'] = "Hoosk_default/article";
 $route['results_investors']  = "Investor/investor_search";
 
 $route['results_innovators'] = "Esic2/getfilterlist";
+
+
+
+//Angular js
+
+$route['Angular'] = "Angular/index";
+$route['templates/(:any)'] = "templates/view/$1";
+$route['items'] = "items/index";
+$route['itemsCreate']['post'] = "items/store";
+$route['itemsEdit/(:any)'] = "items/edit/$1";
+$route['itemsUpdate/(:any)']['put'] = "items/update/$1";
+$route['itemsDelete/(:any)']['delete'] = "items/delete/$1";
 
 
 

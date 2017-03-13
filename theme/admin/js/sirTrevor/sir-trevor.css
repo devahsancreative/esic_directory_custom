@@ -464,3 +464,10 @@ ul.st-text-block {
 
 .st-format-btn--Unlink {
     text-decoration: line-through; }
+
+.st-block.st-drag-over > .st-block__inner {
+    border:solid 2px #72afd2;
+}
+.st-block.st-block--dragging > .st-block__inner {
+    border:solid 2px #72afd2;
+}

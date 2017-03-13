@@ -107,7 +107,9 @@
             </div>
             <?php hooskNav('header') ?>
 
-
+            <script type="text/javascript">
+                var data_array = JSON.parse(tosJSON);
+            </script>
 
             <style>
                 .login_button{

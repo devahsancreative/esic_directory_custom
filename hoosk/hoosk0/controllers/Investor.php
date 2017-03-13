@@ -55,8 +55,30 @@ class Investor extends MY_Controller {
         $resultsFor = $this->input->post('resultsFor');
         $keyword    = $this->input->post('keyword');
 
+        $filterStartDate  = $this->input->post('filterStartDate');
+        $filterEndDate    = $this->input->post('filterEndDate');
+
+        $statusFilter     = $this->input->post('statusFilter');
+
         $selectData = '*';
-        $where = 'email LIKE "%' .$keyword.'%" OR company_name LIKE "%' .$keyword.'%" OR firstName LIKE "%' .$keyword.'%" OR lastName LIKE "%' .$keyword.'%"';
+        $where = '';
+        if(!empty($keyword)){
+            $where = 'email LIKE "%' .$keyword.'%" OR company_name LIKE "%' .$keyword.'%" OR firstName LIKE "%' .$keyword.'%" OR lastName LIKE "%' .$keyword.'%"';
+        }
+
+        if(!empty($filterStartDate) && !empty($filterEndDate) ){
+            $where = '( email LIKE "%' .$keyword.'%" OR company_name LIKE "%' .$keyword.'%" OR firstName LIKE "%' .$keyword.'%" OR lastName LIKE "%' .$keyword.'%" )';
+            $where .=' AND ( added_date BETWEEN "'.$filterStartDate.'" AND "'.$filterEndDate.'" )';
+        }
+        if(!empty($statusFilter)){
+            if(!empty($keyword) || !empty($filterStartDate)){
+                $where .=  ' AND';
+            }
+             $where .=  'status = '.$statusFilter.' ';
+        }
+
+
+
         $joins = array(
             array(
                 'table'     => 'esic_investor EI',
@@ -71,6 +93,12 @@ class Investor extends MY_Controller {
         );
 
         $data['list'] = $this->Common_model->select_fields_where_like_join('hoosk_user',$selectData,$joins,$where);
+        $data['Query'] = $this->db->last_query();
+        $data['filterStartDate']    =  $filterStartDate;
+        $data['filterEndDate']      =  $filterEndDate;
+        $data['keyword']            =  $keyword;
+
+        $this->load->view('theme/header');
         $data['Title'] = 'Investors';
         $this->load->view('theme/header',$this->data);
         $this->load->view('theme/listing',$data);
@@ -353,7 +381,9 @@ class Investor extends MY_Controller {
         $insertID = $this->Common_model->insert_record('esic_investor', $userInvestorArray);
 
         if ($insertID > 0) {
+
             //email
+
             $settings = $this->Hoosk_model->getSettings();
             $siteEmail = $settings[0]['siteEmail'];
             $subject = "Esic Directory User Name  And Password";

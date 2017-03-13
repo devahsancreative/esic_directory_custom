@@ -1,5 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
+/**
+ * @property common_model $common_model It resides all the methods which can be used in most of the controllers.
+ */
 class Navigation extends CI_Controller {
 
 	function __construct()
@@ -79,6 +81,82 @@ class Navigation extends CI_Controller {
 			  $this->load->view('admin/page_not_found');
 			 }	
 	}
+
+	public function updateNavTos(){
+
+        Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
+        $userRole = $this->session->userdata('userRole');
+        //if not belongs to Admin Role then just don't do any thing.
+        if(intval($userRole) !== 1){
+            $this->load->view('admin/page_not_found');
+            return null;
+        }
+        //Now if Passed the Authorization, then we can have the value updated.
+
+        //Will be used for enabled and Disabled of Tos for a Particular Menu
+        $tosEnable = $this->input->post('enableTos');
+        //Menu Href will be used as reference.
+        $tosMenu = $this->input->post('menu');
+        //This is just a title of the menu storing for later use.
+        $menuTitle = $this->input->post('menuTitle');
+        //This is the main text containing terms and conditions.
+        $tosText = $this->input->post('tos');
+        //this is just the slug, showing menus belongs to what group.
+        $navSlug = $this->input->post('slug');
+        if($tosEnable){
+            $tosEnable = 1;
+        }else{
+            $tosEnable = 0;
+        }
+
+        $where = [
+            'navSlug' => $navSlug
+        ];
+        $tosTextArray = [
+            'navTos'=> $tosEnable,
+            "text" => $tosText,
+            "menu" => $tosMenu
+        ];
+        $tosTextMenusArray = [];
+        array_push($tosTextMenusArray,$tosTextArray);
+        $dataToUpdate = [
+            'tosText'=> json_encode($tosTextMenusArray)
+        ];
+
+
+        $result = $this->Common_model->update('hoosk_navigation',$where, $dataToUpdate);
+        if($result){
+            echo "OK::Successfully Added Updated the TOS Configurations for Menu ".$menuTitle."::success";
+        }else{
+            echo "FAIL::Something went wrong, please contact SYSTEM ADMINISTRATOR for further assistance.::error";
+        }
+
+    }
+
+    public function getNavTos(){
+	    $slug = $this->input->post('slug');
+	    $menu = $this->input->post('menu');
+	    if(empty($slug)){
+	        return null;
+        }
+        $where = [ 'navSlug' => $slug ];
+        $navigation = $this->Common_model->select_fields_where('hoosk_navigation','*',$where,true);
+        if(empty($navigation)){
+           return null;
+        }
+
+        $tosDetails = $navigation->tosText;
+        if(!empty($tosDetails)){
+            $tosDetailsArray = json_decode($tosDetails);
+            foreach($tosDetailsArray as $tosDetails){
+                if($tosDetails->menu === $menu){
+                    echo json_encode($tosDetails);
+                }
+            }
+        }
+//        return json_encode($tosDetails);
+//        echo $tosDetails;
+    }
 
 	public function navAdd()
 	{

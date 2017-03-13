@@ -15,6 +15,11 @@ $lang['nav_users_all']		= "All Users";
 $lang['nav_navigation']		= "Navigation";
 $lang['nav_navigation_new']	= "New Navigation Menu";
 $lang['nav_navigation_all']	= "All Menus";
+//Sliders
+$lang['nav_sliders']		= "Sliders";
+$lang['nav_sliders_new']	= "New Slider";
+$lang['nav_sliders_all']	= "All Sliders";
+
 $lang['nav_settings']		= "Settings";
 $lang['nav_social']			= "Social";
 $lang['nav_view_site']		= "View Site";

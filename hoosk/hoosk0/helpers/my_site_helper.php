@@ -646,3 +646,73 @@ if(!function_exists("getUserProfileImage")) {
         }
     }
 }
+
+if(!function_exists("render_slider")){
+    function render_slider($pageData){
+
+        $ci =& get_instance();
+        $ci->load->model('Common_model');
+        $ci->load->helper('layouts');
+        $selectData = [
+            '
+                es.renderCode as shortCode,
+                es.table as joinTable,
+                esl.htmlCode as htmlCode                
+            ',
+            false
+        ];
+        $joins = array(
+            array(
+                'table' => 'esic_slider_layouts esl',
+                'condition' => 'esl.id = es.layout_id',
+                'type' => 'INNER'
+            )
+        );
+        $sliderLayouts = $ci->Common_model->select_fields_where_like_join('esic_slider es', $selectData, $joins,'',false,'','','','','',true);
+
+
+        //we would get array of elements in $text array representing the short codes
+        $text = [];
+        if(!empty($sliderLayouts)){
+            foreach($sliderLayouts as $key => $layout){
+                $text[$layout['shortCode']] = $layout;
+            }
+        }
+
+        //replacing values and assigning to pageContent variable.
+        $pageContent = preg_replace_callback('/{{([^}]+)}}/', function ($m) use ($text,$ci) {
+            //Now what we need to do is get the layout first.
+            $neededSlider = $text[$m[1]];
+            var_dump($neededSlider);
+
+            //now need to get the slider join.
+            switch($neededSlider['joinTable']){
+                case 'user':
+                    $selectJoinData = [
+                        '
+                            logo as Image
+                        ',
+                        false
+                    ];
+                    break;
+                case 'esic_investor':
+                    break;
+            }
+
+
+            $sliderData = $ci->Common_model->select_fields($neededSlider['joinTable'],$selectJoinData,false,'','',true);
+
+            $renderedHTML = $neededSlider['htmlCode']($sliderData);
+
+
+            return $renderedHTML;
+//            return $text[$m[1]];
+        }, $pageData['pageContentHTML']);
+
+        //replacing the original content with the updated one.
+        $pageData['pageContentHTML'] = $pageContent;
+
+        //finally returning the replaced content.
+        return $pageData;
+    }
+}

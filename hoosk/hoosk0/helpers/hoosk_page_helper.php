@@ -21,6 +21,9 @@ if (function_exists('wordlimit')) {
 
 
 		foreach($query->result_array() as $n):
+            if(!empty($n) and !empty($n['tosText'])){
+                $tosJSON = $n['tosText'];
+            }
 			$totSegments = $CI->uri->total_segments();
 			if(!is_numeric($CI->uri->segment($totSegments))){
 			$current = "/".$CI->uri->segment($totSegments);
@@ -32,6 +35,9 @@ if (function_exists('wordlimit')) {
             //echo $current;
 			$nav = str_replace('<li><a href="'.$current.'">', '<li class="active"><a href="'.$current.'">', $n['navHTML']);
 			echo $nav;
+			if(!empty($tosJSON)){
+			    echo '<script type="text/javascript">var tosJSON = \''.$tosJSON."'</script>";
+            }
 
 		endforeach;
 
