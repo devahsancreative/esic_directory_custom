@@ -373,26 +373,28 @@
 
  <?php echo $footer; ?></div>
  <script src='<?php  echo base_url()?>assets/tinymce/js/tinymce/tinymce.min.js'></script>
- <!--<script src='https://tinymce.cachefly.net/4.0/plugins/jbimages/plugin.min.js'></script>-->
+ <script src='<?php  echo base_url()?>assets/tinymce/js/tinymce/plugins/jbimages/plugin.min.js'></script>
+<!--//<script src='<?php /* echo base_url()*/?>assets/tinymce/js/tinymce/plugins/imageUpload.js'></script>-->
   <script>
  tinymce.init({
   selector: 'textarea',
-    // file_browser_callback_types: 'file image media'
+
   height: 300,
   menubar: false,
      browser_spellcheck : true,
      contextmenu: false,
      spellchecker_rpc_url: base_url+'assets/tinymce/js/tinymce/plugins/spellchecker/spellchecker.php',
-  plugins: [
-    'spellchecker advlist autolink lists link image charmap print preview anchor',
+ plugins: [
+    ' spellchecker advlist autolink lists link image charmap print preview anchor code',
     'searchreplace visualblocks code fullscreen',
-    'insertdatetime media table contextmenu paste code'
+    'insertdatetime media jbimages table contextmenu paste code'
   ],
-  toolbar: 'spellchecker undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | media',
-  content_css: '//www.tinymce.com/css/codepen.min.css'
+  toolbar: 'spellchecker undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | jbimages | media | code',
+  content_css: '//www.tinymce.com/css/codepen.min.css',
+ relative_urls: false
 });
 
-console.log(base_url+'assets/tinymce/js/tinymce/plugins/spellchecker/spellchecker.php')
+
  $(document).ready(function(){
  $(".trash").on("click", function () { 
       var del_id= $(this).attr('id');

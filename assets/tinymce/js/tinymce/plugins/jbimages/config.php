@@ -38,8 +38,14 @@
 | -------------------------------------------------------------------*/
 
 	
-	$config['img_path'] = '/uploads'; // Relative to domain name
+	//$config['img_path'] = 'uploads'; // Relative to domain name
+$config['img_path'] = '/esic_directory_custom/uploads'; // Relative to domain name local
+//Hamid Remeber this to change when move to live
 	$config['upload_path'] = $_SERVER['DOCUMENT_ROOT'] . $config['img_path']; // Physical path. [Usually works fine like this]
+
+
+
+
 
 
 /*-------------------------------------------------------------------
