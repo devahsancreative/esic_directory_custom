@@ -266,7 +266,7 @@ table td {
 				"Text",
 				"List",
 				"Quote",
-				"Image",
+				"ImageExtended",
 				"Video",
 				"Tweet",
 				//"Accordion",
