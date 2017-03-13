@@ -73,38 +73,79 @@ if(!function_exists('sliderWithSearch')){
 }
 if(!function_exists('sliderWithOutSearch')){
     function sliderWithOutSearch($data){
-echo '<pre>';
-        print_r($data);
-        echo '</pre>';
+        $CI =& get_instance();
 
-        $html = '<div class="container">';
-        $html .= '<div class="col-md-12">';
-        $html .= '<div class="well">';
-        $html .= '<div id="myCarousel" class="carousel slide">';
-        $html .= '<div class="carousel-inner">';
-                   $html .= ' <div class="item active">';
-                        $html .= '<div class="row">';
+        // Load URL helper for the site_url and base_url functions
+        $CI->load->helper('url');
+
+$html = '<div class="filter form" style="max-width:400px">';
+$html .= '<div class="filter3" id="filter">';
+    $html .= '<div class="search searchbox">';
+        $html .= '<span class="icon" id="filter_search">';
+            $html .= '<i class="fa fa-search"></i>';
+        $html .= '</span>';
+        $html .= '<input type="text" autocomplete="off" class="locationSuggest ac_input" id="location_search" name="location_value" placeholder="Search Now">';
+    $html .= '</div>';
+    $html .= '<div class="carousel multi-item-carousel slide" id="theCarousel" data-interval="3000" data-ride="carousel" data-type="multi">';
+            $html .= '<div class="carousel-inner">';
+
+$i=1 ;
         foreach ($data as $images) {
-            $html .= '<div class="col-sm-4">';
-            $html .= '<a href="#x"><img src="'; base_url()" alt="Image" class="img-responsive"></a>';
-            $html .= '</div>';
+            if(!empty($images[Image])){
+                    if($i == 1){
+                        $item_class = 'item active';
+                    }else{
+                        $item_class = 'item';
+                    }
+                if( is_file(FCPATH.'/'.$images[Image])){
+                    $filename = $images[Image];
+                    $img = base_url().$filename;
+                    /*$ext = Get_file_extensions($filename);
+                    $withoutExt = preg_replace('/\\.[^.\\s]{3,4}$/', '', $filename);
+                    $img2 = $withoutExt.'_icon_258.'.$ext;
+                    if(is_file(FCPATH.'/'.$img2)){
+                        $img = base_url().$img2;
+                    }else{
+                        $filename = base_url().$images[Image];
+                        $ext = Get_file_extensions($filename);
+                        $withoutExt = preg_replace('/\\.[^.\\s]{3,4}$/', '', $filename);
+                        $img = $withoutExt.'_thumbnail_258.'.$ext;
+                    }*/
+                    $html .= '<div class="'.$item_class.' col-md-4 col-sm-4 col-xs-4 esic-list-logo">';
+                        $html .= '<div class="">';
+                            $html .= '<a href="#">';
+                                $html .= '<span>';
+                                    $html .= '<img class="img-responsive" src="'.$img.'">';
+                                $html .= '</span>';
+                             $html .= '</a>';
+                        $html .= '</div>';
+                    $html .= '</div>';
+            $i++;
+                }
+            }
         }
 
-        $html .= '</div>
-                        <!--/row-->
-                    </div>
-                </div>
-                <!--/carousel-inner--> <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+        $html .= '<a class="left carousel-control" href="#theCarousel" data-slide="prev">‹</a>';
+        $html .= '<a class="right carousel-control" href="#theCarousel" data-slide="next">›</a>';
+        $html .= '</div>';
+        $html .= '</div>';
+        $html .= '</div>';
+        $html .= '</div>';
 
-                <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
-            </div>
-            <!--/myCarousel-->
-        </div>
-        <!--/well-->
-    </div>
-</div>';
         return $html;
     }
 }
+
+if(!function_exists('Get_file_extensions')) {
+    function Get_file_extensions($filename)
+    {
+        $filename = strtolower($filename);
+        $exts = explode(".", $filename);
+        $n = count($exts) - 1;
+        $exts = $exts[$n];
+    return $exts;
+    }
+}
+
 ?>
 
