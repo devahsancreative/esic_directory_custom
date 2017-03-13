@@ -29,6 +29,7 @@
                 <tr>
                     <th>Slider</th>
                     <th>Short Code</th>
+                    <th>Layout</th>
                     <th>Date Created</th>
                     <th>Date Updated</th>
                     <th class="td-actions"> </th>
@@ -36,9 +37,21 @@
                 </thead>
                 <tbody>
                 <?php foreach ($sliders as $slider):?>
-                    <tr>
+                    <tr data-id="<?=$slider['id']?>">
                         <td><?php echo $slider['name']?></td>
                         <td><?php echo $slider['shortCode']?></td>
+                        <td>
+                            <select name="layoutSelector" class="layoutSelector">
+                                <option value="0">Select Layout</option>
+                                <?php
+                                    if(isset($layouts) and is_array($layouts)){
+                                        foreach ($layouts as $layout){
+                                            echo '<option value="'.$layout->id.'"'.(($slider['layout_id'] === $layout->id)?"selected='selected'":'').'>' . $layout->name . '</option>';
+                                        }
+                                    }
+                                ?>
+                            </select>
+                        </td>
                         <td><?php echo $slider['date_created']?></td>
                         <td><?php echo $slider['date_updated']?></td>
                     </tr>
@@ -52,7 +65,23 @@
 </div>
 
 <script type="text/javascript">
-
+    $(function () {
+        $('.layoutSelector').on('change',function(){
+            var selectedLayout = $(this).val();
+            var selectedSlider = $(this).closest('tr').attr('data-id');
+            if(selectedLayout > 0){
+                //Run the ajax to updated the updated value.
+                $.ajax({
+                    url: "<?=base_url()?>admin/slider/updateSliderLayout",
+                    data:{layout:selectedLayout,slider:selectedSlider},
+                    type:"POST",
+                    success:function(output){
+                        console.log(output);
+                    }
+                });
+            }
+        });
+    });
 </script>
 
 <?php echo $footer; ?>

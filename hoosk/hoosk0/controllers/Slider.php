@@ -36,6 +36,7 @@ class Slider extends MY_Controller
         //Get pages from database
         $this->data['sliders'] = $this->Hoosk_model->getAllSliders($result_per_page, $this->uri->segment(3));
 
+        $this->data['layouts'] = $this->Common_model->select('esic_slider_layouts');
 
         //Loading the View and passing data to the view.
         $this->data['header'] = $this->load->view('admin/header', $this->data, true);
@@ -45,5 +46,33 @@ class Slider extends MY_Controller
 
     public function newSlider(){
         //This view will be responsible for creating new sliders.
+    }
+
+    public function updateSliderLayout(){
+        $sliderID = $this->input->post('slider');
+        $layoutID = $this->input->post('layout');
+
+        if(empty($sliderID) || empty($layoutID)){
+            echo "FAIL::Incomplete Post Values::error";
+            return null;
+        }
+
+        if(!is_numeric($sliderID) || !is_numeric($layoutID)){
+            echo "FAIL::Wrong Values Posted::error";
+            return null;
+        }
+
+        $updateData = [
+            'layout_id' => $layoutID,
+            'date_updated' => 'NOW()'
+        ];
+
+        $where = ['id' => $sliderID];
+        $result = $this->Common_model->update('esic_slider',$where,$updateData);
+        if($result===true){
+            echo 'OK::Record successfully updated::success';
+            return true;
+        }
+        return false;
     }
 }
