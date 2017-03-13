@@ -408,6 +408,10 @@ input.gsc-input {
         max-width: 95%;
         margin-left: 12px;
     }
+    .investor_row div {
+        margin: 0px!important;
+        padding: 0px!important;
+    }
     .logotext{
         /* max-width: 80%; */
     }
