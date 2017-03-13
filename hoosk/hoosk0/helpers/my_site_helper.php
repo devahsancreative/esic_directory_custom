@@ -704,6 +704,12 @@ if(!function_exists("render_slider")){
                     ];
                     break;
                 case 'esic_innovators':
+                    $selectJoinData = [
+                        '
+                            image as Image
+                        ',
+                        false
+                    ];
                     break;
                 Default:
                     $selectJoinData = '*';

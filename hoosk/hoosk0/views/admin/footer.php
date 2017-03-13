@@ -34,38 +34,6 @@
     </div> <!-- /.modal -->
 
 </div>
-<!--
-/*
-
-	$('#remote-modals').on("hidden.bs.modal", ".modal:not(.local-modal)", function (e) {
-
-		$(e.target).removeData("bs.modal").find(".modal-content").empty();
-
-	});
-
-	/*
-	$(".URLField").blur(function() {
-
-		var identbefore=$(".URLField").val();
-
-		var ident=identbefore.toLowerCase();
-
-		ident=ident.replace(/ /g,'-');
-
-		ident=ident.replace(/_/g,'-');
-
-		ident=ident.replace(/[^\w-]+/g,'');
-
-		$(".URLField").val(ident);
-
-		if( identbefore.length > ident.length ) {
-			alert("URL amended\nPlease use only a-z,0-9 or dash");
-		}
-
-	});
-    */
-
--->
 <?php
 
     if($this->router->fetch_method() === 'assessments_list' || $this->router->fetch_method() === 'details'){
@@ -789,6 +757,13 @@
 
 <script src="<?= base_url()?>assets/vendors/datatables/dataTables.responsive.js"></script>
 
+
+<!-- noty plugin -->
+<script type="text/javascript" src="<?php echo ADMIN_THEME; ?>/js/noty/packaged/jquery.noty.packaged.js"></script>
+
+<!-- Custom Notifications From Haider Plugin -->
+<script type="text/javascript" src="<?php echo ADMIN_THEME; ?>/js/Haider.js"></script>
+
 <!-- SlimScroll -->
 
 <script src="<?= base_url()?>assets/vendors/slimScroll/jquery.slimscroll.min.js"></script>
@@ -901,6 +876,7 @@
 
 <?php } ?>
 <script type="text/javascript">
+//    Haider.notification('SUccessfuly Added','success','Heading Here');
     $('#remote-modals').on("hidden.bs.modal", ".modal:not(.local-modal)", function (e) {
         $(e.target).removeData("bs.modal").find(".modal-content").empty();
     });
