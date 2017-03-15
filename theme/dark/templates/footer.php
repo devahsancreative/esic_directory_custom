@@ -51,59 +51,62 @@
     </div>
 </div>
 
-<!--<div class="footer footer-wraper">
 
-    <div class=" container row">
-        <div class="col-md-4 col-xs-12 col-sm-12 footermenu">
-
-
-                <?php /*hooskNav('footer'); */?>
-                <p> <?php /*     $settings['siteFooter']; */?> </p>
-
-        </div>
-        <div class="col-md-4    footermenu">
-
-            <?php /*hooskNav('footer-cen'); */?>
-
-        </div>
-      <div class="col-md-4 col-xs-12 col-sm-12  social">
-
-            <?php /* getSocial(); */?>
-             <ul>
-                <li>Contact number: <?/*= $settings_footer[0]['contact']*/?></li>
-                <li>​Email:<?/*= $settings_footer[0]['siteEmail']*/?></li>
-                <li>​<div class="paragraph_footer"><p><?/*= $settings_footer[0]['footer_text']*/?></p></p></div></li>
-            </ul>
-
-        </div>
-    </div>
-
-    <?/*= $settings_footer[0]['footer_bottom_text']*/?>
-
-
-
-</div>-->
 <script src="<?php echo ADMIN_THEME; ?>/js/jquery-1.10.2.min.js"></script>
-<link href="<?=base_url();?>assets/css/filter.css" rel="stylesheet">
-<script src="<?=base_url();?>assets/js/filter.js"></script>
+
+<link rel="stylesheet" href="<?php echo ADMIN_THEME; ?>/js/owlcarousel2/css/owl.carousel.css" />
+<link rel="stylesheet" href="<?php echo ADMIN_THEME; ?>/js/owlcarousel2/css/owl.theme.default.min.css" />
+
+
+<script src="<?php echo ADMIN_THEME; ?>/js/owlcarousel2/js/owl.carousel.js"></script>
+<script src="<?php echo ADMIN_THEME; ?>/js/owlcarousel2/js/owl.owl.animate.js"></script>
+<script src="<?php echo ADMIN_THEME; ?>/js/owlcarousel2/js/owl.autoheight.js"></script>
+<script src="<?php echo ADMIN_THEME; ?>/js/owlcarousel2/js/owl.autoplay.js"></script>
+<script src="<?php echo ADMIN_THEME; ?>/js/owlcarousel2/js/owl.autorefresh.js"></script>
+
+<script src="<?php echo ADMIN_THEME; ?>/js/owlcarousel2/js/owl.hash.js"></script>
+<script src="<?php echo ADMIN_THEME; ?>/js/owlcarousel2/js/owl.navigation.js"></script>
+<script src="<?php echo ADMIN_THEME; ?>/js/owlcarousel2/js/owl.support.js"></script>
 
 
 
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <script>
-    jQuery(document).ready(function($){
-          /*  $('.multi-item-carousel .item').each(function(){
-                var next = $(this).next().next().next().next().next().next().next();
-                if (!next.length) { next = $(this).siblings(':first');}
-                next.children(':first-child').clone().appendTo($(this));
-                if (next.next().length>0) { next.next().children(':first-child').clone().appendTo($(this));
-                } else { $(this).siblings(':first').children(':first-child').clone().appendTo($(this));
-                }
-            });*/
-        });
 jQuery(document).ready(function () {
+
+    var owl = $('.owl-carousel');
+
+    owl.owlCarousel({
+        loop:true,
+        margin:10,
+        navContainer: true,
+        autoplay:true,
+        autoplayTimeout:1000,
+        autoplayHoverPause:true,
+        responsiveClass:true,
+        responsive:{
+            0:{
+                items:1,
+                nav:true
+            },
+            600:{
+                items:3,
+                nav:false
+            },
+            1000:{
+                items:5,
+                nav:true,
+                loop:false
+            }
+        }
+    });
+    $('.play').on('click', function() {
+        owl.trigger('play.owl.autoplay', [1000])
+    });
+    $('.stop').on('click', function() {
+        owl.trigger('stop.owl.autoplay')
+    });
 
         var trigger = jQuery('.hamburger'),
             overlay = jQuery('.overlay'),
@@ -142,24 +145,7 @@ jQuery(document).ready(function () {
 
     });
 
-    /*  jQuery(window).scroll(function (event) {
-     if($(window).scrollTop()>300){
-     $(".navbar-inverse").removeClass("navbar-inverse2");
-     $('.navbar-inverse').css('background-color','rgba(204, 204, 204, 0.96)');
-
-     } else {
-     $('.navbar-inverse').css('background-color','rgba(204, 204, 204, 0.67)');
-     $('.navbar-inverse').css('opacity',1);
-
-
-
-     }
-
-     });
-     });*/
-
     $(function(){
-        console.log('im running..');
         var data_array = JSON.parse(tosJSON);
 
         //For Header.
@@ -172,10 +158,7 @@ jQuery(document).ready(function () {
             var topNavigationBar = $('div.right_sidebar');
 //            var menu = topNavigationBar.find('a[href="'+menuRef+'"]');
             var url = "<?=BASE_URL?>/"+menuRef;
-            console.log('URL:'+url);
             var menu = topNavigationBar.find('a[href="'+url+'"]');
-            console.log(menu);
-            console.log(menuRef);
             //if Menu Matched and tos has been enabled then we can let the user show the tos.
             if(menu.length > 0 && parseInt(enabledTos)==1){
                 //This means have founded the menu..
@@ -210,7 +193,6 @@ jQuery(document).ready(function () {
         });
     });
 </script>
-
 
 </body>
 </html>

@@ -684,7 +684,7 @@ if(!function_exists("render_slider")){
                 return trim(strip_tags($v));
             }, $m);
             $neededSlider = $text[$stripped[1]];
-
+            $ImagePath = '';
             //now need to get the slider join.
             switch($neededSlider['joinTable']){
                 case 'user':
@@ -694,6 +694,7 @@ if(!function_exists("render_slider")){
                         ',
                         false
                     ];
+                    $ImagePath = false;
                     break;
                 case 'esic_investor':
                     $selectJoinData = [
@@ -702,6 +703,7 @@ if(!function_exists("render_slider")){
                         ',
                         false
                     ];
+                    $ImagePath = 'uploads/investor/';
                     break;
                 case 'esic_innovators':
                     break;
@@ -711,8 +713,7 @@ if(!function_exists("render_slider")){
             }
 
             $sliderData = $ci->Common_model->select_fields($neededSlider['joinTable'],$selectJoinData,false,'','',true);
-
-            $renderedHTML = $neededSlider['htmlCode']($sliderData);
+            $renderedHTML = $neededSlider['htmlCode']($sliderData, $ImagePath);
             return $renderedHTML;
 //            return $text[$m[1]];
         }, $pageData['pageContentHTML']);
