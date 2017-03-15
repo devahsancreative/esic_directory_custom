@@ -51,6 +51,8 @@ class common_model extends CI_Model
                 $this->db->order_by($order_by);
             }
         }
+
+
         $query = $this->db->get($tbl);
         //return $this->db->last_query();
         if ($query) {

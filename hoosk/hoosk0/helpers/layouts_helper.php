@@ -77,8 +77,8 @@ if(!function_exists('sliderWithOutSearch')){
 
         // Load URL helper for the site_url and base_url functions
         $CI->load->helper('url');
-
-$html = '<div class="filter form" style="max-width:400px">';
+$html  =  '<div class="main_container">';
+$html .= '<div class="filter form">';
 $html .= '<div class="filter3" id="filter">';
     $html .= '<div class="search searchbox">';
         $html .= '<span class="icon" id="filter_search">';
@@ -111,7 +111,7 @@ $i=1 ;
                         $withoutExt = preg_replace('/\\.[^.\\s]{3,4}$/', '', $filename);
                         $img = $withoutExt.'_thumbnail_258.'.$ext;
                     }*/
-                    $html .= '<div class="'.$item_class.' col-md-4 col-sm-4 col-xs-4 esic-list-logo">';
+                    $html .= '<div class="'.$item_class.' col-md-4 col-sm-4 col-xs-4 esic-list-logo  " >';
                         $html .= '<div class="">';
                             $html .= '<a href="#">';
                                 $html .= '<span>';
@@ -127,6 +127,7 @@ $i=1 ;
 
         $html .= '<a class="left carousel-control" href="#theCarousel" data-slide="prev">‹</a>';
         $html .= '<a class="right carousel-control" href="#theCarousel" data-slide="next">›</a>';
+        $html .= '</div>';
         $html .= '</div>';
         $html .= '</div>';
         $html .= '</div>';
