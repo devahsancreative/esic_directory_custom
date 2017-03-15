@@ -657,7 +657,8 @@ if(!function_exists("render_slider")){
             '
                 es.renderCode as shortCode,
                 es.table as joinTable,
-                esl.htmlCode as htmlCode                
+                esl.htmlCode as htmlCode,
+                est.items as Items             
             ',
             false
         ];
@@ -666,6 +667,11 @@ if(!function_exists("render_slider")){
                 'table' => 'esic_slider_layouts esl',
                 'condition' => 'esl.id = es.layout_id',
                 'type' => 'INNER'
+            ),
+            array(
+                'table' => 'esic_slider_types est',
+                'condition' => 'est.id = es.type_id',
+                'type' => 'LEFT'
             )
         );
         $sliderLayouts = $ci->Common_model->select_fields_where_like_join('esic_slider es', $selectData, $joins,'',false,'','','','','',true);
@@ -719,7 +725,9 @@ if(!function_exists("render_slider")){
             }
 
             $sliderData = $ci->Common_model->select_fields($neededSlider['joinTable'],$selectJoinData,false,'','',true);
-            $renderedHTML = $neededSlider['htmlCode']($sliderData, $ImagePath);
+
+            $items = $neededSlider['Items'];
+            $renderedHTML = $neededSlider['htmlCode']($sliderData, $ImagePath,$items);
             return $renderedHTML;
 //            return $text[$m[1]];
         }, $pageData['pageContentHTML']);

@@ -30,6 +30,7 @@
                     <th>Slider</th>
                     <th>Short Code</th>
                     <th>Layout</th>
+                    <th>Type</th>
                     <th>Date Created</th>
                     <th>Date Updated</th>
                     <th class="td-actions"> </th>
@@ -52,6 +53,18 @@
                                 ?>
                             </select>
                         </td>
+                         <td>
+                            <select name="typeSelector" class="typeSelector">
+                                <option value="0">Select Type</option>
+                                <?php
+                                    if(isset($types) and is_array($types)){
+                                        foreach ($types as $type){
+                                            echo '<option value="'.$type->id.'"'.(($slider['type_id'] === $type->id)?"selected='selected'":'').'>' . $type->name . '</option>';
+                                        }
+                                    }
+                                ?>
+                            </select>
+                        </td>
                         <td><?php echo $slider['date_created']?></td>
                         <td><?php echo $slider['date_updated']?></td>
                     </tr>
@@ -66,6 +79,21 @@
 
 <script type="text/javascript">
     $(function () {
+        $('.typeSelector').on('change',function(){
+            var selectedType = $(this).val();
+            var selectedSlider = $(this).closest('tr').attr('data-id');
+            if(selectedType > 0){
+                //Run the ajax to updated the updated value.
+                $.ajax({
+                    url: "<?=base_url()?>admin/slider/updateSliderType",
+                    data:{type:selectedType,slider:selectedSlider},
+                    type:"POST",
+                    success:function(output){
+                        //console.log(output);
+                    }
+                });
+            }
+        });
         $('.layoutSelector').on('change',function(){
             var selectedLayout = $(this).val();
             var selectedSlider = $(this).closest('tr').attr('data-id');
@@ -76,7 +104,7 @@
                     data:{layout:selectedLayout,slider:selectedSlider},
                     type:"POST",
                     success:function(output){
-                        console.log(output);
+                        //console.log(output);
                     }
                 });
             }

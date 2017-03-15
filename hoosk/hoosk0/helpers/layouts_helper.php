@@ -1,7 +1,7 @@
 <?php
 
-if(!function_exists('sliderWithSearch')){
-    function sliderWithSearch($data){
+if(!function_exists('sliderWithSearchOld')){
+    function sliderWithSearchOld($data, $ImagePath = null, $Items = null){
 /*        echo '<pre>';
         var_dump($data);
         echo '</pre>';*/
@@ -58,7 +58,8 @@ if(!function_exists('sliderWithSearch')){
                     </div>
                     <!--/item-->
                 </div>
-                <!--/carousel-inner--> <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+                <!--/carousel-inner-->
+                 <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
 
                 <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
             </div>
@@ -71,8 +72,10 @@ if(!function_exists('sliderWithSearch')){
 
     }
 }
-if(!function_exists('sliderWithOutSearch')){
-    function sliderWithOutSearch($data,$ImagePath){
+if(!function_exists('sliderWithOutSearchOld')){
+    function sliderWithOutSearchOld($data, $ImagePath = null, $Items = null){
+
+
 
 $html = '<div class="filter form" style="max-width:400px">';
 $html .= '<div class="filter3" id="filter">';
@@ -131,24 +134,28 @@ $i=1 ;
         $html .= '</div>';
         $html .= '</div>';
         $html .= '</div>';
-        $html .= '</div>';
-
+        $html .= '</div>'; 
         return $html;
     }
 }
+if(!function_exists('sliderWithSearch')){
+    function sliderWithSearch($data, $ImagePath = null, $Items = null){
 
-if(!function_exists('sliderOwl')){
-    function sliderOwl($data,$ImagePath){
+$dynamicID  = rand(2000,8000);
+$dynamicID  = $dynamicID.'_owl-carousel';
 
-        $html = '<div class="filter form" style="max-width:400px">';
-        $html .= '<div class="filter3" id="filter">';
-        $html .= '<div class="search searchbox">';
-        $html .= '<span class="icon" id="filter_search">';
-        $html .= '<i class="fa fa-search"></i>';
-        $html .= '</span>';
-        $html .= '<input type="text" autocomplete="off" class="locationSuggest ac_input" id="location_search" name="location_value" placeholder="Search Now">';
-        $html .= '</div>';
-        $html .= '<div class="owl-carousel">';
+    $html = '<div class="slider-container" data-type="'.$Items[0].'">';
+        $html .= '<div class="slider-inner">';
+            $html .= '<div class="slider-search-box">';
+                $html .= '<form action="" method="post">';
+                    $html .= '<!--span class="icon" id="slider-search-icon">';
+                        $html .= '<i class="fa fa-search"></i>';
+                    $html .= '</span-->';
+                    $html .= '<input type="text" class=""  id="keyword" name="keyword" placeholder="Search Now">';
+                    $html .= '<input type="submit" id="slider-search-submit-icon" value="&#xf002;" class="form-control submit-icon">';
+                $html .= '</form>';
+            $html .= '</div>';
+        $html .= '<div id="'.$dynamicID.'" class="owl-carousel">';
 
         $i=1;
         foreach ($data as $images) {
@@ -179,24 +186,195 @@ if(!function_exists('sliderOwl')){
                         $img = $withoutExt.'_thumbnail_258.'.$ext;
                     }*/
                     $html .= '<div class="'.$item_class.' item">';
-                    $html .= '<a href="#">';
-                    $html .= '<span>';
-                    $html .= '<img class="img-responsive" src="'.$img.'">';
-                    $html .= '</span>';
-                    $html .= '</a>';
+                        $html .= '<a href="#" class="owl-item-a">';
+                            $html .= '<span class="owl-item-span">';
+                                $html .= '<img class="owl-item-img img-responsive" src="'.$img.'">';
+                            $html .= '</span>';
+                        $html .= '</a>';
                     $html .= '</div>';
                     $i++;
                 }
             }
         }
-        $html .= '<div class="owl-control">';
-        $html .= '<a class="button secondary play">Play</a>';
-        $html .= '<a class="button secondary stop">Stop</a>';
+        
         $html .= '</div>';
+        $html .= '</div>';
+    $html .= '</div>';
 
+
+$rightClass = "fa fa-arrow-right";
+$leftClass  = "fa fa-arrow-left";
+
+$html .= '<script>
+jQuery(document).ready(function () {
+
+    var owl = $("#'.$dynamicID.'");
+
+    owl.owlCarousel({
+        loop:true,
+        rewind: true,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        margin:10,
+        nav: true,
+        navText: ["<i class=\''.$rightClass.'\'></i>","<i class=\''.$leftClass.'\'></i>"],';
+        $html .= 'responsiveClass:true,';
+        if($Items == 0){
+        $html .= 'responsive:{
+            0:{
+                items:1,
+                nav:false
+            },
+            600:{
+                items:3
+            },
+            1000:{
+                items:5
+            }';
+        }
+        if($Items == 1){
+        $html .= 'responsive:{
+            0:{
+                items:1,
+                nav:false
+            },
+            600:{
+                items:1
+            },
+            1000:{
+                items:1
+            }';
+        }
+    $html .= '}';
+$html .= '});
+
+    $("#'.$dynamicID.' .play'.'").on("click", function() {
+        owl.trigger("play.owl.autoplay", [1000])
+    });
+    $("#'.$dynamicID.' .stop'.'").on("click", function() {
+        owl.trigger("stop.owl.autoplay")
+    });
+});
+</script>
+';
+
+
+        return $html;
+    }
+}
+
+
+
+if(!function_exists('sliderWithOutSearch')){
+    function sliderWithOutSearch($data, $ImagePath = null, $Items = null){
+
+$dynamicID  = rand(2000,8000);
+$dynamicID  = $dynamicID.'_owl-carousel';
+
+    $html = '<div class="slider-container">';
+        $html .= '<div class="slider-inner">';
+        $html .= '<div id="'.$dynamicID.'" class="owl-carousel">';
+
+        $i=1;
+        foreach ($data as $images) {
+
+            if(!empty($images[Image])){
+
+                if($ImagePath) {
+                    $images[Image] = $ImagePath . $images[Image];
+                }
+                if($i == 1){
+                    $item_class = 'item active';
+                }else{
+                    $item_class = 'item';
+                }
+                if( is_file(FCPATH.'/'.$images[Image])){
+                    $filename = $images[Image];
+                    $img = base_url().$filename;
+                    //For Showing Small Images
+                    /*$ext = Get_file_extensions($filename);
+                    $withoutExt = preg_replace('/\\.[^.\\s]{3,4}$/', '', $filename);
+                    $img2 = $withoutExt.'_icon_258.'.$ext;
+                    if(is_file(FCPATH.'/'.$img2)){
+                        $img = base_url().$img2;
+                    }else{
+                        $filename = base_url().$images[Image];
+                        $ext = Get_file_extensions($filename);
+                        $withoutExt = preg_replace('/\\.[^.\\s]{3,4}$/', '', $filename);
+                        $img = $withoutExt.'_thumbnail_258.'.$ext;
+                    }*/
+                    $html .= '<div class="'.$item_class.' item">';
+                        $html .= '<a href="#" class="owl-item-a">';
+                            $html .= '<span class="owl-item-span">';
+                                $html .= '<img class="owl-item-img img-responsive" src="'.$img.'">';
+                            $html .= '</span>';
+                        $html .= '</a>';
+                    $html .= '</div>';
+                    $i++;
+                }
+            }
+        }
+        
         $html .= '</div>';
         $html .= '</div>';
-        $html .= '</div>';
+    $html .= '</div>';
+
+
+$rightClass = "fa fa-arrow-right";
+$leftClass  = "fa fa-arrow-left";
+
+$html .= '<script>
+jQuery(document).ready(function () {
+
+    var owl = $("#'.$dynamicID.'");
+
+    owl.owlCarousel({
+        loop:true,
+        rewind: true,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        margin:10,
+        nav: true,
+        navText: ["<i class=\''.$rightClass.'\'></i>","<i class=\''.$leftClass.'\'></i>"],
+        responsiveClass:true,';
+       if($Items == 0){
+        $html .= 'responsive:{
+            0:{
+                items:1,
+                nav:false
+            },
+            600:{
+                items:3
+            },
+            1000:{
+                items:5
+            }';
+        }
+        if($Items == 1){
+        $html .= 'responsive:{
+            0:{
+                items:1,
+                nav:false
+            },
+            600:{
+                items:1
+            },
+            1000:{
+                items:1
+            }';
+        }
+    $html .= '}';
+$html .= '});
+    $("#'.$dynamicID.' .play'.'").on("click", function() {
+        owl.trigger("play.owl.autoplay", [1000])
+    });
+    $("#'.$dynamicID.' .stop'.'").on("click", function() {
+        owl.trigger("stop.owl.autoplay")
+    });
+});
+</script>
+';
+
 
         return $html;
     }

@@ -52,18 +52,19 @@
 </div>
 
 
-<script src="<?php echo ADMIN_THEME; ?>/js/jquery-1.10.2.min.js"></script>
+
+
+
 
 <link rel="stylesheet" href="<?php echo ADMIN_THEME; ?>/js/owlcarousel2/css/owl.carousel.css" />
 <link rel="stylesheet" href="<?php echo ADMIN_THEME; ?>/js/owlcarousel2/css/owl.theme.default.min.css" />
 
 
 <script src="<?php echo ADMIN_THEME; ?>/js/owlcarousel2/js/owl.carousel.js"></script>
-<script src="<?php echo ADMIN_THEME; ?>/js/owlcarousel2/js/owl.owl.animate.js"></script>
+<script src="<?php echo ADMIN_THEME; ?>/js/owlcarousel2/js/owl.animate.js"></script>
 <script src="<?php echo ADMIN_THEME; ?>/js/owlcarousel2/js/owl.autoheight.js"></script>
 <script src="<?php echo ADMIN_THEME; ?>/js/owlcarousel2/js/owl.autoplay.js"></script>
 <script src="<?php echo ADMIN_THEME; ?>/js/owlcarousel2/js/owl.autorefresh.js"></script>
-
 <script src="<?php echo ADMIN_THEME; ?>/js/owlcarousel2/js/owl.hash.js"></script>
 <script src="<?php echo ADMIN_THEME; ?>/js/owlcarousel2/js/owl.navigation.js"></script>
 <script src="<?php echo ADMIN_THEME; ?>/js/owlcarousel2/js/owl.support.js"></script>
@@ -75,15 +76,17 @@
 <script>
 jQuery(document).ready(function () {
 
-    var owl = $('.owl-carousel');
+   /* var owl = $('.owl-carousel');
 
     owl.owlCarousel({
         loop:true,
         margin:10,
-        navContainer: true,
-        autoplay:true,
-        autoplayTimeout:1000,
-        autoplayHoverPause:true,
+         nav: true,
+         navText: ["<i class='fa fa-arrow-right'></i>","<i class='fa fa-arrow-left'></i>"],
+       // navContainer: true,
+       // autoplay:true,
+       // autoplayTimeout:1000,
+       // autoplayHoverPause:true,
         responsiveClass:true,
         responsive:{
             0:{
@@ -106,7 +109,7 @@ jQuery(document).ready(function () {
     });
     $('.stop').on('click', function() {
         owl.trigger('stop.owl.autoplay')
-    });
+    });*/
 
         var trigger = jQuery('.hamburger'),
             overlay = jQuery('.overlay'),

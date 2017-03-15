@@ -37,6 +37,7 @@ class Slider extends MY_Controller
         $this->data['sliders'] = $this->Hoosk_model->getAllSliders($result_per_page, $this->uri->segment(3));
 
         $this->data['layouts'] = $this->Common_model->select('esic_slider_layouts');
+        $this->data['types'] = $this->Common_model->select('esic_slider_types');
 
         //Loading the View and passing data to the view.
         $this->data['header'] = $this->load->view('admin/header', $this->data, true);
@@ -61,14 +62,44 @@ class Slider extends MY_Controller
             echo "FAIL::Wrong Values Posted::error";
             return null;
         }
-
+        $now = date("Y-m-d H:i:s");
         $updateData = [
             'layout_id' => $layoutID,
-            'date_updated' => 'NOW()'
+            'date_updated' => $now
         ];
 
         $where = ['id' => $sliderID];
         $result = $this->Common_model->update('esic_slider',$where,$updateData);
+        if($result===true){
+            echo 'OK::Record successfully updated::success';
+            return true;
+        }
+        return false;
+    }
+
+    public function updateSliderType(){
+        $sliderID = $this->input->post('slider');
+        $typeID = $this->input->post('type');
+
+        if(empty($sliderID) || empty($typeID)){
+            echo "FAIL::Incomplete Post Values::error";
+            return null;
+        }
+
+        if(!is_numeric($sliderID) || !is_numeric($typeID)){
+            echo "FAIL::Wrong Values Posted::error";
+            return null;
+        }
+        $now = date("Y-m-d H:i:s");
+        $updateData = [
+            'type_id' => $typeID,
+            'date_updated' => $now
+        ];
+
+        $where = ['id' => $sliderID];
+        $result = $this->Common_model->update('esic_slider',$where,$updateData);
+        //echo 'type_id '.$typeID;
+        //echo $this->db->last_query();
         if($result===true){
             echo 'OK::Record successfully updated::success';
             return true;
