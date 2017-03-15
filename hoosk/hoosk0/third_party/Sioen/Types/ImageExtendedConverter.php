@@ -23,9 +23,9 @@ class ImageExtendedConverter implements ConverterInterface
     public function toHtml(array $data)
     {
 		if (($data['source'] == "") || ($data['source'] == "http://")){
-        return '<img class="img-responsive" src="' . $data['file']['url'] . '" alt="' . $data['caption'] . '" />' . "\n";
+        return '<div class="custom_image"><img class="img-responsive" src="' . $data['file']['url'] . '" alt="' . $data['caption'] . '" /></div>' . "\n";
 		} else {
-        return '<a href="' . $data['source'] . '" target="_blank"><img class="img-responsive" src="' . $data['file']['url'] . '" alt="' . $data['caption'] . '" /></a>' . "\n";
+        return '<div class="custom_image_a"><a href="' . $data['source'] . '" target="_blank"><img class="img-responsive" src="' . $data['file']['url'] . '" alt="' . $data['caption'] . '" /></a></div>' . "\n";
 		}
     }
 }

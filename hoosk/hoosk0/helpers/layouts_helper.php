@@ -1,7 +1,7 @@
 <?php
 
 if(!function_exists('sliderWithSearch')){
-    function sliderWithSearch($data,$ImagePath){
+    function sliderWithSearch($data){
 /*        echo '<pre>';
         var_dump($data);
         echo '</pre>';*/
@@ -85,7 +85,7 @@ $html .= '<div class="filter3" id="filter">';
     $html .= '<div class="carousel multi-item-carousel slide" id="theCarousel" data-interval="3000" data-ride="carousel" data-type="multi">';
             $html .= '<div class="carousel-inner">';
 
-$i=1;
+$i=1 ;
         foreach ($data as $images) {
 
             if(!empty($images[Image])){
@@ -101,7 +101,6 @@ $i=1;
                 if( is_file(FCPATH.'/'.$images[Image])){
                     $filename = $images[Image];
                     $img = base_url().$filename;
-                    //For Showing Small Images
                     /*$ext = Get_file_extensions($filename);
                     $withoutExt = preg_replace('/\\.[^.\\s]{3,4}$/', '', $filename);
                     $img2 = $withoutExt.'_icon_258.'.$ext;

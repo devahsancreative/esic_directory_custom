@@ -93,7 +93,7 @@ class Investor extends MY_Controller {
         );
 
         $data['list'] = $this->Common_model->select_fields_where_like_join('hoosk_user',$selectData,$joins,$where);
-        $data['Query'] = $this->db->last_query();
+        //$data['Query'] = $this->db->last_query();
         $data['filterStartDate']    =  $filterStartDate;
         $data['filterEndDate']      =  $filterEndDate;
         $data['keyword']            =  $keyword;

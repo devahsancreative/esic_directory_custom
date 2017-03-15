@@ -706,6 +706,12 @@ if(!function_exists("render_slider")){
                     $ImagePath = 'uploads/investor/';
                     break;
                 case 'esic_innovators':
+                    $selectJoinData = [
+                        '
+                            image as Image
+                        ',
+                        false
+                    ];
                     break;
                 Default:
                     $selectJoinData = '*';

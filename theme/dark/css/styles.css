@@ -7,13 +7,30 @@ body {
 
 /*slider style*/
 .carousel-control {
-    padding-top:12%;
-    width: 5%;
+    padding-top:8%;
+    width: 0%;
     background: none !important;
     font-size: 40px;
 }
 .well{
     background: none !important;
+}
+.main_container {
+    text-align: center;
+    width: 100%;
+    border: 2px solid #eee;
+    border-radius: 4px;
+}
+.main_container .search .fa-search {
+    position: absolute;
+    top: 8px;
+    right: 20px;
+    font-size: 15px;
+    cursor: pointer;
+}
+.main_container  .filter.form {
+    width: 100%;
+    margin: auto 5px;
 }
 /*slider style end */
 iframe {
@@ -407,6 +424,10 @@ input.gsc-input {
     .custom-row {
         max-width: 95%;
         margin-left: 12px;
+    }
+    .investor_row div {
+        margin: 0px!important;
+        padding: 0px!important;
     }
     .logotext{
         /* max-width: 80%; */
@@ -1018,7 +1039,7 @@ li.dropdown:hover .dropdown-menu /* Drop Down Menu */
 }
 
 .container.home {   /*for default header top margin  home template */
-    margin-top: 40px;
+    margin-top: 70px;
 }
 
 .responsive_logo_hide{
