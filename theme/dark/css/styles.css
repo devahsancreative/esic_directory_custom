@@ -762,10 +762,15 @@ td, th {
     color: black !important;
 
 }
-.nav>li>a:hover, .nav>li>a:focus {
+body .navbar-inverse .navbar-nav>.active>a{
+ background-color: transparent;
+} 
+body .nav>li>a{
+    background-color: transparent;
+}
+body .nav>li>a:hover,body .nav>li>a:focus {
     color: black !important;
     background-color: #F7F4D9 !important;
-
 }
 .navbar-nav > li > a {
     text-transform:uppercase;

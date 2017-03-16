@@ -700,6 +700,7 @@ if(!function_exists("render_slider")){
                         ',
                         false
                     ];
+                    $action = 'results_innovators';
                     $ImagePath = false;
                     break;
                 case 'esic_investor':
@@ -709,15 +710,8 @@ if(!function_exists("render_slider")){
                         ',
                         false
                     ];
+                    $action = 'results_investors';
                     $ImagePath = 'uploads/investor/';
-                    break;
-                case 'esic_innovators':
-                    $selectJoinData = [
-                        '
-                            image as Image
-                        ',
-                        false
-                    ];
                     break;
                 Default:
                     $selectJoinData = '*';
@@ -727,7 +721,7 @@ if(!function_exists("render_slider")){
             $sliderData = $ci->Common_model->select_fields($neededSlider['joinTable'],$selectJoinData,false,'','',true);
 
             $items = $neededSlider['Items'];
-            $renderedHTML = $neededSlider['htmlCode']($sliderData, $ImagePath,$items);
+            $renderedHTML = $neededSlider['htmlCode']($sliderData, $ImagePath, $items, $action);
             return $renderedHTML;
 //            return $text[$m[1]];
         }, $pageData['pageContentHTML']);

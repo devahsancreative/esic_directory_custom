@@ -733,13 +733,13 @@
 
 ?>
 
-<!-- Comment  by hamid Raza because it conflict with navigation draga and drop--->
+<!-- Comment  by hamid Raza because it conflict with navigation draga and drop-->
 
  <?php  $classname = $this->router->fetch_class();
  //echo  $classname;
  if($classname != "Navigation"){
  ?>
-  <script src="<?php echo ADMIN_THEME; ?>/js/jquery-1.10.2.min.js"></script>
+  <!--script src="<?php// echo ADMIN_THEME; ?>/js/jquery-1.10.2.min.js"></script-->
 <?php } ?>
 <!-- jQuery 2.2.3 -->
 

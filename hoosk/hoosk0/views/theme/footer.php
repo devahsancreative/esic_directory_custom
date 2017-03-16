@@ -32,7 +32,7 @@
 </div>
 
 
-<script src="<?php echo ADMIN_THEME; ?>/js/jquery-1.10.2.min.js"></script>
+<!--script src="<?php// echo ADMIN_THEME; ?>/js/jquery-1.10.2.min.js"></script-->
 <script>
     jQuery(document).ready(function () {
 
@@ -70,7 +70,7 @@
         });*/
     });
      //for slider
-    jQuery(document).ready(function() {
+    /*jQuery(document).ready(function() {
         jQuery('#myCarousel').carousel({
             interval: 10000
         })
@@ -78,7 +78,7 @@
         jQuery('#myCarousel').on('slid.bs.carousel', function() {
             //alert("slid");
         });
-    });
+    });*/
 </script>
 </body>
 </html>

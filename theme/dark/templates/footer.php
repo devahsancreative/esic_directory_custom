@@ -76,41 +76,6 @@
 <script>
 jQuery(document).ready(function () {
 
-   /* var owl = $('.owl-carousel');
-
-    owl.owlCarousel({
-        loop:true,
-        margin:10,
-         nav: true,
-         navText: ["<i class='fa fa-arrow-right'></i>","<i class='fa fa-arrow-left'></i>"],
-       // navContainer: true,
-       // autoplay:true,
-       // autoplayTimeout:1000,
-       // autoplayHoverPause:true,
-        responsiveClass:true,
-        responsive:{
-            0:{
-                items:1,
-                nav:true
-            },
-            600:{
-                items:3,
-                nav:false
-            },
-            1000:{
-                items:5,
-                nav:true,
-                loop:false
-            }
-        }
-    });
-    $('.play').on('click', function() {
-        owl.trigger('play.owl.autoplay', [1000])
-    });
-    $('.stop').on('click', function() {
-        owl.trigger('stop.owl.autoplay')
-    });*/
-
         var trigger = jQuery('.hamburger'),
             overlay = jQuery('.overlay'),
             isClosed = false;
@@ -149,7 +114,11 @@ jQuery(document).ready(function () {
     });
 
     $(function(){
-        var data_array = JSON.parse(tosJSON);
+         if(typeof(tosJSON) != "undefined" && tosJSON !== null) {
+                    var data_array = JSON.parse(tosJSON);
+                }else{
+                    var data_array = '';
+                }
 
         //For Header.
         $.each(data_array, function(key, value){
@@ -189,10 +158,6 @@ jQuery(document).ready(function () {
 
                 });
             }
-
-
-
-
         });
     });
 </script>
