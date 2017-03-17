@@ -1,5 +1,24 @@
 <?php echo $header; ?>
+<style type="text/css">
 
+    .sliderTypes{}
+    .sliderTypes .form-group{
+        margin-bottom: 5px;
+    }
+    .sliderTypes .form-group label{
+        width: 25%;
+        min-width: 63px;
+        margin-bottom: 0px;
+    }
+    .sliderTypes .form-group input{
+        display: inline-block;
+        width: 50px;
+        /* float: right; */
+        margin: 0px;
+        padding: 2px 5px;
+        height: 25px;
+    }
+</style>
 
 <div class="container-fluid">
     <div class="row">
@@ -23,70 +42,53 @@
 
 <div class="container-fluid">
     <div class="row">
+        <div class="col-md-2">
+            <div class="form-group">
+                <a href="<?=base_url()?>admin/slider/new" class="form-control btn btn-primary">Add New Slider</a>
+            </div>
+        </div>
         <div class="col-md-12">
             <table id="slidersList" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                    <th>Slider</th>
-                    <th>Short Code</th>
-                    <th>Layout</th>
-                    <th>Type</th>
-                    <th>Date Created</th>
-                    <th>Date Updated</th>
-                    <th class="td-actions"> </th>
+                    <th>Slider Layouts ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
                 </tr>
                 </thead>
                 <tbody>
-                <?php foreach ($sliders as $slider):?>
-                    <tr data-id="<?=$slider['id']?>">
-                        <td><?php echo $slider['name']?></td>
-                        <td><?php echo $slider['shortCode']?></td>
-                        <td>
-                            <select name="layoutSelector" class="layoutSelector">
-                                <option value="0">Select Layout</option>
-                                <?php
-                                    if(isset($layouts) and is_array($layouts)){
-                                        foreach ($layouts as $layout){
-                                            echo '<option value="'.$layout->id.'"'.(($slider['layout_id'] === $layout->id)?"selected='selected'":'').'>' . $layout->name . '</option>';
-                                        }
-                                    }
-                                ?>
-                            </select>
-                        </td>
-                         <td>
-                            <select name="typeSelector" class="typeSelector">
-                                <option value="0">Select Type</option>
-                                <?php
-                                    if(isset($types) and is_array($types)){
-                                        foreach ($types as $type){
-                                            echo '<option value="'.$type->id.'"'.(($slider['type_id'] === $type->id)?"selected='selected'":'').'>' . $type->name . '</option>';
-                                        }
-                                    }
-                                ?>
-                            </select>
-                        </td>
-                        <td><?php echo $slider['date_created']?></td>
-                        <td><?php echo $slider['date_updated']?></td>
-                    </tr>
-                <?php endforeach; ?>
+                 <tr data-id="1">
+                    <td>1</td>
+                    <td>Slider With Search</td> 
+                    <td></td> 
+                 </tr>
+                  <tr data-id="1">
+                    <td>2</td>
+                    <td>Slider Without Search</td> 
+                    <td></td> 
+                 </tr>
                 </tbody>
             </table>
             <?php echo $this->pagination->create_links(); ?>
-
         </div>
     </div>
 </div>
 
-<script type="text/javascript">
-    $(function () {
-        $('.typeSelector').on('change',function(){
-            var selectedType = $(this).val();
+<!--script type="text/javascript">
+   /* $(function () {
+        $('.sliderTypes input').on('focusout',function(){
+            var itemNumber  = $(this).val();
+            var name        = $(this).attr('name');
             var selectedSlider = $(this).closest('tr').attr('data-id');
-            if(selectedType > 0){
+            if(itemNumber > 0){
                 //Run the ajax to updated the updated value.
                 $.ajax({
                     url: "<?=base_url()?>admin/slider/updateSliderType",
-                    data:{type:selectedType,slider:selectedSlider},
+                    data:{
+                        itemNumber:itemNumber,
+                        name: name,
+                        slider:selectedSlider
+                    },
                     type:"POST",
                     success:function(output){
                         //console.log(output);
@@ -109,7 +111,7 @@
                 });
             }
         });
-    });
-</script>
+    });*/
+</script-->
 
 <?php echo $footer; ?>

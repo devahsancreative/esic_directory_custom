@@ -17,6 +17,7 @@ $lang['nav_navigation_new']	= "New Navigation Menu";
 $lang['nav_navigation_all']	= "All Menus";
 //Sliders
 $lang['nav_sliders']		= "Sliders";
+$lang['nav_sliders_layout']	= "Slider Layouts";
 $lang['nav_sliders_new']	= "New Slider";
 $lang['nav_sliders_all']	= "All Sliders";
 

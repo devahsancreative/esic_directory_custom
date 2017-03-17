@@ -1,5 +1,4 @@
 <ul class="sidebar-menu">
-<!------------------------------------User image and name include in  file user panel ----------------------->
    <?php      
            
 		  $class     = $this->router->fetch_class();
@@ -120,12 +119,35 @@
             <li class="<?php if ($current == "Navigation/newNav") { echo "active"; } ?>"><a href="<?=base_url('admin/navigation/new')?>"><i class="fa fa-circle-o"></i><?php echo $this->lang->line('nav_navigation_new'); ?></a></li>
         </ul>
     </li>
-     <li class="<?php if ($current == "Slider/index") { echo "active"; } ?>"><a href="<?=base_url('admin/slider')?>"><i class="fa fa-circle-o"></i><?php echo $this->lang->line('nav_sliders_all'); ?></a></li>
+    <li class="treeview <?php if($current == "Slider/index" || $current == "Slider/new") { echo "active"; } ?>">
+        <a href="#">
+            <i class="fa fa-list-alt"></i> <span>Sliders</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <ul  class="treeview-menu">
+            <li class="<?php if ($current == "Slider/index") { echo "active"; } ?>">
+                <a href="<?=base_url('admin/slider')?>">
+                    <i class="fa fa-circle-o"></i>
+                    <?php echo $this->lang->line('nav_sliders_layout'); ?>
+                </a>
+            </li>
+             <li class="<?php if ($current == "Slider/new") { echo "active"; } ?>">
+                <a href="<?=base_url('admin/slider/new')?>">
+                    <i class="fa fa-circle-o"></i>
+                    <?php echo $this->lang->line('nav_sliders_new'); ?>
+                </a>
+            </li>
+        </ul>
+    </li>
+     
+   
     <?php //Sliders ?>
    <!-- <li class="treeview <?php /*if($current == "Slider/index" || $current == "Slider/newSlider") { echo "active"; } */?>">
         <a href="#">
             <i class="fa fa-list-alt"></i> <span>Sliders</span>
-           <!-- <span class="pull-right-container">
+           <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
         </a>

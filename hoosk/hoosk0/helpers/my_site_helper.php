@@ -653,32 +653,19 @@ if(!function_exists("render_slider")){
         $ci =& get_instance();
         $ci->load->model('Common_model');
         $ci->load->helper('layouts');
-        $selectData = [
-            '
-                es.renderCode as shortCode,
-                es.table as joinTable,
-                esl.htmlCode as htmlCode,
-                est.items as Items             
-            ',
+        $selectData = ['
+                renderCode as shortCode,
+                table_name as joinTable
+                ',
             false
         ];
-        $joins = array(
-            array(
-                'table' => 'esic_slider_layouts esl',
-                'condition' => 'esl.id = es.layout_id',
-                'type' => 'INNER'
-            ),
-            array(
-                'table' => 'esic_slider_types est',
-                'condition' => 'est.id = es.type_id',
-                'type' => 'LEFT'
-            )
-        );
-        $sliderLayouts = $ci->Common_model->select_fields_where_like_join('esic_slider es', $selectData, $joins,'',false,'','','','','',true);
+        $sliderTables = $ci->Common_model->select_fields('esic_slider_table', $selectData, false, '' ,'',true);
         //we would get array of elements in $text array representing the short codes
+  
+       
         $text = [];
-        if(!empty($sliderLayouts)){
-            foreach($sliderLayouts as $key => $layout){
+        if(!empty($sliderTables)){
+            foreach($sliderTables as $key => $layout){
                 $text[$layout['shortCode']] = $layout;
             }
         }
@@ -687,10 +674,34 @@ if(!function_exists("render_slider")){
         $pageContent = preg_replace_callback('/{{([^}]+)}}/', function ($m) use ($text,$ci) {
             //Now what we need to do is get the layout first.
             $stripped = array_map(function($v){
+            
                 return trim(strip_tags($v));
             }, $m);
-            $neededSlider = $text[$stripped[1]];
+            $stripped[1] = str_replace('&nbsp;',' ', $stripped[1]);
+            $stripped = explode(' ', $stripped[1]);
+            $OptionArray = array();
+            foreach ($stripped as $key => $value) {
+                 
+                if(!empty($value)){
+                    if(strpos($value, '=')){
+                        $OptionSettingArray = explode('=', $value);
+                        $OptionArray[$OptionSettingArray[0]] = $OptionSettingArray[1];
+                    }else{
+                        $OptionArray['shortCode'] = $value;
+                    }
+                }
+
+            }
+
+            if(empty($OptionArray['layout'])){
+                $OptionArray['layout'] = 1;
+            }
+
+            $neededSlider = $text[$OptionArray['shortCode']];
+
             $ImagePath = '';
+
+            //exit;
             //now need to get the slider join.
             switch($neededSlider['joinTable']){
                 case 'user':
@@ -720,8 +731,30 @@ if(!function_exists("render_slider")){
 
             $sliderData = $ci->Common_model->select_fields($neededSlider['joinTable'],$selectJoinData,false,'','',true);
 
-            $items = $neededSlider['Items'];
-            $renderedHTML = $neededSlider['htmlCode']($sliderData, $ImagePath, $items, $action);
+            $items = array(
+                    'desktop'   => intval($OptionArray['Desktop']),
+                    'tablet'    => intval($OptionArray['Tablet']),
+                    'mobile'    => intval($OptionArray['Mobile'])
+                )
+
+            ;
+            //echo $OptionArray['layout'];
+             $selectData = ['
+                name as name,
+                htmlCode as functionName
+                ',
+                false
+            ];
+
+            $where = array('id' => intval($OptionArray['layout']));
+            $sliderFunction = $ci->Common_model->select_fields_where('esic_slider_layouts', $selectData, $where, true,'','','','','',true);
+
+            if(!empty($sliderFunction['functionName'])){
+
+                $renderedHTML = $sliderFunction['functionName']($sliderData, $ImagePath, $items, $action);
+            }else{
+                $renderedHTML = '';
+            }
             return $renderedHTML;
 //            return $text[$m[1]];
         }, $pageData['pageContentHTML']);
@@ -797,4 +830,96 @@ function get_user_image($userRole,$userID){
     }else{
         return $defaultUserImage;
     }
+}
+
+function strafter($string, $substring) {
+  $pos = strpos($string, $substring);
+  if ($pos === false)
+   return $string;
+  else  
+   return(substr($string, $pos+strlen($substring)));
+}
+
+function strbefore($string, $substring) {
+  $pos = strpos($string, $substring);
+  if ($pos === false)
+   return $string;
+  else  
+   return(substr($string, 0, $pos));
+} 
+
+function strafterwithtag($string, $substring) {
+  $pos = strpos($string, $substring);
+  if ($pos === false)
+   return $string;
+  else  
+   return(substr($string, $pos));
+}
+
+function strbeforewithtag($string, $substring) {
+  $pos = strpos($string, $substring);
+  if ($pos === false)
+   return $string;
+  else  
+   return(substr($string, 0, $pos+1));
+} 
+function strafterL($string, $substring) {
+  $pos = strpos($string, $substring);
+  if ($pos === false)
+   return $string;
+  else  
+   return(substr($string, $pos+strlen($substring)));
+}
+
+function strbeforeL($string, $substring) {
+  $pos = strpos($string, $substring);
+  if ($pos === false)
+   return $string;
+  else  
+   return(substr($string, 0, $pos));
+} 
+
+function strafterwithtagL($string, $substring) {
+  $pos = strpos($string, $substring);
+  if ($pos === false)
+   return $string;
+  else  
+   return(substr($string, $pos));
+}
+
+function strbeforewithtagL($string, $substring) {
+  $pos = strpos($string, $substring);
+  if ($pos === false)
+   return $string;
+  else  
+   return(substr($string, 0, $pos+7));
+} 
+
+function str_replace_first($from, $to, $subject)
+{
+    $from = '/'.preg_quote($from, '/').'/';
+
+    return preg_replace($from, $to, $subject, 1);
+}
+
+
+function str_replace_last( $search, $replace, $subject ) {
+    if ( !$search || !$replace || !$subject )
+        return false;
+    
+    $index = strrpos( $subject, $search );
+    if ( $index === false )
+        return $subject;
+    
+    // Grab everything before occurence
+    $pre = substr( $subject, 0, $index );
+    
+    // Grab everything after occurence
+    $post = substr( $subject, $index );
+    
+    // Do the string replacement
+    $post = str_replace( $search, $replace, $post );
+    
+    // Recombine and return result
+    return $pre . $post;
 }

@@ -31,7 +31,7 @@ class Pages extends MY_Controller {
 		$search = $this->input->post("page");
 
  		$this->load->library('pagination');
-        $result_per_page =10;  // the number of result per page
+        $result_per_page = 20;  // the number of result per page
         $config['base_url'] = BASE_URL. '/admin/pages/';
         $config['total_rows'] = $this->Hoosk_model->countPages();
         $config['per_page'] = $result_per_page;

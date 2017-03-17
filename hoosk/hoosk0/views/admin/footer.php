@@ -719,7 +719,7 @@
 
 <!-- jQuery 1.12.4 -->
 
-<!--script src="https://code.jquery.com/jquery-1.12.4.js"></script-->
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 
 <!-- jQuery 2.2.4 -->
 

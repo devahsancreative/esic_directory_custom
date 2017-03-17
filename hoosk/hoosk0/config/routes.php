@@ -677,6 +677,8 @@ $route['admin/navigation/getNavTos'] = "Navigation/getNavTos";
 
 //sliders
 $route['admin/slider'] = "Slider/index"; //list all the sliders
+$route['admin/slider/new'] = "Slider/addSlider"; //list all the sliders
+$route['admin/slider/newSlider'] = "Slider/newSlider"; //save new sliders
 $route['admin/slider/updateSliderLayout'] = "Slider/updateSliderLayout"; //updates the layout 
 $route['admin/slider/updateSliderType'] = "Slider/updateSliderType"; //updates the layout 
 

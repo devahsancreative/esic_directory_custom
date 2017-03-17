@@ -151,7 +151,43 @@ if(!function_exists('Owl_Responsive_Settings')) {
     {
       $html = 'responsiveClass:true,';
       $html .= 'responsive:{';
-           if($Items == 0){
+           if( !empty($Items)){
+                if( !empty($Items['mobile'])){
+                    $html .= '
+                            0:{
+                                items:'.$Items['mobile'].',
+                                nav:false
+                            },';
+                }else{
+                    $html .= '
+                             0:{
+                                items:1,
+                                nav:false
+                            },';
+                }
+                if( !empty($Items['tablet'])){
+                    $html .= '
+                            600:{
+                                items:'.$Items['tablet'].'
+                            },';
+                }else{
+                    $html .= '
+                             600:{
+                                items:3
+                            },';
+                }
+                if( !empty($Items['desktop'])){
+                    $html .= '
+                            1000:{
+                                items:'.$Items['desktop'].'
+                            },';
+                }else{
+                    $html .= '
+                             1000:{
+                                items:6
+                            },';
+                }
+            }else{
                 $html .= '
                     0:{
                         items:1,
@@ -161,20 +197,7 @@ if(!function_exists('Owl_Responsive_Settings')) {
                         items:3
                     },
                     1000:{
-                        items:5
-                    }';
-            }
-            if($Items == 1){
-                $html .= '
-                    0:{
-                        items:1,
-                        nav:false
-                    },
-                    600:{
-                        items:1
-                    },
-                    1000:{
-                        items:1
+                        items:6
                     }';
             }
         $html .= '}';

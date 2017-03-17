@@ -87,14 +87,14 @@ jQuery(document).ready(function () {
         function hamburger_cross() {
 
             if (isClosed == true) {
-                overlay.hide();
+               // overlay.hide();
                 trigger.removeClass('is-open');
                 trigger.addClass('is-closed');
                 isClosed = false;
             } else {
 
                 jQuery('img-responsive_logo').addClass('responsive_logo_hide');
-                overlay.show();
+                //overlay.show();
                 trigger.removeClass('is-closed');
                 trigger.addClass('is-open');
                 isClosed = true;
