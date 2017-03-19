@@ -457,7 +457,7 @@
 
         || $this->router->fetch_method() === 'manage_sectors' || $this->router->fetch_method() === 'manage_rd'
 
-        || $this->router->fetch_method() === 'manage_acc_commercials'){
+        || $this->router->fetch_method() === 'manage_acc_commercials' || $this->router->fetch_method() === 'manage_lawyers'){
 
 ?>
 
@@ -847,6 +847,14 @@
 
 
     <script src="<?= base_url()?>assets/js/admin-universities.js"></script>
+
+
+
+<?php } if ($this->router->fetch_method() === 'manage_lawyers') { ?>
+
+
+
+    <script src="<?= base_url()?>assets/js/admin-lawyers.js"></script>
 
 
 

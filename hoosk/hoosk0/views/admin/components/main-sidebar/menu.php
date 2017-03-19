@@ -61,7 +61,7 @@
     
     <li class="treeview <?php if($current=='Admin/manage_universities'|| $current=='Admin/manage_rd'
         || $current=='Admin/manage_acc_commercials' || $current=='Admin/manage_accelerators'|| $current=='Admin/manage_sectors'
-        || $current=='Admin/manage_status'|| $current=='Admin/manage_appstatus'
+        || $current=='Admin/manage_status'|| $current=='Admin/manage_appstatus'|| $current=='Admin/manage_lawyers'
     ){ echo 'active';}?>">
         <a href="#">
             <i class="fa fa-dashboard"></i> <span>Configuration</span>
@@ -74,7 +74,9 @@
             <li class="<?php if ($current == "Admin/manage_universities") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_universities')?>"><i class="fa fa-circle-o"></i> Universities</a></li>
             
             <li class="<?php if ($current == "Admin/manage_rd") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_rd')?>"><i class="fa fa-circle-o"></i> R&D</a></li>
-           
+
+            <li class="<?php if ($current == "Admin/manage_lawyers") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_lawyers')?>"><i class="fa fa-circle-o"></i> Lawyers</a></li>
+
             <li class="<?php if ($current == "Admin/manage_acc_commercials") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_acc_commercials')?>"><i class="fa fa-circle-o"></i> Acc Commercials</a></li>
            
             <li class="<?php if ($current == "Admin/manage_accelerators") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_accelerators')?>"><i class="fa fa-circle-o"></i> Accelerators</a></li>
