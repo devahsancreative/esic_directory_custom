@@ -1856,6 +1856,134 @@ public function manage_universities($param = NULL){
 		 $this->load->view('admin/page_not_found');
 		 }
     }
+
+    public function manage_lawyers($param=NULL){
+        Admincontrol_helper::is_logged_in($this->session->userdata('userID'));
+        $userRole = $this->session->userdata('userRole');
+        //We Don't want un authorized access
+        if($userRole != 1){
+            $this->load->view('admin/page_not_found');
+            return false;
+        }
+
+        //Now see if the param is of listing
+        if($param === 'listing'){
+            $selectData = array('
+            id AS ID,
+            name AS Lawyer,
+            phone AS Phone,
+            website AS Website,
+            email AS Email,
+            address AS Address,
+            logo AS Logo,
+            CASE WHEN trashed = 1 THEN CONCAT(\'<span class="label label-danger">YES</span>\') WHEN trashed = 0 THEN CONCAT(\'<span class="label label-success">NO</span>\') ELSE "" END AS Trashed
+            ',false);
+
+            $addColumns = array(
+                'ViewEditActionButtons' => array('<a href="#" data-target="#editSectorModal" data-toggle="modal"><span data-toggle="tooltip" title="Edit" data-placement="left" aria-hidden="true" class="fa fa-pencil text-blue"></span></a> &nbsp; <a href="#" data-target=".approval-modal" data-toggle="modal"><i data-toggle="tooltip" title="Trash" data-placement="right"  class="fa fa-trash-o text-red"></i></a>','UserID')
+            );
+            $returnedData = $this->Common_model->select_fields_joined_DT($selectData,'esic_lawyers','','','','','',$addColumns);
+            print_r($returnedData);
+            return NULL;
+        }
+        if($param === 'new'){
+            if(!$this->input->post()){
+                echo "FAIL::No Value Posted";
+                return false;
+            }
+
+            //Getting Values Now
+            //Required Ones
+            $lawyerName = $this->input->post('Lawyer');
+            //Currently Keeping them Optional
+            $lawyerPhone = $this->input->post('Phone');
+            $lawyerEmail = $this->input->post('Email');
+            $lawyerWebsite = $this->input->post('Website');
+
+            if(empty($lawyerName)){
+                echo "FAIL::Lawyer Name is Required.";
+                return NULL;
+            }elseif(!is_string($lawyerName)){
+                echo "FAIL::Lawyer Name must be a valid string.";
+                return NULL;
+            }
+
+            $insertData = array(
+                'name' => $lawyerName,
+                'phone' => $lawyerPhone,
+                'website' => $lawyerWebsite,
+                'email' => $lawyerEmail,
+                'trashed' => 0
+            );
+
+            $insertResult = $this->Common_model->insert_record('esic_lawyers',$insertData);
+            if($insertResult){
+                echo "OK::New Record Successfully Added::success";
+            }else{
+                echo "FAIL::New Record Could Not Be Added::error";
+            }
+            return NULL;
+        }
+        if($param === 'trash'){
+            if(!$this->input->post()){
+                echo "FAIL::No Value Posted::error";
+                return false;
+            }
+
+            $id = $this->input->post('id');
+            $value = $this->input->post('value');
+
+            if(empty($id) or !is_numeric($id)){
+                echo "FAIL::Posted values are not VALID::error::Invalid POST Values";
+                return NULL;
+            }
+
+            if(empty($value)){
+                echo "FAIL::Posted values are not VALID::error::Invalid POST Values";
+                return NULL;
+            }
+            $data='';
+            if($value == 'trash'){
+                $data = 1;
+                $trashedMessageSuccess = "Record has been successfully Trashed";
+                $trashedMessageDuplicate = "Record Has Already Been Trashed";
+            }else if($value == 'untrash'){
+                $data = 0;
+                $trashedMessageSuccess = "Record has been successfully Un-Trashed";
+                $trashedMessageDuplicate = "Record Has Already Been Un-Trashed";
+            }else{
+                $data = 2;
+                $trashedMessageSuccess = "Record has been successfully Processed";
+            }
+
+            $updateData = array(
+                'trashed' => $data
+            );
+
+            $whereUpdate = array(
+                'id' => $id
+            );
+
+            $returnedData = $this->Common_model->update('esic_lawyers',$whereUpdate,$updateData);
+            if($returnedData === true){
+                echo "OK::".$trashedMessageSuccess."::success::SUCCESS!!";
+            }else{
+                if($returnedData['code'] === 0){
+                    echo "OK::".$trashedMessageDuplicate."::warning::QUERY FAILED";
+                    return false;
+                }else{
+                    echo "FAIL::".$returnedData['message']."::error::DB Message";
+                }
+
+            }
+            return NULL;
+        }
+
+        //Default : Show the View if
+        $this->show_admin('admin/configuration/lawyers');
+        return NULL;
+    }
+
 public function manage_sectors($param = NULL){
 	Admincontrol_helper::is_logged_in($this->session->userdata('userID'));  
 	$userRole = $this->session->userdata('userRole');

@@ -5,10 +5,11 @@
 </footer>
 
 <?php
-    if($this->router->fetch_method() === 'assessments_list' || $this->router->fetch_method() === 'details'|| $this->router->fetch_method() === 'index'){
+    if($this->router->fetch_method() === 'assessments_list' || $this->router->fetch_method() === 'details'|| $this->router->fetch_method() === 'index')
+    {
 ?>
 
-<!--Edit Ward Modal-->
+<!--Edit Ward Modal 1-->
 <div class="modal approval-modal">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -26,14 +27,14 @@
                             <label for="editStatusTextBox">Update the Pre-Assessment Esic Status</label>
                             <select id="editStatusTextBox" name="editStatusTextBox" style="width: 80%;">
                                     <option value="0">Select...</option>
-                                     <?php 
+                                     <?php
                                         $esic_status_all = $this->Common_model->select('esic_status');
                                         if(isset($esic_status_all) and !empty($esic_status_all)){
                                             foreach($esic_status_all as $esicstatus){
                                                  echo '<option value="'.$esicstatus->id.'">'.$esicstatus->status.'</option>';
                                              }
-                                        }   
-                                    ?>    
+                                        }
+                                    ?>
                             </select>
                         </div>
                     </div>
@@ -106,7 +107,7 @@
 <!-- /.End Edit Ward Modal --><!-- /.modal -->
 
 
-<!--Edit Ward Modal-->
+<!--Edit Ward Modal 2-->
 <div class="modal delete-modal">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -135,7 +136,8 @@
 <!-- /.End Edit Ward Modal --><!-- /.modal -->
 
 <?php
-    }else if($this->router->fetch_method() === 'manage_status') {
+    }
+    else if($this->router->fetch_method() === 'manage_status') {
 ?>
 
 <style>
@@ -145,7 +147,7 @@
     display: block;
   }
 </style>
-<!--Edit Ward Modal-->
+<!--Edit Ward Modal 2-->
 <div class="modal approval-modal">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -173,7 +175,8 @@
 </div><!-- /.modal -->
 <!-- /.End Edit Ward Modal --><!-- /.modal -->
 <?php
-    }else if($this->router->fetch_method() === 'manage_appstatus') {
+    }
+    else if($this->router->fetch_method() === 'manage_appstatus') {
 ?>
 
 <style>
@@ -183,7 +186,7 @@
     display: block;
   }
 </style>
-<!--Edit Ward Modal-->
+<!--Edit Ward Modal 3-->
 <div class="modal approval-modal">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -210,8 +213,9 @@
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 <!-- /.End Edit Ward Modal --><!-- /.modal -->
-<?php 
-    }else{
+<?php
+    }
+    else{
 ?>
 <style>
 .modal select{
@@ -220,7 +224,7 @@
     display: block;
   }
 </style>
-<!--Edit Ward Modal-->
+<!--Edit Ward Modal 4-->
 <div class="modal approval-modal">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -298,14 +302,14 @@
                             <label for="editAbrTextBox">Please Change ABR Status: </label>
                             <select id="editAbrTextBox" name="editAbrTextBox" style="width: 80%;">
                                     <option value="0">Select...</option>
-                                    <?php 
+                                    <?php
                                         $statusApp = $this->Common_model->select('esic_appstatus');
                                         if(isset($statusApp) and !empty($statusApp)){
                                             foreach($statusApp as $statusApp){
                                                  echo '<option value="'.$statusApp->id.'">'.$statusApp->status.'</option>';
                                              }
-                                        }   
-                                    ?>    
+                                        }
+                                    ?>
                             </select>
                         </div>
                     </div>

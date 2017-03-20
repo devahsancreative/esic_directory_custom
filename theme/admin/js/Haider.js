@@ -61,7 +61,7 @@
             text: text,
             type: notyficationType,
             theme: "bootstrapTheme",
-            timeout:3600000,
+            timeout:4000,
             template: '<div class="alert alert-dismissible"><button aria-hidden="true" data-dismiss="alert" class="close" type="button">x</button><h4>	<i class="icon fa fa-check"></i>'+ alertHead + '</h4><span class="noty_text"></span></div>',
             closeWith: ["click"]
         });
