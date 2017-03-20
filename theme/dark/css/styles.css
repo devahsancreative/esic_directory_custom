@@ -163,9 +163,7 @@ label.label_find {
     padding-bottom: 0px !important;
 }
 
-.img-responsive{
-width: 100% !important;
-}
+.img-responsive{width: 100% !important;color: rgb(14, 161, 228);}
 .jumbotron .container {
 
 width: 100% !important;
@@ -1032,7 +1030,7 @@ li.dropdown:hover .dropdown-menu /* Drop Down Menu */
     background-color: #dddddd !important;
 }
 .navbar-inverse .navbar-toggle .icon-bar {
-    background-color: blue !important;
+    background-color: rgb(14, 161, 228);
 }
 
 /*================== Style for site logo image  ====================*/
@@ -1244,12 +1242,12 @@ li.dropdown:hover .dropdown-menu /* Drop Down Menu */
 }
 .hamburger {
     position: fixed;
-    top: 15px;
+    top: 20px;
     z-index: 999;
     display: block;
     width: 32px;
-    height: 32px;
-    margin-left: 15px;
+    height: 30px;
+    margin-left: 10px;
     background: transparent;
     border: none;
 }
@@ -1291,7 +1289,7 @@ li.dropdown:hover .dropdown-menu /* Drop Down Menu */
 .hamburger.is-closed .hamb-top,
 .hamburger.is-closed .hamb-middle,
 .hamburger.is-closed .hamb-bottom {
-    background-color: #1a1a1a;
+    background-color: rgba(26, 26, 26, 0.72);
 }
 .hamburger.is-closed .hamb-top {
     top: 5px;
@@ -1685,6 +1683,27 @@ display: block;
     background: rgba(0, 0, 0, 0.7);
     color: #fff;
 }
+
+.custom_image_a img.img-responsive{
+    width: initial!important;
+}
+body div.embed-responsive {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0!important;
+}
+
+body div.embed-responsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%!important;
+    height: 100%!important;
+}
+
+
+
 @media(max-width:860px){
     .navbar-nav > li > a {
         padding: 18px 4px!important;

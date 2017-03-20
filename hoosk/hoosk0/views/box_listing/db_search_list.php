@@ -1,32 +1,15 @@
-
-
-
-
 <style>
-
-
-
 #banner, .container:before{
-
- 	content:inherit !important;
-
-	}
-
+    content:inherit !important;
+}
 #banner-inner{
-
-	width:100% !important; 
-
- 	}	
-
-
-
-
-
+    width:100% !important; 
+}	
 </style>
 
 <link rel="stylesheet" type="text/css" href="<?=BASE_URL;?>/assets/css/boxlisting.css">
 
-<div class="content-shell">
+<div class="content-shell" style="min-height: 60vh;">
 
     <div class="content-wrap" id="wrap">
 
@@ -269,62 +252,38 @@ if(!empty($list) && is_array($list)){
 ?>
 
 <li class="list-item hcard-search member_level_5" data-page="<= $page ?>">
-
 	<a href="<?= base_url().'esic_database/company/'.$user['alias']; ?>" class="permalink" data-link= "<?= $user['userID'];?>">
-
 		<div class="img-container wraptocenter">
-
 			<span>
-
 				<img src="<?= $img; ?>" alt="" class="left"/>
-
 			</span>
-
 		</div>
-
 	</a>	
 
-		<div class="product-container">
+	<div class="product-container">
+		<div class="name-container person-name">
+			<a href="<?= base_url().'esic_database/company/'.$user['alias']; ?>" class="permalink" data-link= "<?= $user['userID'];?>">
+                <h3><?= $user['FullName']; ?></h3>
+            </a>
+		</div>
+        <div class="clear"></div>
+        <div class="product-details company-name">
+            <a href="<?= base_url().'esic_database/company/'.$user['alias']; ?>" class="permalink" data-link= "<?= $user['userID'];?>">
+                <p class="info-type">
+                    <?= $user['Company']; ?>	
+                </p>
+            </a>
 
-			<div class="name-container person-name">
-
-			        <a href="<?= base_url().'esic_database/company/'.$user['alias']; ?>" class="permalink" data-link= "<?= $user['userID'];?>"><h3><?= $user['FullName']; ?></h3></a>
-
-			</div>
-
-			<div class="clear"></div>
-
-			<div class="product-details company-name">
-
-				<a href="<?= base_url().'esic_database/company/'.$user['alias']; ?>" class="permalink" data-link= "<?= $user['userID'];?>">
-
-				      <p class="info-type">
-
-				      		<?= $user['Company']; ?>	
-
-				      </p>
-
-				</a>
-
-			</div>
-
-			<div class="status-container">
-
-				<?php echo $status;?>	
-
-			</div>
-
-			<div class="clear"></div>
-
-			<div class="product-details">
-
-			     <div class="description overlay-desc">
-
-                    <p><?= strip_tags($desc); ?> </p>
-
-                 </div>
-
-                 <div class="dates-box">
+		</div>
+        <div class="status-container">
+            <?php echo $status;?>	
+        </div>
+        <div class="clear"></div>
+        <div class="product-details">
+            <div class="description overlay-desc">
+                <p><?= strip_tags($desc); ?> </p>
+            </div>
+            <div class="dates-box">
 
                  	<button type="button" class="show-dates">
 
@@ -377,6 +336,12 @@ if(!empty($list) && is_array($list)){
 		 </div>
 
 </li>
+<?php 
+
+                }
+
+            }
+?>
 </ul>
 
   <div class="clear"></div>
@@ -1072,12 +1037,9 @@ if(!empty($list) && is_array($list)){
 
 <?php 
 
-			       
+			     
 
-			    }
-
-			}
-
+if(!function_exists('Get_file_extension')){
 function Get_file_extension($filename){
 
        $filename = strtolower($filename) ;
@@ -1091,5 +1053,5 @@ function Get_file_extension($filename){
        return $exts;
 
     }
-
+}
 ?>

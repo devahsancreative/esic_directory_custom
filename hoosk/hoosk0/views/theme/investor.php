@@ -57,12 +57,12 @@ if ($page['enableJumbotron'] == 1) {
         </div>-->
         <div class="header_search logotext investor">
             <div class="row">
-                <h3> Find Investors </h3>
+                <h3> Investor Search </h3>
             </div>
             <hr class="investor_custom-line">
            <div class="row investor_custom-row">
              
-	              	<form action="results_investors" method="post" accept-charset="utf-8">
+	              	<form pre-action="results_investors" action="results_innovators" method="post" accept-charset="utf-8">
 						<input type="text" name="keyword" class="form-control" placeholder="Investors">
 						<input type="hidden" name="resultsFor" value="investors">
 						<input type="submit" value="" class="form-control submit-icon" >

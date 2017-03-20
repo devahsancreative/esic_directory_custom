@@ -64,7 +64,7 @@ class Esic2 extends MY_Controller{
             $this->load->view("box_listing/db_search_list",$data);
             $this->load->view('theme/footer');
 
-        }else{
+        }else if($_GET['page']){
 
             $page        =  $_GET['page'];
             $secSelect   =  $_GET['secSelect'];
@@ -75,6 +75,10 @@ class Esic2 extends MY_Controller{
             
             $data['list'] = $this->Esic_model->getfilterlist($page,$searchInput,$secSelect,$comSelect,$orderSelect,$orderSelectValue);
             $this->load->view("box_listing/getlist",$data);
+        }else{
+            $this->load->view('theme/header',$this->data);
+            $this->load->view("box_listing/db_search_list",$data);
+            $this->load->view('theme/footer');
         }
     }
     public function updatethumbs(){

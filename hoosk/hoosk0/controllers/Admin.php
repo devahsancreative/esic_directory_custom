@@ -935,6 +935,12 @@ public function social_creaditional(){
         exit();
     }
     public function savelogo(){
+    	$userRole = $this->session->userdata('userRole');
+    	$user_table = 'user_draft';
+ 		if($userRole == 1){
+ 			//admin
+ 			$user_table = 'user';
+ 		}
         $userID = $this->input->post('userID');
         $allowedExt = array('jpeg','jpg','png','gif');
         $uploadPath = './uploads/users/'.$userID.'/';
@@ -978,15 +984,17 @@ public function social_creaditional(){
         $where = array(
             'userID' => $userID
         );
-        $returnedData = $this->Common_model->select_fields_where('user_draft',$selectData, $where, false, '', '', '','','',false);
+        $returnedData = $this->Common_model->select_fields_where($user_table,$selectData, $where, false, '', '', '','','',false);
         $logo = $returnedData[0]->logo;
-        if(!empty($logo) && is_file(FCPATH.'/'.$logo)){
+        if(!empty($logo) && is_file(FCPATH.$logo)){
             unlink('./'.$logo);
         }
         $this->Common_model->save_darft($userID);
-        $resultUpdate = $this->Common_model->update('user_draft',$where,$insertDataArray);
+        $resultUpdate = $this->Common_model->update($user_table,$where,$insertDataArray);
         if($resultUpdate === true){
+
             echo "OK::Record Updated Successfully";
+            echo $this->db->last_query();
         }else{
             echo "FAIL::Something went wrong during Update, Please Contact System Administrator";
         }

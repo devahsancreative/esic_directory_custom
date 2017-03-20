@@ -420,10 +420,10 @@ $ci =& get_instance();
         <div class="col-md-3">
           <!-- Profile Image -->
           <div class="box box-primary">
-            <div class="box-body box-profile" id="profile-box-container" data-user-id="<?= $userProfile['userID']?>">
+            <div class="box-body box-profile" id="profile-box-container" data-user-id="<?= $userProfile['userID']?>" data-img="<?= FCPATH.'/'.$userProfile['Logo']?>">
             <?php 
                     $logoImage= '';
-                    if(!empty($userProfile['Logo']) and is_file(FCPATH.'/'.$userProfile['Logo'])){ 
+                    if(!empty($userProfile['Logo']) and is_file(FCPATH.$userProfile['Logo'])){ 
                       $logoImage = base_url().'/'.$userProfile['Logo'];
                     }else{
                        $logoImage = base_url('pictures/defaultLogo.png');
