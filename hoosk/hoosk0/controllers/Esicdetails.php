@@ -14,10 +14,10 @@ class Esicdetails extends MY_Controller{
             $pageURL = $this->uri->segment($totSegments-1);
         }
         if ($pageURL == ""){ $pageURL = "home"; }
-        $data['page']=$this->Hoosk_page_model->getPage($pageURL);
+        $this->data['page']=$this->Hoosk_page_model->getPage($pageURL);
 
-        $data['settings']=$this->Hoosk_page_model->getSettings();// use for header title
-        $data['settings_footer'] = $this->Hoosk_model->getSettings(); //use for footer
+        $this->data['settings']=$this->Hoosk_page_model->getSettings();// use for header title
+        $this->data['settings_footer'] = $this->Hoosk_model->getSettings(); //use for footer
 
 
 
@@ -32,12 +32,12 @@ class Esicdetails extends MY_Controller{
       	$alias = str_replace('_',' ',$alias);
         $alias = str_replace('+','_',$alias);
 
-		$data['social'] = $this->Esic_model->get_user_details($alias);
+		$this->data['social'] = $this->Esic_model->get_user_details($alias);
 		 
-		$data['list'] = $this->Esic_model->getdetails($alias);
+		$this->data['list'] = $this->Esic_model->getdetails($alias);
         
-		$this->load->view('theme/header', $data);
-        $this->load->view('product_details',$data);
+		$this->load->view('theme/header', $this->data);
+        $this->load->view('product_details',$this->data);
 		$this->load->view('theme/footer');
     }
 }

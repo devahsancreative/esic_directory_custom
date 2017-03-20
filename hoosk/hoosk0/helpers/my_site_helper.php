@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: COD3R
- * Date: 9/18/2015
- * Time: 1:55 PM
- */
-
 
 /**
  * @function previousURL return URL
@@ -97,209 +90,6 @@ if(!function_exists("generate_timezone_list")){
         }
 
         return $timezone_list;
-    }
-}
-
-if(!function_exists("master_menuRecordCounter")){
-    function master_menuRecordCounter(){
-        $ci =& get_instance();
-        $ci->load->model('Common_Model');
-
-        $counter = array(
-            'wards' => 0,
-            'beds' => 0
-        );
-
-        //1. Wards Count
-        $table = "ml_ward";
-        $selectData = 'COUNT(1) AS TotalFound';
-        $where = array(
-            'IsActive' => 1
-        );
-        $wardsRecord = $ci->Common_model->select_fields_where($table,$selectData,$where,TRUE);
-        $counter['wards'] = $wardsRecord->TotalFound;
-
-        //2. Beds Count
-        $table = "ml_beds";
-        $selectData = 'COUNT(1) AS TotalFound';
-        $where = array(
-            'IsActive' => 1
-        );
-        $bedsRecord = $ci->Common_model->select_fields_where($table,$selectData,$where,TRUE);
-        $counter['beds'] = $bedsRecord->TotalFound;
-
-        //3. Room Classes Count
-        $table = "ml_room_class";
-        $selectData = 'COUNT(1) AS TotalFound';
-        $where = array(
-            'IsActive' => 1
-        );
-        $roomClassesRecords = $ci->Common_model->select_fields_where($table,$selectData,$where,TRUE);
-        $counter['roomClass'] = $roomClassesRecords->TotalFound;
-
-        //4. Rooms Count
-        $table = "ml_rooms";
-        $selectData = 'COUNT(1) AS TotalFound';
-        $where = array(
-            'IsActive' => 1
-        );
-        $roomsRecord = $ci->Common_model->select_fields_where($table,$selectData,$where,TRUE);
-        $counter['rooms'] = $roomsRecord->TotalFound;
-
-        //5. Procedures Count
-        $table = "ml_procedure_types";
-        $selectData = 'COUNT(1) AS TotalFound';
-        $where = array(
-            'IsActive' => 1
-        );
-        $proceduresRecord = $ci->Common_model->select_fields_where($table,$selectData,$where,TRUE);
-        $counter['procedures'] = $proceduresRecord->TotalFound;
-        //ml procedure category
-        $table = "ml_procedure_category";
-        $selectData = 'COUNT(1) AS TotalFound';
-        $where = array(
-            'IsActive' => 1
-        );
-        $proceduresRecord = $ci->Common_model->select_fields_where($table,$selectData,$where,TRUE);
-        $counter['procedurescat'] = $proceduresRecord->TotalFound;
-
-        //6. OT Count
-        $table = "ml_ot";
-        $selectData = 'COUNT(1) AS TotalFound';
-        $where = array(
-            'IsActive' => 1
-        );
-        $otRecord = $ci->Common_model->select_fields_where($table,$selectData,$where,TRUE);
-        $counter['OT'] = $otRecord->TotalFound;
-
-        //7. Currency Count
-        $table = "ml_currency";
-        $selectData = 'COUNT(1) AS TotalFound';
-        $where = array(
-            'IsActive' => 1
-        );
-        $currenciesRecord = $ci->Common_model->select_fields_where($table,$selectData,$where,TRUE);
-        $counter['currencies'] = $currenciesRecord->TotalFound;
-
-        //8. Reason Count
-        $table = "ml_admission_purpose_type";
-        $selectData = 'COUNT(1) AS TotalFound';
-        $where = array(
-            'IsActive' => 1
-        );
-        $purposesRecord = $ci->Common_model->select_fields_where($table,$selectData,$where,TRUE);
-        $counter['reasons'] = $purposesRecord->TotalFound;
-
-        //8. Gender Count
-        $table = "ml_gender";
-        $selectData = 'COUNT(1) AS TotalFound';
-        $where = array(
-            'IsActive' => 1
-        );
-        $gendersRecord = $ci->Common_model->select_fields_where($table,$selectData,$where,TRUE);
-        $counter['genders'] = $gendersRecord->TotalFound;
-
-        //9. Consultant Count
-        $table = "hms_doctor";
-        $selectData = 'COUNT(1) AS TotalFound';
-        $where = array(
-            'IsActive' => 1
-        );
-        $doctorsRecord = $ci->Common_model->select_fields_where($table,$selectData,$where,TRUE);
-        $counter['consultants'] = $doctorsRecord->TotalFound;
-
-        //10. Consultant Count
-        $table = "hms_supplier";
-        $selectData = 'COUNT(1) AS TotalFound';
-        $where = array(
-            'IsActive' => 1
-        );
-        $doctorsRecord = $ci->Common_model->select_fields_where($table,$selectData,$where,TRUE);
-        $counter['supplier'] = $doctorsRecord->TotalFound;
-
-        //11. Consultant Count
-        $table = "ml_category";
-        $selectData = 'COUNT(1) AS TotalFound';
-        $where = array(
-            'IsActive' => 1
-        );
-        $doctorsRecord = $ci->Common_model->select_fields_where($table,$selectData,$where,TRUE);
-        $counter['category'] = $doctorsRecord->TotalFound;
-        // ml_blood group
-        $table = "ml_bloodgroup";
-        $selectData = 'COUNT(1) AS TotalFound';
-        $where = array(
-            'IsActive' => 1
-        );
-        $bloodgroup = $ci->Common_model->select_fields_where($table,$selectData,$where,TRUE);
-        $counter['bloodgroup'] = $bloodgroup->TotalFound;
-
-        //12. Consultant Count
-        $table = "ml_units";
-        $selectData = 'COUNT(1) AS TotalFound';
-        $where = array(
-            'IsActive' => 1
-        );
-        $doctorsRecord = $ci->Common_model->select_fields_where($table,$selectData,$where,TRUE);
-        $counter['units'] = $doctorsRecord->TotalFound;
-
-
-        //13. test
-        $table = "ml_tests";
-        $selectData = 'COUNT(1) AS TotalFound';
-        $where = array(
-            'IsActive' => 1
-        );
-        $test = $ci->Common_model->select_fields_where($table,$selectData,$where,TRUE);
-        $counter['Test'] = $test->TotalFound;
-
-
-        //14. test category
-        $table = "ml_test_category";
-        $selectData = 'COUNT(1) AS TotalFound';
-        $where = array(
-            'IsActive' => 1
-        );
-        $testcategory = $ci->Common_model->select_fields_where($table,$selectData,$where,TRUE);
-        $counter['TestCategory'] = $testcategory->TotalFound;
-
-
-        //15. test duplicate
-        $table = "ml_tests";
-        $selectData = 'COUNT(1) AS TotalFound';
-        $where = array(
-            'IsActive' => 1
-        );
-        $doctorsRecord = $ci->Common_model->select_fields_where($table,$selectData,$where,TRUE);
-        $counter['Test'] = $doctorsRecord->TotalFound;
-
-        //speciality
-        $table = "ml_medical_speciality";
-        $selectData = 'COUNT(1) AS TotalFound';
-        $where = array(
-            'IsActive' => 1
-        );
-        $doctorsRecord = $ci->Common_model->select_fields_where($table,$selectData,$where,TRUE);
-        $counter['Speciality11'] = $doctorsRecord->TotalFound;
-        //ConsultantRoom count
-        $table = "hms_doctor_room";
-        $selectData = 'COUNT(1) AS TotalFound';
-        $where = array(
-            'IsActive' => 1
-        );
-        $doctorsRecord = $ci->Common_model->select_fields_where($table,$selectData,$where,TRUE);
-        $counter['ConsultantRoom'] = $doctorsRecord->TotalFound;
-
-        //Expense Head count
-        $table = "ml_expense_heads";
-        $selectData = 'COUNT(1) AS TotalFound';
-        $where = array(
-            'IsActive' => 1
-        );
-        $doctorsRecord = $ci->Common_model->select_fields_where($table,$selectData,$where,TRUE);
-        $counter['ExpenseHead'] = $doctorsRecord->TotalFound;
-
-        return $counter;
     }
 }
 
@@ -436,110 +226,6 @@ if(!function_exists("fix_number")){
     }
 }
 
-if(!function_exists("getCompanyDetails")){
-    function getCompanyDetails(){
-
-        $ci =& get_instance();
-        $ci->load->model('Common_Model');
-
-        //Company Details
-        $table = 'sys_settings SC';
-        $selectData = array(
-            'CASE SC.Type
-                     WHEN "SiteName" THEN SC.Value
-                     ELSE "" END AS SiteName,
-
-                     CASE SC.Type
-                     WHEN "HospitalFullName" THEN SC.Value
-                     ELSE "" END AS HospitalFullName,
-
-                     CASE SC.Type
-                     WHEN "HospitalAddress" THEN SC.Value
-                     ELSE "" END AS HospitalAddress,
-
-                     CASE SC.Type
-                     WHEN "HospitalPhone1" THEN SC.Value
-                     ELSE "" END AS HospitalPhone1,
-
-                     CASE SC.Type
-                     WHEN "HospitalSupportEmail" THEN SC.Value
-                     ELSE "" END AS HospitalSupportEmail',
-            false
-        );
-        $companyInfo = $ci->Common_model->select_fields($table,$selectData);
-        $companyInfo = json_decode(json_encode($companyInfo),true);
-
-        $systemConfiguration = array();
-        if(isset($companyInfo) && is_array($companyInfo) && !empty($companyInfo)){
-            foreach($companyInfo as $key=>$innerArray){
-                foreach($innerArray as $key=>$val){
-                    if(!empty($val) && $key === "SiteName"){
-                        $systemConfiguration['SiteName'] = $val;
-                    }
-                    if(!empty($val) && $key === "HospitalFullName"){
-                        $systemConfiguration['HospitalFullName'] = $val;
-                    }
-                    if(!empty($val) && $key === "HospitalAddress"){
-                        $systemConfiguration['HospitalAddress'] = $val;
-                    }
-                    if(!empty($val) && $key === "HospitalPhone1"){
-                        $systemConfiguration['HospitalPhone1'] = $val;
-                    }
-                    if(!empty($val) && $key === "HospitalSupportEmail"){
-                        $systemConfiguration['HospitalSupportEmail'] = $val;
-                    }
-                }
-            }
-        }
-        return $systemConfiguration;
-    }
-}
-
-//Check if Username Already Exist.
-if(!function_exists("is_username_available")){
-    function is_username_available($username){
-
-        $ci =& get_instance();
-        $ci->load->model('Common_Model');
-
-        $usersTable = 'um_users';
-        $selectData = array('COUNT(1) AS TotalFound',false);
-        $where = array(
-            'Username' => $username
-        );
-
-        $results = $ci->Common_model->select_fields_where($usersTable,$selectData,$where,TRUE);
-
-        if($results->TotalFound > 0){
-            return true;
-        }else{
-            return false;
-        }
-    }
-}
-
-//Check if Email Already Exist
-if(!function_exists("is_email_available")){
-    function is_email_available($email){
-
-        $ci =& get_instance();
-        $ci->load->model('Common_Model');
-
-        $usersTable = 'um_users';
-        $selectData = array('COUNT(1) AS TotalFound',false);
-        $where = array(
-            'Email' => $email
-        );
-
-        $results = $ci->Common_model->select_fields_where($usersTable,$selectData,$where,TRUE);
-
-        if($results->TotalFound > 0){
-            return true;
-        }else{
-            return false;
-        }
-    }
-}
 
 if(!function_exists("getWidth")) {
     function getWidth($image)
@@ -566,84 +252,6 @@ if(!function_exists("resizeImage")) {
         imagejpeg($newImage,$image,90);
         chmod($image, 0777);
         return $image;
-    }
-}
-
-if(!function_exists("getUserProfileImage")) {
-    function getUserProfileImage($UserID){
-        $ci =& get_instance();
-        $ci->load->model('Common_model');
-
-        $table = 'um_users';
-        $selectData = ('profileImageCropped AS Avatar, Username');
-        $where = array(
-            'UserID' => $UserID
-        );
-
-        $User = $ci->Common_model->select_fields_where($table,$selectData,$where,TRUE);
-
-        $defaultAvatar = base_url()."uploads/profile_pictures/default.jpg";
-
-        if(empty($User->Avatar)){
-            return $defaultAvatar;
-        }else{
-            $FilePath = base_url()."uploads/profile_pictures/".$UserID.'-'.$User->Username.'/thumbs/'.$User->Avatar;
-            if(file_exists($FilePath)){
-
-                return $FilePath;
-
-            }else{
-
-                return $defaultAvatar;
-            }
-        }
-    }
-
-
-    if(!function_exists("default_currency")){
-        function default_currency(){
-            $ci =& get_instance();
-            $ci->load->model('Common_model');
-
-
-            $table = 'sys_settings SC';
-            $selectData = array(
-                'CASE SC.Type
-                     WHEN "DefaultCurrencyID" THEN MLC.symbol
-                     ELSE "" END AS Currency',
-                false
-            );
-            $joins = array(
-                array(
-                    'table' => 'ml_currency MLC',
-                    'condition' => "CASE SC.Type WHEN 'DefaultCurrencyID' THEN SC.Value = MLC.ID END",
-                    'type' => 'INNER',
-                    'escape' => FALSE
-                )
-            );
-            $where = array(
-                'MLC.IsActive' => 1
-            );
-
-            $currency = $ci->Common_model->select_fields_where_like_join($table,$selectData,$joins,$where,TRUE);
-
-
-            if(!empty($currency)){
-                return $currency->Currency;
-            }else{
-                return 'Rs';
-            }
-        }
-    }
-
-    if(!function_exists('reorder_default_filter')){
-        function reorder_default_filter($array,$index=""){
-            if(empty($index)){
-                $index = "ID";
-            }
-            usort($array, function ($a, $b) use($index) { return $a[$index] - $b[$index]; });
-            return $array;
-        }
     }
 }
 
@@ -707,22 +315,80 @@ if(!function_exists("render_slider")){
                 case 'user':
                     $selectJoinData = [
                         '
-                            logo as Image
+                            logo as Image,
+                            "" as link,
+                            company as name
                         ',
                         false
                     ];
                     $action = 'results_innovators';
+                    $base_link = base_url().'esic_database/company/';
                     $ImagePath = false;
                     break;
                 case 'esic_investor':
                     $selectJoinData = [
                         '
-                            image as Image
+                            image as Image,
+                            "" as link,
+                            "" as name
                         ',
                         false
                     ];
                     $action = 'results_investors';
                     $ImagePath = 'uploads/investor/';
+                    $base_link = '';
+                    break;
+                case 'esic_acceleration_logo':
+                    $selectJoinData = [
+                        '
+                            logo as Image,
+                            website as link,
+                            name as name
+                        ',
+                        false
+                    ];
+                    $action = 'results_accelerators';
+                    $ImagePath = '';
+                    $base_link = '';
+                    break;
+                case 'esic_institution':
+                    $selectJoinData = [
+                        '
+                            institutionLogo as Image,
+                            "" as link,
+                            institution as name
+                        ',
+                        false
+                    ];
+                    $action = 'results_institutions';
+                    $ImagePath = '';
+                    $base_link = '';
+                    break;
+                case 'esic_rnd':
+                    $selectJoinData = [
+                        '
+                            rndLogo as Image,
+                            "" as link,
+                            rndName as name
+                        ',
+                        false
+                    ];
+                    $action = 'results_rnd';
+                    $ImagePath = '';
+                    $base_link = '';
+                    break;
+                case 'esic_lawyers':
+                    $selectJoinData = [
+                        '
+                            logo as Image,
+                            website as link,
+                            name as name
+                        ',
+                        false
+                    ];
+                    $action = 'results_lawyers';
+                    $ImagePath = '';
+                    $base_link = '';
                     break;
                 Default:
                     $selectJoinData = '*';
@@ -730,7 +396,9 @@ if(!function_exists("render_slider")){
             }
 
             $sliderData = $ci->Common_model->select_fields($neededSlider['joinTable'],$selectJoinData,false,'','',true);
-
+            //echo '<pre>';
+            //print_r($sliderData);
+            //exit;
             $items = array(
                     'desktop'   => intval($OptionArray['Desktop']),
                     'tablet'    => intval($OptionArray['Tablet']),
@@ -751,7 +419,7 @@ if(!function_exists("render_slider")){
 
             if(!empty($sliderFunction['functionName'])){
 
-                $renderedHTML = $sliderFunction['functionName']($sliderData, $ImagePath, $items, $action);
+                $renderedHTML = $sliderFunction['functionName']($sliderData, $ImagePath, $items, $action, $base_link);
             }else{
                 $renderedHTML = '';
             }
@@ -830,96 +498,4 @@ function get_user_image($userRole,$userID){
     }else{
         return $defaultUserImage;
     }
-}
-
-function strafter($string, $substring) {
-  $pos = strpos($string, $substring);
-  if ($pos === false)
-   return $string;
-  else  
-   return(substr($string, $pos+strlen($substring)));
-}
-
-function strbefore($string, $substring) {
-  $pos = strpos($string, $substring);
-  if ($pos === false)
-   return $string;
-  else  
-   return(substr($string, 0, $pos));
-} 
-
-function strafterwithtag($string, $substring) {
-  $pos = strpos($string, $substring);
-  if ($pos === false)
-   return $string;
-  else  
-   return(substr($string, $pos));
-}
-
-function strbeforewithtag($string, $substring) {
-  $pos = strpos($string, $substring);
-  if ($pos === false)
-   return $string;
-  else  
-   return(substr($string, 0, $pos+1));
-} 
-function strafterL($string, $substring) {
-  $pos = strpos($string, $substring);
-  if ($pos === false)
-   return $string;
-  else  
-   return(substr($string, $pos+strlen($substring)));
-}
-
-function strbeforeL($string, $substring) {
-  $pos = strpos($string, $substring);
-  if ($pos === false)
-   return $string;
-  else  
-   return(substr($string, 0, $pos));
-} 
-
-function strafterwithtagL($string, $substring) {
-  $pos = strpos($string, $substring);
-  if ($pos === false)
-   return $string;
-  else  
-   return(substr($string, $pos));
-}
-
-function strbeforewithtagL($string, $substring) {
-  $pos = strpos($string, $substring);
-  if ($pos === false)
-   return $string;
-  else  
-   return(substr($string, 0, $pos+7));
-} 
-
-function str_replace_first($from, $to, $subject)
-{
-    $from = '/'.preg_quote($from, '/').'/';
-
-    return preg_replace($from, $to, $subject, 1);
-}
-
-
-function str_replace_last( $search, $replace, $subject ) {
-    if ( !$search || !$replace || !$subject )
-        return false;
-    
-    $index = strrpos( $subject, $search );
-    if ( $index === false )
-        return $subject;
-    
-    // Grab everything before occurence
-    $pre = substr( $subject, 0, $index );
-    
-    // Grab everything after occurence
-    $post = substr( $subject, $index );
-    
-    // Do the string replacement
-    $post = str_replace( $search, $replace, $post );
-    
-    // Recombine and return result
-    return $pre . $post;
 }

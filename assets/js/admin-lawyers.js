@@ -46,7 +46,10 @@ $(function(){
     var sDom_DT = '<"H"r>t<"F"<"row"<"col-lg-6 col-xs-12" i> <"col-lg-6 col-xs-12" p>>>';
     commonDataTables(regTableSelector, url_DT, aoColumns_DT, sDom_DT, HiddenColumnID_DT);
 
-
+    new $.fn.dataTable.Responsive(oTable, {
+        details: true
+    });
+    removeWidth(oTable);
 
 
 
@@ -145,5 +148,47 @@ $("#yesApprove").on("click", function () {
         });
     });
 
+    $(".logo-edit-modal").on("shown.bs.modal", function (e) {
+        var button = $(e.relatedTarget); // Button that triggered the modal
+        var lawyerID = button.parents("tr").attr("data-id");
+        var Lawyer = button.parents("tr").find('td').eq(1).text();
+        var modal = $(this);
+        modal.find("input#hiddenUserID").val(lawyerID);
+        var src = button.attr('src');
+        modal.find("img#logo-show").attr('src', src);
+        modal.find(".modal-body").find('p > strong').text(' "' + name + '"');
+    });
 
+    $("#updateLogo").on("click", function () {
+        var hiddenModalID = $(this).parents(".modal-content").find("#hiddenUserID").val();
+        var input = $(this).parents(".modal-content").find("#update-logo-file")[0];
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                var formData = new FormData();
+                        formData.append('logo', input.files[0]);
+                        formData.append('id', hiddenModalID);
+                        $.ajax({       
+                                crossOrigin: true,
+                                type: 'POST',
+                                url: baseUrl + "admin/manage_lawyers/updateLogo",
+                                data: formData,
+                                processData: false,
+                                contentType: false
+                        }).done(function (response) {
+                            var data = response.split("::");
+                            $(".logo-edit-modal").modal('hide');
+                            /*if (data[0] == 'OK') {
+                                $(".logo-edit-modal").modal('hide');
+                                console.log('hide :'+response);
+                                oTable.draw();
+                            }
+                            console.log('modal :'+response);*/
+                       });
+                    
+                     };
+                reader.readAsDataURL(input.files[0]);
+            }
+
+    });
 });//End of Document Ready Function.

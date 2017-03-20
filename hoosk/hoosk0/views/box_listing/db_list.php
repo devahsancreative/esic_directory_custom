@@ -40,7 +40,7 @@
     -->
 
 
-<div class="content-shell">
+<div id="main-content" class="content-shell">
     <div class="content-wrap" id="wrap">
         <div class="content">
         <div class="slideme-container">

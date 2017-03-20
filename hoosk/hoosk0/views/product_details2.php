@@ -61,7 +61,7 @@ if(!empty($list)){
         ?>
 
 <div id="single-container" class="single-item list-item hcard-search member_level_5">
-    <div class="container">
+    <div id="main-content" class="container">
        <div class="background-img-container"><img src="<?= $bgimg; ?>" alt="" class="left"></div>
             <div class="container-box">
                 <div class="img-container logo-container">

@@ -340,6 +340,14 @@ if(!empty($list) && is_array($list)){
 
                 }
 
+            }else{ 
+?>
+            <li class="list-item empty-note">
+                <div class="product-container">
+                        <p>Sorry No Records Found.</p>
+                </div>
+            </li>
+<?php
             }
 ?>
 </ul>
@@ -836,7 +844,7 @@ if(!empty($list) && is_array($list)){
                      //console.log(response);
 
                     $('#no-result').remove();
-
+                    $('.empty-note').remove();
                     $("#regList").append(response);
 
                     $("#loader").hide();
@@ -908,7 +916,7 @@ if(!empty($list) && is_array($list)){
                      //console.log(response);
 
                     $('#no-result').remove();
-
+                    $('.empty-note').remove();
                     $("#regList").append(response);
 
                     $("#loader").hide();
@@ -1038,8 +1046,6 @@ if(!empty($list) && is_array($list)){
 <?php 
 
 			     
-
-if(!function_exists('Get_file_extension')){
 function Get_file_extension($filename){
 
        $filename = strtolower($filename) ;
@@ -1053,5 +1059,5 @@ function Get_file_extension($filename){
        return $exts;
 
     }
-}
+
 ?>

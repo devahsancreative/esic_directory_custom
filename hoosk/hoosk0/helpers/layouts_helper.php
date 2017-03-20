@@ -1,6 +1,6 @@
 <?php
 if(!function_exists('sliderWithSearch')){
-    function sliderWithSearch($data, $ImagePath = null, $Items = null, $action = null){
+    function sliderWithSearch($data, $ImagePath = null, $Items = null, $action = null, $base_link = null){
 
 $dynamicID  = rand(2000,8000);
 $dynamicID  = $dynamicID.'_owl-carousel';
@@ -26,17 +26,23 @@ $dynamicID  = $dynamicID.'_owl-carousel';
                 if($ImagePath) {
                     $images[Image] = $ImagePath . $images[Image];
                 }
+                if(!empty($images[link])){
+                    $link = $images[link];
+                }else{
+                    $name = str_replace(' ', '_', $images['name']);
+                    $link = $base_link.$name;
+                }
                 if($i == 1){
                     $item_class = 'item active';
                 }else{
                     $item_class = 'item';
                 }
-                if( is_file(FCPATH.'/'.$images[Image])){
+                if(is_file(FCPATH.'/'.$images[Image])){
                     $filename = $images[Image];
                     $img = base_url().$filename;
                     //$img = Get_Small_imgs($filename);
                     $html .= '<div class="'.$item_class.' item">';
-                        $html .= '<a href="#" class="owl-item-a">';
+                        $html .= '<a href="'.$link.'" class="owl-item-a">';
                             $html .= '<span class="owl-item-span">';
                                 $html .= '<img class="owl-item-img img-responsive" src="'.$img.'">';
                             $html .= '</span>';
@@ -60,7 +66,7 @@ $html .=  Owl_Carousel_init($dynamicID,$Items);
 
 
 if(!function_exists('sliderWithOutSearch')){
-    function sliderWithOutSearch($data, $ImagePath = null, $Items = null, $action = null){
+    function sliderWithOutSearch($data, $ImagePath = null, $Items = null, $action = null, $base_link = null){
 
 $dynamicID  = rand(2000,8000);
 $dynamicID  = $dynamicID.'_owl-carousel';
@@ -77,6 +83,12 @@ $dynamicID  = $dynamicID.'_owl-carousel';
                 if($ImagePath) {
                     $images[Image] = $ImagePath . $images[Image];
                 }
+                if(!empty($images[link])){
+                    $link = $images[link];
+                }else{
+                    $name = str_replace(' ', '_', $images['name']);
+                    $link = $base_link.$name;
+                }
                 if($i == 1){
                     $item_class = 'item active';
                 }else{
@@ -87,7 +99,7 @@ $dynamicID  = $dynamicID.'_owl-carousel';
                     $img = base_url().$filename;
                    
                     $html .= '<div class="'.$item_class.' item">';
-                        $html .= '<a href="#" class="owl-item-a">';
+                        $html .= '<a href="'.$link.'" class="owl-item-a">';
                             $html .= '<span class="owl-item-span">';
                                 $html .= '<img class="owl-item-img img-responsive" src="'.$img.'">';
                             $html .= '</span>';
@@ -237,7 +249,7 @@ if(!function_exists('Get_file_extensions')) {
 
 
 if(!function_exists('sliderWithSearchOld')){
-    function sliderWithSearchOld($data, $ImagePath = null, $Items = null, $action = null){
+    function sliderWithSearchOld($data, $ImagePath = null, $Items = null, $action = null, $base_link = null){
 /*        echo '<pre>';
         var_dump($data);
         echo '</pre>';*/
@@ -309,7 +321,7 @@ if(!function_exists('sliderWithSearchOld')){
     }
 }
 if(!function_exists('sliderWithOutSearchOld')){
-    function sliderWithOutSearchOld($data, $ImagePath = null, $Items = null, $action = null){
+    function sliderWithOutSearchOld($data, $ImagePath = null, $Items = null, $action = null, $base_link = null){
 
 
 

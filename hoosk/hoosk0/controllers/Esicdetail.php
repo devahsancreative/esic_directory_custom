@@ -5,7 +5,22 @@ class Esicdetail extends MY_Controller{
     public function __construct()
     {
         parent::__construct();
- 
+
+
+        // use for Header And Footer
+        $this->load->model('Hoosk_page_model');
+        $this->load->model('Hoosk_model');
+        $totSegments = $this->uri->total_segments();
+        if(!is_numeric($this->uri->segment($totSegments))){
+            $pageURL = $this->uri->segment($totSegments);
+        } else if(is_numeric($this->uri->segment($totSegments))){
+            $pageURL = $this->uri->segment($totSegments-1);
+        }
+        if ($pageURL == ""){ $pageURL = "home"; }
+        $this->data['page']=$this->Hoosk_page_model->getPage($pageURL);
+
+        $this->data['settings']=$this->Hoosk_page_model->getSettings();// use for header title
+        $this->data['settings_footer'] = $this->Hoosk_model->getSettings(); //use for footer
 
 
     }

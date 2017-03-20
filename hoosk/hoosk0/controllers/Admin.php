@@ -1978,6 +1978,60 @@ public function manage_universities($param = NULL){
             }
             return NULL;
         }
+        if($param === 'updateLogo'){
+            $lawyerID = $this->input->post('id');
+            $allowedExt = array('jpeg','jpg','png','gif');
+            $uploadPath = './pictures/logos/';
+            $uploadDirectory = './pictures/logos/';
+            $uploadDBPath = 'pictures/logos/';
+            $insertDataArray = array();
+            //For Logo Upload
+            if(isset($_FILES['logo']['name']))
+            {
+                $FileName = $_FILES['logo']['name'];
+                $explodedFileName = explode('.',$FileName);
+                $ext = end($explodedFileName);
+                if(!in_array(strtolower($ext),$allowedExt))
+                {
+                    echo "FAIL:: Only Image JPEG, PNG and GIF Images Allowed, No Other Extensions Are Allowed::error";
+                    return;
+                }else
+                {
+
+                    $FileName = "lawyerLogo".$lawyerID."_".time().".".$ext;
+                    if(!is_dir($uploadDirectory)){
+                        mkdir($uploadDirectory, 0755, true);
+                    }
+
+                    move_uploaded_file($_FILES['logo']['tmp_name'],$uploadPath.$FileName);
+                    $insertDataArray['logo'] = $uploadDBPath.$FileName;
+                }
+            }else{
+                echo "FAIL::Logo Image Is Required";
+                return;
+            }
+
+            if(empty($lawyerID)){
+                echo "FAIL::Something went wrong with the Post, Please Contact System Administrator For Further Assistance.";
+                exit;
+            }
+            $selectData = array('logo AS logo',false);
+            $where = array(
+                'id' => $lawyerID
+            );
+            $returnedData = $this->Common_model->select_fields_where('esic_lawyers',$selectData, $where, false, '', '', '','','',false);
+            $logo = $returnedData[0]->logo;
+            if(!empty($logo) && is_file(FCPATH.'/'.$logo)){
+                unlink('./'.$logo);
+            }
+            $resultUpdate = $this->Common_model->update('esic_lawyers',$where,$insertDataArray);
+            if($resultUpdate === true){
+                echo "OK::Record Updated Successfully";
+            }else{
+                echo "FAIL::Something went wrong during Update, Please Contact System Administrator";
+            }
+            return NULL;
+        }
 
         //Default : Show the View if
         $this->show_admin('admin/configuration/lawyers');
