@@ -257,7 +257,6 @@
                 var currentImage = $(this);
                 var imageSrc =  currentImage.attr('src');
                 console.log(imageSrc);
-
             });
 
             $("#updateLogo").on("click", function () {

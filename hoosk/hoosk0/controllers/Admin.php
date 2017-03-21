@@ -1880,7 +1880,7 @@ public function manage_universities($param = NULL){
             ',false);
 
             $addColumns = array(
-                'ViewEditActionButtons' => array('<a href="#" data-target="#editSectorModal" data-toggle="modal"><span data-toggle="tooltip" title="Edit" data-placement="left" aria-hidden="true" class="fa fa-pencil text-blue"></span></a> &nbsp; <a href="#" data-target=".approval-modal" data-toggle="modal"><i data-toggle="tooltip" title="Trash" data-placement="right"  class="fa fa-trash-o text-red"></i></a>','UserID')
+                'ViewEditActionButtons' => array('<a href="#" data-target="#editLawyersModal" data-toggle="modal"><span data-toggle="tooltip" title="Edit" data-placement="left" aria-hidden="true" class="fa fa-pencil text-blue"></span></a> &nbsp; <a href="#" data-target=".approval-modal" data-toggle="modal"><i data-toggle="tooltip" title="Trash" data-placement="right"  class="fa fa-trash-o text-red"></i></a>','UserID')
             );
             $returnedData = $this->Common_model->select_fields_joined_DT($selectData,'esic_lawyers','','','','','',$addColumns);
             print_r($returnedData);
@@ -1978,7 +1978,105 @@ public function manage_universities($param = NULL){
             }
             return NULL;
         }
+        if($param === 'update'){
+            if(!$this->input->post()){
+                echo "FAIL::No Value Posted";
+                return false;
+            }
 
+            $id = $this->input->post('id');
+            $lawyerNameUpdated = $this->input->post('Lawyer');
+            $lawyerPhoneUpdated = $this->input->post('Phone');
+            $lawyerEmailUpdated = $this->input->post('Email');
+            $lawyerWebsiteUpdated = $this->input->post('Website');
+
+            if(empty($id) or !is_numeric($id)){
+                echo "FAIL::Posted values are not VALID";
+                return NULL;
+            }
+
+            if(empty($lawyerNameUpdated)){
+                echo "FAIL::Lawyer name is a required field::error::Required!!";
+                return NULL;
+            }
+
+            $updateData = array(
+                'name' => $lawyerNameUpdated,
+                'phone' => $lawyerPhoneUpdated,
+                'website'=>$lawyerWebsiteUpdated,
+                'email'=>$lawyerEmailUpdated
+            );
+
+            $whereUpdate = array(
+                'id' => $id
+            );
+
+            $updateResult = $this->Common_model->update('esic_lawyers',$whereUpdate,$updateData);
+            if($updateResult === true){
+                echo "OK::Record Successfully Updated::success";
+            }else{
+                if($updateResult['code'] == 0){
+                    echo "OK::Record Already Exist::warning";
+                }else{
+                    echo $updateResult['message'];
+                }
+            }
+            return NULL;
+        }
+        if($param === 'updateLogo'){
+            $uniID = $this->input->post('id');
+            $allowedExt = array('jpeg','jpg','png','gif');
+            $uploadPath = './pictures/logos/lawyers';
+            $uploadDirectory = './pictures/logos/lawyers';
+            $uploadDBPath = 'pictures/logos/lawyers';
+            $insertDataArray = array();
+            //For Logo Upload
+            if(isset($_FILES['logo']['name']))
+            {
+                $FileName = $_FILES['logo']['name'];
+                $explodedFileName = explode('.',$FileName);
+                $ext = end($explodedFileName);
+                if(!in_array(strtolower($ext),$allowedExt))
+                {
+                    echo "FAIL:: Only Image JPEG, PNG and GIF Images Allowed, No Other Extensions Are Allowed::error";
+                    return;
+                }else
+                {
+
+                    $FileName = "uniLogo".$uniID."_".time().".".$ext;
+                    if(!is_dir($uploadDirectory)){
+                        mkdir($uploadDirectory, 0755, true);
+                    }
+
+                    move_uploaded_file($_FILES['logo']['tmp_name'],$uploadPath.$FileName);
+                    $insertDataArray['logo'] = $uploadDBPath.$FileName;
+                }
+            }else{
+                echo "FAIL::Logo Image Is Required";
+                return;
+            }
+
+            if(empty($uniID)){
+                echo "FAIL::Something went wrong with the Post, Please Contact System Administrator For Further Assistance.";
+                exit;
+            }
+            $selectData = array('logo',false);
+            $where = array(
+                'id' => $uniID
+            );
+            $returnedData = $this->Common_model->select_fields_where('esic_lawyers',$selectData, $where, false, '', '', '','','',false);
+            $logo = $returnedData[0]->logo;
+            if(!empty($logo) && is_file(FCPATH.'/'.$logo)){
+                unlink('./'.$logo);
+            }
+            $resultUpdate = $this->Common_model->update('esic_lawyers',$where,$insertDataArray);
+            if($resultUpdate === true){
+                echo "OK::Record Updated Successfully::success";
+            }else{
+                echo "FAIL::Something went wrong during Update, Please Contact System Administrator";
+            }
+            return NULL;
+        }
         //Default : Show the View if
         $this->show_admin('admin/configuration/lawyers');
         return NULL;
