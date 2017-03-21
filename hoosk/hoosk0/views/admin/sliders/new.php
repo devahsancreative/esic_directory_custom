@@ -44,8 +44,8 @@
                                     <option name="Investor"        table="esic_investor" value="INVESTORS">Esic Investors</option>
                                     <option name="Universities" table="esic_institution" value="UNIVERSITIES">Universities</option>
                                     <option name="Accelerators" table="esic_acceleration_logo" value="ACCELERATORS">Accelerators</option>
-                                    <option name="R&D Partner" table="esic_rnd" value="R&DPARTNER">R&D Partners</option>
-                                    <option name="" table="" value="R&DTAXCONSULTANT">R&D Tax Consultant</option>
+                                    <option name="R&D Partner" table="esic_rnd" value="RNDPARTNER">R&D Partners</option>
+                                    <option name="" table="" value="RNDTAXCONSULTANT">R&D Tax Consultant</option>
                                     <option name="IP Lawyers" table="esic_lawyers" value="IPLAWYER">IP Laywer</option>
                                     <option name="" table="" value="GRANTCONSULTANT">Grant Consultant</option>
                                 </select>
