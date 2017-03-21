@@ -7,12 +7,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Lawyers
+            Grant Consultant
             <small>LIST</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="<?= base_url()?>admin"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-            <li><a href="#">Lawyers</a></li>
+            <li><a href="#">Grant Consultant</a></li>
             <li class="active">list</li>
         </ol>
     </section>
@@ -66,18 +66,18 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Manage Lawyers</h3>
+                        <h3 class="box-title">Manage Grant Consultant</h3>
                         <div class="add-New-container">
                             <a href="#" data-target=".addNewModal" data-toggle="modal" class="addNewBtn">Add New</a>
                         </div>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <table id="lawyersList" class="table table-bordered table-striped">
+                        <table id="GrantConsultantList" class="table table-bordered table-striped">
                             <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Lawyer</th>
+                                <th>Grant Consultant</th>
                                 <th>Cell/Phone</th>
                                 <th>Email</th>
                                 <th>Website</th>
@@ -91,7 +91,7 @@
                             <tfoot>
                             <tr>
                                 <th>ID</th>
-                                <th>Lawyer</th>
+                                <th>Grant Consultant</th>
                                 <th>Cell/Phone</th>
                                 <th>Email</th>
                                 <th>Website</th>
@@ -118,12 +118,12 @@
 </div>
 
 <!--Edit University Modal-->
-<div class="modal" id="editLawyersModal">
+<div class="modal" id="editModal">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Edit Lawyer</h4>
+                <h4 class="modal-title">Edit Grant Consultant</h4>
             </div>
 
             <div class="modal-body">
@@ -131,20 +131,20 @@
                     <input type="hidden" id="hiddenID">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="lawyer_NameTextBox">Name</label>
-                            <input type="text" id="lawyer_editNameTextBox" class="form-control" />
+                            <label for="NameTextBox">Name</label>
+                            <input type="text" id="editNameTextBox" class="form-control" />
                         </div>
                         <div class="form-group">
-                            <label for="lawyer_PhoneTextBox">Cell/Phone</label>
-                            <input type="text" id="lawyer_editPhoneTextBox" class="form-control" />
+                            <label for="PhoneTextBox">Cell/Phone</label>
+                            <input type="text" id="editPhoneTextBox" class="form-control" />
                         </div>
                         <div class="form-group">
-                            <label for="lawyer_EmailBox">Email</label>
-                            <input type="text" id="lawyer_editEmailBox" class="form-control" />
+                            <label for="EmailBox">Email</label>
+                            <input type="text" id="editEmailBox" class="form-control" />
                         </div>
                         <div class="form-group">
-                            <label for="lawyer_WebsiteBox">Website</label>
-                            <input type="text" id="lawyer_editWebsiteBox" class="form-control" />
+                            <label for="WebsiteBox">Website</label>
+                            <input type="text" id="editWebsiteBox" class="form-control" />
                         </div>
                     </div>
                 </div>
@@ -152,7 +152,7 @@
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger mright"  data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-success" id="updateLawyersBtn">Update</button>
+                <button type="button" class="btn btn-success" id="updateBtn">Update</button>
             </div>
 
         </div><!-- /.modal-content -->
@@ -161,13 +161,13 @@
 <!-- /.End Edit Ward Modal --><!-- /.modal -->
 
 
-<!--Add Lawyer Modal-->
-<div class="modal addNewModal" id="addLawyerModal">
+<!--Add Modal-->
+<div class="modal addNewModal" id="addModal">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Add Lawyer</h4>
+                <h4 class="modal-title">Add Grant Consultant</h4>
             </div>
 
             <div class="modal-body">
@@ -175,20 +175,20 @@
                     <input type="hidden" id="hiddenID">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="lawyer_NameTextBox">Name</label>
-                            <input type="text" id="lawyer_NameTextBox" class="form-control" />
+                            <label for="NameTextBox">Name</label>
+                            <input type="text" id="NameTextBox" class="form-control" />
                         </div>
                         <div class="form-group">
-                            <label for="lawyer_PhoneTextBox">Cell/Phone</label>
-                            <input type="text" id="lawyer_PhoneTextBox" class="form-control" />
+                            <label for="PhoneTextBox">Cell/Phone</label>
+                            <input type="text" id="PhoneTextBox" class="form-control" />
                         </div>
                         <div class="form-group">
-                            <label for="lawyer_EmailBox">Email</label>
-                            <input type="text" id="lawyer_EmailBox" class="form-control" />
+                            <label for="EmailBox">Email</label>
+                            <input type="text" id="EmailBox" class="form-control" />
                         </div>
                         <div class="form-group">
-                            <label for="lawyer_WebsiteBox">Website</label>
-                            <input type="text" id="lawyer_WebsiteBox" class="form-control" />
+                            <label for="WebsiteBox">Website</label>
+                            <input type="text" id="WebsiteBox" class="form-control" />
                         </div>
                     </div>
                 </div>
@@ -196,7 +196,7 @@
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger mright"  data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-success" id="addLawyerBtn">Add</button>
+                <button type="button" class="btn btn-success" id="addBtn">Add</button>
             </div>
 
         </div><!-- /.modal-content -->
@@ -210,7 +210,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Update Lawyer Logo</h4>
+                <h4 class="modal-title">Update Grant Consultant Logo</h4>
             </div>
 
             <div class="modal-body">
@@ -219,7 +219,7 @@
                         <div class="form-group">
                             <input type="hidden" id="hiddenUserID">
                             <input type="hidden" id="hiddenID">
-                            <label for="editStatusTextBox">Update Lawyer</label>
+                            <label for="editStatusTextBox">Update Grant Consultant</label>
                             <div class="img-container img-logo img-responsive">
                                 <img src="dummy" class="image-show" id="logo-show" />
                             </div>

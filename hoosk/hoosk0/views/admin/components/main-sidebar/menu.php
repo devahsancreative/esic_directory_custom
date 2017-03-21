@@ -59,9 +59,17 @@
     <li class="<?php if ($current == "Investor/investor_list") { echo "active"; } ?>"><a href="<?= base_url('admin/investor_list')?>"><i class="fa fa-list"></i> <span>Investor Pre Assessments</span></a></li>
     
     
-    <li class="treeview <?php if($current=='Admin/manage_universities'|| $current=='Admin/manage_rd'
-        || $current=='Admin/manage_acc_commercials' || $current=='Admin/manage_accelerators'|| $current=='Admin/manage_sectors'
-        || $current=='Admin/manage_status'|| $current=='Admin/manage_appstatus'|| $current=='Admin/manage_lawyers'
+    <li class="treeview <?php if(
+           $current=='Admin/manage_universities'
+        || $current=='Admin/manage_rd'
+        || $current=='Admin/manage_acc_commercials'
+        || $current=='Admin/manage_accelerators'
+        || $current=='Admin/manage_sectors'
+        || $current=='Admin/manage_status'
+        || $current=='Admin/manage_appstatus'
+        || $current=='Admin/manage_lawyers'
+        || $current=='Admin/GrantRecipients'
+        || $current=='Admin/GrantConsultant'
     ){ echo 'active';}?>">
         <a href="#">
             <i class="fa fa-dashboard"></i> <span>Configuration</span>
@@ -76,6 +84,10 @@
             <li class="<?php if ($current == "Admin/manage_rd") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_rd')?>"><i class="fa fa-circle-o"></i> R&D</a></li>
 
             <li class="<?php if ($current == "Admin/manage_lawyers") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_lawyers')?>"><i class="fa fa-circle-o"></i> Lawyers</a></li>
+
+            <li class="<?php if ($current == "Admin/GrantRecipients") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_grantrecipients')?>"><i class="fa fa-circle-o"></i> Grant Recipients</a></li>
+
+            <li class="<?php if ($current == "Admin/GrantConsultant") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_grantconsultant')?>"><i class="fa fa-circle-o"></i> Grant Consultant</a></li>
 
             <li class="<?php if ($current == "Admin/manage_acc_commercials") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_acc_commercials')?>"><i class="fa fa-circle-o"></i> Acc Commercials</a></li>
            

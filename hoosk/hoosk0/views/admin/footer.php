@@ -453,11 +453,16 @@
 
 
 
-    } else if($this->router->fetch_method() === 'manage_universities' || $this->router->fetch_method() === 'manage_accelerators' 
+    } else if($this->router->fetch_method() === 'manage_universities' 
+        || $this->router->fetch_method() === 'manage_accelerators' 
+        || $this->router->fetch_method() === 'manage_sectors' 
+        || $this->router->fetch_method() === 'manage_rd'
+        || $this->router->fetch_method() === 'manage_acc_commercials' 
+        || $this->router->fetch_method() === 'manage_lawyers'
+        || $this->router->fetch_method() === 'ManageGrantRecipients' 
+        || $this->router->fetch_method() === 'ManageGrantConsultant' 
 
-        || $this->router->fetch_method() === 'manage_sectors' || $this->router->fetch_method() === 'manage_rd'
-
-        || $this->router->fetch_method() === 'manage_acc_commercials' || $this->router->fetch_method() === 'manage_lawyers'){
+        ){
 
 ?>
 
@@ -852,10 +857,15 @@
 
 <?php } if ($this->router->fetch_method() === 'manage_lawyers') { ?>
 
-
-
     <script src="<?= base_url()?>assets/js/admin-lawyers.js"></script>
 
+<?php } if ($this->router->fetch_method() === 'ManageGrantConsultant') { ?>
+
+    <script src="<?= base_url()?>assets/js/admin-grantconsultant.js"></script>
+
+<?php } if ($this->router->fetch_method() === 'ManageGrantRecipients') { ?>
+
+    <script src="<?= base_url()?>assets/js/admin-grantrecipients.js"></script>
 
 
 <?php } if ($this->router->fetch_method() === 'manage_acc_commercials') { ?>

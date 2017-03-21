@@ -1,8 +1,8 @@
 
 $(function(){
     oTable = "";
-    var regTableSelector = $("#lawyersList");
-    var url_DT = baseUrl + "admin/manage_lawyers/listing";
+    var regTableSelector = $("#GrantConsultantList");
+    var url_DT = baseUrl + "admin/manage_grantconsultant/listing";
     var aoColumns_DT = [
         /* ID */ {
             "mData": "ID",
@@ -10,29 +10,29 @@ $(function(){
             "bSortable": true,
             "bSearchable": true
         },
-        /* lawyer */ {
-            "mData": "Lawyer"
+        /* Name */ {
+            "mData": "Name"
         },
-        //Lawyer Phone or Cell
+        // Phone or Cell
         {
             "mData": "Phone"
         },
-        //Lawyer's Email Address
+        // Email Address
         {
             "mData": "Email"
         },
-        //Lawyer's Website Address
+        // Website Address
         {
             "mData": "Website"
         },
-        //Lawyer Logo or Avatar
+        // Logo or Avatar
         {
             "mData": "Logo",
             "render": function ( data, type, row ) {
                 if(data!=''){
-                    return '<img data-target=".logo-edit-modal" data-toggle="modal" alt="Edit" src="'+lawyerImage(data,this)+'" class="lawyer-logo" style="height:50px;width:50px;cursor:pointer;" />';
+                    return '<img data-target=".logo-edit-modal" data-toggle="modal" alt="Edit" src="'+srcImage(data,this)+'" class="GrantConsultant-logo" style="height:50px;width:50px;cursor:pointer;" />';
                 }
-                return '<span data-target=".logo-edit-modal" data-toggle="modal" class="lawyer-logo">Empty </span>';
+                return '<span data-target=".logo-edit-modal" data-toggle="modal" class="GrantConsultantList-logo">Empty </span>';
             },
             "className":"centerLogo"
         },
@@ -52,11 +52,18 @@ $(function(){
     });
     removeWidth(oTable);
 
+    sTable = $('#GrantConsultantList').DataTable();  // // Search by Title
+    $("#search-input").on("keyup", function (e) {
+        sTable.fnFilter($(this).val());
+    });
+    $('#searchbyName').keyup(function(){
+       sTable.column(1).search($(this).val()).draw() ;
+    }); 
 
-function lawyerImage(dbData,elem) {
-    var defaultLawyerImage = baseUrl+"assets/img/lawyer.png";
+function srcImage(dbData,elem) {
+    var defaultImage = baseUrl+"assets/img/lawyer.png";
     if(!dbData){
-        return defaultLawyerImage
+        return defaultImage
     }
     var imagePath = baseUrl+'/'+dbData;
 
@@ -67,39 +74,31 @@ function lawyerImage(dbData,elem) {
     if(http.status!=404){
         return imagePath;
     }else{
-        return defaultLawyerImage;
+        return defaultImage;
     }
 }
 
-//Code for search box
-    sTable = $('#lawyersList').DataTable();  // // Search by Title
-    $("#search-input").on("keyup", function (e) {
-        sTable.fnFilter($(this).val());
-    });
-    $('#searchbyName').keyup(function(){
-       sTable.column(1).search($(this).val()).draw() ;
-    }); 
 
 
 //Now Moving to the CRUD Operations
 //Function for Adding New Record to the Database.
-$("#addLawyerBtn").on("click", function () {
+$("#addBtn").on("click", function () {
     var modal = $(this).parents(".addNewModal");
     var modalData = modal.find(".modal-content");
     //Getting the Records First
-    var LawyerName = modalData.find("#lawyer_NameTextBox").val();
-    var LawyerPhone = modalData.find("#lawyer_PhoneTextBox").val();
-    var LawyerEmail = modalData.find("#lawyer_EmailBox").val();
-    var LawyerWebsite = modalData.find("#lawyer_WebsiteBox").val();
+    var Name = modalData.find("#NameTextBox").val();
+    var Phone = modalData.find("#PhoneTextBox").val();
+    var Email = modalData.find("#EmailBox").val();
+    var Website = modalData.find("#WebsiteBox").val();
 
     var postData = {
-        Lawyer: LawyerName,
-        Phone:LawyerPhone,
-        Email:LawyerEmail,
-        Website:LawyerWebsite
+        Name: Name,
+        Phone:Phone,
+        Email:Email,
+        Website:Website
     };
     $.ajax({
-        url: baseUrl + "admin/manage_lawyers/new",
+        url: baseUrl + "admin/manage_grantconsultant/new",
         data: postData,
         type: "POST",
         success: function (output) {
@@ -121,20 +120,20 @@ $("#addLawyerBtn").on("click", function () {
 //When Approval Modal Shows Up
 $(".approval-modal").on("shown.bs.modal", function (e) {
     var button = $(e.relatedTarget); // Button that triggered the modal
-    var lawyerID = button.parents("tr").attr("data-id");
-    var Lawyer = button.parents("tr").find('td').eq(1).text();
+    var ID = button.parents("tr").attr("data-id");
+    var Name = button.parents("tr").find('td').eq(1).text();
     var modal = $(this);
-    modal.find("input#hiddenUserID").val(lawyerID);
-    var Message = 'Are you sure you want to trash record of: <strong>'+Lawyer+'</strong>';
+    modal.find("input#hiddenUserID").val(ID);
+    var Message = 'Are you sure you want to trash record of: <strong>'+Name+'</strong>';
     modal.find(".modal-body").find('p').html(Message);
-    modal.find('.modal-header').find('h4').html('Trash <strong>'+Lawyer+'</strong>');
+    modal.find('.modal-header').find('h4').html('Trash <strong>'+Name+'</strong>');
 });
 //When Yes has been Selected on Approval Modal, Just Trash the Selected Data.
 $("#yesApprove").on("click", function () {
     var hiddenModalID = $(this).parents(".modal-content").find("#hiddenUserID").val();
     var postData = {id: hiddenModalID, value: "trash"};
     $.ajax({
-        url: baseUrl + "admin/manage_lawyers/trash",
+        url: baseUrl + "admin/manage_grantconsultant/trash",
         data: postData,
         type: "POST",
         success: function (output) {
@@ -157,7 +156,7 @@ $("#yesApprove").on("click", function () {
         var hiddenModalUserID = $(this).parents(".modal-content").find("#hiddenUserID").val();
         var postData = {id: hiddenModalUserID, value: "untrash"};
         $.ajax({
-            url: baseUrl + "admin/manage_lawyers/trash",
+            url: baseUrl + "admin/manage_grantconsultant/trash",
             data: postData,
             type: "POST",
             success: function (output) {
@@ -176,11 +175,11 @@ $("#yesApprove").on("click", function () {
         });
     });
 
-    $("#permanentDelete").on("click", function () {
+     $("#permanentDelete").on("click", function () {
         var hiddenModalUserID = $(this).parents(".modal-content").find("#hiddenUserID").val();
         var postData = {id: hiddenModalUserID, value: "delete"};
         $.ajax({
-            url: baseUrl + "admin/manage_lawyers/delete",
+            url: baseUrl + "admin/manage_grantconsultant/delete",
             data: postData,
             type: "POST",
             success: function (output) {
@@ -198,50 +197,48 @@ $("#yesApprove").on("click", function () {
             }
         });
     });
-    
 
 
-
-    /*Now for Edit Lawyer Modal */
+    /*Now for Edit Modal */
     //On Modal Load
-    $("#editLawyersModal").on("shown.bs.modal", function (e) {
+    $("#editModal").on("shown.bs.modal", function (e) {
         var button = $(e.relatedTarget); // Button that triggered the modal
         var ID = button.parents("tr").attr("data-id");
-        var Lawyer = button.parents("tr").find('td').eq(1).text();
+        var Name = button.parents("tr").find('td').eq(1).text();
         var Phone = button.parents("tr").find('td').eq(2).text();
         var Email = button.parents("tr").find('td').eq(3).text();
         var Website = button.parents("tr").find('td').eq(4).text();
         var modal = $(this);
         //Populating the Inputs
         modal.find("input#hiddenID").val(ID);
-        modal.find("input#lawyer_editNameTextBox").val(Lawyer);
-        modal.find("input#lawyer_editPhoneTextBox").val(Phone);
-        modal.find("input#lawyer_editEmailBox").val(Email);
-        modal.find("input#lawyer_editWebsiteBox").val(Website);
+        modal.find("input#editNameTextBox").val(Name);
+        modal.find("input#editPhoneTextBox").val(Phone);
+        modal.find("input#editEmailBox").val(Email);
+        modal.find("input#editWebsiteBox").val(Website);
     });
 
     //On Edit Modal If Update has been clicked, Update the Record.
-    $("#updateLawyersBtn").on("click", function () {
+    $("#updateBtn").on("click", function () {
         var id = $(this).parents(".modal-content").find("#hiddenID").val();
-        var Lawyer = $(this).parents(".modal-content").find("#lawyer_editNameTextBox").val();
-        var Phone = $(this).parents(".modal-content").find("#lawyer_editPhoneTextBox").val();
-        var Email = $(this).parents(".modal-content").find("#lawyer_editEmailBox").val();
-        var Website = $(this).parents(".modal-content").find("#lawyer_editWebsiteBox").val();
+        var Name = $(this).parents(".modal-content").find("#editNameTextBox").val();
+        var Phone = $(this).parents(".modal-content").find("#editPhoneTextBox").val();
+        var Email = $(this).parents(".modal-content").find("#editEmailBox").val();
+        var Website = $(this).parents(".modal-content").find("#editWebsiteBox").val();
         var postData = {
             id: id,
-            Lawyer: Lawyer,
+            Name: Name,
             Phone:Phone,
             Email:Email,
             Website:Website
         };
         $.ajax({
-            url: baseUrl + "admin/manage_lawyers/update",
+            url: baseUrl + "admin/manage_grantconsultant/update",
             data: postData,
             type: "POST",
             success: function (output) {
                 var data = output.trim().split("::");
                 if (data[0] === "OK") {
-                    $("#editLawyersModal").modal('hide');
+                    $("#editModal").modal('hide');
                     oTable.fnDraw();
                 }
                 if(data[3]){
@@ -299,7 +296,7 @@ $("#yesApprove").on("click", function () {
                 $.ajax({
                     crossOrigin: true,
                     type: 'POST',
-                    url: baseUrl + "admin/manage_lawyers/updateLogo",
+                    url: baseUrl + "admin/manage_grantconsultant/updateLogo",
                     data: formData,
                     processData: false,
                     contentType: false

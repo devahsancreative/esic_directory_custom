@@ -1287,10 +1287,10 @@ public function social_creaditional(){
         $this->Common_model->update('user_draft',$whereUpdate,$updateArray);
         echo 'OK::'.$sectorID.'';
     }
-public function manage_status($param = NULL){
-Admincontrol_helper::is_logged_in($this->session->userdata('userID'));  
-$userRole = $this->session->userdata('userRole');
- if($userRole == 1){
+	public function manage_status($param = NULL){
+		Admincontrol_helper::is_logged_in($this->session->userdata('userID'));  
+		$userRole = $this->session->userdata('userRole');
+ 	if($userRole == 1){
 
 
         if($param === 'listing'){
@@ -1894,11 +1894,11 @@ public function manage_universities($param = NULL){
 
             //Getting Values Now
             //Required Ones
-            $lawyerName = $this->input->post('Lawyer');
+            $lawyerName 	= $this->input->post('Lawyer');
             //Currently Keeping them Optional
-            $lawyerPhone = $this->input->post('Phone');
-            $lawyerEmail = $this->input->post('Email');
-            $lawyerWebsite = $this->input->post('Website');
+            $lawyerPhone 	= $this->input->post('Phone');
+            $lawyerEmail 	= $this->input->post('Email');
+            $lawyerWebsite 	= $this->input->post('Website');
 
             if(empty($lawyerName)){
                 echo "FAIL::Lawyer Name is Required.";
@@ -1909,11 +1909,11 @@ public function manage_universities($param = NULL){
             }
 
             $insertData = array(
-                'name' => $lawyerName,
-                'phone' => $lawyerPhone,
-                'website' => $lawyerWebsite,
-                'email' => $lawyerEmail,
-                'trashed' => 0
+                'name' 		=> $lawyerName,
+                'phone' 	=> $lawyerPhone,
+                'website' 	=> $lawyerWebsite,
+                'email' 	=> $lawyerEmail,
+                'trashed' 	=> 0
             );
 
             $insertResult = $this->Common_model->insert_record('esic_lawyers',$insertData);
@@ -1930,8 +1930,8 @@ public function manage_universities($param = NULL){
                 return false;
             }
 
-            $id = $this->input->post('id');
-            $value = $this->input->post('value');
+            $id 	= $this->input->post('id');
+            $value 	= $this->input->post('value');
 
             if(empty($id) or !is_numeric($id)){
                 echo "FAIL::Posted values are not VALID::error::Invalid POST Values";
@@ -1985,13 +1985,13 @@ public function manage_universities($param = NULL){
             }
 
             $id = $this->input->post('id');
-            $lawyerNameUpdated = $this->input->post('Lawyer');
-            $lawyerPhoneUpdated = $this->input->post('Phone');
-            $lawyerEmailUpdated = $this->input->post('Email');
-            $lawyerWebsiteUpdated = $this->input->post('Website');
+            $lawyerNameUpdated 		= $this->input->post('Lawyer');
+            $lawyerPhoneUpdated 	= $this->input->post('Phone');
+            $lawyerEmailUpdated 	= $this->input->post('Email');
+            $lawyerWebsiteUpdated 	= $this->input->post('Website');
 
             if(empty($id) or !is_numeric($id)){
-                echo "FAIL::Posted values are not VALID";
+                echo "FAIL::Posted values are not VALID::error";
                 return NULL;
             }
 
@@ -2001,10 +2001,10 @@ public function manage_universities($param = NULL){
             }
 
             $updateData = array(
-                'name' => $lawyerNameUpdated,
-                'phone' => $lawyerPhoneUpdated,
-                'website'=>$lawyerWebsiteUpdated,
-                'email'=>$lawyerEmailUpdated
+                'name' 		=> $lawyerNameUpdated,
+                'phone' 	=> $lawyerPhoneUpdated,
+                'website'	=>$lawyerWebsiteUpdated,
+                'email'		=>$lawyerEmailUpdated
             );
 
             $whereUpdate = array(
@@ -2023,107 +2023,81 @@ public function manage_universities($param = NULL){
             }
             return NULL;
         }
-        if($param === 'updateLogo'){
-            $uniID = $this->input->post('id');
-            $allowedExt = array('jpeg','jpg','png','gif');
-            $uploadPath = './pictures/logos/lawyers';
-            $uploadDirectory = './pictures/logos/lawyers';
-            $uploadDBPath = 'pictures/logos/lawyers';
-            $insertDataArray = array();
-            //For Logo Upload
-            if(isset($_FILES['logo']['name']))
-            {
-                $FileName = $_FILES['logo']['name'];
-                $explodedFileName = explode('.',$FileName);
-                $ext = end($explodedFileName);
-                if(!in_array(strtolower($ext),$allowedExt))
-                {
-                    echo "FAIL:: Only Image JPEG, PNG and GIF Images Allowed, No Other Extensions Are Allowed::error";
-                    return;
-                }else
-                {
+        if($param === 'delete'){
+            if(!$this->input->post()){
+                echo "FAIL::No Value Posted::error";
+                return false;
+            }
 
-                    $FileName = "uniLogo".$uniID."_".time().".".$ext;
-                    if(!is_dir($uploadDirectory)){
-                        mkdir($uploadDirectory, 0755, true);
-                    }
+            $id = $this->input->post('id');
+            $value = $this->input->post('value');
 
-                    move_uploaded_file($_FILES['logo']['tmp_name'],$uploadPath.$FileName);
-                    $insertDataArray['logo'] = $uploadDBPath.$FileName;
-                }
+            if(empty($id) or !is_numeric($id)){
+                echo "FAIL::Posted values are not VALID::error";
+                return NULL;
+            }
+
+            if(empty($value)){
+                echo "FAIL::Posted values are not VALID::error";
+                return NULL;
+            }
+            $data='';
+            if($value == 'delete'){
+
+                $whereUpdate = array(
+                    'id' => $id
+                );
+
+                $returnedData = $this->Common_model->delete('esic_lawyers',$whereUpdate);
+                echo "OK::Record Deleted::success";
             }else{
-                echo "FAIL::Logo Image Is Required";
-                return;
-            }
-
-            if(empty($uniID)){
-                echo "FAIL::Something went wrong with the Post, Please Contact System Administrator For Further Assistance.";
-                exit;
-            }
-            $selectData = array('logo',false);
-            $where = array(
-                'id' => $uniID
-            );
-            $returnedData = $this->Common_model->select_fields_where('esic_lawyers',$selectData, $where, false, '', '', '','','',false);
-            $logo = $returnedData[0]->logo;
-            if(!empty($logo) && is_file(FCPATH.'/'.$logo)){
-                unlink('./'.$logo);
-            }
-            $resultUpdate = $this->Common_model->update('esic_lawyers',$where,$insertDataArray);
-            if($resultUpdate === true){
-                echo "OK::Record Updated Successfully::success";
-            }else{
-                echo "FAIL::Something went wrong during Update, Please Contact System Administrator";
+                echo "FAIL::Record Not Deleted::warning";
             }
             return NULL;
         }
         if($param === 'updateLogo'){
-            $lawyerID = $this->input->post('id');
-            $allowedExt = array('jpeg','jpg','png','gif');
-            $uploadPath = './pictures/logos/';
-            $uploadDirectory = './pictures/logos/';
-            $uploadDBPath = 'pictures/logos/';
-            $insertDataArray = array();
+            $lawyerID 			= $this->input->post('id');
+            $allowedExt 		= array('jpeg','jpg','png','gif');
+			$uploadPath 		= './pictures/logos/lawyers';
+            $uploadDirectory 	= './pictures/logos/lawyers';
+            $uploadDBPath 		= 'pictures/logos/lawyers';
+            $insertDataArray 	= array();
             //For Logo Upload
-            if(isset($_FILES['logo']['name']))
-            {
-                $FileName = $_FILES['logo']['name'];
-                $explodedFileName = explode('.',$FileName);
-                $ext = end($explodedFileName);
-                if(!in_array(strtolower($ext),$allowedExt))
-                {
+            if(isset($_FILES['logo']['name'])){
+                $FileName 			= $_FILES['logo']['name'];
+                $explodedFileName 	= explode('.',$FileName);
+                $ext 				= end($explodedFileName);
+
+                if(!in_array(strtolower($ext),$allowedExt)){
                     echo "FAIL:: Only Image JPEG, PNG and GIF Images Allowed, No Other Extensions Are Allowed::error";
                     return;
-                }else
-                {
+                }else{
 
                     $FileName = "lawyerLogo".$lawyerID."_".time().".".$ext;
                     if(!is_dir($uploadDirectory)){
                         mkdir($uploadDirectory, 0755, true);
                     }
 
-                    move_uploaded_file($_FILES['logo']['tmp_name'],$uploadPath.$FileName);
-                    $insertDataArray['logo'] = $uploadDBPath.$FileName;
+                    move_uploaded_file($_FILES['logo']['tmp_name'],$uploadPath.'/'.$FileName);
+                    $insertDataArray['logo'] = $uploadDBPath.'/'.$FileName;
                 }
             }else{
-                echo "FAIL::Logo Image Is Required";
+                echo "FAIL::Logo Image Is Required::error";
                 return;
             }
 
             if(empty($lawyerID)){
-                echo "FAIL::Something went wrong with the Post, Please Contact System Administrator For Further Assistance.";
+                echo "FAIL::Something went wrong with the Post, Please Contact System Administrator For Further Assistance::error";
                 exit;
             }
-            $selectData = array('logo AS logo',false);
-            $where = array(
-                'id' => $lawyerID
-            );
-            $returnedData = $this->Common_model->select_fields_where('esic_lawyers',$selectData, $where, false, '', '', '','','',false);
-            $logo = $returnedData[0]->logo;
+            	$selectData = array('logo AS logo',false);
+            	$where = array( 'id' => $lawyerID );
+            	$returnedData = $this->Common_model->select_fields_where('esic_lawyers',$selectData, $where, false, '', '', '','','',false);
+            	$logo = $returnedData[0]->logo;
             if(!empty($logo) && is_file(FCPATH.'/'.$logo)){
                 unlink('./'.$logo);
             }
-            $resultUpdate = $this->Common_model->update('esic_lawyers',$where,$insertDataArray);
+            	$resultUpdate = $this->Common_model->update('esic_lawyers',$where,$insertDataArray);
             if($resultUpdate === true){
                 echo "OK::Record Updated Successfully";
             }else{

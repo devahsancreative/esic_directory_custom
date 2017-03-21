@@ -296,18 +296,24 @@ $route['admin/manage_status/(:any)']    = "Admin/manage_status/$1";
 
 
 $route['admin/manage_appstatus']       	= "Admin/manage_appstatus";
-
 $route['admin/manage_appstatus/(:any)'] = "Admin/manage_appstatus/$1";
 
 
-
 $route['admin/manage_universities']    		= "Admin/manage_universities";
-
 $route['admin/manage_universities/(:any)']  = "Admin/manage_universities/$1";
 
 //For Lawyers
-$route['admin/manage_lawyers']    		= "Admin/manage_lawyers";
-$route['admin/manage_lawyers/(:any)']  = "Admin/manage_lawyers/$1";
+$route['admin/manage_lawyers']    	  = "Admin/manage_lawyers";
+$route['admin/manage_lawyers/(:any)'] = "Admin/manage_lawyers/$1";
+
+//For Grant Recipients
+$route['admin/manage_grantrecipients']    	   = "GrantRecipients/ManageGrantRecipients";
+$route['admin/manage_grantrecipients/(:any)']  = "GrantRecipients/ManageGrantRecipients/$1";
+
+//For Grant Consultants
+$route['admin/manage_grantconsultant']    	   = "GrantConsultant/ManageGrantConsultant";
+$route['admin/manage_grantconsultant/(:any)']  = "GrantConsultant/ManageGrantConsultant/$1";
+
 
 $route['admin/manage_sectors']         	= "Admin/manage_sectors";
 
