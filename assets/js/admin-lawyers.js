@@ -30,10 +30,11 @@ $(function(){
             "mData": "Logo",
             "render": function ( data, type, row ) {
                 if(data!=''){
-                    return '<img data-target=".logo-edit-modal" data-toggle="modal" alt="Edit" src="'+baseUrl+data+'" class="uni-logo" style="height:50px;width:50px;cursor:pointer;" />';
+                    return '<img data-target=".logo-edit-modal" data-toggle="modal" alt="Edit" src="'+lawyerImage(data,this)+'" class="lawyer-logo" style="height:50px;width:50px;cursor:pointer;" />';
                 }
-                return '<span data-target=".logo-edit-modal" data-toggle="modal" class="uni-logo">Empty </span>';
-            }
+                return '<span data-target=".logo-edit-modal" data-toggle="modal" class="lawyer-logo">Empty </span>';
+            },
+            "className":"centerLogo"
         },
         /* Trashed */ {
             "mData": "Trashed"
@@ -50,6 +51,23 @@ $(function(){
         details: true
     });
     removeWidth(oTable);
+function lawyerImage(dbData,elem) {
+    var defaultLawyerImage = baseUrl+"assets/img/lawyer.png";
+    if(!dbData){
+        return defaultLawyerImage
+    }
+    var imagePath = baseUrl+'/'+dbData;
+
+    var http = new XMLHttpRequest();
+    http.open('HEAD', imagePath, false);
+    http.send();
+
+    if(http.status!=404){
+        return imagePath;
+    }else{
+        return defaultLawyerImage;
+    }
+}
 
 
 
@@ -159,6 +177,126 @@ $("#yesApprove").on("click", function () {
         modal.find(".modal-body").find('p > strong').text(' "' + name + '"');
     });
 
+
+    /*Now for Edit Lawyer Modal */
+    //On Modal Load
+    $("#editLawyersModal").on("shown.bs.modal", function (e) {
+        var button = $(e.relatedTarget); // Button that triggered the modal
+        var ID = button.parents("tr").attr("data-id");
+        var Lawyer = button.parents("tr").find('td').eq(1).text();
+        var Phone = button.parents("tr").find('td').eq(2).text();
+        var Email = button.parents("tr").find('td').eq(3).text();
+        var Website = button.parents("tr").find('td').eq(4).text();
+        var modal = $(this);
+        //Populating the Inputs
+        modal.find("input#hiddenID").val(ID);
+        modal.find("input#lawyer_editNameTextBox").val(Lawyer);
+        modal.find("input#lawyer_editPhoneTextBox").val(Phone);
+        modal.find("input#lawyer_editEmailBox").val(Email);
+        modal.find("input#lawyer_editWebsiteBox").val(Website);
+    });
+
+    //On Edit Modal If Update has been clicked, Update the Record.
+    $("#updateLawyersBtn").on("click", function () {
+        var id = $(this).parents(".modal-content").find("#hiddenID").val();
+        var Lawyer = $(this).parents(".modal-content").find("#lawyer_editNameTextBox").val();
+        var Phone = $(this).parents(".modal-content").find("#lawyer_editPhoneTextBox").val();
+        var Email = $(this).parents(".modal-content").find("#lawyer_editEmailBox").val();
+        var Website = $(this).parents(".modal-content").find("#lawyer_editWebsiteBox").val();
+        var postData = {
+            id: id,
+            Lawyer: Lawyer,
+            Phone:Phone,
+            Email:Email,
+            Website:Website
+        };
+        $.ajax({
+            url: baseUrl + "admin/manage_lawyers/update",
+            data: postData,
+            type: "POST",
+            success: function (output) {
+                var data = output.trim().split("::");
+                if (data[0] === "OK") {
+                    $("#editLawyersModal").modal('hide');
+                    oTable.fnDraw();
+                }
+                if(data[3]){
+                    Haider.notification(data[1],data[2],data[3]);
+                }else{
+                    Haider.notification(data[1],data[2]);
+                }
+            }
+        });
+    });
+
+
+/*--------LOGO JOB---------*/
+//    When Modal is Opened
+    $(".logo-edit-modal").on("shown.bs.modal", function (e) {
+        var button = $(e.relatedTarget); // Button that triggered the modal
+        var ID = button.parents("tr").attr("data-id");
+        var name = button.parents("tr").find('td').eq(1).text();
+        var src = button.attr('src');
+        var modal = $(this);
+        modal.find("input#hiddenUserID").val(ID);
+        modal.find("img#logo-show").attr('src', src);
+        modal.find(".modal-body").find('p > strong').text(' "' + name + '"');
+    });
+//    When New Logo is Selected
+    $("#update-logo-file").change(function(){
+        readURL(this,'#logo-show');
+    });
+
+    //Function for Rendering Image
+    function readURL(input,selector) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                console.log('im exec');
+                $(selector).attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+
+
+    //Finally Update the logo when Update btn is pressed
+    $("#updateLogo").on("click", function () {
+        var hiddenModalID = $(this).parents(".modal-content").find("#hiddenUserID").val();
+        var input = $(this).parents(".modal-content").find("#update-logo-file")[0];
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                var formData = new FormData();
+                formData.append('logo', input.files[0]);
+                formData.append('id', hiddenModalID);
+                $.ajax({
+                    crossOrigin: true,
+                    type: 'POST',
+                    url: baseUrl + "admin/manage_lawyers/updateLogo",
+                    data: formData,
+                    processData: false,
+                    contentType: false
+                }).done(function (response) {
+                    var data = response.trim().split("::");
+                    if (data[0] == 'OK') {
+                        $(".logo-edit-modal").modal('hide');
+                        oTable.fnDraw();
+                    }
+                    if(data[3]){
+                        Haider.notification(data[1],data[2],data[3]);
+                    }else{
+                        Haider.notification(data[1],data[2]);
+                    }
+                });
+
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    });
+
+
     $("#updateLogo").on("click", function () {
         var hiddenModalID = $(this).parents(".modal-content").find("#hiddenUserID").val();
         var input = $(this).parents(".modal-content").find("#update-logo-file")[0];
@@ -168,7 +306,7 @@ $("#yesApprove").on("click", function () {
                 var formData = new FormData();
                         formData.append('logo', input.files[0]);
                         formData.append('id', hiddenModalID);
-                        $.ajax({       
+                        $.ajax({
                                 crossOrigin: true,
                                 type: 'POST',
                                 url: baseUrl + "admin/manage_lawyers/updateLogo",
@@ -185,7 +323,7 @@ $("#yesApprove").on("click", function () {
                             }
                             console.log('modal :'+response);*/
                        });
-                    
+
                      };
                 reader.readAsDataURL(input.files[0]);
             }

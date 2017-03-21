@@ -499,3 +499,23 @@ function get_user_image($userRole,$userID){
         return $defaultUserImage;
     }
 }
+
+
+//Gives the complete Path for Lawyer Image if only Exists, If Not then default Image will be rendered.
+function lawyerImage($dbData=false){
+    $defaultUserImage = base_url()."assets/img/lawyer.jpg";
+    //If No Parameter has been Passed or if is empty then just return the default.
+    if(empty($dbData)){
+        return $defaultUserImage;
+    }
+
+    $imagePath = base_url().$dbData;
+
+    if(file_exists($imagePath) and is_file($imagePath)){
+        return $imagePath;
+    }else{
+        return $dbData;
+    }
+}
+
+

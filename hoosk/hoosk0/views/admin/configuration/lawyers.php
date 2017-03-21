@@ -1,4 +1,8 @@
-
+<style type="text/css">
+    .centerLogo{
+        text-align: center;
+    }
+</style>
 <div class="">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -114,12 +118,12 @@
 </div>
 
 <!--Edit University Modal-->
-<div class="modal" id="editUniversitiesModal">
+<div class="modal" id="editLawyersModal">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Edit University</h4>
+                <h4 class="modal-title">Edit Lawyer</h4>
             </div>
 
             <div class="modal-body">
@@ -127,8 +131,20 @@
                     <input type="hidden" id="hiddenID">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="editUniversitiesTextBox">University</label>
-                            <input type="text" id="editUniversitiesTextBox" class="form-control" />
+                            <label for="lawyer_NameTextBox">Name</label>
+                            <input type="text" id="lawyer_editNameTextBox" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="lawyer_PhoneTextBox">Cell/Phone</label>
+                            <input type="text" id="lawyer_editPhoneTextBox" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="lawyer_EmailBox">Email</label>
+                            <input type="text" id="lawyer_editEmailBox" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="lawyer_WebsiteBox">Website</label>
+                            <input type="text" id="lawyer_editWebsiteBox" class="form-control" />
                         </div>
                     </div>
                 </div>
@@ -136,7 +152,7 @@
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger mright"  data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-success" id="updateUniversitiesBtn">Update</button>
+                <button type="button" class="btn btn-success" id="updateLawyersBtn">Update</button>
             </div>
 
         </div><!-- /.modal-content -->
@@ -194,7 +210,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Update University Logo</h4>
+                <h4 class="modal-title">Update Lawyer Logo</h4>
             </div>
 
             <div class="modal-body">
@@ -203,7 +219,7 @@
                         <div class="form-group">
                             <input type="hidden" id="hiddenUserID">
                             <input type="hidden" id="hiddenID">
-                            <label for="editStatusTextBox">Update Logo</label>
+                            <label for="editStatusTextBox">Update Lawyer</label>
                             <div class="img-container img-logo img-responsive">
                                 <img src="dummy" class="image-show" id="logo-show" />
                             </div>
