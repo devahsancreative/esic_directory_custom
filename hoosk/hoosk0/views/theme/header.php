@@ -2,6 +2,9 @@
 <html lang="en">
 
 <head>
+<script type="text/javascript">
+    base_url = '<?= base_url();?>';
+</script>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <title><?php echo $page['pageTitle']; ?> | <?php echo $settings['siteTitle']; ?> </title>
@@ -44,14 +47,18 @@
     <script type="text/javascript" src="<?= base_url();?>assets/js/moment.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     <script src="<?= base_url();?>assets/js/form.js" type="text/javascript" async defer></script>
+
+    <style type="text/css">
+    	.modal-dialog {
+			left: 0!important;
+		}
+    </style>
 </head>
-<body>
+<body ng-app="main-App">
 
 
 
 <nav class="navbar navbar-fixed-top navbar-inverse navbar-inverse2">
-
-    <!---- left side menu ------>
 
     <div id="wrapper">
         <div class="overlay"></div>
@@ -90,13 +97,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <!--<a class="navbar-brand" href="<?php // echo BASE_URL; ?>">
-          <img src="<?php // echo BASE_URL; ?>/images/<?php // echo $settings['siteLogo']; ?>" alt="Hoosk">
-      </a>--->
-
-
         </div>
-
 
         <div class="collapse navbar-collapse right_sidebar">
 
@@ -108,7 +109,11 @@
             <?php hooskNav('header') ?>
 
             <script type="text/javascript">
-                var data_array = JSON.parse(tosJSON);
+                if(typeof(tosJSON) != "undefined" && tosJSON !== null) {
+                    var data_array = JSON.parse(tosJSON);
+                }else{
+                    var data_array = '';
+                }
             </script>
 
             <style>
@@ -229,7 +234,6 @@
 
         </div>
     </div>
-
     <!-- /.container -->
 
 </nav><!-- /.navbar -->
