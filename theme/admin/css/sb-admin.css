@@ -6,3 +6,7 @@
  body.login {
     background: #d2d6de !important;
 }
+
+.list-group-item.alert-success{
+	position: static!important;
+}

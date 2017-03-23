@@ -1,12 +1,13 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class GrantConsultant extends MY_Controller {
-
+    
+    private $CurrentID = 0;
 
     function __construct()
     {
         parent::__construct();
-    
+        
         define("HOOSK_ADMIN",1);
         $this->load->helper(array('admincontrol', 'url', 'hoosk_admin'));
         $this->load->library('session');
@@ -54,7 +55,8 @@ class GrantConsultant extends MY_Controller {
             ',false);
 
             $addColumns = array(
-                'ViewEditActionButtons' => array('<a href="#" data-target="#editModal" data-toggle="modal"><span data-toggle="tooltip" title="Edit" data-placement="left" aria-hidden="true" class="fa fa-pencil text-blue"></span></a> &nbsp; <a href="#" data-target=".approval-modal" data-toggle="modal"><i data-toggle="tooltip" title="Trash" data-placement="right"  class="fa fa-trash-o text-red"></i></a>','UserID')
+                'ViewEditActionButtons' => array(
+                    '<a href="'.base_url().'GrantConsultant/Edit/$1"><span data-toggle="tooltip" title="Edit" data-placement="left" aria-hidden="true" class="fa fa-pencil text-blue"></span></a> &nbsp; <a href="#" data-target=".approval-modal" data-toggle="modal"><i data-toggle="tooltip" title="Trash" data-placement="right"  class="fa fa-trash-o text-red"></i></a>','ID')
             );
             $returnedData = $this->Common_model->select_fields_joined_DT($selectData,'esic_grantconsultant','','','','','',$addColumns);
             print_r($returnedData);
@@ -282,7 +284,319 @@ class GrantConsultant extends MY_Controller {
         }
 
         //Default : Show the View if
-        $this->show_admin('admin/configuration/grantconsultant');
+        $this->show_admin('admin/configuration/grantconsultant/listing');
         return NULL;
     }
+    public function Add(){      
+        $this->show_admin('admin/configuration/grantconsultant/add');
+        return NULL;
+    }
+    public function AddSave(){
+        $data['return'] = $this->Save();
+        $this->show_admin('admin/configuration/grantconsultant/listing' , $data);
+        return Null;
+    }
+    public function Save(){
+        $return = array();
+        if(!$this->input->post()){
+            $error = "FAIL::No Value Posted::error";
+            array_push($return, $error);
+            return $return;
+        }
+
+        $Name    = $this->input->post('Name');
+        $Phone   = $this->input->post('Phone');
+        $Email   = $this->input->post('Email');
+        $Website = $this->input->post('Website');
+        $Address = $this->input->post('Address');
+        $ShortDescription = $this->input->post('ShortDescription');
+        $LongDescription  = $this->input->post('LongDescription');
+        $Keywords = $this->input->post('Keywords');
+
+        if(empty($Name)){
+            $error = "FAIL::Grant Consultant Name is a required field::error::Required!!";
+            array_push($return, $error);
+            return $return;
+        }
+
+        $insertData = array(
+            'name'      => $Name,
+            'phone'     => $Phone,
+            'email'     => $Email,
+            'website'   => $Website,
+            'address'   => $Address,
+            'short_description' => $ShortDescription,
+            'long_description'  => $LongDescription,
+            'keywords'  => $Keywords
+        );
+        $insertResult = $this->Common_model->insert_record('esic_grantconsultant',$insertData);
+
+        if($insertResult){
+            $success =  "OK::Record Successfully Added ID is ".$insertResult." ::success";
+            array_push($return, $success);
+        }else{
+            $error =  "FAIL::Record Not Added::error";
+            array_push($return, $error);
+            return $return;
+        }
+
+        $allowedExt         = array('jpeg','jpg','png','gif');
+
+        if(is_numeric($insertResult)){
+
+            $uploadPath        = './pictures/logos/grantconsultant/'.$insertResult;
+            $uploadDirectory   = './pictures/logos/grantconsultant/'.$insertResult;
+            $uploadDBPath      = 'pictures/logos/grantconsultant/'.$insertResult;
+            $insertDataArray   = array();
+            //For Logo Upload
+            $ID = $insertResult;
+            if(isset($_FILES['Logoimage']['name']) && !empty($_FILES['Logoimage']['name'])){
+                $FileName           = $_FILES['Logoimage']['name'];
+                $explodedFileName   = explode('.',$FileName);
+                $ext                = end($explodedFileName);
+
+                if(!in_array(strtolower($ext),$allowedExt)){
+                    $error =  "FAIL:: Logo -- Only Image JPEG, PNG and GIF Images Allowed, No Other Extensions Are Allowed::error";
+                    array_push($return, $error);
+                }else{
+
+                    $FileName = "grantConsultantLogo".$ID."_".time().".".$ext;
+                    if(!is_dir($uploadDirectory)){
+                        mkdir($uploadDirectory, 0755, true);
+                    }
+
+                    move_uploaded_file($_FILES['Logoimage']['tmp_name'],$uploadPath.'/'.$FileName);
+                    $insertDataArray['logo'] = $uploadDBPath.'/'.$FileName;
+                    $selectData = array('logo AS logo',false);
+                    $where = array( 'id' => $insertResult );
+                    $returnedData = $this->Common_model->select_fields_where('esic_grantconsultant',$selectData, $where, false, '', '', '','','',false);
+                    $logo = $returnedData[0]->logo;
+
+
+                    if(!empty($logo) && is_file(FCPATH.'/'.$logo)){
+                        unlink('./'.$logo);
+                    }
+
+                    $resultUpdate = $this->Common_model->update('esic_grantconsultant',$where,$insertDataArray);
+                    if($resultUpdate === true){
+                        $success = "OK::Logo Uploaded::success";
+                        array_push($return, $success);
+                    }else{
+                        $error = "FAIL::Logo -- Something went wrong during Update, Please Contact System Administrator::error";
+                        array_push($return, $error);
+                    }
+                }
+
+            }else{
+                $error = "FAIL::Logo Image Not Provided::warning";
+                array_push($return, $error);
+            }
+            $insertDataArray    = array();
+
+            if(isset($_FILES['Bannerimage']['name']) && !empty($_FILES['Bannerimage']['name'])){
+                $FileName           = $_FILES['Bannerimage']['name'];
+                $explodedFileName   = explode('.',$FileName);
+                $ext                = end($explodedFileName);
+
+                if(!in_array(strtolower($ext),$allowedExt)){
+                    $error =  "FAIL:: Banner -- Only Image JPEG, PNG and GIF Images Allowed, No Other Extensions Are Allowed::error";
+                    array_push($return, $error);
+                }else{
+
+                    $FileName = "grantConsultantBanner".$ID."_".time().".".$ext;
+                    if(!is_dir($uploadDirectory)){
+                        mkdir($uploadDirectory, 0755, true);
+                    }
+
+                    move_uploaded_file($_FILES['Bannerimage']['tmp_name'],$uploadPath.'/'.$FileName);
+                    $insertDataArray['banner'] = $uploadDBPath.'/'.$FileName;
+
+                    $selectData = array('banner AS banner',false);
+                    $where = array( 'id' => $insertResult );
+                    $returnedData = $this->Common_model->select_fields_where('esic_grantconsultant',$selectData, $where, false, '', '', '','','',false);
+                    $banner = $returnedData[0]->banner;
+
+                    if(!empty($banner) && is_file(FCPATH.'/'.$banner)){
+                        unlink('./'.$banner);
+                    }
+                        $resultUpdate = $this->Common_model->update('esic_grantconsultant',$where,$insertDataArray);
+                    if($resultUpdate === true){
+                        $success = "OK::Banner Uploaded::success";
+                        array_push($return, $success);
+                    }else{
+                        $error = "FAIL::Banner -- Something went wrong during Update, Please Contact System Administrator::error";
+                        array_push($return, $error);
+                    }
+                }
+            }else{
+                $error = "FAIL::Banner Image Not Provided::warning";
+                array_push($return, $error);
+            }
+        }
+        return $return;
+
+    }
+
+    public function Edit($id){
+        $data['id'] = $id;
+        $this->CurrentID = $id;
+        $where = array('id' => $id);
+        $data['data'] = $this->Common_model->select_fields_where('esic_grantconsultant' ,'*' ,$where,true);
+        $this->show_admin('admin/configuration/grantconsultant/edit',$data);
+        return NULL;
+    }
+    public function EditSave(){
+        $data['return'] = $this->EditSaved();
+        $this->show_admin('admin/configuration/grantconsultant/listing' , $data);
+        return Null;
+    }
+    public function EditSaved(){
+
+        $return = array();
+        if(!$this->input->post()){
+            $error = "FAIL::No Value Posted::error";
+            array_push($return, $error);
+            return $return;
+        }
+        $ID = $this->input->post('id');
+        if(empty($ID)){
+            $error = "FAIL::No ID Set::error";
+            array_push($return, $error);
+            return $return;
+        }
+        $Name    = $this->input->post('Name');
+        $Phone   = $this->input->post('Phone');
+        $Email   = $this->input->post('Email');
+        $Website = $this->input->post('Website');
+        $Address = $this->input->post('Address');
+        $ShortDescription = $this->input->post('ShortDescription');
+        $LongDescription  = $this->input->post('LongDescription');
+        $Keywords = $this->input->post('Keywords');
+
+        if(empty($Name)){
+            $error = "FAIL::Grant Consultant Name is a required field::error::Required!!";
+            array_push($return, $error);
+            return $return;
+        }
+
+
+        $updateData = array(
+            'name'      => $Name,
+            'phone'     => $Phone,
+            'email'     => $Email,
+            'website'   => $Website,
+            'address'   => $Address,
+            'short_description' => $ShortDescription,
+            'long_description'  => $LongDescription,
+            'keywords'  => $Keywords
+        );
+        $where = array('id' => $ID);
+        $updateResult = $this->Common_model->update('esic_grantconsultant',$where , $updateData);
+        
+        if($updateResult){
+            $success =  "OK::Record Successfully Updated ID is ".$ID." ::success";
+            array_push($return, $success);
+        }else{
+            $error =  "FAIL::Record Not Updated::error";
+            array_push($return, $error);
+            return $return;
+        }
+
+        $allowedExt = array('jpeg','jpg','png','gif');
+
+        if(is_numeric($ID)){
+
+            $uploadPath        = './pictures/logos/grantconsultant/'.$ID;
+            $uploadDirectory   = './pictures/logos/grantconsultant/'.$ID;
+            $uploadDBPath      = 'pictures/logos/grantconsultant/'.$ID;
+            $insertDataArray   = array();
+            //For Logo Upload
+            if(isset($_FILES['Logoimage']['name']) && !empty($_FILES['Logoimage']['name'])){
+                $FileName           = $_FILES['Logoimage']['name'];
+                $explodedFileName   = explode('.',$FileName);
+                $ext                = end($explodedFileName);
+
+                if(!in_array(strtolower($ext),$allowedExt)){
+                    $error =  "FAIL:: Logo -- Only Image JPEG, PNG and GIF Images Allowed, No Other Extensions Are Allowed Given ".$ext."::error";
+                    array_push($return, $error);
+                }else{
+
+                    $FileName = "grantConsultantLogo".$ID."_".time().".".$ext;
+                    if(!is_dir($uploadDirectory)){
+                        mkdir($uploadDirectory, 0755, true);
+                    }
+
+                    move_uploaded_file($_FILES['Logoimage']['tmp_name'],$uploadPath.'/'.$FileName);
+                    $insertDataArray['logo'] = $uploadDBPath.'/'.$FileName;
+                    $selectData = array('logo AS logo',false);
+                    $where = array( 'id' => $ID );
+                    $returnedData = $this->Common_model->select_fields_where('esic_grantconsultant',$selectData, $where, false, '', '', '','','',false);
+                    $logo = $returnedData[0]->logo;
+
+
+                    if(!empty($logo) && is_file(FCPATH.'/'.$logo)){
+                        unlink('./'.$logo);
+                    }
+
+                    $resultUpdate = $this->Common_model->update('esic_grantconsultant',$where,$insertDataArray);
+                    if($resultUpdate === true){
+                        $success = "OK::Logo Uploaded::success";
+                        array_push($return, $success);
+                    }else{
+                        $error = "FAIL::Logo -- Something went wrong during Update, Please Contact System Administrator::error";
+                        array_push($return, $error);
+                    }
+                }
+
+            }
+            /*else{
+                $error = "FAIL::Logo Image Not Provided::warning";
+                array_push($return, $error);
+            }*/
+            $insertDataArray    = array();
+
+            if(isset($_FILES['Bannerimage']['name']) && !empty($_FILES['Bannerimage']['name'])){
+                $FileName           = $_FILES['Bannerimage']['name'];
+                $explodedFileName   = explode('.',$FileName);
+                $ext                = end($explodedFileName);
+
+                if(!in_array(strtolower($ext),$allowedExt)){
+                    $error =  "FAIL:: Banner -- Only Image JPEG, PNG and GIF Images Allowed, No Other Extensions Are Allowed Given ".$ext." ::error";
+                    array_push($return, $error);
+                }else{
+
+                    $FileName = "grantConsultantBanner".$ID."_".time().".".$ext;
+                    if(!is_dir($uploadDirectory)){
+                        mkdir($uploadDirectory, 0755, true);
+                    }
+
+                    move_uploaded_file($_FILES['Bannerimage']['tmp_name'],$uploadPath.'/'.$FileName);
+                    $insertDataArray['banner'] = $uploadDBPath.'/'.$FileName;
+
+                    $selectData = array('banner AS banner',false);
+                    $where = array( 'id' => $ID );
+                    $returnedData = $this->Common_model->select_fields_where('esic_grantconsultant',$selectData, $where, false, '', '', '','','',false);
+                    $banner = $returnedData[0]->banner;
+
+                    if(!empty($banner) && is_file(FCPATH.'/'.$banner)){
+                        unlink('./'.$banner);
+                    }
+                        $resultUpdate = $this->Common_model->update('esic_grantconsultant',$where,$insertDataArray);
+                    if($resultUpdate === true){
+                        $success = "OK::Banner Uploaded::success";
+                        array_push($return, $success);
+                    }else{
+                        $error = "FAIL::Banner -- Something went wrong during Update, Please Contact System Administrator::error";
+                        array_push($return, $error);
+                    }
+                }
+            }
+            /*else{
+                $error = "FAIL::Banner Image Not Provided::warning";
+                array_push($return, $error);
+            }*/
+        }
+        return $return;
+    }
+
 }

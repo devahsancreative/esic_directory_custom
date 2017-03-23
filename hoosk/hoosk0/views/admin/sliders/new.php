@@ -40,13 +40,23 @@
                             <div class="form-group">
                                 <select id="sliderSelector" name="sliderSelector" class="form-control sliderSelector" data-name=""  data-table="">
                                     <option value="">Select Slider For</option>
-                                    <option name="Esic Innovators" table="user"          value="ESIC">Esic Innovators</option>
-                                    <option name="Investor"        table="esic_investor" value="INVESTORS">Esic Investors</option>
+
+                                    <option name="Esic Innovators" table="user" value="ESIC">Esic Innovators</option>
+
+                                    <option name="Investor" table="esic_investor" value="INVESTORS">Esic Investors</option>
+
                                     <option name="Universities" table="esic_institution" value="UNIVERSITIES">Universities</option>
+
                                     <option name="Accelerators" table="esic_acceleration_logo" value="ACCELERATORS">Accelerators</option>
+
+                                    <option name="Grant Recipients" table="esic_grantrecipients" value="GRANTRECIPIENTS">Grant Recipients</option>
+
                                     <option name="R&D Partner" table="esic_rnd" value="RNDPARTNER">R&D Partners</option>
+
                                     <option name="" table="" value="RNDTAXCONSULTANT">R&D Tax Consultant</option>
+
                                     <option name="IP Lawyers" table="esic_lawyers" value="IPLAWYER">IP Laywer</option>
+                                    
                                     <option name="" table="" value="GRANTCONSULTANT">Grant Consultant</option>
                                 </select>
                             </div>

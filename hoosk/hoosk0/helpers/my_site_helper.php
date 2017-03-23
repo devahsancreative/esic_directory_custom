@@ -390,8 +390,31 @@ if(!function_exists("render_slider")){
                     $ImagePath = '';
                     $base_link = '';
                     break;
-                Default:
-                    $selectJoinData = '*';
+                case 'esic_grantrecipients':
+                    $selectJoinData = [
+                        '
+                            logo as Image,
+                            website as link,
+                            name as name
+                        ',
+                        false
+                    ];
+                    $action = 'results_grantrecipients';
+                    $ImagePath = '';
+                    $base_link = '';
+                    break;
+                default:
+                     $selectJoinData = [
+                        '
+                            logo as Image,
+                            website as link,
+                            name as name
+                        ',
+                        false
+                    ];
+                    $action    = 'results';
+                    $ImagePath = '';
+                    $base_link = '';
                     break;
             }
 

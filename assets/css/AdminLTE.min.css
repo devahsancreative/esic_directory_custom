@@ -1,10 +1,11 @@
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic);/*!
- *   AdminLTE v2.3.6
- *   Author: Almsaeed Studio
- *	 Website: Almsaeed Studio <http://almsaeedstudio.com>
- *   License: Open source - MIT
- *           Please visit http://opensource.org/licenses/MIT for more information
-!*/
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic);
+
+.list-group-item.alert-success{
+	position: static!important;
+}
+li.list-group-item {
+    margin: 5px 0px;
+}
 html, body {
 	min-height: 100%
 }

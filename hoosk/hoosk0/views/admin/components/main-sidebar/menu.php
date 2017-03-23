@@ -69,6 +69,7 @@
         || $current=='Admin/manage_appstatus'
         || $current=='Admin/manage_lawyers'
         || $current=='Admin/GrantRecipients'
+        || $current=='Admin/RndConsultant'
         || $current=='Admin/GrantConsultant'
     ){ echo 'active';}?>">
         <a href="#">
@@ -82,6 +83,8 @@
             <li class="<?php if ($current == "Admin/manage_universities") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_universities')?>"><i class="fa fa-circle-o"></i> Universities</a></li>
             
             <li class="<?php if ($current == "Admin/manage_rd") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_rd')?>"><i class="fa fa-circle-o"></i> R&D</a></li>
+
+            <li class="<?php if ($current == "Admin/RndConsultant") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_rndconsultant')?>"><i class="fa fa-circle-o"></i> R&D Consultant</a></li>
 
             <li class="<?php if ($current == "Admin/manage_lawyers") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_lawyers')?>"><i class="fa fa-circle-o"></i> Lawyers</a></li>
 

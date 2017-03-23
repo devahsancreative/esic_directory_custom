@@ -459,8 +459,9 @@
         || $this->router->fetch_method() === 'manage_rd'
         || $this->router->fetch_method() === 'manage_acc_commercials' 
         || $this->router->fetch_method() === 'manage_lawyers'
-        || $this->router->fetch_method() === 'ManageGrantRecipients' 
-        || $this->router->fetch_method() === 'ManageGrantConsultant' 
+        || $this->router->fetch_class() === 'GrantRecipients'
+        || $this->router->fetch_class() === 'RndConsultant'  
+        || $this->router->fetch_class() === 'GrantConsultant' 
 
         ){
 
@@ -859,11 +860,15 @@
 
     <script src="<?= base_url()?>assets/js/admin-lawyers.js"></script>
 
-<?php } if ($this->router->fetch_method() === 'ManageGrantConsultant') { ?>
+<?php } if ($this->router->fetch_class() === 'GrantConsultant') { ?>
 
     <script src="<?= base_url()?>assets/js/admin-grantconsultant.js"></script>
 
-<?php } if ($this->router->fetch_method() === 'ManageGrantRecipients') { ?>
+<?php } if ($this->router->fetch_class() === 'RndConsultant') { ?>
+
+    <script src="<?= base_url()?>assets/js/admin-rndconsultant.js"></script>
+
+<?php } if ($this->router->fetch_class() === 'GrantRecipients') { ?>
 
     <script src="<?= base_url()?>assets/js/admin-grantrecipients.js"></script>
 
