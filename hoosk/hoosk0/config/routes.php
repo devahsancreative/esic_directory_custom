@@ -314,9 +314,20 @@ $route['admin/manage_grantrecipients/(:any)']  = "GrantRecipients/ManageGrantRec
 $route['admin/manage_grantconsultant']    	   = "GrantConsultant/ManageGrantConsultant";
 $route['admin/manage_grantconsultant/(:any)']  = "GrantConsultant/ManageGrantConsultant/$1";
 
+$route['GrantConsultant/Listing']    	   = "GrantConsultant/ManageGrantConsultant";
 
+
+$route['GrantConsultant/Add']    	   = "GrantConsultant/Add";
+$route['GrantConsultant/AddSave']      = "GrantConsultant/AddSave";
+$route['GrantConsultant/Edit/(:any)']  = "GrantConsultant/Edit/$1";
+$route['GrantConsultant/EditSave']      = "GrantConsultant/EditSave";
+
+//For Grant Consultants
+$route['admin/manage_rndconsultant']    	 = "RndConsultant/ManageRndConsultant";
+$route['admin/manage_rndconsultant/(:any)']  = "RndConsultant/ManageRndConsultant/$1";
+
+//For manage_sectors
 $route['admin/manage_sectors']         	= "Admin/manage_sectors";
-
 $route['admin/manage_sectors/(:any)']   = "Admin/manage_sectors/$1";
 
 
