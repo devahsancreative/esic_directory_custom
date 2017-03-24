@@ -67,5 +67,18 @@ class Lawyer extends MY_Controller {
         $this->show_admin('admin/configuration/'.$this->ViewFolderName.'/listing' , $this->data);
         return Null;
     }
-    
+    public function View($ID){
+        $this->data['id'] = $ID;
+        $where = array('id' => $ID);
+        $this->data['data'] = $this->Common_model->select_fields_where($this->tableName ,'*' ,$where,true);
+        $this->show_admin('admin/configuration/'.$this->ViewFolderName.'/view' , $this->data);
+        return Null;
+    }  
+    public function Detail($ID){
+        $this->data['id'] = $ID;
+        $where = array('id' => $ID);
+        $this->data['data'] = $this->Common_model->select_fields_where($this->tableName ,'*' ,$where,true);
+        $this->show_admin('admin/configuration/'.$this->ViewFolderName.'/detail' , $this->data);
+        return Null;
+    }  
 }

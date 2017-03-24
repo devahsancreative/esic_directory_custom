@@ -2,17 +2,30 @@ $(function(){
 if($("body").find("#GrantConsultantList")){
     oTable = "";
     var regTableSelector = $("#GrantConsultantList");
-
     var url_DT = baseUrl + "admin/manage_grantconsultant/listing";
     var aoColumns_DT = [
         /* ID */ {
             "mData": "ID",
             "bVisible": true,
             "bSortable": true,
-            "bSearchable": true
+            "bSearchable": true,
+            "render":function( data, type, full, meta){
+                if(data!=''){
+                    return '<a href="'+base_url+'admin/GrantConsultant/view/'+full.ID+'" >'+full.ID+'</a>';
+                }
+                return data;
+        
+            }
         },
         /* Name */ {
-            "mData": "Name"
+            "mData": "Name",
+            "render":function( data, type, full, meta){
+                if(data!=''){
+                    return '<a href="'+base_url+'admin/GrantConsultant/view/'+full.ID+'" >'+data+'</a>';
+                }
+                return data;
+                
+            }
         },
         // Phone or Cell
         {

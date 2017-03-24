@@ -32,12 +32,12 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
 <section class="content-header">
         <h1>
             <?= $ListingName ; ?>
-            <small>Add</small>
+            <small>Edit</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="<?= base_url()?>admin"><i class="fa fa-dashboard"></i> Dashboard</a></li>
             <li><a href="#"><?= $ListingName ; ?></a></li>
-            <li class="active">Add</li>
+            <li class="active">Edit</li>
         </ol>
     </section>
     <?php 
@@ -84,7 +84,7 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
                 <form action="<?= base_url().$ControllerRouteName.'/EditSave'?>" method="post" class="form" enctype="multipart/form-data">
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="box-title">Add Grant Consultant</h3>
+                            <h3 class="box-title">Edit <?= $ListingName ; ?></h3>
                             <div class="add-New-container">
                                  <a href="<?= base_url().$ControllerRouteName.'/Listing'?>" class="addNewBtn">Listing</a>
                             </div>
@@ -179,3 +179,25 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
         <!-- /.row -->
 </section>
     <!-- /.content -->
+
+<script src='<?php  echo base_url()?>assets/tinymce/js/tinymce/tinymce.min.js'></script>
+<script src='<?php  echo base_url()?>assets/tinymce/js/tinymce/plugins/jbimages/plugin.min.js'></script>
+<!--//<script src='<?php /* echo base_url()*/?>assets/tinymce/js/tinymce/plugins/imageUpload.js'></script>-->
+<script>
+ tinymce.init({
+  selector: 'textarea',
+  height: 300,
+  menubar: false,
+  browser_spellcheck : true,
+  contextmenu: false,
+  spellchecker_rpc_url: base_url+'assets/tinymce/js/tinymce/plugins/spellchecker/spellchecker.php',
+  plugins: [
+    ' spellchecker advlist autolink lists link image charmap print preview anchor code',
+    'searchreplace visualblocks code fullscreen',
+    'insertdatetime media jbimages table contextmenu paste code'
+  ],
+  toolbar: 'spellchecker undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | jbimages | media | code',
+  content_css: '//www.tinymce.com/css/codepen.min.css',
+ relative_urls: false
+});
+</script>

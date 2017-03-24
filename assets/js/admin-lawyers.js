@@ -8,10 +8,24 @@ $(function(){
             "mData": "ID",
             "bVisible": true,
             "bSortable": true,
-            "bSearchable": true
+            "bSearchable": true,
+            "render":function( data, type, full, meta){
+                if(data!=''){
+                    return '<a href="'+base_url+'admin/Lawyer/view/'+full.ID+'" >'+full.ID+'</a>';
+                }
+                return data;
+                
+            }
         },
         /* Name */ {
-            "mData": "Name"
+            "mData": "Name",
+            "render":function( data, type, full, meta){
+                if(data!=''){
+                    return '<a href="'+base_url+'admin/Lawyer/view/'+full.ID+'" >'+full.Name+'</a>';
+                }
+                return data;
+                
+            }
         },
         //Phone or Cell
         {

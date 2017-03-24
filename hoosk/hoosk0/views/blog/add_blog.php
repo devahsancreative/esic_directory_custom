@@ -233,7 +233,7 @@
 				</div>  
                <?php  echo form_close(); ?>
               
- <!---------------------------------------------------  Mange Comments  ----------------------------------------------------->
+ <!--  Mange Comments -->
    <?php   if($comments_data){ ?>
  <div class="panel-footerer comment_section panel panel-default panel-body">
     <div class="row">
@@ -336,7 +336,7 @@
 			</div>
        </div>     
      <?php  }?>        
-   <!--------------- ----------------  End  Mange Comments section   -----------------------------------------------------> 
+   <!--  End  Mange Comments section   --> 
                
                
             </div>

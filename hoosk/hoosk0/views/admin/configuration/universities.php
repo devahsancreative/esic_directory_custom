@@ -215,4 +215,4 @@
 </div><!-- /.modal -->
 <!-- /.End Edit Ward Modal --><!-- /.modal -->
 
-<!--------js is in file admin Universites in assesstes ------>
+<!--js is in file admin Universites in assesstes -->
