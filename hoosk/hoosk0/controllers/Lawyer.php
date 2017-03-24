@@ -1,17 +1,17 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class GrantConsultant extends MY_Controller {
-    
+class Lawyer extends MY_Controller {
+
     public $CurrentID           = 0;
-    public $tableName           = 'esic_grantconsultant';
-    public $BannerNamePrefix    = 'grantConsultantBanner';
-    public $LogoNamePrefix      = 'grantConsultantLogo';
-    public $Name                = 'GrantConsultant';
-    public $NameMessage         = 'Grant Consultant';
-    public $ImagesFolderName    = 'grantconsultant';
+    public $tableName           = 'esic_lawyers';
+    public $BannerNamePrefix    = 'LawyerBanner';
+    public $LogoNamePrefix      = 'LawyerLogo';
+    public $Name                = 'Lawyer';
+    public $NameMessage         = 'Lawyer';
+    public $ImagesFolderName    = 'lawyers';
     public $ViewFolderName      = 'listing';
-    public $ControllerRouteName = 'GrantConsultant';
-    public $ControllerName      = 'GrantConsultant';
+    public $ControllerRouteName = 'Lawyer';
+    public $ControllerName      = 'Lawyer';
     public $data                = array('');
 
     function __construct()
@@ -36,11 +36,11 @@ class GrantConsultant extends MY_Controller {
         $url = str_replace('https://', '', $url);
         define ('DoucmentUrl', $url);
         $this->load->helper('view');
-        $this->data['ControllerRouteName'] = $this->ControllerRouteName; 
+        $this->data['ControllerRouteName'] = $this->ControllerRouteName;
         $this->data['ListingName'] = $this->Name;
 
     }
-    public function ManageGrantConsultant($param=NULL){
+    public function ManageLawyer($param=NULL){
         viewHelperManage($param);
         return NULL;
     }
@@ -50,7 +50,7 @@ class GrantConsultant extends MY_Controller {
     }
     public function AddSave(){
         $this->data['return'] = ViewHelperNewSave();
-        $this->data['ControllerName'] = $this->ControllerRouteName; 
+        $this->data['ControllerName'] = $this->ControllerRouteName;  
         $this->show_admin('admin/configuration/'.$this->ViewFolderName.'/listing' , $this->data);
         return Null;
     }

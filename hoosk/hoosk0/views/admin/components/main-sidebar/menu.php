@@ -67,10 +67,10 @@
         || $current=='Admin/manage_sectors'
         || $current=='Admin/manage_status'
         || $current=='Admin/manage_appstatus'
-        || $current=='Admin/manage_lawyers'
-        || $current=='Admin/GrantRecipients'
-        || $current=='Admin/RndConsultant'
-        || $current=='Admin/GrantConsultant'
+        || $class=='Lawyer'
+        || $class=='GrantRecipients'
+        || $class=='RndConsultant'
+        || $class=='GrantConsultant'
     ){ echo 'active';}?>">
         <a href="#">
             <i class="fa fa-dashboard"></i> <span>Configuration</span>
@@ -82,15 +82,15 @@
         <ul class="treeview-menu">
             <li class="<?php if ($current == "Admin/manage_universities") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_universities')?>"><i class="fa fa-circle-o"></i> Universities</a></li>
             
-            <li class="<?php if ($current == "Admin/manage_rd") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_rd')?>"><i class="fa fa-circle-o"></i> R&D</a></li>
+            <li class="<?php if ($current == "Admin/manage_rd") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_rd')?>"><i class="fa fa-circle-o"></i> R&D Partners</a></li>
 
-            <li class="<?php if ($current == "Admin/RndConsultant") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_rndconsultant')?>"><i class="fa fa-circle-o"></i> R&D Consultant</a></li>
+            <li class="<?php if ($class == "RndConsultant") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_rndconsultant')?>"><i class="fa fa-circle-o"></i> R&D Consultants</a></li>
 
-            <li class="<?php if ($current == "Admin/manage_lawyers") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_lawyers')?>"><i class="fa fa-circle-o"></i> Lawyers</a></li>
+            <li class="<?php if ($class == "Lawyer") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_lawyer')?>"><i class="fa fa-circle-o"></i> Lawyers</a></li>
 
-            <li class="<?php if ($current == "Admin/GrantRecipients") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_grantrecipients')?>"><i class="fa fa-circle-o"></i> Grant Recipients</a></li>
+            <li class="<?php if ($class == "GrantRecipients") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_grantrecipients')?>"><i class="fa fa-circle-o"></i> Grant Recipients</a></li>
 
-            <li class="<?php if ($current == "Admin/GrantConsultant") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_grantconsultant')?>"><i class="fa fa-circle-o"></i> Grant Consultant</a></li>
+            <li class="<?php if ($class == "GrantConsultant") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_grantconsultant')?>"><i class="fa fa-circle-o"></i> Grant Consultants</a></li>
 
             <li class="<?php if ($current == "Admin/manage_acc_commercials") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_acc_commercials')?>"><i class="fa fa-circle-o"></i> Acc Commercials</a></li>
            

@@ -303,28 +303,45 @@ $route['admin/manage_universities']    		= "Admin/manage_universities";
 $route['admin/manage_universities/(:any)']  = "Admin/manage_universities/$1";
 
 //For Lawyers
-$route['admin/manage_lawyers']    	  = "Admin/manage_lawyers";
-$route['admin/manage_lawyers/(:any)'] = "Admin/manage_lawyers/$1";
+$route['admin/manage_lawyer']    	  = "Lawyer/ManageLawyer";
+$route['admin/manage_lawyer/(:any)']  = "Lawyer/ManageLawyer/$1";
+$route['Lawyer/Listing']      = "Lawyer/ManageLawyer";
+$route['Lawyer/Add']    	  = "Lawyer/Add";
+$route['Lawyer/AddSave']      = "Lawyer/AddSave";
+$route['Lawyer/Edit/(:any)']  = "Lawyer/Edit/$1";
+$route['Lawyer/EditSave']     = "Lawyer/EditSave";
+
 
 //For Grant Recipients
 $route['admin/manage_grantrecipients']    	   = "GrantRecipients/ManageGrantRecipients";
 $route['admin/manage_grantrecipients/(:any)']  = "GrantRecipients/ManageGrantRecipients/$1";
+$route['GrantRecipients/Listing']    	= "GrantRecipients/ManageGrantRecipients";
+$route['GrantRecipients/Add']    	   	= "GrantRecipients/Add";
+$route['GrantRecipients/AddSave']      	= "GrantRecipients/AddSave";
+$route['GrantRecipients/Edit/(:any)']  	= "GrantRecipients/Edit/$1";
+$route['GrantRecipients/EditSave']      = "GrantRecipients/EditSave";
+
 
 //For Grant Consultants
 $route['admin/manage_grantconsultant']    	   = "GrantConsultant/ManageGrantConsultant";
 $route['admin/manage_grantconsultant/(:any)']  = "GrantConsultant/ManageGrantConsultant/$1";
-
-$route['GrantConsultant/Listing']    	   = "GrantConsultant/ManageGrantConsultant";
-
-
-$route['GrantConsultant/Add']    	   = "GrantConsultant/Add";
-$route['GrantConsultant/AddSave']      = "GrantConsultant/AddSave";
-$route['GrantConsultant/Edit/(:any)']  = "GrantConsultant/Edit/$1";
+$route['GrantConsultant/Listing']    	= "GrantConsultant/ManageGrantConsultant";
+$route['GrantConsultant/Add']    	   	= "GrantConsultant/Add";
+$route['GrantConsultant/AddSave']      	= "GrantConsultant/AddSave";
+$route['GrantConsultant/Edit/(:any)']  	= "GrantConsultant/Edit/$1";
 $route['GrantConsultant/EditSave']      = "GrantConsultant/EditSave";
 
-//For Grant Consultants
+
+//For Rnd Consultants
 $route['admin/manage_rndconsultant']    	 = "RndConsultant/ManageRndConsultant";
 $route['admin/manage_rndconsultant/(:any)']  = "RndConsultant/ManageRndConsultant/$1";
+$route['RndConsultant/Listing']    	   	= "RndConsultant/ManageRndConsultant";
+$route['RndConsultant/Add']    	   		= "RndConsultant/Add";
+$route['RndConsultant/AddSave']      	= "RndConsultant/AddSave";
+$route['RndConsultant/Edit/(:any)']  	= "RndConsultant/Edit/$1";
+$route['RndConsultant/EditSave']      	= "RndConsultant/EditSave";
+
+
 
 //For manage_sectors
 $route['admin/manage_sectors']         	= "Admin/manage_sectors";

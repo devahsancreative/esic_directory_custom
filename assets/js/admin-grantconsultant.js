@@ -1,4 +1,3 @@
-
 $(function(){
 if($("body").find("#GrantConsultantList")){
     oTable = "";
@@ -186,7 +185,7 @@ $("#yesApprove").on("click", function () {
         });
     });
 
-     $("#permanentDelete").on("click", function () {
+    $("#permanentDelete").on("click", function () {
         var hiddenModalUserID = $(this).parents(".modal-content").find("#hiddenUserID").val();
         var postData = {id: hiddenModalUserID, value: "delete"};
         $.ajax({
@@ -387,7 +386,4 @@ $("#yesApprove").on("click", function () {
             reader.readAsDataURL(input.files[0]);
         }
     });
-
-
-
-});//End of Document Ready Function.
+    });//End of Document Ready Function.

@@ -1,8 +1,8 @@
-
 $(function(){
+ if($("body").find("#LawyerList")){
     oTable = "";
-    var regTableSelector = $("#lawyersList");
-    var url_DT = baseUrl + "admin/manage_lawyers/listing";
+    var regTableSelector = $("#LawyerList");
+    var url_DT = baseUrl + "admin/manage_lawyer/listing";
     var aoColumns_DT = [
         /* ID */ {
             "mData": "ID",
@@ -10,27 +10,27 @@ $(function(){
             "bSortable": true,
             "bSearchable": true
         },
-        /* lawyer */ {
-            "mData": "Lawyer"
+        /* Name */ {
+            "mData": "Name"
         },
-        //Lawyer Phone or Cell
+        //Phone or Cell
         {
             "mData": "Phone"
         },
-        //Lawyer's Email Address
+        //Email Address
         {
             "mData": "Email"
         },
-        //Lawyer's Website Address
+        //Website Address
         {
             "mData": "Website"
         },
-        //Lawyer Logo or Avatar
+        //Logo or Avatar
         {
             "mData": "Logo",
             "render": function ( data, type, row ) {
                 if(data!=''){
-                    return '<img data-target=".logo-edit-modal" data-toggle="modal" alt="Edit" src="'+lawyerImage(data,this)+'" class="lawyer-logo" style="height:50px;width:50px;cursor:pointer;" />';
+                    return '<img data-target=".logo-edit-modal" data-toggle="modal" alt="Edit" src="'+srcImage(data,this)+'" class="lawyer-logo" style="height:50px;width:50px;cursor:pointer;" />';
                 }
                 return '<span data-target=".logo-edit-modal" data-toggle="modal" class="lawyer-logo">Empty </span>';
             },
@@ -47,16 +47,23 @@ $(function(){
     var sDom_DT = '<"H"r>t<"F"<"row"<"col-lg-6 col-xs-12" i> <"col-lg-6 col-xs-12" p>>>';
     commonDataTables(regTableSelector, url_DT, aoColumns_DT, sDom_DT, HiddenColumnID_DT);
 
-    new $.fn.dataTable.Responsive(oTable, {
+    /*new $.fn.dataTable.Responsive(oTable, {
         details: true
     });
-    removeWidth(oTable);
+    removeWidth(oTable);*/
 
-
-function lawyerImage(dbData,elem) {
-    var defaultLawyerImage = baseUrl+"assets/img/lawyer.png";
+    sTable = $('#LawyerList').DataTable();  // // Search by Title
+    $("#search-input").on("keyup", function (e) {
+        sTable.fnFilter($(this).val());
+    });
+    $('#searchbyName').keyup(function(){
+       sTable.column(1).search($(this).val()).draw() ;
+    }); 
+}
+function srcImage(dbData,elem) {
+    var defaultImage = baseUrl+"assets/img/lawyer.png";
     if(!dbData){
-        return defaultLawyerImage
+        return defaultImage
     }
     var imagePath = baseUrl+'/'+dbData;
 
@@ -67,39 +74,38 @@ function lawyerImage(dbData,elem) {
     if(http.status!=404){
         return imagePath;
     }else{
-        return defaultLawyerImage;
+        return defaultImage;
     }
 }
-
-//Code for search box
-    sTable = $('#lawyersList').DataTable();  // // Search by Title
-    $("#search-input").on("keyup", function (e) {
-        sTable.fnFilter($(this).val());
-    });
-    $('#searchbyName').keyup(function(){
-       sTable.column(1).search($(this).val()).draw() ;
-    }); 
 
 
 //Now Moving to the CRUD Operations
 //Function for Adding New Record to the Database.
-$("#addLawyerBtn").on("click", function () {
+$("#addBtn").on("click", function () {
     var modal = $(this).parents(".addNewModal");
     var modalData = modal.find(".modal-content");
     //Getting the Records First
-    var LawyerName = modalData.find("#lawyer_NameTextBox").val();
-    var LawyerPhone = modalData.find("#lawyer_PhoneTextBox").val();
-    var LawyerEmail = modalData.find("#lawyer_EmailBox").val();
-    var LawyerWebsite = modalData.find("#lawyer_WebsiteBox").val();
+    var Name        = modalData.find("#NameTextBox").val();
+    var Phone       = modalData.find("#PhoneTextBox").val();
+    var Email       = modalData.find("#EmailBox").val();
+    var Website     = modalData.find("#WebsiteBox").val();
+    var Address     = modalData.find("#AddressBox").val();
+    var ShortDescription    = modalData.find("#ShortDescriptionBox").val();
+    var LongDescription     = modalData.find("#LongDescriptionBox").val();
+    var Keywords     = modalData.find("#KeywordsBox").val();
 
     var postData = {
-        Lawyer: LawyerName,
-        Phone:LawyerPhone,
-        Email:LawyerEmail,
-        Website:LawyerWebsite
+        Name:Name,
+        Phone:Phone,
+        Email:Email,
+        Website:Website,
+        Address:Address,
+        ShortDescription:ShortDescription,
+        LongDescription:LongDescription,
+        Keywords:Keywords
     };
     $.ajax({
-        url: baseUrl + "admin/manage_lawyers/new",
+        url:  baseUrl + "admin/manage_lawyer/new",
         data: postData,
         type: "POST",
         success: function (output) {
@@ -121,20 +127,20 @@ $("#addLawyerBtn").on("click", function () {
 //When Approval Modal Shows Up
 $(".approval-modal").on("shown.bs.modal", function (e) {
     var button = $(e.relatedTarget); // Button that triggered the modal
-    var lawyerID = button.parents("tr").attr("data-id");
-    var Lawyer = button.parents("tr").find('td').eq(1).text();
+    var ID = button.parents("tr").attr("data-id");
+    var Name = button.parents("tr").find('td').eq(1).text();
     var modal = $(this);
-    modal.find("input#hiddenUserID").val(lawyerID);
-    var Message = 'Are you sure you want to trash record of: <strong>'+Lawyer+'</strong>';
+    var Message = 'Are you sure you want to trash record of: <strong>'+Name+'</strong>';
+    modal.find("input#hiddenUserID").val(ID);
     modal.find(".modal-body").find('p').html(Message);
-    modal.find('.modal-header').find('h4').html('Trash <strong>'+Lawyer+'</strong>');
+    modal.find('.modal-header').find('h4').html('Trash <strong>'+Name+'</strong>');
 });
 //When Yes has been Selected on Approval Modal, Just Trash the Selected Data.
 $("#yesApprove").on("click", function () {
     var hiddenModalID = $(this).parents(".modal-content").find("#hiddenUserID").val();
     var postData = {id: hiddenModalID, value: "trash"};
     $.ajax({
-        url: baseUrl + "admin/manage_lawyers/trash",
+        url: baseUrl + "admin/manage_lawyer/trash",
         data: postData,
         type: "POST",
         success: function (output) {
@@ -157,7 +163,7 @@ $("#yesApprove").on("click", function () {
         var hiddenModalUserID = $(this).parents(".modal-content").find("#hiddenUserID").val();
         var postData = {id: hiddenModalUserID, value: "untrash"};
         $.ajax({
-            url: baseUrl + "admin/manage_lawyers/trash",
+            url: baseUrl + "admin/manage_lawyer/trash",
             data: postData,
             type: "POST",
             success: function (output) {
@@ -180,7 +186,7 @@ $("#yesApprove").on("click", function () {
         var hiddenModalUserID = $(this).parents(".modal-content").find("#hiddenUserID").val();
         var postData = {id: hiddenModalUserID, value: "delete"};
         $.ajax({
-            url: baseUrl + "admin/manage_lawyers/delete",
+            url: baseUrl + "admin/manage_lawyer/delete",
             data: postData,
             type: "POST",
             success: function (output) {
@@ -202,46 +208,47 @@ $("#yesApprove").on("click", function () {
 
 
 
-    /*Now for Edit Lawyer Modal */
+    /*Now for Edit Modal */
     //On Modal Load
-    $("#editLawyersModal").on("shown.bs.modal", function (e) {
+    $("#editModal").on("shown.bs.modal", function (e) {
         var button = $(e.relatedTarget); // Button that triggered the modal
         var ID = button.parents("tr").attr("data-id");
-        var Lawyer = button.parents("tr").find('td').eq(1).text();
+        var Name = button.parents("tr").find('td').eq(1).text();
         var Phone = button.parents("tr").find('td').eq(2).text();
         var Email = button.parents("tr").find('td').eq(3).text();
         var Website = button.parents("tr").find('td').eq(4).text();
         var modal = $(this);
         //Populating the Inputs
         modal.find("input#hiddenID").val(ID);
-        modal.find("input#lawyer_editNameTextBox").val(Lawyer);
-        modal.find("input#lawyer_editPhoneTextBox").val(Phone);
-        modal.find("input#lawyer_editEmailBox").val(Email);
-        modal.find("input#lawyer_editWebsiteBox").val(Website);
+        modal.find("input#editNameTextBox").val(Name);
+        modal.find("input#editPhoneTextBox").val(Phone);
+        modal.find("input#editEmailBox").val(Email);
+        modal.find("input#editWebsiteBox").val(Website);
     });
 
-    //On Edit Modal If Update has been clicked, Update the Record.
-    $("#updateLawyersBtn").on("click", function () {
-        var id = $(this).parents(".modal-content").find("#hiddenID").val();
-        var Lawyer = $(this).parents(".modal-content").find("#lawyer_editNameTextBox").val();
-        var Phone = $(this).parents(".modal-content").find("#lawyer_editPhoneTextBox").val();
-        var Email = $(this).parents(".modal-content").find("#lawyer_editEmailBox").val();
-        var Website = $(this).parents(".modal-content").find("#lawyer_editWebsiteBox").val();
-        var postData = {
+
+     //On Edit Modal If Update has been clicked, Update the Record.
+    $("#updateBtn").on("click", function () {
+        var id          = $(this).parents(".modal-content").find("#hiddenID").val();
+        var Name        = $(this).parents(".modal-content").find("#editNameTextBox").val();
+        var Phone       = $(this).parents(".modal-content").find("#editPhoneTextBox").val();
+        var Email       = $(this).parents(".modal-content").find("#editEmailBox").val();
+        var Website     = $(this).parents(".modal-content").find("#editWebsiteBox").val();
+        var postData    = {
             id: id,
-            Lawyer: Lawyer,
+            Name: Name,
             Phone:Phone,
             Email:Email,
             Website:Website
         };
         $.ajax({
-            url: baseUrl + "admin/manage_lawyers/update",
+            url: baseUrl + "admin/manage_lawyer/update",
             data: postData,
             type: "POST",
             success: function (output) {
                 var data = output.trim().split("::");
                 if (data[0] === "OK") {
-                    $("#editLawyersModal").modal('hide');
+                    $("#editModal").modal('hide');
                     oTable.fnDraw();
                 }
                 if(data[3]){
@@ -257,20 +264,42 @@ $("#yesApprove").on("click", function () {
 /*--------LOGO JOB---------*/
 //    When Modal is Opened
     $(".logo-edit-modal").on("shown.bs.modal", function (e) {
-        var button = $(e.relatedTarget); // Button that triggered the modal
-        var ID = button.parents("tr").attr("data-id");
-        var name = button.parents("tr").find('td').eq(1).text();
-        var src = button.attr('src');
-        var modal = $(this);
+        var button  = $(e.relatedTarget); // Button that triggered the modal
+        var ID      = button.parents("tr").attr("data-id");
+        var name    = button.parents("tr").find('td').eq(1).text();
+        var src     = button.attr('src');
+        var modal   = $(this);
         modal.find("input#hiddenUserID").val(ID);
         modal.find("img#logo-show").attr('src', src);
-        modal.find(".modal-body").find('p > strong').text(' "' + name + '"');
+        modal.find(".modal-body").find('p > strong').text(' "' + type + '"');
+    });
+
+    $(".image-edit-modal").on("shown.bs.modal", function (e) {
+        var button  = $(e.relatedTarget);
+        var ID      = $("#hiddenListID").val();
+        var type    = button.attr('data-type');
+        var src     = button.attr('src');
+        var modal   = $(this);
+        modal.find("input#hiddenID").val(ID);
+        modal.find("img#image-show").attr('src', src);
+        modal.find(".modal-header").find('h4 > spane').text(' "' + type + '"');
+        modal.find(".modal-footer").find('#updateImage').attr('data-type',type);
     });
 
 
 //    When New Logo is Selected
     $("#update-logo-file").change(function(){
         readURL(this,'#logo-show');
+    });
+    $("#update-image-file").change(function(){
+        readURL(this,'#image-show');
+    });
+
+    $("#banner-file").change(function(){
+        readURL(this,'#banner-show');
+    });
+    $("#Logo-file").change(function(){
+        readURL(this,'#Logo-show');
     });
 
     //Function for Rendering Image
@@ -299,7 +328,7 @@ $("#yesApprove").on("click", function () {
                 $.ajax({
                     crossOrigin: true,
                     type: 'POST',
-                    url: baseUrl + "admin/manage_lawyers/updateLogo",
+                    url: baseUrl + "admin/manage_lawyer/updateLogo",
                     data: formData,
                     processData: false,
                     contentType: false
@@ -321,5 +350,40 @@ $("#yesApprove").on("click", function () {
         }
     });
 
-    
+
+    $("#updateImage").on("click", function () {
+        var hiddenModalID   = $(this).parents(".modal-content").find("#hiddenID").val();
+        var hiddenTypeImage = $(this).parents(".modal-content").find("#hiddenTypeImage").val();
+        var input = $(this).parents(".modal-content").find("#update-image-file")[0];
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                var formData = new FormData();
+                formData.append('image', input.files[0]);
+                formData.append('id', hiddenModalID);
+                formData.append('type', hiddenTypeImage);
+                $.ajax({
+                    crossOrigin: true,
+                    type: 'POST',
+                    url: baseUrl + "admin/manage_lawyer/updateImage",
+                    data: formData,
+                    processData: false,
+                    contentType: false
+                }).done(function (response) {
+                    var data = response.trim().split("::");
+                    if (data[0] == 'OK') {
+                        $(".image-edit-modal").modal('hide');
+                        oTable.fnDraw();
+                    }
+                    if(data[3]){
+                        Haider.notification(data[1],data[2],data[3]);
+                    }else{
+                        Haider.notification(data[1],data[2]);
+                    }
+                });
+
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    });
 });//End of Document Ready Function.

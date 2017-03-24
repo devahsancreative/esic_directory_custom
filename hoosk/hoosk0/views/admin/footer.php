@@ -458,7 +458,7 @@
         || $this->router->fetch_method() === 'manage_sectors' 
         || $this->router->fetch_method() === 'manage_rd'
         || $this->router->fetch_method() === 'manage_acc_commercials' 
-        || $this->router->fetch_method() === 'manage_lawyers'
+        || $this->router->fetch_class() === 'Lawyer'
         || $this->router->fetch_class() === 'GrantRecipients'
         || $this->router->fetch_class() === 'RndConsultant'  
         || $this->router->fetch_class() === 'GrantConsultant' 
@@ -856,7 +856,7 @@
 
 
 
-<?php } if ($this->router->fetch_method() === 'manage_lawyers') { ?>
+<?php } if ($this->router->fetch_class() === 'Lawyer') { ?>
 
     <script src="<?= base_url()?>assets/js/admin-lawyers.js"></script>
 
