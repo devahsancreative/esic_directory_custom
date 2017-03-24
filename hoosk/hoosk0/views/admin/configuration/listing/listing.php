@@ -2,6 +2,9 @@
 if(!isset($ListingName) || empty($ListingName)){
     $ListingName = '';
 }
+if(!isset($ListingLabel) || empty($ListingLabel)){
+    $ListingLabel = '';
+}
 if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
     $ControllerRouteName = '';
 }
@@ -15,12 +18,12 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            <?= $ListingName; ?>
+            <?= $ListingLabel; ?>
             <small>LIST</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="<?= base_url()?>admin"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-            <li><a href="#"><?= $ListingName; ?></a></li>
+            <li><a href="#"><?= $ListingLabel; ?></a></li>
             <li class="active">list</li>
         </ol>
     </section>
@@ -74,7 +77,7 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Manage <?= $ListingName; ?></h3>
+                        <h3 class="box-title">Manage <?= $ListingLabel; ?></h3>
                         <div class="add-New-container">
                             <a href="<?= base_url().$ControllerRouteName.'/Add'; ?>" class="addNewBtn">Add New</a>
                         </div>
@@ -85,7 +88,7 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
                             <thead>
                             <tr>
                                 <th>ID</th>
-                                <th><?= $ListingName; ?></th>
+                                <th><?= $ListingLabel; ?></th>
                                 <th>Cell/Phone</th>
                                 <th>Email</th>
                                 <th>Website</th>
@@ -99,7 +102,7 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
                             <tfoot>
                             <tr>
                                 <th>ID</th>
-                                <th><?= $ListingName; ?></th>
+                                <th><?= $ListingLabel; ?></th>
                                 <th>Cell/Phone</th>
                                 <th>Email</th>
                                 <th>Website</th>
@@ -133,7 +136,7 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Update <?= $ListingName; ?> Logo</h4>
+                <h4 class="modal-title">Update <?= $ListingLabel; ?> Logo</h4>
             </div>
 
             <div class="modal-body">
@@ -142,7 +145,7 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
                         <div class="form-group">
                             <input type="hidden" id="hiddenUserID">
                             <input type="hidden" id="hiddenID">
-                            <label for="editStatusTextBox">Update <?= $ListingName; ?></label>
+                            <label for="editStatusTextBox">Update <?= $ListingLabel; ?></label>
                             <div class="img-container img-logo img-responsive">
                                 <img src="dummy" class="image-show" id="logo-show" />
                             </div>

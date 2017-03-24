@@ -1,304 +1,142 @@
 <div class="push"></div>
-
 </div>
-
 </div>
-
 <footer class="main-footer">
-
     <div class="pull-right hidden-xs">
-
     </div>
-
     <strong>Powered By <a href="http://creativetech-solutions.com/" target="_blank">Creativetech-Solutions</a>.
     </strong>
-
 </footer>
-
-
-
 <!-- remote modals -->
-
 <div id="remote-modals">
-
     <div class="modal fade" id="ajaxModal" aria-labelledby="ajaxModal" aria-hidden="true">
-
         <div class="modal-dialog">
-
             <div class="modal-content">
-
             </div> <!-- /.modal-content -->
-
         </div> <!-- /.modal-dialog -->
-
     </div> <!-- /.modal -->
-
 </div>
 <?php
-
     if($this->router->fetch_method() === 'assessments_list' || $this->router->fetch_method() === 'details'){
-
 ?>
-
-<!--added by hamid raza-->
-
- 
 <!--end  -->
-
 <!--Edit Ward Modal-->
-
-
 <div class="modal approval-modal">
-
     <div class="modal-dialog">
-
         <div class="modal-content">
-
             <div class="modal-header">
-
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-
                 <h4 class="modal-title">Update Esic Status</h4>
-
             </div>
-
-
-
             <div class="modal-body">
-
                 <div class="row">
-
                     <div class="col-md-12">
-
                         <div class="form-group">
-
                             <input type="hidden" id="hiddenUserID">
-
-                          <!--  <input type="hidden" id="hiddenID">-->
-
                             <label for="editStatusTextBox">Update the Pre-Assessment Esic Status</label>
-
                             <select id="editStatusTextBox" name="editStatusTextBox" style="width: 80%;">
-
                                     <option value="0">Select...</option>
-
                                      <?php 
-
                                         $esic_status_all = $this->Common_model->select('esic_status');
-
                                         if(isset($esic_status_all) and !empty($esic_status_all)){
-
                                             foreach($esic_status_all as $esicstatus){
-
                                                  echo '<option value="'.$esicstatus->id.'">'.$esicstatus->status.'</option>';
-
                                              }
-
                                         }   
-
                                     ?>    
-
                             </select>
-
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
-
-
             <div class="modal-footer">
-
                 <button type="button" class="btn btn-danger mright" id="saveStatus" data-id="">Save</button>
-
                 <button type="button" class="btn btn-success" data-dismiss="modal" aria-label="Close">Cancel</button>
-
             </div>
-
-
-
         </div><!-- /.modal-content -->
-
     </div><!-- /.modal-dialog -->
-
 </div><!-- /.modal -->
-
-<!-- /.End Edit Ward Modal --><!-- /.modal -->
-
-
-
+<!-- /.End Edit Ward Modal -->
+<!-- /.modal -->
 <!--Edit Ward Modal-->
 
 <div class="modal publish-modal">
-
     <div class="modal-dialog">
-
         <div class="modal-content">
-
             <div class="modal-header">
-
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-
                 <h4 class="modal-title">Publish Esic</h4>
-
             </div>
-
-
-
             <div class="modal-body">
-
                 <div class="row">
-
                     <input type="hidden" id="hiddenUserID">
-
                     <div class="col-md-12">
-
                         <p>Are You Sure To Publish This Entry?</p>
-
                     </div>
-
                 </div>
-
             </div>
-
-
-
             <div class="modal-footer">
-
                 <button type="button" class="btn btn-success" id="yesPublish">Yes</button>
-
                 <button type="button" class="btn btn-danger mright" data-dismiss="modal" aria-label="Close">No</button>
-
             </div>
-
-
-
         </div><!-- /.modal-content -->
-
     </div><!-- /.modal-dialog -->
-
 </div><!-- /.modal -->
-
 <!-- /.End Edit Ward Modal --><!-- /.modal -->
-
 <!--Edit Ward Modal-->
 
 <div class="modal unpublish-modal">
-
     <div class="modal-dialog">
-
         <div class="modal-content">
-
             <div class="modal-header">
-
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-
                 <h4 class="modal-title">UnPublish Esic</h4>
-
             </div>
-
-
-
             <div class="modal-body">
-
                 <div class="row">
-
                     <input type="hidden" id="hiddenUserID">
-
                     <div class="col-md-12">
-
                         <p>Are You Sure To UnPublish This Entry?</p>
-
                     </div>
-
                 </div>
-
             </div>
-
-
-
             <div class="modal-footer">
-
                 <button type="button" class="btn btn-success" id="yesUnPublish">Yes</button>
-
                 <button type="button" class="btn btn-danger mright" data-dismiss="modal" aria-label="Close">No</button>
-
             </div>
-
-
-
         </div><!-- /.modal-content -->
-
     </div><!-- /.modal-dialog -->
-
 </div><!-- /.modal -->
-
 <!-- /.End Edit Ward Modal --><!-- /.modal -->
-
-
-
-
 
 <!--Edit Ward Modal-->
 
 <div class="modal delete-modal">
-
     <div class="modal-dialog">
-
         <div class="modal-content">
-
             <div class="modal-header">
-
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-
                 <h4 class="modal-title">Deleted Status</h4>
-
             </div>
-
-
-
             <div class="modal-body">
-
                 <div class="row">
-
                     <input type="hidden" id="hiddenUserID">
-
                     <div class="col-md-12">
-
                         <p>Are You Sure To Delete This Entry?</p>
-
                     </div>
-
                 </div>
-
             </div>
-
-
-
             <div class="modal-footer">
-             <button type="button" class="btn btn-success" id="yesDelete">Yes</button>
-             <button type="button" class="btn btn-danger mright" data-dismiss="modal" aria-label="Close" id="nodelete">No</button>
+                <button type="button" class="btn btn-success" id="yesDelete">Yes</button>
+                <button type="button" class="btn btn-danger mright" data-dismiss="modal" aria-label="Close" id="nodelete">No</button>
             </div>
-
-
-
         </div><!-- /.modal-content -->
-
     </div><!-- /.modal-dialog -->
-
 </div><!-- /.modal -->
-
 <!-- /.End Edit Ward Modal --><!-- /.modal -->
 
-
-
 <?php
-
     }else if($this->router->fetch_method() === 'manage_status') {
-
 ?>
 
 

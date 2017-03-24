@@ -36,8 +36,10 @@ class RndConsultant extends MY_Controller {
         $url = str_replace('https://', '', $url);
         define ('DoucmentUrl', $url);
         $this->load->helper('view');
-        $this->data['ControllerRouteName'] = $this->ControllerRouteName;
-        $this->data['ListingName'] = $this->Name;
+        $this->data['ControllerName']       = $this->ControllerName;
+        $this->data['ControllerRouteName']  = $this->ControllerRouteName;
+        $this->data['ListingName']  = $this->Name;
+        $this->data['ListingLabel'] = $this->NameMessage;
 
     }
     public function ManageRndConsultant($param=NULL){
@@ -50,7 +52,6 @@ class RndConsultant extends MY_Controller {
     }
     public function AddSave(){
         $this->data['return'] = ViewHelperNewSave();
-        $this->data['ControllerName'] = $this->ControllerRouteName;
         $this->show_admin('admin/configuration/'.$this->ViewFolderName.'/listing' , $this->data);
         return Null;
     }

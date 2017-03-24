@@ -2,6 +2,9 @@
 if(!isset($ListingName) || empty($ListingName)){
     $ListingName = '';
 }
+if(!isset($ListingLabel) || empty($ListingLabel)){
+    $ListingLabel = '';
+}
 if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
     $ControllerRouteName = '';
 }
@@ -31,12 +34,12 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
     <!-- Content Header (Page header) -->
 <section class="content-header">
         <h1>
-            <?= $ListingName ; ?>
+            <?= $ListingLabel ; ?>
             <small>Add</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="<?= base_url()?>admin"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-            <li><a href="#"><?= $ListingName ; ?></a></li>
+            <li><a href="#"><?= $ListingLabel ; ?></a></li>
             <li class="active">Add</li>
         </ol>
     </section>
@@ -83,7 +86,7 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
             <div class="col-md-12">
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="box-title">Add <?= $ListingName ; ?></h3>
+                            <h3 class="box-title">Add <?= $ListingLabel ; ?></h3>
                             <div class="add-New-container">
                                 <a href="<?= base_url().$ControllerRouteName.'/Listing'?>" class="btn addNewBtn btn-primary">Go To Listing</a>
                                 <a href="<?= base_url().$ControllerRouteName.'/Edit/'.$id;?>" class="btn addNewBtn btn-primary">Edit</a>

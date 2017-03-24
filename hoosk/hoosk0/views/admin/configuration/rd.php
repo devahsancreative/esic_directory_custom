@@ -3,12 +3,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            R&D
+            R&D Partners
             <small>LIST</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="<?= base_url()?>admin"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-            <li><a href="#">R&D</a></li>
+            <li><a href="#">R&D Partners</a></li>
             <li class="active">list</li>
         </ol>
     </section>

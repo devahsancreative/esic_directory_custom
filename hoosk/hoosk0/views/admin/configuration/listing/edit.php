@@ -2,6 +2,9 @@
 if(!isset($ListingName) || empty($ListingName)){
     $ListingName = '';
 }
+if(!isset($ListingLabel) || empty($ListingLabel)){
+    $ListingLabel = '';
+}
 if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
     $ControllerRouteName = '';
 }
@@ -31,12 +34,12 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
     <!-- Content Header (Page header) -->
 <section class="content-header">
         <h1>
-            <?= $ListingName ; ?>
+            <?= $ListingLabel ; ?>
             <small>Edit</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="<?= base_url()?>admin"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-            <li><a href="#"><?= $ListingName ; ?></a></li>
+            <li><a href="#"><?= $ListingLabel ; ?></a></li>
             <li class="active">Edit</li>
         </ol>
     </section>
@@ -84,7 +87,7 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
                 <form action="<?= base_url().$ControllerRouteName.'/EditSave'?>" method="post" class="form" enctype="multipart/form-data">
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="box-title">Edit <?= $ListingName ; ?></h3>
+                            <h3 class="box-title">Edit <?= $ListingLabel ; ?></h3>
                             <div class="add-New-container">
                                  <a href="<?= base_url().$ControllerRouteName.'/Listing'?>" class="addNewBtn">Listing</a>
                             </div>
