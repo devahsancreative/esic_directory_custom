@@ -280,7 +280,7 @@
         $StreetNumber = $ci->input->post('address_streetNumber');
         $StreetName = $ci->input->post('address_streetName');
         $Town = $ci->input->post('address_town');
-        $State = $ci->input->post('address_estate');
+        $State = $ci->input->post('address_state');
         $PostCode = $ci->input->post('address_postCode');
 
 

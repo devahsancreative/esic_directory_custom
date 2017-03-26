@@ -140,8 +140,8 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
                                             </div>
 
                                             <div class="form-group col-lg-2">
-                                                <label for="address_estate">Estate</label>
-                                                <input type="text" name="address_estate" id="address_estate" <?=(isset($address_estate) and !empty($address_estate))?$address_estate:''?> class="form-control">
+                                                <label for="address_state">Estate</label>
+                                                <input type="text" name="address_state" id="address_state" <?=(isset($address_estate) and !empty($address_estate))?$address_estate:''?> class="form-control">
                                             </div>
 
                                             <div class="form-group col-lg-2">
