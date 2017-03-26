@@ -53,8 +53,36 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
     $name       = $data->name; 
     $phone      = $data->phone; 
     $website    = $data->website; 
-    $email      = $data->email; 
-    $address    = $data->address; 
+    $email      = $data->email;
+
+    //Address Fields
+    $address_streetNumber = $data->address_street_number;
+    $address_streetName = $data->address_street_name;
+    $address_town = $data->address_town;
+    $address_state = $data->address_state;
+    $address_postCode = $data->address_post_code;
+
+    //Default Address Block set to false, Not To Show.
+    $address = false;
+
+    $address_arguments = [
+        $address_streetNumber,
+        $address_streetName,
+        $address_town,
+        $address_state,
+        $address_postCode,
+    ];
+
+    //This Function will only work in PHP 5.6 and above :)
+    if(!( $result = m_empty(...$address_arguments))){
+        //If any of the value in array is not empty should be considered not empty address and address box should show up.
+        //Not Empty
+        $address = true;
+    }else{
+        //If All the address fields are empty, then box does not need to be shown.
+        //If Empty
+        $address = false;
+    }
     
     $keywords   = $data->keywords; 
     $banner     = $data->banner; 
@@ -119,13 +147,29 @@ $ci->load->model("Common_model");
                         <p class=""><?= $email; ?></p>
                     </div>
                 <?php } ?>
-                <?php if(!empty($address)){ ?>
+                <?php if($address){ ?>
                     <div class="address-container">
-                        <label for="">Address:</label>
-                        <p class=""><?= $address; ?></p>
+                        <div class="address-text">
+                            <strong><i class="fa fa-globe margin-r-5"></i>Address</strong>
+                            <?php if(!empty($address_streetNumber)){?>
+                                <div class="text-muted">Street Number: <span class="street_number"><?=$address_streetNumber;?></span></div>
+                            <?php } ?>
+                            <?php if(!empty($address_streetName)){?>
+                                <div class="text-muted">Street Name: <span class="street_name"><?=$address_streetName;?></span></div>
+                            <?php } ?>
+                            <?php if(!empty($address_town)){?>
+                                <div class="text-muted">Town: <span class="town"><?=$address_town?></span></div>
+                            <?php } ?>
+                            <?php if(!empty($address_state)){?>
+                                <div class="text-muted">State: <span class="state"> <?=$address_state?> </span></div>
+                            <?php } ?>
+                            <?php if(!empty($address_postCode)){?>
+                                <div class="text-muted">Post Code: <span class="post_code"><?=$address_postCode?></span></div>
+                            <?php } ?>
+                        </div>
                     </div>
                 <?php } ?>
-                <br>
+
                 <div class="text-center">
                     <a href="<?= base_url().$ControllerRouteName.'/Listing'?>" class="btn addNewBtn btn-primary">Go To Listing</a>
                     <a href="<?= base_url().$ControllerRouteName.'/Edit/'.$id;?>" class="btn addNewBtn btn-primary">Edit</a>

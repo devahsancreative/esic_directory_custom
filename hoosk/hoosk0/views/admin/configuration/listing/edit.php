@@ -50,18 +50,25 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
         return 'Sorry No ID Set';
     }
     if(isset($data) && !empty($data)){
-    $name       = $data->name; 
-    $phone      = $data->phone; 
-    $website    = $data->website; 
-    $email      = $data->email; 
-    $address    = $data->address; 
-    
-    $keywords   = $data->keywords; 
-    $banner     = $data->banner; 
-    $logo       = $data->logo; 
+        $name = $data->name;
+        $phone = $data->phone;
+        $website = $data->website;
+        $email = $data->email;
 
-    $short_description  = $data->short_description; 
-    $long_description   = $data->long_description; 
+        //Getting Address Fields
+        $address_streetNumber = $data->address_street_number;
+        $address_streetName = $data->address_street_name;
+        $address_town = $data->address_town;
+        $address_state = $data->address_state;
+        $address_postCode = $data->address_post_code;
+
+
+        $keywords = $data->keywords;
+        $banner = $data->banner;
+        $logo = $data->logo;
+
+        $short_description = $data->short_description;
+        $long_description = $data->long_description;
 
     }else{
 
@@ -113,10 +120,45 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
                                         <label for="WebsiteBox">Website</label>
                                         <input type="text" name="Website" id="WebsiteBox" value="<?= $website;?>" class="form-control" />
                                     </div>
+
+                                    <div class="form-group">
+                                        <label for="AddressBox">Address :</label>
+                                        <div class="row">
+                                            <div class="form-group col-lg-2">
+                                                <label for="address_streetNumber">Street Number</label>
+                                                <input type="text" name="address_streetNumber" id="address_streetNumber" value="<?=(isset($address_streetNumber) and !empty($address_streetNumber))?$address_streetNumber:''?>" class="form-control">
+                                            </div>
+
+                                            <div class="form-group col-lg-3">
+                                                <label for="address_streetName">Street Name</label>
+                                                <input type="text" name="address_streetName" id="address_streetName" value="<?=(isset($address_streetName) and !empty($address_streetName))?$address_streetName:''?>" class="form-control">
+                                            </div>
+
+                                            <div class="form-group col-lg-3">
+                                                <label for="address_town">Town</label>
+                                                <input type="text" name="address_town" id="address_town" <?=(isset($address_town) and !empty($address_town))?$address_town:''?> class="form-control">
+                                            </div>
+
+                                            <div class="form-group col-lg-2">
+                                                <label for="address_estate">Estate</label>
+                                                <input type="text" name="address_estate" id="address_estate" <?=(isset($address_estate) and !empty($address_estate))?$address_estate:''?> class="form-control">
+                                            </div>
+
+                                            <div class="form-group col-lg-2">
+                                                <label for="address_postCode">Post Code</label>
+                                                <input type="text" name="address_postCode" id="address_postCode" <?=(isset($address_postCode) and !empty($address_postCode))?$address_postCode:''?> class="form-control">
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
                                     <div class="form-group">
                                         <label for="AddressBox">Address</label>
                                         <input type="text" name="Address" id="AddressBox" value="<?= $address;?>" class="form-control" />
                                     </div>
+
+
                                     <div class="form-group">
                                         <label for="ShortDescriptionBox">Short Description</label>
                                         <textarea type="text" name="ShortDescription" id="ShortDescriptionBox" class="form-control"><?= $short_description ?></textarea>

@@ -76,10 +76,38 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
                                         <label for="WebsiteBox">Website</label>
                                         <input type="text" name="Website" id="WebsiteBox" class="form-control" />
                                     </div>
+<!--                                    Address with multiple columns-->
                                     <div class="form-group">
-                                        <label for="AddressBox">Address</label>
-                                        <input type="text" name="Address" id="AddressBox" class="form-control" />
+                                        <label for="AddressBox">Address :</label>
+                                        <div class="row">
+                                            <div class="form-group col-lg-2">
+                                                <label for="address_streetNumber">Street Number</label>
+                                                <input type="text" name="address_streetNumber" id="address_streetNumber" class="form-control">
+                                            </div>
+
+                                            <div class="form-group col-lg-3">
+                                                <label for="address_streetName">Street Name</label>
+                                                <input type="text" name="address_streetName" id="address_streetName" class="form-control">
+                                            </div>
+
+                                            <div class="form-group col-lg-3">
+                                                <label for="address_town">Town</label>
+                                                <input type="text" name="address_town" id="address_town" class="form-control">
+                                            </div>
+
+                                            <div class="form-group col-lg-2">
+                                                <label for="address_estate">Estate</label>
+                                                <input type="text" name="address_estate" id="address_estate" class="form-control">
+                                            </div>
+
+                                            <div class="form-group col-lg-2">
+                                                <label for="address_postCode">Post Code</label>
+                                                <input type="text" name="address_postCode" id="address_postCode" class="form-control">
+                                            </div>
+                                        </div>
+
                                     </div>
+
                                     <div class="form-group">
                                         <label for="ShortDescriptionBox">Short Description</label>
                                         <textarea type="text" name="ShortDescription" id="ShortDescriptionBox" class="form-control"> </textarea>

@@ -19,7 +19,6 @@
             phone AS Phone,
             website AS Website,
             email AS Email,
-            address AS Address,
             logo AS Logo,
             CASE WHEN trashed = 1 THEN CONCAT(\'<span class="label label-danger">YES</span>\') WHEN trashed = 0 THEN CONCAT(\'<span class="label label-success">NO</span>\') ELSE "" END AS Trashed
             ',false);
@@ -273,7 +272,19 @@
         $Phone   = $ci->input->post('Phone');
         $Email   = $ci->input->post('Email');
         $Website = $ci->input->post('Website');
-        $Address = $ci->input->post('Address');
+        //Need to have Separate Logic for Address.
+        //If Address is a single String then store it as a Single String.
+        //Else, We Would Need to Combine multiple Address Fields in to One JSON.
+
+        //Multi Field Address
+        $StreetNumber = $ci->input->post('address_streetNumber');
+        $StreetName = $ci->input->post('address_streetName');
+        $Town = $ci->input->post('address_town');
+        $State = $ci->input->post('address_estate');
+        $PostCode = $ci->input->post('address_postCode');
+
+
+
         $ShortDescription = $ci->input->post('ShortDescription');
         $LongDescription  = $ci->input->post('LongDescription');
         $Keywords = $ci->input->post('Keywords');
@@ -289,7 +300,11 @@
             'phone'     => $Phone,
             'email'     => $Email,
             'website'   => $Website,
-            'address'   => $Address,
+            'address_street_number'   => $StreetNumber,
+            'address_street_name'   => $StreetName,
+            'address_town'   => $Town,
+            'address_state'   => $State,
+            'address_post_code'   => $PostCode,
             'short_description' => $ShortDescription,
             'long_description'  => $LongDescription,
             'keywords'  => $Keywords

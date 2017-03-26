@@ -542,3 +542,25 @@ function lawyerImage($dbData=false){
 }
 
 
+//Validate if its a Valid JSON String.
+if(!function_exists('isJson')){
+    function isJson($string) {
+        return is_string($string) && is_array(json_decode($string, true)) && (json_last_error() == JSON_ERROR_NONE) ? true : false;
+    }
+}
+
+//Check if Provided Items in Arguments are actually empty or not,
+//If anyone of them are empty return true. else return false if none is empty
+if(!function_exists('m_empty')){
+    function m_empty()
+    {
+        foreach(func_get_args() as $arg)
+            if(empty($arg))
+                continue;
+            else
+                return false;
+        return true;
+    }
+}
+
+
