@@ -81,5 +81,5 @@ class Lawyer extends MY_Controller {
         $this->data['data'] = $this->Common_model->select_fields_where($this->tableName ,'*' ,$where,true);
         $this->show_admin('admin/configuration/'.$this->ViewFolderName.'/detail' , $this->data);
         return Null;
-    }  
+    }
 }

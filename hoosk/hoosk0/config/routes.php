@@ -789,6 +789,12 @@ $route['results_innovators'] = "Esic2/getfilterlist";
 
 
 
+//Front End Add Listings.
+$route['add_lawyer'] = "Listing/add_lawyer";
+//$route['add_lawyer/(:any)'] = "Listing/add_lawyer/$1";
+
+
+
 // Default
 $route['(.+)'] = "hoosk_default";
 
