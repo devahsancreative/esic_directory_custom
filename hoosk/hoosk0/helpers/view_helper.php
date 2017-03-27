@@ -438,10 +438,24 @@
         $Phone   = $ci->input->post('Phone');
         $Email   = $ci->input->post('Email');
         $Website = $ci->input->post('Website');
-        $Address = $ci->input->post('Address');
+       // $Address = $ci->input->post('Address');
         $ShortDescription = $ci->input->post('ShortDescription');
         $LongDescription  = $ci->input->post('LongDescription');
         $Keywords = $ci->input->post('Keywords');
+
+
+
+        //Need to have Separate Logic for Address.
+        //If Address is a single String then store it as a Single String.
+        //Else, We Would Need to Combine multiple Address Fields in to One JSON.
+
+        //Multi Field Address
+        $StreetNumber = $ci->input->post('address_streetNumber');
+        $StreetName = $ci->input->post('address_streetName');
+        $Town = $ci->input->post('address_town');
+        $State = $ci->input->post('address_state');
+        $PostCode = $ci->input->post('address_postCode');
+
 
         if(empty($Name)){
             $error = "FAIL::".$ci->NameMessage." Name is a required field::error::Required!!";
@@ -455,7 +469,11 @@
             'phone'     => $Phone,
             'email'     => $Email,
             'website'   => $Website,
-            'address'   => $Address,
+            'address_street_number'   => $StreetNumber,
+            'address_street_name'   => $StreetName,
+            'address_town'   => $Town,
+            'address_state'   => $State,
+            'address_post_code'   => $PostCode,
             'short_description' => $ShortDescription,
             'long_description'  => $LongDescription,
             'keywords'  => $Keywords

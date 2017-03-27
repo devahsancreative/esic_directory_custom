@@ -75,8 +75,16 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
         $name       = ''; 
         $phone      = ''; 
         $website    = ''; 
-        $email      = ''; 
-        $address    = ''; 
+        $email      = '';
+
+        //Getting Address Fields
+        $address_streetNumber = '';
+        $address_streetName = '';
+        $address_town = '';
+        $address_state = '';
+        $address_postCode = '';
+        //$address    = '';
+
         $keywords   = ''; 
         $banner     = ''; 
         $logo       = ''; 
@@ -136,17 +144,17 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
 
                                             <div class="form-group col-lg-3">
                                                 <label for="address_town">Town</label>
-                                                <input type="text" name="address_town" id="address_town" <?=(isset($address_town) and !empty($address_town))?$address_town:''?> class="form-control">
+                                                <input type="text" name="address_town" id="address_town" value="<?=(isset($address_town) and !empty($address_town))?$address_town:''?>" class="form-control">
                                             </div>
 
                                             <div class="form-group col-lg-2">
                                                 <label for="address_state">Estate</label>
-                                                <input type="text" name="address_state" id="address_state" <?=(isset($address_estate) and !empty($address_estate))?$address_estate:''?> class="form-control">
+                                                <input type="text" name="address_state" id="address_state" value="<?=(isset($address_state) and !empty($address_state))?$address_state:''?>" class="form-control">
                                             </div>
 
                                             <div class="form-group col-lg-2">
                                                 <label for="address_postCode">Post Code</label>
-                                                <input type="text" name="address_postCode" id="address_postCode" <?=(isset($address_postCode) and !empty($address_postCode))?$address_postCode:''?> class="form-control">
+                                                <input type="text" name="address_postCode" id="address_postCode" value="<?=(isset($address_postCode) and !empty($address_postCode))?$address_postCode:''?>" class="form-control">
                                             </div>
                                         </div>
 
