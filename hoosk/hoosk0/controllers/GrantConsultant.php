@@ -40,6 +40,7 @@ class GrantConsultant extends MY_Controller {
         $this->data['ControllerRouteName']  = $this->ControllerRouteName;
         $this->data['ListingName']  = $this->Name;
         $this->data['ListingLabel'] = $this->NameMessage;
+        $this->data['itemStatuses'] = $this->Common_model->select('esic_status_flags');
 
     }
     public function ManageGrantConsultant($param=NULL){

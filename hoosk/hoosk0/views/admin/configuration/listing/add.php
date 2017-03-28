@@ -76,7 +76,7 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
                                         <label for="WebsiteBox">Website</label>
                                         <input type="text" name="Website" id="WebsiteBox" class="form-control" />
                                     </div>
-<!--                                    Address with multiple columns-->
+<!--Address with multiple columns-->
                                     <div class="form-group">
                                         <label for="AddressBox">Address :</label>
                                         <div class="row">
@@ -121,6 +121,20 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
                                         <input type="text" name="Keywords" id="KeywordsBox" class="form-control" />
                                     </div>
                                     <div class="form-group">
+                                        <label for="statusFlagBox">Status</label>
+                                        <select id="statusFlagBox" name="statusFlag" class="form-control">                                 
+                                            <?php    
+                                                if(isset($itemStatuses) || !empty($itemStatuses)){
+                                                    foreach ($itemStatuses as $key => $itemStatus) { 
+                                             ?>
+                                                        <option value="<?= $itemStatus->id;?>" > <?= $itemStatus->Label;?></option>
+                                            <?php 
+                                                    }
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
                                         <label for="update-logo-file">Logo</label>
                                         <div class="img-reponsive">
                                             <div class="img-container img-logo img-responsive">
@@ -142,6 +156,16 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
                                             <div class="fileupload fileupload-new" data-provides="fileupload">
                                                 <span class="btn btn-file btn-logo-edit"><span class="fileupload-new">Click To</span><span class="fileupload-exists"> Add</span>
                                                     <input type="file" name="Bannerimage" id="banner-file"  />
+                                                </span>
+                                            </div>
+                                       </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="update-CoDevelopmentAgreement-file">CO-Development Agreement</label>
+                                        <div class="file-reponsive">
+                                            <div class="fileupload fileupload-new" data-provides="fileupload">
+                                                <span class="btn btn-file btn-logo-edit"><span class="fileupload-new">Click To</span><span class="fileupload-exists"> Edit</span>
+                                                    <input type="file" name="CoDevelopmentAgreement" id="CoDevelopmentAgreement-file"  />
                                                 </span>
                                             </div>
                                        </div>

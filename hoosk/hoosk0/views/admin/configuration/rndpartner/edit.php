@@ -81,6 +81,9 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
         $ProposedIP         = $data->ProposedIP;
         $roleDepartment     = $data->roleDepartment;
 
+        $currentStatusID    = $data->status_flag_id;
+        $CoDevelopmentAgreement = $data->CoDevelopmentAgreement;
+
 
     }else{
 
@@ -114,6 +117,9 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
         $ProgramStartDate   = '';
         $ProposedIP         = '';
         $roleDepartment     = '';
+
+        $currentStatusID = '';
+        $CoDevelopmentAgreement = '';
 
     }
 
@@ -225,6 +231,24 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
                                         <input type="text" name="roleDepartment" id="roleDepartmentBox" value="<?= $roleDepartment;?>" class="form-control" />
                                     </div>
                                     <div class="form-group">
+                                        <label for="statusFlagBox">Status</label>
+                                        <select id="statusFlagBox" name="statusFlag" class="form-control">                                 
+                                            <?php    
+                                                if(isset($itemStatuses) || !empty($itemStatuses)){
+                                                    foreach ($itemStatuses as $key => $itemStatus) { 
+                                                         $selected = '';
+                                                        if($itemStatus->id == $currentStatusID){
+                                                            $selected = 'SELECTED';
+                                                        }
+                                             ?>
+                                                        <option value="<?= $itemStatus->id;?> <?= $selected; ?>" > <?= $itemStatus->Label;?></option>
+                                            <?php 
+                                                    }
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
                                         <label for="update-logo-file">Logo</label>
                                         <div class="img-reponsive">
                                             <div class="img-container img-logo img-responsive">
@@ -260,6 +284,22 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
                                             </div>
                                        </div>
                                     </div-->
+                                    <div class="form-group">
+                                        <label for="update-CoDevelopmentAgreement-file">Copy Of CO-Development Agreement</label>
+                                        <div class="file-reponsive">
+                                            <div class="file-container file-logo file-responsive">
+                                                <?php if(!empty($CoDevelopmentAgreement)){ ?>
+                                                        <a href="<?= base_url().$CoDevelopmentAgreement;?>" class="CoDevelopmentAgreement-show btn btn-primary" id="CoDevelopmentAgreement-show" target="_blank" download="<?= $ListingLabel ; ?> Copy Of CO-Development Agreement">Click To Download</a>
+
+                                                <?php  }?>
+                                            </div>
+                                            <div class="fileupload fileupload-new" data-provides="fileupload">
+                                                <span class="btn btn-file btn-logo-edit"><span class="fileupload-new">Click To</span><span class="fileupload-exists"> Edit</span>
+                                                    <input type="file" name="CoDevelopmentAgreement" id="CoDevelopmentAgreement-file"  />
+                                                </span>
+                                            </div>
+                                       </div>
+                                    </div>
                                 </div>
                             </div>
                         </div> <!-- /.box-body -->

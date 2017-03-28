@@ -150,6 +150,20 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
                                         <input type="text" name="roleDepartment" id="roleDepartmentBox" class="form-control" />
                                     </div>
                                     <div class="form-group">
+                                        <label for="statusFlagBox">Status</label>
+                                        <select id="statusFlagBox" name="statusFlag" class="form-control">                                 
+                                            <?php    
+                                                if(isset($itemStatuses) || !empty($itemStatuses)){
+                                                    foreach ($itemStatuses as $key => $itemStatus) { 
+                                             ?>
+                                                        <option value="<?= $itemStatus->id;?>" > <?= $itemStatus->Label;?></option>
+                                            <?php 
+                                                    }
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
                                         <label for="update-logo-file">Logo</label>
                                         <div class="img-reponsive">
                                             <div class="img-container img-logo img-responsive">
@@ -175,6 +189,16 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
                                             </div>
                                        </div>
                                     </div-->
+                                    <div class="form-group">
+                                        <label for="update-CoDevelopmentAgreement-file">CO-Development Agreement</label>
+                                        <div class="file-reponsive">
+                                            <div class="fileupload fileupload-new" data-provides="fileupload">
+                                                <span class="btn btn-file btn-logo-edit"><span class="fileupload-new">Click To</span><span class="fileupload-exists"> Edit</span>
+                                                    <input type="file" name="CoDevelopmentAgreement" id="CoDevelopmentAgreement-file"  />
+                                                </span>
+                                            </div>
+                                       </div>
+                                    </div>
                                 </div>
                             </div>
                         </div> <!-- /.box-body -->
