@@ -148,7 +148,7 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
                                             </div>
 
                                             <div class="form-group col-lg-2">
-                                                <label for="address_state">Estate</label>
+                                                <label for="address_state">State</label>
                                                 <input type="text" name="address_state" id="address_state" value="<?=(isset($address_state) and !empty($address_state))?$address_state:''?>" class="form-control">
                                             </div>
 
@@ -161,10 +161,10 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
                                     </div>
 
 
-                                    <div class="form-group">
+                                    <!--div class="form-group">
                                         <label for="AddressBox">Address</label>
                                         <input type="text" name="Address" id="AddressBox" value="<?= $address;?>" class="form-control" />
-                                    </div>
+                                    </div-->
 
 
                                     <div class="form-group">
@@ -186,7 +186,7 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
                                                  <?php if(!empty($logo)){ ?>
                                                     <img src="<?= base_url().$logo;?>" class="logo-show" id="Logo-show" />
                                                 <?php }else{ ?>
-                                                    <img src="dummy" class="logo-show" id="Logo-show" />
+                                                    <img src="<?= base_url()?>pictures/defaultLogo.png" class="logo-show" id="Logo-show" />
                                                  <?php } ?>
                                             </div>
                                             <div class="fileupload fileupload-new" data-provides="fileupload">
@@ -205,7 +205,7 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
                                                         <img src="<?= base_url().$banner;?>" class="banner-show" id="banner-show" />
 
                                                 <?php }else{ ?>
-                                                        <img src="dummy" class="logo-show" id="banner-show" />
+                                                        <img src="<?= base_url()?>pictures/defaultLogo.png" class="logo-show" id="banner-show" />
                                                 <?php } ?>
                                             </div>
                                             <div class="fileupload fileupload-new" data-provides="fileupload">
@@ -233,8 +233,8 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
 </section>
     <!-- /.content -->
 
-<script src='<?php  echo base_url()?>assets/tinymce/js/tinymce/tinymce.min.js'></script>
-<script src='<?php  echo base_url()?>assets/tinymce/js/tinymce/plugins/jbimages/plugin.min.js'></script>
+<script src='<?= base_url()?>assets/tinymce/js/tinymce/tinymce.min.js'></script>
+<script src='<?= base_url()?>assets/tinymce/js/tinymce/plugins/jbimages/plugin.min.js'></script>
 <!--//<script src='<?php /* echo base_url()*/?>assets/tinymce/js/tinymce/plugins/imageUpload.js'></script>-->
 <script>
  tinymce.init({

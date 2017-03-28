@@ -1,3 +1,8 @@
+<style type="text/css">
+    body .sidebar-menu .treeview-menu>li>a {
+        font-size: 13px;
+    }
+</style>
 <ul class="sidebar-menu">
    <?php      
            
@@ -9,7 +14,6 @@
 	if($userRole == "1"){ 
 	 
 	  ?>
-    
       
     <li>
       <a href="<?php echo BASE_URL; ?>" target="_blank"><i class="fa fa-home"></i><span>Home</span></a>
@@ -69,8 +73,9 @@
         || $current=='Admin/manage_appstatus'
         || $class=='Lawyer'
         || $class=='GrantRecipients'
-        || $class=='RndConsultant'
         || $class=='GrantConsultant'
+        || $class=='RndConsultant'
+        || $class=='RndPartner'
     ){ echo 'active';}?>">
         <a href="#">
             <i class="fa fa-dashboard"></i> <span>Configuration</span>
@@ -80,28 +85,26 @@
         </a>
 
         <ul class="treeview-menu">
-            <li class="<?php if ($current == "Admin/manage_universities") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_universities')?>"><i class="fa fa-circle-o"></i> Universities</a></li>
             
-            <li class="<?php if ($current == "Admin/manage_rd") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_rd')?>"><i class="fa fa-circle-o"></i> R&D Partners</a></li>
-
-            <li class="<?php if ($class == "RndConsultant") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_rndconsultant')?>"><i class="fa fa-circle-o"></i> R&D Consultants</a></li>
-
             <li class="<?php if ($class == "Lawyer") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_lawyer')?>"><i class="fa fa-circle-o"></i> Lawyers</a></li>
 
-            <li class="<?php if ($class == "GrantRecipients") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_grantrecipients')?>"><i class="fa fa-circle-o"></i> Grant Recipients</a></li>
+            <li class="<?php if ($class == "RndPartner") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_rndpartner')?>"><i class="fa fa-circle-o"></i> R&D Partners</a></li>
+
+            <li class="<?php if ($class == "RndConsultant") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_rndconsultant')?>"><i class="fa fa-circle-o"></i> R&D Tax Consultants</a></li>
 
             <li class="<?php if ($class == "GrantConsultant") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_grantconsultant')?>"><i class="fa fa-circle-o"></i> Grant Consultants</a></li>
 
-            <li class="<?php if ($current == "Admin/manage_acc_commercials") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_acc_commercials')?>"><i class="fa fa-circle-o"></i> Acc Commercials</a></li>
-           
             <li class="<?php if ($current == "Admin/manage_accelerators") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_accelerators')?>"><i class="fa fa-circle-o"></i> Accelerators</a></li>
-            
+
+            <li class="<?php if ($current == "Admin/manage_acc_commercials") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_acc_commercials')?>"><i class="fa fa-circle-o"></i> Accelerating Commercialisation</a></li>
+
+            <li class="<?php if ($current == "Admin/manage_universities") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_universities')?>"><i class="fa fa-circle-o"></i> Universities</a></li>
+
             <li class="<?php if ($current == "Admin/manage_sectors") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_sectors')?>"><i class="fa fa-circle-o"></i> Sectors</a></li>
            
             <li class="<?php if ($current == "Admin/manage_status") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_status')?>"><i class="fa fa-circle-o"></i> Status</a></li>
-           
+
             <li class="<?php if ($current == "Admin/manage_appstatus") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_appstatus')?>"><i class="fa fa-circle-o"></i> ABR Status</a></li>
-            
         </ul>
     </li>
    
@@ -190,10 +193,6 @@
         </ul>
     </li>
     
-   
-   <!--------------->
-   
-   
     <li class="<?php if ($current == "Admin/social") { echo "active"; } ?>"><a href="<?php echo BASE_URL ; ?>/admin/social"><i class="fa fa-share-alt"></i> <span><?php echo $this->lang->line('nav_social'); ?></span> </a> </li>
     
     <li class="<?php if ($current == "Admin/settings") { echo "active"; } ?>"><a href="<?php echo BASE_URL ; ?>/admin/settings"><i class="fa fa-cogs"></i> <span><?php echo $this->lang->line('nav_settings'); ?></span> </a> </li>
@@ -207,9 +206,6 @@
         <a href="<?php echo BASE_URL ; ?>/admin/logout"><i class="fa fa-fw fa-power-off"></i> <span><?php echo $this->lang->line('nav_logout'); ?></span></a>
     </li>
 
-    
- <!------------------------------------- Others User permission  ----------------------------------------------------->
- 
 <?php }else{ ?>
 	
      
@@ -221,14 +217,14 @@
         <span><?php echo $this->lang->line('nav_dash'); ?></span> </a>
     </li>
 <?php */?>
-<!------------------------------------  Investor edit profile  ----------------------------------------->
+<!--  Investor edit profile -->
 
 <?php if($userRole == "3"){?>
     <li class="<?php if ($current == "Investor/edit_profile") { echo "active"; } ?>"><a href="<?= base_url('admin/investor/edit_profile')."/".$id;?>"><i class="fa fa-list"></i> <span>Edit Profile</span></a></li>
 <?php }elseif($userRole == "2"){
 ?>
 
-<!------------------------------------  Assessment  edit profile  ----------------------------------------->
+<!--Assessment  edit profile  -->
 
    <li class="<?php if ($current == "Admin/details") { echo "active"; } ?>"><a href="<?= base_url('admin/details')."/".$id;?>"><i class="fa fa-list"></i> <span>Edit Profile</span></a></li>
             <li class="<?php if ($current == "Admin/manage_profile") { echo "active"; } ?>"><a href="<?= base_url('admin/manage_profile')."/".$id;?>"><i class="fa fa-list"></i> <span>Manage Profile</span></a></li>

@@ -315,6 +315,7 @@ $route['Lawyer/EditSave']     = "Lawyer/EditSave";
 
 
 //For Grant Recipients
+/*
 $route['admin/manage_grantrecipients']    	   = "GrantRecipients/ManageGrantRecipients";
 $route['admin/manage_grantrecipients/(:any)']  = "GrantRecipients/ManageGrantRecipients/$1";
 $route['admin/GrantRecipients/view/(:any)']    = "GrantRecipients/View/$1";
@@ -323,7 +324,7 @@ $route['GrantRecipients/Listing']    	= "GrantRecipients/ManageGrantRecipients";
 $route['GrantRecipients/Add']    	   	= "GrantRecipients/Add";
 $route['GrantRecipients/AddSave']      	= "GrantRecipients/AddSave";
 $route['GrantRecipients/Edit/(:any)']  	= "GrantRecipients/Edit/$1";
-$route['GrantRecipients/EditSave']      = "GrantRecipients/EditSave";
+$route['GrantRecipients/EditSave']      = "GrantRecipients/EditSave";*/
 
 
 //For Grant Consultants
@@ -350,15 +351,25 @@ $route['RndConsultant/Edit/(:any)']  	= "RndConsultant/Edit/$1";
 $route['RndConsultant/EditSave']      	= "RndConsultant/EditSave";
 
 
+//For Rnd Partners
+$route['admin/manage_rndpartner']    	  = "RndPartner/ManageRndPartner";
+$route['admin/manage_rndpartner/(:any)']  = "RndPartner/ManageRndPartner/$1";
+$route['admin/RndPartner/view/(:any)']    = "RndPartner/View/$1";
+$route['admin/RndPartner/detail/(:any)']  = "RndPartner/Detail/$1";
+$route['RndPartner/Listing']    	= "RndPartner/ManageRndPartner";
+$route['RndPartner/Add']    	   	= "RndPartner/Add";
+$route['RndPartner/AddSave']      	= "RndPartner/AddSave";
+$route['RndPartner/Edit/(:any)']  	= "RndPartner/Edit/$1";
+$route['RndPartner/EditSave']      	= "RndPartner/EditSave";
+
 
 //For manage_sectors
 $route['admin/manage_sectors']         	= "Admin/manage_sectors";
 $route['admin/manage_sectors/(:any)']   = "Admin/manage_sectors/$1";
 
 
-
+//old Rnd Routes but still active for backfall links
 $route['admin/manage_rd']              	= "Admin/manage_rd";
-
 $route['admin/manage_rd/(:any)']        = "Admin/manage_rd/$1";
 
 

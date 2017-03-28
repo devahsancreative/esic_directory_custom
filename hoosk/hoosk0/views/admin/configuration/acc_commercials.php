@@ -4,12 +4,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Accelerating Commercialization
+            Accelerating Commercialisation
             <small>LIST</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="<?= base_url()?>admin"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-            <li><a href="#">Accelerating Commercialization</a></li>
+            <li><a href="#">Accelerating Commercialisation</a></li>
             <li class="active">list</li>
         </ol>
     </section>
@@ -78,7 +78,7 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Manage Accelerating Commercialization</h3>
+                        <h3 class="box-title">Manage Accelerating Commercialisation</h3>
                         <div class="add-New-container">
                             <a href="#" data-target=".addNewModal" data-toggle="modal" class="addNewBtn">Add New</a>
                         </div>

@@ -7,7 +7,7 @@ class RndConsultant extends MY_Controller {
     public $BannerNamePrefix    = 'RndConsultantBanner';
     public $LogoNamePrefix      = 'RndConsultantLogo';
     public $Name                = 'RndConsultant';
-    public $NameMessage         = 'Rnd Consultant';
+    public $NameMessage         = 'R&D Tax Consultant';
     public $ImagesFolderName    = 'rndconsultant';
     public $ViewFolderName      = 'listing';
     public $ControllerRouteName = 'RndConsultant';

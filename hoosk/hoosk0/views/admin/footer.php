@@ -298,7 +298,8 @@
         || $this->router->fetch_method() === 'manage_acc_commercials' 
         || $this->router->fetch_class() === 'Lawyer'
         || $this->router->fetch_class() === 'GrantRecipients'
-        || $this->router->fetch_class() === 'RndConsultant'  
+        || $this->router->fetch_class() === 'RndConsultant'
+        || $this->router->fetch_class() === 'RndPartner'  
         || $this->router->fetch_class() === 'GrantConsultant' 
 
         ){
@@ -702,21 +703,17 @@
 
     <script src="<?= base_url()?>assets/js/admin-grantconsultant.js"></script>
 
+<?php } if ($this->router->fetch_class() === 'RndPartner') { ?>
+
+    <script src="<?= base_url()?>assets/js/admin-rndpartner.js"></script>
+
 <?php } if ($this->router->fetch_class() === 'RndConsultant') { ?>
 
     <script src="<?= base_url()?>assets/js/admin-rndconsultant.js"></script>
 
-<?php } if ($this->router->fetch_class() === 'GrantRecipients') { ?>
-
-    <script src="<?= base_url()?>assets/js/admin-grantrecipients.js"></script>
-
-
-<?php } if ($this->router->fetch_method() === 'manage_acc_commercials') { ?>
-
-
+<?php }if ($this->router->fetch_method() === 'manage_acc_commercials') { ?>
 
     <script src="<?= base_url()?>assets/js/admin-acc.js"></script>
-
 
 
 <?php } if ($this->router->fetch_method() === 'manage_status') { ?>

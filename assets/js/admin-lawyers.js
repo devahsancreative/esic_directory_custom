@@ -1,5 +1,5 @@
 $(function(){
- if($("body").find("#LawyerList")){
+if($("#LawyerList").length > 0){
     oTable = "";
     var regTableSelector = $("#LawyerList");
     var url_DT = baseUrl + "admin/manage_lawyer/listing";
@@ -61,10 +61,10 @@ $(function(){
     var sDom_DT = '<"H"r>t<"F"<"row"<"col-lg-6 col-xs-12" i> <"col-lg-6 col-xs-12" p>>>';
     commonDataTables(regTableSelector, url_DT, aoColumns_DT, sDom_DT, HiddenColumnID_DT);
 
-    /*new $.fn.dataTable.Responsive(oTable, {
+    new $.fn.dataTable.Responsive(oTable, {
         details: true
     });
-    removeWidth(oTable);*/
+    removeWidth(oTable);
 
     sTable = $('#LawyerList').DataTable();  // // Search by Title
     $("#search-input").on("keyup", function (e) {

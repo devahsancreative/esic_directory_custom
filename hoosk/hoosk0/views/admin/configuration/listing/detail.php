@@ -164,8 +164,8 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
         <!-- /.row -->
 </section>
     <!-- /.content -->
-    <script src='<?php  echo base_url()?>assets/tinymce/js/tinymce/tinymce.min.js'></script>
-<script src='<?php  echo base_url()?>assets/tinymce/js/tinymce/plugins/jbimages/plugin.min.js'></script>
+    <script src='<?= base_url()?>assets/tinymce/js/tinymce/tinymce.min.js'></script>
+<script src='<?= base_url()?>assets/tinymce/js/tinymce/plugins/jbimages/plugin.min.js'></script>
 <!--//<script src='<?php /* echo base_url()*/?>assets/tinymce/js/tinymce/plugins/imageUpload.js'></script>-->
 <script>
  tinymce.init({

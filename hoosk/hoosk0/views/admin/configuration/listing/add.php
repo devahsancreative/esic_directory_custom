@@ -96,8 +96,8 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
                                             </div>
 
                                             <div class="form-group col-lg-2">
-                                                <label for="address_estate">Estate</label>
-                                                <input type="text" name="address_estate" id="address_estate" class="form-control">
+                                                <label for="address_state">State</label>
+                                                <input type="text" name="address_state" id="address_state" class="form-control">
                                             </div>
 
                                             <div class="form-group col-lg-2">
@@ -124,10 +124,10 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
                                         <label for="update-logo-file">Logo</label>
                                         <div class="img-reponsive">
                                             <div class="img-container img-logo img-responsive">
-                                                <img src="dummy" class="Logo-show" id="Logo-show" />
+                                                <img src="<?= base_url()?>pictures/defaultLogo.png" class="Logo-show" id="Logo-show" />
                                             </div>
                                             <div class="fileupload fileupload-new" data-provides="fileupload">
-                                                <span class="btn btn-file btn-logo-edit"><span class="fileupload-new">Click To</span><span class="fileupload-exists"> Edit</span>
+                                                <span class="btn btn-file btn-logo-edit"><span class="fileupload-new">Click To</span><span class="fileupload-exists"> Add</span>
                                                     <input type="file" name="Logoimage" id="Logo-file"  />
                                                 </span>
                                             </div>
@@ -137,10 +137,10 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
                                         <label for="update-Banner-file">Banner</label>
                                         <div class="img-reponsive">
                                             <div class="img-container img-logo img-responsive">
-                                                <img src="dummy" class="banner-show" id="banner-show" />
+                                                <img src="<?= base_url()?>pictures/defaultLogo.png" class="banner-show" id="banner-show" />
                                             </div>
                                             <div class="fileupload fileupload-new" data-provides="fileupload">
-                                                <span class="btn btn-file btn-logo-edit"><span class="fileupload-new">Click To</span><span class="fileupload-exists"> Edit</span>
+                                                <span class="btn btn-file btn-logo-edit"><span class="fileupload-new">Click To</span><span class="fileupload-exists"> Add</span>
                                                     <input type="file" name="Bannerimage" id="banner-file"  />
                                                 </span>
                                             </div>
@@ -162,9 +162,8 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
         <!-- /.row -->
 </section>
     <!-- /.content -->
-<script src='<?php  echo base_url()?>assets/tinymce/js/tinymce/tinymce.min.js'></script>
-<script src='<?php  echo base_url()?>assets/tinymce/js/tinymce/plugins/jbimages/plugin.min.js'></script>
-<!--//<script src='<?php /* echo base_url()*/?>assets/tinymce/js/tinymce/plugins/imageUpload.js'></script>-->
+<script src='<?= base_url()?>assets/tinymce/js/tinymce/tinymce.min.js'></script>
+<script src='<?= base_url()?>assets/tinymce/js/tinymce/plugins/jbimages/plugin.min.js'></script>
 <script>
  tinymce.init({
   selector: 'textarea',
