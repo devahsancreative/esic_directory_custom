@@ -294,7 +294,7 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
                                                 <?php  }?>
                                             </div>
                                             <div class="fileupload fileupload-new" data-provides="fileupload">
-                                                <span class="btn btn-file btn-logo-edit"><span class="fileupload-new">Click To</span><span class="fileupload-exists"> Edit</span>
+                                                <span class="btn btn-file btn-logo-edit"><span class="fileupload-new">Click To</span><span class="fileupload-exists"> Change</span>
                                                     <input type="file" name="CoDevelopmentAgreement" id="CoDevelopmentAgreement-file"  />
                                                 </span>
                                             </div>

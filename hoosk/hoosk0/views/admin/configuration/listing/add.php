@@ -160,7 +160,7 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
                                             </div>
                                        </div>
                                     </div>
-                                    <div class="form-group">
+                                    <!--div class="form-group">
                                         <label for="update-CoDevelopmentAgreement-file">CO-Development Agreement</label>
                                         <div class="file-reponsive">
                                             <div class="fileupload fileupload-new" data-provides="fileupload">
@@ -169,7 +169,7 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
                                                 </span>
                                             </div>
                                        </div>
-                                    </div>
+                                    </div-->
                                 </div>
                             </div>
                         </div> <!-- /.box-body -->

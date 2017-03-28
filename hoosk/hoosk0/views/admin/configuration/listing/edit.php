@@ -73,7 +73,7 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
         $long_description       = $data->long_description;
 
         $currentStatusID        = $data->status_flag_id;
-        $CoDevelopmentAgreement = $data->CoDevelopmentAgreement;
+        //$CoDevelopmentAgreement = $data->CoDevelopmentAgreement;
 
     }else{
 
@@ -98,7 +98,7 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
         $long_description   = ''; 
 
         $currentStatusID = '';
-        $CoDevelopmentAgreement ='';
+        //$CoDevelopmentAgreement ='';
     }
 
 
@@ -241,7 +241,7 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
                                             </div>
                                        </div>
                                     </div>
-                                     <div class="form-group">
+                                     <!--div class="form-group">
                                         <label for="update-CoDevelopmentAgreement-file">Copy Of CO-Development Agreement</label>
                                         <div class="file-reponsive">
                                             <div class="file-container file-logo file-responsive">
@@ -251,12 +251,12 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
                                                 <?php  }?>
                                             </div>
                                             <div class="fileupload fileupload-new" data-provides="fileupload">
-                                                <span class="btn btn-file btn-logo-edit"><span class="fileupload-new">Click To</span><span class="fileupload-exists"> Edit</span>
+                                                <span class="btn btn-file btn-logo-edit"><span class="fileupload-new">Click To</span><span class="fileupload-exists"> Change</span>
                                                     <input type="file" name="CoDevelopmentAgreement" id="CoDevelopmentAgreement-file"  />
                                                 </span>
                                             </div>
                                        </div>
-                                    </div>
+                                    </div-->
                                 </div>
                             </div>
                         </div> <!-- /.box-body -->

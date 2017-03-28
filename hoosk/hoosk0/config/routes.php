@@ -363,6 +363,21 @@ $route['RndPartner/Edit/(:any)']  	= "RndPartner/Edit/$1";
 $route['RndPartner/EditSave']      	= "RndPartner/EditSave";
 
 
+//For Universities
+$route['admin/manage_university']    	  = "University/ManageUniversity";
+$route['admin/manage_university/(:any)']  = "University/ManageUniversity/$1";
+$route['admin/University/view/(:any)']    = "University/View/$1";
+$route['admin/University/detail/(:any)']  = "University/Detail/$1";
+$route['University/Listing']    	= "University/ManageUniversity";
+$route['University/Add']    	   	= "University/Add";
+$route['University/AddSave']      	= "University/AddSave";
+$route['University/Edit/(:any)']  	= "University/Edit/$1";
+$route['University/EditSave']      	= "University/EditSave";
+
+
+
+
+
 //For manage_sectors
 $route['admin/manage_sectors']         	= "Admin/manage_sectors";
 $route['admin/manage_sectors/(:any)']   = "Admin/manage_sectors/$1";
