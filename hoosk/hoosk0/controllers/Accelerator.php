@@ -2,6 +2,7 @@
 
 class Accelerator extends MY_Controller {
 
+    public $data                = array('');
     public $CurrentID           = 0;
     public $tableName           = 'esic_accelerators';
     public $BannerNamePrefix    = 'AcceleratorBanner';
@@ -10,9 +11,9 @@ class Accelerator extends MY_Controller {
     public $NameMessage         = 'Accelerator';
     public $ImagesFolderName    = 'accelerator';
     public $ViewFolderName      = 'accelerator';
-    public $ControllerRouteName = 'Accelerator';
     public $ControllerName      = 'Accelerator';
-    public $data                = array('');
+    public $ControllerRouteName = 'Accelerator';
+    public $ControllerRouteManage = 'manage_accelerator';
 
     function __construct()
     {
@@ -36,10 +37,11 @@ class Accelerator extends MY_Controller {
         $url = str_replace('https://', '', $url);
         define ('DoucmentUrl', $url);
         $this->load->helper('viewaccelerator');
-        $this->data['ControllerName']       = $this->ControllerName;
-        $this->data['ControllerRouteName']  = $this->ControllerRouteName;
+        $this->data['PageType'] = 'Listing';
         $this->data['ListingName']  = $this->Name;
         $this->data['ListingLabel'] = $this->NameMessage;
+        $this->data['ControllerName']      = $this->ControllerName;
+        $this->data['ControllerRouteName'] = $this->ControllerRouteName;
         $this->data['itemStatuses'] = $this->Common_model->select('esic_status_flags');
 
     }
@@ -48,12 +50,14 @@ class Accelerator extends MY_Controller {
         return NULL;
     }
     public function Add(){
-        $this->show_admin('admin/configuration/'.$this->ViewFolderName.'/add', $this->data);
+        $this->data['PageType'] = 'Add';
+        $this->show_admin_configuration('admin/configuration/'.$this->ViewFolderName.'/add', $this->data);
         return NULL;
     }
     public function AddSave(){
         $this->data['return'] = ViewHelperNewSave(); 
-        $this->show_admin('admin/configuration/'.$this->ViewFolderName.'/listing' , $this->data);
+        $this->data['PageType'] = 'Listing';
+        $this->show_admin_listing('admin/configuration/'.$this->ViewFolderName.'/listing' , $this->data);
         return Null;
     }
     public function Edit($id){
@@ -61,26 +65,22 @@ class Accelerator extends MY_Controller {
         $where = array('id' => $id);
         $this->data['id'] = $id;
         $this->data['data'] = $this->Common_model->select_fields_where($this->tableName ,'*' ,$where,true);
-        $this->show_admin('admin/configuration/'.$this->ViewFolderName.'/edit',$this->data);
+        $this->data['PageType'] = 'Edit';
+        $this->show_admin_configuration('admin/configuration/'.$this->ViewFolderName.'/edit',$this->data);
         return NULL;
     }
     public function EditSave(){
         $this->data['return'] = ViewHelperEditSave();
-        $this->show_admin('admin/configuration/'.$this->ViewFolderName.'/listing' , $this->data);
+        $this->data['PageType'] = 'Listing';
+        $this->show_admin_listing('admin/configuration/'.$this->ViewFolderName.'/listing' , $this->data);
         return Null;
     }
     public function View($ID){
         $this->data['id'] = $ID;
         $where = array('id' => $ID);
         $this->data['data'] = $this->Common_model->select_fields_where($this->tableName ,'*' ,$where,true);
-        $this->show_admin('admin/configuration/'.$this->ViewFolderName.'/view' , $this->data);
-        return Null;
-    }  
-    public function Detail($ID){
-        $this->data['id'] = $ID;
-        $where = array('id' => $ID);
-        $this->data['data'] = $this->Common_model->select_fields_where($this->tableName ,'*' ,$where,true);
-        $this->show_admin('admin/configuration/'.$this->ViewFolderName.'/detail' , $this->data);
+        $this->data['PageType'] = 'View';
+        $this->show_admin_configuration('admin/configuration/'.$this->ViewFolderName.'/view' , $this->data);
         return Null;
     }  
 }

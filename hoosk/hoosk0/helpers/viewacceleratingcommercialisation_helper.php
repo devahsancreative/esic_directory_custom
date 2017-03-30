@@ -170,7 +170,7 @@
         }
 
         //Default : Show the View if
-        $ci->show_admin('admin/configuration/'.$ci->ViewFolderName.'/listing',$ci->data);
+        $ci->show_admin_listing('admin/configuration/'.$ci->ViewFolderName.'/listing',$ci->data);
 	}
 
     function ViewHelperNewSave(){

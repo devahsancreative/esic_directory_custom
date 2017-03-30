@@ -25,7 +25,7 @@ class MY_Controller extends CI_Controller
 	 */
 public function __construct()
 	{
-parent::__construct();
+	parent::__construct();
 	$this->base_url = BASE_URL;
 		define("HOOSK_ADMIN",1);
 		$this->load->helper(array('admincontrol', 'url', 'hoosk_admin','my_site_helper','hoosk_page'));
@@ -48,8 +48,24 @@ parent::__construct();
         $this->config->set_item('facebook_app_secret', $config[0]->api_key);
 	}
 	public function show_admin($viewPath, $data = NULL, $bool = false){
-	      $this->load->view('admin/header',$data, $bool);
-	        $this->load->view($viewPath, $data, $bool);
-	      $this->load->view('admin/footer',$data, $bool);
-	    }
+	    $this->load->view('admin/header',$data, $bool);
+	    $this->load->view($viewPath, $data, $bool);
+	    $this->load->view('admin/footer',$data, $bool);
+	}
+	public function show_admin_configuration($viewPath, $data = NULL, $bool = false){
+	    $this->load->view('admin/header',$data, $bool);
+	    $this->load->view('admin/configuration/structure/head',$data, $bool);
+	    $this->load->view($viewPath, $data, $bool);
+	    $this->load->view('admin/configuration/structure/foot',$data, $bool);
+	    $this->load->view('admin/footer',$data, $bool);
+	}
+	public function show_admin_listing($viewPath, $data = NULL, $bool = false){
+	    $this->load->view('admin/header',$data, $bool);
+	    $this->load->view('admin/configuration/structure/head',$data, $bool);
+	    $this->load->view('admin/configuration/structure/listing-top',$data, $bool);
+	    $this->load->view($viewPath, $data, $bool);
+	   	$this->load->view('admin/configuration/structure/foot',$data, $bool);
+	    $this->load->view('admin/configuration/structure/listing-bottom',$data, $bool);
+	    $this->load->view('admin/footer',$data, $bool);
+	}
 }

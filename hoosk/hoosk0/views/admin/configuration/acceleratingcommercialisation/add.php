@@ -1,50 +1,4 @@
-<?php 
-if(!isset($ListingName) || empty($ListingName)){
-    $ListingName = '';
-}
-if(!isset($ListingLabel) || empty($ListingLabel)){
-    $ListingLabel = '';
-}
-if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
-    $ControllerRouteName = '';
-}
-?>
-<style type="text/css">
-    .centerLogo{
-        text-align: center;
-    }
-     .img-logo{
-            max-width: 350px;
-            width: 100%;
-            margin: 0 auto;
-        }
-        .img-logo img{
-            width: 100%;
-        }
-        .btn-logo-edit{
-            bottom: 0px;
-            width: 100%;
-            max-width: 200px;
-            margin: 10px auto;
-            background: rgba(0,0,0,0.5);
-            color: #fff;
-            cursor: pointer;
-        }
-</style>
-    <!-- Content Header (Page header) -->
-<section class="content-header">
-        <h1>
-            <?= $ListingLabel ; ?>
-            <small>Add</small>
-        </h1>
-        <ol class="breadcrumb">
-            <li><a href="<?= base_url()?>admin"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-            <li><a href="#"><?= $ListingLabel ; ?></a></li>
-            <li class="active">Add</li>
-        </ol>
-    </section>
-    <!-- Main content -->
-    <section class="content">
+
         <div class="row">
             <div class="col-md-12">
                 <form action="<?= base_url().$ControllerRouteName.'/AddSave';?>" method="post" class="form" enctype="multipart/form-data">
@@ -125,19 +79,6 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
                                             </div>
                                        </div>
                                     </div>
-                                    <!--div class="form-group">
-                                        <label for="update-Banner-file">Banner</label>
-                                        <div class="img-reponsive">
-                                            <div class="img-container img-logo img-responsive">
-                                                <img src="<?= base_url()?>pictures/defaultLogo.png" class="banner-show" id="banner-show" />
-                                            </div>
-                                            <div class="fileupload fileupload-new" data-provides="fileupload">
-                                                <span class="btn btn-file btn-logo-edit"><span class="fileupload-new">Click To</span><span class="fileupload-exists"> Add</span>
-                                                    <input type="file" name="Bannerimage" id="banner-file"  />
-                                                </span>
-                                            </div>
-                                       </div>
-                                    </div-->
                                 </div>
                             </div>
                         </div> <!-- /.box-body -->
@@ -151,27 +92,3 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
             </div>
             <!-- /.col -->
         </div>
-        <!-- /.row -->
-</section>
-    <!-- /.content -->
-<script src='<?php  echo base_url()?>assets/tinymce/js/tinymce/tinymce.min.js'></script>
-<script src='<?php  echo base_url()?>assets/tinymce/js/tinymce/plugins/jbimages/plugin.min.js'></script>
-<!--//<script src='<?php /* echo base_url()*/?>assets/tinymce/js/tinymce/plugins/imageUpload.js'></script>-->
-<script>
- tinymce.init({
-  selector: 'textarea',
-  height: 300,
-  menubar: false,
-  browser_spellcheck : true,
-  contextmenu: false,
-  spellchecker_rpc_url: base_url+'assets/tinymce/js/tinymce/plugins/spellchecker/spellchecker.php',
-  plugins: [
-    ' spellchecker advlist autolink lists link image charmap print preview anchor code',
-    'searchreplace visualblocks code fullscreen',
-    'insertdatetime media jbimages table contextmenu paste code'
-  ],
-  toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | jbimages | media | code',
-  content_css: '//www.tinymce.com/css/codepen.min.css',
- relative_urls: false
-});
-</script>
