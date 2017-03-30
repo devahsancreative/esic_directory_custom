@@ -50,72 +50,49 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
         return 'Sorry No ID Set';
     }
     if(isset($data) && !empty($data)){
-        $name    = $data->name;
+        $name    = $data->institution;
         $phone   = $data->phone;
         $website = $data->website;
         $email   = $data->email;
 
-        $ANZSRC    = $data->ANZSRC; 
-        $IDNumber  = $data->IDNumber; 
-
         //Getting Address Fields
-        $address_streetNumber   = $data->address_street_number;
-        $address_streetName     = $data->address_street_name;
-        $address_town           = $data->address_town;
-        $address_state          = $data->address_state;
-        $address_postCode       = $data->address_post_code;
+        $address    = $data->address;
+        $suburb     = $data->suburb;
+        $state      = $data->state;
+        $post_code  = $data->post_code;
 
-
-        //$keywords = $data->keywords;
         //$banner = $data->banner;
-        $logo = $data->logo;
-
-        //$short_description = $data->short_description;
-        //$long_description = $data->long_description;
-
-        $RndCredentialsSummary = $data->RndCredentialsSummary;
+        $logo = $data->institutionLogo;
 
 
-        $ProgramName        = $data->ProgramName;
+        $programDescription = $data->programDescription;
+        $programEligibilityCriteria = $data->programEligibilityCriteria;
         $ProgramStartDate   = $data->ProgramStartDate;
         $roleDepartment     = $data->roleDepartment;
 
-        $currentStatusID    = $data->status_flag_id;
 
 
     }else{
 
-        $name       = ''; 
-        $phone      = ''; 
-        $website    = ''; 
-        $email      = '';
+        $name    = '';
+        $phone   = '';
+        $website = '';
+        $email   = '';
 
         //Getting Address Fields
-        $address_streetNumber = '';
-        $address_streetName = '';
-        $address_town = '';
-        $address_state = '';
-        $address_postCode = '';
-        //$address    = '';
+        $address    = '';
+        $suburb     = '';
+        $state      = '';
+        $post_code  = '';
 
-       // $keywords   = ''; 
-
-        $ANZSRC    = ''; 
-        $IDNumber  = ''; 
-
-       // $banner     = ''; 
-        $logo       = ''; 
-
-    //$short_description  = ''; 
-    //$long_description   = ''; 
-        $RndCredentialsSummary = ''; 
+        //$banner = '';
+        $logo = '';
 
 
-        $ProgramName        = ''; 
+        $programDescription = '';
+        $programEligibilityCriteria = '';
         $ProgramStartDate   = '';
         $roleDepartment     = '';
-
-        $currentStatusID = '';
     }
 
 
@@ -138,10 +115,6 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
                                 <input type="hidden" id="hiddenListID" value="">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="IDNumberTextBox">ID Number:</label>
-                                        <input type="text" name="IDNumber" id="IDNumberTextBox" value="<?= $IDNumber;?>" class="form-control" />
-                                    </div>
-                                    <div class="form-group">
                                         <label for="NameTextBox">Name</label>
                                         <input type="text" name="Name" id="NameTextBox" value="<?= $name;?>" class="form-control" />
                                     </div>
@@ -159,85 +132,45 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="AddressBox">Address :</label>
+                                        <label for="AddressBox">Address Fields:</label>
                                         <div class="row">
                                             <div class="form-group col-lg-2">
-                                                <label for="address_streetNumber">Street Number</label>
-                                                <input type="text" name="address_streetNumber" id="address_streetNumber" value="<?=(isset($address_streetNumber) and !empty($address_streetNumber))?$address_streetNumber:''?>" class="form-control">
+                                                <label for="address">Address</label>
+                                                <input type="text" name="address" id="address" class="form-control" value="<?= $address;?>">
                                             </div>
 
                                             <div class="form-group col-lg-3">
-                                                <label for="address_streetName">Street Name</label>
-                                                <input type="text" name="address_streetName" id="address_streetName" value="<?=(isset($address_streetName) and !empty($address_streetName))?$address_streetName:''?>" class="form-control">
+                                                <label for="suburb">Suburb</label>
+                                                <input type="text" name="suburb" id="suburb" class="form-control" value="<?= $suburb;?>">
                                             </div>
 
                                             <div class="form-group col-lg-3">
-                                                <label for="address_town">Town</label>
-                                                <input type="text" name="address_town" id="address_town" value="<?=(isset($address_town) and !empty($address_town))?$address_town:''?>" class="form-control">
+                                                <label for="state">State</label>
+                                                <input type="text" name="state" id="state" class="form-control" value="<?= $state;?>">
                                             </div>
 
                                             <div class="form-group col-lg-2">
-                                                <label for="address_state">State</label>
-                                                <input type="text" name="address_state" id="address_state" value="<?=(isset($address_state) and !empty($address_state))?$address_state:''?>" class="form-control">
-                                            </div>
-
-                                            <div class="form-group col-lg-2">
-                                                <label for="address_postCode">Post Code</label>
-                                                <input type="text" name="address_postCode" id="address_postCode" value="<?=(isset($address_postCode) and !empty($address_postCode))?$address_postCode:''?>" class="form-control">
+                                                <label for="post_code">Post Code</label>
+                                                <input type="text" name="post_code" id="post_code" class="form-control" value="<?= $post_code;?>">
                                             </div>
                                         </div>
-
                                     </div>
 
-                                   <div class="form-group"> 
-                                        <label for="RndCredentialsSummaryBox">R&D Credentials Summary</label>
-                                        <textarea type="text" name="RndCredentialsSummary" id="RndCredentialsSummaryBox" class="form-control"> <?= $RndCredentialsSummary; ?> </textarea>
-                                    </div>
-                                    <!--div class="form-group">
-                                        <label for="ShortDescriptionBox">Short Description</label>
-                                        <textarea type="text" name="ShortDescription" id="ShortDescriptionBox" class="form-control"><?= $short_description ?></textarea>
+                                  <div class="form-group"> 
+                                        <label for="programDescriptionBox">Program Description</label>
+                                        <textarea type="text" name="programDescription" id="programDescriptionBox" class="form-control"> <?= $programDescription;?> </textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label for="LongDescriptionBox">Detail Description</label>
-                                        <textarea type="text" name="LongDescription"  id="LongDescriptionBox" class="form-control"><?= $long_description ?> </textarea>
-                                    </div-->
-                                    <!--div class="form-group">
-                                        <label for="KeywordsBox">Keywords</label>
-                                        <input type="text" name="Keywords" id="KeywordsBox" value="<?= $keywords;?>" class="form-control" />
-                                    </div-->
-                                    <div class="form-group">
-                                        <label for="ANZSRCBox">ANZSRC:</label>
-                                        <input type="text" name="ANZSRC" id="ANZSRCBox" value="<?= $ANZSRC;?>" class="form-control" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="ProgramNameBox">Program Name</label>
-                                        <input type="text" name="ProgramName" id="ProgramNameBox" value="<?= $ProgramName;?>" class="form-control" />
+                                        <label for="programEligibilityCriteriaBox">Program Eligibility Criteria</label>
+                                        <input type="text" name="programEligibilityCriteria" id="programEligibilityCriteriaBox" class="form-control" value="<?= $programEligibilityCriteria;?>">
                                     </div>
                                     <div class="form-group">
                                         <label for="ProgramStartDateBox">Program Start Date</label>
-                                        <input type="text" name="ProgramStartDate" id="ProgramStartDateBox" value="<?= $ProgramStartDate;?>" class="form-control" />
+                                        <input type="text" name="ProgramStartDate" id="ProgramStartDateBox" class="form-control date_picker" value="<?= $ProgramStartDate;?>">
                                     </div>
                                     <div class="form-group">
                                         <label for="roleDepartmentBox">Role/Department</label>
-                                        <input type="text" name="roleDepartment" id="roleDepartmentBox" value="<?= $roleDepartment;?>" class="form-control" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="statusFlagBox">Status</label>
-                                        <select id="statusFlagBox" name="statusFlag" class="form-control">                                 
-                                            <?php    
-                                                if(isset($itemStatuses) || !empty($itemStatuses)){
-                                                    foreach ($itemStatuses as $key => $itemStatus) { 
-                                                         $selected = '';
-                                                        if($itemStatus->id == $currentStatusID){
-                                                            $selected = 'SELECTED';
-                                                        }
-                                             ?>
-                                                        <option value="<?= $itemStatus->id;?> <?= $selected; ?>" > <?= $itemStatus->Label;?></option>
-                                            <?php 
-                                                    }
-                                                }
-                                            ?>
-                                        </select>
+                                        <input type="text" name="roleDepartment" id="roleDepartmentBox" class="form-control" value="<?= $roleDepartment;?>">
                                     </div>
                                     <div class="form-group">
                                         <label for="update-logo-file">Logo</label>
@@ -309,7 +242,7 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
     'searchreplace visualblocks code fullscreen',
     'insertdatetime media jbimages table contextmenu paste code'
   ],
-  toolbar: 'spellchecker undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | jbimages | media | code',
+  toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | jbimages | media | code',
   content_css: '//www.tinymce.com/css/codepen.min.css',
  relative_urls: false
 });

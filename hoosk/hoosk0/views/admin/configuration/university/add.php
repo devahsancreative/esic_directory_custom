@@ -61,10 +61,6 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
                                 <input type="hidden" id="hiddenListID" value="">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="IDNumberTextBox">ID Number</label>
-                                        <input type="text" name="IDNumber" id="IDNumberTextBox" class="form-control" />
-                                    </div>
-                                    <div class="form-group">
                                         <label for="NameTextBox">Name</label>
                                         <input type="text" name="Name" id="NameTextBox" class="form-control" />
                                     </div>
@@ -82,82 +78,45 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
                                     </div>
                                     <!--Address with multiple columns-->
                                     <div class="form-group">
-                                        <label for="AddressBox">Address :</label>
+                                        <label for="AddressBox">Address Fields:</label>
                                         <div class="row">
                                             <div class="form-group col-lg-2">
-                                                <label for="address_streetNumber">Street Number</label>
-                                                <input type="text" name="address_streetNumber" id="address_streetNumber" class="form-control">
+                                                <label for="address">Address</label>
+                                                <input type="text" name="address" id="address" class="form-control">
                                             </div>
 
                                             <div class="form-group col-lg-3">
-                                                <label for="address_streetName">Street Name</label>
-                                                <input type="text" name="address_streetName" id="address_streetName" class="form-control">
+                                                <label for="suburb">Suburb</label>
+                                                <input type="text" name="suburb" id="suburb" class="form-control">
                                             </div>
 
                                             <div class="form-group col-lg-3">
-                                                <label for="address_town">Town</label>
-                                                <input type="text" name="address_town" id="address_town" class="form-control">
+                                                <label for="state">State</label>
+                                                <input type="text" name="state" id="state" class="form-control">
                                             </div>
 
                                             <div class="form-group col-lg-2">
-                                                <label for="address_state">state</label>
-                                                <input type="text" name="address_state" id="address_state" class="form-control">
-                                            </div>
-
-                                            <div class="form-group col-lg-2">
-                                                <label for="address_postCode">Post Code</label>
-                                                <input type="text" name="address_postCode" id="address_postCode" class="form-control">
+                                                <label for="post_code">Post Code</label>
+                                                <input type="text" name="post_code" id="post_code" class="form-control">
                                             </div>
                                         </div>
-
                                     </div>
 
                                     <div class="form-group"> 
-                                        <label for="RndCredentialsSummaryBox">R&D Credentials Summary</label>
-                                        <textarea type="text" name="RndCredentialsSummary" id="RndCredentialsSummaryBox" class="form-control"> </textarea>
-                                    </div>
-
-                                    <!--div class="form-group">
-                                        <label for="ShortDescriptionBox">Short Description</label>
-                                        <textarea type="text" name="ShortDescription" id="ShortDescriptionBox" class="form-control"> </textarea>
+                                        <label for="programDescriptionBox">Program Description</label>
+                                        <textarea type="text" name="programDescription" id="programDescriptionBox" class="form-control"> </textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label for="LongDescriptionBox">Detail Description</label>
-                                        <textarea type="text" name="LongDescription"  id="LongDescriptionBox" class="form-control"> </textarea>
-                                    </div-->
-                                    <!--div class="form-group">
-                                        <label for="KeywordsBox">Keywords</label>
-                                        <input type="text" name="Keywords" id="KeywordsBox" class="form-control" />
-                                    </div-->
-                                    <div class="form-group">
-                                        <label for="ANZSRCBox">ANZSRC</label>
-                                        <input type="text" name="ANZSRC" id="ANZSRCBox" class="form-control" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="ProgramNameBox">Program Name</label>
-                                        <input type="text" name="ProgramName" id="ProgramNameBox" class="form-control" />
+                                        <label for="programEligibilityCriteriaBox">Program Eligibility Criteria</label>
+                                        <input type="text" name="programEligibilityCriteria" id="programEligibilityCriteriaBox" class="form-control" />
                                     </div>
                                     <div class="form-group">
                                         <label for="ProgramStartDateBox">Program Start Date</label>
-                                        <input type="text" name="ProgramStartDate" id="ProgramStartDateBox" class="form-control" />
+                                        <input type="text" name="ProgramStartDate" id="ProgramStartDateBox" class="form-control date_picker" />
                                     </div>
                                     <div class="form-group">
                                         <label for="roleDepartmentBox">Role/Department</label>
                                         <input type="text" name="roleDepartment" id="roleDepartmentBox" class="form-control" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="statusFlagBox">Status</label>
-                                        <select id="statusFlagBox" name="statusFlag" class="form-control">                                 
-                                            <?php    
-                                                if(isset($itemStatuses) || !empty($itemStatuses)){
-                                                    foreach ($itemStatuses as $key => $itemStatus) { 
-                                             ?>
-                                                        <option value="<?= $itemStatus->id;?>" > <?= $itemStatus->Label;?></option>
-                                            <?php 
-                                                    }
-                                                }
-                                            ?>
-                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="update-logo-file">Logo</label>
@@ -217,7 +176,7 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
     'searchreplace visualblocks code fullscreen',
     'insertdatetime media jbimages table contextmenu paste code'
   ],
-  toolbar: 'spellchecker undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | jbimages | media | code',
+  toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | jbimages | media | code',
   content_css: '//www.tinymce.com/css/codepen.min.css',
  relative_urls: false
 });

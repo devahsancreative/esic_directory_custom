@@ -39,7 +39,7 @@ class Reg2 extends MY_Controller {
         $this->data['RnDs'] = $this->Common_model->select_fields_where('esic_rnd',$selectData, $where);
         $this->data['institutions'] = $this->Common_model->select_fields_where('esic_institution',$selectData, $where, false, '', '', '','','',false);
         $this->data['accelerationCommercials'] = $this->Common_model->select_fields_where('esic_acceleration',$selectData, $where, false, '', '', '','','',false);
-        $this->data['acceleratorProgramme'] = $this->Common_model->select_fields_where('esic_acceleration_logo',$selectData, $where, false, '', '', '','','',false);
+        $this->data['acceleratorProgramme'] = $this->Common_model->select_fields_where('esic_accelerators',$selectData, $where, false, '', '', '','','',false);
         $this->data['sectors'] = $this->Common_model->select_fields_where('esic_sectors',$selectData, $where, false, '', '', '','','',false);
         $this->data['company'] = $this->Common_model->select('user');
 
@@ -685,7 +685,7 @@ class Reg2 extends MY_Controller {
             return;
         }
 
-        $nameCheckQuery = $this->db->get_where('esic_acceleration_logo',array('name'=>$name));
+        $nameCheckQuery = $this->db->get_where('esic_accelerators',array('name'=>$name));
 
         if($nameCheckQuery->num_rows() > 0){
             //print_r($nameCheckQuery);
@@ -699,7 +699,7 @@ class Reg2 extends MY_Controller {
                 'insertionType' => 2
             );
 
-            $insertResult = $this->Common_model->insert_record('esic_acceleration_logo',$insertData);
+            $insertResult = $this->Common_model->insert_record('esic_accelerators',$insertData);
 
             if($insertResult > 0){
                     $allowedExt = array('jpeg','jpg','png','gif');
@@ -729,7 +729,7 @@ class Reg2 extends MY_Controller {
                         }
                 }    
                 $whereUpdate = array('id' => $insertResult);
-                $resultUpdate = $this->Common_model->update('esic_acceleration_logo',$whereUpdate,$insertDataArray);
+                $resultUpdate = $this->Common_model->update('esic_accelerators',$whereUpdate,$insertDataArray);
                 if($resultUpdate === true){
                     echo "OK::".$insertResult."::".$name;
                     echo "OK::Record Updated Successfully";

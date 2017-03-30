@@ -14,12 +14,12 @@
         //Now see if the param is of listing
         if($param === 'listing'){
             $selectData = array('
-            '.$ci->tableName.'.id AS ID,
-            '.$ci->tableName.'.institution AS Name,
-            '.$ci->tableName.'.phone AS Phone,
-            '.$ci->tableName.'.website AS Website,
-            '.$ci->tableName.'.email AS email, 
-            '.$ci->tableName.'.institutionLogo AS Logo
+            id AS ID,
+            institution AS Name,
+            phone AS Phone,
+            website AS Website,
+            email AS email, 
+            institutionLogo AS Logo,
             CASE WHEN trashed = 1 THEN CONCAT(\'<span class="label label-danger">YES</span>\') WHEN trashed = 0 THEN CONCAT(\'<span class="label label-success">NO</span>\') ELSE "" END AS Trashed
             ',false);
 
@@ -111,9 +111,9 @@
                 );
 
                 $returnedData = $ci->Common_model->delete($ci->tableName,$whereUpdate);
-                echo "OK::Record Deleted";
+                echo "OK::Record Deleted::success::";
             }else{
-                echo "FAIL::Record Not Deleted";
+                echo "FAIL::Record Not Deleted::error::";
             }
             return NULL;
         }
@@ -189,16 +189,15 @@
         $Email   = $ci->input->post('Email');
         $Website = $ci->input->post('Website');
 
-        $Address            = $ci->input->post('Address');
-        $Suburb             = $ci->input->post('Suburb');
-        $State              = $ci->input->post('State');
-        $Post_code          = $ci->input->post('postCode');
+        $Address            = $ci->input->post('address');
+        $Suburb             = $ci->input->post('suburb');
+        $State              = $ci->input->post('state');
+        $Post_code          = $ci->input->post('post_code');
 
         $roleDepartment                 = $ci->input->post('roleDepartment');
         $programDescription             = $ci->input->post('programDescription');
         $programEligibilityCriteria     = $ci->input->post('programEligibilityCriteria');
         $ProgramStartDate               = $ci->input->post('ProgramStartDate');
-        $ProposedIP                     = $ci->input->post('ProposedIP');
 
 
         if(empty($Name)){
@@ -219,8 +218,7 @@
             'roleDepartment'        => $roleDepartment,
             'programDescription'    => $programDescription,
             'programEligibilityCriteria'  => $programEligibilityCriteria,
-            'ProgramStartDate'      => $ProgramStartDate,
-            'ProposedIP'            => $ProposedIP
+            'ProgramStartDate'      => $ProgramStartDate
 
         );
         $insertResult = $ci->Common_model->insert_record($ci->tableName,$insertData);
@@ -234,7 +232,7 @@
             return $return;
         }
 
-       $allowedExt = array('jpeg','jpg','png','gif', 'pdf', 'doc', 'docx');
+       $allowedExt = array('jpeg','jpg','png','gif');
 
         if(is_numeric($insertResult)){
 
@@ -260,8 +258,8 @@
                     }
 
                     move_uploaded_file($_FILES['Logoimage']['tmp_name'],$uploadPath.'/'.$FileName);
-                    $insertDataArray['logo'] = $uploadDBPath.'/'.$FileName;
-                    $selectData = array('logo AS logo',false);
+                    $insertDataArray['institutionLogo'] = $uploadDBPath.'/'.$FileName;
+                    $selectData = array('institutionLogo AS logo',false);
                     $where = array( 'id' => $insertResult );
                     $returnedData = $ci->Common_model->select_fields_where($ci->tableName,$selectData, $where, false, '', '', '','','',false);
                     $logo = $returnedData[0]->logo;
@@ -327,50 +325,6 @@
                 //array_push($return, $error);
             }
 */
-            $insertDataArray    = array();
-
-            if(isset($_FILES['CoDevelopmentAgreement']['name']) && !empty($_FILES['CoDevelopmentAgreement']['name'])){
-                $uploadPath        = './CoDevelopmentAgreements/'.$ci->ImagesFolderName.'/'.$insertResult;
-                $uploadDirectory   = './CoDevelopmentAgreements/'.$ci->ImagesFolderName.'/'.$insertResult;
-                $uploadDBPath      = 'CoDevelopmentAgreements/'.$ci->ImagesFolderName.'/'.$insertResult;
-                $FileName           = $_FILES['CoDevelopmentAgreement']['name'];
-                $explodedFileName   = explode('.',$FileName);
-                $ext                = end($explodedFileName);
-
-                if(!in_array(strtolower($ext),$allowedExt)){
-                    $error =  "FAIL:: Co-Development Agreement -- Only Image PDF, JPEG and WORD Document Allowed, No Other Extensions Are Allowed Given ".$ext." ::error";
-                    array_push($return, $error);
-                }else{
-
-                    $FileName = $ci->CoDevelopmentAgreement.'_'.$ID.'_'.time().'.'.$ext;
-                    if(!is_dir($uploadDirectory)){
-                        mkdir($uploadDirectory, 0755, true);
-                    }
-
-                    move_uploaded_file($_FILES['CoDevelopmentAgreement']['tmp_name'],$uploadPath.'/'.$FileName);
-                    $insertDataArray['CoDevelopmentAgreement'] = $uploadDBPath.'/'.$FileName;
-
-                    $selectData = array('CoDevelopmentAgreement',false);
-                    $where = array( 'id' => $ID );
-                    $returnedData = $ci->Common_model->select_fields_where($ci->tableName,$selectData, $where, false, '', '', '','','',false);
-                    $CoDevelopmentAgreement = $returnedData[0]->CoDevelopmentAgreement;
-
-                    if(!empty($CoDevelopmentAgreement) && is_file(FCPATH.'/'.$CoDevelopmentAgreement)){
-                        unlink('./'.$CoDevelopmentAgreement);
-                    }
-                        $resultUpdate = $ci->Common_model->update($ci->tableName,$where,$insertDataArray);
-                    if($resultUpdate === true){
-                        $success = "OK::Co-Development Agreement Uploaded::success";
-                        array_push($return, $success);
-                    }else{
-                        $error = "FAIL::Co-Development Agreement -- Something went wrong during Update, Please Contact System Administrator::error";
-                        array_push($return, $error);
-                    }
-                }
-            }else{
-                $error = "FAIL::Co-Development Agreement Document Not Provided::warning";
-                array_push($return, $error);
-            }
         }
         return $return;
 
@@ -398,16 +352,15 @@
         $Email   = $ci->input->post('Email');
         $Website = $ci->input->post('Website');
 
-        $Address            = $ci->input->post('Address');
-        $Suburb             = $ci->input->post('Suburb');
-        $State              = $ci->input->post('State');
-        $Post_code          = $ci->input->post('postCode');
+        $Address            = $ci->input->post('address');
+        $Suburb             = $ci->input->post('suburb');
+        $State              = $ci->input->post('state');
+        $Post_code          = $ci->input->post('post_code');
 
         $roleDepartment                 = $ci->input->post('roleDepartment');
         $programDescription             = $ci->input->post('programDescription');
         $programEligibilityCriteria     = $ci->input->post('programEligibilityCriteria');
         $ProgramStartDate               = $ci->input->post('ProgramStartDate');
-        $ProposedIP                     = $ci->input->post('ProposedIP');
 
 
         if(empty($Name)){
@@ -429,7 +382,6 @@
             'programDescription'    => $programDescription,
             'programEligibilityCriteria'  => $programEligibilityCriteria,
             'ProgramStartDate'      => $ProgramStartDate,
-            'ProposedIP'            => $ProposedIP
 
         );
        
@@ -447,7 +399,7 @@
 
         $allowedExt = array('jpeg','jpg','png','gif', 'pdf', 'doc', 'docx');
 
-        if(is_numeric($$ID)){
+        if(is_numeric($ID)){
 
             $uploadPath        = './pictures/logos/'.$ci->ImagesFolderName.'/'.$ID;
             $uploadDirectory   = './pictures/logos/'.$ci->ImagesFolderName.'/'.$ID;
@@ -470,9 +422,9 @@
                     }
 
                     move_uploaded_file($_FILES['Logoimage']['tmp_name'],$uploadPath.'/'.$FileName);
-                    $insertDataArray['logo'] = $uploadDBPath.'/'.$FileName;
-                    $selectData = array('logo AS logo',false);
-                    $where = array( 'id' => $insertResult );
+                    $insertDataArray['institutionLogo'] = $uploadDBPath.'/'.$FileName;
+                    $selectData = array('institutionLogo AS logo',false);
+                    $where = array( 'id' => $ID );
                     $returnedData = $ci->Common_model->select_fields_where($ci->tableName,$selectData, $where, false, '', '', '','','',false);
                     $logo = $returnedData[0]->logo;
 
@@ -516,7 +468,7 @@
                     $insertDataArray['banner'] = $uploadDBPath.'/'.$FileName;
 
                     $selectData = array('banner AS banner',false);
-                    $where = array( 'id' => $insertResult );
+                    $where = array( 'id' => $ID );
                     $returnedData = $ci->Common_model->select_fields_where($ci->tableName,$selectData, $where, false, '', '', '','','',false);
                     $banner = $returnedData[0]->banner;
 
@@ -537,50 +489,6 @@
                 //array_push($return, $error);
             }
 */
-            $insertDataArray    = array();
-
-            if(isset($_FILES['CoDevelopmentAgreement']['name']) && !empty($_FILES['CoDevelopmentAgreement']['name'])){
-                $uploadPath        = './CoDevelopmentAgreements/'.$ci->ImagesFolderName.'/'.$ID;
-                $uploadDirectory   = './CoDevelopmentAgreements/'.$ci->ImagesFolderName.'/'.$ID;
-                $uploadDBPath      = 'CoDevelopmentAgreements/'.$ci->ImagesFolderName.'/'.$ID;
-                $FileName           = $_FILES['CoDevelopmentAgreement']['name'];
-                $explodedFileName   = explode('.',$FileName);
-                $ext                = end($explodedFileName);
-
-                if(!in_array(strtolower($ext),$allowedExt)){
-                    $error =  "FAIL:: Co-Development Agreement -- Only Image PDF, JPEG and WORD Document Allowed, No Other Extensions Are Allowed Given ".$ext." ::error";
-                    array_push($return, $error);
-                }else{
-
-                    $FileName = $ci->CoDevelopmentAgreement.'_'.$ID.'_'.time().'.'.$ext;
-                    if(!is_dir($uploadDirectory)){
-                        mkdir($uploadDirectory, 0755, true);
-                    }
-
-                    move_uploaded_file($_FILES['CoDevelopmentAgreement']['tmp_name'],$uploadPath.'/'.$FileName);
-                    $insertDataArray['CoDevelopmentAgreement'] = $uploadDBPath.'/'.$FileName;
-
-                    $selectData = array('CoDevelopmentAgreement',false);
-                    $where = array( 'id' => $ID );
-                    $returnedData = $ci->Common_model->select_fields_where($ci->tableName,$selectData, $where, false, '', '', '','','',false);
-                    $CoDevelopmentAgreement = $returnedData[0]->CoDevelopmentAgreement;
-
-                    if(!empty($CoDevelopmentAgreement) && is_file(FCPATH.'/'.$CoDevelopmentAgreement)){
-                        unlink('./'.$CoDevelopmentAgreement);
-                    }
-                        $resultUpdate = $ci->Common_model->update($ci->tableName,$where,$insertDataArray);
-                    if($resultUpdate === true){
-                        $success = "OK::Co-Development Agreement Uploaded::success";
-                        array_push($return, $success);
-                    }else{
-                        $error = "FAIL::Co-Development Agreement -- Something went wrong during Update, Please Contact System Administrator::error";
-                        array_push($return, $error);
-                    }
-                }
-            }else{
-                $error = "FAIL::Co-Development Agreement Document Not Provided::warning";
-                array_push($return, $error);
-            }
         }
         return $return;
     }

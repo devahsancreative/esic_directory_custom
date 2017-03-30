@@ -338,7 +338,7 @@ if(!function_exists("render_slider")){
                     $ImagePath = 'uploads/investor/';
                     $base_link = '';
                     break;
-                case 'esic_acceleration_logo':
+                case 'esic_accelerators':
                     $selectJoinData = [
                         '
                             logo as Image,

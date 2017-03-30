@@ -79,7 +79,6 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
 
     $ProgramName        = $data->ProgramName;
     $ProgramStartDate   = $data->ProgramStartDate;
-    $ProposedIP         = $data->ProposedIP;
     $roleDepartment     = $data->roleDepartment;
 
     }else{
@@ -111,10 +110,9 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
         $RndCredentialsSummary = ''; 
 
 
-        $ProgramName        = $data->ProgramName;
-        $ProgramStartDate   = $data->ProgramStartDate;
-        $ProposedIP         = $data->ProposedIP;
-        $roleDepartment     = $data->roleDepartment;
+        $ProgramName        = '';
+        $ProgramStartDate   = '';
+        $roleDepartment     = '';
     }
 
 
@@ -217,10 +215,6 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
                                     <div class="form-group">
                                         <label for="ProgramStartDateBox">Program Start Date</label>
                                         <input type="text" name="ProgramStartDate" id="ProgramStartDateBox" value="<?= $ProgramStartDate;?>" class="form-control" readonly/>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="ProposedIPBox">Proposed IP</label>
-                                        <input type="text" name="ProposedIP" id="ProposedIPBox" value="<?= $ProposedIP;?>" class="form-control" readonly />
                                     </div>
                                     <div class="form-group">
                                         <label for="roleDepartmentBox">Role/Department</label>

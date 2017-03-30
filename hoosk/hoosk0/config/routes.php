@@ -299,9 +299,6 @@ $route['admin/manage_appstatus']       	= "Admin/manage_appstatus";
 $route['admin/manage_appstatus/(:any)'] = "Admin/manage_appstatus/$1";
 
 
-$route['admin/manage_universities']    		= "Admin/manage_universities";
-$route['admin/manage_universities/(:any)']  = "Admin/manage_universities/$1";
-
 //For Lawyers
 $route['admin/manage_lawyer']    	  = "Lawyer/ManageLawyer";
 $route['admin/manage_lawyer/(:any)']  = "Lawyer/ManageLawyer/$1";
@@ -314,17 +311,46 @@ $route['Lawyer/Edit/(:any)']  = "Lawyer/Edit/$1";
 $route['Lawyer/EditSave']     = "Lawyer/EditSave";
 
 
-//For Grant Recipients
-/*
-$route['admin/manage_grantrecipients']    	   = "GrantRecipients/ManageGrantRecipients";
-$route['admin/manage_grantrecipients/(:any)']  = "GrantRecipients/ManageGrantRecipients/$1";
-$route['admin/GrantRecipients/view/(:any)']    = "GrantRecipients/View/$1";
-$route['admin/GrantRecipients/detail/(:any)']  = "GrantRecipients/Detail/$1";
-$route['GrantRecipients/Listing']    	= "GrantRecipients/ManageGrantRecipients";
-$route['GrantRecipients/Add']    	   	= "GrantRecipients/Add";
-$route['GrantRecipients/AddSave']      	= "GrantRecipients/AddSave";
-$route['GrantRecipients/Edit/(:any)']  	= "GrantRecipients/Edit/$1";
-$route['GrantRecipients/EditSave']      = "GrantRecipients/EditSave";*/
+//For  Accelerators
+//old
+$route['admin/manage_accelerators']    			= "Admin/manage_accelerators";
+$route['admin/manage_accelerators/(:any)']    	= "Admin/manage_accelerators/$1";
+
+//new
+$route['admin/manage_accelerator']    	  	= "Accelerator/ManageAccelerator";
+$route['admin/manage_accelerator/(:any)']  	= "Accelerator/ManageAccelerator/$1";
+$route['admin/Accelerator/view/(:any)']    	= "Accelerator/View/$1";
+$route['admin/Accelerator/detail/(:any)']  	= "Accelerator/Detail/$1";
+$route['Accelerator/Listing']      	= "Accelerator/ManageAccelerator";
+$route['Accelerator/Add']    	  	= "Accelerator/Add";
+$route['Accelerator/AddSave']      	= "Accelerator/AddSave";
+$route['Accelerator/Edit/(:any)']  	= "Accelerator/Edit/$1";
+$route['Accelerator/EditSave']     	= "Accelerator/EditSave";
+
+
+//For  Accelerating Commercialisation OR Grant Recipients 
+//old
+$route['admin/manage_acc_commercials'] 			= "Admin/manage_acc_commercials";
+$route['admin/manage_acc_commercials/(:any)'] 	= "Admin/manage_acc_commercials/$1";
+
+//new
+$route['admin/manage_acceleratingcommercialisation']    	   = "AcceleratingCommercialisation/ManageAcceleratingCommercialisation";
+
+$route['admin/manage_acceleratingcommercialisation/(:any)']  = "AcceleratingCommercialisation/ManageAcceleratingCommercialisation/$1";
+
+$route['admin/AcceleratingCommercialisation/view/(:any)']    = "AcceleratingCommercialisation/View/$1";
+
+$route['admin/AcceleratingCommercialisation/detail/(:any)']  = "AcceleratingCommercialisation/Detail/$1";
+
+$route['AcceleratingCommercialisation/Listing']    	= "AcceleratingCommercialisation/ManageAcceleratingCommercialisation";
+
+$route['AcceleratingCommercialisation/Add']    	   	= "AcceleratingCommercialisation/Add";
+
+$route['AcceleratingCommercialisation/AddSave']      	= "AcceleratingCommercialisation/AddSave";
+
+$route['AcceleratingCommercialisation/Edit/(:any)']  	= "AcceleratingCommercialisation/Edit/$1";
+
+$route['AcceleratingCommercialisation/EditSave']      = "AcceleratingCommercialisation/EditSave";
 
 
 //For Grant Consultants
@@ -338,6 +364,11 @@ $route['GrantConsultant/AddSave']      	= "GrantConsultant/AddSave";
 $route['GrantConsultant/Edit/(:any)']  	= "GrantConsultant/Edit/$1";
 $route['GrantConsultant/EditSave']      = "GrantConsultant/EditSave";
 
+
+
+//old Rnd Routes but still active for backfall links
+$route['admin/manage_rd']              	= "Admin/manage_rd";
+$route['admin/manage_rd/(:any)']        = "Admin/manage_rd/$1";
 
 //For Rnd Consultants
 $route['admin/manage_rndconsultant']    	 = "RndConsultant/ManageRndConsultant";
@@ -364,6 +395,11 @@ $route['RndPartner/EditSave']      	= "RndPartner/EditSave";
 
 
 //For Universities
+//old
+$route['admin/manage_universities']    		= "Admin/manage_universities";
+$route['admin/manage_universities/(:any)']  = "Admin/manage_universities/$1";
+
+//new
 $route['admin/manage_university']    	  = "University/ManageUniversity";
 $route['admin/manage_university/(:any)']  = "University/ManageUniversity/$1";
 $route['admin/University/view/(:any)']    = "University/View/$1";
@@ -382,27 +418,7 @@ $route['University/EditSave']      	= "University/EditSave";
 $route['admin/manage_sectors']         	= "Admin/manage_sectors";
 $route['admin/manage_sectors/(:any)']   = "Admin/manage_sectors/$1";
 
-
-//old Rnd Routes but still active for backfall links
-$route['admin/manage_rd']              	= "Admin/manage_rd";
-$route['admin/manage_rd/(:any)']        = "Admin/manage_rd/$1";
-
-
-
-$route['admin/manage_acc_commercials'] 			= "Admin/manage_acc_commercials";
-
-$route['admin/manage_acc_commercials/(:any)'] 	= "Admin/manage_acc_commercials/$1";
-
-
-
-$route['admin/manage_accelerators']    			= "Admin/manage_accelerators";
-
-$route['admin/manage_accelerators/(:any)']    	= "Admin/manage_accelerators/$1";
-
-
-
 $route['admin/showExpDate']  	= "Admin/showExpDate";
-
 
 
 $route['contact']  	= "contact/contact_us";

@@ -47,7 +47,7 @@
 
                                     <option name="Universities" table="esic_institution" value="UNIVERSITIES">Universities</option>
 
-                                    <option name="Accelerators" table="esic_acceleration_logo" value="ACCELERATORS">Accelerators</option>
+                                    <option name="Accelerators" table="esic_accelerators" value="ACCELERATORS">Accelerators</option>
 
                                     <option name="Grant Recipients" table="esic_grantrecipients" value="GRANTRECIPIENTS">Grant Recipients</option>
 

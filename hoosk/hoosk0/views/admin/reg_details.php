@@ -814,7 +814,7 @@ $ci =& get_instance();
 			                          }else if($tableName == 'esic_institution'){
 			                          	$TableIDCheck = trim($userProfile['inID']);
 			                          	$tableUpdateID = 'inID';
-			                          }else if($tableName=='esic_acceleration_logo'){
+			                          }else if($tableName=='esic_accelerators'){
 			                          	$TableIDCheck = trim($userProfile['AccID']);
 			                          	$tableUpdateID = 'AccID';
 			                          }else{
@@ -889,7 +889,7 @@ $ci =& get_instance();
                                 }else if($tableName == 'esic_institution'){
                                   $TableIDCheck = trim($userProfile['inID']);
                                   $tableUpdateID = 'inID';
-                                }else if($tableName=='esic_acceleration_logo'){
+                                }else if($tableName=='esic_accelerators'){
                                   $TableIDCheck = trim($userProfile['AccID']);
                                   $tableUpdateID = 'AccID';
                                 }else{

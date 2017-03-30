@@ -41,7 +41,7 @@ class Investor extends MY_Controller {
         $data['RnDs'] = $this->Common_model->select_fields_where('esic_rnd',$selectData, $where);
         $data['institutions'] = $this->Common_model->select_fields_where('esic_institution',$selectData, $where, false, '', '', '','','',false);
         $data['accelerationCommercials'] = $this->Common_model->select_fields_where('esic_acceleration',$selectData, $where, false, '', '', '','','',false);
-        $data['acceleratorProgramme'] = $this->Common_model->select_fields_where('esic_acceleration_logo',$selectData, $where, false, '', '', '','','',false);
+        $data['acceleratorProgramme'] = $this->Common_model->select_fields_where('esic_accelerators',$selectData, $where, false, '', '', '','','',false);
         $data['sectors'] = $this->Common_model->select_fields_where('esic_sectors',$selectData, $where, false, '', '', '','','',false);
         $data['company'] = $this->Common_model->select('user');
 

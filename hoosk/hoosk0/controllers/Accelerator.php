@@ -1,17 +1,17 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class University extends MY_Controller {
-    
+class Accelerator extends MY_Controller {
+
     public $CurrentID           = 0;
-    public $tableName           = 'esic_institution';
-    public $BannerNamePrefix    = 'UniversityBanner';
-    public $LogoNamePrefix      = 'UniversityLogo';
-    public $Name                = 'University';
-    public $NameMessage         = 'University';
-    public $ImagesFolderName    = 'university';
-    public $ViewFolderName      = 'university';
-    public $ControllerRouteName = 'University';
-    public $ControllerName      = 'University';
+    public $tableName           = 'esic_accelerators';
+    public $BannerNamePrefix    = 'AcceleratorBanner';
+    public $LogoNamePrefix      = 'AcceleratorLogo';
+    public $Name                = 'Accelerator';
+    public $NameMessage         = 'Accelerator';
+    public $ImagesFolderName    = 'accelerator';
+    public $ViewFolderName      = 'accelerator';
+    public $ControllerRouteName = 'Accelerator';
+    public $ControllerName      = 'Accelerator';
     public $data                = array('');
 
     function __construct()
@@ -35,14 +35,15 @@ class University extends MY_Controller {
         $url = str_replace('http://', '', $url);
         $url = str_replace('https://', '', $url);
         define ('DoucmentUrl', $url);
-        $this->load->helper('viewuni');
+        $this->load->helper('viewaccelerator');
         $this->data['ControllerName']       = $this->ControllerName;
         $this->data['ControllerRouteName']  = $this->ControllerRouteName;
         $this->data['ListingName']  = $this->Name;
         $this->data['ListingLabel'] = $this->NameMessage;
+        $this->data['itemStatuses'] = $this->Common_model->select('esic_status_flags');
 
     }
-    public function ManageUniversity($param=NULL){
+    public function ManageAccelerator($param=NULL){
         viewHelperManage($param);
         return NULL;
     }
@@ -51,7 +52,7 @@ class University extends MY_Controller {
         return NULL;
     }
     public function AddSave(){
-        $this->data['return'] = ViewHelperNewSave();
+        $this->data['return'] = ViewHelperNewSave(); 
         $this->show_admin('admin/configuration/'.$this->ViewFolderName.'/listing' , $this->data);
         return Null;
     }
@@ -74,12 +75,12 @@ class University extends MY_Controller {
         $this->data['data'] = $this->Common_model->select_fields_where($this->tableName ,'*' ,$where,true);
         $this->show_admin('admin/configuration/'.$this->ViewFolderName.'/view' , $this->data);
         return Null;
-    }
+    }  
     public function Detail($ID){
         $this->data['id'] = $ID;
         $where = array('id' => $ID);
         $this->data['data'] = $this->Common_model->select_fields_where($this->tableName ,'*' ,$where,true);
         $this->show_admin('admin/configuration/'.$this->ViewFolderName.'/detail' , $this->data);
         return Null;
-    }     
+    }  
 }

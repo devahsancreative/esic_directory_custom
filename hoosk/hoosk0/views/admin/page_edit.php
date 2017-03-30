@@ -238,9 +238,8 @@ table td {
 
 		  -->  <script src="<?php echo ADMIN_THEME; ?>/js/sirTrevor/iFrame.js" type="text/javascript" charset="utf-8"></script>
 		  <script src="<?php echo ADMIN_THEME; ?>/js/sirTrevor/image-extended.js" type="text/javascript" charset="utf-8"></script>
-		  <!--<script src="<?php//echo ADMIN_THEME; ?>/js/sirTrevor/markdown.js" type="text/javascript" charset="utf-8"></script>
-          --->
-<!--		  TinyMCE-->
+		  <!--<script src="<?php//echo ADMIN_THEME; ?>/js/sirTrevor/markdown.js" type="text/javascript" charset="utf-8"></script>-->
+<!--TinyMCE-->
 
 		  <script src="<?php echo ADMIN_THEME; ?>/js/sirTrevor/mce/sir-trevor-tinymce.js" type="text/javascript" charset="utf-8"></script>
           <script src="<?php echo ADMIN_THEME; ?>/js/sirTrevor/Button.js" type="text/javascript"></script>

@@ -225,7 +225,7 @@ class Esic_model extends CI_Model
                     'type' => 'LEFT'
                 ),
                 array(
-                    'table' => 'esic_acceleration_logo EAcc',
+                    'table' => 'esic_accelerators EAcc',
                     'condition' => 'EAcc.id = user.AccID AND EAcc.trashed != 1',
                     'type' => 'LEFT'
                 ),

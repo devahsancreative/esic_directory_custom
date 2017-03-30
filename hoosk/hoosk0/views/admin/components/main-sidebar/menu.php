@@ -64,7 +64,7 @@
     
     
     <li class="treeview <?php if(
-           $current=='Admin/manage_universities'
+           $class=='University'
         || $current=='Admin/manage_rd'
         || $current=='Admin/manage_acc_commercials'
         || $current=='Admin/manage_accelerators'
@@ -76,6 +76,7 @@
         || $class=='GrantConsultant'
         || $class=='RndConsultant'
         || $class=='RndPartner'
+        || $class=='AcceleratingCommercialisation'
     ){ echo 'active';}?>">
         <a href="#">
             <i class="fa fa-dashboard"></i> <span>Configuration</span>
@@ -94,11 +95,11 @@
 
             <li class="<?php if ($class == "GrantConsultant") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_grantconsultant')?>"><i class="fa fa-circle-o"></i> Grant Consultants</a></li>
 
-            <li class="<?php if ($current == "Admin/manage_accelerators") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_accelerators')?>"><i class="fa fa-circle-o"></i> Accelerators</a></li>
+            <li class="<?php if ($class == "Accelerator") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_accelerator')?>"><i class="fa fa-circle-o"></i> Accelerators</a></li>
 
-            <li class="<?php if ($current == "Admin/manage_acc_commercials") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_acc_commercials')?>"><i class="fa fa-circle-o"></i> Accelerating Commercialisation</a></li>
+            <li class="<?php if ($class == "AcceleratingCommercialisation") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_acceleratingcommercialisation')?>"><i class="fa fa-circle-o"></i> Accelerating Commercialisation</a></li>
 
-            <li class="<?php if ($current == "Admin/manage_universities") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_universities')?>"><i class="fa fa-circle-o"></i> Universities</a></li>
+            <li class="<?php if ($class == "University") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_university')?>"><i class="fa fa-circle-o"></i> Universities</a></li>
 
             <li class="<?php if ($current == "Admin/manage_sectors") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_sectors')?>"><i class="fa fa-circle-o"></i> Sectors</a></li>
            

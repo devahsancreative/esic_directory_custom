@@ -18,7 +18,7 @@
             'emoticons template paste textcolor colorpicker textpattern imagetools'
         ],*/
 
-        toolbar: "spellchecker | undo redo | styleselect | fontsizeselect | forecolor | backcolor | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link | table | media | code",
+        toolbar: "undo redo | styleselect | fontsizeselect | forecolor | backcolor | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link | table | media | code",
         fontsize_formats: "8px 10px 12px 14px 18px 24px 28px 30px 36px 40px"
 
     };

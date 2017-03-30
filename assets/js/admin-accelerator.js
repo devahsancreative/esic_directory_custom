@@ -1,8 +1,8 @@
 $(function(){
-if($("#UniversityList").length > 0){
+if($("#AcceleratorList").length > 0){
     oTable = "";
-    var regTableSelector = $("#UniversityList");
-    var url_DT = baseUrl + "admin/manage_university/listing";
+    var regTableSelector = $("#AcceleratorList");
+    var url_DT = baseUrl + "admin/manage_accelerator/listing";
     var aoColumns_DT = [
         /* ID */ {
             "mData": "ID",
@@ -11,40 +11,50 @@ if($("#UniversityList").length > 0){
             "bSearchable": true,
             "render":function( data, type, full, meta){
                 if(data!=''){
-                    return '<a href="'+base_url+'admin/University/view/'+full.ID+'" >'+full.ID+'</a>';
+                    return '<a href="'+base_url+'admin/Accelerator/view/'+full.ID+'" >'+full.ID+'</a>';
                 }
                 return data;
                 
             }
         },
-        /* Name */ {
-            "mData": "Name",
+        /* name */ {
+            "mData": "name",
             "render":function( data, type, full, meta){
                 if(data!=''){
-                    return '<a href="'+base_url+'admin/University/view/'+full.ID+'" >'+full.Name+'</a>';
+                    return '<a href="'+base_url+'admin/Accelerator/view/'+full.ID+'" >'+full.name+'</a>';
                 }
                 return data;
                 
             }
         },
-        // Phone or Cell
+        //website Address
         {
-            "mData": "Phone"
+            "mData": "website"
         },
-       //Website Address
-        {
-            "mData": "Website"
-        },
-        // Logo or Avatar
+        //Logo or Avatar
         {
             "mData": "Logo",
             "render": function ( data, type, row ) {
                 if(data!=''){
-                    return '<img data-target=".logo-edit-modal" data-toggle="modal" alt="Edit" src="'+srcImage(data,this)+'" class="University-logo" style="height:50px;width:50px;cursor:pointer;" />';
+                    return '<img data-target=".logo-edit-modal" data-toggle="modal" alt="Edit" src="'+srcImage(data,this)+'" class="Accelerator-logo" style="height:50px;width:50px;cursor:pointer;" />';
                 }
-                return '<span data-target=".logo-edit-modal" data-toggle="modal" class="UniversityList-logo">Empty </span>';
+                return '<span data-target=".logo-edit-modal" data-toggle="modal" class="Accelerator-logo">Empty </span>';
             },
             "className":"centerLogo"
+        },
+        /* Accelerator Status */ {
+            "mData": "acceleratorStatus",
+            "render": function ( data, type, row ) {
+                if(data!=''){
+                    if(data =='Eligible'){
+                        return '<span class="label-success success">Eligible</span>';
+                    }
+                    if(data =='Pending'){
+                        return '<span class="label-danger danger">Pending</span>';
+                    }
+                }
+                return '<span class="label-danger danger">Pending</span>';
+            },
         },
         /* Trashed */ {
             "mData": "Trashed"
@@ -56,11 +66,13 @@ if($("#UniversityList").length > 0){
     var HiddenColumnID_DT = "ID";
     var sDom_DT = '<"H"r>t<"F"<"row"<"col-lg-6 col-xs-12" i> <"col-lg-6 col-xs-12" p>>>';
     commonDataTables(regTableSelector, url_DT, aoColumns_DT, sDom_DT, HiddenColumnID_DT);
+
     new $.fn.dataTable.Responsive(oTable, {
-            details: true
+        details: true
     });
     removeWidth(oTable);
-    sTable = $('#UniversityList').DataTable();  // // Search by Title
+
+    sTable = $('#AcceleratorList').DataTable();  // // Search by Title
     $("#search-input").on("keyup", function (e) {
         sTable.fnFilter($(this).val());
     });
@@ -86,7 +98,6 @@ function srcImage(dbData,elem) {
     }
 }
 
-
 //Functions for Approving the Trash through Modal
 //When Approval Modal Shows Up
 $(".approval-modal").on("shown.bs.modal", function (e) {
@@ -104,7 +115,7 @@ $("#yesApprove").on("click", function () {
     var hiddenModalID = $(this).parents(".modal-content").find("#hiddenUserID").val();
     var postData = {id: hiddenModalID, value: "trash"};
     $.ajax({
-        url: baseUrl + "admin/manage_university/trash",
+        url: baseUrl + "admin/manage_accelerator/trash",
         data: postData,
         type: "POST",
         success: function (output) {
@@ -127,7 +138,7 @@ $("#yesApprove").on("click", function () {
         var hiddenModalUserID = $(this).parents(".modal-content").find("#hiddenUserID").val();
         var postData = {id: hiddenModalUserID, value: "untrash"};
         $.ajax({
-            url: baseUrl + "admin/manage_university/trash",
+            url: baseUrl + "admin/manage_accelerator/trash",
             data: postData,
             type: "POST",
             success: function (output) {
@@ -150,7 +161,7 @@ $("#yesApprove").on("click", function () {
         var hiddenModalUserID = $(this).parents(".modal-content").find("#hiddenUserID").val();
         var postData = {id: hiddenModalUserID, value: "delete"};
         $.ajax({
-            url: baseUrl + "admin/manage_university/delete",
+            url: baseUrl + "admin/manage_accelerator/delete",
             data: postData,
             type: "POST",
             success: function (output) {
@@ -169,9 +180,6 @@ $("#yesApprove").on("click", function () {
         });
     });
     
-
-
-
 /*--------LOGO JOB---------*/
 //    When Modal is Opened
     $(".logo-edit-modal").on("shown.bs.modal", function (e) {
@@ -239,7 +247,7 @@ $("#yesApprove").on("click", function () {
                 $.ajax({
                     crossOrigin: true,
                     type: 'POST',
-                    url: baseUrl + "admin/manage_university/updateLogo",
+                    url: baseUrl + "admin/manage_accelerator/updateLogo",
                     data: formData,
                     processData: false,
                     contentType: false
@@ -276,7 +284,7 @@ $("#yesApprove").on("click", function () {
                 $.ajax({
                     crossOrigin: true,
                     type: 'POST',
-                    url: baseUrl + "admin/manage_university/updateImage",
+                    url: baseUrl + "admin/manage_accelerator/updateImage",
                     data: formData,
                     processData: false,
                     contentType: false

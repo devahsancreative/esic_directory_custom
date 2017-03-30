@@ -44,102 +44,52 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
         </ol>
 </section>
     <?php 
-    if(isset($id) && !empty($id)){
+        if(isset($id) && !empty($id)){
         $id = $id;
     }else{
         return 'Sorry No ID Set';
     }
-    if(isset($data) && !empty($data)){
-    $name       = $data->name; 
-    $phone      = $data->phone; 
-    $website    = $data->website; 
-    $email      = $data->email;
-
-
-    $ANZSRC    = $data->ANZSRC; 
-    $IDNumber  = $data->IDNumber; 
-
-    //Address Fields
-    $address_streetNumber = $data->address_street_number;
-    $address_streetName = $data->address_street_name;
-    $address_town = $data->address_town;
-    $address_state = $data->address_state;
-    $address_postCode = $data->address_post_code;
-
-    //Default Address Block set to false, Not To Show.
-    $address = false;
-
-    $address_arguments = [
-        $address_streetNumber,
-        $address_streetName,
-        $address_town,
-        $address_state,
-        $address_postCode,
-    ];
-
-    //This Function will only work in PHP 5.6 and above :)
-    if(!( $result = m_empty(...$address_arguments))){
-        //If any of the value in array is not empty should be considered not empty address and address box should show up.
-        //Not Empty
-        $address = true;
-    }else{
-        //If All the address fields are empty, then box does not need to be shown.
-        //If Empty
-        $address = false;
-    }
-    
-   // $keywords   = $data->keywords; 
-    //$banner     = $data->banner; 
-    $logo       = $data->logo; 
-
-    //$short_description  = $data->short_description; 
-    //$long_description   = $data->long_description; 
-
-      $RndCredentialsSummary = $data->RndCredentialsSummary;
-
-      $ProgramName        = $data->ProgramName;
-      $ProgramStartDate   = $data->ProgramStartDate;
-      $roleDepartment     = $data->roleDepartment;
-
-    }else{
-
-        $name       = ''; 
-        $phone      = ''; 
-        $website    = ''; 
-        $email      = '';
+       if(isset($data) && !empty($data)){
+        $Member             = $data->Member;
+        $Web_Address        = $data->Web_Address;
 
         //Getting Address Fields
-        $address_streetNumber = '';
-        $address_streetName = '';
-        $address_town = '';
-        $address_state = '';
-        $address_postCode = '';
-        //$address    = '';
+        $Project_Location   = $data->Project_Location;
+        $State_Territory    = $data->State_Territory;
+        $postal_code        = $data->postal_code;
 
-       // $keywords   = ''; 
+        //$banner = $data->banner;
+        $logo               = $data->accLogo;
 
-        $ANZSRC    = ''; 
-        $IDNumber  = ''; 
-
-       // $banner     = ''; 
-        $logo       = ''; 
-
-    //$short_description  = ''; 
-    //$long_description   = ''; 
-        $RndCredentialsSummary = ''; 
+        $Project_Title      = $data->Project_Title;
+        $Project_Summary    = $data->Project_Summary;
+        $Market             = $data->Market;
+        $Technology         = $data->Technology;
+        $short_description  = $data->short_description;
+        $long_description   = $data->long_description;
 
 
-        $ProgramName        = ''; 
-        $ProgramStartDate   = '';
-        $roleDepartment     = '';
 
+    }else{
+
+        $Member                 = '';
+        $Web_Address            = '';
+
+        //Getting Address Fields
+        $Project_Location       = '';
+        $State_Territory        = '';
+        $postal_code            = '';
+
+        //$banner               = '';
+        $logo                   = '';
+
+        $Project_Title          = '';
+        $Project_Summary        = '';
+        $Market                 = '';
+        $Technology             = '';
+        $short_description      = '';
+        $long_description       = '';
     }
-
-
-    ?>
-<?php
-$ci =& get_instance();
-$ci->load->model("Common_model"); 
 ?>
     <!-- Main content -->
     <section class="content">
@@ -160,74 +110,33 @@ $ci->load->model("Common_model");
                   <img id="User-Logo" class="profile-user-img img-responsive" src="<?= $logoImage; ?>" alt="User profile picture">
                 </div>
                 <h3 class="profile-username text-center">
-                    <b><?= $name;?></b>
+                    <b><?= $Member;?></b>
                 </h3>
-                <?php if(!empty($website)){ ?>
+                <?php if(!empty($Web_Address)){ ?>
                 <div class="web-container">
                     <label for="">Website:</label>
-                    <a href="<?= $website; ?>" class="btn btn-primary btn-block" target="_blank">
-                        <?= $website; ?>
+                    <a href="<?= $Web_Address; ?>" class="btn btn-primary btn-block" target="_blank">
+                        <?= $Web_Address; ?>
                     </a>
                 </div>
                  <?php } ?>
-                <?php if(!empty($email)){ ?>
-                    <div class="email-container">
-                        <label for="">Email:</label>
-                        <p class=""><?= $email; ?></p>
-                    </div>
-                <?php } ?>
-                <?php if(!empty($ProgramName)){ ?>
-                    <div class="text-container">
-                        <label for="">Program Name:</label>
-                        <p class=""><?= $ProgramName; ?></p>
-                    </div>
-                <?php } ?>
-                <?php if(!empty($ProgramStartDate)){ ?>
-                    <div class="text-container">
-                        <label for="">Program Start Date:</label>
-                        <p class=""><?= $ProgramStartDate; ?></p>
-                    </div>
-                <?php } ?>
-                <?php if(!empty($roleDepartment)){ ?>
-                    <div class="text-container">
-                        <label for="">role Department:</label>
-                        <p class=""><?= $roleDepartment; ?></p>
-                    </div>
-                <?php } ?>
-                <?php if(!empty($ANZSRC)){ ?>
-                    <div class="ANZSRC-container">
-                        <label for="">ANZSRC:</label>
-                        <p class=""><?= $ANZSRC; ?></p>
-                    </div>
-                <?php } ?>
-                 <?php if(!empty($IDNumber)){ ?>
-                    <div class="IDNumber-container">
-                        <label for="">ID Number:</label>
-                        <p class=""><?= $IDNumber; ?></p>
-                    </div>
-                <?php } ?>
-                <?php if($address){ ?>
                     <div class="address-container">
                         <div class="address-text">
                             <strong><i class="fa fa-globe margin-r-5"></i>Address</strong>
-                            <?php if(!empty($address_streetNumber)){?>
-                                <div class="text-muted">Street Number: <span class="street_number"><?=$address_streetNumber;?></span></div>
+                           
+                            <?php if(!empty($Project_Location)){?>
+                                <div class="text-muted">Project Location: <span class="suburb"><?=$Project_Location;?></span></div>
                             <?php } ?>
-                            <?php if(!empty($address_streetName)){?>
-                                <div class="text-muted">Street Name: <span class="street_name"><?=$address_streetName;?></span></div>
+
+                            <?php if(!empty($postal_code)){?>
+                                <div class="text-muted">Post Code: <span class="state"> <?=$postal_code?> </span></div>
                             <?php } ?>
-                            <?php if(!empty($address_town)){?>
-                                <div class="text-muted">Town: <span class="town"><?=$address_town?></span></div>
-                            <?php } ?>
-                            <?php if(!empty($address_state)){?>
-                                <div class="text-muted">State: <span class="state"> <?=$address_state?> </span></div>
-                            <?php } ?>
-                            <?php if(!empty($address_postCode)){?>
-                                <div class="text-muted">Post Code: <span class="post_code"><?=$address_postCode?></span></div>
+
+                            <?php if(!empty($post_code)){?>
+                                <div class="text-muted">Post Code: <span class="post_code"><?=$post_code?></span></div>
                             <?php } ?>
                         </div>
                     </div>
-                <?php } ?>
 
                 <div class="text-center">
                     <a href="<?= base_url().$ControllerRouteName.'/Listing'?>" class="btn addNewBtn btn-primary">Go To Listing</a>
@@ -247,31 +156,49 @@ $ci->load->model("Common_model");
             <div class="tab-content">
               <div class="tab-pane active" id="description">
                 <ul class="timeline timeline-inverse">
-                    <?php/* if(!empty($banner)){ ?>
-                     <li>
-                        <div class="timeline-item">
-                          <h3 class="timeline-header">Banner:</h3>
-                            <div class="form-group">
-                                <div class="img-reponsive">
-                                    <div class="img-container img-logo img-responsive">
-                                        <img src="<?= base_url().$banner;?>" class="banner-show" id="banner-show" />
-                                    </div>
-                                </div>
-                            </div>
-                       </div>
-                    </li>      
-                    <?php } */?>
-
                     <li>
                         <div class="timeline-item">
-                          <h3 class="timeline-header">R&D Credentials Summary:</h3>
+                          <h3 class="timeline-header">Project:</h3>
+                          <div class="project-container">
+                              <div class="project-text">
+                                  <?php if(!empty($Project_Title)){?>
+                                      <div class="form-group">
+                                        <label>Project Title: </label>
+                                        <span class="Project_Title"><?=$Project_Title;?></span>
+                                      </div>
+                                  <?php } ?>
+
+                                  <?php if(!empty($Market)){?>
+                                      <div class="form-group">
+                                      <label>Market: </label>
+                                      <span class="market"> <?= $Market?> </span></div>
+                                  <?php } ?>
+
+                                  <?php if(!empty($Technology)){?>
+                                      <div class="form-group">
+                                      <label>Technology: </label>
+                                      <span class="Technology"> <?=$Technology?></span></div>
+                                  <?php } ?>
+                              </div>
+                           </div>
+                        </div>
+                    </li>      
+                    <li>
+                        <div class="timeline-item">
+                          <h3 class="timeline-header">Project Summary:</h3>
                           <div id="short-desc-text" class="timeline-body">
-                                <pre><?= trim(urldecode($RndCredentialsSummary));?></pre>
+                                <pre><?= trim(urldecode($Project_Summary));?></pre>
                           </div>
                         </div>
                     </li>      
-                </ul>
-                <!--ul class="timeline timeline-inverse">
+                    <li>
+                        <div class="timeline-item">
+                          <h3 class="timeline-header">Short Description:</h3>
+                          <div id="short-desc-text" class="timeline-body">
+                                <pre><?= trim(urldecode($short_description));?></pre>
+                          </div>
+                        </div>
+                    </li>      
                     <li>
                         <div class="timeline-item">
                           <h3 class="timeline-header">Detail Description:</h3>
@@ -280,7 +207,7 @@ $ci->load->model("Common_model");
                           </div>
                         </div>
                     </li>      
-                </ul-->
+                </ul>
               </div>
             </div>
             <!-- /.tab-content -->
@@ -295,6 +222,9 @@ $ci->load->model("Common_model");
 <!-- /.content-wrapper -->
 
 <style>
+    .project-container{
+      padding: 15px;
+    }
    .seprator{
        margin-top:20px;
        }

@@ -4641,7 +4641,7 @@ class Admin extends MY_Controller {
 
             );
 
-            $returnedData = $this->Common_model->select_fields_joined_DT($selectData,'esic_acceleration_logo','','','','','',$addColumns);
+            $returnedData = $this->Common_model->select_fields_joined_DT($selectData,'esic_accelerators','','','','','',$addColumns);
 
             print_r($returnedData);
 
@@ -4695,7 +4695,7 @@ class Admin extends MY_Controller {
 
 
 
-                $this->Common_model->delete('esic_acceleration_logo',$whereUpdate);
+                $this->Common_model->delete('esic_accelerators',$whereUpdate);
 
                 echo "OK::Record Deleted Successfully";
 
@@ -4719,7 +4719,7 @@ class Admin extends MY_Controller {
 
 
 
-                $returnedData = $this->Common_model->update('esic_acceleration_logo',$whereUpdate,$updateData);
+                $returnedData = $this->Common_model->update('esic_accelerators',$whereUpdate,$updateData);
 
                 if($returnedData === true){
 
@@ -4807,7 +4807,7 @@ class Admin extends MY_Controller {
 
 
 
-            $returnedData = $this->Common_model->update('esic_acceleration_logo',$whereUpdate,$updateData);
+            $returnedData = $this->Common_model->update('esic_accelerators',$whereUpdate,$updateData);
 
             if($returnedData === true){
 
@@ -4893,7 +4893,7 @@ class Admin extends MY_Controller {
 
 
 
-            $returnedData = $this->Common_model->update('esic_acceleration_logo',$whereUpdate,$updateData);
+            $returnedData = $this->Common_model->update('esic_accelerators',$whereUpdate,$updateData);
 
             if($returnedData === true){
 
@@ -4967,7 +4967,7 @@ class Admin extends MY_Controller {
 
 
 
-            $updateResult = $this->Common_model->update('esic_acceleration_logo',$whereUpdate,$updateData);
+            $updateResult = $this->Common_model->update('esic_accelerators',$whereUpdate,$updateData);
 
             if($updateResult === true){
 
@@ -5045,7 +5045,7 @@ class Admin extends MY_Controller {
 
 
 
-            $returnedData = $this->Common_model->update('esic_acceleration_logo',$whereUpdate,$updateData);
+            $returnedData = $this->Common_model->update('esic_accelerators',$whereUpdate,$updateData);
 
             if($returnedData === true){
 
@@ -5095,7 +5095,7 @@ class Admin extends MY_Controller {
 
 
 
-            $insertResult = $this->Common_model->insert_record('esic_acceleration_logo',$insertData);
+            $insertResult = $this->Common_model->insert_record('esic_accelerators',$insertData);
 
             if($insertResult){
 
@@ -5193,7 +5193,7 @@ class Admin extends MY_Controller {
 
             );
 
-            $returnedData = $this->Common_model->select_fields_where(' esic_acceleration_logo',$selectData, $where, false, '', '', '','','',false);
+            $returnedData = $this->Common_model->select_fields_where(' esic_accelerators',$selectData, $where, false, '', '', '','','',false);
 
             $logo = $returnedData[0]->logo;
 
@@ -5203,7 +5203,7 @@ class Admin extends MY_Controller {
 
             }
 
-            $resultUpdate = $this->Common_model->update(' esic_acceleration_logo',$where,$insertDataArray);
+            $resultUpdate = $this->Common_model->update(' esic_accelerators',$where,$insertDataArray);
 
             if($resultUpdate === true){
 

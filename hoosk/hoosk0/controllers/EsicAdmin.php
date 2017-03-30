@@ -2156,7 +2156,7 @@ class EsicAdmin extends MY_Controller{
             $addColumns = array(
                 'ViewEditActionButtons' => array('<a href="#" data-target="#editAccelerationModal" data-toggle="modal"><span data-toggle="tooltip" title="Edit" data-placement="left" aria-hidden="true" class="fa fa-pencil text-blue"></span></a> &nbsp; <a href="#" data-target=".approval-modal" data-toggle="modal"><i data-toggle="tooltip" title="Trash" data-placement="right"  class="fa fa-trash-o text-red"></i></a>','UserID')
             );
-            $returnedData = $this->Common_model->select_fields_joined_DT($selectData,'esic_acceleration_logo','','','','','',$addColumns);
+            $returnedData = $this->Common_model->select_fields_joined_DT($selectData,'esic_accelerators','','','','','',$addColumns);
             print_r($returnedData);
             return NULL;
         }
@@ -2183,7 +2183,7 @@ class EsicAdmin extends MY_Controller{
                     'id' => $id
                 );
 
-                $this->Common_model->delete('esic_acceleration_logo',$whereUpdate);
+                $this->Common_model->delete('esic_accelerators',$whereUpdate);
                 echo "OK::Record Deleted Successfully";
             }else{
 
@@ -2195,7 +2195,7 @@ class EsicAdmin extends MY_Controller{
                     'id' => $id
                 );
 
-                $returnedData = $this->Common_model->update('esic_acceleration_logo',$whereUpdate,$updateData);
+                $returnedData = $this->Common_model->update('esic_accelerators',$whereUpdate,$updateData);
                 if($returnedData === true){
                     echo "OK::Record Successfully Trashed";
                 }else{
@@ -2239,7 +2239,7 @@ class EsicAdmin extends MY_Controller{
                 'id' => $id
             );
 
-            $returnedData = $this->Common_model->update('esic_acceleration_logo',$whereUpdate,$updateData);
+            $returnedData = $this->Common_model->update('esic_accelerators',$whereUpdate,$updateData);
             if($returnedData === true){
                 echo "OK::Record Successfully";
             }else{
@@ -2282,7 +2282,7 @@ class EsicAdmin extends MY_Controller{
                 'id' => $id
             ); 
 
-            $returnedData = $this->Common_model->update('esic_acceleration_logo',$whereUpdate,$updateData);
+            $returnedData = $this->Common_model->update('esic_accelerators',$whereUpdate,$updateData);
             if($returnedData === true){
                 echo "OK::Record Successfully";
             }else{
@@ -2319,7 +2319,7 @@ class EsicAdmin extends MY_Controller{
                 'id' => $id
             );
 
-            $updateResult = $this->Common_model->update('esic_acceleration_logo',$whereUpdate,$updateData);
+            $updateResult = $this->Common_model->update('esic_accelerators',$whereUpdate,$updateData);
             if($updateResult === true){
                 echo "OK::Record Successfully Updated";
             }else{
@@ -2358,7 +2358,7 @@ class EsicAdmin extends MY_Controller{
                 'id' => $id
             ); 
 
-            $returnedData = $this->Common_model->update('esic_acceleration_logo',$whereUpdate,$updateData);
+            $returnedData = $this->Common_model->update('esic_accelerators',$whereUpdate,$updateData);
             if($returnedData === true){
                 echo "OK::Record Successfully";
             }else{
@@ -2383,7 +2383,7 @@ class EsicAdmin extends MY_Controller{
                 'insertionType' => 1
             );
 
-            $insertResult = $this->Common_model->insert_record('esic_acceleration_logo',$insertData);
+            $insertResult = $this->Common_model->insert_record('esic_accelerators',$insertData);
             if($insertResult){
                 echo "OK::Record Successfully Entered";
             }else{
@@ -2432,12 +2432,12 @@ class EsicAdmin extends MY_Controller{
                 $where = array(
                     'id' => $accID
                 );
-                $returnedData = $this->Common_model->select_fields_where(' esic_acceleration_logo',$selectData, $where, false, '', '', '','','',false);
+                $returnedData = $this->Common_model->select_fields_where(' esic_accelerators',$selectData, $where, false, '', '', '','','',false);
                 $logo = $returnedData[0]->logo;
                 if(!empty($logo) && is_file(FCPATH.'/'.$logo)){
                     unlink('./'.$logo);
                 }
-                $resultUpdate = $this->Common_model->update(' esic_acceleration_logo',$where,$insertDataArray);
+                $resultUpdate = $this->Common_model->update(' esic_accelerators',$where,$insertDataArray);
                 if($resultUpdate === true){
                     echo "OK::Record Updated Successfully";
                 }else{
