@@ -42,6 +42,7 @@ class RndPartner extends MY_Controller {
         $this->data['ListingLabel'] = $this->NameMessage;
         $this->data['ControllerName']      = $this->ControllerName;
         $this->data['ControllerRouteName'] = $this->ControllerRouteName;
+        $this->data['ControllerRouteManage'] = $this->ControllerRouteManage;
         $this->data['itemStatuses'] = $this->Common_model->select('esic_status_flags');
 
     }

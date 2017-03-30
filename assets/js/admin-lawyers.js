@@ -39,6 +39,10 @@ $(function(){
             {
                 "mData": "Website"
             },
+            // Status Label
+            {
+                "mData": "Status_Label"
+            },
             //Logo or Avatar
             {
                 "mData": "Logo",

@@ -8,6 +8,7 @@
                                 <th>Phone</th>
                                 <th>Email</th>
                                 <th>Website</th>
+                                <th>Status</th>
                                 <th>Logo</th>
                                 <th>Trashed</th>
                                 <th>Action</th>
@@ -22,6 +23,7 @@
                                 <th>Phone</th>
                                 <th>Email</th>
                                 <th>Website</th>
+                                <th>Status</th>
                                 <th>Logo</th>
                                 <th>Trashed</th>
                                 <th>Action</th>

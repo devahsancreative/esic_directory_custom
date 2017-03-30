@@ -55,6 +55,8 @@
       $ProgramName        = $data->ProgramName;
       $ProgramStartDate   = $data->ProgramStartDate;
       $roleDepartment     = $data->roleDepartment;
+      $contactName        = $data->contactName;
+      $currentStatusID    = $data->status_flag_id;
 
     }else{
 
@@ -86,6 +88,20 @@
         $ProgramName        = ''; 
         $ProgramStartDate   = '';
         $roleDepartment     = '';
+        $contactName        = '';
+        $currentStatusID    = '';
+
+    }
+
+    $StatusName = '';
+    if(isset($itemStatuses) && !empty($itemStatuses)){
+        foreach ($itemStatuses as $key => $itemStatus){
+            $StatusDbID   = $itemStatus->id; 
+            $StatusDbName = $itemStatus->name;
+            if($currentStatusID == $StatusDbID){
+                $StatusName = $StatusDbName;
+            } 
+        }
 
     }
 
@@ -117,11 +133,36 @@
                         <?= $website; ?>
                     </a>
                 </div>
-                 <?php } ?>
+                <?php } ?>
+                <?php if(!empty($contactName)){ ?>
+                    <div class="contactName-container">
+                        <label for="">Contact Name:</label>
+                        <p class=""><?= $contactName; ?></p>
+                    </div>
+                <?php } ?>
                 <?php if(!empty($email)){ ?>
                     <div class="email-container">
-                        <label for="">Email:</label>
+                        <label for="">Contact Email:</label>
                         <p class=""><?= $email; ?></p>
+                    </div>
+                <?php } ?>
+                <?php if(!empty($roleDepartment)){ ?>
+                    <div class="text-container">
+                        <label for="">Contact Role/Department:</label>
+                        <p class=""><?= $roleDepartment; ?></p>
+                    </div>
+                <?php } ?>
+                <?php if(!empty($phone)){ ?>
+                    <div class="text-container">
+                        <label for="">Contact Phone:</label>
+                        <p class=""><?= $phone; ?></p>
+                    </div>
+                <?php } ?>
+                
+                 <?php if(!empty($StatusName)){ ?>
+                    <div class="statusFlag-container">
+                        <label for="">Status:</label>
+                        <p class=""><?= $StatusName; ?></p>
                     </div>
                 <?php } ?>
                 <?php if(!empty($ProgramName)){ ?>
@@ -134,12 +175,6 @@
                     <div class="text-container">
                         <label for="">Program Start Date:</label>
                         <p class=""><?= $ProgramStartDate; ?></p>
-                    </div>
-                <?php } ?>
-                <?php if(!empty($roleDepartment)){ ?>
-                    <div class="text-container">
-                        <label for="">role Department:</label>
-                        <p class=""><?= $roleDepartment; ?></p>
                     </div>
                 <?php } ?>
                 <?php if(!empty($ANZSRC)){ ?>

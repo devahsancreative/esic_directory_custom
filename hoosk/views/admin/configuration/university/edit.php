@@ -25,8 +25,7 @@
         $programEligibilityCriteria = $data->programEligibilityCriteria;
         $ProgramStartDate   = $data->ProgramStartDate;
         $roleDepartment     = $data->roleDepartment;
-
-
+        $contactName        = $data->contactName;
 
     }else{
 
@@ -49,6 +48,7 @@
         $programEligibilityCriteria = '';
         $ProgramStartDate   = '';
         $roleDepartment     = '';
+        $contactName      = '';
     }
 
 
@@ -69,19 +69,11 @@
                                 <input type="hidden" id="hiddenListID" value="">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="NameTextBox">Name</label>
+                                        <label for="NameTextBox">Name:</label>
                                         <input type="text" name="Name" id="NameTextBox" value="<?= $name;?>" class="form-control" />
                                     </div>
                                     <div class="form-group">
-                                        <label for="PhoneTextBox">Phone</label>
-                                        <input type="text" name="Phone" id="PhoneTextBox" value="<?= $phone;?>" class="form-control" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="EmailBox">Email</label>
-                                        <input type="text" name="Email" id="EmailBox" value="<?= $email;?>" class="form-control" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="WebsiteBox">Website</label>
+                                        <label for="WebsiteBox">Website:</label>
                                         <input type="text" name="Website" id="WebsiteBox" value="<?= $website;?>" class="form-control" />
                                     </div>
 
@@ -111,23 +103,35 @@
                                     </div>
 
                                   <div class="form-group"> 
-                                        <label for="programDescriptionBox">Program Description</label>
+                                        <label for="programDescriptionBox">Program Description:</label>
                                         <textarea type="text" name="programDescription" id="programDescriptionBox" class="form-control"> <?= $programDescription;?> </textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label for="programEligibilityCriteriaBox">Program Eligibility Criteria</label>
+                                        <label for="programEligibilityCriteriaBox">Program Eligibility Criteria:</label>
                                         <input type="text" name="programEligibilityCriteria" id="programEligibilityCriteriaBox" class="form-control" value="<?= $programEligibilityCriteria;?>">
                                     </div>
                                     <div class="form-group">
-                                        <label for="ProgramStartDateBox">Program Start Date</label>
+                                        <label for="ProgramStartDateBox">Program Start Date:</label>
                                         <input type="text" name="ProgramStartDate" id="ProgramStartDateBox" class="form-control date_picker" value="<?= $ProgramStartDate;?>">
                                     </div>
                                     <div class="form-group">
-                                        <label for="roleDepartmentBox">Role/Department</label>
+                                        <label for="contactNameBox">Contact Name:</label>
+                                        <input type="text" name="contactName" id="contactNameBox" value="<?= $contactName;?>" class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="PhoneTextBox">Contact Phone:</label>
+                                        <input type="text" name="Phone" id="PhoneTextBox" value="<?= $phone;?>" class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="EmailBox">Contact Email:</label>
+                                        <input type="text" name="Email" id="EmailBox" value="<?= $email;?>" class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="roleDepartmentBox">Contact Role/Department:</label>
                                         <input type="text" name="roleDepartment" id="roleDepartmentBox" class="form-control" value="<?= $roleDepartment;?>">
                                     </div>
                                     <div class="form-group">
-                                        <label for="update-logo-file">Logo</label>
+                                        <label for="update-logo-file">Logo:</label>
                                         <div class="img-reponsive">
                                             <div class="img-container img-logo img-responsive">
                                                  <?php if(!empty($logo)){ ?>
@@ -143,25 +147,6 @@
                                             </div>
                                        </div>
                                     </div>
-                                    <!--div class="form-group">
-                                        <label for="update-Banner-file">Banner</label>
-                                        <div class="img-reponsive">
-                                            <div class="img-container img-logo img-responsive">
-                                                <?php if(!empty($banner)){ ?>
-                                                    
-                                                        <img src="<?= base_url().$banner;?>" class="banner-show" id="banner-show" />
-
-                                                <?php }else{ ?>
-                                                        <img src="<?= base_url()?>pictures/defaultLogo.png" class="logo-show" id="banner-show" />
-                                                <?php } ?>
-                                            </div>
-                                            <div class="fileupload fileupload-new" data-provides="fileupload">
-                                                <span class="btn btn-file btn-logo-edit"><span class="fileupload-new">Click To</span><span class="fileupload-exists"> Edit</span>
-                                                    <input type="file" name="Bannerimage" id="banner-file"  />
-                                                </span>
-                                            </div>
-                                       </div>
-                                    </div-->
                                 </div>
                             </div>
                         </div> <!-- /.box-body -->

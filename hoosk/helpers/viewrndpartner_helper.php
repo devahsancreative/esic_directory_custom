@@ -204,20 +204,21 @@
         //Else, We Would Need to Combine multiple Address Fields in to One JSON.
 
         //Multi Field Address
-        $StreetNumber = $ci->input->post('address_streetNumber');
-        $StreetName = $ci->input->post('address_streetName');
-        $Town = $ci->input->post('address_town');
-        $State = $ci->input->post('address_state');
-        $PostCode = $ci->input->post('address_postCode');
+        $StreetNumber   = $ci->input->post('address_streetNumber');
+        $StreetName     = $ci->input->post('address_streetName');
+        $Town           = $ci->input->post('address_town');
+        $State          = $ci->input->post('address_state');
+        $PostCode       = $ci->input->post('address_postCode');
 
         $status_flag_id = $ci->input->post('statusFlag');
 
         $RndCredentialsSummary    = $ci->input->post('RndCredentialsSummary');
 
-        $ProgramName    = $ci->input->post('ProgramName');
+        $ProgramName        = $ci->input->post('ProgramName');
         $ProgramStartDate   = $ci->input->post('ProgramStartDate');
-        $roleDepartment = $ci->input->post('roleDepartment');
-
+        $roleDepartment     = $ci->input->post('roleDepartment');
+        $contactName        = $ci->input->post('contactName');
+        
 
         //$ShortDescription = $ci->input->post('ShortDescription');
         //$LongDescription  = $ci->input->post('LongDescription');
@@ -250,6 +251,7 @@
             'ProgramName'           => $ProgramName,
             'ProgramStartDate'      => $ProgramStartDate,
             'roleDepartment'        => $roleDepartment,
+            'contactName'           => $contactName,
             'IDNumber'              => $IDNumber,
             'ANZSRC'                => $ANZSRC,
             'status_flag_id'        => $status_flag_id
@@ -388,20 +390,20 @@
         //Else, We Would Need to Combine multiple Address Fields in to One JSON.
 
         //Multi Field Address
-        $StreetNumber = $ci->input->post('address_streetNumber');
-        $StreetName = $ci->input->post('address_streetName');
-        $Town = $ci->input->post('address_town');
-        $State = $ci->input->post('address_state');
-        $PostCode = $ci->input->post('address_postCode');
+        $StreetNumber   = $ci->input->post('address_streetNumber');
+        $StreetName     = $ci->input->post('address_streetName');
+        $Town           = $ci->input->post('address_town');
+        $State          = $ci->input->post('address_state');
+        $PostCode       = $ci->input->post('address_postCode');
 
 
 
         $RndCredentialsSummary    = $ci->input->post('RndCredentialsSummary');
 
-        $ProgramName    = $ci->input->post('ProgramName');
+        $ProgramName        = $ci->input->post('ProgramName');
         $ProgramStartDate   = $ci->input->post('ProgramStartDate');
-        $roleDepartment = $ci->input->post('roleDepartment');
-
+        $roleDepartment     = $ci->input->post('roleDepartment');
+        $contactName        = $ci->input->post('roleDepartment');
 
         $status_flag_id = $ci->input->post('statusFlag');
         
@@ -437,6 +439,7 @@
             'ProgramName'           => $ProgramName,
             'ProgramStartDate'      => $ProgramStartDate,
             'roleDepartment'        => $roleDepartment,
+            'contactName'           => $contactName,
             'IDNumber'              => $IDNumber,
             'ANZSRC'                => $ANZSRC,
             'status_flag_id'        => $status_flag_id

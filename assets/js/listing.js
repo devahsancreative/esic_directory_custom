@@ -30,6 +30,28 @@ $(function(){
 	    modal.find(".modal-body").find('p').html(Message);
 	    modal.find('.modal-header').find('h4').html('Trash <strong>'+Name+'</strong>');
 	});
+    //When Yes has been Selected on Approval Modal, Just Trash the Selected Data.
+    $("#yesApprove").on("click", function () {
+        var hiddenModalID = $(this).parents(".modal-content").find("#hiddenUserID").val();
+        var postData = {id: hiddenModalID, value: "trash"};
+        $.ajax({
+            url: baseUrl + "admin/"+ControllerRouteManage+"/trash",
+            data: postData,
+            type: "POST",
+            success: function (output) {
+                var data = output.trim().split("::");
+                if (data[0] == 'OK') {
+                    $(".approval-modal").modal('hide');
+                    oTable.fnDraw();
+                }
+                if(data[3]){
+                    Haider.notification(data[1],data[2],data[3]);
+                }else{
+                    Haider.notification(data[1],data[2]);
+                }
+            }
+        });
+    }); //End of Yes Approve Function
 
     //When No has been Selected on Approval Modal, Just Un-Trash the Selected Data.
     $("#nodelete").on("click", function () {

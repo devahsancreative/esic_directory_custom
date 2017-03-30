@@ -34,7 +34,7 @@
         $ProgramName        = $data->ProgramName;
         $ProgramStartDate   = $data->ProgramStartDate;
         $roleDepartment     = $data->roleDepartment;
-
+        $contactName        = $data->contactName;
         $currentStatusID    = $data->status_flag_id;
 
 
@@ -65,12 +65,12 @@
     //$long_description   = ''; 
         $RndCredentialsSummary = ''; 
 
+        $ProgramName      = ''; 
+        $ProgramStartDate = '';
+        $roleDepartment   = '';
+        $contactName      = '';
 
-        $ProgramName        = ''; 
-        $ProgramStartDate   = '';
-        $roleDepartment     = '';
-
-        $currentStatusID = '';
+        $currentStatusID  = '';
     }
 
 ?>
@@ -94,47 +94,42 @@
                                         <input type="text" name="IDNumber" id="IDNumberTextBox" value="<?= $IDNumber;?>" class="form-control" />
                                     </div>
                                     <div class="form-group">
-                                        <label for="NameTextBox">Name</label>
+                                        <label for="NameTextBox">Name:</label>
                                         <input type="text" name="Name" id="NameTextBox" value="<?= $name;?>" class="form-control" />
                                     </div>
                                     <div class="form-group">
-                                        <label for="PhoneTextBox">Phone</label>
-                                        <input type="text" name="Phone" id="PhoneTextBox" value="<?= $phone;?>" class="form-control" />
+                                        <label for="ANZSRCBox">ANZSRC:</label>
+                                        <input type="text" name="ANZSRC" id="ANZSRCBox" value="<?= $ANZSRC;?>" class="form-control" />
                                     </div>
                                     <div class="form-group">
-                                        <label for="EmailBox">Email</label>
-                                        <input type="text" name="Email" id="EmailBox" value="<?= $email;?>" class="form-control" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="WebsiteBox">Website</label>
+                                        <label for="WebsiteBox">Website:</label>
                                         <input type="text" name="Website" id="WebsiteBox" value="<?= $website;?>" class="form-control" />
                                     </div>
-
                                     <div class="form-group">
-                                        <label for="AddressBox">Address :</label>
+                                        <label for="AddressBox">Address:</label>
                                         <div class="row">
                                             <div class="form-group col-lg-2">
-                                                <label for="address_streetNumber">Street Number</label>
+                                                <label for="address_streetNumber">Street Number:</label>
                                                 <input type="text" name="address_streetNumber" id="address_streetNumber" value="<?=(isset($address_streetNumber) and !empty($address_streetNumber))?$address_streetNumber:''?>" class="form-control">
                                             </div>
 
                                             <div class="form-group col-lg-3">
-                                                <label for="address_streetName">Street Name</label>
+                                                <label for="address_streetName">Street Name:</label>
                                                 <input type="text" name="address_streetName" id="address_streetName" value="<?=(isset($address_streetName) and !empty($address_streetName))?$address_streetName:''?>" class="form-control">
                                             </div>
 
                                             <div class="form-group col-lg-3">
-                                                <label for="address_town">Town</label>
+                                                <label for="address_town">Town:</label>
                                                 <input type="text" name="address_town" id="address_town" value="<?=(isset($address_town) and !empty($address_town))?$address_town:''?>" class="form-control">
                                             </div>
 
                                             <div class="form-group col-lg-2">
-                                                <label for="address_state">State</label>
+                                                <label for="address_state">State:</label>
                                                 <input type="text" name="address_state" id="address_state" value="<?=(isset($address_state) and !empty($address_state))?$address_state:''?>" class="form-control">
                                             </div>
 
                                             <div class="form-group col-lg-2">
-                                                <label for="address_postCode">Post Code</label>
+                                                <label for="address_postCode">Post Code:</label>
                                                 <input type="text" name="address_postCode" id="address_postCode" value="<?=(isset($address_postCode) and !empty($address_postCode))?$address_postCode:''?>" class="form-control">
                                             </div>
                                         </div>
@@ -142,27 +137,19 @@
                                     </div>
 
                                    <div class="form-group"> 
-                                        <label for="RndCredentialsSummaryBox">R&D Credentials Summary</label>
+                                        <label for="RndCredentialsSummaryBox">R&D Credentials Summary:</label>
                                         <textarea type="text" name="RndCredentialsSummary" id="RndCredentialsSummaryBox" class="form-control"> <?= $RndCredentialsSummary; ?> </textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label for="ANZSRCBox">ANZSRC:</label>
-                                        <input type="text" name="ANZSRC" id="ANZSRCBox" value="<?= $ANZSRC;?>" class="form-control" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="ProgramNameBox">Program Name</label>
+                                        <label for="ProgramNameBox">Program Name:</label>
                                         <input type="text" name="ProgramName" id="ProgramNameBox" value="<?= $ProgramName;?>" class="form-control" />
                                     </div>
                                     <div class="form-group">
-                                        <label for="ProgramStartDateBox">Program Start Date</label>
+                                        <label for="ProgramStartDateBox">Program Start Date:</label>
                                         <input type="text" name="ProgramStartDate" id="ProgramStartDateBox" value="<?= $ProgramStartDate;?>" class="form-control" />
                                     </div>
                                     <div class="form-group">
-                                        <label for="roleDepartmentBox">Role/Department</label>
-                                        <input type="text" name="roleDepartment" id="roleDepartmentBox" value="<?= $roleDepartment;?>" class="form-control" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="statusFlagBox">Status</label>
+                                        <label for="statusFlagBox">Status:</label>
                                         <select id="statusFlagBox" name="statusFlag" class="form-control">                                 
                                             <?php    
                                                 if(isset($itemStatuses) || !empty($itemStatuses)){
@@ -172,7 +159,7 @@
                                                             $selected = 'SELECTED';
                                                         }
                                              ?>
-                                                        <option value="<?= $itemStatus->id;?> <?= $selected; ?>" > <?= $itemStatus->Label;?></option>
+                                                <option value="<?= $itemStatus->id;?>" <?= $selected; ?>> <?= $itemStatus->Label;?></option>
                                             <?php 
                                                     }
                                                 }
@@ -180,7 +167,23 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="update-logo-file">Logo</label>
+                                        <label for="contactNameBox">Contact Name:</label>
+                                        <input type="text" name="contactName" id="contactNameBox" value="<?= $contactName;?>" class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="PhoneTextBox">Contact Phone:</label>
+                                        <input type="text" name="Phone" id="PhoneTextBox" value="<?= $phone;?>" class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="EmailBox">Contact Email:</label>
+                                        <input type="text" name="Email" id="EmailBox" value="<?= $email;?>" class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="roleDepartmentBox">Contact Role/Department:</label>
+                                        <input type="text" name="roleDepartment" id="roleDepartmentBox" value="<?= $roleDepartment;?>" class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="update-logo-file">Logo:</label>
                                         <div class="img-reponsive">
                                             <div class="img-container img-logo img-responsive">
                                                  <?php if(!empty($logo)){ ?>

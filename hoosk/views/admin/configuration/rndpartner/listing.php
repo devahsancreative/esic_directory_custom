@@ -1,5 +1,3 @@
-
-
                         <table id="<?= $ControllerRouteName;?>List" class="table table-bordered table-striped">
                             <thead>
                             <tr>

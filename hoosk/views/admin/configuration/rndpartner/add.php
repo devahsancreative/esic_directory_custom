@@ -88,8 +88,8 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="PhoneTextBox">Contact Name:</label>
-                                        <input type="text" name="Phone" id="PhoneTextBox" class="form-control" />
+                                        <label for="contactNameBox">Contact Name:</label>
+                                        <input type="text" name="contactName" id="contactNameBox" class="form-control" />
                                     </div>
                                     <div class="form-group">
                                         <label for="PhoneTextBox">Contact Phone:</label>

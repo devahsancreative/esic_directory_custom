@@ -24,8 +24,7 @@
         $programEligibilityCriteria = $data->programEligibilityCriteria;
         $ProgramStartDate   = $data->ProgramStartDate;
         $roleDepartment     = $data->roleDepartment;
-
-
+        $contactName        = $data->contactName;
 
     }else{
 
@@ -48,6 +47,7 @@
         $programEligibilityCriteria = '';
         $ProgramStartDate   = '';
         $roleDepartment     = '';
+        $contactName        = '';
     }
 ?>
       <div class="row">
@@ -77,21 +77,27 @@
                     </a>
                 </div>
                  <?php } ?>
-                <?php if(!empty($email)){ ?>
-                    <div class="email-container">
-                        <label for="">Email:</label>
-                        <p class=""><?= $email; ?></p>
-                    </div>
-                <?php } ?>
                 <?php if(!empty($ProgramStartDate)){ ?>
                     <div class="text-container">
                         <label for="">Program Start Date:</label>
                         <p class=""><?= $ProgramStartDate; ?></p>
                     </div>
                 <?php } ?>
+                <?php if(!empty($contactName)){ ?>
+                    <div class="contactName-container">
+                        <label for="">Contact Name:</label>
+                        <p class=""><?= $contactName; ?></p>
+                    </div>
+                <?php } ?>
+                <?php if(!empty($email)){ ?>
+                    <div class="email-container">
+                        <label for="">Contact Email:</label>
+                        <p class=""><?= $email; ?></p>
+                    </div>
+                <?php } ?>
                 <?php if(!empty($roleDepartment)){ ?>
                     <div class="text-container">
-                        <label for="">role Department:</label>
+                        <label for="">Contact role Department:</label>
                         <p class=""><?= $roleDepartment; ?></p>
                     </div>
                 <?php } ?>
@@ -131,26 +137,19 @@
             <div class="tab-content">
               <div class="tab-pane active" id="description">
                 <ul class="timeline timeline-inverse">
-                    <?php/* if(!empty($banner)){ ?>
-                     <li>
-                        <div class="timeline-item">
-                          <h3 class="timeline-header">Banner:</h3>
-                            <div class="form-group">
-                                <div class="img-reponsive">
-                                    <div class="img-container img-logo img-responsive">
-                                        <img src="<?= base_url().$banner;?>" class="banner-show" id="banner-show" />
-                                    </div>
-                                </div>
-                            </div>
-                       </div>
-                    </li>      
-                    <?php } */?>
-
                     <li>
                         <div class="timeline-item">
                           <h3 class="timeline-header">Program Description:</h3>
                           <div id="short-desc-text" class="timeline-body">
                                 <pre><?= trim(urldecode($programDescription));?></pre>
+                          </div>
+                        </div>
+                    </li>    
+                    <li>
+                        <div class="timeline-item">
+                          <h3 class="timeline-header">Program Eligibility Criteria:</h3>
+                          <div id="short-desc-text" class="timeline-body">
+                                <pre><?= trim(urldecode($programEligibilityCriteria));?></pre>
                           </div>
                         </div>
                     </li>      

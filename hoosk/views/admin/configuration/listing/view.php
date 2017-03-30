@@ -10,6 +10,8 @@
     $website    = $data->website; 
     $email      = $data->email;
 
+    $status_flag_id = $data->status_flag_id;
+
     //Address Fields
     $address_streetNumber = $data->address_street_number;
     $address_streetName = $data->address_street_name;
@@ -57,10 +59,22 @@
         $banner     = ''; 
         $logo       = ''; 
 
+        $status_flag_id = '';
+
         $short_description  = ''; 
         $long_description   = ''; 
     }
+    $StatusName = '';
+    if(isset($itemStatuses) && !empty($itemStatuses)){
+        foreach ($itemStatuses as $key => $itemStatus){
+            $StatusDbID   = $itemStatus->id; 
+            $StatusDbName = $itemStatus->name;
+            if($status_flag_id == $StatusDbID){
+                $StatusName = $StatusDbName;
+            } 
+        }
 
+    }
 
     ?>
       <div class="row">
@@ -94,6 +108,18 @@
                     <div class="email-container">
                         <label for="">Email:</label>
                         <p class=""><?= $email; ?></p>
+                    </div>
+                <?php } ?>
+                <?php if(!empty($phone)){ ?>
+                    <div class="phone-container">
+                        <label for="">phone:</label>
+                        <p class=""><?= $phone; ?></p>
+                    </div>
+                <?php } ?>
+                <?php if(!empty($StatusName)){ ?>
+                    <div class="statusFlag-container">
+                        <label for="">Status:</label>
+                        <p class=""><?= $StatusName; ?></p>
                     </div>
                 <?php } ?>
                 <?php if($address){ ?>

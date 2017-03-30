@@ -1,5 +1,3 @@
-
-
         <div class="row">
             <div class="col-md-12">
                 <form action="<?= base_url().$ControllerRouteName.'/AddSave';?>" method="post" class="form" enctype="multipart/form-data">
@@ -16,19 +14,11 @@
                                 <input type="hidden" id="hiddenListID" value="">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="NameTextBox">Name</label>
+                                        <label for="NameTextBox">Name:</label>
                                         <input type="text" name="Name" id="NameTextBox" class="form-control" />
                                     </div>
                                     <div class="form-group">
-                                        <label for="PhoneTextBox">Phone</label>
-                                        <input type="text" name="Phone" id="PhoneTextBox" class="form-control" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="EmailBox">Email</label>
-                                        <input type="text" name="Email" id="EmailBox" class="form-control" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="WebsiteBox">Website</label>
+                                        <label for="WebsiteBox">Website:</label>
                                         <input type="text" name="Website" id="WebsiteBox" class="form-control" />
                                     </div>
                                     <!--Address with multiple columns-->
@@ -62,15 +52,27 @@
                                         <textarea type="text" name="programDescription" id="programDescriptionBox" class="form-control"> </textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label for="programEligibilityCriteriaBox">Program Eligibility Criteria</label>
+                                        <label for="programEligibilityCriteriaBox">Program Eligibility Criteria:</label>
                                         <input type="text" name="programEligibilityCriteria" id="programEligibilityCriteriaBox" class="form-control" />
                                     </div>
                                     <div class="form-group">
-                                        <label for="ProgramStartDateBox">Program Start Date</label>
+                                        <label for="ProgramStartDateBox">Program Start Date: </label>
                                         <input type="text" name="ProgramStartDate" id="ProgramStartDateBox" class="form-control date_picker" />
                                     </div>
                                     <div class="form-group">
-                                        <label for="roleDepartmentBox">Role/Department</label>
+                                        <label for="contactNameBox">Contact Name:</label>
+                                        <input type="text" name="contactName" id="contactNameBox" class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="EmailBox">Contact Email:</label>
+                                        <input type="text" name="Email" id="EmailBox" class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="PhoneTextBox">Contact Phone:</label>
+                                        <input type="text" name="Phone" id="PhoneTextBox" class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="roleDepartmentBox">Contact Role/Department:</label>
                                         <input type="text" name="roleDepartment" id="roleDepartmentBox" class="form-control" />
                                     </div>
                                     <div class="form-group">
@@ -86,19 +88,6 @@
                                             </div>
                                        </div>
                                     </div>
-                                    <!--div class="form-group">
-                                        <label for="update-Banner-file">Banner</label>
-                                        <div class="img-reponsive">
-                                            <div class="img-container img-logo img-responsive">
-                                                <img src="<?= base_url()?>pictures/defaultLogo.png" class="banner-show" id="banner-show" />
-                                            </div>
-                                            <div class="fileupload fileupload-new" data-provides="fileupload">
-                                                <span class="btn btn-file btn-logo-edit"><span class="fileupload-new">Click To</span><span class="fileupload-exists"> Add</span>
-                                                    <input type="file" name="Bannerimage" id="banner-file"  />
-                                                </span>
-                                            </div>
-                                       </div>
-                                    </div-->
                                 </div>
                             </div>
                         </div> <!-- /.box-body -->

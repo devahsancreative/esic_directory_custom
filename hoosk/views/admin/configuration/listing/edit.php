@@ -78,7 +78,7 @@
                                         <input type="text" name="Name" id="NameTextBox" value="<?= $name;?>" class="form-control" />
                                     </div>
                                     <div class="form-group">
-                                        <label for="PhoneTextBox">Cell/Phone</label>
+                                        <label for="PhoneTextBox">Phone</label>
                                         <input type="text" name="Phone" id="PhoneTextBox" value="<?= $phone;?>" class="form-control" />
                                     </div>
                                     <div class="form-group">

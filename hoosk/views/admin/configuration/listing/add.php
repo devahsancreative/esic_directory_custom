@@ -19,7 +19,7 @@
                                         <input type="text" name="Name" id="NameTextBox" class="form-control" />
                                     </div>
                                     <div class="form-group">
-                                        <label for="PhoneTextBox">Cell/Phone</label>
+                                        <label for="PhoneTextBox">Phone</label>
                                         <input type="text" name="Phone" id="PhoneTextBox" class="form-control" />
                                     </div>
                                     <div class="form-group">

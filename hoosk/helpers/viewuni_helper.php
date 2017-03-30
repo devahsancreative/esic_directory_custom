@@ -199,6 +199,8 @@
         $programEligibilityCriteria     = $ci->input->post('programEligibilityCriteria');
         $ProgramStartDate               = $ci->input->post('ProgramStartDate');
 
+        $contactName        = $ci->input->post('contactName');
+
 
         if(empty($Name)){
             $error = "FAIL::".$ci->NameMessage." Name is a required field::error::Required!!";
@@ -218,8 +220,8 @@
             'roleDepartment'        => $roleDepartment,
             'programDescription'    => $programDescription,
             'programEligibilityCriteria'  => $programEligibilityCriteria,
-            'ProgramStartDate'      => $ProgramStartDate
-
+            'ProgramStartDate'      => $ProgramStartDate,
+            'contactName'           => $contactName
         );
         $insertResult = $ci->Common_model->insert_record($ci->tableName,$insertData);
 
@@ -283,48 +285,6 @@
                 $error = "FAIL::Logo Image Not Provided::warning";
                 array_push($return, $error);
             }
-           /* $insertDataArray    = array();
-
-            if(isset($_FILES['Bannerimage']['name']) && !empty($_FILES['Bannerimage']['name'])){
-                $FileName           = $_FILES['Bannerimage']['name'];
-                $explodedFileName   = explode('.',$FileName);
-                $ext                = end($explodedFileName);
-
-                if(!in_array(strtolower($ext),$allowedExt)){
-                    $error =  "FAIL:: Banner -- Only Image JPEG, PNG and GIF Images Allowed, No Other Extensions Are Allowed::error";
-                    array_push($return, $error);
-                }else{
-
-                    $FileName = $ci->BannerNamePrefix.'_'.$ID.'_'.time().'.'.$ext;
-                    if(!is_dir($uploadDirectory)){
-                        mkdir($uploadDirectory, 0755, true);
-                    }
-
-                    move_uploaded_file($_FILES['Bannerimage']['tmp_name'],$uploadPath.'/'.$FileName);
-                    $insertDataArray['banner'] = $uploadDBPath.'/'.$FileName;
-
-                    $selectData = array('banner AS banner',false);
-                    $where = array( 'id' => $insertResult );
-                    $returnedData = $ci->Common_model->select_fields_where($ci->tableName,$selectData, $where, false, '', '', '','','',false);
-                    $banner = $returnedData[0]->banner;
-
-                    if(!empty($banner) && is_file(FCPATH.'/'.$banner)){
-                        unlink('./'.$banner);
-                    }
-                        $resultUpdate = $ci->Common_model->update($ci->tableName,$where,$insertDataArray);
-                    if($resultUpdate === true){
-                        $success = "OK::Banner Uploaded::success";
-                        array_push($return, $success);
-                    }else{
-                        $error = "FAIL::Banner -- Something went wrong during Update, Please Contact System Administrator::error";
-                        array_push($return, $error);
-                    }
-                }
-            }else{
-                //$error = "FAIL::Banner Image Not Provided::warning";
-                //array_push($return, $error);
-            }
-*/
         }
         return $return;
 
@@ -362,6 +322,7 @@
         $programEligibilityCriteria     = $ci->input->post('programEligibilityCriteria');
         $ProgramStartDate               = $ci->input->post('ProgramStartDate');
 
+        $contactName        = $ci->input->post('contactName');
 
         if(empty($Name)){
             $error = "FAIL::".$ci->NameMessage." Name is a required field::error::Required!!";
@@ -382,7 +343,7 @@
             'programDescription'    => $programDescription,
             'programEligibilityCriteria'  => $programEligibilityCriteria,
             'ProgramStartDate'      => $ProgramStartDate,
-
+            'contactName'           => $contactName
         );
        
         $where = array('id' => $ID);
@@ -447,50 +408,7 @@
                 $error = "FAIL::Logo Image Not Provided::warning";
                 array_push($return, $error);
             }
-           /* $insertDataArray    = array();
-
-            if(isset($_FILES['Bannerimage']['name']) && !empty($_FILES['Bannerimage']['name'])){
-                $FileName           = $_FILES['Bannerimage']['name'];
-                $explodedFileName   = explode('.',$FileName);
-                $ext                = end($explodedFileName);
-
-                if(!in_array(strtolower($ext),$allowedExt)){
-                    $error =  "FAIL:: Banner -- Only Image JPEG, PNG and GIF Images Allowed, No Other Extensions Are Allowed::error";
-                    array_push($return, $error);
-                }else{
-
-                    $FileName = $ci->BannerNamePrefix.'_'.$ID.'_'.time().'.'.$ext;
-                    if(!is_dir($uploadDirectory)){
-                        mkdir($uploadDirectory, 0755, true);
-                    }
-
-                    move_uploaded_file($_FILES['Bannerimage']['tmp_name'],$uploadPath.'/'.$FileName);
-                    $insertDataArray['banner'] = $uploadDBPath.'/'.$FileName;
-
-                    $selectData = array('banner AS banner',false);
-                    $where = array( 'id' => $ID );
-                    $returnedData = $ci->Common_model->select_fields_where($ci->tableName,$selectData, $where, false, '', '', '','','',false);
-                    $banner = $returnedData[0]->banner;
-
-                    if(!empty($banner) && is_file(FCPATH.'/'.$banner)){
-                        unlink('./'.$banner);
-                    }
-                        $resultUpdate = $ci->Common_model->update($ci->tableName,$where,$insertDataArray);
-                    if($resultUpdate === true){
-                        $success = "OK::Banner Uploaded::success";
-                        array_push($return, $success);
-                    }else{
-                        $error = "FAIL::Banner -- Something went wrong during Update, Please Contact System Administrator::error";
-                        array_push($return, $error);
-                    }
-                }
-            }else{
-                //$error = "FAIL::Banner Image Not Provided::warning";
-                //array_push($return, $error);
-            }
-*/
         }
         return $return;
     }
-
 ?>

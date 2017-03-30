@@ -8,6 +8,9 @@ if(!isset($ListingLabel) || empty($ListingLabel)){
 if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
     $ControllerRouteName = '';
 }
+if(!isset($ControllerRouteManage) || empty($ControllerRouteManage)){
+    $ControllerRouteManage = 'Controller Has Error';
+}
 if(!isset($PageType) || empty($PageType)){
     $PageType = '';
 }
