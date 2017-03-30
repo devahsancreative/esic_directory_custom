@@ -1,0 +1,7 @@
+[30-Nov-2016 07:14:15 America/Chicago] PHP Fatal error:  Call to undefined function base_url() in /home2/creativetech/public_html/demos/esic_directory/hoosk/hoosk0/views/box_listing/db_list.php on line 22
+[30-Nov-2016 07:17:26 America/Chicago] PHP Fatal error:  Call to undefined function base_url() in /home2/creativetech/public_html/demos/esic_directory/hoosk/hoosk0/views/box_listing/db_list.php on line 22
+[30-Nov-2016 07:29:04 America/Chicago] PHP Fatal error:  Call to undefined function base_url() in /home2/creativetech/public_html/demos/esic_directory/hoosk/hoosk0/views/box_listing/db_list.php on line 22
+[30-Nov-2016 22:37:29 America/Chicago] PHP Fatal error:  Call to undefined function base_url() in /home2/creativetech/public_html/demos/esic_directory/hoosk/hoosk0/views/box_listing/db_list.php on line 22
+[30-Nov-2016 22:39:19 America/Chicago] PHP Fatal error:  Call to undefined function base_url() in /home2/creativetech/public_html/demos/esic_directory/hoosk/hoosk0/views/box_listing/db_list.php on line 22
+[30-Nov-2016 23:01:58 America/Chicago] PHP Fatal error:  Call to undefined function base_url() in /home2/creativetech/public_html/demos/esic_directory/hoosk/hoosk0/views/box_listing/db_list.php on line 22
+[30-Nov-2016 23:05:14 America/Chicago] PHP Fatal error:  Call to undefined function base_url() in /home2/creativetech/public_html/demos/esic_directory/hoosk/hoosk0/views/box_listing/db_list.php on line 171
