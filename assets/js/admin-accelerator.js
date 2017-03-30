@@ -43,17 +43,17 @@ if($("#AcceleratorList").length > 0){
             "className":"centerLogo"
         },
         /* Accelerator Status */ {
-            "mData": "acceleratorStatus",
+            "mData": "AcceleratorStatus",
             "render": function ( data, type, row ) {
                 if(data!=''){
                     if(data =='Eligible'){
-                        return '<span class="label-success success">Eligible</span>';
+                        return '<span class="label label-success success">Eligible</span>';
                     }
                     if(data =='Pending'){
-                        return '<span class="label-danger danger">Pending</span>';
+                        return '<span class="label label-danger danger">Pending</span>';
                     }
                 }
-                return '<span class="label-danger danger">Pending</span>';
+                return '<span class="label label-danger danger">Pending</span>';
             },
         },
         /* Trashed */ {
@@ -190,7 +190,6 @@ $("#yesApprove").on("click", function () {
         var modal   = $(this);
         modal.find("input#hiddenUserID").val(ID);
         modal.find("img#logo-show").attr('src', src);
-        modal.find(".modal-body").find('p > strong').text(' "' + type + '"');
     });
 
     $(".image-edit-modal").on("shown.bs.modal", function (e) {

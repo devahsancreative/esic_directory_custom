@@ -64,6 +64,7 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
         $Program_Start_Date = $data->Program_Start_Date;
         $Program_Application_Contact = $data->Program_Application_Contact;
         $Program_Application_Method  = $data->Program_Application_Method;
+        $AcceleratorStatus  = $data->AcceleratorStatus;
 
 
 
@@ -82,6 +83,7 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
         $Program_Start_Date = '';
         $Program_Application_Contact = '';
         $Program_Application_Method  = '';
+        $AcceleratorStatus  = '';
     }
 ?>
     <!-- Main content -->
@@ -119,10 +121,20 @@ if(!isset($ControllerRouteName) || empty($ControllerRouteName)){
                         <p class=""><?= $Program_Start_Date; ?></p>
                     </div>
                 <?php } ?>
-                <?php if(!empty($Status)){ ?>
+                <?php if(!empty($AcceleratorStatus)){ ?>
                 <div class="web-container">
-                    <label for="">Status:</label>
-                    <p class=""><?= $Status; ?></p>
+                    <label for="">Accelerator Status:</label>
+                    <p class="">
+                    <?php 
+                      if($AcceleratorStatus == 'Eligible'){
+                          echo '<span class="label label-success success">Eligible</span>';
+                      }else if($AcceleratorStatus == 'Pending'){
+                          echo '<span class="label label-danger danger">Pending</span>';
+                      }else{
+                          echo '<span class="label label-warning warning">Not Selected</span>';
+                      }
+                    ?>
+                    </p>
                 </div>
                  <?php } ?>
                     <div class="address-container">

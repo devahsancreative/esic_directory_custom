@@ -15,13 +15,13 @@
         if($param === 'listing'){
             $selectData = array('
             '.$ci->tableName.'.id AS ID,
-            '.$ci->tableName.'.Member AS Member,
-            '.$ci->tableName.'.Web_Address AS Web_Address,
-            '.$ci->tableName.'.Project_Title AS Project_Title,
-            '.$ci->tableName.'.Project_Location AS Project_Title,
-            '.$ci->tableName.'.State_Territory AS State_Territory,
-            '.$ci->tableName.'.accLogo AS Logo,
-            '.$ci->tableName.'.AcceleratorStatus AS AcceleratorStatus,
+            '.$ci->tableName.'.name,
+            '.$ci->tableName.'.website,
+            '.$ci->tableName.'.address,
+            '.$ci->tableName.'.post_code,
+            '.$ci->tableName.'.Program_Criteria,
+            '.$ci->tableName.'.logo as Logo,
+            '.$ci->tableName.'.AcceleratorStatus,
             CASE WHEN trashed = 1 THEN CONCAT(\'<span class="label label-danger">YES</span>\') WHEN trashed = 0 THEN CONCAT(\'<span class="label label-success">NO</span>\') ELSE "" END AS Trashed
             ',false);
 
@@ -143,7 +143,7 @@
                     }
 
                     move_uploaded_file($_FILES['logo']['tmp_name'],$uploadPath.'/'.$FileName);
-                    $insertDataArray['accLogo'] = $uploadDBPath.'/'.$FileName;
+                    $insertDataArray['logo'] = $uploadDBPath.'/'.$FileName;
                 }
             }else{
                 echo "FAIL::Logo Image Is Required::error";
@@ -154,7 +154,7 @@
                 echo "FAIL::Something went wrong with the Post, Please Contact System Administrator For Further Assistance::error";
                 exit;
             }
-                $selectData = array('accLogo AS logo',false);
+                $selectData = array('logo AS logo',false);
                 $where = array( 'id' => $ID );
                 $returnedData = $ci->Common_model->select_fields_where($ci->tableName,$selectData, $where, false, '', '', '','','',false);
                 $logo = $returnedData[0]->logo;
@@ -185,17 +185,16 @@
             array_push($return, $error);
             return $return;
         }
-        $name            = $ci->input->post('name');
-        $website       = $ci->input->post('website');
-        $address   = $ci->input->post('address');
-        $post_code       = $ci->input->post('post_code');
-        $Program_Summary     = $ci->input->post('Program_Summary');
+        $name              = $ci->input->post('name');
+        $website           = $ci->input->post('website');
+        $address           = $ci->input->post('address');
+        $post_code         = $ci->input->post('post_code');
+        $Program_Summary   = $ci->input->post('Program_Summary');
         $Program_Criteria  = $ci->input->post('Program_Criteria');
-        $Project_Summary   = $ci->input->post('Project_Summary');
-        $Market            = $ci->input->post('Market');
-        $Technology        = $ci->input->post('Technology');
-        $short_description = $ci->input->post('short_description');
-        $long_description  = $ci->input->post('long_description');
+        $Program_Start_Date             = $ci->input->post('Program_Start_Date');
+        $Program_Application_Contact    = $ci->input->post('Program_Application_Contact');
+        $Program_Application_Method     = $ci->input->post('Program_Application_Method');
+        $AcceleratorStatus              = $ci->input->post('AcceleratorStatus');
 
         if(empty($name)){
             $error = "FAIL::".$ci->NameMessage." Name is a required field::error::Required!!";
@@ -208,13 +207,12 @@
             'website'           => $website,
             'address'           => $address,
             'post_code'         => $post_code,
-            'Program_Criteria'  => $Program_Criteria,
             'Program_Summary'   => $Program_Summary,
-            'Project_Summary'   => $Project_Summary,
-            'Market'            => $Market,
-            'Technology'        => $Technology,
-            'short_description' => $short_description,
-            'long_description'  => $long_description,
+            'Program_Criteria'  => $Program_Criteria,
+            'Program_Start_Date'          => $Program_Start_Date,
+            'Program_Application_Contact' => $Program_Application_Contact,
+            'Program_Application_Method'  => $Program_Application_Method,
+            'AcceleratorStatus'           => $AcceleratorStatus
 
         );
         $insertResult = $ci->Common_model->insert_record($ci->tableName,$insertData);
@@ -254,8 +252,8 @@
                     }
 
                     move_uploaded_file($_FILES['Logoimage']['tmp_name'],$uploadPath.'/'.$FileName);
-                    $insertDataArray['accLogo'] = $uploadDBPath.'/'.$FileName;
-                    $selectData = array('accLogo AS logo',false);
+                    $insertDataArray['logo'] = $uploadDBPath.'/'.$FileName;
+                    $selectData = array('logo AS logo',false);
                     $where = array( 'id' => $insertResult );
                     $returnedData = $ci->Common_model->select_fields_where($ci->tableName,$selectData, $where, false, '', '', '','','',false);
                     $logo = $returnedData[0]->logo;
@@ -302,36 +300,34 @@
             array_push($return, $error);
             return $return;
         }
-        $Member            = $ci->input->post('Member');
-        $Web_Address       = $ci->input->post('Web_Address');
-        $State_Territory   = $ci->input->post('State_Territory');
-        $postal_code       = $ci->input->post('postal_code');
-        $Project_Title     = $ci->input->post('Project_Title');
-        $Project_Location  = $ci->input->post('Project_Location');
-        $Project_Summary   = $ci->input->post('Project_Summary');
-        $Market            = $ci->input->post('Market');
-        $Technology        = $ci->input->post('Technology');
-        $short_description = $ci->input->post('short_description');
-        $long_description  = $ci->input->post('long_description');
+        $name              = $ci->input->post('name');
+        $website           = $ci->input->post('website');
+        $address           = $ci->input->post('address');
+        $post_code         = $ci->input->post('post_code');
+        $Program_Summary   = $ci->input->post('Program_Summary');
+        $Program_Criteria  = $ci->input->post('Program_Criteria');
+        $Program_Start_Date             = $ci->input->post('Program_Start_Date');
+        $Program_Application_Contact    = $ci->input->post('Program_Application_Contact');
+        $Program_Application_Method     = $ci->input->post('Program_Application_Method');
+        $AcceleratorStatus              = $ci->input->post('AcceleratorStatus');
 
-        if(empty($Member)){
+        if(empty($name)){
             $error = "FAIL::".$ci->NameMessage." Name is a required field::error::Required!!";
             array_push($return, $error);
             return $return;
         }
 
         $updateData = array(
-            'Member'            => $Member,
-            'Web_Address'       => $Web_Address,
-            'Project_Location'  => $Project_Location,
-            'State_Territory'   => $State_Territory,
-            'postal_code'       => $postal_code,
-            'Project_Title'     => $Project_Title,
-            'Project_Summary'   => $Project_Summary,
-            'Market'            => $Market,
-            'Technology'        => $Technology,
-            'short_description' => $short_description,
-            'long_description'  => $long_description,
+            'name'              => $name,
+            'website'           => $website,
+            'address'           => $address,
+            'post_code'         => $post_code,
+            'Program_Summary'   => $Program_Summary,
+            'Program_Criteria'  => $Program_Criteria,
+            'Program_Start_Date'          => $Program_Start_Date,
+            'Program_Application_Contact' => $Program_Application_Contact,
+            'Program_Application_Method'  => $Program_Application_Method,
+            'AcceleratorStatus'           => $AcceleratorStatus
 
         );
 
@@ -372,8 +368,8 @@
                     }
 
                     move_uploaded_file($_FILES['Logoimage']['tmp_name'],$uploadPath.'/'.$FileName);
-                    $insertDataArray['accLogo'] = $uploadDBPath.'/'.$FileName;
-                    $selectData = array('accLogo AS logo',false);
+                    $insertDataArray['logo'] = $uploadDBPath.'/'.$FileName;
+                    $selectData = array('logo AS logo',false);
                     $where = array( 'id' => $ID );
                     $returnedData = $ci->Common_model->select_fields_where($ci->tableName,$selectData, $where, false, '', '', '','','',false);
                     $logo = $returnedData[0]->logo;
