@@ -190,6 +190,7 @@ $("#yesApprove").on("click", function () {
         var modal   = $(this);
         modal.find("input#hiddenUserID").val(ID);
         modal.find("img#logo-show").attr('src', src);
+        modal.find(".modal-body").find('p > strong').text(' "' + name + '"');
     });
 
     $(".image-edit-modal").on("shown.bs.modal", function (e) {
