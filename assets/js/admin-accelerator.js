@@ -77,7 +77,7 @@ if($("#AcceleratorList").length > 0){
         sTable.fnFilter($(this).val());
     });
     $('#searchbyName').keyup(function(){
-       sTable.column(1).search($(this).val()).draw() ;
+       sTable.column(1).search($(this).val()).draw();
     }); 
 }
 function srcImage(dbData,elem) {

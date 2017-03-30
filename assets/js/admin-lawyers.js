@@ -93,49 +93,6 @@ function srcImage(dbData,elem) {
 }
 
 
-//Now Moving to the CRUD Operations
-//Function for Adding New Record to the Database.
-$("#addBtn").on("click", function () {
-    var modal = $(this).parents(".addNewModal");
-    var modalData = modal.find(".modal-content");
-    //Getting the Records First
-    var Name        = modalData.find("#NameTextBox").val();
-    var Phone       = modalData.find("#PhoneTextBox").val();
-    var Email       = modalData.find("#EmailBox").val();
-    var Website     = modalData.find("#WebsiteBox").val();
-    var Address     = modalData.find("#AddressBox").val();
-    var ShortDescription    = modalData.find("#ShortDescriptionBox").val();
-    var LongDescription     = modalData.find("#LongDescriptionBox").val();
-    var Keywords     = modalData.find("#KeywordsBox").val();
-
-    var postData = {
-        Name:Name,
-        Phone:Phone,
-        Email:Email,
-        Website:Website,
-        Address:Address,
-        ShortDescription:ShortDescription,
-        LongDescription:LongDescription,
-        Keywords:Keywords
-    };
-    $.ajax({
-        url:  baseUrl + "admin/manage_lawyer/new",
-        data: postData,
-        type: "POST",
-        success: function (output) {
-            var data = output.trim().split("::");
-            console.log(data);
-            if (data[0] === "OK") {
-                //Hide the Modal as Insertion was as success
-                modal.modal('hide');
-                //Give the Pretty Notification to the User.
-                Haider.notification(data[1],data[2]);
-                oTable.fnDraw();
-            }
-        }
-    });
-});
-
 
 //Functions for Approving the Trash through Modal
 //When Approval Modal Shows Up
@@ -210,61 +167,6 @@ $("#yesApprove").on("click", function () {
                     oTable.fnDraw();
                 }
 
-                if(data[3]){
-                    Haider.notification(data[1],data[2],data[3]);
-                }else{
-                    Haider.notification(data[1],data[2]);
-                }
-            }
-        });
-    });
-    
-
-
-
-    /*Now for Edit Modal */
-    //On Modal Load
-    $("#editModal").on("shown.bs.modal", function (e) {
-        var button = $(e.relatedTarget); // Button that triggered the modal
-        var ID = button.parents("tr").attr("data-id");
-        var Name = button.parents("tr").find('td').eq(1).text();
-        var Phone = button.parents("tr").find('td').eq(2).text();
-        var Email = button.parents("tr").find('td').eq(3).text();
-        var Website = button.parents("tr").find('td').eq(4).text();
-        var modal = $(this);
-        //Populating the Inputs
-        modal.find("input#hiddenID").val(ID);
-        modal.find("input#editNameTextBox").val(Name);
-        modal.find("input#editPhoneTextBox").val(Phone);
-        modal.find("input#editEmailBox").val(Email);
-        modal.find("input#editWebsiteBox").val(Website);
-    });
-
-
-     //On Edit Modal If Update has been clicked, Update the Record.
-    $("#updateBtn").on("click", function () {
-        var id          = $(this).parents(".modal-content").find("#hiddenID").val();
-        var Name        = $(this).parents(".modal-content").find("#editNameTextBox").val();
-        var Phone       = $(this).parents(".modal-content").find("#editPhoneTextBox").val();
-        var Email       = $(this).parents(".modal-content").find("#editEmailBox").val();
-        var Website     = $(this).parents(".modal-content").find("#editWebsiteBox").val();
-        var postData    = {
-            id: id,
-            Name: Name,
-            Phone:Phone,
-            Email:Email,
-            Website:Website
-        };
-        $.ajax({
-            url: baseUrl + "admin/manage_lawyer/update",
-            data: postData,
-            type: "POST",
-            success: function (output) {
-                var data = output.trim().split("::");
-                if (data[0] === "OK") {
-                    $("#editModal").modal('hide');
-                    oTable.fnDraw();
-                }
                 if(data[3]){
                     Haider.notification(data[1],data[2],data[3]);
                 }else{
