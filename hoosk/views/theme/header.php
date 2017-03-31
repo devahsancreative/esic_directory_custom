@@ -166,7 +166,7 @@
 
 
                 .searchbar input[type=search] {
-                    background: #fff url(http://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+                    background: #fff url(http://ctsdemo.com/demos/esic_directory/images/search-icon.png) no-repeat 9px center;
                     border: solid 1px #ccc;
                     padding: 3px 5px 5px 5px;
                     margin: 13px 10%;

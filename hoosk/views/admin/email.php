@@ -1,5 +1,4 @@
 <?php echo $header; ?>
-
  <link href="https://ctsdemo.com/demos/esic_directory/assets/vendors/select2/dist/css/select2.min.css" rel="stylesheet" />
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 <style>
@@ -12,7 +11,6 @@
 	 width:100% !important;
 	 }
 .alert-success {
-
     width: 98%!important;
     height: 6%!important;
     padding: 9px!important;
@@ -34,17 +32,14 @@
         <li class="active">Mailbox</li>
       </ol>
     </section>
-
     <!-- Main content -->
     <section class="content">
       <div class="row">
         <div class="col-md-3"> 
           <a href="<?php echo BASE_URL ; ?>/admin/contact/manage_contact" class="btn btn-primary btn-block margin-bottom">Back To Messages</a>
-
           <div class="box box-solid">
             <div class="box-header with-border">
               <h3 class="box-title">Folders</h3>
-
               <div class="box-tools">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
@@ -217,13 +212,9 @@
   toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
   content_css: '//www.tinymce.com/css/codepen.min.css'
 });
-
   setTimeout(function() {
                  $('#mydiv').fadeOut(4000);
 				 }, 2000); 
 				  
   </script>
  
-
-
-

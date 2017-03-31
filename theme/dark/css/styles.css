@@ -52,7 +52,7 @@ iframe {
     height: 40px;
     margin: 0 auto;
     padding: 0px 35px;
-    background: #fff url(http://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+    background: #fff url(http://ctsdemo.com/demos/esic_directory/images/search-icon.png) no-repeat 9px center;
 }
 .header_search .btn {
     padding: 10px;
@@ -1392,7 +1392,7 @@ li.dropdown:hover .dropdown-menu /* Drop Down Menu */
 .header_search form .form-control.submit-icon {
     max-width: 20px;
     height: 20px!important;
-    background: url(http://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+    background: url(http://ctsdemo.com/demos/esic_directory/images/search-icon.png) no-repeat 9px center;
     border: none;
     float: right;
     padding: 17px 20px;

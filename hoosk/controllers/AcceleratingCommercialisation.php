@@ -4,6 +4,8 @@ class AcceleratingCommercialisation extends MY_Controller {
 
     public $data                = array('');
     public $CurrentID           = 0;
+    public $LogoDbField         = 'accLogo'
+    public $BannerDbField       = 'banner';
     public $tableName           = 'esic_acceleration';
     public $BannerNamePrefix    = 'acceleratingCommercialisationBanner';
     public $LogoNamePrefix      = 'acceleratingCommercialisationLogo';
@@ -38,6 +40,7 @@ class AcceleratingCommercialisation extends MY_Controller {
         define ('DoucmentUrl', $url);
         $this->load->helper('viewacceleratingcommercialisation');
         $this->data['PageType'] = 'Listing';
+        $this->data['LogoDbField']  = $this->LogoDbField;
         $this->data['ListingName']  = $this->Name;
         $this->data['ListingLabel'] = $this->NameMessage;
         $this->data['ControllerName']      = $this->ControllerName;

@@ -213,7 +213,6 @@ if($this->router->fetch_method() === 'assessments_list' || $this->router->fetch_
     || $this->router->fetch_class() === 'AcceleratingCommercialisation'
     ){
         ?>
-
         ?>
         <style>
             .modal select{

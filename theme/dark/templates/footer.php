@@ -54,7 +54,9 @@
 
 
 
-
+<?php
+// this is set in my_site_helper line 284
+ if( isset($_SESSION['pageHasSlider']) && $_SESSION['pageHasSlider'] == true ){?>
 
 <link rel="stylesheet" href="<?php echo ADMIN_THEME; ?>/js/owlcarousel2/css/owl.carousel.css" />
 <link rel="stylesheet" href="<?php echo ADMIN_THEME; ?>/js/owlcarousel2/css/owl.theme.default.min.css" />
@@ -69,8 +71,10 @@
 <script src="<?php echo ADMIN_THEME; ?>/js/owlcarousel2/js/owl.navigation.js"></script>
 <script src="<?php echo ADMIN_THEME; ?>/js/owlcarousel2/js/owl.support.js"></script>
 
+<?php } 
+$_SESSION['pageHasSlider'] = false;
 
-
+?>
 
 
 <script>

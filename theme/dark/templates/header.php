@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 	<head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
@@ -17,31 +16,20 @@
 		<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
 		<link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" integrity="sha384-dNpIIXE8U05kAbPhy3G1cz+yZmTzA6CY8Vg/u2L9xRnHjJiAK76m2BIEaSEV+/aU" crossorigin="anonymous">
-
 		<script src="<?php echo ADMIN_THEME; ?>/js/jquery-1.10.2.min.js"></script>
 	</head>
 <body>
-
-
-
 <nav class="navbar navbar-fixed-top navbar-inverse navbar-inverse2">
-
 <!-- left side menu -->
-
 	<div id="wrapper">
 		<div class="overlay"></div>
-
 		<!-- Sidebar -->
 		<nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
-
 		   <div class="leftsidebar">	<?php hooskNav('sidebar') ?>
 			<ul class="nav navbar-nav left-login-b"><li><a href="<?= BASE_URL ?>/admin" >login</a></li></ul>
 		  </div>
-
 		</nav>
-
 		<!-- /#sidebar-wrapper -->
-
 		<!-- Page Content -->
 		<div id="page-content-wrapper">
 			<button type="button" class="hamburger is-closed" data-toggle="offcanvas">
@@ -49,7 +37,6 @@
 				<span class="hamb-middle"></span>
 				<span class="hamb-bottom"></span>
 			</button>
-
 		</div>
 		<!-- /#page-content-wrapper -->
 		<a class="navbar_logo" href="<?php echo BASE_URL; ?>">
@@ -70,16 +57,13 @@
                <span class="icon-bar"></span>
            </button>
         </div>
-
         <div class="navbar-collapse right_sidebar" id="navbar-collapse-main">
-
             <div class="searchbar">
                 <form id="demo-2">
                     <input type="search" placeholder="Find an ESIC">
                 </form>
             </div>
         <?php hooskNav('header') ?>
-
 <style>
 @media (min-width: 767px){
 	#navbar-collapse-main{
@@ -91,20 +75,19 @@
 		display: none;
 	}
 }
-.login_button{
-		float: right;
-		margin-right: 1%;
-}
-.login-icon{}
-/*search box style */
-.searchbar   {
-width: 244px;
-display: block;
-position: relative;
-float: left;
-}
+	.login_button{
+			float: right;
+			margin-right: 1%;
+	}
+	.login-icon{}
+	/*search box style */
+	.searchbar   {
+	width: 244px;
+	display: block;
+	position: relative;
+	float: left;
+	}
 	.searchbar a {
-
 		color: #69C;
 		text-decoration: none;
 	}
@@ -119,8 +102,6 @@ float: left;
 	.searchbar p {
 		margin: 0 0 20px;
 	}
-
-
 	.searchbar input {
 		outline: none;
 	}
@@ -135,19 +116,15 @@ float: left;
 	.searchbar input::-webkit-search-cancel-button {
 		/*display: none;*/
 	}
-
-
 	.searchbar input[type=search] {
-		background: #fff url(http://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+		background: #fff url(http://ctsdemo.com/demos/esic_directory/images/search-icon.png) no-repeat 9px center;
 		border: solid 1px #ccc;
 		padding: 3px 5px 5px 5px;
 		margin: 13px 10%;
 		width: 55px;
-
 		-webkit-border-radius: 10em;
 		-moz-border-radius: 10em;
 		border-radius: 10em;
-
 		-webkit-transition: all .5s;
 		-moz-transition: all .5s;
 		transition: all .5s;
@@ -156,13 +133,10 @@ float: left;
 		width: 148px !important;
 		background-color: #fff;
 		border-color: #66CC75;
-
 		-webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
 		-moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
 		box-shadow: 0 0 5px rgba(109,207,246,.5);
 	}
-
-
 	.searchbar input:-moz-placeholder {
 		color: black  ;
 		font-family: "Open Sans";
@@ -173,7 +147,6 @@ float: left;
 		font-family: "Open Sans";
 		padding-left: 30px;
 	 }
-
 	/* Demo 2 */
 	.searchbar #demo-2 input[type=search] {
 		width: 150px;
@@ -203,14 +176,8 @@ float: left;
 		padding-left: 30px;
 	}
 </style>
-
-
 </div>
 </div>
 	</div>
-
    <!-- /.container -->
-
 	</nav><!-- /.navbar -->
-
-

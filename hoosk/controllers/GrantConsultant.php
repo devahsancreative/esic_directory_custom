@@ -4,6 +4,8 @@ class GrantConsultant extends MY_Controller {
     
     public $data                = array('');
     public $CurrentID           = 0;
+    public $LogoDbField         = 'logo';
+    public $BannerDbField       = 'banner';
     public $tableName           = 'esic_grantconsultant';
     public $BannerNamePrefix    = 'grantConsultantBanner';
     public $LogoNamePrefix      = 'grantConsultantLogo';
@@ -38,6 +40,7 @@ class GrantConsultant extends MY_Controller {
         define ('DoucmentUrl', $url);
         $this->load->helper('view');
         $this->data['PageType'] = 'Listing';
+        $this->data['LogoDbField']  = $this->LogoDbField;
         $this->data['ListingName']  = $this->Name;
         $this->data['ListingLabel'] = $this->NameMessage;
         $this->data['ControllerName']      = $this->ControllerName;

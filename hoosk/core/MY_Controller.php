@@ -23,12 +23,11 @@ class MY_Controller extends CI_Controller
 	/**
 	 * Class constructor
 	 */
-public function __construct()
-	{
+	public function __construct(){
 	parent::__construct();
 	$this->base_url = BASE_URL;
 		define("HOOSK_ADMIN",1);
-		$this->load->helper(array('admincontrol', 'url', 'hoosk_admin','my_site_helper','hoosk_page'));
+		$this->load->helper(array('admincontrol', 'url', 'hoosk_admin','my_site_helper','hoosk_page','viewdefault'));
 		$this->load->library('session');
         $this->load->model('Hoosk_model');
 		define ('LANG', $this->Hoosk_model->getLang());

@@ -1,5 +1,36 @@
 <?php
 
+
+/**
+ * @function checkAdminRole 
+ */
+if(!function_exists('checkAdminRole')){
+    function checkAdminRole($ci){
+        Admincontrol_helper::is_logged_in($ci->session->userdata('userID'));
+        $userRole = $ci->session->userdata('userRole');
+        //We Don't want un authorized access
+        if($userRole != 1){
+            $ci->load->view('admin/page_not_found');
+            return false;
+        }
+        return true;
+    }
+}
+/**
+ * @function checkPostExist 
+ */
+if(!function_exists('checkPostExist')){
+    function checkPostExist($ci){
+        Admincontrol_helper::is_logged_in($ci->session->userdata('userID'));
+        $userRole = $ci->session->userdata('userRole');
+        //We Don't want un authorized access
+        if($userRole != 1){
+            $ci->load->view('admin/page_not_found');
+            return false;
+        }
+        return true;
+    }
+}
 /**
  * @function previousURL return URL
  */
@@ -279,8 +310,10 @@ if(!function_exists("render_slider")){
         }
 
         //replacing values and assigning to pageContent variable.
+
         $pageContent = preg_replace_callback('/{{([^}]+)}}/', function ($m) use ($text,$ci) {
             //Now what we need to do is get the layout first.
+            $_SESSION['pageHasSlider'] = true;
             $stripped = array_map(function($v){
             
                 return trim(strip_tags($v));
@@ -390,69 +423,69 @@ if(!function_exists("render_slider")){
                     $ImagePath = '';
                     $base_link = '';
                     break;
-                case 'esic_grantrecipients':
+                case 'esic_acceleration':
+                // /ACCELERATING COMMERCIALISATION
                     $selectJoinData = [
                         '
-                            logo as Image,
-                            website as link,
-                            name as name
+                            accLogo as Image,
+                            Web_Address as link,
+                            Member as name
                         ',
                         false
                     ];
-                    $action = 'results_grantrecipients';
+                    $action = 'results_acceleratingcommercialisation';
                     $ImagePath = '';
                     $base_link = '';
                     break;
                 default:
-                     $selectJoinData = [
-                        '
-                            logo as Image,
-                            website as link,
-                            name as name
-                        ',
-                        false
-                    ];
-                    $action    = 'results';
-                    $ImagePath = '';
-                    $base_link = '';
+                    // $selectJoinData = [
+                    //    '
+                     //       logo as Image,
+                     //       website as link,
+                     //       name as name
+                    //    ',
+                    //    false
+                    //];
+                    //$action    = 'results';
+                    //$ImagePath = '';
+                    //$base_link = '';
                     break;
             }
+            if(!empty($selectJoinData) && !empty($neededSlider['joinTable'])){
+                $sliderData = $ci->Common_model->select_fields($neededSlider['joinTable'],$selectJoinData,false,'','',true);
+                //echo '<pre>';
+                //print_r($sliderData);
+                //exit;
+                $items = array(
+                        'desktop'   => intval($OptionArray['Desktop']),
+                        'tablet'    => intval($OptionArray['Tablet']),
+                        'mobile'    => intval($OptionArray['Mobile'])
+                    )
 
-            $sliderData = $ci->Common_model->select_fields($neededSlider['joinTable'],$selectJoinData,false,'','',true);
-            //echo '<pre>';
-            //print_r($sliderData);
-            //exit;
-            $items = array(
-                    'desktop'   => intval($OptionArray['Desktop']),
-                    'tablet'    => intval($OptionArray['Tablet']),
-                    'mobile'    => intval($OptionArray['Mobile'])
-                )
+                ;
+                //echo $OptionArray['layout'];
+                 $selectData = ['
+                    name as name,
+                    htmlCode as functionName
+                    ',
+                    false
+                ];
 
-            ;
-            //echo $OptionArray['layout'];
-             $selectData = ['
-                name as name,
-                htmlCode as functionName
-                ',
-                false
-            ];
+                $where = array('id' => intval($OptionArray['layout']));
+                $sliderFunction = $ci->Common_model->select_fields_where('esic_slider_layouts', $selectData, $where, true,'','','','','',true);
 
-            $where = array('id' => intval($OptionArray['layout']));
-            $sliderFunction = $ci->Common_model->select_fields_where('esic_slider_layouts', $selectData, $where, true,'','','','','',true);
+                if(!empty($sliderFunction['functionName'])){
 
-            if(!empty($sliderFunction['functionName'])){
-
-                $renderedHTML = $sliderFunction['functionName']($sliderData, $ImagePath, $items, $action, $base_link);
-            }else{
-                $renderedHTML = '';
+                    $renderedHTML = $sliderFunction['functionName']($sliderData, $ImagePath, $items, $action, $base_link);
+                }else{
+                    $renderedHTML = '';
+                }
             }
             return $renderedHTML;
 //            return $text[$m[1]];
         }, $pageData['pageContentHTML']);
-
         //replacing the original content with the updated one.
         $pageData['pageContentHTML'] = $pageContent;
-
         //finally returning the replaced content.
         return $pageData;
     }

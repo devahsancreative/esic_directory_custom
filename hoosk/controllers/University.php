@@ -4,6 +4,8 @@ class University extends MY_Controller {
 
     public $data                = array('');
     public $CurrentID           = 0;
+    public $LogoDbField         = 'institutionLogo';
+    public $BannerDbField       = 'banner';
     public $tableName           = 'esic_institution';
     public $BannerNamePrefix    = 'UniversityBanner';
     public $LogoNamePrefix      = 'UniversityLogo';
@@ -38,6 +40,7 @@ class University extends MY_Controller {
         define ('DoucmentUrl', $url);
         $this->load->helper('viewuni');
         $this->data['PageType'] = 'Listing';
+        $this->data['LogoDbField']  = $this->LogoDbField;
         $this->data['ListingName']  = $this->Name;
         $this->data['ListingLabel'] = $this->NameMessage;
         $this->data['ControllerName']      = $this->ControllerName;
