@@ -56,6 +56,9 @@
        ?>
     });
 </script>
+ <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://ctsdemo.com/demos/esic_directory/assets/tinymce/js/tinymce/tinymce.min.js"></script>
 <script src="https://ctsdemo.com/demos/esic_directory/assets/tinymce/js/tinymce/plugins/jbimages/plugin.min.js"></script>
-<script src='<?php  echo base_url()?>assets/js/listing.js'></script>
+<!--script src='https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.full.min.js'></script-->
+<script src='<?= base_url();?>assets/vendors/select2/js/select2.js'></script>
+<script src='<?= base_url();?>assets/js/listing.js'></script>

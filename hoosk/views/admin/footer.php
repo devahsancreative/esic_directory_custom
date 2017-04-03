@@ -203,7 +203,8 @@ if($this->router->fetch_method() === 'assessments_list' || $this->router->fetch_
 } else if($this->router->fetch_method() === 'manage_accelerators' 
     || $this->router->fetch_method() === 'manage_sectors' 
     || $this->router->fetch_method() === 'manage_rd'
-    || $this->router->fetch_method() === 'manage_acc_commercials' 
+    || $this->router->fetch_method() === 'manage_acc_commercials'
+    || $this->router->fetch_class() === 'Investor' 
     || $this->router->fetch_class() === 'Lawyer'
     || $this->router->fetch_class() === 'University'
     || $this->router->fetch_class() === 'RndConsultant'
@@ -378,6 +379,8 @@ if($classname != "Navigation"){
    <script src="<?= base_url()?>assets/js/admin-accelerator.js"></script>
    <?php } if ($this->router->fetch_class() === 'University') { ?>
    <script src="<?= base_url()?>assets/js/admin-universities.js"></script>
+   <?php } if ($this->router->fetch_class() === 'Investor') { ?>
+   <script src="<?= base_url()?>assets/js/admin-investor.js"></script>
    <?php } if ($this->router->fetch_class() === 'Lawyer') { ?>
    <script src="<?= base_url()?>assets/js/admin-lawyers.js"></script>
    <?php } if ($this->router->fetch_class() === 'GrantConsultant') { ?>

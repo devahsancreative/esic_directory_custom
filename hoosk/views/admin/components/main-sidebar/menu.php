@@ -71,6 +71,7 @@
         || $current=='Admin/manage_sectors'
         || $current=='Admin/manage_status'
         || $current=='Admin/manage_appstatus'
+        || $class=='Investor'
         || $class=='Lawyer'
         || $class=='GrantRecipients'
         || $class=='GrantConsultant'
@@ -86,7 +87,8 @@
         </a>
 
         <ul class="treeview-menu">
-            
+            <li class="<?php if ($class == "Investor") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_investor')?>"><i class="fa fa-circle-o"></i> Investor</a></li>
+
             <li class="<?php if ($class == "Lawyer") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_lawyer')?>"><i class="fa fa-circle-o"></i> Lawyers</a></li>
 
             <li class="<?php if ($class == "RndPartner") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_rndpartner')?>"><i class="fa fa-circle-o"></i> R&D Partners</a></li>

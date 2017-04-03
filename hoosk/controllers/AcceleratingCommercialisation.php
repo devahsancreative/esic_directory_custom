@@ -4,7 +4,7 @@ class AcceleratingCommercialisation extends MY_Controller {
 
     public $data                = array('');
     public $CurrentID           = 0;
-    public $LogoDbField         = 'accLogo'
+    public $LogoDbField         = 'accLogo';
     public $BannerDbField       = 'banner';
     public $tableName           = 'esic_acceleration';
     public $BannerNamePrefix    = 'acceleratingCommercialisationBanner';
