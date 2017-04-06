@@ -253,4 +253,16 @@ if(!function_exists('uploadImagesAction')){
         return $return;
     }
 }
+
+if(!function_exists('checkListingExist')){
+    function checkListingExist($ci, $value, $FieldName){
+        $where = array($FieldName => $value);
+        $data = $ci->Common_model->select_fields_where($ci->tableName,$FieldName,$where);
+        if($data > 1){
+            return true;
+        }
+        return false;
+    }
+}
+
 ?>

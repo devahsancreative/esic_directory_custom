@@ -67,4 +67,9 @@ class MY_Controller extends CI_Controller
 	    $this->load->view('admin/configuration/structure/listing-bottom',$data, $bool);
 	    $this->load->view('admin/footer',$data, $bool);
 	}
+	public function show_configuration($viewPath, $data = NULL, $bool = false){
+	    $this->load->view('admin/configuration/structure/head_front',$data, $bool);
+	    $this->load->view($viewPath, $data, $bool);
+	    $this->load->view('admin/configuration/structure/foot_front',$data, $bool);
+	}
 }

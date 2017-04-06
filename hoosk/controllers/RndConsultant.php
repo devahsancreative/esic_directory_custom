@@ -21,7 +21,7 @@ class RndConsultant extends MY_Controller {
     {
         parent::__construct();
         define("HOOSK_ADMIN",1);
-        $this->load->helper(array('admincontrol', 'url', 'hoosk_admin'));
+        $this->load->helper(array('admincontrol', 'form', 'url', 'hoosk_admin'));
         $this->load->library('session');
         $this->load->model('Hoosk_model');
         define ('LANG', $this->Hoosk_model->getLang());
@@ -47,7 +47,18 @@ class RndConsultant extends MY_Controller {
         $this->data['ControllerRouteName'] = $this->ControllerRouteName;
         $this->data['ControllerRouteManage'] = $this->ControllerRouteManage;
         $this->data['itemStatuses'] = $this->Common_model->select('esic_status_flags');
-
+        $this->load->library('form_validation');
+        $this->load->model('Hoosk_page_model');
+        $totSegments = $this->uri->total_segments();
+        if(!is_numeric($this->uri->segment($totSegments))){
+            $pageURL = $this->uri->segment($totSegments);
+        } else if(is_numeric($this->uri->segment($totSegments))){
+            $pageURL = $this->uri->segment($totSegments-1);
+        }
+        if ($pageURL == ""){ $pageURL = "home"; }
+        $this->data['page']=$this->Hoosk_page_model->getPage($pageURL);
+        $this->data['settings']=$this->Hoosk_page_model->getSettings();
+        $this->data['settings_footer'] = $this->Hoosk_model->getSettings();
     }
     public function ManageRndConsultant($param=NULL){
         viewHelperManage($param);
@@ -60,7 +71,7 @@ class RndConsultant extends MY_Controller {
     }
     public function AddSave(){
         $this->data['PageType'] = 'Listing';
-        $this->data['return']   = ViewHelperNewSave();
+        $this->data['return'] = ViewHelperNewSave();
         $this->show_admin_listing('admin/configuration/'.$this->ViewFolderName.'/listing' , $this->data);
         return Null;
     }
@@ -85,6 +96,22 @@ class RndConsultant extends MY_Controller {
         $this->data['data']     = $this->Common_model->select_fields_where($this->tableName ,'*' ,$where,true);
         $this->data['PageType'] = 'View';
         $this->show_admin_configuration('admin/configuration/'.$this->ViewFolderName.'/view' , $this->data);
+        return Null;
+    }
+    public function FrontForm(){
+        $this->load->view('theme/header',$this->data);
+        if(!empty($this->data['page']['pageTemplate'])){
+            $this->load->view('theme/'.$this->data['page']['pageTemplate'], $this->data);
+        }
+        $this->show_configuration('admin/configuration/'.$this->ViewFolderName.'/front' ,$this->data);
+        $this->load->view('theme/footer');
+    }
+    public function Create(){
+        $this->data['PageType'] = 'Message';
+        $this->data['return'] = ViewHelperNewSave();
+        $this->load->view('theme/header',$this->data);
+        $this->show_configuration('admin/configuration/structure/message' , $this->data);
+        $this->load->view('theme/footer');
         return Null;
     }
 }

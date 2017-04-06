@@ -60,7 +60,18 @@
                 array_push($return, $error);
                 return $return;
             }
-
+            $NameExist = checkListingExist($ci, $name, 'name');
+            if($NameExist == true){
+                $error =  "FAIL::".$ci->NameMessage." Name Already Exist Cannot Create New Please Contact Administrator::error";
+                array_push($return, $error);
+                return $return;
+            }
+            $websiteExist = checkListingExist($ci, $website ,'website');
+            if($websiteExist == true){
+                $error =  "FAIL::".$ci->NameMessage." Website Already Exist Cannot Create New Please Contact Administrator::error";
+                array_push($return, $error);
+                return $return;
+            }
             $now = date("Y-m-d H:i:s");
             $insertData = array(
                 'name'              => $name,
@@ -87,8 +98,12 @@
                 return $return;
             }
 
-            $note = uploadImagesAction($ci,$insertResult);
-            array_push($return, $note);
+            $notes = uploadImagesAction($ci,$insertResult);
+            if(is_array($notes) && !empty($notes)){
+                 foreach ($notes as $key => $note){
+                    array_push($return, $note);
+                 }
+             }
 
             return $return;
         }
@@ -128,7 +143,18 @@
                 array_push($return, $error);
                 return $return;
             }
-
+            $NameExist = checkListingExist($ci, $name, 'name', $ID);
+            if($NameExist == true){
+                $error =  "FAIL::".$ci->NameMessage." Name Already Exist Cannot Edit Please Contact Administrator::error";
+                array_push($return, $error);
+                return $return;
+            }
+            $websiteExist = checkListingExist($ci, $website ,'website', $ID);
+            if($websiteExist == true){
+                $error =  "FAIL::".$ci->NameMessage." Website Already Exist Cannot Edit Please Contact Administrator::error";
+                array_push($return, $error);
+                return $return;
+            }
             $updateData = array(
                 'name'              => $name,
                 'website'           => $website,
@@ -155,8 +181,12 @@
                 return $return;
             }
 
-            $note = uploadImagesAction($ci,$ID);
-            array_push($return, $note);
+            $notes = uploadImagesAction($ci,$ID);
+            if(is_array($notes) && !empty($notes)){
+                 foreach ($notes as $key => $note){
+                    array_push($return, $note);
+                 }
+             }
 
             return $return;
         }

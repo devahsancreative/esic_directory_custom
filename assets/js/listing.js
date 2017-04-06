@@ -1,6 +1,6 @@
 jQuery(document).ready(function($) {
     if($("select").length > 0){
-        $("select").select2();
+        //$("select").select2();
     }
     if($(".date_picker").length > 0){
         $('.date_picker').datepicker({
@@ -16,7 +16,7 @@ $(function(){
 	if($("textarea").length > 0){
 	  	tinymce.init({
 			  selector: 'textarea',
-			  height: 300,
+			  height: 200,
 			  menubar: false,
 			  browser_spellcheck : true,
 			  contextmenu: false,
@@ -26,7 +26,7 @@ $(function(){
 			    'searchreplace visualblocks code fullscreen',
 			    'insertdatetime media jbimages table contextmenu paste code'
 			  ],
-			  toolbar: 'spellchecker undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | jbimages | media | code',
+			  toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | jbimages | media | code',
 			  content_css: '//www.tinymce.com/css/codepen.min.css',
 			  relative_urls: false
 		});

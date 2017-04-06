@@ -66,7 +66,6 @@
                                                 <input type="text" name="address_post_code" id=" address_postCode" class="form-control">
                                             </div>
                                         </div>
-
                                     </div>
                                     <div class="form-group">
                                         <label for="investorTypeFlagBox">Investor Type:</label>

@@ -1,3 +1,15 @@
+section.form-container{
+    margin-top: 80px;
+    min-height: 50vh;
+    background-color: #ffffff;
+    box-shadow: 0 0 9px rgba(0,0,0,0.3)
+}
+section.form-container .img-logo {
+    max-width: 200px;
+}
+section.form-container label {
+    margin-left: 0px;
+}
 .multiple-item-container{
     background: #ddd;
     padding: 5px;
