@@ -108,6 +108,20 @@
             <li class="<?php if ($current == "Admin/manage_appstatus") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_appstatus')?>"><i class="fa fa-circle-o"></i> ABR Status</a></li>
         </ul>
     </li>
+
+    <!--  Questions-->
+        <li class="treeview <?php if ($class == "Questions") { echo "active"; } ?>">
+            <a href="#">
+                <i class="fa fa-user"></i> <span>Questions</span>
+                <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+            </a>
+            <ul  class="treeview-menu">
+                <li  class="<?php if ($current == "Questions/index") { echo "active"; } ?>"><a href="<?=base_url('admin/questions/index')?>"><i class="fa fa-circle-o"></i><?php echo $this->lang->line('nav_questions_answers'); ?></a></li>
+                <li class="<?php if ($current == "Questions/selectors") { echo "active"; } ?>"><a href="<?=base_url('admin/questions/selectors')?>"><i class="fa fa-circle-o"></i><?php echo $this->lang->line('nav_questions_selectors'); ?></a></li>
+            </ul>
+        </li>
    
     <li class="treeview <?php if ($current == "Users/index"|| $current == "Users/addUser") { echo "active"; } ?>">
         <a href="#">
@@ -117,12 +131,8 @@
             </span>
         </a>
         <ul  class="treeview-menu">
-
             <li  class="<?php if ($current == "Users/index") { echo "active"; } ?>"><a href="<?=base_url('admin/users')?>"><i class="fa fa-circle-o"></i><?php echo $this->lang->line('nav_users_all'); ?></a></li>
-           
             <li class="<?php if ($current == "Users/addUser") { echo "active"; } ?>"><a href="<?=base_url('admin/users/new')?>"><i class="fa fa-circle-o"></i><?php echo $this->lang->line('nav_users_new'); ?></a></li>
-
-
         </ul>
     </li>
 

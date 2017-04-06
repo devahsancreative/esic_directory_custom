@@ -309,6 +309,7 @@ $route['Lawyer/Add']    	  = "Lawyer/Add";
 $route['Lawyer/AddSave']      = "Lawyer/AddSave";
 $route['Lawyer/Edit/(:any)']  = "Lawyer/Edit/$1";
 $route['Lawyer/EditSave']     = "Lawyer/EditSave";
+$route['Lawyer/saveIntro']     = "Lawyer/saveIntro";
 
 
 //For  Accelerators
@@ -834,6 +835,14 @@ $route['results_innovators'] = "Esic2/getfilterlist";
 //Front End Add Listings.
 $route['add_lawyer'] = "Listing/add_lawyer";
 //$route['add_lawyer/(:any)'] = "Listing/add_lawyer/$1";
+
+//Questions
+$route['admin/questions/index'] = "Question/index";
+$route['admin/questions/selectors'] = "Question/selectors";
+$route['admin/questions/listing'] = "Question/index/listing";
+$route['admin/questions/create'] = "Question/create";
+$route['admin/questions/edit/(:any)'] = "Question/edit/$1";
+
 
 
 

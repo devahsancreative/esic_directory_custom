@@ -41,6 +41,7 @@ if (!file_exists('config.php')) {
  */
 /** Config **/
 include('config.php');
+
 //used for echoing in templates
 define ('ADMIN_THEME', BASE_URL.'/theme/admin');
 /*

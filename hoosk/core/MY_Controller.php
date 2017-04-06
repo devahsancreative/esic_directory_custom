@@ -15,6 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
  * @property common_model $common_model It resides all the methods which can be used in most of the controllers.
+ * @property Common_model $Common_model It resides all the methods which can be used in most of the controllers.
  */
 
 class MY_Controller extends CI_Controller
