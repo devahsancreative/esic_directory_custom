@@ -1,15 +1,12 @@
 jQuery(document).ready(function($) {
     if($("select").length > 0){
-        //$("select").select2();
+        $("select").select2();
     }
     if($(".date_picker").length > 0){
         $('.date_picker').datepicker({
             dateFormat: 'yy-mm-dd'
         });
     }
-    /*$(".date_picker").change(function(event) {
-        //console.log($('#ProgramStartDateBox').val());
-    });*/
 });
 $(function(){
     

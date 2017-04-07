@@ -961,8 +961,8 @@ $ci =& get_instance();
                 </div>
                  <?php 
                       $BannerImage= '';
-                      if(!empty($userProfile['bannerImage']) and is_file(FCPATH.'/'.$userProfile['bannerImage'])){ 
-                        $BannerImage = base_url().'/'.$userProfile['bannerImage'];
+                      if(!empty($userProfile['banner']) and is_file(FCPATH.'/'.$userProfile['banner'])){ 
+                        $BannerImage = base_url().'/'.$userProfile['banner'];
                       }else{
                          $BannerImage = base_url('pictures/defaultBanner.jpg');
                       }

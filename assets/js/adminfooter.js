@@ -995,7 +995,7 @@ $(function(){*/
                     var reader = new FileReader();
                     reader.onload = function (e) {
                         var formData = new FormData();
-                        formData.append('bannerImage', input.files[0]);
+                        formData.append('banner', input.files[0]);
                         formData.append('userID', userId);
                         $.ajax({
                                 crossOrigin: true,

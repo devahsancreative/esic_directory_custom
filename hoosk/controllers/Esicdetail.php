@@ -34,7 +34,7 @@ class Esicdetail extends MY_Controller{
                     email as Email,
                     company as Company,
                     business as Business,
-                    businessShortDescription as BusinessShortDesc,
+                    long_description as BusinessShortDesc,
                     score as Score,
                     logo as Logo,
                     website as Web,
@@ -55,7 +55,7 @@ class Esicdetail extends MY_Controller{
                     'type' => 'LEFT'
                 )
             );
-            $usersResult = $this->Common_model->select_fields_where_like_join('user',$selectData,$joins,$where,FALSE,'','','','',$limit,true);
+            $usersResult = $this->Common_model->select_fields_where_like_join('esic',$selectData,$joins,$where,FALSE,'','','','',$limit,true);
             $result="";
             
            if(!empty($usersResult) && is_array($usersResult)){

@@ -565,7 +565,7 @@ class Contact extends MY_Controller{
 
         $this->load->helper('form');
 
-        $this->data['users_data'] = $this->common_model->select('user');
+        $this->data['users_data'] = $this->common_model->select('esic');
 
         $this->data['Count_email_message'] = $this->common_model->Count_Tottle_Rows('esic_email');
 

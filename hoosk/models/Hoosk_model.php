@@ -145,12 +145,12 @@ class Hoosk_model extends CI_Model {
 	
 	function get_ass_status($id=NULL){
         $this->db->where('status', $id);
-		$this->db->from('user');
+		$this->db->from('esic');
 		return $this->db->count_all_results();
  	}
 				 
 	function counttUsers(){
-          return $this->db->count_all('user');
+          return $this->db->count_all('esic');
  	}
 	function institution(){
           return $this->db->count_all('esic_institution');
@@ -164,49 +164,49 @@ class Hoosk_model extends CI_Model {
 	
 	/*function get_Users_Pending(){
 		$this->db->where('status', 1);
-		$this->db->from('user');
+		$this->db->from('esic');
 		return $this->db->count_all_results();
 	}
 	function get_Users_In_assessment(){
 		$this->db->where('status', 2);
-		$this->db->from('user');
+		$this->db->from('esic');
 		return $this->db->count_all_results();
 	}
 	function get_Users_Self_assessed(){
 		$this->db->where('status', 3);
-		$this->db->from('user');
+		$this->db->from('esic');
 		return $this->db->count_all_results();
 	}
 	function get_Users_Later_stage(){
 		$this->db->where('status', 4);
-		$this->db->from('user');
+		$this->db->from('esic');
 		return $this->db->count_all_results();
 	}
 	function get_Users_confirm_RD_ratio(){
 		$this->db->where('status', 5);
-		$this->db->from('user');
+		$this->db->from('esic');
 		return $this->db->count_all_results();
 	}
 	function get_Users_confirm_RD_Investment(){
 		$this->db->where('status', 6);
-		$this->db->from('user');
+		$this->db->from('esic');
 		return $this->db->count_all_results();
 	}
 	function approved(){
 		$this->db->where('status', 7);
-		$this->db->from('user');
+		$this->db->from('esic');
 		return $this->db->count_all_results();
 	}*/
 	
  function get_All_Users($status=NULL) {
 
         // Get a list of all user accounts
-        $this->db->select("firstName,lastName, added_date, logo");
+        $this->db->select("name,name, added_date, logo");
 		$this->db->order_by("id", "DESC");
 		if($status){
 		     $this->db->where('status',$status);   
 		}
-		 $query = $this->db->get('user');
+		 $query = $this->db->get('esic');
 
         if ($query->num_rows() > 0) {
 
@@ -220,12 +220,12 @@ class Hoosk_model extends CI_Model {
 	function get_tUsers() {
 
         // Get a list of all user accounts
-        $this->db->select("firstName,lastName, added_date, logo");
+        $this->db->select("name,name, added_date, logo");
 		
 		 $this->db->order_by("id", "DESC");
 		  $this->db->limit(8);
 
-		 $query = $this->db->get('user');
+		 $query = $this->db->get('esic');
 
         if ($query->num_rows() > 0) {
 
@@ -352,7 +352,7 @@ class Hoosk_model extends CI_Model {
           if($role == "2")      
 		  {
 		   $data = array('userID' => $userID );  
-		   $this->db->insert('user', $data);      //  user id inert into asssessment user table
+		   $this->db->insert('esic', $data);      //  user id inert into asssessment user table
 		   $datas = array('Fk_userID' => $userID ); 
 		   $this->db->insert('user_social', $datas);    //  insert user id into user assessment socail table  
 		  }
@@ -385,13 +385,13 @@ class Hoosk_model extends CI_Model {
 		if($role == "2")
 		{
 		   $this->db->where('userID', $id);
-           $query = $this->db->get('user');
+           $query = $this->db->get('esic');
            if ($query->num_rows() > 0)  //if user exist then termonate else add user id into assessment table
 		      {
                return true;
               }
 		    	$data = array('userID' => $id );
-	    	    $this->db->insert('user', $data);  
+	    	    $this->db->insert('esic', $data);  
          }
 		elseif($role == "3")
 		 {
@@ -851,12 +851,12 @@ class Hoosk_model extends CI_Model {
 
         //Update in User Table the Buisness Description where User ID is ------
         $contentdata = array(
-            'businessShortDescriptionJSON' => $sirTrevorInput,
-            'businessShortDescription' => $HTMLContent,
+            'short_descriptionJSON' => $sirTrevorInput,
+            'short_description' => $HTMLContent,
             'status'                   => 1
         );
         $this->db->where("userID", $id);
-        $this->db->update('user', $contentdata);
+        $this->db->update('esic', $contentdata);
     }
 
 

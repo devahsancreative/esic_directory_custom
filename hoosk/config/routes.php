@@ -125,6 +125,22 @@ $route['admin/manage_status/(:any)']    = "Admin/manage_status/$1";
 $route['admin/manage_appstatus']       	= "Admin/manage_appstatus";
 $route['admin/manage_appstatus/(:any)'] = "Admin/manage_appstatus/$1";
 
+
+
+//For Esic
+$route['admin/manage_esic']    	  	= "Esic/ManageEsic";
+$route['admin/manage_esic/(:any)']  = "Esic/ManageEsic/$1";
+$route['admin/Esic/view/(:any)']    = "Esic/View/$1";
+$route['admin/Esic/detail/(:any)']  = "Esic/Detail/$1";
+$route['Esic/Listing']      = "Esic/ManageEsic";
+$route['Esic/Add']    	  	= "Esic/Add";
+$route['Esic/New']    	  	= "Esic/Create";
+$route['Esic/AddSave']      = "Esic/AddSave";
+$route['Esic/Edit/(:any)']  = "Esic/Edit/$1";
+$route['Esic/EditSave']     = "Esic/EditSave";
+$route['Esic']  	= "Esic/FrontForm";
+
+
 //For Investors 
 $route['admin/manage_investor']    	    = "Investor/ManageInvestor";
 $route['admin/manage_investor/(:any)']  = "Investor/ManageInvestor/$1";

@@ -33,7 +33,7 @@ class Esic2 extends MY_Controller{
     public function index($uriSegment = NULL){
 
         $this->data['sectors'] = $this->Common_model->select('esic_sectors');
-        $this->data['company'] = $this->Common_model->select('user');
+        $this->data['company'] = $this->Common_model->select('esic');
         $this->data['Statuss'] = $this->Common_model->select('esic_status');
 
 	    $page = 0;
@@ -57,7 +57,7 @@ class Esic2 extends MY_Controller{
             $this->load->view('theme/header',$this->data);
             $searchInput   = $this->input->post('keyword');
             $data['sectors'] = $this->Common_model->select('esic_sectors');
-            $data['company'] = $this->Common_model->select('user');
+            $data['company'] = $this->Common_model->select('esic');
             $data['Statuss'] = $this->Common_model->select('esic_status');
             $page = 0;
             $data['list'] = $this->Esic_model->getfilterlist($page,$searchInput,'','','','');

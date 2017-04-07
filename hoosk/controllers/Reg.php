@@ -74,12 +74,12 @@ class Reg extends CI_Controller {
         $website                = $this->input->post('website');
         $company                = $this->input->post('company');
         $address                = $this->input->post('address');
-		$post_code              = $this->input->post('post_code');
-        $state                  = $this->input->post('state');
-        $town                   = $this->input->post('town');
+		$address_post_code              = $this->input->post('address_post_code');
+        $address_state                  = $this->input->post('address_state');
+        $address_town                   = $this->input->post('address_town');
         $business               = $this->input->post('business');
         $shortDescription       = $this->input->post('shortDescription');
-        $tinyDescription        = $this->input->post('tinyDescription');
+        $short_description        = $this->input->post('short_description');
         $date_pickter_format    = $this->input->post('cop_date');
         if(!empty($date_pickter_format)){
             $cop_date               = date("Y-m-d",strtotime($date_pickter_format));
@@ -134,9 +134,9 @@ class Reg extends CI_Controller {
             'website'           => $website,
             'company'           => $company,
             'address'           => $address,
-			'post_code'         => $post_code,
-            'state'             => $state,
-            'town'              => $town,
+			'address_post_code'         => $address_post_code,
+            'address_state'             => $address_state,
+            'address_town'              => $address_town,
             'business'          => $business,
             'acn_number'        => $acn,
             'added_date'        => $added_date,
@@ -146,8 +146,8 @@ class Reg extends CI_Controller {
             'AccID'             => $AccID,
             'AccCoID'           => $AccCoID,
             'inID'              => $inID,
-            'businessShortDescription'  => $shortDescription,
-            'tinyDescription'   => $tinyDescription,
+            'long_description'  => $shortDescription,
+            'short_description'   => $short_description,
             'score'             => 0,
             'Publish'           => 0
         ); 
@@ -155,7 +155,7 @@ class Reg extends CI_Controller {
 
         $this->db->trans_begin();
 
-        $insertID = $this->Common_model->insert_record('user',$userInsertArray);
+        $insertID = $this->Common_model->insert_record('esic',$userInsertArray);
         if(empty($insertID) || !is_numeric($insertID)){
             echo $this->db->last_query();
             $this->db->trans_rollback();
@@ -202,7 +202,7 @@ class Reg extends CI_Controller {
         }
             $scoreInsertArray = array('score' => $total_Score);
             $whereUpdate = array( 'id' => $insertID);
-            $resultUpdate = $this->Common_model->update('user',$whereUpdate,$scoreInsertArray);
+            $resultUpdate = $this->Common_model->update('esic',$whereUpdate,$scoreInsertArray);
             if($resultUpdate === true){
                 if ($this->db->trans_status() === FALSE){
                     $this->db->trans_rollback();
@@ -281,7 +281,7 @@ class Reg extends CI_Controller {
                     }
 
                     move_uploaded_file($_FILES['banner']['tmp_name'],$uploadPath.$FileName);
-                    $insertDataArray['bannerImage'] = $uploadDBPath.$FileName;
+                    $insertDataArray['banner'] = $uploadDBPath.$FileName;
                 }
             }
             //For product service Image Upload
@@ -314,7 +314,7 @@ class Reg extends CI_Controller {
             $whereUpdate = array(
                 'id' => $userID
             );
-            $resultUpdate = $this->Common_model->update('user',$whereUpdate,$insertDataArray);
+            $resultUpdate = $this->Common_model->update('esic',$whereUpdate,$insertDataArray);
             if($resultUpdate === true){
                 echo "OK::Record Updated Successfully";
             }else{
@@ -324,7 +324,7 @@ class Reg extends CI_Controller {
     public function addInstitution(){
         $institution     =       $this->input->post("institution");
 		$address         =       $this->input->post("address");
-	    $post_code_uni   =       $this->input->post("post_code_uni");
+	    $address_post_code_uni   =       $this->input->post("address_post_code_uni");
  		$institutionAppStatus = $this->input->post("institutionAppStatus");
 		 
         if(empty($institution) or !is_string($institution)){
@@ -343,7 +343,7 @@ class Reg extends CI_Controller {
             $insertData = array(
                 'institution'   => $institution,
 				'address'       => $address,
-				'post_code' => $post_code_uni,
+				'address_post_code' => $address_post_code_uni,
                 'AppStatus'     => $institutionAppStatus,
                 'insertionType' => 2
             );
@@ -528,7 +528,7 @@ class Reg extends CI_Controller {
         $Technology         = $this->input->post("Technology");
         $Web_Address        = $this->input->post("Web_Address");
         $Project_Title      = $this->input->post("Project_Title");
-        $State_Territory    = $this->input->post("State_Territory");
+        $address_state_Territory    = $this->input->post("address_state_Territory");
         $Project_Summary    = $this->input->post("Project_Summary");
         $acceleration_p_c   = $this->input->post("acceleration_p_c");
 		 
@@ -552,7 +552,7 @@ class Reg extends CI_Controller {
                 'Technology'        => $Technology,
                 'Web_Address'       => $Web_Address,
                 'Project_Title'     => $Project_Title,
-                'State_Territory'   => $State_Territory,
+                'address_state_Territory'   => $address_state_Territory,
                 'Project_Summary'   => $Project_Summary,
                 'Project_Location'  => $Project_Location,
 				'postal_code'       => $acceleration_p_c,
@@ -627,7 +627,7 @@ class Reg extends CI_Controller {
             $insertData = array(
                 'name'          => $name,
 				'address'       => $acceleratoraddress,
-				'post_code'   => $accelerator_p_c,
+				'address_post_code'   => $accelerator_p_c,
                 'website'       => $Programme_Web_Address,
                 'AppStatus'     => $acceleratorProgrammeAppStatus,
                 'insertionType' => 2

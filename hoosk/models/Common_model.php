@@ -973,7 +973,7 @@ public function user_logo($userID=NULL,$userRole=NULL){
 		}
 	elseif($userRole == 2){
 		$this->db->where("userID",$userID);
-		$query  = $this->db->get('user');}
+		$query  = $this->db->get('esic');}
 	else{ 
 	$this->db->where("fk_investor_ID",$userID);
 	$query  = $this->db->get('esic_investor');} 
@@ -992,7 +992,7 @@ public function save_darft($userID = NULL){
     if($rec == 0) {
 
         $this->db->where("userID",$userID);
-        $query  = $this->db->get('user');
+        $query  = $this->db->get('esic');
         if($query->result_array() > 0) {
         //  $rows = $query->result_array();
         foreach ($query->result_array() as $row) {
@@ -1009,7 +1009,7 @@ public function save_darft($userID = NULL){
             'bannerImage'   => $row['bannerImage'],
             'productImage'  => $row['productImage'],
             'business'      => $row['business'],
-            'businessShortDescription' => $row['businessShortDescription'],
+            'short_description' => $row['short_description'],
             'tinyDescription'          => $row['tinyDescription'],
             'score'                    => $row['score'],
             'status'         =>'1',
@@ -1029,7 +1029,7 @@ public function save_darft($userID = NULL){
             'P_C_no'         => $row['P_C_no'],
             'rights'         => $row['rights'],
             'innovation_right'             => $row['innovation_right'],
-            'businessShortDescriptionJSON' => $row['businessShortDescriptionJSON'],
+            'short_descriptionJSON' => $row['short_descriptionJSON'],
            );
             $this->db->insert('user_draft',$data);
             return true;
@@ -1058,7 +1058,7 @@ public function update_user_data($userID=NULL){ // not in use
                     'bannerImage'   => $row['bannerImage'],
                     'productImage'  => $row['productImage'],
                     'business'      => $row['business'],
-                    'businessShortDescription' => $row['businessShortDescription'],
+                    'short_description' => $row['short_description'],
                     'tinyDescription'          => $row['tinyDescription'],
                     'score'                    => $row['score'],
                     'status'         =>'1',
@@ -1078,10 +1078,10 @@ public function update_user_data($userID=NULL){ // not in use
                     'P_C_no'         => $row['P_C_no'],
                     'rights'         => $row['rights'],
                     'innovation_right'             => $row['innovation_right'],
-                    'businessShortDescriptionJSON' => $row['businessShortDescriptionJSON'],
+                    'short_descriptionJSON' => $row['short_descriptionJSON'],
                 );
                 $this->db->where("userID",$userID);
-                $this->db->update('user',$data);
+                $this->db->update('esic',$data);
                 return true;
             }
         return true;
@@ -1114,7 +1114,7 @@ public function publish_assessment_list($userID=NULL){
                 'bannerImage'   => $row['bannerImage'],
                 'productImage'  => $row['productImage'],
                 'business'      => $row['business'],
-                'businessShortDescription' => $row['businessShortDescription'],
+                'short_description' => $row['short_description'],
                 'tinyDescription'          => $row['tinyDescription'],
                 'score'                    => $row['score'],
                 'status'         =>'1',
@@ -1134,10 +1134,10 @@ public function publish_assessment_list($userID=NULL){
                 'P_C_no'         => $row['P_C_no'],
                 'rights'         => $row['rights'],
                 'innovation_right'             => $row['innovation_right'],
-                'businessShortDescriptionJSON' => $row['businessShortDescriptionJSON'],
+                'short_descriptionJSON' => $row['short_descriptionJSON'],
             );
             $this->db->where("userID",$userID);
-            $this->db->update('user',$data);
+            $this->db->update('esic',$data);
             return true;
         }
         return true;

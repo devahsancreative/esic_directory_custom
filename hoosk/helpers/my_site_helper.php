@@ -345,7 +345,7 @@ if(!function_exists("render_slider")){
             //exit;
             //now need to get the slider join.
             switch($neededSlider['joinTable']){
-                case 'user':
+                case 'esic':
                     $selectJoinData = [
                         '
                             logo as Image,
@@ -522,7 +522,7 @@ function get_user_image($userRole,$userID){
         $basePath = base_url(). 'uploads/investor/';
 
     }elseif ($userRole == 2){
-        $table = 'user';
+        $table = 'esic';
         $selectData = [
             'logo as avatar',
             false

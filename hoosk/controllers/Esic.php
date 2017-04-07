@@ -1,144 +1,117 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: HI
- * Date: 8/23/2016
- * Time: 11:57 AM
- */
-/**
- * @property Common_model $Common_model It resides all the methods which can be used in most of the controllers.
- * @property CI_Pagination $pagination It resides all the methods which can be used in most of the controllers.
- * @property Esic_model $Esic_model It resides all the methods which can be used in most of the controllers.
- * @property CI_URI $uri It resides all the methods which can be used in most of the controllers.
- * @property Ajax_pagination $ajax_pagination It resides all the methods which can be used in most of the controllers.
- */
-class Esic extends CI_Controller{
-    protected $perPage;
-    public function __construct()
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+class Esic extends MY_Controller {
+
+    public $data                = array('');
+    public $CurrentID           = 0;
+    public $LogoDbField         = 'logo';
+    public $BannerDbField       = 'banner';
+    public $tableName           = 'esic';
+    public $BannerNamePrefix    = 'EsicBanner';
+    public $LogoNamePrefix      = 'EsicLogo';
+    public $Name                = 'Esic';
+    public $NameMessage         = 'Esic';
+    public $ImagesFolderName    = 'esic';
+    public $ViewFolderName      = 'esic';
+    public $ControllerName      = 'Esic';
+    public $ControllerRouteName = 'Esic';
+    public $ControllerRouteManage = 'manage_esic';
+
+    function __construct()
     {
         parent::__construct();
+        define("HOOSK_ADMIN",1);
+        $this->load->helper(array('admincontrol', 'form', 'url', 'hoosk_admin'));
+        $this->load->library('session');
+        $this->load->model('Hoosk_model');
+        define ('LANG', $this->Hoosk_model->getLang());
+        $this->lang->load('admin', LANG);
+        define ('SITE_NAME', $this->Hoosk_model->getSiteName());
+        define ('THEME', $this->Hoosk_model->getTheme());
+        define ('THEME_FOLDER', BASE_URL.'/theme/'.THEME);
         $this->load->model("Common_model");
-        $this->load->model("Esic_model");
-
-        ///Loading Pagination
-//        $this->load->library("pagination");
-        $this->load->library('Ajax_pagination');
-
-        //Pagination Config
-        $this->perPage = 5;
-    }
-
-    public function index($uriSegment = NULL){
-
-        header("Access-Control-Allow-Origin: *");
-        header("Access-Control-Allow-Methods: PUT, GET, POST");
-        header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
-
-        $config = array();
-        $config['target']      = '#regList';
-        $config["base_url"] = base_url() . "Esic/ajaxPaginationData";
-        $config["total_rows"] = $this->Esic_model->record_count();
-        $config["per_page"] = $this->perPage;
-        $config['cur_tag_open'] = '<b>';
-        $config['cur_tag_close'] = '</b>';
-        $config['next_link'] = 'Next &rarr;';
-        $config['prev_link'] = '&larr; Previous';
-        $config['show_count']    = false;
-//        $config["uri_segment"] = 3;
-
-        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-
-
-        //Lets make a simple query for Listing.
-        $selectData = array(
-            '
-                user.id as userID,
-                concat(firstName, " ", lastName) as FullName,
-                email as Email,
-                company as Company,
-                business as Business,
-                businessShortDescription as BusinessShortDesc,
-                score as Score,
-                logo as Logo,
-                website as Web,
-                CASE WHEN user.status = 1 THEN CONCAT("<span class=\"featured-red\">",ES.status,"</span>") WHEN user.status = 2 THEN CONCAT("<span class=\"featured-yellow\">",ES.status,"</span>") WHEN user.status = 3 THEN CONCAT("<span class=\"featured-green\">",ES.status,"</span>") ELSE "" END as Status
-            ',
-            false
-        );
-        $joins = array(
-            array(
-                'table' => 'esic_status ES',
-                'condition' => 'ES.id = user.status',
-                'type' => 'LEFT'
-            )
-        );
-        $limit = array($config["per_page"],$page);
-        $data['usersResult'] = $this->Common_model->select_fields_where_like_join('user',$selectData,$joins,'',FALSE,'','','','',$limit,true);
-        $this->load->vars($data);
-        $this->ajax_pagination->initialize($config);
-        $data["links"] = $this->ajax_pagination->create_links();
-        $data["pageInfo"] = "Showing ".( $this->ajax_pagination->cur_page * $this->ajax_pagination->per_page)." of ". $config["total_rows"]." total results";
-        $this->load->view("front_list",$data);
-    }
-
-    public function ajaxPaginationData(){
-        header("Access-Control-Allow-Origin: *");
-        header("Access-Control-Allow-Methods: PUT, GET, POST");
-        header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
-
-        $page = $this->input->post('page');
-        if(!$page){
-            $offset = 0;
-        }else{
-            $offset = $page;
+        $this->load->model("Imagecreate_model");
+        $this->load->helper('cookie');
+        $this->load->library('resize');
+        $url = str_replace($_SERVER["HTTP_HOST"], '', BASE_URL);
+        $url = $_SERVER["DOCUMENT_ROOT"].''.$url;
+        $url = str_replace('http://', '', $url);
+        $url = str_replace('https://', '', $url);
+        define ('DoucmentUrl', $url);
+        $this->load->helper('viewesic');
+        $this->data['PageType'] = 'Listing';
+        $this->data['LogoDbField']  = $this->LogoDbField;
+        $this->data['ListingName']  = $this->Name;
+        $this->data['ListingLabel'] = $this->NameMessage;
+        $this->data['ControllerName']      = $this->ControllerName;
+        $this->data['ControllerRouteName'] = $this->ControllerRouteName;
+        $this->data['ControllerRouteManage'] = $this->ControllerRouteManage;
+        $this->data['itemStatuses'] = $this->Common_model->select('esic_status_flags');
+        $this->load->library('form_validation');
+        $this->load->model('Hoosk_page_model');
+        $totSegments = $this->uri->total_segments();
+        if(!is_numeric($this->uri->segment($totSegments))){
+            $pageURL = $this->uri->segment($totSegments);
+        } else if(is_numeric($this->uri->segment($totSegments))){
+            $pageURL = $this->uri->segment($totSegments-1);
         }
-
-        $config = array();
-        $config['target']      = '#regList';
-        $config["base_url"] = base_url() . "Esic/ajaxPaginationData";
-        $config["total_rows"] = $this->Esic_model->record_count();
-        $config['per_page']    = $this->perPage;
-
-        $config['cur_tag_open'] = '<b>';
-        $config['cur_tag_close'] = '</b>';
-        $config['next_link'] = 'Next &rarr;';
-        $config['prev_link'] = '&larr; Previous';
-        $config['show_count']    = false;
-
-        $this->ajax_pagination->initialize($config);
-        $limit = array($config["per_page"],$offset);
-        //Lets make a simple query for Listing.
-        $selectData = array(
-            '
-                user.id as userID,
-                concat(firstName, " ", lastName) as FullName,
-                email as Email,
-                company as Company,
-                business as Business,
-                businessShortDescription as BusinessShortDesc,
-                score as Score,
-                logo as Logo,
-                website as Web,
-                CASE WHEN user.status = 1 THEN CONCAT("<span class=\"featured-red\">",ES.status,"</span>") WHEN user.status = 2 THEN CONCAT("<span class=\"featured-yellow\">",ES.status,"</span>") WHEN user.status = 3 THEN CONCAT("<span class=\"featured-green\">",ES.status,"</span>") ELSE "" END as Status
-            ',
-            false
-        );
-        $joins = array(
-            array(
-                'table' => 'esic_status ES',
-                'condition' => 'ES.id = user.status',
-                'type' => 'LEFT'
-            )
-        );
-        $data['usersResult'] = $this->Common_model->select_fields_where_like_join('user',$selectData,$joins,'',FALSE,'','','','',$limit,true);
-        $data["links"] = $this->ajax_pagination->create_links();
-        //load the view
-//        print_r($this->ajax_pagination);
-        $data["pageInfo"] = "Showing ".( $this->ajax_pagination->cur_page * $this->ajax_pagination->per_page)." of ". $config["total_rows"]." total results";
-        $this->load->view('front_list_ajax', $data, false);
+        if ($pageURL == ""){ $pageURL = "home"; }
+        $this->data['page']=$this->Hoosk_page_model->getPage($pageURL);
+        $this->data['settings']=$this->Hoosk_page_model->getSettings();
+        $this->data['settings_footer'] = $this->Hoosk_model->getSettings();
     }
-
-    public function info($userID){
-        echo "User Profile WIll Show up Here.";
+    public function ManageEsic($param=NULL){
+        viewHelperManage($param);
+        return NULL;
+    }
+    public function Add(){
+        $this->data['PageType'] = 'Add';
+        $this->show_admin_configuration('admin/configuration/'.$this->ViewFolderName.'/add', $this->data);
+        return NULL;
+    }
+    public function AddSave(){
+        $this->data['PageType'] = 'Listing';
+        $this->data['return'] = ViewHelperNewSave();
+        $this->show_admin_listing('admin/configuration/'.$this->ViewFolderName.'/listing' , $this->data);
+        return Null;
+    }
+    public function Edit($id){
+        $this->CurrentID = $id;
+        $where = array('id' => $id);
+        $this->data['id'] = $id;
+        $this->data['data'] = $this->Common_model->select_fields_where($this->tableName ,'*' ,$where,true);
+        $this->data['PageType'] = 'Edit';
+        $this->show_admin_configuration('admin/configuration/'.$this->ViewFolderName.'/edit',$this->data);
+        return NULL;
+    }
+    public function EditSave(){
+        $this->data['return'] = ViewHelperEditSave();
+        $this->data['PageType'] = 'Listing';
+        $this->show_admin_listing('admin/configuration/'.$this->ViewFolderName.'/listing' , $this->data);
+        return Null;
+    }
+    public function View($ID){
+        $this->data['id'] = $ID;
+        $where = array('id' => $ID);
+        $this->data['data'] = $this->Common_model->select_fields_where($this->tableName ,'*' ,$where,true);
+        $this->data['PageType'] = 'View';
+        $this->show_admin_configuration('admin/configuration/'.$this->ViewFolderName.'/view' , $this->data);
+        return Null;
+    } 
+    public function FrontForm(){
+        $this->load->view('theme/header',$this->data);
+        if(!empty($this->data['page']['pageTemplate'])){
+            $this->load->view('theme/'.$this->data['page']['pageTemplate'], $this->data);
+        }
+        $this->show_configuration('admin/configuration/'.$this->ViewFolderName.'/front' ,$this->data);
+        $this->load->view('theme/footer');
+    }
+    public function Create(){
+        $this->data['PageType'] = 'Message';
+        $this->data['return'] = ViewHelperNewSave();
+        $this->load->view('theme/header',$this->data);
+        $this->show_configuration('admin/configuration/structure/message' , $this->data);
+        $this->load->view('theme/footer');
+        return Null;
     }
 }
