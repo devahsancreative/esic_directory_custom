@@ -842,7 +842,14 @@ $route['admin/questions/selectors'] = "Question/selectors";
 $route['admin/questions/listing'] = "Question/index/listing";
 $route['admin/questions/create'] = "Question/create";
 $route['admin/questions/edit/(:any)'] = "Question/edit/$1";
-
+$route['admin/question/update'] = "Question/update";
+$route['admin/questions/layout/(:any)'] = "Question/fetchAnswerTemplate/$1";
+    //Radio
+$route['admin/questions/update_answer_radio'] = "Question/updateAnswer_radio";
+$route['admin/questions/removeRadio'] = "Question/updateAnswer_removeRadio";
+    //Checkbox
+$route['admin/questions/update_answer_checkbox'] = "Question/updateAnswer_checkbox";
+$route['admin/questions/removeCheckbox'] = "Question/updateAnswer_removeCheckbox";
 
 
 

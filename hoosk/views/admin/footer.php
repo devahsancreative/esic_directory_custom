@@ -395,6 +395,14 @@ if($classname != "Navigation"){
    <?php } if ($this->router->fetch_method() === 'manage_appstatus') { ?>
    <script src="<?= base_url()?>assets/js/admin-appstatus.js"></script>
    <?php } ?>
+
+    <?php
+        if($this->router->fetch_class() === 'Question'){
+            echo '<link type="text/css" href="'.base_url().'assets/vendors/select2/dist/css/select2.min.css" rel="stylesheet" />';
+            echo '<script type="text/javascript" src="'.base_url().'assets/vendors/select2/dist/js/select2.full.js"></script>';
+        }
+    ?>
+
    <script type="text/javascript">
 //    Haider.notification('SUccessfuly Added','success','Heading Here');
 $('#remote-modals').on("hidden.bs.modal", ".modal:not(.local-modal)", function (e) {

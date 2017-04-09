@@ -1142,10 +1142,7 @@ public function publish_assessment_list($userID=NULL){
         }
         return true;
     }else{
-
         return false;
     }
-
-
 }
 }
