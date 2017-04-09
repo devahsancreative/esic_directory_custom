@@ -56,13 +56,16 @@
     </li>
 
      
-    <li class="<?php if ($current == "Admin/assessments_list") { echo "active"; } ?>"><a href="<?= base_url('admin/assessments_list')?>"><i class="fa fa-list"></i> <span>ESIC Pre-Assessments</span></a></li>
+    <!--li class="<?php if ($current == "Admin/assessments_list") { echo "active"; } ?>"><a href="<?= base_url('admin/assessments_list')?>"><i class="fa fa-list"></i> <span>ESIC Pre-Assessments</span></a></li-->
     
 
     
-    <li class="<?php if ($current == "Investor/investor_list") { echo "active"; } ?>"><a href="<?= base_url('admin/investor_list')?>"><i class="fa fa-list"></i> <span>Investor Pre Assessments</span></a></li>
+    <!--li class="<?php if ($current == "Investor/investor_list") { echo "active"; } ?>"><a href="<?= base_url('admin/investor_list')?>"><i class="fa fa-list"></i> <span>Investor Pre Assessments</span></a></li-->
     
-    
+    <li class="<?php if ($class == "Esic") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_esic')?>"><i class="fa fa-list"></i> Esic</a></li>
+            
+    <li class="<?php if ($class == "Investor") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_investor')?>"><i class="fa fa-list"></i> Investor</a></li>
+
     <li class="treeview <?php if(
            $class=='University'
         || $current=='Admin/manage_rd'
@@ -71,8 +74,8 @@
         || $current=='Admin/manage_sectors'
         || $current=='Admin/manage_status'
         || $current=='Admin/manage_appstatus'
-        || $class=='Esic'
-        || $class=='Investor'
+       // || $class=='Esic'
+        //|| $class=='Investor'
         || $class=='Lawyer'
         || $class=='GrantRecipients'
         || $class=='GrantConsultant'
@@ -80,6 +83,7 @@
         || $class=='RndPartner'
         || $class=='AcceleratingCommercialisation'
     ){ echo 'active';}?>">
+
         <a href="#">
             <i class="fa fa-dashboard"></i> <span>Configuration</span>
             <span class="pull-right-container">
@@ -88,10 +92,6 @@
         </a>
 
         <ul class="treeview-menu">
-            <li class="<?php if ($class == "Esic") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_esic')?>"><i class="fa fa-circle-o"></i> Esic</a></li>
-            
-            <li class="<?php if ($class == "Investor") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_investor')?>"><i class="fa fa-circle-o"></i> Investor</a></li>
-
             <li class="<?php if ($class == "Lawyer") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_lawyer')?>"><i class="fa fa-circle-o"></i> Lawyers</a></li>
 
             <li class="<?php if ($class == "RndPartner") { echo "active"; } ?>"><a href="<?=base_url('admin/manage_rndpartner')?>"><i class="fa fa-circle-o"></i> R&D Partners</a></li>
