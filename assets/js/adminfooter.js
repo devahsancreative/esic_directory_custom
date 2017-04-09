@@ -62,10 +62,6 @@
             $("#search-input").on("keyup", function (e) {
                 oTable.fnFilter($(this).val());
             });
-           /*  $(document).bind('click',"#regList_paginate .pagination li",function(evt){
-                    var pageNumber = oTable.fnPagingInfo().iPage;//becaue it get 0 for page 1
-                    localStorage.setItem("pageNumber", pageNumber);
-          });*/
 		   oTable = $('#regList').DataTable();  // // Search by Title
            $('#Search_by_Name').keyup(function(){
            oTable.column(1).search($(this).val()).draw() ;
@@ -106,7 +102,7 @@
 
             });
 
-               $("#saveStatus").on("click", function () {
+            $("#saveStatus").on("click", function () {
                 var hiddenModalUserID = $(this).parents(".modal-content").find("#hiddenUserID").val();
 			    var editStatusTextBox = $(this).parents(".modal-content").find("#editStatusTextBox").val();
                 if (hiddenModalUserID == '') {
@@ -232,46 +228,6 @@
                     }
                 });
             });
-
-       /* });   ADD FROM ADMIN-DETAILS.JS
-
-<>
-$(function(){*/
-            //Some Action To Perform When Modal Is Shown.
-         /*   $(".approval-modal").on("shown.bs.modal", function (e) {
-                var button = $(e.relatedTarget);  // Button that triggered the modal
-                var ID = button.attr("data-id");
-                var modal = $(this);
-                console.log('ID = '+ID);
-                modal.find("input#hiddenUserID").val(ID);
-                modal.find("#saveStatus").attr('data-id',ID);
-
-            });*/
-
-           /* $("#saveStatus").on("click", function () {
-                var hiddenModalUserID = $(this).parents(".modal-content").find("#hiddenUserID").val();
-                var editStatusTextBox = $(this).parents(".modal-content").find("#editStatusTextBox").val();
-                if (hiddenModalUserID == '') {
-                    hiddenModalUserID = $(this).attr('data-id');
-                }
-                 console.log('ID = '+hiddenModalUserID);
-                var postData = {id: hiddenModalUserID, value: "approve", statusValue: editStatusTextBox};
-                $.ajax({
-                 //  url: baseUrl + "admin/assessment_list",
-                    data: {
-                        id: hiddenModalUserID,
-                        value: "approve",
-                        statusValue :editStatusTextBox
-                    },
-                    type: "POST",
-                    success: function (output) {
-                        var data = output.split("::");
-                        if (data[0] == 'OK') {
-                            $('.approval-modal').modal('hide');
-                        }
-                    }
-                });
-            });*/ //not in use
             tinyMCE.init({
                 selector: '#short-desc-textarea',
                 height: 200,
@@ -401,96 +357,6 @@ $(function(){*/
                     }
                 })
             });
-
-            /*$(".publish-modal").on("shown.bs.modal", function (e) {
-                 var button = $(e.relatedTarget); // Button that triggered the modal
-                 var ID = $('#profile-box-container').attr('data-user-id');
-                 if (ID == '') {
-                        ID = button.attr('data-id');
-                 }
-                 var modal = $(this);
-                 modal.find("input#hiddenUserID").val(ID);
-            });
-
-             *//*$("body").on("click","#yesPublish", function () {
-                var hiddenModalUserID = $(this).parents(".modal-content").find("#hiddenUserID").val();
-                var postData = {id: hiddenModalUserID, value: "publish"};
-                $.ajax({
-                    url: baseUrl + "admin/assessment_list",
-                    data: {
-                        id: hiddenModalUserID,
-                        value: "publish"
-                    },
-                    type: "POST",
-                    success: function (output) {
-                        var data = output.split("::");
-                        if (data[0] == 'OK') {
-                            $('.publish-modal').modal('hide');
-                            $('.publish-buttons').html('');
-                            $('.publish-buttons').append('<a href="#" data-target=".unpublish-modal" data-toggle="modal" class="btn-primary" data-id="'+id+'">Published</a>');
-                        }
-                    }
-                });
-            });
-
-            $(".unpublish-modal").on("shown.bs.modal", function (e) {
-                 var button = $(e.relatedTarget); // Button that triggered the modal
-                 var ID = $('#profile-box-container').attr('data-id');
-                 if (ID == '') {
-                        ID = button.attr('data-id');
-                 }
-                 var modal = $(this);
-                 modal.find("input#hiddenUserID").val(ID);
-            });
-
-            $("body").on("click","#yesUnPublish", function () {
-                var hiddenModalUserID = $(this).parents(".modal-content").find("#hiddenUserID").val();
-                var postData = {id: hiddenModalUserID, value: "unpublish"};
-                $.ajax({
-                    url: baseUrl + "admin/assessment_list",
-                    data: {
-                        id: hiddenModalUserID,
-                        value: "unpublish"
-                    },
-                    type: "POST",
-                    success: function (output) {
-                        var data = output.split("::");
-                        if (data[0] == 'OK') {
-                            $('.unpublish-modal').modal('hide');
-                            $('.publish-buttons').html('');
-                            $('.publish-buttons').append('<a href="#" data-target=".publish-modal" data-toggle="modal" class="btn btn-warning" data-id="'+id+'">UnPublished</a>');
-                        }
-                    }
-                });
-            });
-			*/
-        /*    $(".delete-modal").on("shown.bs.modal", function (e) {
-                var button = $(e.relatedTarget); // Button that triggered the modal
-                var ID = $('#profile-box-container').attr('data-user-id');
-                var modal = $(this);
-                modal.find("input#hiddenUserID").val(ID);
-            });*/
-
-           /* $("#yesDelete").on("click", function () {
-                var hiddenModalUserID = $(this).parents(".modal-content").find("#hiddenUserID").val();
-                var postData = {id: hiddenModalUserID, value: "delete"};
-                $.ajax({
-                    url: baseUrl + "admin/assessment_list",
-                    data: {
-                        id: hiddenModalUserID,
-                        value: "delete"
-                    },
-                    type: "POST",
-                    success: function (output) {
-                        var data = output.split("::");
-                        if (data[0] == 'OK') {
-                            $('.delete-modal').modal('hide');
-                             window.location = baseUrl + 'admin/assessments_list';
-                        }
-                    }
-                });
-            });*/
-
             $("body").on("click", ".save-answer", function (e) {
 
                 e.preventDefault();
@@ -820,26 +686,36 @@ $(function(){*/
                 e.preventDefault();
                $('.address-text').hide();
                $('.editable.address').show()
-                var street = $('.address-text span.street').text();
-                var town = $('.address-text span.town').text();
-                var state =$('.address-text span.state').text();
-                $('.editable.address #street-input').val(street);
+                var streetNumber = $('.address-text span.street_number').text();
+                var streetName   = $('.address-text span.street_name').text();
+                var town         = $('.address-text span.town').text();
+                var state        = $('.address-text span.state').text();
+                var postCode     = $('.address-text span.post_code').text();
+                $('.editable.address #street-number').val(streetNumber);
+                $('.editable.address #street-name').val(streetName);
                 $('.editable.address #town-input').val(town);
                 $('.editable.address #state-input').val(state);
+                $('.editable.address #post-input').val(postCode);
 
             });
             $("body").on("click", "#address-save", function (e) {
                var userId = $('#profile-box-container').attr('data-user-id');
                $('.address-text').show();
                $('.editable.address').hide();
-                var street = $('.editable.address #street-input').val();
-                var town = $('.editable.address #town-input').val();
-                var state = $('.editable.address #state-input').val();
+                var address =  '';
+                var streetNumber = $('.editable.address #street-number').val();
+                var streetName   = $('.editable.address #street-name').val();
+                var town         = $('.editable.address #town-input').val();
+                var state        = $('.editable.address #state-input').val();
+                var postCode     = $('.editable.address #post-input').val();
                 var postData = {
                     userID: userId,
-                    address: street,
-                    town: town,
-                    state: state
+                    address: address,
+                    address_street_number: streetNumber,
+                    address_street_name: streetName,
+                    address_town: town,
+                    address_state: state,
+                    address_post_code , postCode
                 };
                 $.ajax({
                     url: baseUrl + "admin/updateAddress",

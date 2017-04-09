@@ -247,7 +247,7 @@ class Hoosk_model extends CI_Model {
 
         // Get a list of all user accounts
 
-        $this->db->select("userName, email, userRole, userID, users_role.Label as usersRoleLabel");
+        $this->db->select("userName, email, userRole, userID, users_role.Label as usersRoleLabel,password_recovery_question, password_recovery_answer ");
 
         $this->db->order_by("userName", "asc");
 
@@ -373,6 +373,9 @@ class Hoosk_model extends CI_Model {
             'email' => $this->input->post('email'),
             'userRole' => $role,
             'password' => md5($this->input->post('password').SALT),
+            'password_recovery_question' => $this->input->post('password_recovery_question'),
+            'password_recovery_answer' => $this->input->post('password_recovery_answer'),
+
 
         );
 

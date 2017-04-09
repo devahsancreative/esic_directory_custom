@@ -140,6 +140,8 @@ $route['Esic/Edit/(:any)']  = "Esic/Edit/$1";
 $route['Esic/EditSave']     = "Esic/EditSave";
 $route['Esic']  	= "Esic/FrontForm";
 
+$route['admin/Esic/details/(:any)'] = "Admin/details/$1";
+
 
 //For Investors 
 $route['admin/manage_investor']    	    = "Investor/ManageInvestor";

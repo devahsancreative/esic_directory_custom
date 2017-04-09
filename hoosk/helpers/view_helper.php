@@ -175,13 +175,13 @@
                 array_push($return, $error);
                 return $return;
             }
-            $NameExist = checkListingName($ci, $Name, 'name', $ID);
+            $NameExist = checkListingExist($ci, $Name, 'name', $ID);
             if($NameExist == true){
                 $error =  "FAIL::".$ci->NameMessage." Name Already Exist Cannot Edit Please Contact Administrator::error";
                 array_push($return, $error);
                 return $return;
             }
-            $EmailExist = checkListingEmail($ci, $Email, 'email', $ID);
+            $EmailExist = checkListingExist($ci, $Email, 'email', $ID);
             if($EmailExist == true){
                 $error =  "FAIL::Email Already Exist Cannot Edit Please Contact Administrator::error";
                 array_push($return, $error);

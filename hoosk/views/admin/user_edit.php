@@ -113,29 +113,57 @@
 					</div> <!-- /controls -->				
 				</div> <!-- /form-group -->
 			 </div>
-			</div>
-			<div class="row">
-				 <div class="col-md-6">
-				<div class="form-group">
-				<label class="control-label" for="Roles">Role</label>
+			 <div class="col-md-12">
+				<div class="form-group">	
+                <?php echo form_error('password_recovery_question', '<div class="alert alert-danger">', '</div>'); ?>					
+					<label class="control-label" for="password_recovery_question">Passowrd Recovery Question</label>
 					<div class="controls">
-						<?php 
-							$options = array();
-							if(isset($roles) and !empty($roles)){
-									foreach ($roles as $role) {
-										$options[$role['id']] = $role['Label'];
-									}
-											
-							}
-							echo form_dropdown('role', $options, $users[0]['userRole']);
-						?>
+						<?php 	$data = array(
+						  'name'        => 'password_recovery_question',
+						  'id'          => 'password_recovery_question',
+						  'class'       => 'form-control',
+						  'value'		=> set_value('password_recovery_question',$u['password_recovery_question'])
+						);
+			
+						echo form_input($data); ?>
+					</div> <!-- /controls -->				
+				</div> <!-- /form-group -->
+			 </div>
+		 	 <div class="col-md-12">
+					<div class="form-group">	
+	                <?php echo form_error('password_recovery_answer', '<div class="alert alert-danger">', '</div>'); ?>					
+						<label class="control-label" for="password_recovery_answer">Passowrd Recovery Answer</label>
+						<div class="controls">
+							<?php 	$data = array(
+							  'name'        => 'password_recovery_answer',
+							  'id'          => 'password_recovery_answer',
+							  'class'       => 'form-control',
+							  'value'		=> set_value('password_recovery_answer',$u['password_recovery_answer'])
+							);
+				
+							echo form_input($data); ?>
+						</div> <!-- /controls -->				
+					</div> <!-- /form-group -->
+			</div>
+			<div class="col-md-6">
+					<div class="form-group">
+						<label class="control-label" for="Roles">Role</label>
+						<div class="controls">
+							<?php 
+								$options = array();
+								if(isset($roles) and !empty($roles)){
+										foreach ($roles as $role) {
+											$options[$role['id']] = $role['Label'];
+										}
+												
+								}
+								echo form_dropdown('role', $options, $users[0]['userRole']);
+							?>
+						</div>
 					</div>
-				</div>
-             </div>
-
-                </div>
-                
-                <div class="panel-footer">
+	             </div>
+	        </div>
+	        <div class="panel-footer">
                 <?php 	$data = array(
 						  'name'        => 'submit',
 						  'id'          => 'submit',

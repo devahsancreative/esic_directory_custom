@@ -7,6 +7,8 @@ class Esic extends MY_Controller {
     public $LogoDbField         = 'logo';
     public $BannerDbField       = 'banner';
     public $tableName           = 'esic';
+    public $tableNameSocial     = 'esic_social';
+    public $tableNameUser       = 'hoosk_user';
     public $BannerNamePrefix    = 'EsicBanner';
     public $LogoNamePrefix      = 'EsicLogo';
     public $Name                = 'Esic';
@@ -80,6 +82,10 @@ class Esic extends MY_Controller {
         $where = array('id' => $id);
         $this->data['id'] = $id;
         $this->data['data'] = $this->Common_model->select_fields_where($this->tableName ,'*' ,$where,true);
+        $userID = $this->data['data']->userID;
+        $whereUser = array('userID' => $userID);
+        $this->data['EsicUserData'] = $this->Common_model->select_fields_where($this->tableNameUser ,'*' ,$whereUser,true);
+        $this->data['SocialLinks'] = $this->Common_model->select_fields_where($this->tableNameSocial ,'*' ,$where,true);
         $this->data['PageType'] = 'Edit';
         $this->show_admin_configuration('admin/configuration/'.$this->ViewFolderName.'/edit',$this->data);
         return NULL;

@@ -7,6 +7,7 @@ class Investor extends MY_Controller {
     public $LogoDbField         = 'logo';
     public $BannerDbField       = 'banner';
     public $tableName           = 'esic_investors';
+    public $tableNameSocial     = 'investor_social';
     public $BannerNamePrefix    = 'InvestorBanner';
     public $LogoNamePrefix      = 'InvestorLogo';
     public $Name                = 'Investor';
@@ -84,6 +85,8 @@ class Investor extends MY_Controller {
         $where = array('id' => $id);
         $this->data['id'] = $id;
         $this->data['data'] = $this->Common_model->select_fields_where($this->tableName ,'*' ,$where,true);
+        $whereSocial = array('investorID' => $id);
+        $this->data['SocialLinks'] = $this->Common_model->select_fields_where($this->tableNameSocial ,'*' ,$whereSocial,true);
         $this->data['PageType'] = 'Edit';
         $this->show_admin_configuration('admin/configuration/'.$this->ViewFolderName.'/edit',$this->data);
         return NULL;

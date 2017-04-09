@@ -67,7 +67,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="ProgramStartDateBox">Program Start Date</label>
-                                        <input type="text" name="ProgramStartDate" id="ProgramStartDateBox" class="form-control" />
+                                        <input type="text" name="ProgramStartDate" id="ProgramStartDateBox" class="form-control date_picker" />
                                     </div>
                                     <div class="form-group">
                                         <label for="contactNameBox">Contact Name:</label>

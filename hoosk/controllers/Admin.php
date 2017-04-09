@@ -578,6 +578,7 @@ public function social_creaditional(){
                     esic.thumbsUp as thumbsUp,
                     esic.business as business,
                     esic.address as address,
+                    esic.address_street_name as address_street_name,
 					esic.address_street_number as address_street_number,
 					esic.address_post_code as address_post_code,
                     esic.address_town as address_town,
@@ -681,6 +682,7 @@ public function social_creaditional(){
                 'FullName' 			=> $returnedData[0]->FullName,
                 'ipAddress'         => $returnedData[0]->ipAddress,
                 'address'           => $returnedData[0]->address,
+                'address_street_name'     => $returnedData[0]->address_street_name,
                 'address_street_number'     => $returnedData[0]->address_street_number,
                 'address_post_code'         => $returnedData[0]->address_post_code,
                 'address_town'              => $returnedData[0]->address_town,
@@ -863,26 +865,6 @@ public function social_creaditional(){
 		$uID_encoded = $this->input->post('uID');
         if(!empty($uID_encoded))
 		$uID = base64_decode($uID_encoded);
-
-
-
-
-
-/*        $userID        = $this->input->post('userID');
-        $descDataText  = $this->input->post('descDataText');
-        if(!isset($userID) || empty($userID) || !isset($descDataText) || empty($descDataText)){
-            echo "FAIL::Something went wrong with the post, Please Contact System Administrator for Further Assistance";
-            return;
-        }
-
-        $updateArray = array();
-        $updateArray['long_description'] = $descDataText;
-        $whereUpdate = array('userID' => $userID);
-        $this->Common_model->update('esic',$whereUpdate,$updateArray);
-        echo 'OK::'.urldecode($descDataText).'';
-        exit();*/
-
-
 		//Haider COde. Changed for Editor.
 		$this->load->library('Sioen');
 		$this->Hoosk_model->UpdateEsicPageDescription($uID);
@@ -1180,20 +1162,21 @@ public function social_creaditional(){
         exit();
     }
     public function updateAddress(){
-        $userID         = $this->input->post('userID');
+        $userID         		= $this->input->post('userID');
+        $address  				= $this->input->post('address');
         $address_street_number  = $this->input->post('address_street_number'); 
-	    $street_name    = $this->input->post('street_name');
+	    $address_street_name    = $this->input->post('address_street_name');
         $address_town           = $this->input->post('address_town');
         $address_state          = $this->input->post('address_state');
-		$post_input     = $this->input->post('post_input');
+		$address_post_code      = $this->input->post('address_post_code');
         if(!isset($userID) || empty($userID)){
             echo "FAIL::Something went wrong with the post, Please Contact System Administrator for Further Assistance";
             return;
         }
 
         $updateArray = array();
-		$updateArray['address']       = $street_name;
-        $updateArray['address_street_number'] = $address_street_number;
+		$updateArray['address']       = $address;
+        $updateArray['address_street_number'] = $streetnumber;
 		$updateArray['address_town']          = $address_town;
         $updateArray['address_state']         = $address_state;
 		$updateArray['address_post_code']     = $post_input;

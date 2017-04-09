@@ -655,32 +655,32 @@ $ci =& get_instance();
                     <strong><i class="fa fa-globe margin-r-5"></i>Address</strong>
                       <?php
 					        echo '<div class="text-muted">Street Number: <span class="street_number">';
-							  if($userProfile['street_number']!=''){ 
-								echo $userProfile['street_number']."asdasd"; 
+							  if($userProfile['address_street_number']!=''){ 
+								echo $userProfile['address_street_number']; 
 							  }
 						   echo '</span></div>';
                            
 						    echo '<div class="text-muted">Street Name: <span class="street_name">';
-							  if($userProfile['address']!=''){ 
-								echo $userProfile['address']; 
+							  if($userProfile['address_street_name']!=''){ 
+								echo $userProfile['address_street_name']; 
 							  }
 						   echo '</span></div>';
 						     
 						   echo '<div class="text-muted">Town: <span class="town">';
-								  if($userProfile['town']!=''){ 
-									echo $userProfile['town']; 
+								  if($userProfile['address_town']!=''){ 
+									echo $userProfile['address_town']; 
 								  }
                            echo '</span></div>';
 							
 						  echo '<div class="text-muted">State: <span class="state">';
-							  if($userProfile['state']!=''){ 
-								echo $userProfile['state']; 
+							  if($userProfile['address_state']!=''){ 
+								echo $userProfile['address_state']; 
 							  }
                             echo '</span></div>';
 							
 						   echo '<div class="text-muted">Post Code: <span class="post_code">';
-							  if($userProfile['post_code']!=''){ 
-								echo $userProfile['post_code']; 
+							  if($userProfile['address_post_code']!=''){ 
+								echo $userProfile['address_post_code']; 
 							  }
 								echo '</span></div>';
                            
@@ -691,23 +691,23 @@ $ci =& get_instance();
                     <div class="form-group">
                         <label>Street Number:</label>
                         <input type="text" name="street-number" id="street-number" 
-                         value= "<?= $userProfile['street_number'];?>" placeholder="<?= $userProfile['street_number'];?>"/>
+                         value= "<?= $userProfile['address_street_number'];?>" placeholder="<?= $userProfile['address_street_number'];?>"/>
                                                
                         <label>Street Name:</label>
                         <input type="text" name="street-name" id="street-name" 
-                        value= "<?= $userProfile['address'];?>" placeholder="<?= $userProfile['address'];?>"/>
+                        value= "<?= $userProfile['address_street_name'];?>" placeholder="<?= $userProfile['address_street_name'];?>"/>
                         
                         <label>Town:</label>
                         <input type="text" name="town-input" id="town-input"
-                         value= "<?= $userProfile['town'];?>" placeholder="<?= $userProfile['town'];?>"/>
+                         value= "<?= $userProfile['address_town'];?>" placeholder="<?= $userProfile['address_town'];?>"/>
                          
                          <label>State:</label>
                         <input type="text" name="state-input" id="state-input"
-                        value= "<?= $userProfile['state'];?>"  placeholder="<?= $userProfile['state'];?>"/> 
+                        value= "<?= $userProfile['address_state'];?>"  placeholder="<?= $userProfile['address_state'];?>"/> 
                          
                         <label>Post Code:</label>
                         <input type="text" name="post-input" id="post-input"
-                        value= "<?= $userProfile['post_code'];?>" placeholder="<?= $userProfile['post_code'];?>"/>
+                        value= "<?= $userProfile['address_post_code'];?>" placeholder="<?= $userProfile['address_post_code'];?>"/>
                           
                     </div>
                     <div class="form-group">

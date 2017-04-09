@@ -146,7 +146,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="ProgramStartDateBox">Program Start Date:</label>
-                                        <input type="text" name="ProgramStartDate" id="ProgramStartDateBox" value="<?= $ProgramStartDate;?>" class="form-control" />
+                                        <input type="text" name="ProgramStartDate" id="ProgramStartDateBox" value="<?= $ProgramStartDate;?>" class="form-control date_picker" />
                                     </div>
                                     <div class="form-group">
                                         <label for="statusFlagBox">Status:</label>

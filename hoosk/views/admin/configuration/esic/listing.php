@@ -5,7 +5,6 @@
                             <tr>
                                 <th>ID</th>
                                 <th><?= $ListingLabel; ?></th>
-                                <th>Email</th>
                                 <th>Website</th>
                                 <th>Status</th>
                                 <th>Logo</th>
@@ -20,7 +19,6 @@
                             <tr>
                                 <th>ID</th>
                                 <th><?= $ListingLabel; ?></th>
-                                <th>Email</th>
                                 <th>Website</th>
                                 <th>Status</th>
                                 <th>Logo</th>

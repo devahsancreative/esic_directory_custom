@@ -51,6 +51,26 @@
         $preferred_esic_status_ids       = '';
     }
 
+    if(isset($SocialLinks) && !empty($SocialLinks)){
+
+        $FacebookLink   = $SocialLinks->facebook;
+        $TwitterLink    = $SocialLinks->twitter;
+        $GoogleLink     = $SocialLinks->google;
+        $LinkedInLink   = $SocialLinks->linkedIn;
+        $YoutubeLink    = $SocialLinks->youTube;
+        $VimeoLink      = $SocialLinks->vimeo;
+
+    }else{
+
+        $FacebookLink   = '';
+        $TwitterLink    = '';
+        $GoogleLink     = '';
+        $LinkedInLink   = '';
+        $YoutubeLink    = '';
+        $VimeoLink      = '';
+
+    }
+
 
     ?>
         <div class="row">
@@ -219,6 +239,38 @@
                                                 </span>
                                             </div>
                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="social-container">
+                                        <label for="AddressBox">Social Links:</label>
+                                        <div class="row">
+                                            <div class="form-group col-md-6 col-lg-6">
+                                                <label for="FacebookLink">Facebook</label>
+                                                <input type="text" name="FacebookLink" id="FacebookLink" class="form-control" value="<?= $FacebookLink;?>" >
+                                            </div>
+                                            <div class="form-group col-md-6 col-lg-6">
+                                                <label for="TwitterLink">Twitter</label>
+                                                <input type="text" name="TwitterLink" id="TwitterLink" class="form-control" value="<?= $TwitterLink;?>">
+                                            </div>
+                                            <div class="form-group col-md-6 col-lg-6">
+                                                <label for="GoogleLink">Google Plus</label>
+                                                <input type="text" name="GoogleLink" id="GoogleLink" class="form-control" value="<?= $GoogleLink;?>">
+                                            </div>
+                                            <div class="form-group col-md-6 col-lg-6">
+                                                <label for="LinkedInLink">LinkedIn</label>
+                                                <input type="text" name="LinkedInLink" id="LinkedInLink" class="form-control" value="<?= $LinkedInLink;?>">
+                                            </div>
+                                            <div class="form-group col-md-6 col-lg-6">
+                                                <label for="YoutubeLink">Youtube</label>
+                                                <input type="text" name="YoutubeLink" id="YoutubeLink" class="form-control" value="<?= $YoutubeLink;?>">
+                                            </div>
+                                            <div class="form-group col-md-6 col-lg-6">
+                                                <label for="VimeoLink">Vimeo</label>
+                                                <input type="text" name="VimeoLink" id="VimeoLink" class="form-control"  value="<?= $VimeoLink;?>">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

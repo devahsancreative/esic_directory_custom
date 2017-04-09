@@ -11,7 +11,8 @@ $(function(){
                 "bSearchable": true,
                 "render":function( data, type, full, meta){
                     if(data!=''){
-                        return '<a href="'+base_url+'admin/Esic/view/'+full.ID+'" >'+full.ID+'</a>';
+                        //return '<a href="'+base_url+'admin/Esic/view/'+full.ID+'" >'+full.ID+'</a>';
+                        return '<a href="'+base_url+'admin/Esic/details/'+full.ID+'" >'+full.ID+'</a>';
                     }
                     return data;
                     
@@ -21,16 +22,17 @@ $(function(){
                 "mData": "Name",
                 "render":function( data, type, full, meta){
                     if(data!=''){
-                        return '<a href="'+base_url+'admin/Esic/view/'+full.ID+'" >'+full.Name+'</a>';
+                        //return '<a class="esicName" href="'+base_url+'admin/Esic/view/'+full.ID+'" >'+full.Name+'</a>';
+                        return '<a class="esicName" href="'+base_url+'admin/Esic/details/'+full.ID+'" >'+full.Name+'</a>';
                     }
                     return data;
                     
                 }
             },
             //Email Address
-            {
-                "mData": "Email"
-            },
+            //{
+            //    "mData": "Email"
+            //},
             //Website Address
             {
                 "mData": "Website"
@@ -51,7 +53,13 @@ $(function(){
                 "className":"centerLogo"
             },
             /* Publish */ {
-                "mData": "Publish"
+                "mData": "Publish",
+                "render": function ( data, type, full, meta){
+                    if(data!=''){
+                        return '<div data-PublishStatusID="'+full.PublishStatusID+'" class="Publish-Status">'+full.Publish+'</div>';
+                    }
+                    return '<span>Empty</span>';
+                }
             },
             /* Trashed */ {
                 "mData": "Trashed"
@@ -69,12 +77,36 @@ $(function(){
         });
         removeWidth(oTable);
 
-        sTable = $('#Esic').DataTable();  // // Search by Title
+        sTable = $('#EsicList').DataTable();  // // Search by Title
         $("#search-input").on("keyup", function (e) {
             sTable.fnFilter($(this).val());
         });
         $('#searchbyName').keyup(function(){
-           sTable.column(1).search($(this).val()).draw() ;
+           sTable.column(1).search($(this).val()).draw();
         }); 
     }
+            $("#saveStatus").on("click", function () {
+                var hiddenModalUserID = $(this).parents(".modal-content").find("#hiddenUserID").val();
+                var editStatusTextBox = $(this).parents(".modal-content").find("#editStatusTextBox").val();
+                if (hiddenModalUserID == '') {
+                    hiddenModalUserID = $(this).attr('data-id');
+                }
+                var postData = {id: hiddenModalUserID, value: "approve", statusValue: editStatusTextBox};
+                $.ajax({
+                   url: baseUrl + "admin/assessment_list",
+                    data: {
+                        id: hiddenModalUserID,
+                        value: "approve",
+                        statusValue :editStatusTextBox
+                    },
+                    type: "POST",
+                    success: function (output) {
+                        var data = output.split("::");
+                        if (data[0] == 'OK') {
+                            oTable.draw();
+                            $('.approval-modal').modal('hide');
+                        }
+                    }
+                });
+            });         
 });//End of Document Ready Function.

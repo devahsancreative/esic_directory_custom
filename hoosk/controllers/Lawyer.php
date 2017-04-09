@@ -40,7 +40,7 @@ class Lawyer extends MY_Controller {
         define ('DoucmentUrl', $url);
         $this->load->helper('view');
         $this->data['PageType'] = 'Listing';
-        $this->data['LogoDbField']  = $this->LogoDbField;
+        $this->data['LogoDbField']     = $this->LogoDbField;
         $this->data['ListingName']  = $this->Name;
         $this->data['ListingLabel'] = $this->NameMessage;
         $this->data['ControllerName']      = $this->ControllerName;

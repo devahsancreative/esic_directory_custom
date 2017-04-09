@@ -23,6 +23,7 @@
         $keywords               = $data->keywords;
         $banner                 = $data->banner;
         $logo                   = $data->logo;
+        $productImage           = $data->productImage;
 
         $short_description      = $data->short_description;
         $long_description       = $data->long_description;
@@ -48,6 +49,7 @@
         $keywords   = ''; 
         $banner     = ''; 
         $logo       = ''; 
+        $productImage    = ''; 
 
         $short_description  = ''; 
         $long_description   = ''; 
@@ -56,6 +58,38 @@
         //$CoDevelopmentAgreement ='';
     }
 
+    if(isset($EsicUserData) && !empty($EsicUserData)){
+
+        $firstName    = $EsicUserData->firstName;
+        $lastName     = $EsicUserData->lastName;
+        $email        = $EsicUserData->email;
+
+    }else{
+
+        $firstName    = ''; 
+        $lastName     = ''; 
+        $email        = ''; 
+    }
+
+    if(isset($SocialLinks) && !empty($SocialLinks)){
+
+        $FacebookLink   = $SocialLinks->facebook;
+        $TwitterLink    = $SocialLinks->twitter;
+        $GoogleLink     = $SocialLinks->google;
+        $LinkedInLink   = $SocialLinks->linkedIn;
+        $YoutubeLink    = $SocialLinks->youTube;
+        $VimeoLink      = $SocialLinks->vimeo;
+
+    }else{
+
+        $FacebookLink   = '';
+        $TwitterLink    = '';
+        $GoogleLink     = '';
+        $LinkedInLink   = '';
+        $YoutubeLink    = '';
+        $VimeoLink      = '';
+
+    }
 
     ?>
         <div class="row">
@@ -74,8 +108,16 @@
                                 <input type="hidden" id="hiddenListID" value="">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="NameTextBox">Name</label>
+                                        <label for="NameTextBox">Esic Name</label>
                                         <input type="text" name="Name" id="NameTextBox" value="<?= $name;?>" class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="FirstNameTextBox">First Name</label>
+                                        <input type="text" name="firstName" id="FirstNameTextBox"  value="<?= $firstName;?>" class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="LastNameTextBox">Last Name</label>
+                                        <input type="text" name="lastName" id="LastNameTextBox"  value="<?= $lastName;?>" class="form-control" />
                                     </div>
                                     <div class="form-group">
                                         <label for="PhoneTextBox">Phone</label>
@@ -118,22 +160,35 @@
                                                 <input type="text" name="address_postCode" id="address_postCode" value="<?=(isset($address_postCode) and !empty($address_postCode))?$address_postCode:''?>" class="form-control">
                                             </div>
                                         </div>
-
                                     </div>
-
-
-                                    <!--div class="form-group">
-                                        <label for="AddressBox">Address</label>
-                                        <input type="text" name="Address" id="AddressBox" value="<?= $address;?>" class="form-control" />
-                                    </div-->
-
-
                                     <div class="form-group">
-                                        <label for="ShortDescriptionBox">Short Description</label>
+                                        <label for="BusinessBox">Business Name</label>
+                                        <input type="text" name="Business" id="BusinessBox" value="<?= $Business;?>" class="form-control" />
+                                    </div>
+                                    <div class="row dates-container">
+                                        <div class="col-md-4 form-group">
+                                            <label for="IncorporateDateBox">Incorporate Date</label>
+                                            <input type="text" name="IncorporateDate" id="IncorporateDateBox" value="<?= $IncorporateDate;?>" class="form-control date_picker" />
+                                        </div>
+                                        <div class="col-md-4 form-group">
+                                            <label for="AddedDateBox">Added Date</label>
+                                            <input type="text" name="AddedDate" id="AddedDateBox" value="<?= $AddedDate;?>" class="form-control date_picker" />
+                                        </div>
+                                        <div class="col-md-4 form-group">
+                                            <label for="ExpiryDateBox">Expiry Date</label>
+                                            <input type="text" name="ExpiryDate" id="ExpiryDateBox" value="<?= $ExpiryDate;?>" class="form-control date_picker" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ACNBox">ACN #</label>
+                                        <input type="text" name="ACN" id="ACNBox" class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ShortDescriptionBox">Short Description  of Business</label>
                                         <textarea type="text" name="ShortDescription" id="ShortDescriptionBox" class="form-control"><?= $short_description ?></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label for="LongDescriptionBox">Detail Description</label>
+                                        <label for="LongDescriptionBox">Detail Description  of Business</label>
                                         <textarea type="text" name="LongDescription"  id="LongDescriptionBox" class="form-control"><?= $long_description ?> </textarea>
                                     </div>
                                     <div class="form-group">
@@ -194,6 +249,25 @@
                                             </div>
                                        </div>
                                     </div>
+                                    <div class="form-group">
+                                        <label for="update-product-file">Product/ Service Image</label>
+                                        <div class="img-reponsive">
+                                            <div class="img-container img-logo img-responsive">
+                                                <?php if(!empty($productImage)){ ?>
+                                                    
+                                                        <img src="<?= base_url().$productImage;?>" class="product-show" id="product-show" />
+
+                                                <?php }else{ ?>
+                                                        <img src="<?= base_url()?>pictures/defaultLogo.png" class="logo-show" id="product-show" />
+                                                <?php } ?>
+                                            </div>
+                                            <div class="fileupload fileupload-new" data-provides="fileupload">
+                                                <span class="btn btn-file btn-logo-edit"><span class="fileupload-new">Click To</span><span class="fileupload-exists"> Edit</span>
+                                                    <input type="file" name="productImage" id="product-file"  />
+                                                </span>
+                                            </div>
+                                       </div>
+                                    </div>
                                      <!--div class="form-group">
                                         <label for="update-CoDevelopmentAgreement-file">Copy Of CO-Development Agreement</label>
                                         <div class="file-reponsive">
@@ -210,6 +284,37 @@
                                             </div>
                                        </div>
                                     </div-->
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="social-container">
+                                        <label for="AddressBox">Social Links:</label>
+                                        <div class="row">
+                                            <div class="form-group col-md-6 col-lg-6">
+                                                <label for="FacebookLink">Facebook</label>
+                                                <input type="text" name="FacebookLink" id="FacebookLink" class="form-control" value="<?= $FacebookLink;?>" >
+                                            </div>
+                                            <div class="form-group col-md-6 col-lg-6">
+                                                <label for="TwitterLink">Twitter</label>
+                                                <input type="text" name="TwitterLink" id="TwitterLink" class="form-control" value="<?= $TwitterLink;?>">
+                                            </div>
+                                            <div class="form-group col-md-6 col-lg-6">
+                                                <label for="GoogleLink">Google Plus</label>
+                                                <input type="text" name="GoogleLink" id="GoogleLink" class="form-control" value="<?= $GoogleLink;?>">
+                                            </div>
+                                            <div class="form-group col-md-6 col-lg-6">
+                                                <label for="LinkedInLink">LinkedIn</label>
+                                                <input type="text" name="LinkedInLink" id="LinkedInLink" class="form-control" value="<?= $LinkedInLink;?>">
+                                            </div>
+                                            <div class="form-group col-md-6 col-lg-6">
+                                                <label for="YoutubeLink">Youtube</label>
+                                                <input type="text" name="YoutubeLink" id="YoutubeLink" class="form-control" value="<?= $YoutubeLink;?>">
+                                            </div>
+                                            <div class="form-group col-md-6 col-lg-6">
+                                                <label for="VimeoLink">Vimeo</label>
+                                                <input type="text" name="VimeoLink" id="VimeoLink" class="form-control"  value="<?= $VimeoLink;?>">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div> <!-- /.box-body -->

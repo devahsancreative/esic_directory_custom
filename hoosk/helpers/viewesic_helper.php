@@ -13,14 +13,16 @@
                 '.$ci->tableName.'.email AS Email,
                 '.$ci->tableName.'.logo AS Logo,
                 '.$ci->tableName.'.status AS Status_ID,
-                ES.status AS Status_Label,
+                 ES.color AS color,
+                CASE WHEN ES.id > 0 THEN CONCAT("<span class=\'label \' style=\' background-color:",color,"\'> ", ES.status," </span>") ELSE CONCAT ("<span class=\'label label-warning\'> ", ES.status, " </span>") END AS Status_Label, 
                 CASE WHEN trashed = 1 THEN CONCAT(\'<span class="label label-danger">YES</span>\') WHEN trashed = 0 THEN CONCAT(\'<span class="label label-success">NO</span>\') ELSE "" END AS Trashed,
-                CASE WHEN Publish = 1 THEN CONCAT(\'<span class="label label-danger">YES</span>\') WHEN Publish = 0 THEN CONCAT(\'<span class="label label-success">NO</span>\') ELSE "" END AS Publish
+                Publish as PublishStatusID,
+                CASE WHEN Publish = 1 THEN CONCAT(\'<span class="label label-success">YES</span>\') WHEN Publish = 0 THEN CONCAT(\'<span class="label label-danger">NO</span>\') ELSE "" END AS Publish
                 ',false);
 
                 $addColumns = array(
                     'ViewEditActionButtons' => array(
-                        '<a href="'.base_url().$ci->Name.'/Edit/$1"><span data-toggle="tooltip" title="Edit" data-placement="left" aria-hidden="true" class="fa fa-pencil text-blue"></span></a> &nbsp; <a href="#" data-target=".approval-modal" data-toggle="modal"><i data-toggle="tooltip" title="Trashed" data-placement="right"  class="fa fa-trash-o text-red"></i></a> &nbsp; <a href="#" data-target=".publish-modal" data-toggle="modal"><i data-toggle="tooltip" title="Publish" data-placement="right"  class="fa fa-check text-blue"></i></a>','ID')
+                        '<a href="#" data-target=".publish-modal" data-toggle="modal"><i data-toggle="tooltip" title="Publish Status" data-placement="right"  class="fa fa-check text-blue"></i></a> &nbsp; <a href="'.base_url().$ci->Name.'/Edit/$1"><span data-toggle="tooltip" title="Edit" data-placement="left" aria-hidden="true" class="fa fa-pencil text-blue"></span></a> &nbsp; <a href="#" data-target=".approval-modal" data-toggle="modal"><i data-toggle="tooltip" title="Trashed" data-placement="right"  class="fa fa-trash-o text-red"></i></a>','ID')
                 );
                 $joins = array(
                     array(
@@ -50,11 +52,47 @@
                 array_push($return, $error);
                 return $return;
             }
+            /*
+            $ID = 0;
+            $userName   = $ci->input->post('userName');
+            $firstName  = $ci->input->post('firstName');
+            $lastName   = $ci->input->post('lastName');
+            $phone      = $ci->input->post('Phone');
+            $userEmail  = $ci->input->post('userEmail');
 
-            $Name    = $ci->input->post('Name');
-            $Phone   = $ci->input->post('Phone');
-            $Email   = $ci->input->post('Email');
-            $Website = $ci->input->post('Website');
+            $EsicUserExist = CheckUserEsicUser($ci, $email, 'email');
+            if($EsicUserExist == true){
+                $error =  "FAIL::".$ci->NameMessage." User Email Already Exist Cannot Create New Please Contact Administrator::error";
+                array_push($return, $error);
+                return $return;
+            }else{
+                $NewUserData = array(
+                    'userName'  => $userName,
+                    'userRole'  => 2, // Esic Role
+                    'firstName' => $firstName,
+                    'lastName'  => $lastName,
+                    'phone'     => $phone,
+                    'email'     => $userEmail,
+                    'password'  => md5('demo'.SALT) 
+                );
+                $NewUserCreated =InsertEsicUser($ci, $NewUserData); 
+                if($NewUserCreated){
+                    $ID = $NewUserCreated;
+                }else{
+                    $error =  "FAIL::".$ci->NameMessage." New User Cannot Be Created Please Contact Administrator::error";
+                    array_push($return, $error);
+                    return $return;
+                }
+            }*/
+            $Name           = $ci->input->post('Name');
+            $Website        = $ci->input->post('Website');
+            $email          = $ci->input->post('Email');
+            $Business       = $ci->input->post('Business');
+            $corporate_date = $ci->input->post('IncorporateDate');
+            $added_date     = $ci->input->post('AddedDate');
+            $expiry_date    = $ci->input->post('ExpiryDate');
+            $acn_number     = $ci->input->post('ACN');
+
             //Need to have Separate Logic for Address.
             //If Address is a single String then store it as a Single String.
             //Else, We Would Need to Combine multiple Address Fields in to One JSON.
@@ -91,9 +129,9 @@
             }
             $now = date("Y-m-d H:i:s");
             $insertData = array(
+                //'userID'                => $ID,
                 'name'                  => $Name,
-                'phone'                 => $Phone,
-                'email'                 => $Email,
+                'email'                 => $email,
                 'website'               => $Website,
                 'address_street_number' => $StreetNumber,
                 'address_street_name'   => $StreetName,
@@ -175,13 +213,13 @@
                 array_push($return, $error);
                 return $return;
             }
-            $NameExist = checkListingName($ci, $Name, 'name', $ID);
+            $NameExist = checkListingExist($ci, $Name, 'name', $ID);
             if($NameExist == true){
                 $error =  "FAIL::".$ci->NameMessage." Name Already Exist Cannot Edit Please Contact Administrator::error";
                 array_push($return, $error);
                 return $return;
             }
-            $EmailExist = checkListingEmail($ci, $Email, 'email', $ID);
+            $EmailExist = checkListingExist($ci, $Email, 'email', $ID);
             if($EmailExist == true){
                 $error =  "FAIL::Email Already Exist Cannot Edit Please Contact Administrator::error";
                 array_push($return, $error);
@@ -190,7 +228,6 @@
             $now = date("Y-m-d H:i:s");
             $updateData = array(
                 'name'                  => $Name,
-                'phone'                 => $Phone,
                 'email'                 => $Email,
                 'website'               => $Website,
                 'address_street_number' => $StreetNumber,

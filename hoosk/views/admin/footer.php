@@ -214,8 +214,7 @@ if($this->router->fetch_method() === 'assessments_list' || $this->router->fetch_
     || $this->router->fetch_class() === 'Accelerator' 
     || $this->router->fetch_class() === 'AcceleratingCommercialisation'
     ){
-        ?>
-        ?>
+   ?>
         <style>
             .modal select{
                 min-height: 25px;
@@ -248,6 +247,34 @@ if($this->router->fetch_method() === 'assessments_list' || $this->router->fetch_
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
         <!-- /.End Edit Ward Modal --><!-- /.modal -->
+
+        <div class="modal publish-modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Publish Esic</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <input type="hidden" id="hiddenUserID">
+                            <input type="hidden" id="publishStatusID">
+                            <div class="col-md-12">
+                                <p>Do You Want To <span id="publishStatusTextBox">Publish</span> <span id="EsicNameTextBox">This Esic Entry</span> ?</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" id="yesPublish">Yes</button>
+                        <button type="button" class="btn btn-danger mright" data-dismiss="modal" aria-label="Close">No</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+
+
+
         <!--Edit Acceleration Modal-->
         <div class="modal permanent-modal" id="permanent-modal">
             <div class="modal-dialog">
