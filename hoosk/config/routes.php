@@ -843,6 +843,10 @@ $route['admin/questions/listing'] = "Question/index/listing";
 $route['admin/questions/create'] = "Question/create";
 $route['admin/questions/edit/(:any)'] = "Question/edit/$1";
 $route['admin/question/update'] = "Question/update";
+$route['admin/question/updateRoles'] = "Question/update_question_roles";
+$route['admin/question/updateAnswerType'] = "Question/update_answer_types";
+$route['admin/question/store'] = "Question/store";
+$route['admin/question/trash'] = "Question/trashQuestion";
 $route['admin/questions/layout/(:any)'] = "Question/fetchAnswerTemplate/$1";
     //Radio
 $route['admin/questions/update_answer_radio'] = "Question/updateAnswer_radio";

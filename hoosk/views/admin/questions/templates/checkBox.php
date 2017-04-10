@@ -34,8 +34,9 @@ if(isset($Solution) and !empty($Solution)){
 <!--div containing all checkboxes-->
 <div id="CheckBoxes" class="form-group clearfix">
     <?php
-    if(isset($CheckBoxesOptions) and !empty($CheckBoxesOptions->data) and is_array($CheckBoxesOptions->data)){
+    if(isset($CheckBoxesOptions) and !empty($CheckBoxesOptions->data)){
         $key=0;
+
         foreach($CheckBoxesOptions->data as $key=>$CheckBox){
             ?>
             <div class="checkbox">

@@ -33,15 +33,18 @@ class Question extends MY_Controller {
         //Lets Load the Questions First.
         if($param == 'listing'){
 
+            $listingIDs = $this->input->post('listing_id');
+
             $PTable = 'esic_questions Q';
 
             $selectData = array(
                 '
                     `Q`.`id` AS QuestionID,
                     `Question`,
-                    GROUP_CONCAT(`Solution`) as Solution,
+                    `T`.`name` as answerType,
+                    `Solution` as Solution,
                     `isPublished` as Active,
-                    GROUP_CONCAT(CONCAT(\'<span class="label label-info">\',`L`.`listName`,\'</span>\') SEPARATOR " ") as AssignedTo
+                    GROUP_CONCAT(CONCAT(\'<span class="label label-info my-color">\',`L`.`listName`,\'</span>\') SEPARATOR " ") as AssignedTo
                 ',
                 false
             );
@@ -72,18 +75,24 @@ class Question extends MY_Controller {
             $addColumns = array(
                 'ViewEditActionButtons' => array(
                     '<a href="'.base_url("admin/questions/edit/$1").'"><span aria-hidden="true" class="glyphicon glyphicon-edit text-green "></span></a> 
-                    &nbsp; 
-                    <a href="#" data-target=".approval-modal" data-toggle="modal"><i class="fa fa-check"></i></a>
-                     &nbsp;
+                    &nbsp;
                     <a href="#" data-target=".delete-modal" data-toggle="modal"><i class="fa fa-trash-o"></i></a>',
                     'QuestionID'
                 )
             );
             $groupBy = 'Q.id';
-            $returnedData = $this->Common_model->select_fields_joined_DT($selectData,$PTable,$joins,'','','',$groupBy,$addColumns);
+
+            if(!empty($listingIDs) and $listingIDs !== 'null'){
+                $where = 'L.id IN ('.$listingIDs.')';
+            }
+
+            $returnedData = $this->Common_model->select_fields_joined_DT($selectData,$PTable,$joins,$where,'','',$groupBy,$addColumns);
             print_r($returnedData);
             return true;
         }
+
+
+        $this->data['listings'] = $this->_getListings();
 
         $this->show_admin("admin/questions/list",$this->data);
     }
@@ -92,7 +101,11 @@ class Question extends MY_Controller {
     //Create New Question.
     public function create(){
         $this->data['title'] = 'New Question';
-        $this->show_admin("admin/questions/create");
+
+        $this->data['answer_types'] = $this->_getAnswerTypes();
+        $this->data['listings'] = $this->_getListings();
+
+        $this->show_admin("admin/questions/create",$this->data);
     }
 
     public function edit($questionID){
@@ -120,27 +133,9 @@ class Question extends MY_Controller {
         $where = ['Q.`id`' => $questionID];
         $this->data['question'] = $this->Common_model->select_fields_where_like_join($PTable,$selectData,$joins,$where,TRUE,'','','','','',false);
 
+        $this->data['answer_types'] = $this->_getAnswerTypes();
 
-        //Get all the Answer Types.
-        $selectDataAnswerType= [
-          '
-            id, name
-          ',
-          false
-        ];
-        $whereAnswerType = ['isTrashed' => 0];
-        $this->data['answer_types'] = $this->Common_model->select_fields_where('esic_question_types',$selectDataAnswerType,$whereAnswerType);
-
-        //Get all the Listing Types
-        $selectDataAnswerType= [
-            '
-            id, listName, tableName
-          ',
-            false
-        ];
-        $whereAnswerType = ['isActive' => 1];
-
-        $this->data['listings'] = $this->Common_model->select_fields_where($this->listingsTable,$selectDataAnswerType,$whereAnswerType);
+        $this->data['listings'] = $this->_getListings();
 
         //Get All the Listings for the selectedQuestion.
         //Get all the Listing Types
@@ -263,8 +258,214 @@ class Question extends MY_Controller {
 
     }//End of update() function
 
-    public function selectors(){
+    public function update_question_roles(){
 
+        $questionID = $this->input->post('qID');
+        $assignedRoles = $this->input->post('roles');
+        $success = false;
+
+        if(empty($questionID) || !is_numeric($questionID)){
+            echo 'FAIL::Please Add the Question Before Assigning the Roles to Question.::error';
+            return false;
+        }
+
+
+        //First We Need to Check if Roles has Already Been Assigned, If Not then just Assign Them.
+        $selectData = [
+            'id, question_id, listing_id',
+            false
+        ];
+
+        $where = ['question_id'=>$questionID];
+        $params = [
+            $this->questionListingTable,
+            $selectData,
+            $where,
+            false,
+            '',
+            '',
+            '',
+            '',
+            '',
+            true
+        ];
+        $listings = $this->Common_model->select_fields_where(...$params);
+        if(!empty($listings) and is_array($listings)){
+            $this->db->trans_start();
+            $listingIDs = array_column($listings,'listing_id');
+
+            //To Remove items which are not necessary.
+            $toRemoveFromDBArray = array_diff($listingIDs,$assignedRoles);
+            if(!empty($toRemoveFromDBArray)){
+                $toRemoveFromDBIDs = implode(',',$toRemoveFromDBArray);
+                $whereDelete='question_id = '.$questionID.' AND listing_id IN ('.$toRemoveFromDBIDs.')';
+                $this->Common_model->delete($this->questionListingTable,$whereDelete);
+            }
+
+            //we need only values that are not currently present in database, and we need to add them
+            $toAddInDBArray = array_diff($assignedRoles,$listingIDs);
+            if(!empty($toAddInDBArray)){
+                foreach($toAddInDBArray as $item){
+                    $arrayToInsert = [
+                        'question_id' => $questionID,
+                        'listing_id' => $item
+                    ];
+                    $this->Common_model->insert_record($this->questionListingTable,$arrayToInsert);
+                }
+            }
+
+            $this->db->trans_complete();
+            if ($this->db->trans_status() === FALSE)
+            {
+                //Perform SomeThing.
+                $success = false;
+            }else{
+                $success = true;
+            }
+        }else{
+            //Listing returned is Empty, Means We Need to do the new insertions..
+            //So Just Do the Insertions.
+            $this->db->trans_start();
+            foreach($assignedRoles as $assignedRole){
+                $arrayToInsert = [
+                    'question_id' => $questionID,
+                    'listing_id' => $assignedRole
+                ];
+                $this->Common_model->insert_record($this->questionListingTable,$arrayToInsert);
+            }//End of foreach
+            $this->db->trans_complete();
+            if ($this->db->trans_status() === FALSE)
+            {
+                //Perform SomeThing on Failure.
+                $success = false;
+            }else{
+                $success = true;
+            }
+        }
+
+        if($success === true){
+            echo 'OK::Record Successfully Updated::success';
+        }else{
+            echo 'FAIL::Record could not be updated::error';
+        }
+    }
+
+    public function update_answer_types()
+    {
+        $questionID = $this->input->post('qID');
+        $answerType = $this->input->post('type');
+
+        if(empty($questionID) || !is_numeric($questionID)){
+            return false;
+        }
+
+        if(empty($answerType) || !is_numeric($answerType)){
+            return false;
+        }
+
+        $where = ['questionID' => $questionID];
+        //First Check if any record for this question exist in answers table.
+        $result = $this->Common_model->select_fields_where($this->answersTable, ['COUNT(1) as TotalFound',false],$where,true);
+
+        if(intval($result->TotalFound) === 0){
+            //Do the Insertions
+            $insertData = [
+                'type' => $answerType,
+                'questionID' => $questionID
+            ];
+            $lastID = $this->Common_model->insert_record($this->answersTable,$insertData);
+            if($lastID > 0){
+                echo 'OK::Answer Type Successfully added for the question::success';
+            }else{
+                echo 'OK::Could not add the Answer Type for this question::success';
+            }
+        }else{
+            //Do the Update.
+            $whereUpdate = [
+                'questionID' => $questionID
+            ];
+
+            $updateData = [
+                'type' => $answerType
+            ];
+
+            $boolResult = $this->Common_model->update($this->answersTable,$whereUpdate,$updateData);
+            if($boolResult === true){
+                echo 'OK::Answer Type successfully updated::success';
+            }else{
+                echo 'FAIL::Answer Type could not be updated::error';
+            }
+        }//End of Else Statement
+        return;
+    }
+
+    public function store(){
+        $question = $this->input->post('question');
+        $questionID = $this->input->post('qID');
+
+        //question
+        if(empty($question)){
+            return false;
+        }
+
+
+
+        $insertData = [
+            'Question' => $question,
+            'isPublished' => 1
+        ];
+
+        if(empty($questionID)){
+            $insertID = $this->Common_model->insert_record('esic_questions',$insertData);
+            if($insertID > 0){
+                echo 'OK::Record Successfully Added::success::'.$insertID;
+            }else{
+                echo 'FAIL::Could not add new record::error';
+            }
+        }
+        else{
+            $whereQuestion = [
+                'id' => $questionID
+            ];
+            $updateData = [
+                'Question' => $question
+            ];
+            $result = $this->Common_model->update('esic_questions',$whereQuestion,$updateData);
+            if($result === true){
+                echo 'OK::Record Successfully Updated::success';
+            }else{
+                echo 'FAIL::Could not update the question::error';
+            }
+        }
+    }
+
+    public function trashQuestion(){
+        $questionID = $this->input->post('qID');
+        if(empty($questionID) and !is_numeric($questionID)){
+            return false;
+        }
+
+        $this->db->trans_start();
+
+        //Delete in QuestionsTable
+        $whereDeleteQuestion = ['id' => $questionID];
+        $this->Common_model->delete($this->questionsTable,$whereDeleteQuestion);
+
+        //Delete the Answer for this Question.
+        $whereDeleteAnswer = ['questionID' => $questionID];
+        $this->Common_model->delete($this->answersTable,$whereDeleteAnswer);
+
+        //Delete the Assigned Listings for this Question.
+        $whereDeleteQuestionListings = ['question_id' => $questionID];
+        $this->Common_model->delete($this->questionListingTable,$whereDeleteQuestionListings);
+
+        $this->db->trans_complete();
+
+        if ($this->db->trans_status() === FALSE){
+            echo 'FAIL::Could Not Remove the Question::error';
+        }else{
+            echo 'OK::Successfully Removed the Question::success';
+        }
     }
 
     public function fetchAnswerTemplate(){
@@ -673,5 +874,31 @@ class Question extends MY_Controller {
         ];
         $result = $this->Common_model->update($this->answersTable,$whereUpdate,$updateData);
         return $result;
+    }
+    private function _getListings(){
+
+        $givenArguments = func_get_args(); //Can be used later for further Queries.
+
+        //Get all the Listing Types
+        $selectDataAnswerType= [
+            '
+            id, listName, tableName
+          ',
+            false
+        ];
+        $whereAnswerType = ['isActive' => 1];
+
+        return $this->Common_model->select_fields_where($this->listingsTable,$selectDataAnswerType,$whereAnswerType);
+    }
+    private function _getAnswerTypes(){
+        //Get all the Answer Types.
+        $selectDataAnswerType= [
+            '
+            id, name
+            ',
+            false
+        ];
+        $whereAnswerType = ['isTrashed' => 0];
+        return $this->Common_model->select_fields_where('esic_question_types',$selectDataAnswerType,$whereAnswerType);
     }
 }

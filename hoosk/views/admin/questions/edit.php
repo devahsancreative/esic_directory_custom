@@ -1,28 +1,3 @@
-<style type="text/css">
-    .multiple-item-container{
-        background: #ddd;
-        padding: 5px;
-        margin: 10px 5px;
-    }
-    .multiple-item-container span{
-        color: #fff;
-        background-color: #337ab7;
-        border-color: #2e6da4;
-        padding: 5px 10px;
-        display: inline-block;
-        margin: 5px;
-        font-size: 12px;
-    }
-    body .select2-container--default .select2-selection--multiple .select2-selection__choice {
-        background-color: #3c8dbc;
-        border-color: #367fa9;
-        padding: 1px 10px;
-        color: #fff;
-    }
-    body .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
-        color: #000;
-    }
-</style>
 <section class="content">
     <div class="row">
         <div class="col-md-12">
@@ -93,6 +68,8 @@
         <!-- /.col -->
     </div>
 </section>
+
+<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/css/questions.css">
 
 
 
@@ -322,3 +299,4 @@
         });
     }
 </script>
+

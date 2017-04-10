@@ -400,6 +400,14 @@ if($classname != "Navigation"){
         if($this->router->fetch_class() === 'Question'){
             echo '<link type="text/css" href="'.base_url().'assets/vendors/select2/dist/css/select2.min.css" rel="stylesheet" />';
             echo '<script type="text/javascript" src="'.base_url().'assets/vendors/select2/dist/js/select2.full.js"></script>';
+
+            if($this->router->fetch_method() === 'index'){
+                echo '<link type="text/css" href="https://cdn.datatables.net/select/1.2.1/css/select.dataTables.min.css" />';
+                echo '<link type="text/css" href="https://cdn.datatables.net/rowreorder/1.2.0/css/rowReorder.dataTables.min.css" />';
+
+                echo '<script type="text/javascript" src="https://cdn.datatables.net/select/1.2.1/js/dataTables.select.min.js"></script>';
+                echo '<script type="text/javascript" src="https://cdn.datatables.net/rowreorder/1.2.0/js/dataTables.rowReorder.min.js"></script>';
+            }
         }
     ?>
 

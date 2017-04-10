@@ -6,7 +6,7 @@ class Admin extends MY_Controller {
 	function __construct()
 	{
 		parent::__construct();
-	
+
 		define("HOOSK_ADMIN",1);
 		$this->load->helper(array('admincontrol', 'url', 'hoosk_admin'));
 		$this->load->library('session');

@@ -14,8 +14,6 @@
         </ol>
     </section>
 
-
-
     <!-- Main content -->
     <section class="content">
         <div class="box box-info">
@@ -31,23 +29,30 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label>Name</label>
-                            <input type="text" id="Search_by_Name" class="form-control select2" placeholder="Search By Title">
+                            <label for="datatables_general_search">Search</label>
+                            <input type="text" id="datatables_general_search" class="form-control select2" data-placeholder="Search...">
+                        </div><!-- /.form-group -->
+                    </div><!-- /.col -->
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Assigned To</label>
+                            <select class="form-control" name="assignedToSelectBox" id="search_by_assigned_to" multiple="multiple" data-placeholder="Search By List Type">
+                                <?php
+                                    if(!empty($listings) and is_array($listings)){
+                                        foreach($listings as $listing){
+                                            echo '<option value="'.$listing->id.'">'.$listing->listName.'</option>';
+                                        }
+                                    }
+                                ?>
+                            </select>
                         </div><!-- /.form-group -->
                     </div><!-- /.col -->
                     <div class="col-md-4">
                         <div class="form-group">
                             <div class="form-group">
-                                <label>Email</label>
-                                <input type="text" id="Search_by_Email" class="form-control select2" placeholder="Search By Author">
+                                <label for="search_by_publish_type">Active</label>
+                                <select name="search_by_publish_type" id="search_by_publish_type" class="form-control select2" data-placeholder="Search By Active Type" multiple="multiple"></select>
                             </div><!-- /.form-group -->
-                        </div><!-- /.form-group -->
-                    </div><!-- /.col -->
-
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label>Company</label>
-                            <input type="text" id="Search_by_Company" class="form-control select2" placeholder="Search By Tags">
                         </div><!-- /.form-group -->
                     </div><!-- /.col -->
                 </div>
@@ -73,6 +78,7 @@
                             <tr>
                                 <th class="tablet desktop">ID</th>
                                 <th class="mobile tablet desktop">Question</th>
+                                <th class="tablet desktop">Solution Type</th>
                                 <th class="tablet desktop">Possible Solutions</th>
                                 <th class="desktop">AssignedTo</th>
                                 <th class="mobile tablet desktop">Active</th>
@@ -85,6 +91,7 @@
                             <tr>
                                 <th class="tablet desktop">ID</th>
                                 <th class="mobile tablet desktop">Question</th>
+                                <th class="tablet desktop">Solution Type</th>
                                 <th class="tablet desktop">Possible Solutions</th>
                                 <th class="desktop">AssignedTo</th>
                                 <th class="mobile tablet desktop">Active</th>
@@ -104,6 +111,7 @@
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/css/questions.css">
 <script type="text/javascript">
     $(function(){
         oTable = "";
@@ -117,13 +125,38 @@
                 "mData": "QuestionID",
                 "bVisible": true,
                 "bSortable": true,
-                "bSearchable": true
+                "bSearchable": false
             },
             /* Question */ {
-                "mData": "Question"
+                "mData": "Question",
+                "bSearchable": true
             },
-            /* Possible Answers */ {
-                "mData": "Solution"
+            {
+                "mData":"answerType"
+            },
+            /* Possible Answers */
+            {
+                "mData": "Solution",
+                "render": function (data, type, row) {
+                    if(data){
+                        var JSONArray = JSON.parse(data);
+                        if(JSONArray.data){
+                            var html = "";
+                            if(JSONArray.type === 'radios'){
+                                $.each(JSONArray.data,function(key,value){
+                                    html += ' <span class="label label-info">'+ value.text+'</span> ';
+                                });
+                                return html;
+                            }else if(JSONArray.type === 'CheckBoxes'){
+                                $.each(JSONArray.data,function(key,value){
+                                    html += ' <span class="label label-info">'+ value.text+'</span> ';
+                                });
+                                return html;
+                            }//End of else
+                        }
+                    }
+                    return '';
+                }
             },
             /* Modules e-g lawyer, r&d etc */ {
                 "mData": "AssignedTo"
@@ -160,8 +193,53 @@
         });
         removeWidth(oTable);
         //Code for search box
-        $("#search-input").on("keyup", function (e) {
+        $("#datatables_general_search").on("keyup", function (e) {
             oTable.fnFilter($(this).val());
+        });
+
+        $(document).bind('click',"#questionsList_paginate .pagination li",function(evt){
+            var pageNumber = oTable.fnPagingInfo().iPage;//becaue it get 0 for page 1
+            localStorage.setItem("pageNumber", pageNumber);
+        });
+
+
+        ////For Filters Section
+        $('#search_by_assigned_to,#search_by_publish_type').select2({
+            multiple:true
+        });
+
+        $('#search_by_assigned_to').on('change',function(){
+            var selectedListingValue = $(this).val();
+            var filters = "";
+            filters = 'aoData.push({"name":"listing_id","value":"'+ selectedListingValue +'"});';
+            oTable.fnDestroy();
+            commonDataTablesPage(regTableSelector, url_DT, aoColumns_DT, sDom_DT, HiddenColumnID_DT,newRowNumber,'','',filters);
+        });
+
+        $('body').on('click','.fa-trash-o',function(){
+            var questionID = $(this).parents('tr').attr('data-id');
+
+            if(!questionID){
+                return false;
+            }
+
+            var postData = {
+                qID: questionID,
+                type: 'trash'
+            }
+
+            $.ajax({
+                url:"<?= base_url()?>admin/question/trash",
+                data:postData,
+                type:"POST",
+                success:function(output){
+                    var data = output.trim().split('::');
+                    if(data[0] === 'OK'){
+                        oTable.fnDraw(false);
+                    }
+                    Haider.notification(data[1],data[2]);
+                }
+            });
         });
 
     });
