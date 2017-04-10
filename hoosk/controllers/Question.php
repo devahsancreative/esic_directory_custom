@@ -11,12 +11,23 @@ class Question extends MY_Controller {
     function __construct()
     {
         parent::__construct();
+
+        define("HOOSK_ADMIN",1);
+
+        //Load the Helpers
+        $this->load->helper(array('admincontrol', 'url', 'hoosk_admin'));
+
         //Loading Libraries
         $this->load->library('form_validation');
         $this->questionsTable = 'esic_questions';
         $this->answersTable = 'esic_questions_answers';
         $this->listingsTable = 'esic_listings';
         $this->questionListingTable = 'esic_questions_listings';
+
+
+        //Check if the user is Logged In or Not.
+        Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
+
     }
 
     public function index($param = NULL){
@@ -161,9 +172,8 @@ class Question extends MY_Controller {
         //What we need in update is.
         $questionID = $this->input->post('hiddenQuestionID');
         $question = $this->input->post('question');
-
-
         $assignedRoles = $this->input->post('roleAssigned');
+        $answerType = $this->input->post('answerType');
 
 
         $whereQuestion = ['id' => $questionID];
@@ -247,12 +257,47 @@ class Question extends MY_Controller {
             }
         }
 
+        //Lets Also Update the Type in Questions Answers Table if type is of specific.
+        if(!empty($answerType) and is_numeric($answerType)){
+            //First check if this answer type exists in database.
+            $whereSelect = ['questionID' => $questionID];
+            $result = $this->Common_model->select_fields_where($this->answersTable,['COUNT(1) as TotalFound, id', false],$whereSelect,true);
+
+            if(intval($result->TotalFound) === 0){
+                //This Means The Answer Exist for the Question, We Only Need to Update Rather Than Insert.
+                $insertData = [
+                    'questionID' => $questionID,
+                    'type' => $answerType
+                ];
+                $result = $this->Common_model->insert_record($this->answersTable,$insertData);
+                if($result > 0){
+                    $success = true;
+                }else{
+                    $success = false;
+                }
+            }elseif(intval($result->TotalFound) > 0){
+                $updateData = [
+                    'type' => $answerType
+                ];
+                $whereUpdateData = [
+                    'id' => $result->id
+                ];
+                $result = $this->Common_model->update($this->answersTable,$whereUpdateData,$updateData);
+                if($result === true){
+                    $success = true;
+                }elseif($result['code'] == 0){
+                    $success = true;
+                }else{
+                    $success = false;
+                }
+            }//End of Elseif
+        }//End of Main If Statment.
+
         if($success === true){
             $this->session->set_flashdata('notification','OK::Record Successfully Updated::success');
         }else{
             $this->session->set_flashdata('notification','FAIL::Record could not be updated::error');
         }
-
         //After Everything. Just return the user back to the listings.
         redirect('admin/questions/index');
 
