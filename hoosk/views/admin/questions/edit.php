@@ -280,6 +280,85 @@
         });
     });
 
+    //Work for SelectBox
+    $(function(){
+        $('body').on('change','#selectBoxItems',function () {
+            var itemsList = $(this).val();
+            var questionID = $('#hiddenQuestionID').val();
+
+            if(itemsList && itemsList.length > 0){
+
+                var postData={
+                    items:itemsList,
+                    qID:questionID,
+                    type:'list'
+                }
+
+                $.ajax({
+                    url:"<?=base_url()?>admin/questions/updateSelect",
+                    data:postData,
+                    type:"POST",
+                    success:function (output) {
+                        var data = output.trim().split('::');
+                        Haider.notification(data[1],data[2]);
+                    }
+                });
+            }
+        });
+        $('body').on('change','#selectBoxText',function(){
+            var selectBoxText = $(this).val();
+            var questionID = $('#hiddenQuestionID').val();
+
+            if(selectBoxText && selectBoxText.length > 0){
+                var postData={
+                    'qID'   :questionID,
+                    'text'  : selectBoxText,
+                    'type'  :'text'
+                }
+                $.ajax({
+                    url:"<?=base_url()?>admin/questions/updateSelect",
+                    data:postData,
+                    type:"POST",
+                    success:function(output){
+                        console.log(output);
+                    }
+                });
+            }
+        });
+        $('body').on('change','#is_multi',function () {
+            var isMulti = $(this);
+            var questionID = $('#hiddenQuestionID').val();
+
+            if(!questionID || !(questionID.length > 0)){
+                return false;
+            }
+
+            var postData = {
+                qID: questionID,
+                type: 'checkbox'
+            }
+
+            if(isMulti.is(':checked')){
+                postData.isMulti = 'Yes';
+            }else{
+                postData.isMulti = 'No';
+            }
+
+            $.ajax({
+                url: "<?=base_url()?>admin/questions/updateSelect",
+                data:postData,
+                type:"POST",
+                success:function (output) {
+                    console.log(output);
+                    var data = output.trim().split('::');
+                    //Notifications..
+                    Haider.notification(data[1],data[2]);
+                }
+            })
+
+        });
+    });
+
     function fetchLayoutAnswers(selectedLayoutID,qID) {
         var url = '<?=base_url()?>admin/questions/layout/'+selectedLayoutID;
         var data = {

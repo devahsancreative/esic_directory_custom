@@ -1,4 +1,17 @@
-
+<style type="text/css">
+    .DT-list{
+        list-style: none;
+        display: inline;
+    }
+    .DT-list li{
+        background: #00c0ef;
+        margin-bottom: 3px;
+        border-radius: 2px;
+        padding: 1px 3px;
+        text-align: center;
+        color: #ffffff;
+    }
+</style>
 <!-- Content Wrapper. Contains page content -->
 <div class="">
     <!-- Content Header (Page header) -->
@@ -152,7 +165,15 @@
                                     html += ' <span class="label label-info">'+ value.text+'</span> ';
                                 });
                                 return html;
-                            }//End of else
+                            }//End of else if
+                            else if(JSONArray.type === 'SelectBox'){
+                                html += "<ul class='DT-list'>";
+                                $.each(JSONArray.data, function (key, value) {
+                                    html += "<li>"+value.text+"</li>";
+                                });
+                                html += "</ul>";
+                                return html;
+                            }
                         }
                     }
                     return '';

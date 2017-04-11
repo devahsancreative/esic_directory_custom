@@ -910,6 +910,121 @@ class Question extends MY_Controller {
         }
     }
 
+    public function update_selectBox(){
+        $updateType = $this->input->post('type');
+        $questionID = $this->input->post('qID');
+
+        //First we need to check if answer for this question exist or not.
+        $selectData= [
+            'id, Solution, type',false
+        ];
+        $where = [
+            'questionID' => $questionID
+        ];
+
+        $result = $this->Common_model->select_fields_where($this->answersTable,$selectData,$where,true);
+
+        $newSolution=false;
+
+        if(!empty($result) and $result->type == '2'){
+            //Need to Fetch the Solution if the type also matches.
+            $CurrentSolution = $result->Solution;
+            if(empty($CurrentSolution)){
+                $newSolution = true;
+            }else{
+                $solutionData =  json_decode($CurrentSolution,true);
+                $solutionData['dateUpdated'] = date('Y-m-d');
+                //Only if List Is being updated. Then remove the previous ones. as the new ones will be populated from the submitted data.
+                if($updateType === 'list'){
+                    unset($solutionData['data']);
+                    $solutionData['data'] = []; //Empty the Previous Data, So that we can Add the New Data back again.
+                }
+            }
+        }else{
+                $newSolution = true;
+        }
+
+        if($newSolution === true){
+            $solutionData = [
+                'type' => 'SelectBox',
+                'hasChildren' => 0,
+                'dateAdded' => date('Y-m-d'),
+                'data' => []
+            ];
+        }
+
+
+        $success =false;
+
+        switch ($updateType){
+            case 'list':
+                $selectItems = $this->input->post('items');
+                foreach($selectItems as $item){
+                    $itemToPush = [
+//                        'value' => str_replace(' ','_',$item),
+                        'value' => $item,
+                        'text' => $item
+                    ];
+                    array_push($solutionData['data'],$itemToPush);
+                }
+                break;
+            case 'text':
+                $textBoxText = $this->input->post('text');
+                if(isset($solutionData['textBoxText'])){
+                    unset($solutionData['textBoxText']);
+                }
+                $solutionData['textBoxText'] = $textBoxText;
+                break;
+            case 'checkbox':
+                $checkboxStatus = $this->input->post('isMulti');
+                if(isset($solutionData['isMulti'])){
+                    unset($solutionData['isMulti']);
+                }
+                $solutionData['isMulti'] = $checkboxStatus;
+                break;
+            default:
+                $noUpdate=true;
+                null;
+        } //End of Switch Statement
+
+
+        //Now Finally Update/Insert the Record
+        if(empty($result) and !$noUpdate){
+            $insertListData = [
+                'questionID' => $questionID,
+                'Solution' => json_encode($solutionData),
+                'type' => 2
+            ];
+
+            $lastInsertedID = $this->Common_model->insert_record($this->answersTable,$insertListData);
+            if($lastInsertedID > 0){
+                $success = true;
+            }
+        }else{
+            $updateListData=[
+                'type' => 2,
+                'Solution' => json_encode($solutionData)
+            ];
+            $whereUpdate = [
+                'id' => $result->id
+            ];
+
+            $updateListData = $this->Common_model->update($this->answersTable,$whereUpdate,$updateListData);
+
+            if($updateListData === true){
+                $success = true;
+            }
+        }
+
+        if($success === true){
+            echo 'OK::Record Updated successfully::success';
+        }else{
+            echo 'FAIL::Record Could not be updated::error';
+        }
+        return;
+
+    } //End of Update SelectBox Function
+
     private function _updateSolution($solution,$id){
         $whereUpdate = [
             'id' => $id
