@@ -155,11 +155,17 @@
                 array_push($return, $error);
                 return $return;
             }
-             $notes = uploadImagesAction($ci,$insertResult);
-             if(is_array($notes) && !empty($notes)){
+            $notes = uploadImagesAction($ci,$insertResult);
+            if(is_array($notes) && !empty($notes)){
                  foreach ($notes as $key => $note){
                     array_push($return, $note);
                  }
+            }
+            $notes = saveSocialLinks($ci,$insertResult,'New');
+            if(is_array($notes) && !empty($notes)){
+                foreach ($notes as $key => $note){
+                    array_push($return, $note);
+                }
              }
             
             return $return;
@@ -258,7 +264,14 @@
                  foreach ($notes as $key => $note){
                     array_push($return, $note);
                  }
-             }
+            }
+            $notes = saveSocialLinks($ci,$ID,'Edit');
+            if(is_array($notes) && !empty($notes)){
+                foreach ($notes as $key => $note){
+                    array_push($return, $note);
+                }
+            }
+
 
             return $return;
         }

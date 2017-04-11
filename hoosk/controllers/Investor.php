@@ -1,12 +1,13 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Investor extends MY_Controller {
+class Investor extends Listing{
 
     public $data                = array('');
     public $CurrentID           = 0;
     public $LogoDbField         = 'logo';
     public $BannerDbField       = 'banner';
     public $tableName           = 'esic_investors';
+    public $tableFID            = 'investorID';
     public $tableNameSocial     = 'investor_social';
     public $BannerNamePrefix    = 'InvestorBanner';
     public $LogoNamePrefix      = 'InvestorLogo';
@@ -18,113 +19,13 @@ class Investor extends MY_Controller {
     public $ControllerRouteName = 'Investor';
     public $ControllerRouteManage = 'manage_investor';
 
-    function __construct()
-    {
+    function __construct(){
         parent::__construct();
-        define("HOOSK_ADMIN",1);
-        $this->load->helper(array('admincontrol', 'form', 'url', 'hoosk_admin'));
-        $this->load->library('session');
-        $this->load->model('Hoosk_model');
-        define ('LANG', $this->Hoosk_model->getLang());
-        $this->lang->load('admin', LANG);
-        define ('SITE_NAME', $this->Hoosk_model->getSiteName());
-        define ('THEME', $this->Hoosk_model->getTheme());
-        define ('THEME_FOLDER', BASE_URL.'/theme/'.THEME);
-        $this->load->model("Common_model");
-        $this->load->model("Imagecreate_model");
-        $this->load->helper('cookie');
-        $this->load->library('resize');
-        $url = str_replace($_SERVER["HTTP_HOST"], '', BASE_URL);
-        $url = $_SERVER["DOCUMENT_ROOT"].''.$url;
-        $url = str_replace('http://', '', $url);
-        $url = str_replace('https://', '', $url);
-        define ('DoucmentUrl', $url);
         $this->load->helper('viewinvestor');
-        $this->data['PageType'] = 'Listing';
-        $this->data['LogoDbField']  = $this->LogoDbField;
-        $this->data['ListingName']  = $this->Name;
-        $this->data['ListingLabel'] = $this->NameMessage;
-        $this->data['ControllerName']      = $this->ControllerName;
-        $this->data['ControllerRouteName'] = $this->ControllerRouteName;
-        $this->data['ControllerRouteManage'] = $this->ControllerRouteManage;
         $this->data['industires']        = $this->Common_model->select('esic_sectors');
         $this->data['esicStatues']       = $this->Common_model->select('esic_status');
         $this->data['investorTypes']     = $this->Common_model->select('investor_types');
         $this->data['investmentAmounts'] = $this->Common_model->select('investors_preferred_investment_amounts');
         $this->load->model('Investor_model');
-        $this->load->library('form_validation');
-        $this->load->model('Hoosk_page_model');
-        $totSegments = $this->uri->total_segments();
-        if(!is_numeric($this->uri->segment($totSegments))){
-            $pageURL = $this->uri->segment($totSegments);
-        } else if(is_numeric($this->uri->segment($totSegments))){
-            $pageURL = $this->uri->segment($totSegments-1);
-        }
-        if ($pageURL == ""){ $pageURL = "home"; }
-        $this->data['page']=$this->Hoosk_page_model->getPage($pageURL);
-        $this->data['settings']=$this->Hoosk_page_model->getSettings();
-        $this->data['settings_footer'] = $this->Hoosk_model->getSettings(); 
-    }
-    public function ManageInvestor($param=NULL){
-        viewHelperManage($param);
-        return NULL;
-    }
-    public function Add(){
-        $this->data['PageType'] = 'Add';
-        $this->show_admin_configuration('admin/configuration/'.$this->ViewFolderName.'/add', $this->data);
-        return NULL;
-    }
-    public function AddSave(){
-        $this->data['PageType'] = 'Listing';
-        $this->data['return'] = ViewHelperNewSave();
-        $this->show_admin_listing('admin/configuration/'.$this->ViewFolderName.'/listing' , $this->data);
-        return Null;
-    }
-    public function Edit($id){
-        $this->CurrentID = $id;
-        $where = array('id' => $id);
-        $this->data['id'] = $id;
-        $this->data['data'] = $this->Common_model->select_fields_where($this->tableName ,'*' ,$where,true);
-        $whereSocial = array('investorID' => $id);
-        $this->data['SocialLinks'] = $this->Common_model->select_fields_where($this->tableNameSocial ,'*' ,$whereSocial,true);
-        $this->data['PageType'] = 'Edit';
-        $this->show_admin_configuration('admin/configuration/'.$this->ViewFolderName.'/edit',$this->data);
-        return NULL;
-    }
-    public function EditSave(){
-        $this->data['return'] = ViewHelperEditSave();
-        $this->data['PageType'] = 'Listing';
-        $this->show_admin_listing('admin/configuration/'.$this->ViewFolderName.'/listing' , $this->data);
-        return Null;
-    }
-    public function View($ID){
-        $this->data['id'] = $ID;
-        $where = array('id' => $ID);
-        $this->data['data'] = $this->Common_model->select_fields_where($this->tableName ,'*' ,$where,true);
-        $this->data['PageType'] = 'View';
-        $this->show_admin_configuration('admin/configuration/'.$this->ViewFolderName.'/view' , $this->data);
-        return Null;
-    }  
-    public function investor_form(){
-        $this->load->view('theme/header',$this->data);
-        $this->load->view('theme/'.$this->data['page']['pageTemplate'], $this->data);
-        $this->load->view('investor/investor-form',$this->data);
-        $this->load->view('theme/footer');
-    }
-    public function FrontForm(){
-        $this->load->view('theme/header',$this->data);
-        if(!empty($this->data['page']['pageTemplate'])){
-            $this->load->view('theme/'.$this->data['page']['pageTemplate'], $this->data);
-        }
-        $this->show_configuration('admin/configuration/'.$this->ViewFolderName.'/front' ,$this->data);
-        $this->load->view('theme/footer');
-    }
-    public function Create(){
-        $this->data['PageType'] = 'Message';
-        $this->data['return'] = ViewHelperNewSave();
-        $this->load->view('theme/header',$this->data);
-        $this->show_configuration('admin/configuration/structure/message' , $this->data);
-        $this->load->view('theme/footer');
-        return Null;
     }
 }

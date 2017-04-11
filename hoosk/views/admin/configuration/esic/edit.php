@@ -58,11 +58,11 @@
         //$CoDevelopmentAgreement ='';
     }
 
-    if(isset($EsicUserData) && !empty($EsicUserData)){
+    if(isset($UserData) && !empty($serData)){
 
-        $firstName    = $EsicUserData->firstName;
-        $lastName     = $EsicUserData->lastName;
-        $email        = $EsicUserData->email;
+        $firstName    = $UserData->firstName;
+        $lastName     = $UserData->lastName;
+        $email        = $UserData->email;
 
     }else{
 
@@ -111,7 +111,7 @@
                                         <label for="NameTextBox">Esic Name</label>
                                         <input type="text" name="Name" id="NameTextBox" value="<?= $name;?>" class="form-control" />
                                     </div>
-                                    <div class="form-group">
+                                    <!--div class="form-group">
                                         <label for="FirstNameTextBox">First Name</label>
                                         <input type="text" name="firstName" id="FirstNameTextBox"  value="<?= $firstName;?>" class="form-control" />
                                     </div>
@@ -126,7 +126,7 @@
                                     <div class="form-group">
                                         <label for="EmailBox">Email</label>
                                         <input type="text" name="Email" id="EmailBox" value="<?= $email;?>" class="form-control" />
-                                    </div>
+                                    </div-->
                                     <div class="form-group">
                                         <label for="WebsiteBox">Website</label>
                                         <input type="text" name="Website" id="WebsiteBox" value="<?= $website;?>" class="form-control" />
@@ -197,7 +197,7 @@
                                     </div>
                                      <div class="form-group">
                                         <label for="statusFlagBox">Status</label>
-                                        <select id="statusFlagBox" name="statusFlag" class="form-control">                              
+                                        <select id="statusFlagBox" name="Publish" class="form-control">
                                             <?php    
                                                 if(isset($itemStatuses) || !empty($itemStatuses)){
                                                     foreach ($itemStatuses as $key => $itemStatus) { 
@@ -304,6 +304,10 @@
                                             <div class="form-group col-md-6 col-lg-6">
                                                 <label for="LinkedInLink">LinkedIn</label>
                                                 <input type="text" name="LinkedInLink" id="LinkedInLink" class="form-control" value="<?= $LinkedInLink;?>">
+                                            </div>
+                                            <div class="form-group col-md-6 col-lg-6">
+                                                <label for="InstagramLink">Instagram</label>
+                                                <input type="text" name="InstagramLink" id="InstagramLink" class="form-control" value="<?= $InstagramLink;?>">
                                             </div>
                                             <div class="form-group col-md-6 col-lg-6">
                                                 <label for="YoutubeLink">Youtube</label>

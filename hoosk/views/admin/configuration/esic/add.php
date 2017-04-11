@@ -107,7 +107,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="statusFlagBox">Status</label>
-                                        <select id="statusFlagBox" name="statusFlag" class="form-control">                                 
+                                        <select id="statusFlagBox" name="Publish" class="form-control">
                                             <?php    
                                                 if(isset($itemStatuses) || !empty($itemStatuses)){
                                                     foreach ($itemStatuses as $key => $itemStatus) { 
@@ -188,6 +188,10 @@
                                             <div class="form-group col-md-6 col-lg-6">
                                                 <label for="LinkedInLink">LinkedIn</label>
                                                 <input type="text" name="LinkedInLink" id="LinkedInLink" class="form-control">
+                                            </div>
+                                            <div class="form-group col-md-6 col-lg-6">
+                                                <label for="InstagramLink">Instagram</label>
+                                                <input type="text" name="InstagramLink" id="InstagramLink" class="form-control">
                                             </div>
                                             <div class="form-group col-md-6 col-lg-6">
                                                 <label for="YoutubeLink">Youtube</label>

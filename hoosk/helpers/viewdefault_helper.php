@@ -352,7 +352,16 @@ if(!function_exists('CheckUserEsic')){
         return false;
     }
 }
-
+if(!function_exists('UserList')){
+    function UserList($ci){
+        return $ci->Common_model->select($ci->tableNameUser);
+    }
+}
+if(!function_exists('CountListing')){
+    function CountListing($ci){
+        return $ci->Common_model->select($ci->tableName);
+    }
+}                                                                                       
 if(!function_exists('InsertEsicUser')){
     function InsertEsicUser($ci, $UserData){
         // Create the user account
@@ -362,6 +371,95 @@ if(!function_exists('InsertEsicUser')){
             return $userID;
         }
         return false;
+    }
+}
+if(!function_exists('SaveSocialLinks')){
+    function SaveSocialLinks($ci,$ID,$action){
+
+        $return = array();
+        if(!$ci->input->post()){
+            $error = "FAIL::No Value Posted::error";
+            array_push($return, $error);
+            return $return;
+        }
+        if(empty($ID)){
+            $error = "FAIL::No ID Set::error";
+            array_push($return, $error);
+            return $return;
+        }
+
+        $FacebookLink   = $ci->input->post('FacebookLink');
+        $TwitterLink    = $ci->input->post('TwitterLink');
+        $GoogleLink     = $ci->input->post('GoogleLink');
+        $LinkedInLink   = $ci->input->post('LinkedInLink');
+        $YoutubeLink    = $ci->input->post('YoutubeLink');
+        $VimeoLink      = $ci->input->post('VimeoLink');
+        $InstagramLink  = $ci->input->post('InstagramLink');
+
+        
+        $inputData = array(
+                'facebook'    => $FacebookLink,
+                'twitter'     => $TwitterLink,
+                'google'      => $GoogleLink,
+                'linkedIn'    => $LinkedInLink,
+                'youTube'     => $YoutubeLink,
+                'vimeo'       => $VimeoLink,
+                'instagram'   => $InstagramLink
+        );
+        $notes = array();
+        if($action == 'New'){
+            $notes =  AddNewSocialLink($ci,$ID,$inputData);
+        }
+        if($action == 'Edit'){
+             $notes = EditSocialLink($ci,$ID,$inputData);
+        }
+        if(is_array($notes) && !empty($notes)){
+            foreach ($notes as $key => $note){
+                array_push($return, $note);
+            }
+        }
+        
+         return $return;
+
+    }
+}
+if(!function_exists('AddNewSocialLink')){
+    function AddNewSocialLink($ci,$ID,$inputData){
+        $return = array();
+        $inputData['listingID'] = $ID;
+        //$inputData['userID'] = $UserID;
+        $now = date("Y-m-d H:i:s");
+        $inputData['date_created'] = $now;
+        $inputData['date_updated'] = $now;
+        $Result = $ci->Common_model->insert_record($ci->tableNameSocial,$inputData);
+        if($Result){
+            $success =  "OK::Socail Links Created ::success";
+            array_push($return, $success);
+        }else{
+            $error =  "FAIL::Socail Links Failed To Create ::error";
+            array_push($return, $error);
+           
+        }
+        return $return;
+    }
+}
+if(!function_exists('EditSocialLink')){
+    function EditSocialLink($ci,$ID,$inputData){
+        $return = array();
+        $where['listingID'] = $ID;
+        //$where['userID'] = $UserID;
+        $now = date("Y-m-d H:i:s");
+        $inputData['date_updated'] = $now;
+        $updateResult = $ci->Common_model->update($ci->tableNameSocial,$where ,$inputData);
+        if($updateResult){
+            $success =  "OK::Socail Links Updated ::success";
+            array_push($return, $success);
+        }else{
+            $error =  "FAIL::Socail Links Update Failed ::error";
+            array_push($return, $error);
+           
+        }
+        return $return;
     }
 }
 

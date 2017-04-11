@@ -128,11 +128,11 @@ $route['admin/manage_appstatus/(:any)'] = "Admin/manage_appstatus/$1";
 
 
 //For Esic
-$route['admin/manage_esic']    	  	= "Esic/ManageEsic";
-$route['admin/manage_esic/(:any)']  = "Esic/ManageEsic/$1";
+$route['admin/manage_esic']    	  	= "Esic/Manage";
+$route['admin/manage_esic/(:any)']  = "Esic/Manage/$1";
 $route['admin/Esic/view/(:any)']    = "Esic/View/$1";
 $route['admin/Esic/detail/(:any)']  = "Esic/Detail/$1";
-$route['Esic/Listing']      = "Esic/ManageEsic";
+$route['Esic/Listing']      = "Esic/Manage";
 $route['Esic/Add']    	  	= "Esic/Add";
 $route['Esic/New']    	  	= "Esic/Create";
 $route['Esic/AddSave']      = "Esic/AddSave";
@@ -144,11 +144,11 @@ $route['admin/Esic/details/(:any)'] = "Admin/details/$1";
 
 
 //For Investors 
-$route['admin/manage_investor']    	    = "Investor/ManageInvestor";
-$route['admin/manage_investor/(:any)']  = "Investor/ManageInvestor/$1";
+$route['admin/manage_investor']    	    = "Investor/Manage";
+$route['admin/manage_investor/(:any)']  = "Investor/Manage/$1";
 $route['admin/Investor/view/(:any)']    = "Investor/View/$1";
 $route['admin/Investor/detail/(:any)']  = "Investor/Detail/$1";
-$route['Investor/Listing']    	= "Investor/ManageInvestor";
+$route['Investor/Listing']    	= "Investor/Manage";
 $route['Investor/Add']    	   	= "Investor/Add";
 $route['Investor/AddSave']      = "Investor/AddSave";
 $route['Investor/Edit/(:any)']  = "Investor/Edit/$1";
@@ -158,11 +158,11 @@ $route['investor-pre-assessment']  	= "Investor/investor_form";
 
 
 //For Lawyers
-$route['admin/manage_lawyer']    	  = "Lawyer/ManageLawyer";
-$route['admin/manage_lawyer/(:any)']  = "Lawyer/ManageLawyer/$1";
+$route['admin/manage_lawyer']    	  = "Lawyer/Manage";
+$route['admin/manage_lawyer/(:any)']  = "Lawyer/Manage/$1";
 $route['admin/Lawyer/view/(:any)']    = "Lawyer/View/$1";
 $route['admin/Lawyer/detail/(:any)']  = "Lawyer/Detail/$1";
-$route['Lawyer/Listing']      = "Lawyer/ManageLawyer";
+$route['Lawyer/Listing']      = "Lawyer/Manage";
 $route['Lawyer/Add']    	  = "Lawyer/Add";
 $route['Lawyer/New']    	  = "Lawyer/Create";
 $route['Lawyer/AddSave']      = "Lawyer/AddSave";
@@ -176,11 +176,11 @@ $route['Lawyer']  	= "Lawyer/FrontForm";
 $route['admin/manage_accelerators']    			= "Admin/manage_accelerators";
 $route['admin/manage_accelerators/(:any)']    	= "Admin/manage_accelerators/$1";
 //new
-$route['admin/manage_accelerator']    	  	= "Accelerator/ManageAccelerator";
-$route['admin/manage_accelerator/(:any)']  	= "Accelerator/ManageAccelerator/$1";
+$route['admin/manage_accelerator']    	  	= "Accelerator/Manage";
+$route['admin/manage_accelerator/(:any)']  	= "Accelerator/Manage/$1";
 $route['admin/Accelerator/view/(:any)']    	= "Accelerator/View/$1";
 $route['admin/Accelerator/detail/(:any)']  	= "Accelerator/Detail/$1";
-$route['Accelerator/Listing']      	= "Accelerator/ManageAccelerator";
+$route['Accelerator/Listing']      	= "Accelerator/Manage";
 $route['Accelerator/Add']    	  	= "Accelerator/Add";
 $route['Accelerator/AddSave']      	= "Accelerator/AddSave";
 $route['Accelerator/Edit/(:any)']  	= "Accelerator/Edit/$1";
@@ -193,11 +193,11 @@ $route['Accelerator']  	= "Accelerator/FrontForm";
 $route['admin/manage_acc_commercials'] 			= "Admin/manage_acc_commercials";
 $route['admin/manage_acc_commercials/(:any)'] 	= "Admin/manage_acc_commercials/$1";
 //new
-$route['admin/manage_acceleratingcommercialisation']    	   = "AcceleratingCommercialisation/ManageAcceleratingCommercialisation";
-$route['admin/manage_acceleratingcommercialisation/(:any)']  = "AcceleratingCommercialisation/ManageAcceleratingCommercialisation/$1";
+$route['admin/manage_acceleratingcommercialisation']    	   = "AcceleratingCommercialisation/Manage";
+$route['admin/manage_acceleratingcommercialisation/(:any)']  = "AcceleratingCommercialisation/Manage/$1";
 $route['admin/AcceleratingCommercialisation/view/(:any)']    = "AcceleratingCommercialisation/View/$1";
 $route['admin/AcceleratingCommercialisation/detail/(:any)']  = "AcceleratingCommercialisation/Detail/$1";
-$route['AcceleratingCommercialisation/Listing']    	= "AcceleratingCommercialisation/ManageAcceleratingCommercialisation";
+$route['AcceleratingCommercialisation/Listing']    	= "AcceleratingCommercialisation/Manage";
 $route['AcceleratingCommercialisation/Add']    	   	= "AcceleratingCommercialisation/Add";
 $route['AcceleratingCommercialisation/AddSave']      	= "AcceleratingCommercialisation/AddSave";
 $route['AcceleratingCommercialisation/Edit/(:any)']  	= "AcceleratingCommercialisation/Edit/$1";
@@ -205,11 +205,11 @@ $route['AcceleratingCommercialisation/EditSave']      = "AcceleratingCommerciali
 $route['AcceleratingCommercialisation']  	= "AcceleratingCommercialisation/FrontForm";
 
 //For Grant Consultants
-$route['admin/manage_grantconsultant']    	   = "GrantConsultant/ManageGrantConsultant";
-$route['admin/manage_grantconsultant/(:any)']  = "GrantConsultant/ManageGrantConsultant/$1";
+$route['admin/manage_grantconsultant']    	   = "GrantConsultant/Manage";
+$route['admin/manage_grantconsultant/(:any)']  = "GrantConsultant/Manage/$1";
 $route['admin/GrantConsultant/view/(:any)']    = "GrantConsultant/View/$1";
 $route['admin/GrantConsultant/detail/(:any)']  = "GrantConsultant/Detail/$1";
-$route['GrantConsultant/Listing']    	= "GrantConsultant/ManageGrantConsultant";
+$route['GrantConsultant/Listing']    	= "GrantConsultant/Manage";
 $route['GrantConsultant/Add']    	   	= "GrantConsultant/Add";
 $route['GrantConsultant/AddSave']      	= "GrantConsultant/AddSave";
 $route['GrantConsultant/Edit/(:any)']  	= "GrantConsultant/Edit/$1";
@@ -221,11 +221,11 @@ $route['admin/manage_rd']              	= "Admin/manage_rd";
 $route['admin/manage_rd/(:any)']        = "Admin/manage_rd/$1";
 
 //For Rnd Consultants
-$route['admin/manage_rndconsultant']    	 = "RndConsultant/ManageRndConsultant";
-$route['admin/manage_rndconsultant/(:any)']  = "RndConsultant/ManageRndConsultant/$1";
+$route['admin/manage_rndconsultant']    	 = "RndConsultant/Manage";
+$route['admin/manage_rndconsultant/(:any)']  = "RndConsultant/Manage/$1";
 $route['admin/RndConsultant/view/(:any)']    = "RndConsultant/View/$1";
 $route['admin/RndConsultant/detail/(:any)']  = "RndConsultant/Detail/$1";
-$route['RndConsultant/Listing']    	   	= "RndConsultant/ManageRndConsultant";
+$route['RndConsultant/Listing']    	   	= "RndConsultant/Manage";
 $route['RndConsultant/Add']    	   		= "RndConsultant/Add";
 $route['RndConsultant/AddSave']      	= "RndConsultant/AddSave";
 $route['RndConsultant/Edit/(:any)']  	= "RndConsultant/Edit/$1";
@@ -233,11 +233,11 @@ $route['RndConsultant/EditSave']      	= "RndConsultant/EditSave";
 $route['RndConsultant']  	= "RndConsultant/FrontForm";
 
 //For Rnd Partners
-$route['admin/manage_rndpartner']    	  = "RndPartner/ManageRndPartner";
-$route['admin/manage_rndpartner/(:any)']  = "RndPartner/ManageRndPartner/$1";
+$route['admin/manage_rndpartner']    	  = "RndPartner/Manage";
+$route['admin/manage_rndpartner/(:any)']  = "RndPartner/Manage/$1";
 $route['admin/RndPartner/view/(:any)']    = "RndPartner/View/$1";
 $route['admin/RndPartner/detail/(:any)']  = "RndPartner/Detail/$1";
-$route['RndPartner/Listing']    	= "RndPartner/ManageRndPartner";
+$route['RndPartner/Listing']    	= "RndPartner/Manage";
 $route['RndPartner/Add']    	   	= "RndPartner/Add";
 $route['RndPartner/AddSave']      	= "RndPartner/AddSave";
 $route['RndPartner/Edit/(:any)']  	= "RndPartner/Edit/$1";
@@ -249,11 +249,11 @@ $route['RndPartner']  	= "RndPartner/FrontForm";
 $route['admin/manage_universities']    		= "Admin/manage_universities";
 $route['admin/manage_universities/(:any)']  = "Admin/manage_universities/$1";
 //new
-$route['admin/manage_university']    	  = "University/ManageUniversity";
-$route['admin/manage_university/(:any)']  = "University/ManageUniversity/$1";
+$route['admin/manage_university']    	  = "University/Manage";
+$route['admin/manage_university/(:any)']  = "University/Manage/$1";
 $route['admin/University/view/(:any)']    = "University/View/$1";
 $route['admin/University/detail/(:any)']  = "University/Detail/$1";
-$route['University/Listing']    	= "University/ManageUniversity";
+$route['University/Listing']    	= "University/Manage";
 $route['University/Add']    	   	= "University/Add";
 $route['University/AddSave']      	= "University/AddSave";
 $route['University/Edit/(:any)']  	= "University/Edit/$1";

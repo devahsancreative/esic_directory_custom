@@ -1,34 +1,20 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 /**
- * Community Auth - MY Controller
- *
- * Community Auth is an open source authentication application for CodeIgniter 3
- *
- * @package     Community Auth
- * @author      Robert B Gottier
- * @copyright   Copyright (c) 2011 - 2016, Robert B Gottier. (http://brianswebdesign.com/)
- * @license     BSD - http://www.opensource.org/licenses/BSD-3-Clause
- * @link        http://community-auth.com
+ * @property Common_model $Common_model It resides all the methods which can be used in most of the controllers.
+ * @property Hoosk_model $Hoosk_model It resides all the methods which can be used in most of the controllers.
  */
-
-/**
- * @property common_model $common_model It resides all the methods which can be used in most of the controllers.
- */
-
-class MY_Controller extends CI_Controller
-{
+class MY_Controller extends CI_Controller{
 	public $base_url;
+    public $tableNameUser  = 'hoosk_user';
 	/**
 	 * Class constructor
 	 */
 	public function __construct(){
 	parent::__construct();
-	$this->base_url = BASE_URL;
+		$this->base_url = BASE_URL;
 		define("HOOSK_ADMIN",1);
-		$this->load->helper(array('admincontrol', 'url', 'hoosk_admin','my_site_helper','hoosk_page','viewdefault'));
-		$this->load->library('session');
+		$this->load->helper(array('admincontrol','hoosk_admin','hoosk_page'));
         $this->load->model('Hoosk_model');
 		define ('LANG', $this->Hoosk_model->getLang());
 		$this->lang->load('admin', LANG);
@@ -72,4 +58,102 @@ class MY_Controller extends CI_Controller
 	    $this->load->view($viewPath, $data, $bool);
 	    $this->load->view('admin/configuration/structure/foot_front',$data, $bool);
 	}
+}
+
+class Listing extends MY_Controller{
+    public function __construct(){
+    parent::__construct();
+
+        $this->load->helper(array('form','viewdefault'));
+        $this->load->library('form_validation');
+        $this->load->model('Hoosk_page_model');
+
+        $url = str_replace($_SERVER["HTTP_HOST"], '', BASE_URL);
+        $url = $_SERVER["DOCUMENT_ROOT"].''.$url;
+        $url = str_replace('http://', '', $url);
+        $url = str_replace('https://', '', $url);
+        define ('DoucmentUrl', $url);
+
+        $totSegments = $this->uri->total_segments();
+        if(!is_numeric($this->uri->segment($totSegments))){
+            $pageURL = $this->uri->segment($totSegments);
+        }else if(is_numeric($this->uri->segment($totSegments))){
+            $pageURL = $this->uri->segment($totSegments-1);
+        }
+        if ($pageURL == ""){ $pageURL = "home"; }
+
+        $this->data['page']             = $this->Hoosk_page_model->getPage($pageURL);
+        $this->data['settings']         = $this->Hoosk_page_model->getSettings();
+        $this->data['settings_footer']  = $this->Hoosk_model->getSettings();
+
+        $this->data['PageType']               = 'Listing';
+        $this->data['LogoDbField']            = $this->LogoDbField;
+        $this->data['BannerDbField']          = $this->BannerDbField;
+        $this->data['ListingName']            = $this->Name;
+        $this->data['ListingLabel']           = $this->NameMessage;
+        $this->data['ControllerName']         = $this->ControllerName;
+        $this->data['ControllerRouteName']    = $this->ControllerRouteName;
+        $this->data['ControllerRouteManage']  = $this->ControllerRouteManage;
+        $this->data['itemStatuses']           = $this->Common_model->select('esic_status_flags');
+
+    }
+    public function Manage($param=NULL){
+        viewHelperManage($param);
+        return NULL;
+    }
+	public function Add(){
+        $this->data['PageType'] = 'Add';
+        $this->show_admin_configuration('admin/configuration/'.$this->ViewFolderName.'/add', $this->data);
+        return NULL;
+    }
+    public function AddSave(){
+        $this->data['PageType'] = 'Listing';
+        $this->data['return'] = ViewHelperNewSave();
+        $this->show_admin_listing('admin/configuration/'.$this->ViewFolderName.'/listing' , $this->data);
+        return Null;
+    }
+    public function Edit($id){
+        $this->CurrentID = $id;
+        $where = array('id' => $id);
+        $this->data['id'] = $id;
+        $this->data['data'] = $this->Common_model->select_fields_where($this->tableName ,'*' ,$where,true);
+        $userID = $this->data['data']->userID;
+        $whereUser = array('userID' => $userID);
+        $this->data['UserData'] = $this->Common_model->select_fields_where($this->tableNameUser ,'*' ,$whereUser,true);
+        $whereSocial = array('listingID'=> $id);
+        $this->data['SocialLinks'] = $this->Common_model->select_fields_where($this->tableNameSocial ,'*' ,$whereSocial,true);
+        $this->data['PageType'] = 'Edit';
+        $this->show_admin_configuration('admin/configuration/'.$this->ViewFolderName.'/edit',$this->data);
+        return NULL;
+    }
+    public function EditSave(){
+        $this->data['return'] = ViewHelperEditSave();
+        $this->data['PageType'] = 'Listing';
+        $this->show_admin_listing('admin/configuration/'.$this->ViewFolderName.'/listing' , $this->data);
+        return Null;
+    }
+    public function View($ID){
+        $this->data['id'] = $ID;
+        $where = array('id' => $ID);
+        $this->data['data'] = $this->Common_model->select_fields_where($this->tableName ,'*' ,$where,true);
+        $this->data['PageType'] = 'View';
+        $this->show_admin_configuration('admin/configuration/'.$this->ViewFolderName.'/view' , $this->data);
+        return Null;
+    } 
+    public function FrontForm(){
+        $this->load->view('theme/header',$this->data);
+        if(!empty($this->data['page']['pageTemplate'])){
+            $this->load->view('theme/'.$this->data['page']['pageTemplate'], $this->data);
+        }
+        $this->show_configuration('admin/configuration/'.$this->ViewFolderName.'/front' ,$this->data);
+        $this->load->view('theme/footer');
+    }
+    public function Create(){
+        $this->data['PageType'] = 'Message';
+        $this->data['return'] = ViewHelperNewSave();
+        $this->load->view('theme/header',$this->data);
+        $this->show_configuration('admin/configuration/structure/message' , $this->data);
+        $this->load->view('theme/footer');
+        return Null;
+    }
 }
