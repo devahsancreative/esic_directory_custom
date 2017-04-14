@@ -14,7 +14,7 @@ class MY_Controller extends CI_Controller{
 	parent::__construct();
 		$this->base_url = BASE_URL;
 		define("HOOSK_ADMIN",1);
-		$this->load->helper(array('admincontrol','hoosk_admin','hoosk_page'));
+		$this->load->helper(array('admincontrol','hoosk_admin','hoosk_page','email_helper'));
         $this->load->model('Hoosk_model');
 		define ('LANG', $this->Hoosk_model->getLang());
 		$this->lang->load('admin', LANG);

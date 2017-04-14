@@ -1,4 +1,4 @@
-<?php 
+    <?php
 $class  = $this->router->fetch_class();   // it is use only in add new page and edit page condition is use to safe
 $method = $this->router->fetch_method();   // it is use only in add new page and edit page condition is use to safe
 ?>
