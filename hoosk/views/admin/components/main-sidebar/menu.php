@@ -119,7 +119,7 @@
             </a>
             <ul  class="treeview-menu">
                 <li  class="<?php if ($current == "Questions/index") { echo "active"; } ?>"><a href="<?=base_url('admin/questions/index')?>"><i class="fa fa-circle-o"></i><?php echo $this->lang->line('nav_questions_answers'); ?></a></li>
-                <li class="<?php if ($current == "Questions/selectors") { echo "active"; } ?>"><a href="<?=base_url('admin/questions/selectors')?>"><i class="fa fa-circle-o"></i><?php echo $this->lang->line('nav_questions_selectors'); ?></a></li>
+                <li class="<?php if ($current == "Questions/order") { echo "active"; } ?>"><a href="<?=base_url('admin/questions/ordering')?>"><i class="fa fa-circle-o"></i><?php echo $this->lang->line('nav_questions_sorting'); ?></a></li>
             </ul>
         </li>
    

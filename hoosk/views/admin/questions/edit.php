@@ -359,6 +359,20 @@
         });
     });
 
+    //Work for Textboxes
+    $(function () {
+        $('body').on('click','#addMoreTextBox', function () {
+            var clickedButton = $(this);
+            $.ajax({
+               url:"<?=base_url()?>admin/question/getTextboxTemplate",
+                success:function (output) {
+                    clickedButton.parent().hide();
+                    $('#answerBox').append(output);
+                }
+            });
+        });
+    });
+
     function fetchLayoutAnswers(selectedLayoutID,qID) {
         var url = '<?=base_url()?>admin/questions/layout/'+selectedLayoutID;
         var data = {

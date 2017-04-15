@@ -389,10 +389,18 @@ public function social_creaditional(){
 		Admincontrol_helper::is_logged_in($this->session->userdata('userID'));
 		$userRole = $this->session->userdata('userRole');
 		$id = $this->session->userdata('userID');
-		if($userRole != 1 && $userID == $id){  //for assessment user can only update its own profile
 
-           $status = $this->input->post('value');
-           $selectData = array('
+		//If the user is not Admin and the user is trying to access someone's else page, then just give me 404
+		if($userRole != 1 && $userID !=$id){
+            $this->load->view('admin/page_not_found');
+        }
+        $status = $this->input->post('value');
+
+        $where = "h_user.userID =".$userID;
+        $data = array();
+
+		if($userRole != 1 && $userID == $id){  //for assessment user can only update its own profile
+            $selectData = array('
                     CONCAT(`h_user`.`firstName`," ",`h_user`.`lastName`) AS FullName,
                     h_user.email as Email,
                     user_draft.company as Company,
@@ -426,58 +434,28 @@ public function social_creaditional(){
                     ESEC.sector as sector,
                     user_draft.Publish as Publish
 				   ',false);
-        //EQS.SolVal as solval,
-        //      EQS.Points as points,
-        $where = "h_user.userID =".$userID;
-        $joins = array(
-            array(
-                'table' 	=> 'esic_status ES',
-                'condition' => 'ES.id = user_draft.status',
-                'type' 		=> 'LEFT'
-            ),
-            array(
-                'table' 	=> 'esic_sectors ESEC',
-                'condition' => 'ESEC.id = user_draft.sectorID',
-                'type' 		=> 'LEFT'
-            ),
-			 array(
-                'table' 	=> 'hoosk_user h_user',
-                'condition' => 'h_user.userID = user_draft.userID',
-                'type' 		=> 'LEFT'
-            )
-        );
-        $data = array();
-        $returnedData = $this->Common_model->select_fields_where_like_join('user_draft',$selectData,$joins,$where,FALSE,'','');
-        $selectData2 = array('
-                    esic_questions_answers.questionID as questionID,
-                    esic_questions_answers.Solution as solution,
-                    EQ.Question as Question,
-                    EQ.tablename as tablenames,
-                    ES.score as score
-            ',false);//ES.Score as points
-        $where2 = "h_user.userID =".$userID;
-        $joins2 = array(
-            array(
-                'table' 	=> 'esic_questions EQ',
-                'condition' => 'EQ.id = esic_questions_answers.questionID',
-                'type' 		=> 'LEFT'
-            ),
-            array(
-                'table' 	=> 'esic_solutions ES',
-                'condition' => 'ES.questionID = esic_questions_answers.questionID AND ES.solution = esic_questions_answers.solution',
-                'type' 		=> 'LEFT'
-            ),
-			array(
-                'table' 	=> 'hoosk_user h_user',
-                'condition' => 'h_user.userID = esic_questions_answers.userID',
-                'type' 		=> 'LEFT'
-            )
 
-        );
-        $data2 = array();
-        $returnedData2 = $this->Common_model->select_fields_where_like_join('esic_questions_answers',$selectData2,$joins2,$where2,FALSE,'','');
-		//echo $this->db->last_query();
-	//	exit;
+            $joins = array(
+                array(
+                    'table' 	=> 'esic_status ES',
+                    'condition' => 'ES.id = user_draft.status',
+                    'type' 		=> 'LEFT'
+                ),
+                array(
+                    'table' 	=> 'esic_sectors ESEC',
+                    'condition' => 'ESEC.id = user_draft.sectorID',
+                    'type' 		=> 'LEFT'
+                ),
+                array(
+                    'table' 	=> 'hoosk_user h_user',
+                    'condition' => 'h_user.userID = user_draft.userID',
+                    'type' 		=> 'LEFT'
+                )
+            );
+
+        $returnedData = $this->Common_model->select_fields_where_like_join('user_draft',$selectData,$joins,$where,FALSE,'','');
+        $returnedData2 =     $this->_getUserQAnswers($userID,1); //1 is for ESIC Pre Assessments
+
 
         if(!empty($returnedData) and is_array($returnedData)){
             if($returnedData[0]->Score>0){
@@ -585,8 +563,7 @@ public function social_creaditional(){
         $data['uID'] = base64_encode($userID);
         $this->show_admin("admin/reg_details",$data);
     }
-	elseif($userRole == 1){
-		     $status = $this->input->post('value');
+	    elseif($userRole == 1){
            $selectData = array('
                     CONCAT(`h_user`.`firstName`," ",`h_user`.`lastName`) AS FullName,
                     h_user.email as Email,
@@ -621,9 +598,7 @@ public function social_creaditional(){
                     ESEC.sector as sector,
                     user.Publish as Publish
 				   ',false);
-        //EQS.SolVal as solval,
-        //      EQS.Points as points,
-        $where = "h_user.userID =".$userID;
+
         $joins = array(
             array(
                 'table' 	=> 'esic_status ES',
@@ -641,38 +616,13 @@ public function social_creaditional(){
                 'type' 		=> 'LEFT'
             )
         );
-        $data = array();
-        $returnedData = $this->Common_model->select_fields_where_like_join('user',$selectData,$joins,$where,FALSE,'','');
-        $selectData2 = array('
-                    esic_questions_answers.questionID as questionID,
-                    esic_questions_answers.Solution as solution,
-                    EQ.Question as Question,
-                    EQ.tablename as tablenames,
-                    ES.score as score
-            ',false);//ES.Score as points
-        $where2 = "h_user.userID =".$userID;
-        $joins2 = array(
-            array(
-                'table' 	=> 'esic_questions EQ',
-                'condition' => 'EQ.id = esic_questions_answers.questionID',
-                'type' 		=> 'LEFT'
-            ),
-            array(
-                'table' 	=> 'esic_solutions ES',
-                'condition' => 'ES.questionID = esic_questions_answers.questionID AND ES.solution = esic_questions_answers.solution',
-                'type' 		=> 'LEFT'
-            ),
-			array(
-                'table' 	=> 'hoosk_user h_user',
-                'condition' => 'h_user.userID = esic_questions_answers.userID',
-                'type' 		=> 'LEFT'
-            )
 
-        );
-        $data2 = array();
-        $returnedData2 = $this->Common_model->select_fields_where_like_join('esic_questions_answers',$selectData2,$joins2,$where2,FALSE,'','');
-		//echo $this->db->last_query();
-	//	exit;
+        $returnedData = $this->Common_model->select_fields_where_like_join('user',$selectData,$joins,$where,FALSE,'','');
+
+        $returnedData2 =  $this->_getUserQAnswers($userID,1); //1 is for ESIC Pre Assessments
+/*        echo '<pre>';
+        var_dump($this->db->last_query());
+        echo '</pre>';*/
 
         if(!empty($returnedData) and is_array($returnedData)){
             if($returnedData[0]->Score>0){
@@ -745,44 +695,22 @@ public function social_creaditional(){
                 $data['usersQuestionsAnswers'] = array();
                 foreach($returnedData2 as $key=>$obj){
                     $arrayToInsert = array(
-                        'points' 		=> $obj->score,
-                        'Question' 		=> $obj->Question,
-                        'TableName'     => $obj->tablenames,
-                        'solution' 		=> $obj->solution,
-                        'questionID' 	=> $obj->questionID
+                        'Question' 		    => $obj->Question,
+                        'possibleSolutions' => $obj->PossibleSolution,
+                        'questionID' 	    => $obj->questionID,
+                        'providedSolution'  => $obj->ProvidedSolution
                     );
                     array_push($data['usersQuestionsAnswers'],$arrayToInsert);
-                    if(!in_array($obj->questionID, $QuestionAnswered)){
+/*                    if(!in_array($obj->questionID, $QuestionAnswered)){
                         array_push($QuestionAnswered,$obj->questionID);
-                    }
+                    }*/
                 }
             }
-            if(is_array($QuestionAnswered)){
-                $QuestionsArray = $this->Common_model->select('esic_questions');
-                $data['usersQuestionsNotAnswers'] = array();
-                if(!empty($QuestionsArray) and is_array($QuestionsArray)){
-                    foreach($QuestionsArray as $key=>$questionsObj){
-                        if(!in_array($questionsObj->id, $QuestionAnswered)){
-                            $QuestionNotAnswered = array(
-                                'questionID'    => $questionsObj->id,
-                                'Question'      => $questionsObj->Question,
-                                'TableName'     => $questionsObj->tablename
-                            );
-                            array_push($data['usersQuestionsNotAnswers'],$QuestionNotAnswered);
-                        }
-
-                    }
-                }
-            }
-
         }
 		$data['social'] = $this->Esic_model->get_user_Social($userID);
 		$data['uID'] = base64_encode($userID);
         $this->show_admin("admin/reg_details",$data);
 		}
-	   else{
-		     $this->load->view('admin/page_not_found');
-		   }
     }
     public function getanswers(){
         $questionID 	= $this->input->post('dataQuestionId');
@@ -3212,5 +3140,44 @@ public function publish_assessment_list(){
                 $this->login();
             }
         }
+    }
+
+    private function _getUserQAnswers($userID,$listingID){
+        if(empty($userID) || !is_numeric($userID)){
+            return false;
+        }
+
+        $selectData2 = array('        
+                    EQ.Question as Question,
+                    EQ.id as questionID,
+                    QPS.Solution as PossibleSolution,
+                    UA.answer as ProvidedSolution
+                    -- ES.score as score
+            ',false);//ES.Score as points
+//        $where2 = "EQ.isPublished = 1";
+        $where = [
+            'EQ.`isPublished`' => 1,
+            'QL.listing_id' => 1
+        ];
+        $joins2 = array(
+            array(
+                'table' => 'esic_questions_listings QL',
+                'condition' => 'QL.question_id = EQ.id',
+                'type' => 'LEFT'
+            ),
+            array(
+                'table' => 'esic_questions_answers QPS',
+                'condition' => 'QPS.questionID = EQ.id',
+                'type' => 'LEFT'
+            ),
+            array(
+                'table' => 'esic_question_users_answers UA',
+                'condition' => 'UA.question_id = EQ.id AND user_id = '.$userID,
+                'type' => 'LEFT'
+            )
+
+        );
+        $groupBy = ['EQ.id'];
+        return $this->Common_model->select_fields_where_like_join('esic_questions EQ',$selectData2,$joins2,$where,FALSE,'','',$groupBy);
     }
 }

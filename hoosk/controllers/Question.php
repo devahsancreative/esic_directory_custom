@@ -148,6 +148,7 @@ class Question extends MY_Controller {
 
         $this->data['listings'] = $this->_getListings();
 
+
         //Get All the Listings for the selectedQuestion.
         //Get all the Listing Types
         $selectDataQuestionListings= [
@@ -612,9 +613,9 @@ class Question extends MY_Controller {
 
         //Fetch the Record if Exist
         $result = $this->Common_model->select_fields_where($answersTable,$selectData, $where,true);
-        if(!empty($result) and !empty($result->Solution)){
+        if(!empty($result)){
             // This means we have the record, we need to know if we can update the record partially, or fully.
-            if(intval($result->SolutionType) === $this->answerType){
+            if(intval($result->SolutionType) === $this->answerType && !empty($result->Solution)){
                 //We have to to partial Update.
                 $solutionData = json_decode($result->Solution,true);
                 $arrayToPush = [
@@ -775,9 +776,9 @@ class Question extends MY_Controller {
         $result = $this->Common_model->select_fields_where($this->answersTable,$selectData, $where,true);
 
 
-        if(!empty($result) and !empty($result->Solution)){
+        if(!empty($result)){
             // This means we have the record, we need to know if we can update the record partially, or fully.
-            if(intval($result->SolutionType) === $this->answerType){
+            if(intval($result->SolutionType) === $this->answerType && !empty($result->Solution)){
                 //We have to to partial Update.
                 $solutionData = json_decode($result->Solution,true);
                 $arrayToPush = [
@@ -1025,6 +1026,66 @@ class Question extends MY_Controller {
 
     } //End of Update SelectBox Function
 
+
+    //Code For Ordering
+    public function order(){
+        $listingID = $this->input->post('listingID');
+
+        if(!empty($listingID) and is_numeric($listingID)){
+            $this->data['QASorting'] = $this->_getQAnswers($listingID);
+        }else{
+            $this->data['QASorting'] = $this->_getQAnswers();
+        }
+
+        $this->data['listing'] = $this->_getListings();
+
+        $this->data['title'] = 'Sort the Questions Order';
+        $this->show_admin("admin/questions/sorting_order",$this->data);
+    }
+    public function getQuestionsList(){
+        $listID = $this->input->post('listID');
+
+        if(empty($listID) and is_numeric($listID)){
+            return false;
+        }
+
+        $data['QASorting'] = $this->_getQAnswers($listID);
+        $this->load->view('admin/questions/templates/sorted_questions',$data);
+    }
+    public function getTextboxTemplate(){
+        $this->load->view('admin/questions/templates/textbox.php');
+    }
+
+    //Updating the Sorting for Order.
+    public function sort(){
+//        $orderArray = $this->input->post('question');
+        $orderArray = $this->input->post('order');
+
+        if(!empty($orderArray) and is_array($orderArray)){
+            $this->db->trans_start();
+            $count = 1;
+            foreach ($orderArray as $questionOrder){
+                echo $questionOrder;
+                $explodedValue = explode('_',$questionOrder);
+                $whereUpdate = [
+                    'id' => $explodedValue[0]
+                ];
+                $updateData = [
+                    'order' => $count
+                ];
+                $this->Common_model->update($this->questionListingTable,$whereUpdate,$updateData);
+                $count++;
+            }
+            $this->db->trans_complete();
+            if ($this->db->trans_status() === FALSE)
+            {
+                echo 'FAIL::Records Could Not Be Updated::error';
+            }else{
+                echo 'OK::Record Successfully Updated::success';
+            }
+        }
+
+    }
     private function _updateSolution($solution,$id){
         $whereUpdate = [
             'id' => $id
@@ -1060,5 +1121,47 @@ class Question extends MY_Controller {
         ];
         $whereAnswerType = ['isTrashed' => 0];
         return $this->Common_model->select_fields_where('esic_question_types',$selectDataAnswerType,$whereAnswerType);
+    }
+    private function _getQAnswers($listingID = NULL){
+
+        if($listingID === NULL || !is_numeric($listingID)){
+            $listingID = 1;
+        }
+
+        $selectData2 = array('        
+                    EQ.Question as Question,
+                    EQ.id as questionID,
+                    QPS.Solution as PossibleSolutions,
+                    QL.order as QuestionOrder,
+                    QL.id as ListItemID
+            ',false);//ES.Score as points
+
+        $where = [
+            'EQ.`isPublished`' => 1,
+            'QL.listing_id' => $listingID
+        ];
+        $joins2 = array(
+            array(
+                'table' => 'esic_questions_listings QL',
+                'condition' => 'QL.question_id = EQ.id',
+                'type' => 'LEFT'
+            ),
+            array(
+                'table' => 'esic_questions_answers QPS',
+                'condition' => 'QPS.questionID = EQ.id',
+                'type' => 'LEFT'
+            ),
+            array(
+                'table' => 'esic_question_users_answers UA',
+                'condition' => 'UA.question_id = EQ.id',
+                'type' => 'LEFT'
+            )
+        );
+        $groupBy = ['EQ.id'];
+        $orderBy = 'QL.order';
+        $result =  $this->Common_model->select_fields_where_like_join('esic_questions EQ',$selectData2,$joins2,$where,FALSE,'','',$groupBy,$orderBy);
+//        echo $this->db->last_query();
+        return $result;
+
     }
 }

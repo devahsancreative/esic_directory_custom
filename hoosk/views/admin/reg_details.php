@@ -783,25 +783,95 @@ $ci =& get_instance();
             <div class="tab-content">
               <div class="active tab-pane" id="questions">
                 <?php if(isset($usersQuestionsAnswers)){ ?>
+
+
                <?php foreach ($usersQuestionsAnswers as $key => $value) { ?>
                   <div class="post question-post <?= 'question-'.$value['questionID'];?>" data-id="<?= 'question-'.$value['questionID'];?>">
                       <div class="user-block">
                           <span class="username question-statement">
-                          <a href="#"><?= $value['Question'];?></a>
-                          <a href="#" class="pull-right btn-box-tool question-edit" data-id="<?= 'question-'.$value['questionID'];?>"  data-question-id="<?= $value['questionID'];?>"><i class="fa fa-pencil"></i></a>
-                          <?php if(!empty($value['points'])){ ?>
-		                          <span class="question-points" data-score="<?= $value['points'];?>" >(<?= $value['points'];?>)</span>
-		                      <?php }else{ ?>
-                            <span class="question-points"></span>
-                          <?php } ?>
+                          <a href="#"><?= $value['Question']; ?></a>
+                              <a href="#" class="pull-right btn-box-tool question-edit"
+                                 data-id="<?= 'question-' . $value['questionID']; ?>"
+                                 data-question-id="<?= $value['questionID']; ?>"><i class="fa fa-pencil"></i></a>
+
+                              <?php if (!empty($value['points'])) { ?>
+                                  <span class="question-points"
+                                        data-score="<?= $value['points']; ?>">(<?= $value['points']; ?>)</span>
+                              <?php } else { ?>
+                                  <span class="question-points"></span>
+                              <?php } ?>
                           </span>
+                              <?php
+                              $possibleSolutions = $value['possibleSolutions'];
+                                if(!empty($possibleSolutions)){
+                                    $possibleSolutions = json_decode($possibleSolutions);
+                                    $type = $possibleSolutions->type;
+                                    $hasChildren = $possibleSolutions->hasChildren;
+                                    $hasChildren = $possibleSolutions->hasChildren;
+                                }
+                              ?>
+
                       </div>
-                    <p class="answer-solution"><?= $value['solution'];?></p>
+                    <p class="answer-solution"><?= $value['providedSolution'];?></p>
                     <div class="edit-question">
                       <div class="form-group">
-                        <label>Please Select Answer</label>
-                        <select class="form-control answer-solution">
-                        </select>
+                          <?php
+
+
+                          switch($type){
+                              case 'CheckBoxes':
+                                  echo '<label>Please Select Answer</label>';
+                                  $data = $possibleSolutions->data;
+                                    echo '<div class="form-group">';
+                                  foreach($data as $checkbox){
+                                  ?>
+                                      <div class="checkbox">
+                                          <label>
+                                              <input type="checkbox" name="<?=$checkbox->name?>" id="<?=$checkbox->id?>">
+                                              <?=$checkbox->text?>
+                                          </label>
+                                      </div>
+                                <?php
+                                    }
+                                    echo '</div>';
+                                  break;
+                              case 'SelectBox':
+                                  if(empty($possibleSolutions->textBoxText)){
+                                      echo '<label>Please Select Answer</label>';
+                                  }else{
+                                      echo '<label>'.$possibleSolutions->textBoxText.'</label>';
+                                  }
+                                  $data = $possibleSolutions->data;
+                                  ?>
+                                  <select class="form-control" <?=((isset($possibleSolutions->isMulti) && $possibleSolutions->isMulti === 'Yes')?'multiple="multiple"':'')?>>
+                                      <?php
+                                      if(!empty($data)){
+                                          foreach($data as $selectOption){
+                                              echo '<option value="'.$selectOption->value.'">'.$selectOption->text.'</option>';
+                                          }
+                                      }
+                                      ?>
+                                  </select>
+                          <?php
+                                  break;
+                              case 'radios':
+                                  echo '<label>Please Select Answer</label>';
+                                  $data = $possibleSolutions->data;
+                                  echo '<div class="form-group">';
+                                  foreach($data as $radioButton){
+                                      ?>
+                                      <div class="radio">
+                                          <label>
+                                              <input type="radio" name="radio_<?=$value['questionID']?>" id="<?=$radioButton->id?>" value="<?=$radioButton->value?>">
+                                              <?=$radioButton->text?>
+                                          </label>
+                                      </div>
+                                      <?php
+                                  }
+                                  echo '</div>';
+                                  break;
+                          }
+                          ?>
                         <?php 
 	                        if(!empty($value['TableName'])){ 
 	                        		$tableName = trim($value['TableName']);
@@ -855,83 +925,6 @@ $ci =& get_instance();
                   </div>
                 <?php } 
                   }
-
-              ?>
-              <?php if(isset($usersQuestionsNotAnswers)){ ?>
-               <?php foreach ($usersQuestionsNotAnswers as $key => $value) { ?>
-                  <div class="post question-post <?= 'question-'.$value['questionID'];?>" data-id="<?= 'question-'.$value['questionID'];?>">
-                      <div class="user-block">
-                          <span class="username question-statement">
-                          <a href="#"><?= $value['Question'];?></a>
-                          <a href="#" class="pull-right btn-box-tool question-edit" data-id="<?= 'question-'.$value['questionID'];?>"  data-question-id="<?= $value['questionID'];?>"><i class="fa fa-pencil"></i></a>
-                          <?php if(!empty($value['points'])){ ?>
-                              <span class="question-points" data-score="<?= $value['points'];?>" >(<?= $value['points'];?>)</span>
-                          <?php }else{ ?>
-                            <span class="question-points"></span>
-                          <?php } ?>
-                          </span>
-                      </div>
-                    <p class="answer-solution">Not Answered Yet</p>
-                    <div class="edit-question">
-                      <div class="form-group">
-                        <label>Please Select Answer</label>
-                        <select class="form-control answer-solution">
-                        </select>
-                        <?php 
-                          if(!empty($value['TableName'])){ 
-                              $tableName = trim($value['TableName']);
-                                if($tableName=='esic_rnd'){
-                                  $TableIDCheck = trim($userProfile['RnDID']);
-                                  $tableUpdateID = 'RnDID';
-                                }else if($tableName =='esic_acceleration'){ 
-                                  $TableIDCheck = trim($userProfile['AccCoID']);
-                                  $tableUpdateID = 'AccCoID';
-                                }else if($tableName == 'esic_institution'){
-                                  $TableIDCheck = trim($userProfile['inID']);
-                                  $tableUpdateID = 'inID';
-                                }else if($tableName=='esic_accelerators'){
-                                  $TableIDCheck = trim($userProfile['AccID']);
-                                  $tableUpdateID = 'AccID';
-                                }else{
-                                  $TableIDCheck ='';
-                                }
-                               
-                                $esic_tableName = $ci->Common_model->select($tableName);
-                                $assocArray = json_decode(json_encode($esic_tableName),true);
-                          if(isset($esic_tableName) and !empty($esic_tableName)){
-                            ?>
-                            <div class="edit-category sp-question" data-tablename="<?= $tableName;?>" data-tableUpdateID="<?= $tableUpdateID; ?>">
-                              <select class="form-control">
-                                <option value="0">Select...</option>
-                                       <?php 
-                                             foreach($assocArray as $esic_tableName_data){
-
-                                                //$dataTable = json_decode($esic_tableName_data,true);
-                                                $totalItems = count($esic_tableName_data);
-                                                $count = 0;
-                                                $innerArray = array();
-                                                foreach($esic_tableName_data as $data){
-                                                  $innerArray[$count] = $data;
-                                                  $count++;
-                                                }
-                                                $selected ='';
-                                                if(trim($TableIDCheck) == trim($innerArray[0])){
-                                                  $selected= 'selected';
-                                                }
-
-                                                  echo '<option data-id-check"'.$TableIDCheck.'" value="'.$innerArray[0].'"  '.$selected.'>'.$innerArray[1].'</option>';
-                                             }
-                                          }   
-                                         ?>    
-                              </select>
-                            </div>
-                        <?php }?>
-                      </div>
-                    </div>
-                  </div>
-                <?php } 
-                  }
-
               ?>
                 </div>
               <div class="tab-pane" id="otherDetail">

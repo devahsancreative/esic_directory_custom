@@ -838,7 +838,9 @@ $route['add_lawyer'] = "Listing/add_lawyer";
 
 //Questions
 $route['admin/questions/index'] = "Question/index";
-$route['admin/questions/selectors'] = "Question/selectors";
+$route['admin/questions/ordering'] = "Question/order";
+$route['admin/questions/sort'] = "Question/sort";
+$route['admin/questions/getQuestionsList'] = "Question/getQuestionsList";
 $route['admin/questions/listing'] = "Question/index/listing";
 $route['admin/questions/create'] = "Question/create";
 $route['admin/questions/edit/(:any)'] = "Question/edit/$1";
@@ -848,6 +850,7 @@ $route['admin/question/updateAnswerType'] = "Question/update_answer_types";
 $route['admin/question/store'] = "Question/store";
 $route['admin/question/trash'] = "Question/trashQuestion";
 $route['admin/questions/layout/(:any)'] = "Question/fetchAnswerTemplate/$1";
+$route['admin/question/getTextboxTemplate'] = "Question/getTextboxTemplate";
     //Radio
 $route['admin/questions/update_answer_radio'] = "Question/updateAnswer_radio";
 $route['admin/questions/removeRadio'] = "Question/updateAnswer_removeRadio";

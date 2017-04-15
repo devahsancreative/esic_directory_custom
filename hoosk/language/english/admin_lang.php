@@ -272,6 +272,6 @@ $lang['greater_than']		= "The %s field must contain a number greater than %s.";
 
 //Questions
 $lang['nav_questions_answers']	= "Questions & Answers";
-$lang['nav_questions_selectors']	= "Selectors";
+$lang['nav_questions_sorting']	= "Ordering & Sorting";
 
 

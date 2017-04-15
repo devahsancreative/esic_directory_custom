@@ -408,6 +408,9 @@ if($classname != "Navigation"){
                 echo '<script type="text/javascript" src="https://cdn.datatables.net/select/1.2.1/js/dataTables.select.min.js"></script>';
                 echo '<script type="text/javascript" src="https://cdn.datatables.net/rowreorder/1.2.0/js/dataTables.rowReorder.min.js"></script>';
             }
+            ?>
+            <script type="text/javascript" src="<?=ADMIN_THEME?>/js/jquery-ui-1.9.2.js"></script>
+<?php
         }
     ?>
 
