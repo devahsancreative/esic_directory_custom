@@ -13,6 +13,7 @@
     oTable = selector.dataTable({
         "bServerSide": true,
         "bProcessing": true,
+        "stateSave": true,
         "bPaginate" :true,
         "bLengthChange": true,
         "bFilter": true,

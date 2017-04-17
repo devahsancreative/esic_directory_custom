@@ -61,6 +61,7 @@ class MY_Controller extends CI_Controller{
 }
 
 class Listing extends MY_Controller{
+    protected $CurrentID;
     public function __construct(){
     parent::__construct();
 
@@ -139,7 +140,7 @@ class Listing extends MY_Controller{
         $this->data['PageType'] = 'View';
         $this->show_admin_configuration('admin/configuration/'.$this->ViewFolderName.'/view' , $this->data);
         return Null;
-    } 
+    }
     public function FrontForm(){
         $this->load->view('theme/header',$this->data);
         if(!empty($this->data['page']['pageTemplate'])){

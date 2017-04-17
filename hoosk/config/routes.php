@@ -1,4 +1,4 @@
-<?php 
+<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 /*
 | -------------------------------------------------------------------------
@@ -53,7 +53,7 @@ $route['register'] = "Register/index";
 $route['Register/createmember'] = "Register/signup";
 
 $route['admin/fb'] = "admin/fb";
- 
+
 $route['sitemap\.xml'] = "Update_sitemap/index";
 //$route['sitemap']        = "Sitemap/index";
 $route['attachments'] = "Admin/upload";
@@ -76,25 +76,25 @@ $route['admin/reset_password/forgot'] = 'Reset_password/forgot';
 $route['admin/users/(:any)'] = "Users";
 $route['admin/reset/(:any)'] = 'Admin/users/getPassword'; //
 $route['admin/pages'] = "Pages";
-$route['admin/users/email'] = "Users/email"; 
+$route['admin/users/email'] = "Users/email";
 $route['admin/users/email/(:any)'] = "Users/email/$1";
 $route['admin/users/single_email'] = "Users/single_email";
 $route['admin/users/single_email/(:any)'] = "Users/single_email/$1";
 $route['admin/users/single_email_content'] = "Users/single_email_content";
 $route['admin/users/single_email_content/(:any)'] = "Users/single_email_content/$1";
-$route['admin/users/send_email'] = "Users/send_email";  
-$route['admin/users/send_email/(:any)'] = "Users/send_email/$1"; 
-$route['admin/users/sent'] = "Users/sent"; 
-$route['admin/users/sent/listing'] = "Users/sent/listing"; 
+$route['admin/users/send_email'] = "Users/send_email";
+$route['admin/users/send_email/(:any)'] = "Users/send_email/$1";
+$route['admin/users/sent'] = "Users/sent";
+$route['admin/users/sent/listing'] = "Users/sent/listing";
 $route['admin/users/sent/delete'] = "Users/sent/delete"; 
- 
-  
- 
+
+
+
 //Add of Esic Weebly Live
 // manage pre assessment profile
 $route['admin/manage_profile']        = "Admin/manage_profile";
 $route['admin/manage_profile/(:any)'] = "Admin/manage_profile/$1";
- 
+
 $route['admin/assessments_list']        = "Admin/assessments_list";
 $route['admin/assessments_list/(:any)'] = "Admin/assessments_list/$1";
 $route['admin/assessment_list']       	= "Admin/assessment_list";
@@ -147,7 +147,7 @@ $route['Esic']  	= "Esic/FrontForm";
 $route['admin/Esic/details/(:any)'] = "Admin/details/$1";
 
 
-//For Investors 
+//For Investors
 $route['admin/manage_investor']    	    = "Investor/Manage";
 $route['admin/manage_investor/(:any)']  = "Investor/Manage/$1";
 $route['admin/Investor/view/(:any)']    = "Investor/View/$1";
@@ -173,6 +173,7 @@ $route['Lawyer/AddSave']      = "Lawyer/AddSave";
 $route['Lawyer/Edit/(:any)']  = "Lawyer/Edit/$1";
 $route['Lawyer/EditSave']     = "Lawyer/EditSave";
 $route['Lawyer']  	= "Lawyer/FrontForm";
+$route['Lawyer/saveIntro']     = "Lawyer/saveIntro";
 
 
 //For  Accelerators
@@ -277,11 +278,11 @@ $route['admin/contact/manage_contact/delete']  	= "contact/manage_contact/delete
 $route['admin/contact/view_contact']  	= "contact/view_contact";    // view single email
 $route['admin/contact/view_contact/(:any)']  	= "contact/view_contact/$1";
 $route['admin/contact/single_email_content']  	= "contact/single_email_content";
-$route['admin/contact/single_email_content/(:any)']  	= "contact/single_email_content/$1";  // view NEXT ETC single email 
+$route['admin/contact/single_email_content/(:any)']  	= "contact/single_email_content/$1";  // view NEXT ETC single email
 //admin panel
-$route['admin/blog']  	= "Blog"; 
-$route['admin/blog/show']=  "Blog/show"; 
-$route['admin/blog/show/listing']=  "Blog/show/listing"; 
+$route['admin/blog']  	= "Blog";
+$route['admin/blog/show']=  "Blog/show";
+$route['admin/blog/show/listing']=  "Blog/show/listing";
 $route['admin/blog/show/delete']  	= "Blog/show/delete";
 $route['admin/blog/show/status']  	= "Blog/show/status";
 $route['admin/blog/add_blog']  	= "blog/add_blog";
@@ -290,7 +291,7 @@ $route['admin/blog/insert_blog']  	= "blog/insert_blog";
 $route['admin/blog/insert_blog/(:any)']  	= "blog/insert_blog/$1";
 //Comment section
 $route['admin/blog/comments']=  "Blog/comments";
-$route['admin/blog/comments/listing']=  "Blog/comments/listing"; 
+$route['admin/blog/comments/listing']=  "Blog/comments/listing";
 $route['admin/blog/comments/delete']  	= "Blog/comments/delete";
 $route['admin/blog/delete_comments']  	= "Blog/delete_comments";
 $route['admin/blog/delete_comments/(:any)']  	= "Blog/delete_comments/$1";
@@ -306,8 +307,8 @@ $route['blog/(:any)/(:any)']  	= "blog/details/$1/$2";   //for single blog
 $route['blog/insert_comment']  	= "blog/insert_comment";
 $route['blog/insert_comment/(:any)']  	= "blog/insert_comment/$1";
 $route['blog/insert_comment/(:any)/(:any)']  	= "blog/insert_comment/$1/$2";
- 
- 
+
+
 //investor front end Routes nvestor/submit
 //$route['investor-pre-assessment']  	= "Investor/investor_form";
 $route['Investor/submit']  	= "Investor/submit";
@@ -315,7 +316,7 @@ $route['Investor/submit/(:any)']  	= "Investor/submit/$1";
 $route['Investor/email_check']  	= "Investor/email_check";
 $route['Investor/email_check/(:any)']  	= "Investor/email_check/$1";
 $route['Investor/password_check']  	= "Investor/password_check";
- 
+
 $route['admin/investor_list']        = "Investor/investor_list";
 $route['admin/investor/investor_list/listing']        = "Investor/investor_list/listing";
 $route['admin/investor_list/(:any)'] = "Investor/investor_list/$1";
@@ -326,15 +327,15 @@ $route['admin/investor/edit_profile/(:any)']        = "Investor/edit_profile/$1"
 $route['admin/investor/edit_investor_profile/(:any)']        = "Investor/edit_investor_profile/$1";  // edit investor profile
 $route['admin/investor/view_profile']        = "Investor/view_profile";                   //view investor profile
 $route['admin/investor/view_profile/(:any)']        = "Investor/view_profile/$1";
- 
-//upload image for investor 
+
+//upload image for investor
 $route['admin/investor/edit_certificate_picture'] = "Investor/edit_certificate_picture";
 $route['admin/investor/edit_certificate_picture/(:any)'] = "Investor/edit_certificate_picture/$1";
 $route['admin/investor/edit_profile_picture'] = "Investor/edit_profile_picture";
 $route['admin/investor/edit_profile_picture/(:any)'] = "Investor/edit_profile_picture/$1";
- 
+
 $route['admin/investor/investor_list/(:any)']        = "Investor/investor_list/$1";
- 
+
 // Esic 2 Controller
 $route['esic_database']  	= "Esic2/index";
 $route['Esic2']  	= "Esic2";
@@ -407,7 +408,7 @@ $route['admin/slider'] = "Slider/index"; //list all the sliders
 $route['admin/slider/new'] = "Slider/addSlider"; //list all the sliders
 $route['admin/slider/newSlider'] = "Slider/newSlider"; //save new sliders
 $route['admin/slider/updateSliderLayout'] = "Slider/updateSliderLayout"; //updates the layout 
-$route['admin/slider/updateSliderType'] = "Slider/updateSliderType"; //updates the layout 
+$route['admin/slider/updateSliderType'] = "Slider/updateSliderType"; //updates the layout
 $route['admin/navigation/delete/(:any)'] = "Navigation/deleteNav";
 $route['admin/navadd/(:any)'] = "Navigation/navAdd";
 $route['admin/navigation/insert'] = "Navigation/insert";
@@ -440,6 +441,34 @@ $route['results_innovators'] = "Esic2/getfilterlist";
 //Front End Add Listings.
 $route['add_lawyer'] = "Listing/add_lawyer";
 //$route['add_lawyer/(:any)'] = "Listing/add_lawyer/$1";
+
+//Questions
+$route['admin/questions/index'] = "Question/index";
+$route['admin/questions/ordering'] = "Question/order";
+$route['admin/questions/sort'] = "Question/sort";
+$route['admin/questions/getQuestionsList'] = "Question/getQuestionsList";
+$route['admin/questions/listing'] = "Question/index/listing";
+$route['admin/questions/create'] = "Question/create";
+$route['admin/questions/edit/(:any)'] = "Question/edit/$1";
+$route['admin/question/update'] = "Question/update";
+$route['admin/question/updateRoles'] = "Question/update_question_roles";
+$route['admin/question/updateAnswerType'] = "Question/update_answer_types";
+$route['admin/question/store'] = "Question/store";
+$route['admin/question/trash'] = "Question/trashQuestion";
+$route['admin/questions/layout/(:any)'] = "Question/fetchAnswerTemplate/$1";
+$route['admin/question/getTextboxTemplate'] = "Question/getTextboxTemplate";
+    //Radio
+$route['admin/questions/update_answer_radio'] = "Question/updateAnswer_radio";
+$route['admin/questions/removeRadio'] = "Question/updateAnswer_removeRadio";
+    //Checkbox
+$route['admin/questions/update_answer_checkbox'] = "Question/updateAnswer_checkbox";
+$route['admin/questions/removeCheckbox'] = "Question/updateAnswer_removeCheckbox";
+    //SelectBox
+$route['admin/questions/updateSelect'] = "Question/update_selectBox";
+    //TextBox
+$route['admin/question/updateTextBox'] = "Question/update_textBox";
+$route['admin/question/trashTextBox'] = "Question/trash_textBox";
+
 // Default
 $route['(.+)'] = "hoosk_default";
 //$route['default_controller'] = "admin";

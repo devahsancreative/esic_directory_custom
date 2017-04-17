@@ -603,3 +603,42 @@ if(!function_exists('esic_random_password_generator')) {
         return $password;
     }
 }
+
+function findWhere($array, $matching) {
+    foreach ($array as $item) {
+        $is_match = true;
+        foreach ($matching as $key => $value) {
+
+            if (is_object($item)) {
+                if (! isset($item->$key)) {
+                    $is_match = false;
+                    break;
+                }
+            } else {
+                if (! isset($item[$key])) {
+                    $is_match = false;
+                    break;
+                }
+            }
+
+            if (is_object($item)) {
+                if ($item->$key != $value) {
+                    $is_match = false;
+                    break;
+                }
+            } else {
+                if ($item[$key] != $value) {
+                    $is_match = false;
+                    break;
+                }
+            }
+        }
+
+        if ($is_match) {
+            return $item;
+        }
+    }
+
+    return false;
+}
+
