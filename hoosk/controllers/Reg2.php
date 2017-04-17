@@ -164,7 +164,7 @@ class Reg2 extends MY_Controller {
 							'password'    => $password
 		
 							 );
-	  $userID = $this->Common_model->insert_record('hoosk_user',$insert_user);	
+	     $userID = $this->Common_model->insert_record('hoosk_user',$insert_user);
 	  
 	  
 	  

@@ -7,6 +7,7 @@ class Question extends MY_Controller {
     protected $answersTable;
     protected $listingsTable;
     protected $questionListingTable;
+    protected $userAnswersTable;
 
     function __construct()
     {
@@ -21,8 +22,10 @@ class Question extends MY_Controller {
         $this->load->library('form_validation');
         $this->questionsTable = 'esic_questions';
         $this->answersTable = 'esic_questions_answers';
+        $this->userAnswersTable = 'esic_question_users_answers';
         $this->listingsTable = 'esic_listings';
         $this->questionListingTable = 'esic_questions_listings';
+
 
 
         //Check if the user is Logged In or Not.
@@ -1311,6 +1314,170 @@ class Question extends MY_Controller {
         }
 
     }
+
+    public function updateUserAnswer(){
+        $questionID = $this->input->post('qID');
+        $userID = $this->input->post('userID');
+        $listingID = $this->input->post('listingID');
+        $type = $this->input->post('type');
+
+        if(empty($questionID) || empty($userID) || empty($listingID)){
+            echo 'FAIL::Something went wrong with the post, Please contact System Administrator for further assistance.';
+            return false;
+        }
+
+        //We Need to Store the Answer for the User Against his/her question.
+
+        //For That first We Need to fetch the Possible Answers for that question and match it.
+        $selectAnswerData = [
+            'id,Solution,type',false
+        ];
+        $whereSelectAnswer = [
+            'questionID' => $questionID
+        ];
+        $resultAnswer = $this->Common_model->select_fields_where($this->answersTable,$selectAnswerData,$whereSelectAnswer,true);
+
+        //We Can Only Update the Ansewr In Database for the User if we have the available answer/solution for the question.
+        if(empty($resultAnswer)){
+            echo 'FAIL::something went wrong, please contact System Administrator for further assistance.::error';
+            return false;
+        }
+
+        $Solution = $resultAnswer->Solution;
+
+        if(empty($Solution)){
+            echo 'FAIL::something went wrong, please contact System Administrator for further assistance.::error';
+            return false;
+        }else{
+            $Solution = json_decode($Solution,true);
+            $SolutionData = $Solution['data'];
+        }
+
+
+        $updateUserAnswerData = [
+            'answer_id' => $resultAnswer->id,
+            'user_id' => $userID,
+            'listing_id' => $listingID
+        ];
+
+
+
+        $updateUserAnswerData['answer'] = [];
+
+        switch ($type){
+            case 'radio':
+                $selectedValue = $this->input->post('selectedRadioValue');
+                $selectedRadioID = $this->input->post('radioID');
+                $arrayToUpdate = [
+                    'type'=>'radio',
+                    'selectedValue' => $selectedValue,
+                    'selectedRadioID' => $selectedRadioID
+                ];
+                break;
+            case 'checkbox':
+                $checkBoxID = $this->input->post('checkBoxID');
+                $checkBoxValue = $this->input->post('checkBoxValue');
+                $hasCheck = $this->input->post('hasCheck');
+                $arrayToUpdate = [
+                    'type'=>'checkbox',
+                    'selectedCheckBoxes' => []
+                ];
+                $selectedUserAnswerData=['id, answer',false];
+                $whereUserAnswer=[
+                    'answer_id' => $resultAnswer->id,
+                    'user_id' => $userID,
+                    'listing_id' => $listingID
+                ];
+                //First Need to Fetch The Existing Answer, If there is any against this..
+                $currentAnswer = $this->Common_model->select_fields_where($this->userAnswersTable,$selectedUserAnswerData,$whereUserAnswer,true);
+/*                echo '<pre>';
+                var_dump($currentAnswer);
+                echo '</pre>';
+                exit;*/
+                if(empty($currentAnswer)){
+                    //Means There is No Answer Currently for This User and For this Selected Listing.
+                    $insertAnswerData = $updateUserAnswerData;
+                    if($hasCheck==='Yes'){
+                        $arrayToUpdate['selectedCheckBoxes'][] = [
+                            'checkBoxID' => $checkBoxID,
+                            'checkBoxValue' => $checkBoxValue
+                        ];
+                    }else{
+                        $arrayToUpdate['selectedCheckBoxes'][] = [];
+                    }
+
+                    //Finally Update it.
+                    $insertAnswerData['answer'] = json_encode($arrayToUpdate);
+                    $lastInsertedID = $this->Common_model->insert_record($this->userAnswersTable,$insertAnswerData);
+                    if($lastInsertedID > 0){
+                        echo 'OK::Record Successfully Added::success';
+                        return true;
+                    }else{
+                        echo 'OK::Recod could not be Added::error';
+                        return false;
+                    }
+                }else{
+                    //This User has Selected The Answer, We Only Need to Update It.
+                    //As We are in Checkbox, we will update the CheckBox.
+                    $answer = json_decode($currentAnswer->answer,true);
+                    $answerData = $answer['selectedCheckBoxes'];
+/*                    var_dump($answer);
+                    exit;*/
+                    if($hasCheck==='Yes'){
+                        if(empty($answerData)){
+                            $answerData = [];
+                        };
+                        //ok There can be a situation, where this record might already be there.
+                        //For that lets first check before pushing it there..
+                        $push=true;
+                        if(!empty($answerData)){
+                            foreach($answerData as $key=>$array){
+                                if(in_array($checkBoxID,$array) and $array['checkBoxValue']===$checkBoxValue){
+                                    $push=false;
+                                }
+                            }
+                        }
+                        if($push === true){
+                            $arrayToPush=[
+                                'checkBoxID' => $checkBoxID,
+                                'checkBoxValue' => $checkBoxValue
+                            ];
+                            array_push($answerData,$arrayToPush);
+                        }else{
+                            echo 'FAIL::Record Already Present in DB::warning';
+                            return false;
+                        }
+                    }elseif($hasCheck==='No'){
+                        //Means we need to pop out the record from current list.
+                        foreach($answerData as $key=>$array){
+                            if(in_array($checkBoxID,$array)){
+                                //Remove the Item from array.
+                                unset($answerData[$key]);
+                            }
+                        }
+                    }
+                    unset($answer['selectedCheckBoxes']);
+                    $answer['selectedCheckBoxes'] = $answerData;
+                    $userAnswerUpdateData = ['answer' => json_encode($answer)];
+                    $whereUserAnswerUpdate = ['id'=>$currentAnswer->id];
+                    $updateBoolResult = $this->Common_model->update($this->userAnswersTable,$whereUserAnswerUpdate,$userAnswerUpdateData);
+                    if($updateBoolResult === true){
+                        echo 'OK::Record Successfully Updated::success';
+                        return true;
+                    }else{
+                        echo 'FAIL::Record could not be updated::error';
+                        return false;
+                    }
+                }
+                break;
+            case 'select':
+                $selectedValue = $this->input->post('selectedValue');
+                break;
+        }
+
+
+    }
+
     private function _updateSolution($solution,$id){
         $whereUpdate = [
             'id' => $id
@@ -1378,7 +1545,7 @@ class Question extends MY_Controller {
             ),
             array(
                 'table' => 'esic_question_users_answers UA',
-                'condition' => 'UA.question_id = EQ.id',
+                'condition' => 'UA.answer_id = QPS.id',
                 'type' => 'LEFT'
             )
         );
