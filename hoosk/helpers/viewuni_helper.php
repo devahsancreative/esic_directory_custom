@@ -66,6 +66,18 @@
                 array_push($return, $error);
                 return $return;
             }
+            $NameExist = checkListingExist($ci, $Name, 'institution');
+            if($NameExist == true){
+                $error =  "FAIL::".$ci->NameMessage." Name Already Exist Cannot Create New Please Contact Administrator::error";
+                array_push($return, $error);
+                return $return;
+            }
+            $EmailExist = checkListingExist($ci, $Email, 'email');
+            if($EmailExist == true){
+                $error =  "FAIL::".$ci->NameMessage." Email Already Exist Cannot Create New Please Contact Administrator::error";
+                array_push($return, $error);
+                return $return;
+            }
             $now = date("Y-m-d H:i:s");
             $insertData = array(
                 'institution'           => $Name,
@@ -95,8 +107,12 @@
                 return $return;
             }
 
-            $note = uploadImagesAction($ci,$insertResult);
-            array_push($return, $note);
+            $notes = uploadImagesAction($ci,$insertResult);
+            if(is_array($notes) && !empty($notes)){
+                 foreach ($notes as $key => $note){
+                    array_push($return, $note);
+                 }
+             }
 
             return $return;
         }
@@ -143,7 +159,18 @@
                 array_push($return, $error);
                 return $return;
             }
-
+            $NameExist = checkListingExist($ci, $Name, 'institution', $ID);
+            if($NameExist == true){
+                $error =  "FAIL::".$ci->NameMessage." Name Already Exist Cannot Edit, Please Contact Administrator::error";
+                array_push($return, $error);
+                return $return;
+            }
+            $EmailExist = checkListingExist($ci, $Email, 'email', $ID);
+            if($EmailExist == true){
+                $error =  "FAIL::".$ci->NameMessage." Email Already Exist Cannot Edit, Please Contact Administrator::error";
+                array_push($return, $error);
+                return $return;
+            }
             $now = date("Y-m-d H:i:s");
             $updateData = array(
                 'institution'           => $Name,
@@ -174,8 +201,12 @@
                 return $return;
             }
 
-            $note = uploadImagesAction($ci,$ID);
-            array_push($return, $note);
+            $notes = uploadImagesAction($ci,$ID);
+            if(is_array($notes) && !empty($notes)){
+                 foreach ($notes as $key => $note){
+                    array_push($return, $note);
+                 }
+             }
 
             return $return;
         }

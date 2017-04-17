@@ -230,7 +230,7 @@ public function email(){   //Email form
      $userRole = $this->session->userdata('userRole');
      if($userRole == 1){
         $this->load->helper('form');
- 		$this->data['users_data'] = $this->common_model->select('user');
+ 		$this->data['users_data'] = $this->common_model->select('esic');
  		$this->data['Count_email_message'] = $this->common_model->Count_Tottle_Rows('esic_email');
  		$this->data['Count_contact_message'] = $this->common_model->Count_Tottle_Rows('esic_contact');
  		$this->data['header'] = $this->load->view('admin/header', $this->data, true);
@@ -360,7 +360,7 @@ public function single_email($id=NULL){   // View Sent Email
 	
 	    Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		$this->load->helper('form');
-		$this->data['users_data'] = $this->common_model->select('user');
+		$this->data['users_data'] = $this->common_model->select('esic');
 		$this->data['Count_email_message'] = $this->common_model->Count_Tottle_Rows('esic_email');
 		$this->data['Count_contact_message'] = $this->common_model->Count_Tottle_Rows('esic_contact');
 	    $this->data['sent_message'] = $this->common_model->get_sent_single_messages($id);

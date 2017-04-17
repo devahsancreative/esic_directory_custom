@@ -24,7 +24,7 @@ class Imagecreate extends MY_Controller{
 
 
     public function index(){
-      $returnedData = $this->Common_model->select('user');
+      $returnedData = $this->Common_model->select('esic');
       // foreach ($returnedData as $key => $value) {
         $filename = $value->logo;
         $ext = $this->Get_file_extension($filename);

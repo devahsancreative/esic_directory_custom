@@ -345,7 +345,7 @@ if(!function_exists("render_slider")){
             //exit;
             //now need to get the slider join.
             switch($neededSlider['joinTable']){
-                case 'user':
+                case 'esic':
                     $selectJoinData = [
                         '
                             logo as Image,
@@ -522,7 +522,7 @@ function get_user_image($userRole,$userID){
         $basePath = base_url(). 'uploads/investor/';
 
     }elseif ($userRole == 2){
-        $table = 'user';
+        $table = 'esic';
         $selectData = [
             'logo as avatar',
             false
@@ -593,6 +593,14 @@ if(!function_exists('m_empty')){
             else
                 return false;
         return true;
+    }
+}
+if(!function_exists('esic_random_password_generator')) {
+    function esic_random_password_generator($length = 8)
+    {
+        $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_-=+;:,.?";
+        $password = substr(str_shuffle($chars), 0, $length);
+        return $password;
     }
 }
 

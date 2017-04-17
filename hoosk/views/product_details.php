@@ -42,8 +42,8 @@ if(!empty($list)){
         }else{
             $img = base_url('pictures/defaultLogo.png');
         }
-        if(isset($user['bannerImage']) and !empty($user['bannerImage']) and is_file(FCPATH.'/'.$user['bannerImage'])){
-            $bgimg = base_url($user['bannerImage']);
+        if(isset($user['banner']) and !empty($user['banner']) and is_file(FCPATH.'/'.$user['banner'])){
+            $bgimg = base_url($user['banner']);
         }else{
             $bgimg = base_url('pictures/defaultBanner.jpg');
         }

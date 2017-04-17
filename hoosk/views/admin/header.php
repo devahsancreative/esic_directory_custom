@@ -1,3 +1,7 @@
+    <?php
+$class  = $this->router->fetch_class();   // it is use only in add new page and edit page condition is use to safe
+$method = $this->router->fetch_method();   // it is use only in add new page and edit page condition is use to safe
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,8 +59,6 @@
     <!--script src="<?php //echo ADMIN_THEME; ?>/js/bootstrap.js"></script-->
     <script src="<?php echo ADMIN_THEME; ?>/js/base.js"></script>
     <?php
-    $class = $this->router->fetch_class();   // it is use only in add new page and edit page condition is use to safe
-    $method = $this->router->fetch_method();   // it is use only in add new page and edit page condition is use to safe
     if ($class == 'Pages' || (strtolower($class) . '/' . strtolower($method) === 'admin/details')) {
         ?>
         <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>

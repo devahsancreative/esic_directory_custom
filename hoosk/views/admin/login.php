@@ -100,17 +100,27 @@
             <div class="form-group">
               <input type="submit" class="btn btn-success btn-signin btn-block" value="<?php echo $this->lang->line('login_signin'); ?>">
             </div>
-            <div class="form-group">
-              <button class="btn btn-primary btn-block btn-fb-signin"> 
-                <a class="button button--social-login button--facebook" id="fbLogin" href="<?php echo $this->facebook->login_url(); ?>">
-                  <i class="icon fa fa-facebook">
-                  </i>Login With Facebook
-                </a>
-              </button>
-            </div>
+              <div class="social-auth-links text-center">
+                  <p>- OR Sign In using </p>
+                  <div class="row">
+                      <div class="col-md-6">
+                          <a href="<?= $this->facebook->login_url(); ?>" id="fbLogin" class="btn btn-block btn-social btn-facebook btn-fb-signin btn-flat">
+                              <i class="fa fa-facebook"></i> Facebook
+                          </a>
+                      </div>
+                      <div class="col-md-6">
+                          <a href="#" class="btn btn-block btn-social btn-google btn-flat">
+                              <i class="fa fa-google-plus"></i> Google+
+                          </a>
+                      </div>
+                  </div>
+              </div>
             <a href="<?php echo BASE_URL; ?>/admin/reset_password/forgot" class="text-info">
               <?php echo $this->lang->line('login_reset'); ?>
             </a>
+              <a href="<?php echo BASE_URL; ?>/register" class="text-info">
+                  <?= 'Register Now';?>
+              </a>
           </fieldset>
           </form>
       </div>

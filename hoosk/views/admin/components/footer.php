@@ -1,4 +1,4 @@
- <footer class="main-footer">
+ <footer class="main-footer  compo-footer">
     <div class="pull-right hidden-xs">
     </div>
     <strong>Powered By <a href="http://creativetech-solutions.com/" target="_blank">Creativetech-Solutions</a>.</strong>

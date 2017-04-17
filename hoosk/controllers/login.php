@@ -1,14 +1,5 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
-/**
- * @property Users_auth Users_auth It resides all the methods which can be used in most of the controllers.
- * @property Common_model $Common_model It resides all the methods which can be used in most of the controllers.
- * @property Users_Auth $Users_Auth It resides all the methods which can be used in most of the controllers.
- * @property CI_Session $session
- * @property CI_Form_validation $form_validation
- */
-
 class Login2 extends CI_Controller {
 
     function __construct()

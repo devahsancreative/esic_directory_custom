@@ -446,7 +446,7 @@ class Admin extends MY_Controller {
 
             );
 
-            $returnedData = $this->Common_model->select_fields_joined_DT($selectData,'user',$joins,'','','','',$addColumns);
+            $returnedData = $this->Common_model->select_fields_joined_DT($selectData,'esic',$joins,'','','','',$addColumns);
 
             print_r($returnedData);
 
@@ -486,7 +486,7 @@ class Admin extends MY_Controller {
 
             $where2 = array( 'userID'  => $userID);
 
-            $this->Common_model->delete('user',$whereUpdate);
+            $this->Common_model->delete('esic',$whereUpdate);
 
             $this->Common_model->delete('esic_questions_answers',$where2);
 
@@ -526,7 +526,7 @@ class Admin extends MY_Controller {
 
 
 
-        $this->Common_model->update('user',$whereUpdate,$updateArray);
+        $this->Common_model->update('esic',$whereUpdate,$updateArray);
 
         echo 'OK::';
 
@@ -550,9 +550,9 @@ class Admin extends MY_Controller {
 
                     user.business as Business,
 
-                    user.businessShortDescription as BusinessShortDesc,
+                    user.long_description as BusinessShortDesc,
 
-                    user.tinyDescription as tinyDescription,
+                    user.short_description as short_description,
 
                     user.score as Score,
 
@@ -560,7 +560,7 @@ class Admin extends MY_Controller {
 
                     user.productImage as productImage,
 
-                    user.bannerImage as bannerImage,
+                    user.banner as banner,
 
                     user.website as Web,
 
@@ -570,13 +570,13 @@ class Admin extends MY_Controller {
 
                     user.address as address,
 
-					user.post_code as street_number,
+					user.address_post_code as address_street_number,
 
-					user.post_code as post_code,
+					user.address_post_code as address_post_code,
 
-                    user.town as town,
+                    user.address_town as address_town,
 
-                    user.state as state,
+                    user.address_state as address_state,
 
                     user.acn_number as acn_number,
 
@@ -638,7 +638,7 @@ class Admin extends MY_Controller {
 
         $data = array();
 
-        $returnedData = $this->Common_model->select_fields_where_like_join('user',$selectData,$joins,$where,FALSE,'','');
+        $returnedData = $this->Common_model->select_fields_where_like_join('esic',$selectData,$joins,$where,FALSE,'','');
 
         $selectData2 = array('
 
@@ -728,7 +728,7 @@ class Admin extends MY_Controller {
 
                 'thumbsUp'          => $returnedData[0]->thumbsUp,
 
-                'bannerImage'       => $returnedData[0]->bannerImage,
+                'banner'       => $returnedData[0]->banner,
 
                 'productImage'      => $returnedData[0]->productImage,
 
@@ -750,13 +750,13 @@ class Admin extends MY_Controller {
 
                 'address'           => $returnedData[0]->address,
 
-                'street_number'     => $returnedData[0]->street_number,
+                'address_street_number'     => $returnedData[0]->address_street_number,
 
-                'post_code'         => $returnedData[0]->post_code,
+                'address_post_code'         => $returnedData[0]->address_post_code,
 
-                'town'              => $returnedData[0]->town,
+                'address_town'              => $returnedData[0]->address_town,
 
-                'state'             => $returnedData[0]->state,
+                'address_state'             => $returnedData[0]->address_state,
 
                 'acn_number'        => $returnedData[0]->acn_number,
 
@@ -788,7 +788,7 @@ class Admin extends MY_Controller {
 
                 'BusinessShortDesc' => $returnedData[0]->BusinessShortDesc,
 
-                'tinyDescription' => $returnedData[0]->tinyDescription,
+                'short_description' => $returnedData[0]->short_description,
 
                 'ShowExpiryDate' => $returnedData[0]->ShowExpiryDate
 
@@ -992,7 +992,7 @@ class Admin extends MY_Controller {
 
         $where2 = array('id' => $userID);
 
-        $returnedData2 = $this->Common_model->select_fields_where('user',$selectData2, $where2, false, '', '', '','','',false);
+        $returnedData2 = $this->Common_model->select_fields_where('esic',$selectData2, $where2, false, '', '', '','','',false);
 
         $TotalOldscore =  $returnedData[0]->score;
 
@@ -1028,7 +1028,7 @@ class Admin extends MY_Controller {
 
         $whereUpdate2 = array('id' => $userID);
 
-        $this->Common_model->update('user',$whereUpdate2,$updateArray2);
+        $this->Common_model->update('esic',$whereUpdate2,$updateArray2);
 
         echo 'OK::'.$score.'::'.$ScorePercentage.'::'.$TotalOldscore.'::'.$Totalscore;
 
@@ -1040,7 +1040,7 @@ class Admin extends MY_Controller {
 
             $whereUpdate3 = array('id' => $userID);
 
-            $this->Common_model->update('user',$whereUpdate3,$updateArray3);
+            $this->Common_model->update('esic',$whereUpdate3,$updateArray3);
 
         }
 
@@ -1072,7 +1072,7 @@ class Admin extends MY_Controller {
 
         $whereUpdate = array('id' => $userID);
 
-        $this->Common_model->update('user',$whereUpdate,$updateArray);
+        $this->Common_model->update('esic',$whereUpdate,$updateArray);
 
         echo 'OK::'.$EditedDate.'';
 
@@ -1098,11 +1098,11 @@ class Admin extends MY_Controller {
 
         $updateArray = array();
 
-        $updateArray['businessShortDescription'] = $descDataText;
+        $updateArray['long_description'] = $descDataText;
 
         $whereUpdate = array('id' => $userID);
 
-        $this->Common_model->update('user',$whereUpdate,$updateArray);
+        $this->Common_model->update('esic',$whereUpdate,$updateArray);
 
         echo 'OK::'.urldecode($descDataText).'';
 
@@ -1128,11 +1128,11 @@ class Admin extends MY_Controller {
 
         $updateArray = array();
 
-        $updateArray['tinyDescription'] = $descDataText;
+        $updateArray['short_description'] = $descDataText;
 
         $whereUpdate = array('id' => $userID);
 
-        $this->Common_model->update('user',$whereUpdate,$updateArray);
+        $this->Common_model->update('esic',$whereUpdate,$updateArray);
 
         echo 'OK::'.urldecode($descDataText).'';
 
@@ -1228,7 +1228,7 @@ class Admin extends MY_Controller {
 
         );
 
-        $returnedData = $this->Common_model->select_fields_where('user',$selectData, $where, false, '', '', '','','',false);
+        $returnedData = $this->Common_model->select_fields_where('esic',$selectData, $where, false, '', '', '','','',false);
 
         $logo = $returnedData[0]->logo;
 
@@ -1238,7 +1238,7 @@ class Admin extends MY_Controller {
 
         }
 
-        $resultUpdate = $this->Common_model->update('user',$where,$insertDataArray);
+        $resultUpdate = $this->Common_model->update('esic',$where,$insertDataArray);
 
         if($resultUpdate === true){
 
@@ -1270,11 +1270,11 @@ class Admin extends MY_Controller {
 
         //For Logo Upload
 
-        if(isset($_FILES['bannerImage']['name']))
+        if(isset($_FILES['banner']['name']))
 
         {
 
-            $FileName = $_FILES['bannerImage']['name'];
+            $FileName = $_FILES['banner']['name'];
 
             $explodedFileName = explode('.',$FileName);
 
@@ -1294,7 +1294,7 @@ class Admin extends MY_Controller {
 
 
 
-                $FileName = "bannerImage".$userID."_".time().".".$ext;
+                $FileName = "banner".$userID."_".time().".".$ext;
 
                 if(!is_dir($uploadDirectory)){
 
@@ -1304,9 +1304,9 @@ class Admin extends MY_Controller {
 
 
 
-                move_uploaded_file($_FILES['bannerImage']['tmp_name'],$uploadPath.$FileName);
+                move_uploaded_file($_FILES['banner']['tmp_name'],$uploadPath.$FileName);
 
-                $insertDataArray['bannerImage'] = $uploadDBPath.$FileName;
+                $insertDataArray['banner'] = $uploadDBPath.$FileName;
 
             }
 
@@ -1328,7 +1328,7 @@ class Admin extends MY_Controller {
 
         }
 
-        $selectData = array('bannerImage AS bannerImage',false);
+        $selectData = array('banner AS banner',false);
 
         $where = array(
 
@@ -1336,17 +1336,17 @@ class Admin extends MY_Controller {
 
         );
 
-        $returnedData = $this->Common_model->select_fields_where('user',$selectData, $where, false, '', '', '','','',false);
+        $returnedData = $this->Common_model->select_fields_where('esic',$selectData, $where, false, '', '', '','','',false);
 
-        $bannerImage = $returnedData[0]->bannerImage;
+        $banner = $returnedData[0]->banner;
 
-        if(!empty($bannerImage) && is_file(FCPATH.'/'.$bannerImage)){
+        if(!empty($banner) && is_file(FCPATH.'/'.$banner)){
 
-            unlink('./'.$bannerImage);
+            unlink('./'.$banner);
 
         }
 
-        $resultUpdate = $this->Common_model->update('user',$where,$insertDataArray);
+        $resultUpdate = $this->Common_model->update('esic',$where,$insertDataArray);
 
         if($resultUpdate === true){
 
@@ -1444,7 +1444,7 @@ class Admin extends MY_Controller {
 
         );
 
-        $returnedData = $this->Common_model->select_fields_where('user',$selectData, $where, false, '', '', '','','',false);
+        $returnedData = $this->Common_model->select_fields_where('esic',$selectData, $where, false, '', '', '','','',false);
 
         $productImage = $returnedData[0]->productImage;
 
@@ -1454,7 +1454,7 @@ class Admin extends MY_Controller {
 
         }
 
-        $resultUpdate = $this->Common_model->update('user',$where,$insertDataArray);
+        $resultUpdate = $this->Common_model->update('esic',$where,$insertDataArray);
 
         if($resultUpdate === true){
 
@@ -1492,7 +1492,7 @@ class Admin extends MY_Controller {
 
         $whereUpdate = array('id' => $userID);
 
-        $this->Common_model->update('user',$whereUpdate,$updateArray);
+        $this->Common_model->update('esic',$whereUpdate,$updateArray);
 
         echo 'OK::'.$fullName.'';
 
@@ -1520,7 +1520,7 @@ class Admin extends MY_Controller {
 
         $whereUpdate = array('id' => $userID);
 
-        $this->Common_model->update('user',$whereUpdate,$updateArray);
+        $this->Common_model->update('esic',$whereUpdate,$updateArray);
 
         echo 'OK::';
 
@@ -1550,7 +1550,7 @@ class Admin extends MY_Controller {
 
         $whereUpdate = array('id' => $userID);
 
-        $this->Common_model->update('user',$whereUpdate,$updateArray);
+        $this->Common_model->update('esic',$whereUpdate,$updateArray);
 
         echo 'OK::'.$website.'';
 
@@ -1580,7 +1580,7 @@ class Admin extends MY_Controller {
 
         $whereUpdate = array('id' => $userID);
 
-        $this->Common_model->update('user',$whereUpdate,$updateArray);
+        $this->Common_model->update('esic',$whereUpdate,$updateArray);
 
         echo 'OK::'.$company.'';
 
@@ -1610,7 +1610,7 @@ class Admin extends MY_Controller {
 
         $whereUpdate = array('id' => $userID);
 
-        $this->Common_model->update('user',$whereUpdate,$updateArray);
+        $this->Common_model->update('esic',$whereUpdate,$updateArray);
 
         echo 'OK::'.$email.'';
 
@@ -1640,7 +1640,7 @@ class Admin extends MY_Controller {
 
         $whereUpdate = array('id' => $userID);
 
-        $this->Common_model->update('user',$whereUpdate,$updateArray);
+        $this->Common_model->update('esic',$whereUpdate,$updateArray);
 
         echo 'OK::'.$ip.'';
 
@@ -1670,7 +1670,7 @@ class Admin extends MY_Controller {
 
         $whereUpdate = array('id' => $userID);
 
-        $this->Common_model->update('user',$whereUpdate,$updateArray);
+        $this->Common_model->update('esic',$whereUpdate,$updateArray);
 
         echo 'OK::'.$acn.'';
 
@@ -1684,9 +1684,9 @@ class Admin extends MY_Controller {
 
         $address = $this->input->post('address');
 
-        $town    = $this->input->post('town');
+        $address_town    = $this->input->post('address_town');
 
-        $state   = $this->input->post('state');
+        $address_state   = $this->input->post('address_state');
 
         if(!isset($userID) || empty($userID)){
 
@@ -1702,17 +1702,17 @@ class Admin extends MY_Controller {
 
         $updateArray['address'] = $address;
 
-        $updateArray['town']    = $town;
+        $updateArray['address_town']    = $address_town;
 
-        $updateArray['state']   = $state;
+        $updateArray['address_state']   = $address_state;
 
 
 
         $whereUpdate = array('id' => $userID);
 
-        $this->Common_model->update('user',$whereUpdate,$updateArray);
+        $this->Common_model->update('esic',$whereUpdate,$updateArray);
 
-        echo 'OK::'.$address.'::'.$town.''.'::'.$state.'';
+        echo 'OK::'.$address.'::'.$address_town.''.'::'.$address_state.'';
 
         exit();
 
@@ -1740,7 +1740,7 @@ class Admin extends MY_Controller {
 
         $whereUpdate = array('id' => $userID);
 
-        $this->Common_model->update('user',$whereUpdate,$updateArray);
+        $this->Common_model->update('esic',$whereUpdate,$updateArray);
 
         echo 'OK::'.$bsName.'';
 
@@ -1788,7 +1788,7 @@ class Admin extends MY_Controller {
 
         $whereUpdate = array('id' => $userID);
 
-        $this->Common_model->update('user',$whereUpdate,$updateArray);
+        $this->Common_model->update('esic',$whereUpdate,$updateArray);
 
         echo 'OK::'.$sectorID.'';
 
@@ -3949,7 +3949,7 @@ class Admin extends MY_Controller {
 
             Web_Address AS Web_Address,
 
-            State_Territory AS State_Territory,
+            address_state_Territory AS address_state_Territory,
 
             Project_Location AS Project_Location,
 
@@ -4337,7 +4337,7 @@ class Admin extends MY_Controller {
 
             $Web_Address        = $this->input->post('webaddress');
 
-            //$State_Territory    = $this->input->post('State_Territory');
+            //$address_state_Territory    = $this->input->post('address_state_Territory');
 
             //$Project_Location   = $this->input->post('Project_Location');
 
@@ -4381,7 +4381,7 @@ class Admin extends MY_Controller {
 
                 'Web_Address'       => $Web_Address,
 
-                //'State_Territory'   => $State_Territory,
+                //'address_state_Territory'   => $address_state_Territory,
 
                 //'Project_Location'  => $Project_Location,
 
@@ -5259,7 +5259,7 @@ class Admin extends MY_Controller {
 
 
 
-        $updateResult = $this->Common_model->update('user',$whereUpdate,$updateData);
+        $updateResult = $this->Common_model->update('esic',$whereUpdate,$updateData);
 
 
 

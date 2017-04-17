@@ -1,12 +1,8 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
 class Admin extends MY_Controller {
-
-
-	function __construct()
-	{
+	function __construct(){
 		parent::__construct();
-
+	
 		define("HOOSK_ADMIN",1);
 		$this->load->helper(array('admincontrol', 'url', 'hoosk_admin'));
 		$this->load->library('session');
@@ -17,13 +13,10 @@ class Admin extends MY_Controller {
 		define ('SITE_NAME', $this->Hoosk_model->getSiteName());
 		define('THEME', $this->Hoosk_model->getTheme());
 		define ('THEME_FOLDER', BASE_URL.'/theme/'.THEME);
-        //$this->load->library('facebook');
 
         $this->load->model("Common_model");
         $this->load->model("Imagecreate_model");
-//        $this->load->model('Users_auth');
         $this->load->helper('cookie');
-//        $this->Users_auth->is_logged_in();
         $this->load->library('resize');
 
         $url = str_replace($_SERVER["HTTP_HOST"], '', BASE_URL);
@@ -31,8 +24,6 @@ class Admin extends MY_Controller {
         $url = str_replace('http://', '', $url);
         $url = str_replace('https://', '', $url);
         define ('DoucmentUrl', $url);
-
-
 	}
 	
 	public function index($status=NULL)
@@ -42,16 +33,16 @@ class Admin extends MY_Controller {
 		$userID   = $this->session->userdata('userID');
 		
 		if($userRole == "1"){
-		$this->data['current']            = $this->uri->segment(2);
-		$this->data['tUsers']             = $this->Hoosk_model->counttUsers();
-		$this->data['total_institution']  = $this->Hoosk_model->institution(); 
-		$this->data['esic_rnd']           = $this->Hoosk_model->esic_rnd();
-		$this->data['c_acceleration_c']   = $this->Hoosk_model->c_acceleration_c();
-        $this->data['Users_By_status']    = $this->Hoosk_model->get_All_Users($status);
-		$this->data['users']              = $this->Hoosk_model->get_tUsers();
-		$this->data['status']             = $this->Common_model->select('esic_status');
-	    $this->data['header']             = $this->load->view('admin/header', $this->data, true);
-	    $this->data['footer']             = $this->load->view('admin/footer', '', true);
+			$this->data['current']            = $this->uri->segment(2);
+			$this->data['tUsers']             = $this->Hoosk_model->counttUsers();
+			$this->data['total_institution']  = $this->Hoosk_model->institution();
+			$this->data['esic_rnd']           = $this->Hoosk_model->esic_rnd();
+			$this->data['c_acceleration_c']   = $this->Hoosk_model->c_acceleration_c();
+	        $this->data['Users_By_status']    = $this->Hoosk_model->get_All_Users($status);
+			$this->data['users']              = $this->Hoosk_model->get_tUsers();
+			$this->data['status']             = $this->Common_model->select('esic_status');
+		    $this->data['header']             = $this->load->view('admin/header', $this->data, true);
+		    $this->data['footer']             = $this->load->view('admin/footer', '', true);
 		
 		 //data table code 
 		 $this->load->view('admin/home', $this->data);
@@ -74,9 +65,9 @@ public function assessment_dashboard(){
             h_user.userID as UserID,
 			CONCAT(`h_user`.`firstName`," ",`h_user`.`lastName`) AS FullName,
             h_user.email AS Email,
-			user.score AS Score,
+			esic.score AS Score,
             ES.id as StatusID,
-			company as Company,  
+			name as Company,  
             ES.color AS color,
              CASE WHEN ES.id > 0 THEN CONCAT("<span class=\'label \' style=\' background-color:",color,"\'> ", ES.status," </span>") ELSE CONCAT ("<span class=\'label label-warning\'> ", ES.status, " </span>") END AS Status 
             ',false);
@@ -84,57 +75,44 @@ public function assessment_dashboard(){
             $joins = array(
                 array(
                     'table' 	=> 'esic_status ES',
-                    'condition' => 'ES.id = user.status',
+                    'condition' => 'ES.id = esic.status',
                     'type' 		=> 'LEFT'
                 ),
 				 array(
                     'table' 	=> 'hoosk_user h_user',
-                    'condition' => 'h_user.userID = user.userID',
+                    'condition' => 'h_user.userID = esic.userID',
                     'type' 		=> 'LEFT'
                 ),
 				
 			 );
         if(!empty($status)){ 
-		    $where =  array('user.status'=>$status);
+		    $where =  array('esic.status'=>$status);
 		    }
 		else{
-			$where = array('user.id>'=>"0");
+			$where = array('esic.id>'=>"0");
 			}
         $addColumns = array(
                 'ViewEditActionButtons' => array('<a href="'.base_url("admin/details/$1").'"><span aria-hidden="true" class="glyphicon glyphicon-edit text-green "></span></a>','UserID')
             );
-            $returnedData = $this->Common_model->select_fields_joined_DT($selectData,'user',$joins,$where,'','','',$addColumns);
-          //  echo  $this->db->last_query();
+            $returnedData = $this->Common_model->select_fields_joined_DT($selectData,'esic',$joins,$where,'','','',$addColumns);
 		   
 			if(!empty($status)){ 
-			return print_r($returnedData);
+				return print_r($returnedData);
+			}else{
+				print_r($returnedData);
 			}
-			else{
-				
-				 print_r($returnedData);
-				}
             return NULL;
-            
-			 
-	    
 	} 
  
-public function upload()
-	{
-
-
+	public function upload(){
 		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		$attachment   = $this->input->post('attachment');
 		$uploadedFile = $_FILES['attachment']['tmp_name']['file'];
 
         //explode to get only folder name
 		 $path = DoucmentUrl.'/images';//change it
-
-
-      //  $path = BASE_URL.'/images';
-
+      // $path = BASE_URL.'/images';
 		$url = BASE_URL.'/images';
-
 		// create an image name
 		$fileName = $attachment['name'];
 		
@@ -304,26 +282,24 @@ public function social_creaditional(){
             h_user.userID as UserID,
 			CONCAT(`h_user`.`firstName`," ",`h_user`.`lastName`) AS FullName,
             h_user.email AS Email,
-			 company AS Company,
-            user.business AS Business,
-            user.score AS Score,
-            user.thumbsUp as thumbsUp,
+			name AS Company,
+            esic.business AS Business,
+            esic.score AS Score,
+            esic.thumbsUp as thumbsUp,
             ES.id as StatusID, 
-            user.Publish as Publish,
+            esic.Publish as Publish,
 			ES.color AS color,
              CASE WHEN ES.id > 0 THEN CONCAT("<span class=\'label \' style=\' background-color:",color,"\'> ", ES.status," </span>") ELSE CONCAT ("<span class=\'label label-warning\'> ", ES.status, " </span>") END AS Status 
             ',false);
-			  /*?>CASE WHEN user.status = 1 THEN CONCAT("<span class=\'label status label-danger\'> ", ES.status," </span>") WHEN user.status = 7 THEN CONCAT ("<span class=\'label status label-success\'> ", ES.status, " </span>") ELSE CONCAT ("<span class=\'label status label-warning\'> ", ES.status, " </span>") END AS Status<?php
-			   CONCAT(`h_user.firstName`," ",`h_user.lastName`) AS FullName, */
             $joins = array(
                 array(
                     'table' 	=> 'esic_status ES',
-                    'condition' => 'ES.id = user.status',
+                    'condition' => 'ES.id = esic.status',
                     'type' 		=> 'LEFT'
                 ),
 				 array(
                     'table' 	=> 'hoosk_user h_user',
-                    'condition' => 'h_user.userID = user.userID',
+                    'condition' => 'h_user.userID = esic.userID',
                     'type' 		=> 'LEFT'
                 )
             );
@@ -332,7 +308,7 @@ public function social_creaditional(){
             $addColumns = array(
                 'ViewEditActionButtons' => array('<a href="'.base_url("admin/details/$1").'"><span aria-hidden="true" class="glyphicon glyphicon-edit text-green "></span></a> &nbsp; <a href="#" data-target=".approval-modal" data-toggle="modal"><i class="fa fa-check"></i></a> &nbsp; <a href="#" data-target=".delete-modal" data-toggle="modal"><i class="fa fa-trash-o"></i></a>','UserID')
             );
-            $returnedData = $this->Common_model->select_fields_joined_DT($selectData,'user',$joins,'','','','',$addColumns);
+            $returnedData = $this->Common_model->select_fields_joined_DT($selectData,'esic',$joins,'','','','',$addColumns);
             print_r($returnedData);
             return NULL;
         }
@@ -360,7 +336,7 @@ public function social_creaditional(){
             $whereUpdate = array( 'userID' 	=> $userID);
             $where2 = array( 'userID'  => $userID);
             //$this->Common_model->delete('hoosk_user',$whereUpdate);
-            $this->Common_model->delete('user',$whereUpdate);
+            $this->Common_model->delete('esic',$whereUpdate);
             $this->Common_model->delete('esic_questions_answers',$where2);
             echo 'OK::';
             return NULL;
@@ -382,7 +358,7 @@ public function social_creaditional(){
             'userID' => $userID,
          );
 
-        $this->Common_model->update('user',$whereUpdate,$updateArray);
+        $this->Common_model->update('esic',$whereUpdate,$updateArray);
         echo 'OK::';
     }
     public function details($userID){   // edit pre asssessment page
@@ -403,23 +379,23 @@ public function social_creaditional(){
             $selectData = array('
                     CONCAT(`h_user`.`firstName`," ",`h_user`.`lastName`) AS FullName,
                     h_user.email as Email,
-                    user_draft.company as Company,
+                    user_draft.name as Company,
                     user_draft.business as Business,
-                    user_draft.businessShortDescription as BusinessShortDesc,
+                    user_draft.long_description as BusinessShortDesc,
                     user_draft.businessShortDescriptionJSON as BusinessShortDescJSON,
-                    user_draft.tinyDescription as tinyDescription,
+                    user_draft.short_description as short_description,
                     user_draft.score as Score,
                     user_draft.logo as Logo,
                     user_draft.productImage as productImage,
-                    user_draft.bannerImage as bannerImage,
+                    user_draft.banner as banner,
                     user_draft.website as Web,
                     user_draft.thumbsUp as thumbsUp,
                     user_draft.business as business,
                     user_draft.address as address,
-					user_draft.street_number as street_number,
-					user_draft.post_code as post_code,
-                    user_draft.town as town,
-                    user_draft.state as state,
+					user_draft.address_street_number as address_street_number,
+					user_draft.address_post_code as address_post_code,
+                    user_draft.address_town as address_town,
+                    user_draft.address_state as address_state,
                     user_draft.acn_number as acn_number,
                     user_draft.expiry_date as expiry_date,
                     user_draft.showExpDate as ShowExpiryDate,
@@ -478,7 +454,7 @@ public function social_creaditional(){
                 'Web' 				=> $returnedData[0]->Web,
                 'Logo' 				=> $returnedData[0]->Logo,
                 'thumbsUp'          => $returnedData[0]->thumbsUp,
-                'bannerImage'       => $returnedData[0]->bannerImage,
+                'banner'       => $returnedData[0]->banner,
                 'productImage'      => $returnedData[0]->productImage,
                 'Email' 			=> $returnedData[0]->Email,
                 'Score' 			=> $returnedData[0]->Score,
@@ -489,10 +465,10 @@ public function social_creaditional(){
                 'FullName' 			=> $returnedData[0]->FullName,
                 'ipAddress'         => $returnedData[0]->ipAddress,
                 'address'           => $returnedData[0]->address,
-                'street_number'     => $returnedData[0]->street_number,
-                'post_code'         => $returnedData[0]->post_code,
-                'town'              => $returnedData[0]->town,
-                'state'             => $returnedData[0]->state,
+                'address_street_number'     => $returnedData[0]->address_street_number,
+                'address_post_code'         => $returnedData[0]->address_post_code,
+                'address_town'              => $returnedData[0]->address_town,
+                'address_state'             => $returnedData[0]->address_state,
                 'acn_number'        => $returnedData[0]->acn_number,
                 'sectorID'          => $returnedData[0]->sectorID,
                 'RnDID'             => $returnedData[0]->RnDID,
@@ -509,7 +485,7 @@ public function social_creaditional(){
                 'corporate_date_value'    => date("d-m-Y", strtotime($returnedData[0]->corporate_date)),
                 'BusinessShortDesc' => $returnedData[0]->BusinessShortDesc,
                 'BusinessShortDescJSON' => $returnedData[0]->BusinessShortDescJSON,
-                'tinyDescription' => $returnedData[0]->tinyDescription,
+                'short_description' => $returnedData[0]->short_description,
                 'ShowExpiryDate' => $returnedData[0]->ShowExpiryDate
             );
             $QuestionNotAnswered = array();
@@ -567,57 +543,58 @@ public function social_creaditional(){
            $selectData = array('
                     CONCAT(`h_user`.`firstName`," ",`h_user`.`lastName`) AS FullName,
                     h_user.email as Email,
-                    user.company as Company,
-                    user.business as Business,
-                    user.businessShortDescription as BusinessShortDesc,
-                    user.businessShortDescriptionJSON as BusinessShortDescJSON,
-                    user.tinyDescription as tinyDescription,
-                    user.score as Score,
-                    user.logo as Logo,
-                    user.productImage as productImage,
-                    user.bannerImage as bannerImage,
-                    user.website as Web,
-                    user.thumbsUp as thumbsUp,
-                    user.business as business,
-                    user.address as address,
-					user.street_number as street_number,
-					user.post_code as post_code,
-                    user.town as town,
-                    user.state as state,
-                    user.acn_number as acn_number,
-                    user.expiry_date as expiry_date,
-                    user.showExpDate as ShowExpiryDate,
-                    user.corporate_date as corporate_date,
-                    user.added_date as added_date,
-                    user.ipAddress as ipAddress,
-                    user.sectorID as sectorID,
-                    user.RnDID as RnDID,
-                    user.AccCoID as AccCoID,
-                    user.AccID as AccID,
-                    user.inID as inID,
+                    esic.name as Company,
+                    esic.business as Business,
+                    esic.long_description as BusinessShortDesc,
+                    esic.businessShortDescriptionJSON as BusinessShortDescJSON,
+                    esic.short_description as short_description,
+                    esic.score as Score,
+                    esic.logo as Logo,
+                    esic.productImage as productImage,
+                    esic.banner as banner,
+                    esic.website as Web,
+                    esic.thumbsUp as thumbsUp,
+                    esic.business as business,
+                    esic.address as address,
+                    esic.address_street_name as address_street_name,
+					esic.address_street_number as address_street_number,
+					esic.address_post_code as address_post_code,
+                    esic.address_town as address_town,
+                    esic.address_state as address_state,
+                    esic.acn_number as acn_number,
+                    esic.expiry_date as expiry_date,
+                    esic.showExpDate as ShowExpiryDate,
+                    esic.corporate_date as corporate_date,
+                    esic.added_date as added_date,
+                    esic.ipAddress as ipAddress,
+                    esic.sectorID as sectorID,
+                    esic.RnDID as RnDID,
+                    esic.AccCoID as AccCoID,
+                    esic.AccID as AccID,
+                    esic.inID as inID,
                     ESEC.sector as sector,
-                    user.Publish as Publish
+                    esic.Publish as Publish
 				   ',false);
 
         $joins = array(
             array(
                 'table' 	=> 'esic_status ES',
-                'condition' => 'ES.id = user.status',
+                'condition' => 'ES.id = esic.status',
                 'type' 		=> 'LEFT'
             ),
             array(
                 'table' 	=> 'esic_sectors ESEC',
-                'condition' => 'ESEC.id = user.sectorID',
+                'condition' => 'ESEC.id = esic.sectorID',
                 'type' 		=> 'LEFT'
             ),
 			 array(
                 'table' 	=> 'hoosk_user h_user',
-                'condition' => 'h_user.userID = user.userID',
+                'condition' => 'h_user.userID = esic.userID',
                 'type' 		=> 'LEFT'
             )
         );
 
-        $returnedData = $this->Common_model->select_fields_where_like_join('user',$selectData,$joins,$where,FALSE,'','');
+        $returnedData = $this->Common_model->select_fields_where_like_join('esic',$selectData,$joins,$where,FALSE,'','');
 
         $returnedData2 =  $this->_getUserQAnswers($userID,1); //1 is for ESIC Pre Assessments
 /*        echo '<pre>';
@@ -645,7 +622,7 @@ public function social_creaditional(){
                 'Web' 				=> $returnedData[0]->Web,
                 'Logo' 				=> $returnedData[0]->Logo,
                 'thumbsUp'          => $returnedData[0]->thumbsUp,
-                'bannerImage'       => $returnedData[0]->bannerImage,
+                'banner'       => $returnedData[0]->banner,
                 'productImage'      => $returnedData[0]->productImage,
                 'Email' 			=> $returnedData[0]->Email,
                 'Score' 			=> $returnedData[0]->Score,
@@ -656,10 +633,11 @@ public function social_creaditional(){
                 'FullName' 			=> $returnedData[0]->FullName,
                 'ipAddress'         => $returnedData[0]->ipAddress,
                 'address'           => $returnedData[0]->address,
-                'street_number'     => $returnedData[0]->street_number,
-                'post_code'         => $returnedData[0]->post_code,
-                'town'              => $returnedData[0]->town,
-                'state'             => $returnedData[0]->state,
+                'address_street_name'     => $returnedData[0]->address_street_name,
+                'address_street_number'     => $returnedData[0]->address_street_number,
+                'address_post_code'         => $returnedData[0]->address_post_code,
+                'address_town'              => $returnedData[0]->address_town,
+                'address_state'             => $returnedData[0]->address_state,
                 'acn_number'        => $returnedData[0]->acn_number,
                 'sectorID'          => $returnedData[0]->sectorID,
                 'RnDID'             => $returnedData[0]->RnDID,
@@ -676,7 +654,7 @@ public function social_creaditional(){
                 'corporate_date_value'    => date("d-m-Y", strtotime($returnedData[0]->corporate_date)),
                 'BusinessShortDesc' => $returnedData[0]->BusinessShortDesc,
                 'BusinessShortDescJSON' => $returnedData[0]->BusinessShortDescJSON,
-                'tinyDescription' => $returnedData[0]->tinyDescription,
+                'short_description' => $returnedData[0]->short_description,
                 'ShowExpiryDate' => $returnedData[0]->ShowExpiryDate
             );
             $QuestionNotAnswered = array();
@@ -736,7 +714,7 @@ public function social_creaditional(){
         }
         $where= array("userID"=>$userID);
         $updateData = array("status"=>1);
-        $this->Common_model->update('user',$where,$updateData);
+        $this->Common_model->update('esic',$where,$updateData);
         $selectData = array('score AS score',false);
         $where = array(
             'questionID' => $dataQuestionId,
@@ -766,7 +744,7 @@ public function social_creaditional(){
         }
         $selectData2 = array('score AS score',false);
         $where2 = array('id' => $userID);
-        $returnedData2 = $this->Common_model->select_fields_where('user',$selectData2, $where2, false, '', '', '','','',false);
+        $returnedData2 = $this->Common_model->select_fields_where('esic',$selectData2, $where2, false, '', '', '','','',false);
         $TotalOldscore =  $returnedData[0]->score;
         $Totalscore    = ($returnedData[0]->score-$oldScore)+$score;
         if($Totalscore > 0){
@@ -784,13 +762,13 @@ public function social_creaditional(){
         $updateArray2 = array();
         $updateArray2['score'] = $Totalscore;
         $whereUpdate2 = array('id' => $userID);
-        $this->Common_model->update('user',$whereUpdate2,$updateArray2);
+        $this->Common_model->update('esic',$whereUpdate2,$updateArray2);
         echo 'OK::'.$score.'::'.$ScorePercentage.'::'.$TotalOldscore.'::'.$Totalscore;
         if(isset($tableName) && !empty($tableName) && isset($SpAnswervalue) && !empty($SpAnswervalue) && isset($tableUpdateID) && !empty($tableUpdateID)){
             $updateArray3 = array();
             $updateArray3[$tableUpdateID] = $SpAnswervalue;
             $whereUpdate3 = array('id' => $userID);
-            $this->Common_model->update('user',$whereUpdate3,$updateArray3);
+            $this->Common_model->update('esic',$whereUpdate3,$updateArray3);
         }
         $this->Common_model->save_darft($userID);
         exit();
@@ -816,26 +794,6 @@ public function social_creaditional(){
 		$uID_encoded = $this->input->post('uID');
         if(!empty($uID_encoded))
 		$uID = base64_decode($uID_encoded);
-
-
-
-
-
-/*        $userID        = $this->input->post('userID');
-        $descDataText  = $this->input->post('descDataText');
-        if(!isset($userID) || empty($userID) || !isset($descDataText) || empty($descDataText)){
-            echo "FAIL::Something went wrong with the post, Please Contact System Administrator for Further Assistance";
-            return;
-        }
-
-        $updateArray = array();
-        $updateArray['businessShortDescription'] = $descDataText;
-        $whereUpdate = array('userID' => $userID);
-        $this->Common_model->update('user',$whereUpdate,$updateArray);
-        echo 'OK::'.urldecode($descDataText).'';
-        exit();*/
-
-
 		//Haider COde. Changed for Editor.
 		$this->load->library('Sioen');
 		$this->Hoosk_model->UpdateEsicPageDescription($uID);
@@ -854,7 +812,7 @@ public function social_creaditional(){
         }
 
         $updateArray = array();
-        $updateArray['tinyDescription'] = $descDataText;
+        $updateArray['short_description'] = $descDataText;
         $updateArray['status'] = 1;
         $whereUpdate = array('userID' => $userID);
         $this->Common_model->save_darft($userID);
@@ -867,7 +825,7 @@ public function social_creaditional(){
     	$user_table = 'user_draft';
  		if($userRole == 1){
  			//admin
- 			$user_table = 'user';
+ 			$user_table = 'esic';
  		}
         $userID = $this->input->post('userID');
         $allowedExt = array('jpeg','jpg','png','gif');
@@ -936,9 +894,9 @@ public function social_creaditional(){
         $insertDataArray = array();
 
         //For Logo Upload
-        if(isset($_FILES['bannerImage']['name']))
+        if(isset($_FILES['banner']['name']))
         {
-            $FileName = $_FILES['bannerImage']['name'];
+            $FileName = $_FILES['banner']['name'];
             $explodedFileName = explode('.',$FileName);
             $ext = end($explodedFileName);
             if(!in_array(strtolower($ext),$allowedExt))
@@ -948,13 +906,13 @@ public function social_creaditional(){
             }else
             {
 
-                $FileName = "bannerImage".$userID."_".time().".".$ext;
+                $FileName = "banner".$userID."_".time().".".$ext;
                 if(!is_dir($uploadDirectory)){
                     mkdir($uploadDirectory, 0755, true);
                 }
 
-                move_uploaded_file($_FILES['bannerImage']['tmp_name'],$uploadPath.$FileName);
-                $insertDataArray['bannerImage'] = $uploadDBPath.$FileName;
+                move_uploaded_file($_FILES['banner']['tmp_name'],$uploadPath.$FileName);
+                $insertDataArray['banner'] = $uploadDBPath.$FileName;
             }
         }else{
             echo "FAIL::Banner Image Is Required";
@@ -965,14 +923,14 @@ public function social_creaditional(){
             echo "FAIL::Something went wrong with the Post, Please Contact System Administrator For Further Assistance.";
             exit;
         }
-        $selectData = array('bannerImage AS bannerImage',false);
+        $selectData = array('banner AS banner',false);
         $where = array(
             'userID' => $userID
         );
         $returnedData = $this->Common_model->select_fields_where('user_draft',$selectData, $where, false, '', '', '','','',false);
-        $bannerImage = $returnedData[0]->bannerImage;
-        if(!empty($bannerImage) && is_file(FCPATH.'/'.$bannerImage)){
-            unlink('./'.$bannerImage);
+        $banner = $returnedData[0]->banner;
+        if(!empty($banner) && is_file(FCPATH.'/'.$banner)){
+            unlink('./'.$banner);
         }
         $this->Common_model->save_darft($userID);
         $resultUpdate = $this->Common_model->update('user_draft',$where,$insertDataArray);
@@ -1037,22 +995,6 @@ public function social_creaditional(){
             echo "FAIL::Something went wrong during Update, Please Contact System Administrator";
         }
     }
-    public function updatename(){
-        $userID    = $this->input->post('userID');
-        $fullName  = $this->input->post('fullName');
-        if(!isset($userID) || empty($userID) || !isset($fullName) || empty($fullName)){
-            echo "FAIL::Something went wrong with the post, Please Contact System Administrator for Further Assistance";
-            return;
-        }
-
-        $updateArray = array();
-        $updateArray['firstName'] = $fullName;
-        $updateArray['lastName']  = '';
-        $whereUpdate = array('id' => $userID);
-        $this->Common_model->update('hoosk_user',$whereUpdate,$updateArray);
-        echo 'OK::'.$fullName.'';
-        exit();
-    }
     public function resetThumbsUp(){
         $userID    = $this->input->post('userID');
         if(!isset($userID) || empty($userID)){
@@ -1084,21 +1026,21 @@ public function social_creaditional(){
         echo 'OK::'.$website.'';
         exit();
     }
-    public function updatecompany(){
+    public function updatename(){
         $userID    = $this->input->post('userID');
-        $company  = $this->input->post('company');
-        if(!isset($userID) || empty($userID) || !isset($company) || empty($company)){
+        $name  = $this->input->post('name');
+        if(!isset($userID) || empty($userID) || !isset($name) || empty($name)){
             echo "FAIL::Something went wrong with the post, Please Contact System Administrator for Further Assistance";
             return;
         }
 
         $updateArray = array();
-        $updateArray['Company'] = $company;
+        $updateArray['Company'] = $name;
         $updateArray['status'] = 1;
         $whereUpdate = array('id' => $userID);
         $this->Common_model->save_darft($userID);
         $this->Common_model->update('user_draft',$whereUpdate,$updateArray);
-        echo 'OK::'.$company.'';
+        echo 'OK::'.$name.'';
         exit();
     }
     public function updateemail(){
@@ -1149,28 +1091,29 @@ public function social_creaditional(){
         exit();
     }
     public function updateAddress(){
-        $userID         = $this->input->post('userID');
-        $street_number  = $this->input->post('street_number'); 
-	    $street_name    = $this->input->post('street_name');
-        $town           = $this->input->post('town');
-        $state          = $this->input->post('state');
-		$post_input     = $this->input->post('post_input');
+        $userID         		= $this->input->post('userID');
+        $address  				= $this->input->post('address');
+        $address_street_number  = $this->input->post('address_street_number');
+	    $address_street_name    = $this->input->post('address_street_name');
+        $address_town           = $this->input->post('address_town');
+        $address_state          = $this->input->post('address_state');
+		$address_post_code      = $this->input->post('address_post_code');
         if(!isset($userID) || empty($userID)){
             echo "FAIL::Something went wrong with the post, Please Contact System Administrator for Further Assistance";
             return;
         }
 
         $updateArray = array();
-		$updateArray['address']       = $street_name;
-        $updateArray['street_number'] = $street_number;
-		$updateArray['town']          = $town;
-        $updateArray['state']         = $state;
-		$updateArray['post_code']     = $post_input;
+		$updateArray['address']       = $address;
+        $updateArray['address_street_number'] = $streetnumber;
+		$updateArray['address_town']          = $address_town;
+        $updateArray['address_state']         = $address_state;
+		$updateArray['address_post_code']     = $post_input;
 
         $whereUpdate = array('userID' => $userID);
         $this->Common_model->save_darft($userID);
         $this->Common_model->update('user_draft',$whereUpdate,$updateArray);
-        echo 'OK::'.$street_number.'::'.$street_name.''.'::'.$town.''.'::'.$state.''.'::'.$post_input.'';
+        echo 'OK::'.$address_street_number.'::'.$street_name.''.'::'.$address_town.''.'::'.$address_state.''.'::'.$post_input.'';
         exit();
     }
     public function updatebsName(){
@@ -2352,7 +2295,7 @@ public function manage_acc_commercials($param= Null){
             Member AS Member,
 			Project_Location AS Project_Location,
             Web_Address AS Web_Address,
-            State_Territory AS State_Territory,
+            address_state_Territory AS address_state_Territory,
             Project_Location AS Project_Location,
             Project_Title AS Project_Title,
             Project_Summary AS Project_Summary,
@@ -2546,7 +2489,7 @@ public function manage_acc_commercials($param= Null){
             $id                 = $this->input->post('id');
             $Member             = $this->input->post('Member');
             $Web_Address        = $this->input->post('webaddress');
-            //$State_Territory    = $this->input->post('State_Territory');
+            //$address_state_Territory    = $this->input->post('address_state_Territory');
             //$Project_Location   = $this->input->post('Project_Location');
             $Project_Title      = $this->input->post('projecttitle');
             //$Project_Summary    = $this->input->post('Project_Summary');
@@ -2568,7 +2511,7 @@ public function manage_acc_commercials($param= Null){
             $updateData = array(
                 'Member'            => $Member,
                 'Web_Address'       => $Web_Address,
-                //'State_Territory'   => $State_Territory,
+                //'address_state_Territory'   => $address_state_Territory,
                 //'Project_Location'  => $Project_Location,
                 'Project_Title'     => $Project_Title,
                 //'Project_Summary'   => $Project_Summary,
@@ -3018,7 +2961,7 @@ public function manage_accelerators($param= Null){
             'showExpDate' => $showExpDate
         );
 
-        $updateResult = $this->Common_model->update('user',$whereUpdate,$updateData);
+        $updateResult = $this->Common_model->update('esic',$whereUpdate,$updateData);
 
         if($updateResult === true){
             echo "OK::Successfully Updated";
@@ -3067,7 +3010,7 @@ public function  UpDateSocials(){
             h_user.userID as UserID,
 			CONCAT(`h_user`.`firstName`," ",`h_user`.`lastName`) AS FullName,
             h_user.email AS Email,
-			company AS Company,
+			name AS Company,
             ES.id as StatusID, 
             CASE WHEN user_draft.Publish = 1 THEN CONCAT("<span class=\'label status label-success pub\'> Published </span>") WHEN user_draft.Publish = 0 THEN CONCAT ("<span class=\'label status label-danger\'>Draft</span>") ELSE CONCAT ("<span class=\'label status label-warning\'> ", Publish, " </span>") END AS  Publish,
             ES.color AS color,
@@ -3115,7 +3058,7 @@ public function publish_assessment_list(){
 
 
     public function fb(){
-        $data['user'] = array();
+        $data['esic'] = array();
 
         // Check if user is logged in
         if ($this->facebook->is_authenticated())

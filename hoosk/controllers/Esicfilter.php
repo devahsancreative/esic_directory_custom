@@ -10,7 +10,7 @@ class Esicfilter extends CI_Controller{
     public function index($uriSegment = NULL){
         $selectData = array('id,logo',false);
         $where = array('Publish != 0');
-        $data['company'] = $this->Common_model->select_fields_where('user',$selectData, $where, false, '', '', '','','',false);
+        $data['company'] = $this->Common_model->select_fields_where('esic',$selectData, $where, false, '', '', '','','',false);
         $this->load->view("box_listing/filter_list",$data);
     }
 }

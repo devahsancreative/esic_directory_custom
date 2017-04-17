@@ -45,6 +45,11 @@
         </a>
         <ul class="nav navbar-nav login_button">
             <li>
+                <a href="<?= BASE_URL ?>/register" >
+                    <i class="fa fa-user-plus" aria-hidden="true"></i> Sign Up
+                </a>
+            </li>
+            <li>
                 <a href="<?= BASE_URL ?>/admin" >
                     <i class="fa fa-sign-in" aria-hidden="true"></i> login
                 </a>

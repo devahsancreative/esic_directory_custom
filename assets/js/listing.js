@@ -1,8 +1,19 @@
+jQuery(document).ready(function($) {
+    if($("select").length > 0){
+        $("select").select2();
+    }
+    if($(".date_picker").length > 0){
+        $('.date_picker').datepicker({
+            dateFormat: 'yy-mm-dd'
+        });
+    }
+});
 $(function(){
+    
 	if($("textarea").length > 0){
 	  	tinymce.init({
 			  selector: 'textarea',
-			  height: 300,
+			  height: 200,
 			  menubar: false,
 			  browser_spellcheck : true,
 			  contextmenu: false,
@@ -12,7 +23,7 @@ $(function(){
 			    'searchreplace visualblocks code fullscreen',
 			    'insertdatetime media jbimages table contextmenu paste code'
 			  ],
-			  toolbar: 'spellchecker undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | jbimages | media | code',
+			  toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | jbimages | media | code',
 			  content_css: '//www.tinymce.com/css/codepen.min.css',
 			  relative_urls: false
 		});
@@ -123,6 +134,21 @@ $(function(){
         modal.find(".modal-footer").find('#updateImage').attr('data-type',type);
     });
 
+    $(".publish-modal").on("shown.bs.modal", function (e) {
+        var button = $(e.relatedTarget); // Button that triggered the modal
+        var ID = button.parents("tr").attr("data-id");
+        var esicName = button.parents("tr").find(".esicName").text();
+        var currentPublishStatusID = button.parents("tr").find(".Publish-Status").attr("data-PublishStatusID");
+        var modal = $(this);
+        modal.find("input#hiddenUserID").val(ID);
+        var publishText = 'Publish';
+        if(currentPublishStatusID == 1){
+            publishText = 'UnPublish';
+        }
+        $("#publishStatusID").val(currentPublishStatusID);
+        $("#EsicNameTextBox").text(esicName);
+        $("#publishStatusTextBox").text(publishText);
+    });
 
 //    When New Logo is Selected
     $("#update-logo-file").change(function(){
@@ -131,7 +157,9 @@ $(function(){
     $("#update-image-file").change(function(){
         readURL(this,'#image-show');
     });
-
+    $("#product-file").change(function(){
+        readURL(this,'#product-show');
+    });
     $("#banner-file").change(function(){
         readURL(this,'#banner-show');
     });
@@ -210,6 +238,42 @@ $(function(){
             reader.readAsDataURL(input.files[0]);
         }
     });
+
+
+    $("#yesPublish").on("click", function () {
+        var hiddenModalUserID   = $(this).parents(".modal-content").find("#hiddenUserID").val();
+        var publishStatusID  = $(this).parents(".modal-content").find("#publishStatusID").val();
+        if (hiddenModalUserID == '') {
+            hiddenModalUserID = $(this).attr('data-id');
+        }
+         var actionToPerform = "publish";
+        if(publishStatusID == 1){
+            actionToPerform = "unpublish";
+        }
+        var postData = {
+            id: hiddenModalUserID, 
+            actionPerform: actionToPerform, 
+            currentValue: publishStatusID
+        };
+        $.ajax({
+            url: baseUrl + "admin/"+ControllerRouteManage+"/PublishAction",
+            data: postData,
+            type: "POST",
+            success: function (output) {
+                var data = output.split("::");
+                if (data[0] == 'OK') {
+                    oTable.fnDraw();
+                    $('.publish-modal').modal('hide');
+                }
+                if(data[3]){
+                    Haider.notification(data[1],data[2],data[3]);
+                }else{
+                    Haider.notification(data[1],data[2]);
+                }
+            }
+        });
+    });
+
 });
 
 //Function for Rendering Image

@@ -49,7 +49,7 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 
-<div class="wrapper">
+<div class="wrapper compo-header">
 
     <header class="main-header">
         <!-- Logo -->

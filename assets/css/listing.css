@@ -1,3 +1,45 @@
+section.form-container{
+    margin-top: 80px;
+    min-height: 50vh;
+    background-color: #ffffff;
+    box-shadow: 0 0 9px rgba(0,0,0,0.3)
+}
+section.form-container .img-logo {
+    max-width: 200px;
+}
+section.form-container label {
+    margin-left: 0px;
+}
+.multiple-item-container{
+    background: #ddd;
+    padding: 5px;
+    margin: 10px 5px;
+}
+.multiple-item-container span{
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    padding: 5px 10px;
+    display: inline-block;
+    margin: 5px;
+    font-size: 12px;
+}
+body .select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background-color: #3c8dbc;
+    border-color: #367fa9;
+    padding: 1px 10px;
+    color: #fff;
+}
+body .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+    color: #000;
+}
+body .select2-container--default.select2-container--focus .select2-selection--multiple {
+    border: 1px solid #d2d6de;
+    outline: 0;
+}
+body .select2-container .select2-selection--single {
+    height: 36px;
+}
 .centerLogo {
     text-align: center;
 }
