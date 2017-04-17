@@ -239,17 +239,17 @@ class Esic_model extends CI_Model{
     		return $query->result_array();
     }
     public function  get_user_Social($id=NULL){  // use to get socail link for backend
-    	    $this->db->where('Fk_userID',$id);
+    	    $this->db->where('userID',$id);
             $this->db->from('esic_social');
             $query = $this->db->get();
     		return $query->result();
     }
     public function update_social($id=NULL,$data=NULL,$data2=NULL){
-		$this->db->where('Fk_userID',$id);
+		$this->db->where('userID',$id);
 		$this->db->from('esic_social');
 		$query = $this->db->get();
 		if ($query->num_rows() > 0){
-		  $this->db->where('Fk_userID',$id);	
+		  $this->db->where('userID',$id);
           $this->db->update('esic_social',$data);
 		  return "ok";
         }else{

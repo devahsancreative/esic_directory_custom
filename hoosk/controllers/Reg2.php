@@ -201,7 +201,7 @@ class Reg2 extends MY_Controller {
 	  
 	  
 	  $social_url = array(
-	                'Fk_userID'   => $userID,
+	                'userID'   => $userID,
 		            'facebook'    => $this->input->post('facebook'),
 					'company'     => $company,                            //just use to get socail data 
 		            'twitter'     => $this->input->post('twitter'),
