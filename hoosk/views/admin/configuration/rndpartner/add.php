@@ -15,12 +15,12 @@
                                 <input type="hidden" id="hiddenListID" value="">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="IDNumberTextBox">ID Number:</label>
-                                        <input type="text" name="IDNumber" id="IDNumberTextBox" class="form-control" />
+                                        <label for="NameTextBox">R&D Partner Name:</label>
+                                        <input type="text" name="Name" id="NameTextBox" class="form-control" />
                                     </div>
                                     <div class="form-group">
-                                        <label for="NameTextBox">Name:</label>
-                                        <input type="text" name="Name" id="NameTextBox" class="form-control" />
+                                        <label for="IDNumberTextBox">ID Number:</label>
+                                        <input type="text" name="IDNumber" id="IDNumberTextBox" class="form-control" />
                                     </div>
                                     <div class="form-group">
                                         <label for="ANZSRCBox">ANZSRC</label>

@@ -14,8 +14,9 @@
                             <div class="row">
                                 <input type="hidden" id="hiddenListID" value="">
                                 <div class="col-md-12">
+                                    <label for="<?= $ListingLabel ; ?>DetailBox"><?= $ListingLabel ; ?> Details :</label>
                                     <div class="form-group">
-                                        <label for="NameTextBox">Name</label>
+                                        <label for="NameTextBox"><?= $ListingLabel ; ?> Name</label>
                                         <input type="text" name="Name" id="NameTextBox" class="form-control" />
                                     </div>
                                     <div class="form-group">

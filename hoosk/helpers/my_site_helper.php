@@ -16,6 +16,8 @@ if(!function_exists('checkAdminRole')){
         return true;
     }
 }
+
+
 /**
  * @function checkPostExist 
  */

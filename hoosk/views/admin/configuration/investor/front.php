@@ -1,4 +1,3 @@
-
         <div class="row">
             <div class="col-md-12">
                 <form action="<?= base_url().$ControllerRouteName.'/New';?>" method="post" class="form" enctype="multipart/form-data">
@@ -9,32 +8,35 @@
                         <div class="box-body">
                             <div class="row">
                                 <input type="hidden" id="hiddenListID" value="">
+                                <!--Blade Version Of Codeigniter -->
+                                <?= $userFieldsView; ?>
                                 <div class="col-md-12">
-                                    <div class="form-group">
+                                    <label for="InvestorDetailBox">Investor Details :</label>
+                                    <div class="form-group col-sm-4 col-md-3">
                                         <label for="NameTextBox">Name:</label>
                                         <input type="text" name="name" id="NameTextBox" class="form-control" />
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group col-sm-4 col-md-3">
                                         <label for="PhoneTextBox">Phone:</label>
                                         <input type="text" name="phone" id="PhoneTextBox" class="form-control" />
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group col-sm-4 col-md-3">
                                         <label for="EmailBox">Email:</label>
                                         <input type="text" name="email" id="EmailBox" class="form-control" />
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group col-sm-4 col-md-3">
                                         <label for="WebsiteBox">Website:</label>
                                         <input type="text" name="website" id="WebsiteBox" class="form-control" />
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group col-sm-4 col-md-3">
                                         <label for="CompanyNameBox">Company Name:</label>
                                         <input type="text" name="company_name" id="CompanyNameBox" class="form-control" />
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group col-sm-4 col-md-3">
                                         <label for="CompanyEmailBox">Company Email:</label>
                                         <input type="text" name="company_email" id="CompanyEmailBox" class="form-control" />
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group col-sm-12 col-md-12">
                                         <label for="AddressBox">Address :</label>
                                         <div class="row">
                                             <div class="form-group col-lg-2">
@@ -63,7 +65,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group col-sm-6 col-md-6">
                                         <label for="investorTypeFlagBox">Investor Type:</label>
                                         <select id="investorTypeFlagBox" name="investor_type_id" class="form-control">    
                                             <option value="">Select Investor Type</option>                  
@@ -78,7 +80,7 @@
                                             ?>
                                         </select>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group col-sm-6 col-md-6">
                                         <label for="amountBox">Preferred Investment Amount:</label>
                                         <select id="amountBox" name="preferred_investment_amount" class="form-control ">                                 
                                            <option value="">Select Amount</option>
@@ -93,7 +95,7 @@
                                             ?>
                                         </select>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group col-sm-6 col-md-6">
                                         <label for="industiresBox">Preferred Investment Industires:</label>
                                          <select id="industiresBox" name="preferred_investment_industires[]" class="form-control js-example-basic-multiple" multiple>
                                             <?php    
@@ -107,7 +109,7 @@
                                             ?>
                                         </select>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group col-sm-6 col-md-6">
                                         <label for="esicStatuesBox">Preferred ESIC Status:</label>
                                          <select id="esicStatuesBox" name="preferred_esic_status_ids[]" class="form-control js-example-basic-multiple" multiple>
                                             <option value="All">All</option>
@@ -122,7 +124,7 @@
                                             ?>
                                         </select>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group col-sm-12 col-md-12">
                                         <label for="AboutBox">About:</label>
                                         <textarea type="text" name="about" id="AboutBox" class="form-control"> </textarea>
                                     </div>

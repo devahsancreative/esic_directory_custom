@@ -49,6 +49,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 
+
+$route['admin/login'] 		= "Login/login";
+$route['admin/logout'] 		= "Login/logout";
+$route['admin/login/check'] = "Login/loginCheck";
+
+
 $route['register'] = "Register/index";
 $route['Register/createmember'] = "Register/signup";
 
@@ -61,9 +67,6 @@ $route['admin'] = "Admin";
 $route['admin/status/(:any)'] = "Admin/index/$1";
 $route['admin/assessment_dashboard'] = "Admin/assessment_dashboard";
 $route['admin/assessment_dashboard/(:any)'] = "Admin/assessment_dashboard/$1";
-$route['admin/login'] = "Admin/login";
-$route['admin/login/check'] = "Admin/loginCheck";
-$route['admin/logout'] = "Admin/logout";
 $route['admin/users'] = "Users";
 $route['admin/users/new'] = "Users/addUser";
 $route['admin/users/new/add'] = "Users/confirm";
@@ -157,7 +160,7 @@ $route['Investor/Add']    	   	= "Investor/Add";
 $route['Investor/AddSave']      = "Investor/AddSave";
 $route['Investor/Edit/(:any)']  = "Investor/Edit/$1";
 $route['Investor/EditSave']     = "Investor/EditSave";
-
+$route['Investor']  	= "Investor/FrontForm";
 $route['investor-pre-assessment']  	= "Investor/investor_form";
 
 

@@ -9,8 +9,10 @@
                         <div class="box-body">
                             <div class="row">
                                 <input type="hidden" id="hiddenListID" value="">
+                                <?= $userFieldsView; ?>
                                 <div class="col-md-12">
-                                    <div class="row">
+                                <label for="<?= $ListingLabel ; ?>DetailBox"><?= $ListingLabel ; ?> Details :</label>
+                                    <!--div class="row"-->
                                         <div class="col-xs-12 col-sm-3 col-md-3">
                                             <div class="form-group">
                                                 <label for="NameTextBox">Name</label>
@@ -35,32 +37,31 @@
                                                 <input type="text" name="Website" id="WebsiteBox" class="form-control" />
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
+                                </div>
+                                <div class="col-md-12">
                                         <label for="AddressBox">Address :</label>
-                                        <div class="row">
-                                            <div class="form-group col-md-2">
-                                                <label for="address_streetNumber">Street Number</label>
-                                                <input type="text" name="address_streetNumber" id="address_streetNumber" class="form-control">
-                                            </div>
-                                            <div class="form-group col-md-2">
-                                                <label for="address_streetName">Street Name</label>
-                                                <input type="text" name="address_streetName" id="address_streetName" class="form-control">
-                                            </div>
-                                            <div class="form-group col-md-2">
-                                                <label for="address_town">Town</label>
-                                                <input type="text" name="address_town" id="address_town" class="form-control">
-                                            </div>
-                                            <div class="form-group col-md-2">
-                                                <label for="address_state">State</label>
-                                                <input type="text" name="address_state" id="address_state" class="form-control">
-                                            </div>
-                                            <div class="form-group col-md-2">
-                                                <label for="address_postCode">Post Code</label>
-                                                <input type="text" name="address_postCode" id="address_postCode" class="form-control">
-                                            </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="address_streetNumber">Street Number</label>
+                                            <input type="text" name="address_streetNumber" id="address_streetNumber" class="form-control">
                                         </div>
-                                    </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="address_streetName">Street Name</label>
+                                            <input type="text" name="address_streetName" id="address_streetName" class="form-control">
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="address_town">Town</label>
+                                            <input type="text" name="address_town" id="address_town" class="form-control">
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="address_state">State</label>
+                                            <input type="text" name="address_state" id="address_state" class="form-control">
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="address_postCode">Post Code</label>
+                                            <input type="text" name="address_postCode" id="address_postCode" class="form-control">
+                                        </div>
+                                </div>
+                                <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="ShortDescriptionBox">Short Description</label>
                                         <textarea type="text" name="ShortDescription" id="ShortDescriptionBox" class="form-control"> </textarea>

@@ -9,7 +9,9 @@
                         <div class="box-body">
                             <div class="row">
                                 <input type="hidden" id="hiddenListID" value="">
+                                <?= $userFieldsView; ?>
                                 <div class="col-md-12">
+                                    <label for="RndDetailBox">R&D Partner Details :</label>
                                     <div class="form-group">
                                         <label for="IDNumberTextBox">ID Number:</label>
                                         <input type="text" name="IDNumber" id="IDNumberTextBox" class="form-control" />

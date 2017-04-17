@@ -9,29 +9,27 @@
                         <div class="box-body">
                             <div class="row">
                                 <input type="hidden" id="hiddenListID" value="">
+                                <?= $userFieldsView; ?>
                                 <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="NameTextBox">Name</label>
+                                    <label for="UserDetailBox">Accelerator Details :</label>
+                                    <div class="form-group col-md-4">
+                                        <label for="NameTextBox">Accelerators Name</label>
                                         <input type="text" name="name" id="NameTextBox" class="form-control" />
-                                    </div>
-                                    <div class="form-group">
+                                    </div> 
+                                    <div class="form-group col-md-4">
                                         <label for="WebsiteBox">Website</label>
                                         <input type="text" name="website" id="WebsiteBox" class="form-control" />
                                     </div>
-                                    <!--Address with multiple columns-->
-                                    <div class="form-group">
-                                        <label for="AddressBox">Address Fields:</label>
-                                        <div class="row">
-                                            <div class="form-group col-lg-2">
-                                                <label for="address">Address</label>
-                                                <input type="text" name="address" id="address" class="form-control">
-                                            </div>
-                                            <div class="form-group col-lg-2">
-                                                <label for="post_code">Post Code</label>
-                                                <input type="text" name="post_code" id="post_code" class="form-control">
-                                            </div>
-                                        </div>
+                                    <div class="form-group col-md-4">
+                                            <label for="address">Address</label>
+                                            <input type="text" name="address" id="address" class="form-control">
                                     </div>
+                                    <div class="form-group col-md-4">
+                                            <label for="post_code">Post Code</label>
+                                            <input type="text" name="post_code" id="post_code" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
                                     <div class="form-group"> 
                                         <label for="programSummaryBox">Program Summary</label>
                                         <textarea type="text" name="Program_Summary" id="programSummaryBox" class="form-control"> </textarea>

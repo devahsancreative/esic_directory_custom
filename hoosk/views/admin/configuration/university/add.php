@@ -14,7 +14,7 @@
                                 <input type="hidden" id="hiddenListID" value="">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="NameTextBox">Name:</label>
+                                        <label for="NameTextBox">University Name:</label>
                                         <input type="text" name="Name" id="NameTextBox" class="form-control" />
                                     </div>
                                     <div class="form-group">
