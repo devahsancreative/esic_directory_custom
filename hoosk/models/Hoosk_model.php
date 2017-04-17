@@ -353,7 +353,7 @@ class Hoosk_model extends CI_Model {
 		  {
 		   $data = array('userID' => $userID );  
 		   $this->db->insert('esic', $data);      //  user id inert into asssessment user table
-		   $datas = array('Fk_userID' => $userID ); 
+		   $datas = array('userID' => $userID );
 		   $this->db->insert('user_social', $datas);    //  insert user id into user assessment socail table  
 		  }
 		 elseif($role == "3")

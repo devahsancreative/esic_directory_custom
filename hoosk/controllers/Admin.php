@@ -2990,7 +2990,7 @@ public function  UpDateSocials(){
 						  'instagram'=> $instagram 
 						 );
 			 $data2     = array(
-			              'Fk_userID'=> $id,
+			              'userID'=> $id,
 						  'facebook' => $facebook,
 						  'twitter'  => $twitter,
 						  'google'   => $google,
