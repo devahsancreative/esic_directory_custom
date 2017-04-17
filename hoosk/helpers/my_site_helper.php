@@ -596,4 +596,41 @@ if(!function_exists('m_empty')){
     }
 }
 
+function findWhere($array, $matching) {
+    foreach ($array as $item) {
+        $is_match = true;
+        foreach ($matching as $key => $value) {
+
+            if (is_object($item)) {
+                if (! isset($item->$key)) {
+                    $is_match = false;
+                    break;
+                }
+            } else {
+                if (! isset($item[$key])) {
+                    $is_match = false;
+                    break;
+                }
+            }
+
+            if (is_object($item)) {
+                if ($item->$key != $value) {
+                    $is_match = false;
+                    break;
+                }
+            } else {
+                if ($item[$key] != $value) {
+                    $is_match = false;
+                    break;
+                }
+            }
+        }
+
+        if ($is_match) {
+            return $item;
+        }
+    }
+
+    return false;
+}
 

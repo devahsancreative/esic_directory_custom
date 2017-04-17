@@ -189,7 +189,6 @@
         }); //End of Clicked Trash Icon on Radio.
     });
 
-
     //Work For Checkboxes
     $(function () {
         $('body').on('click','#addNewCheckbox',function(){
@@ -359,16 +358,88 @@
         });
     });
 
-    //Work for Textboxes
+    //Work for TextBoxes
     $(function () {
         $('body').on('click','#addMoreTextBox', function () {
             var clickedButton = $(this);
+            var questionID = $('#hiddenQuestionID').val();
+            var totalTextBoxes = clickedButton.parents('div#answerBox').find('div.textBoxDiv').length; //Was Ruining my day. cuz of wrong value :(
+
+            var postData = {
+                qID:questionID,
+                total:totalTextBoxes
+            };
+            var trashHTMLbutton = '<a style="margin-top: 25px;" href="javascript:void(0)" class="btn btn-danger btn-block trashTextBox"><i class="fa fa-trash"></i></a>';
             $.ajax({
                url:"<?=base_url()?>admin/question/getTextboxTemplate",
+                data:postData,
+                type:'POST',
                 success:function (output) {
-                    clickedButton.parent().hide();
-                    $('#answerBox').append(output);
+                   var outputLength = output.trim().length;
+                   if(outputLength>0){
+                       clickedButton.hide();
+                       clickedButton.parent().append(trashHTMLbutton);
+                       $('#answerBox').append(output);
+                   }else{
+                       console.log(output);
+                   }
                 }
+            }); //End of Ajax
+        }); // End of OnClick
+
+        $('body').on('click','.trashTextBox',function (output) {
+            var clickedButton = $(this);
+            var divID = clickedButton.parents('div.textBoxDiv').attr('data-id');
+            if(divID && divID.length>0){
+                var postData = {
+                    divID:divID
+                }
+                $.ajax({
+                    url:"<?=base_url()?>admin/question/trashTextBox",
+                    data:postData,
+                    type:"POST",
+                    success:function (output) {
+                        var data = output.trim().split('::');
+                        console.log(data[0]);
+                        if(data[0] === 'OK'){ //If Record Removed from the DB, Then Just update the screen as well.
+//                            var totalCurrentDivs = clickedButton.parents('#answerBox').find('div.textBoxDiv').length;
+
+                            //Remove the CurrentDiv.
+//                            clickedButton.parents('.textBoxDiv').remove();
+
+                            //Unfortunately we also need to update the key or divID key.
+                            //For that just refresh the page for now. Will make it dynamic later if i get some more time.
+                            setTimeout(location.reload.bind(location), 500);
+                        }
+                        Haider.notification(data[1],data[2]);
+                    }//End of a success function
+                }); //End of an ajax call
+            }// End of an If Statement.
+
+
+        });
+
+        $('body').on('change','.tBox',function(){
+            var textBoxID = $(this).attr('id');
+            var divID = $(this).parents('.textBoxDiv').attr('data-id');
+            var textBoxType = textBoxID.trim().split('_');
+            var changedValue = $(this).val();
+            var postData = {
+                'textBoxID': textBoxID,
+                'dID': divID,
+                'value' : changedValue,
+                'type' : textBoxType[0]
+            };
+
+            $.ajax({
+                url:"<?=base_url()?>admin/question/updateTextBox",
+                data:postData,
+                type:"POST",
+                success:function(output){
+                    var data = output.trim().split('::');
+                    Haider.notification(data[1],data[2]);
+                }
+
             });
         });
     });

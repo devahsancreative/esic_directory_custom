@@ -583,8 +583,6 @@ class Question extends MY_Controller {
 
         //Load the view and pass data to the view.
         $this->load->view($layoutPath,$data);
-
-
     }
 
     public function updateAnswer_radio(){
@@ -1026,6 +1024,218 @@ class Question extends MY_Controller {
 
     } //End of Update SelectBox Function
 
+    public function update_textBox(){
+        //First Lets get all the inputs.
+//        $questionID = $this->input->post('qID');
+        $textBoxID = $textBoxName = $this->input->post('textBoxID');
+        $divID = $this->input->post('dID');
+        $textBoxLabel = $this->input->post('value');
+        $textBoxType = $this->input->post('type');
+
+        if(empty($textBoxID) || empty($divID) || empty($textBoxType)){
+            return false;
+        }
+
+
+
+        $explodedDivID = explode('_',$divID);
+        $questionID = $explodedDivID[0];
+
+        //First we need to find out if there is any solution to this question already exist or not.
+        $selectData = ['id, Solution, `type`',false];
+        $whereSelect =['questionID' => $questionID];
+        $result = $this->Common_model->select_fields_where($this->answersTable,$selectData,$whereSelect,true);
+
+        //TextBoxes Shall Not have the Children Option.
+        $solutionNewJSON = [
+            'type' => 'textBoxes',
+            'dateAdded' => date('Y-m-d'),
+            'data' => []
+        ];
+
+
+        $arrayToPush = [
+            'dateAdded' => date('Y-m-d'),
+            'divID' => $divID
+        ];
+
+        switch ($textBoxType){
+            case 'labelTextBox':
+                //Create or Update data for for label
+                $arrayToPush[$textBoxType]['textBoxID'] = $textBoxID;
+                $arrayToPush[$textBoxType]['textBoxName'] = $textBoxID;
+                $arrayToPush[$textBoxType]['label'] = $textBoxLabel;
+                break;
+            case 'grid':
+                $arrayToPush[$textBoxType]['textBoxID'] = $textBoxID;
+                $arrayToPush[$textBoxType]['textBoxName'] = $textBoxID;
+                $arrayToPush[$textBoxType]['grid_size'] = $textBoxLabel;
+                break;
+        }
+
+        if(empty($result)){
+            //just insert the data
+            $total = array_push($solutionNewJSON['data'],$arrayToPush);
+            if($total>0){
+
+                $insertData = [
+                    'Solution' => json_encode($solutionNewJSON),
+                    'questionID' => $questionID,
+                    'type' => 4
+                ];
+
+                //Now Just Do the Insertion.
+                $lastInsertedID = $this->Common_model->insert_record($this->answersTable, $insertData);
+                if($lastInsertedID > 0){
+                    echo 'OK::Record Successfully Added::success';
+                }else{
+                    echo 'FAIL::Record Could not be Added::error';
+                }
+            }//End of If Statement.
+        }else{
+            $Solution = $result->Solution;
+
+            //means $result is not Empty.
+            //Then We Need to Know if we have to update the whole row or just the solution Column.
+            if(intval($result->type) === 4 && !empty($Solution)){
+                //Means We Only Need to Update.
+                $Solution = json_decode($Solution,true);
+                $SolutionData = $Solution['data'];
+                if(isset($Solution['dateUpdated'])){
+                    unset($Solution['dateUpdated']);
+                }
+                //Add the Date Updated
+                $Solution['dateUpdated'] = date('Y-m-d');
+
+                $arrayToUpdateAndPushAgain = [];
+                $foundKey=false;
+                foreach($SolutionData as $key=> $textBoxRow){
+                    if(in_array($divID,$textBoxRow)){
+                        $arrayToUpdateAndPushAgain = $SolutionData[$key];
+                        $foundKey = $key;
+                        unset($SolutionData[$key]);
+                    }
+                }
+
+                if(is_numeric($foundKey)){
+//                    echo 'i am inside';
+                    //Means We have a new born to add..
+                    //Unset the Old Previous Record.
+                    if(array_key_exists($textBoxType,$arrayToUpdateAndPushAgain)){
+                        unset($arrayToUpdateAndPushAgain[$textBoxType]);
+                    }
+                    //Unset the DateUpdated Also
+                    if(array_key_exists('dateUpdated',$arrayToUpdateAndPushAgain)){
+                        unset($arrayToUpdateAndPushAgain['dateUpdated']);
+                    }
+                    if(!empty($arrayToUpdateAndPushAgain)){
+                        //Only Add Date Updated if we are updating, If new record is being added, then just we only need Date Added and that is already being given before.
+                        $arrayToUpdateAndPushAgain['dateUpdated'] = date('Y-m-d');
+                    }
+
+                    //Finally Merge the Record
+                    $mergedArrayToPush = array_merge($arrayToPush,$arrayToUpdateAndPushAgain);
+//                    echo '<pre>';
+//                    print_r($mergedArrayToPush);
+//                    echo '</pre>';
+                    //Add Back the Record to the Original Solution Data.
+                    $SolutionData[intval($foundKey)] = $mergedArrayToPush;
+                }else{
+                    //We have to update the old child.
+                    array_push($SolutionData,$arrayToPush);
+                }
+
+                //Well as now the Data has been Updated, Just Replace it with the Old One.
+                if(isset($Solution['data'])){
+                    unset($Solution['data']);
+                }
+                //Sort it Back..
+                asort($SolutionData);
+                $Solution['data'] = $SolutionData;
+
+                //Just Run Update Query Here Also.
+                $whereUpdate = ['id' => $result->id];
+                $updateData = ['Solution' => json_encode($Solution)];
+//                print_r($updateData);
+                $boolResult = $this->Common_model->update($this->answersTable,$whereUpdate,$updateData);
+                if($boolResult === true){
+                    echo 'OK::Record has been successfully Updated::success';
+                }else{
+                    echo 'FAIL::Record could not be Updated::error';
+                }
+                return null;
+            }else{
+                //Will have to Update he Whole row.
+                $rowID = $result->id;
+                $total = array_push($solutionNewJSON['data'],$arrayToPush);
+                if($total>0){
+
+                    $updateData = [
+                        'Solution' => json_encode($solutionNewJSON),
+                        'type' => 4
+                    ];
+                    $whereUpdate = [
+                        'id' => $rowID
+                    ];
+
+                    //Now Just Do the Insertion.
+                    $boolResult = $this->Common_model->update($this->answersTable, $whereUpdate, $updateData);
+                    if($boolResult === true){
+                        echo 'OK::Record Successfully Updated::success';
+                    }else{
+                        echo 'FAIL::Record Could not be Updated::error';
+                    }
+                }//End of If Statement.
+            }
+        }
+    }
+    public function trash_textBox(){
+        $divID = $this->input->post('divID'); //DivID to be Removed
+        if(empty($divID)){
+            echo 'FAIL::Something went wrong with the POST, Please contact System Administrator for the further assistance.::error';
+            return false;
+        }
+        //Need a question ID.
+        $explodedDivID = explode('_',$divID);
+        $questionID = $explodedDivID[0];
+
+        //Get the Current Solution Array from the DB.
+        //First we need to find out if there is any solution to this question already exist or not.
+        $selectData = ['id, Solution, `type`',false];
+        $whereSelect =['questionID' => $questionID];
+        $questionSolution = $this->Common_model->select_fields_where($this->answersTable,$selectData,$whereSelect,true);
+
+        if(empty($questionSolution)){
+            echo 'FAIL::No Record Found::error';
+            return false;
+        }
+
+        $Solution = json_decode($questionSolution->Solution,true);
+        foreach($Solution['data'] as $key => $textBox){
+            if($textBox['divID'] === $divID){
+                //Remove the Damn Row from the DB.
+                unset($Solution['data'][$key]);
+            }
+        }
+
+        //Now as we have removed our desired value array, we can update the db with the updated json.
+        //Encode in JSON
+        $SolutionJSON = json_encode($Solution);
+        //Finally Update the Record in the DB.
+         $whereUpdate= ['id' => $questionSolution->id];
+         $updateData = ['Solution' => $SolutionJSON];
+
+        $boolResult = $this->Common_model->update($this->answersTable,$whereUpdate, $updateData);
+        if($boolResult===true){
+            echo 'OK::Record Successfully Removed::success';
+        }else{
+/*            echo $this->db->last_query();
+            echo $boolResult;*/
+            echo 'FAIL::Could not remove the record from the DB::error';
+        }
+        return null;
+    }
+
 
     //Code For Ordering
     public function order(){
@@ -1053,7 +1263,22 @@ class Question extends MY_Controller {
         $this->load->view('admin/questions/templates/sorted_questions',$data);
     }
     public function getTextboxTemplate(){
-        $this->load->view('admin/questions/templates/textbox.php');
+
+        $questionID = $this->input->post('qID');
+        $totalCurrentDivs = $this->input->post('total');
+
+        if(empty($questionID) || empty($totalCurrentDivs)){
+            return false;
+        }
+
+        if(!is_numeric($questionID) || !is_numeric($totalCurrentDivs)){
+            return false;
+        }
+
+        $this->data['questionID'] = $questionID;
+        $this->data['totalCurrentDivs'] = $totalCurrentDivs;
+
+        $this->load->view('admin/questions/templates/textbox.php',$this->data);
     }
 
     //Updating the Sorting for Order.

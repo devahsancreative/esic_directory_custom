@@ -859,6 +859,9 @@ $route['admin/questions/update_answer_checkbox'] = "Question/updateAnswer_checkb
 $route['admin/questions/removeCheckbox'] = "Question/updateAnswer_removeCheckbox";
     //SelectBox
 $route['admin/questions/updateSelect'] = "Question/update_selectBox";
+    //TextBox
+$route['admin/question/updateTextBox'] = "Question/update_textBox";
+$route['admin/question/trashTextBox'] = "Question/trash_textBox";
 
 // Default
 $route['(.+)'] = "hoosk_default";

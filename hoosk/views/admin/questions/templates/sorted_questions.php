@@ -1,4 +1,4 @@
-<div class="box-group ui-sortable accordion" id="accordion">
+<div class="box-group ui-sortable accordion">
     <?php
     if(isset($QASorting) and !empty($QASorting)){
         $count = 1;
