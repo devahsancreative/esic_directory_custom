@@ -388,6 +388,16 @@ margin: 10px 0px;
        min-height: 100%;
        border-radius: 0;
    }
+    .checkbox{
+
+         float: none;
+        -ms-transform: scale(1);
+        -moz-transform: scale(1);
+        -webkit-transform: scale(1);
+        -o-transform: scale(1);
+         padding: 0px;
+         margin: 0 !important;
+    }
 </style>
 <?php
 $ci =& get_instance();
@@ -1342,4 +1352,56 @@ $("#save_social").on("click", function () {
            document.getElementById("descriptionPage").submit();
        }
    </script>
+
+<script type="text/javascript">
+    $(function(){
+        $('div.question-post').find('input[type="radio"],input[type="checkbox"], select').on('change',function(){
+            var changedElement = $(this);
+            var selectedQuestionID = $(this).parents('div.question-post').find('.question-edit').attr('data-question-id');
+
+            var userID = "<?=$this->uri->segment(4);?>";
+
+            var type = '';
+
+
+            var postData = {
+                qID:selectedQuestionID,
+                userID:userID,
+                listingID: 1
+            };
+
+            if($(this).parents('div.question-post').find('.radio').length > 0){
+                var selectedRadio = changedElement.val();
+                postData.selectedRadioValue = selectedRadio;
+                postData.type='radio';
+                postData.radioID = $(this).attr('id');
+//                console.log('type is radio.');
+            }else if ($(this).parents('div.question-post').find('.checkbox').length > 0){
+                if($(this).is(':checked')){
+                    postData.hasCheck = 'Yes';
+                }else{
+                    console.log('checkbox check has been Removed');
+                    postData.hasCheck = 'No';
+                };
+                postData.type = 'checkbox';
+                postData.checkBoxID = $(this).attr('id');
+                postData.checkBoxValue = $(this).attr('name');
+            }else if($(this).prop('tagName') === 'SELECT'){
+                var selectedSelectValue = $(this).val();
+                postData.type='select';
+                postData.selectedValue = selectedSelectValue;
+            }
+
+            $.ajax({
+                url:"<?=base_url();?>admin/question/updateUserAnswer",
+                data:postData,
+                type:"POST",
+                success:function(output){
+                    console.log(output);
+                }
+            });
+
+        });
+    });
+</script>
    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>

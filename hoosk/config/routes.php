@@ -472,6 +472,9 @@ $route['admin/questions/updateSelect'] = "Question/update_selectBox";
 $route['admin/question/updateTextBox'] = "Question/update_textBox";
 $route['admin/question/trashTextBox'] = "Question/trash_textBox";
 
+//QuestionListings
+$route['admin/question/updateUserAnswer'] = "Question/updateUserAnswer";
+
 // Default
 $route['(.+)'] = "hoosk_default";
 //$route['default_controller'] = "admin";

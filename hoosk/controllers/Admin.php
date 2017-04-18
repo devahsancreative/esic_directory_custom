@@ -3016,6 +3016,10 @@ public function publish_assessment_list(){
             return false;
         }
 
+        if(empty($listingID) and !is_numeric($listingID)){
+            $listingID = 1;
+        }
+
         $selectData2 = array('        
                     EQ.Question as Question,
                     EQ.id as questionID,
@@ -3026,7 +3030,7 @@ public function publish_assessment_list(){
 //        $where2 = "EQ.isPublished = 1";
         $where = [
             'EQ.`isPublished`' => 1,
-            'QL.listing_id' => 1
+            'QL.listing_id' => $listingID
         ];
         $joins2 = array(
             array(
@@ -3041,12 +3045,13 @@ public function publish_assessment_list(){
             ),
             array(
                 'table' => 'esic_question_users_answers UA',
-                'condition' => 'UA.question_id = EQ.id AND user_id = '.$userID,
+                'condition' => 'UA.answer_id = EQ.id AND user_id = '.$userID,
                 'type' => 'LEFT'
             )
 
         );
         $groupBy = ['EQ.id'];
-        return $this->Common_model->select_fields_where_like_join('esic_questions EQ',$selectData2,$joins2,$where,FALSE,'','',$groupBy);
+        $orderBy = ['QL.order'];
+        return $this->Common_model->select_fields_where_like_join('esic_questions EQ',$selectData2,$joins2,$where,FALSE,'','',$groupBy,$orderBy);
     }
 }
