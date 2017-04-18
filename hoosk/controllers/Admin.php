@@ -3119,13 +3119,14 @@ public function publish_assessment_list(){
             ),
             array(
                 'table' => 'esic_question_users_answers UA',
-                'condition' => 'UA.answer_id = EQ.id AND user_id = '.$userID,
+                'condition' => 'UA.answer_id = QPS.id AND user_id = '.$userID,
                 'type' => 'LEFT'
             )
 
         );
         $groupBy = ['EQ.id'];
         $orderBy = ['QL.order'];
-        return $this->Common_model->select_fields_where_like_join('esic_questions EQ',$selectData2,$joins2,$where,FALSE,'','',$groupBy,$orderBy);
+        $result = $this->Common_model->select_fields_where_like_join('esic_questions EQ',$selectData2,$joins2,$where,FALSE,'','',$groupBy,$orderBy);
+        return $result;
     }
 }

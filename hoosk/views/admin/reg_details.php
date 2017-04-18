@@ -792,7 +792,7 @@ $ci =& get_instance();
             </ul>
             <div class="tab-content">
               <div class="active tab-pane" id="questions">
-                <?php if(isset($usersQuestionsAnswers)){ ?>
+                <?php if(isset($usersQuestionsAnswers)){   ?>
 
 
                <?php foreach ($usersQuestionsAnswers as $key => $value) { ?>
@@ -813,31 +813,41 @@ $ci =& get_instance();
                           </span>
                               <?php
                               $possibleSolutions = $value['possibleSolutions'];
+                              $providedSolution = $value['providedSolution'];
                                 if(!empty($possibleSolutions)){
                                     $possibleSolutions = json_decode($possibleSolutions);
                                     $type = $possibleSolutions->type;
                                     $hasChildren = $possibleSolutions->hasChildren;
                                     $hasChildren = $possibleSolutions->hasChildren;
                                 }
+
+                                if(!empty($providedSolution)){
+                                    $providedSolution = json_decode($providedSolution,true);
+                                }
                               ?>
 
                       </div>
-                    <p class="answer-solution"><?= $value['providedSolution'];?></p>
                     <div class="edit-question">
                       <div class="form-group">
                           <?php
-
-
                           switch($type){
                               case 'CheckBoxes':
                                   echo '<label>Please Select Answer</label>';
                                   $data = $possibleSolutions->data;
                                     echo '<div class="form-group">';
+                                    if(isset($providedSolution['selectedCheckBoxes']) and !empty($providedSolution['selectedCheckBoxes'])){
+                                        $selectedCheckBoxes = $providedSolution['selectedCheckBoxes'];
+                                    }
                                   foreach($data as $checkbox){
+                                        if(isset($selectedCheckBoxes) and in_array_r($checkbox->id,$selectedCheckBoxes) and in_array_r($checkbox->name,$selectedCheckBoxes)){
+                                            $checked = 'checked="checked"';
+                                        }else{
+                                            $checked = '';
+                                        }
                                   ?>
                                       <div class="checkbox">
                                           <label>
-                                              <input type="checkbox" name="<?=$checkbox->name?>" id="<?=$checkbox->id?>">
+                                              <input type="checkbox" name="<?=$checkbox->name?>" id="<?=$checkbox->id?>" <?=$checked?>>
                                               <?=$checkbox->text?>
                                           </label>
                                       </div>
@@ -853,7 +863,7 @@ $ci =& get_instance();
                                   }
                                   $data = $possibleSolutions->data;
                                   ?>
-                                  <select class="form-control" <?=((isset($possibleSolutions->isMulti) && $possibleSolutions->isMulti === 'Yes')?'multiple="multiple"':'')?>>
+                                  <select class="form-control <?=((isset($possibleSolutions->isMulti) && $possibleSolutions->isMulti === 'Yes')?'customSelect2':'')?>" <?=((isset($possibleSolutions->isMulti) && $possibleSolutions->isMulti === 'Yes')?'multiple="multiple"':'')?>>
                                       <?php
                                       if(!empty($data)){
                                           foreach($data as $selectOption){
@@ -868,11 +878,20 @@ $ci =& get_instance();
                                   echo '<label>Please Select Answer</label>';
                                   $data = $possibleSolutions->data;
                                   echo '<div class="form-group">';
+                                  if(isset($providedSolution['type']) and $providedSolution['type'] === 'radio'){
+                                      $selectedValue=$providedSolution['selectedValue'];
+                                      $selectedRadioID=$providedSolution['selectedRadioID'];
+                                  }
                                   foreach($data as $radioButton){
+                                      if(isset($selectedRadioID) && ($radioButton->id === $selectedRadioID) && ($selectedValue=== $radioButton->value)){
+                                          $checked = 'checked="checked"';
+                                      }else{
+                                          $checked = '';
+                                      }
                                       ?>
                                       <div class="radio">
                                           <label>
-                                              <input type="radio" name="radio_<?=$value['questionID']?>" id="<?=$radioButton->id?>" value="<?=$radioButton->value?>">
+                                              <input type="radio" name="radio_<?=$value['questionID']?>" id="<?=$radioButton->id?>" value="<?=$radioButton->value?>" <?=$checked?>>
                                               <?=$radioButton->text?>
                                           </label>
                                       </div>
@@ -1404,4 +1423,3 @@ $("#save_social").on("click", function () {
         });
     });
 </script>
-   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>

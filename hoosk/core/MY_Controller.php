@@ -157,4 +157,48 @@ class Listing extends MY_Controller{
         $this->load->view('theme/footer');
         return Null;
     }
+
+    protected function _getUserQAnswers($userID,$listingID){
+        if(empty($userID) || !is_numeric($userID)){
+            return false;
+        }
+
+        if(empty($listingID) and !is_numeric($listingID)){
+            $listingID = 1;
+        }
+
+        $selectData2 = array('        
+                    EQ.Question as Question,
+                    EQ.id as questionID,
+                    QPS.Solution as PossibleSolution,
+                    UA.answer as ProvidedSolution
+                    -- ES.score as score
+            ',false);
+
+        $where = [
+            'EQ.`isPublished`' => 1,
+            'QL.listing_id' => $listingID
+        ];
+        $joins2 = array(
+            array(
+                'table' => 'esic_questions_listings QL',
+                'condition' => 'QL.question_id = EQ.id',
+                'type' => 'LEFT'
+            ),
+            array(
+                'table' => 'esic_questions_answers QPS',
+                'condition' => 'QPS.questionID = EQ.id',
+                'type' => 'LEFT'
+            ),
+            array(
+                'table' => 'esic_question_users_answers UA',
+                'condition' => 'UA.answer_id = EQ.id AND user_id = '.$userID,
+                'type' => 'LEFT'
+            )
+
+        );
+        $groupBy = ['EQ.id'];
+        $orderBy = ['QL.order'];
+        return $this->Common_model->select_fields_where_like_join('esic_questions EQ',$selectData2,$joins2,$where,FALSE,'','',$groupBy,$orderBy);
+    }
 }
