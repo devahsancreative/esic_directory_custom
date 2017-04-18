@@ -10,7 +10,7 @@
                     <h3><?php echo $this->lang->line('forgot_reset'); ?></h3>
                 </div>
                 <div class="panel-footer">
-                    <a class="button btn btn-success" href="<?php echo BASE_URL; ?>/admin/login"><?php echo $this->lang->line('login_signin'); ?></a>
+                    <a class="button btn btn-success" href="<?php echo BASE_URL; ?>/login"><?php echo $this->lang->line('login_signin'); ?></a>
                 </div>
             </div>
         </div>

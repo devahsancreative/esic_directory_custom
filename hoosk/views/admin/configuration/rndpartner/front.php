@@ -12,53 +12,47 @@
                                 <?= $userFieldsView; ?>
                                 <div class="col-md-12">
                                     <label for="RndDetailBox">R&D Partner Details :</label>
-                                    <div class="form-group">
+                                    <div class="form-group col-md-3">
                                         <label for="IDNumberTextBox">ID Number:</label>
                                         <input type="text" name="IDNumber" id="IDNumberTextBox" class="form-control" />
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group col-md-3">
                                         <label for="NameTextBox">Name:</label>
                                         <input type="text" name="Name" id="NameTextBox" class="form-control" />
                                     </div>
-                                    <div class="form-group">
-                                        <label for="ANZSRCBox">ANZSRC</label>
-                                        <input type="text" name="ANZSRC" id="ANZSRCBox" class="form-control" />
-                                    </div>
-                                    <div class="form-group">
+                                    <div class="form-group col-md-3">
                                         <label for="WebsiteBox">Website:</label>
                                         <input type="text" name="Website" id="WebsiteBox" class="form-control" />
                                     </div>
-                                    <!--Address with multiple columns-->
-                                    <div class="form-group">
-                                        <label for="AddressBox">Address:</label>
-                                        <div class="row">
-                                            <div class="form-group col-lg-2">
-                                                <label for="address_streetNumber">Street Number</label>
-                                                <input type="text" name="address_streetNumber" id="address_streetNumber" class="form-control">
-                                            </div>
-
-                                            <div class="form-group col-lg-3">
-                                                <label for="address_streetName">Street Name</label>
-                                                <input type="text" name="address_streetName" id="address_streetName" class="form-control">
-                                            </div>
-
-                                            <div class="form-group col-lg-3">
-                                                <label for="address_town">Town</label>
-                                                <input type="text" name="address_town" id="address_town" class="form-control">
-                                            </div>
-
-                                            <div class="form-group col-lg-2">
-                                                <label for="address_state">State</label>
-                                                <input type="text" name="address_state" id="address_state" class="form-control">
-                                            </div>
-
-                                            <div class="form-group col-lg-2">
-                                                <label for="address_postCode">Post Code</label>
-                                                <input type="text" name="address_postCode" id="address_postCode" class="form-control">
-                                            </div>
-                                        </div>
-
+                                    <div class="form-group col-md-4">
+                                        <label for="ANZSRCBox">ANZSRC</label>
+                                        <input type="text" name="ANZSRC" id="ANZSRCBox" class="form-control" />
                                     </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="AddressBox">Address:</label>
+                                    <div class="form-group col-lg-3">
+                                        <label for="address_streetName">Street Name</label>
+                                        <input type="text" name="address_streetName" id="address_streetName" class="form-control">
+                                    </div>
+                                    <div class="form-group col-lg-3">
+                                        <label for="address_streetNumber">Street Number</label>
+                                        <input type="text" name="address_streetNumber" id="address_streetNumber" class="form-control">
+                                    </div>
+                                    <div class="form-group col-lg-2">
+                                        <label for="address_town">Town</label>
+                                        <input type="text" name="address_town" id="address_town" class="form-control">
+                                    </div>
+                                    <div class="form-group col-lg-2">
+                                        <label for="address_state">State</label>
+                                        <input type="text" name="address_state" id="address_state" class="form-control">
+                                    </div>
+                                    <div class="form-group col-lg-2">
+                                        <label for="address_postCode">Post Code</label>
+                                        <input type="text" name="address_postCode" id="address_postCode" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
                                     <div class="form-group"> 
                                         <label for="RndCredentialsSummaryBox">R&D Credentials Summary</label>
                                         <textarea type="text" name="RndCredentialsSummary" id="RndCredentialsSummaryBox" class="form-control"> </textarea>

@@ -1,7 +1,7 @@
 <?php 
 	function viewHelperManage($param=NULL){
 		$ci =& get_instance();
-        if(checkAdminRole($ci) == true){
+        if(checkRoleHasPermission($ci,$ci->Name.' Admin Listing') == true){
             $ci->load->model('Common_Model');
     	    
             //Now see if the param is of listing
@@ -42,7 +42,7 @@
 
     function ViewHelperNewSave(){
         $ci =& get_instance();
-        if(checkAdminRole($ci) == true){
+        if(checkRoleHasPermission($ci,$ci->Name.' New') == true){
             $ci->load->model('Common_Model');
     
             $return = array();
@@ -140,7 +140,7 @@
     function ViewHelperEditSave(){
 
         $ci =& get_instance();
-        if(checkAdminRole($ci) == true){
+        if(checkRoleHasPermission($ci,$ci->Name.' Edit') == true){
             $ci->load->model('Common_Model');
             
             $return = array();

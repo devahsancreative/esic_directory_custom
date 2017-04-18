@@ -515,23 +515,8 @@ class Hoosk_model extends CI_Model {
         );
         $this->db->where("pageID", $id);
         $this->db->update('hoosk_page_content', $contentdata);
-       
 	  	// Clear the sliders
 		$this->db->delete('hoosk_banner', array('pageID' => $id));
-		/*for($i=0;$i<=$_POST['total_upload_pics'];$i++)
-		{
-			if(isset($_POST['slide' . $i]))
-			{
-				$slidedata = array(
-				'pageID' => $id,
-				'slideImage' => $this->input->post('slide'.$i),
-				'slideLink' => $this->input->post('link'.$i),
-				'slideOrder' => $i,
-				);
-                $this->db->insert('hoosk_banner', $slidedata));
-			}
-		}*/
-		
 		$sliders = explode('{', $this->input->post('pics'));
 		
 		for($i=1;$i<count($sliders);$i++)

@@ -6,7 +6,7 @@
 	 static function is_logged_in($userName)
 	 {
 		if(($userName=="")):
-		$redirect= BASE_URL.'/admin/login';
+		$redirect= BASE_URL.'/login';
 		header("Location: $redirect");	
 		exit;	
 		endif;

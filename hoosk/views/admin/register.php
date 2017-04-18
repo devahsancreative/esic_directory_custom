@@ -132,7 +132,7 @@ if(isset($userData) && !empty($userData)) {
                                         <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
                                     </div>
                                    <div class="col-md-6">
-                                    <a href="<?= BASE_URL; ?>/admin/login" class="btn btn-primary btn-block btn-flat text-center">
+                                    <a href="<?= BASE_URL; ?>/login" class="btn btn-primary btn-block btn-flat text-center">
                                        Have An Account ?
                                     </a>
                                   </div>
@@ -160,13 +160,6 @@ if(isset($userData) && !empty($userData)) {
                             </div>
                         </div>
                     </div>
-                    <!--div class="already-member">
-                        <div class="row">
-                            <div class="col-md-offset-2 col-md-8">
-                                <a href="<?= BASE_URL; ?>/admin/login" class="btn btn-primary btn-block btn-flat text-center">I already have a membership</a>
-                            </div>
-                        </div>
-                    </div-->
                 </div>
             </div>
         </div>

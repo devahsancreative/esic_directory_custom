@@ -50,9 +50,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 
 
-$route['admin/login'] 		= "Login/login";
-$route['admin/logout'] 		= "Login/logout";
-$route['admin/login/check'] = "Login/loginCheck";
+$route['login'] 		= "Login/login";
+$route['logout'] 		= "Login/logout";
+$route['login/check']   = "Login/loginCheck";
 
 
 $route['register'] = "Register/index";
@@ -145,7 +145,7 @@ $route['Esic/New']    	  	= "Esic/Create";
 $route['Esic/AddSave']      = "Esic/AddSave";
 $route['Esic/Edit/(:any)']  = "Esic/Edit/$1";
 $route['Esic/EditSave']     = "Esic/EditSave";
-$route['Esic']  	= "Esic/FrontForm";
+$route['esic']  	= "Esic/FrontForm";
 
 $route['admin/Esic/details/(:any)'] = "Admin/details/$1";
 
@@ -160,7 +160,7 @@ $route['Investor/Add']    	   	= "Investor/Add";
 $route['Investor/AddSave']      = "Investor/AddSave";
 $route['Investor/Edit/(:any)']  = "Investor/Edit/$1";
 $route['Investor/EditSave']     = "Investor/EditSave";
-$route['Investor']  	= "Investor/FrontForm";
+$route['investor']  	= "Investor/FrontForm";
 $route['investor-pre-assessment']  	= "Investor/investor_form";
 
 
@@ -175,7 +175,7 @@ $route['Lawyer/New']    	  = "Lawyer/Create";
 $route['Lawyer/AddSave']      = "Lawyer/AddSave";
 $route['Lawyer/Edit/(:any)']  = "Lawyer/Edit/$1";
 $route['Lawyer/EditSave']     = "Lawyer/EditSave";
-$route['Lawyer']  	= "Lawyer/FrontForm";
+$route['lawyer']  	= "Lawyer/FrontForm";
 $route['Lawyer/saveIntro']     = "Lawyer/saveIntro";
 
 
@@ -193,7 +193,7 @@ $route['Accelerator/Add']    	  	= "Accelerator/Add";
 $route['Accelerator/AddSave']      	= "Accelerator/AddSave";
 $route['Accelerator/Edit/(:any)']  	= "Accelerator/Edit/$1";
 $route['Accelerator/EditSave']     	= "Accelerator/EditSave";
-$route['Accelerator']  	= "Accelerator/FrontForm";
+$route['accelerator']  	= "Accelerator/FrontForm";
 
 
 //For  Accelerating Commercialisation OR Grant Recipients 
@@ -210,7 +210,7 @@ $route['AcceleratingCommercialisation/Add']    	   	= "AcceleratingCommercialisa
 $route['AcceleratingCommercialisation/AddSave']      	= "AcceleratingCommercialisation/AddSave";
 $route['AcceleratingCommercialisation/Edit/(:any)']  	= "AcceleratingCommercialisation/Edit/$1";
 $route['AcceleratingCommercialisation/EditSave']      = "AcceleratingCommercialisation/EditSave";
-$route['AcceleratingCommercialisation']  	= "AcceleratingCommercialisation/FrontForm";
+$route['acceleratingcommercialisation']  	= "AcceleratingCommercialisation/FrontForm";
 
 //For Grant Consultants
 $route['admin/manage_grantconsultant']    	   = "GrantConsultant/Manage";
@@ -222,7 +222,7 @@ $route['GrantConsultant/Add']    	   	= "GrantConsultant/Add";
 $route['GrantConsultant/AddSave']      	= "GrantConsultant/AddSave";
 $route['GrantConsultant/Edit/(:any)']  	= "GrantConsultant/Edit/$1";
 $route['GrantConsultant/EditSave']      = "GrantConsultant/EditSave";
-$route['GrantConsultant']  	= "GrantConsultant/FrontForm";
+$route['grantconsultant']  	= "GrantConsultant/FrontForm";
 
 //old Rnd Routes but still active for backfall links
 $route['admin/manage_rd']              	= "Admin/manage_rd";
@@ -238,7 +238,7 @@ $route['RndConsultant/Add']    	   		= "RndConsultant/Add";
 $route['RndConsultant/AddSave']      	= "RndConsultant/AddSave";
 $route['RndConsultant/Edit/(:any)']  	= "RndConsultant/Edit/$1";
 $route['RndConsultant/EditSave']      	= "RndConsultant/EditSave";
-$route['RndConsultant']  	= "RndConsultant/FrontForm";
+$route['rndconsultant']  	= "RndConsultant/FrontForm";
 
 //For Rnd Partners
 $route['admin/manage_rndpartner']    	  = "RndPartner/Manage";
@@ -250,7 +250,7 @@ $route['RndPartner/Add']    	   	= "RndPartner/Add";
 $route['RndPartner/AddSave']      	= "RndPartner/AddSave";
 $route['RndPartner/Edit/(:any)']  	= "RndPartner/Edit/$1";
 $route['RndPartner/EditSave']      	= "RndPartner/EditSave";
-$route['RndPartner']  	= "RndPartner/FrontForm";
+$route['rndpartner']  	= "RndPartner/FrontForm";
 
 //For Universities
 //old
@@ -266,7 +266,7 @@ $route['University/Add']    	   	= "University/Add";
 $route['University/AddSave']      	= "University/AddSave";
 $route['University/Edit/(:any)']  	= "University/Edit/$1";
 $route['University/EditSave']      	= "University/EditSave";
-$route['University']  	= "University/FrontForm";
+$route['university']  	= "University/FrontForm";
 
 //For manage_sectors
 $route['admin/manage_sectors']         	= "Admin/manage_sectors";

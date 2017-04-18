@@ -141,7 +141,7 @@ $method = $this->router->fetch_method();   // it is use only in add new page and
                                     <?php } ?>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="<?php echo BASE_URL; ?>/admin/logout" class="btn btn-default btn-flat">Sign
+                                    <a href="<?php echo BASE_URL; ?>/logout" class="btn btn-default btn-flat">Sign
                                         out</a>
                                 </div>
                             </li>

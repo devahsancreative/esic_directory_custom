@@ -17,6 +17,44 @@ if(!function_exists('checkAdminRole')){
     }
 }
 
+/**
+ * @function checkRoleHasPermission 
+ */
+if(!function_exists('checkRoleHasPermission')){
+    function checkRoleHasPermission($ci, $PermissionName){
+        //We Don't want unauthorized access
+        $userID   = $ci->session->userdata('userID');
+        $userRole = $ci->session->userdata('userRole');
+        $ci->load->model('Common_Model');
+        $where = array(
+            'userID'   => $userID,
+            'userRole' => $userRole
+        );
+        $UserRoleDB = $ci->Common_Model->select_fields_where($ci->tableNameUser,'userRole',$where,true);
+        $where  = array(
+            'id'   => $UserRoleDB->userRole
+        );
+        $RoleDB = $ci->Common_Model->select_fields_where($ci->tableNameRoles,'*',$where, true);
+        $permissonIds = $RoleDB->permission_id;
+        $permissonIds = str_replace('[', ' ', $permissonIds);
+        $permissonIds = str_replace(']', ' ', $permissonIds);
+        $where  = 'id IN('.$permissonIds.')';
+        $RoleDB = $ci->Common_Model->select_fields_where($ci->tableNamePermission,'*',$where);
+        foreach ($RoleDB as $key => $value) {
+            //trim($permissonIds) == "2222" Not Working have to check that condition too
+            if($value->label == "All Permissions" && $value->id == 2222){
+                return true; // Super User Permissions
+            }
+            if($value->label == $PermissionName){
+                return true;
+            }    
+        } 
+        $ci->data['PermissionName'] = $PermissionName;
+        $ci->load->view('admin/NoPermission' , $data);
+        return false;
+    }
+}
+
 
 /**
  * @function checkPostExist 

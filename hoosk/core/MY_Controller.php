@@ -7,6 +7,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class MY_Controller extends CI_Controller{
 	public $base_url;
     public $tableNameUser   = 'hoosk_user';
+    public $tableNameRoles  = 'users_role';
+    public $tableNamePermission  = 'users_permisson';
+
 	/**
 	 * Class constructor
 	 */

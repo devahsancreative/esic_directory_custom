@@ -55,7 +55,7 @@ class Reset_password extends MY_Controller {
             $this->email->subject('Reset Password');
             $login_url = base_url();
             $this->email->message('<h4>Your New Password:  </h4><br>'. $rs .
-                "<h5>Please Visit For login:</h5><br>".$login_url.'admin/login');
+                "<h5>Please Visit For login:</h5><br>".$login_url.'/login');
             $this->email->set_mailtype("html");
             if($this->email->send()){
                 $this->data['header'] = $this->load->view('admin/headerlog', $this->data, true);

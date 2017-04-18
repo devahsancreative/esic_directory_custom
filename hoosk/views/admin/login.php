@@ -36,7 +36,7 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/AdminLTE.min.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -44,13 +44,13 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-<script src="<?php echo base_url(); ?>assets/vendors/bootstrap/js/bootstrap.min.js"></script>
+<script src="<?= base_url(); ?>assets/vendors/bootstrap/js/bootstrap.min.js"></script>
 
   <div class="row">
     <div class="col-md-4 col-md-offset-4">
        <div class="login-box">
             <div class="login-logo">
-                <a href="#"><img src="<?php echo BASE_URL; ?>/images/EsicLogoIcon.png" class="login_logo"
+                <a href="#"><img src="<?= BASE_URL; ?>/images/EsicLogoIcon.png" class="login_logo"
                style="max-width: 350px;"/> <b>Esic</b> Directory</a>
             </div><!-- /.login-logo -->
       </div><!-- /.login-box -->    
@@ -66,7 +66,7 @@
                 }
             } 
           ?>
-          <?php echo form_open(BASE_URL.'/admin/login/check'); ?>
+          <?php echo form_open(BASE_URL.'/login/check'); ?>
           <fieldset>
             <div class="form-group">
               <label for="username">
@@ -118,9 +118,10 @@
             <a href="<?php echo BASE_URL; ?>/admin/reset_password/forgot" class="text-info">
               <?php echo $this->lang->line('login_reset'); ?>
             </a>
-              <a href="<?php echo BASE_URL; ?>/register" class="text-info">
-                  <?= 'Register Now';?>
-              </a>
+            <br>
+            <a href="<?php echo BASE_URL; ?>/register" class="text-info">
+                  Not Have An Account ? Register Now
+            </a>
           </fieldset>
           </form>
       </div>

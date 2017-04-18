@@ -81,13 +81,13 @@ if ($page['enableJumbotron'] == 1) {
                         <span class="caret"></span>
                      </a>
                     <ul class="dropdown-menu">
-                        <li><a href="<?= BASE_URL ?>/Esic">ESIC</a></li>
-                        <li><a href="<?= BASE_URL ?>/Investor">Investor</a></li>
-                        <li><a href="<?= BASE_URL ?>/Accelerator">Accelerator</a></li>
-                        <li><a href="<?= BASE_URL ?>/RndPartner">Research Partner</a></li>
-                        <li><a href="<?= BASE_URL ?>/RndConsultant">R&D Tax Consultant</a></li>
-                        <li><a href="<?= BASE_URL ?>/Lawyer">Lawyer</a></li>
-                        <li><a href="<?= BASE_URL ?>/GrantConsultant">Grant Consultant</a></li>
+                        <li><a href="<?= BASE_URL ?>/esic">ESIC</a></li>
+                        <li><a href="<?= BASE_URL ?>/investor">Investor</a></li>
+                        <li><a href="<?= BASE_URL ?>/accelerator">Accelerator</a></li>
+                        <li><a href="<?= BASE_URL ?>/rndpartner">Research Partner</a></li>
+                        <li><a href="<?= BASE_URL ?>/rndconsultant">R&D Tax Consultant</a></li>
+                        <li><a href="<?= BASE_URL ?>/lawyer">Lawyer</a></li>
+                        <li><a href="<?= BASE_URL ?>/grantconsultant">Grant Consultant</a></li>
                     </ul>
                 </div>
             </div>
