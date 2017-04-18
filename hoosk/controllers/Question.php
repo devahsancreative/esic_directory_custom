@@ -1364,15 +1364,56 @@ class Question extends MY_Controller {
 
         $updateUserAnswerData['answer'] = [];
 
+        //First Lets Check, if there is already a record present in database for this.
+        $selectedUserAnswerData=['id, answer',false];
+        $whereUserAnswer=[
+            'answer_id' => $resultAnswer->id,
+            'user_id' => $userID,
+            'listing_id' => $listingID
+        ];
+        //First Need to Fetch The Existing Answer, If there is any against this..
+        $currentAnswer = $this->Common_model->select_fields_where($this->userAnswersTable,$selectedUserAnswerData,$whereUserAnswer,true);
+
         switch ($type){
             case 'radio':
                 $selectedValue = $this->input->post('selectedRadioValue');
                 $selectedRadioID = $this->input->post('radioID');
-                $arrayToUpdate = [
+                $arrayToInsertOrUpdate = [
                     'type'=>'radio',
                     'selectedValue' => $selectedValue,
                     'selectedRadioID' => $selectedRadioID
                 ];
+
+                unset($updateUserAnswerData['answer']);
+                $updateUserAnswerData['answer'] = json_encode($arrayToInsertOrUpdate);
+
+                if(empty($currentAnswer)){
+                    //Means There is No Answer Currently for This User and For this Selected Listing.
+                   $lastInsertedID = $this->Common_model->insert_record($this->userAnswersTable,$updateUserAnswerData);
+                   if($lastInsertedID>0){
+                       echo 'OK::Record Successfully Added::success';
+                       return true;
+                   }else{
+                       echo 'FAIL::Record could not be Added::error';
+                       return false;
+                   }
+                }else{
+                    //will have to run the update query.
+                    $userAnswerUpdateData = [
+                        'answer' => json_encode($arrayToInsertOrUpdate)
+                    ];
+                    $whereUserAnswerUpdate = [
+                        'id' => $currentAnswer->id
+                    ];
+                    $resultBool = $this->Common_model->update($this->userAnswersTable,$whereUserAnswerUpdate,$userAnswerUpdateData);
+                    if($resultBool === true){
+                        echo 'OK::Record successfully updated::success';
+                        return true;
+                    }else{
+                        echo 'FAIL::Record could not be updated::error';
+                        return false;
+                    }
+                }
                 break;
             case 'checkbox':
                 $checkBoxID = $this->input->post('checkBoxID');
@@ -1382,14 +1423,14 @@ class Question extends MY_Controller {
                     'type'=>'checkbox',
                     'selectedCheckBoxes' => []
                 ];
-                $selectedUserAnswerData=['id, answer',false];
+/*                $selectedUserAnswerData=['id, answer',false];
                 $whereUserAnswer=[
                     'answer_id' => $resultAnswer->id,
                     'user_id' => $userID,
                     'listing_id' => $listingID
                 ];
                 //First Need to Fetch The Existing Answer, If there is any against this..
-                $currentAnswer = $this->Common_model->select_fields_where($this->userAnswersTable,$selectedUserAnswerData,$whereUserAnswer,true);
+                $currentAnswer = $this->Common_model->select_fields_where($this->userAnswersTable,$selectedUserAnswerData,$whereUserAnswer,true);*/
 /*                echo '<pre>';
                 var_dump($currentAnswer);
                 echo '</pre>';
@@ -1472,6 +1513,39 @@ class Question extends MY_Controller {
                 break;
             case 'select':
                 $selectedValue = $this->input->post('selectedValue');
+                $insertUpdateUserAnswerData = [
+                    'type' => 'select',
+                    'selectedSelectValue' => $selectedValue
+                ];
+                unset($updateUserAnswerData['answer']);
+                $updateUserAnswerData['answer'] = json_encode($insertUpdateUserAnswerData);
+                if(empty($currentAnswer)){
+                    //Need to do the Insert
+                    $lastInsertedID = $this->Common_model->insert_record($this->userAnswersTable,$updateUserAnswerData);
+                    if($lastInsertedID>0){
+                        echo 'OK::Record Successfully Added::success';
+                        return true;
+                    }else{
+                        echo 'FAIL::Record could not be added::error';
+                        return false;
+                    }
+                }else{
+                    $userAnswerUpdateData = [
+                        'answer' => json_encode($insertUpdateUserAnswerData)
+                    ];
+                    $whereUserAnswerUpdate =[
+                        'id' => $currentAnswer->id
+                    ];
+                    //Seems like record already exists. so just do the update.
+                   $boolResult = $this->Common_model->update($this->userAnswersTable,$whereUserAnswerUpdate,$userAnswerUpdateData);
+                   if($boolResult === true){
+                       echo 'OK::Record successfully Updated';
+                       return true;
+                   }else{
+                       echo 'FAIL::Record failed to updated::error';
+                       return false;
+                   }
+                }
                 break;
         }
 

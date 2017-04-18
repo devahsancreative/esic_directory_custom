@@ -28,4 +28,16 @@ class Investor extends Listing{
         $this->data['investmentAmounts'] = $this->Common_model->select('investors_preferred_investment_amounts');
         $this->load->model('Investor_model');
     }
+
+
+    //Overriding this Method.
+    public function View($ID){
+        $this->data['id'] = $ID;
+        $where = array('id' => $ID);
+        $this->data['data'] = $this->Common_model->select_fields_where($this->tableName ,'*' ,$where,true);
+        $this->data['PageType'] = 'View';
+        $this->data['usersQuestionsAnswers'] = $this->_getUserQAnswers($ID,2);
+        $this->show_admin_configuration('admin/configuration/'.$this->ViewFolderName.'/view' , $this->data);
+        return Null;
+    }
 }

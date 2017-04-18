@@ -1,4 +1,4 @@
-<?php 
+<?php
     if(isset($id) && !empty($id)){
         $id = $id;
     }else{
@@ -213,10 +213,121 @@
         <div class="col-md-9">
           <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
-              <li class="active"><a href="#description" data-toggle="tab">Description</a></li>
+              <li class="active"><a href="#questions" data-toggle="tab">Questions</a></li>
+              <li><a href="#description" data-toggle="tab">Description</a></li>
             </ul>
             <div class="tab-content">
-              <div class="tab-pane active" id="description">
+                <div class="active tab-pane" id="questions">
+                    <?php if(isset($usersQuestionsAnswers)){
+                        $usersQuestionsAnswers = json_decode(json_encode($usersQuestionsAnswers),true);
+                        ?>
+
+                        <?php foreach ($usersQuestionsAnswers as $key => $value) { ?>
+                            <div class="post question-post <?= 'question-'.$value['questionID'];?>" data-id="<?= 'question-'.$value['questionID'];?>">
+                                <div class="user-block">
+                          <span class="username question-statement">
+                          <a href="javascript:void(0)"><?= $value['Question']; ?></a>
+                              <a href="javascript:void(0)" class="pull-right btn-box-tool question-edit"
+                                 data-id="<?= 'question-' . $value['questionID']; ?>"
+                                 data-question-id="<?= $value['questionID']; ?>"><i class="fa fa-pencil"></i></a>
+
+                              <?php if (!empty($value['points'])) { ?>
+                                  <span class="question-points"
+                                        data-score="<?= $value['points']; ?>">(<?= $value['points']; ?>)</span>
+                              <?php } else { ?>
+                                  <span class="question-points"></span>
+                              <?php } ?>
+                          </span>
+                                    <?php
+                                    $possibleSolutions = $value['PossibleSolution'];
+                                    $providedSolution = $value['providedSolution'];
+                                    if(!empty($possibleSolutions)){
+                                        $possibleSolutions = json_decode($possibleSolutions);
+                                        $type = $possibleSolutions->type;
+                                        $hasChildren = $possibleSolutions->hasChildren;
+                                        $hasChildren = $possibleSolutions->hasChildren;
+                                    }
+                                    if(!empty($providedSolution)){
+                                        $providedSolution = json_decode($providedSolution,true);
+                                    }
+                                    ?>
+                                </div>
+                                <p class="answer-solution"><?= $value['ProvidedSolution'];?></p>
+                                <div class="edit-question">
+                                    <div class="form-group">
+                                        <?php
+
+
+                                        switch($type){
+                                            case 'CheckBoxes':
+                                                echo '<label>Please Select Answer</label>';
+                                                $data = $possibleSolutions->data;
+                                                echo '<div class="form-group">';
+                                                if(isset($providedSolution['selectedCheckBoxes']) and !empty($providedSolution['selectedCheckBoxes'])){
+                                                    $selectedCheckBoxes = $providedSolution['selectedCheckBoxes'];
+                                                }
+                                                foreach($data as $checkbox){
+                                                    if(isset($selectedCheckBoxes) and in_array_r($checkbox->id,$selectedCheckBoxes) and in_array_r($checkbox->name,$selectedCheckBoxes)){
+                                                        $checked = 'checked="checked"';
+                                                    }else{
+                                                        $checked = '';
+                                                    }
+                                                    ?>
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox" name="<?=$checkbox->name?>" id="<?=$checkbox->id?>" <?=$checked?>>
+                                                            <?=$checkbox->text?>
+                                                        </label>
+                                                    </div>
+                                                    <?php
+                                                }
+                                                echo '</div>';
+                                                break;
+                                            case 'SelectBox':
+                                                if(empty($possibleSolutions->textBoxText)){
+                                                    echo '<label>Please Select Answer</label>';
+                                                }else{
+                                                    echo '<label>'.$possibleSolutions->textBoxText.'</label>';
+                                                }
+                                                $data = $possibleSolutions->data;
+                                                ?>
+                                                <select class="form-control" <?=((isset($possibleSolutions->isMulti) && $possibleSolutions->isMulti === 'Yes')?'multiple="multiple"':'')?>>
+                                                    <?php
+                                                    if(!empty($data)){
+                                                        foreach($data as $selectOption){
+                                                            echo '<option value="'.$selectOption->value.'">'.$selectOption->text.'</option>';
+                                                        }
+                                                    }
+                                                    ?>
+                                                </select>
+                                                <?php
+                                                break;
+                                            case 'radios':
+                                                echo '<label>Please Select Answer</label>';
+                                                $data = $possibleSolutions->data;
+                                                echo '<div class="form-group">';
+                                                foreach($data as $radioButton){
+                                                    ?>
+                                                    <div class="radio">
+                                                        <label>
+                                                            <input type="radio" name="radio_<?=$value['questionID']?>" id="<?=$radioButton->id?>" value="<?=$radioButton->value?>">
+                                                            <?=$radioButton->text?>
+                                                        </label>
+                                                    </div>
+                                                    <?php
+                                                }
+                                                echo '</div>';
+                                                break;
+                                        }
+                                        ?>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php }
+                    }
+                    ?>
+                </div>
+                <div class="tab-pane" id="description">
                 <ul class="timeline timeline-inverse">
                     <li>
                         <div class="timeline-item">
@@ -235,3 +346,10 @@
         </div>
         <!-- /.col -->
       </div>
+<script type="text/javascript">
+    $(function () {
+        $('.question-edit').on('click',function(){
+           $(this).parents('.question-post').find('.edit-question').show();
+        });
+    });
+</script>

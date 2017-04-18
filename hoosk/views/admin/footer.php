@@ -431,9 +431,6 @@ if($classname != "Navigation"){
 
     <?php
         if($this->router->fetch_class() === 'Question'){
-            echo '<link type="text/css" href="'.base_url().'assets/vendors/select2/dist/css/select2.min.css" rel="stylesheet" />';
-            echo '<script type="text/javascript" src="'.base_url().'assets/vendors/select2/dist/js/select2.full.js"></script>';
-
             if($this->router->fetch_method() === 'index'){
                 echo '<link type="text/css" href="https://cdn.datatables.net/select/1.2.1/css/select.dataTables.min.css" />';
                 echo '<link type="text/css" href="https://cdn.datatables.net/rowreorder/1.2.0/css/rowReorder.dataTables.min.css" />';
@@ -445,6 +442,8 @@ if($classname != "Navigation"){
             <script type="text/javascript" src="<?=ADMIN_THEME?>/js/jquery-ui-1.9.2.js"></script>
 <?php
         }
+    echo '<link type="text/css" href="'.base_url().'assets/vendors/select2/dist/css/select2.min.css" rel="stylesheet" />';
+    echo '<script type="text/javascript" src="'.base_url().'assets/vendors/select2/dist/js/select2.full.js"></script>';
     ?>
 
    <script type="text/javascript">
@@ -464,7 +463,11 @@ $(document).ready(function() {
             alert("URL amended\nPlease use only a-z,0-9 or dash");
         }
     });
+
+    //Apply Select2 to all the select2 classes.
+    $('.customSelect2').select2();
 });
+
 </script>
 </body>
 </html>
