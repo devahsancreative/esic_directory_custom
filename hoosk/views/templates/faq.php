@@ -7,19 +7,15 @@
 <?php
 $background = '';
 if ($page['enableJumbotron'] == 1) {
-     $background =$page['jumbotronHTML'];
-   $doc=new DOMDocument();
-     $doc->loadHTML($background);
-   $xml=simplexml_import_dom($doc); // just to make xpath more simple
-    $images=$xml->xpath('//img');
-    foreach ($images as $img) {
-      $background = $img['src'];
-   }
-
-
-
+  $background =$page['jumbotronHTML'];
+  $doc = new DOMDocument();
+  $doc->loadHTML($background);
+  $xml = simplexml_import_dom($doc); // just to make xpath more simple
+  $images = $xml->xpath('//img');
+  foreach ($images as $img) {
+    $background = $img['src'];
+  }
  }
-
 ?>
 <div class="jumbotron full-screen text-center <?php if (($page['enableJumbotron'] == 1) && ($page['enableSlider'] == 1)) { echo "carouselpadding"; } elseif (($page['enableJumbotron'] == 1) && ($page['enableSlider'] == 0)) { echo "errorpadding"; } elseif (($page['enableJumbotron'] == 0) && ($page['enableSlider'] == 1)) { echo "slider-padding"; } ?>"
      style="background: url(<?=$background; ?>) no-repeat"
@@ -45,7 +41,6 @@ if ($page['enableJumbotron'] == 1) {
                 <?php // if ($page['enableJumbotron'] == 1) { echo $page['jumbotronHTML']; } ?>
             </div>
          <?php } ?>
-        <!---logo image and page title hide by Hamid Raza -->
         <!--<div class="logotext">
             <a class="" href="<?php /*echo BASE_URL; */?>"><img class="img-responsive " src="<?php /*echo BASE_URL; */?>/images/<?php /*echo $settings['siteLogo']; */?>"
                                                             alt="Hoosk"></a>
@@ -80,59 +75,43 @@ if ($page['enableJumbotron'] == 1) {
 
             <div class="row">
 
-                <div class=" ">
+                <div id="add-listing-dropdown" class="">
                     <a  class="btn dropdown-toggle  btn-primary" data-toggle="dropdown" href="#">
                         Add listing
                         <span class="caret"></span>
                      </a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">ESIC</a></li>
-                        <li><a href="#">Investor</a></li>
-                        <li><a href="#">Accelerator</a></li>
-                        <li><a href="#">Research Partner</a></li>
-                        <li><a href="#">R&D Tax Consultant</a></li>
-                        <li><a href="#">Lawyer</a></li>
-                        <li><a href="#">Grant Consultant</a></li>
-
+                        <li><a href="<?= BASE_URL ?>/Esic">ESIC</a></li>
+                        <li><a href="<?= BASE_URL ?>/Investor">Investor</a></li>
+                        <li><a href="<?= BASE_URL ?>/Accelerator">Accelerator</a></li>
+                        <li><a href="<?= BASE_URL ?>/RndPartner">Research Partner</a></li>
+                        <li><a href="<?= BASE_URL ?>/RndConsultant">R&D Tax Consultant</a></li>
+                        <li><a href="<?= BASE_URL ?>/Lawyer">Lawyer</a></li>
+                        <li><a href="<?= BASE_URL ?>/GrantConsultant">Grant Consultant</a></li>
                     </ul>
                 </div>
             </div>
-
         </div>
-
-
       </div>
     </div> 
 </div>
 <!-- /JUMBOTRON container-->
-<!-- CONTENT
-=================================-->
+<!-- CONTENT =================================-->
 <div class="container">
     <?php echo $page['pageContentHTML']; ?>
-
-
     <hr>
-    <!--<div class="map"> <iframe frameborder="0" id="mapjam-iframe" src="//embeds.mapjam.com/v2/map-embed.html?app_url=https://mapjam.com/&cdn_url=//mapjamjson.global.ssl.fastly.net/&map_id=esicdirectory&access_token=&content_action=side_popup&map_width=800px&map_height=600px&container=mapjam-1&domain=mapjam.com" style="width: 100%;height: 600px;margin-bottom:5px;"></iframe>
-</div>-->
 </div>
 <!-- /CONTENT ============-->
-
 <?php echo $footer; ?>
 <script>
     $(function(){
         $('div.leftsidebar a').click(function(){
-
-            var alink = $(this).attr('href');
-            var result = alink.substring(alink.lastIndexOf("#") + 1);
-            var ID = "#"+result;
-            $('html, body').animate({
-                scrollTop: $(ID).offset().top -80}, 2000);
-
+          var alink = $(this).attr('href');
+          var result = alink.substring(alink.lastIndexOf("#") + 1);
+          var ID = "#"+result;
+          $('html, body').animate({
+            scrollTop: $(ID).offset().top -80}
+          , 2000);
         });
-
     });
-
-
-
-
-    </script>
+</script>

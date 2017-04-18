@@ -51,9 +51,11 @@
         var trigger = jQuery('.hamburger'),
             overlay = jQuery('.overlay'),
             isClosed = false;
-
         trigger.click(function () {
             hamburger_cross();
+        });
+        jQuery('#add-listing-dropdown').click(function(event) {
+            jQuery('#add-listing-dropdown').toggleClass('open');
         });
         function hamburger_cross() {
             if (isClosed == true) {
@@ -61,17 +63,14 @@
                 trigger.removeClass('is-open');
                 trigger.addClass('is-closed');
                 isClosed = false;
-            } else {
-
+            }else{
                 jQuery('img-responsive_logo').addClass('responsive_logo_hide');
                 overlay.show();
                 trigger.removeClass('is-closed');
                 trigger.addClass('is-open');
                 isClosed = true;
-
             }
         }
-
         jQuery('[data-toggle="offcanvas"]').click(function () {
             jQuery('#wrapper').toggleClass('toggled');
         });
@@ -86,7 +85,6 @@
                 }else{
                     var data_array = '';
                 }
-
         //For Header.
         $.each(data_array, function(key, value){
             var menuRef = value.menu;
@@ -101,7 +99,6 @@
             //if Menu Matched and tos has been enabled then we can let the user show the tos.
             if(menu.length > 0 && parseInt(enabledTos)==1){
                 //This means have founded the menu..
-
                 menu.on('click',function(e){
                    e.preventDefault();
                     var modal = $('#tosModal');
@@ -121,8 +118,6 @@
                         e.stopPropagation();
                         window.location.href = url;
                     });
-
-
                 });
             }
         });
@@ -133,11 +128,8 @@
 <?php
 // this is set in my_site_helper line 284
  if( isset($_SESSION['pageHasSlider']) && $_SESSION['pageHasSlider'] == true ){?>
-
 <link rel="stylesheet" href="<?php echo ADMIN_THEME; ?>/js/owlcarousel2/css/owl.carousel.css" />
 <link rel="stylesheet" href="<?php echo ADMIN_THEME; ?>/js/owlcarousel2/css/owl.theme.default.min.css" />
-
-
 <script src="<?php echo ADMIN_THEME; ?>/js/owlcarousel2/js/owl.carousel.js"></script>
 <script src="<?php echo ADMIN_THEME; ?>/js/owlcarousel2/js/owl.animate.js"></script>
 <script src="<?php echo ADMIN_THEME; ?>/js/owlcarousel2/js/owl.autoheight.js"></script>
