@@ -1,45 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<script type="text/javascript">
-    base_url = '<?= base_url();?>';
-</script>
+    <script type="text/javascript"> base_url = '<?= base_url();?>';</script>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <title><?php echo $page['pageTitle']; ?> | <?php echo $settings['siteTitle']; ?> </title>
-    <meta name="description" content="<?php echo $page['pageDescription']; ?> " />
-    <meta name="keywords" content="<?php echo $page['pageKeywords']; ?>" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-    <link href="<?php echo THEME_FOLDER; ?>css/bootstrap.min.css" rel="stylesheet">
+    <meta name="description"    content="<?= $page['pageDescription']; ?> " />
+    <meta name="keywords"       content="<?= $page['pageKeywords']; ?>" />
+    <meta name="viewport"       content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="<?= THEME_FOLDER; ?>css/bootstrap.min.css" rel="stylesheet">
     <!--[if lt IE 9]>
-
+        <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-   <!--header color error -->
-
-      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
-    <!--header color error -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.min.css">
-
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
-
-
-    <!--script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script-->
-
     <link href="<?= base_url();?>assets/css/form2.css" rel="stylesheet">
     <link href="<?= base_url();?>assets/css/boxlisting2.css" rel="stylesheet">
     <link href="<?= base_url();?>assets/vendors/select2/dist/css/select2.min.css" rel="stylesheet" />
-    <link href="<?php echo THEME_FOLDER; ?>/css/socicon.css" rel="stylesheet">
-    <link href="<?php echo THEME_FOLDER; ?>/css/styles.css" rel="stylesheet">
+    <link href="<?= THEME_FOLDER; ?>/css/socicon.css" rel="stylesheet">
+    <link href="<?= THEME_FOLDER; ?>/css/styles.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
     <link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" integrity="sha384-dNpIIXE8U05kAbPhy3G1cz+yZmTzA6CY8Vg/u2L9xRnHjJiAK76m2BIEaSEV+/aU" crossorigin="anonymous">
-
     <script src="https://code.jquery.com/jquery-1.12.4.js"  integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
             crossorigin="anonymous"></script>
+    <!--script src="<?= ADMIN_THEME; ?>/js/jquery-1.10.2.min.js"></script-->
     <script src="<?= base_url();?>assets/js/jquery-ui.js" type="text/javascript"></script>
-
     <script src="<?= base_url();?>assets/js/bootstrap-datepicker.js" type="text/javascript" async defer></script>
     <script src="<?= base_url();?>assets/js/daterangepicker.js" type="text/javascript" async defer></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -55,25 +42,35 @@
     </style>
 </head>
 <body ng-app="main-App">
-
-
-
 <nav class="navbar navbar-fixed-top navbar-inverse navbar-inverse2">
-
     <div id="wrapper">
         <div class="overlay"></div>
-
         <!-- Sidebar -->
         <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
-
-            <div class="leftsidebar">	<?php hooskNav('sidebar') ?>
-                <ul class="nav navbar-nav left-login-b"><li><a href="<?= BASE_URL ?>/admin" >login</a></li></ul>
+            <div class="leftsidebar"><?php hooskNav('sidebar') ?>
+                <ul class="nav navbar-nav left-login-b">
+                    <?php  if(!$UserLoggedIn){ ?>
+                            <li>
+                                <a href="<?= BASE_URL ?>/register" >
+                                    Sign Up
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?= BASE_URL ?>/admin" >
+                                    login
+                                </a>
+                            </li>
+                    <?php }else{ ?>
+                            <li>
+                                <a href="<?= BASE_URL ?>/logout" >
+                                    Logout
+                                </a>
+                            </li>
+                    <?php } ?>
+                </ul>
             </div>
-
         </nav>
-
         <!-- /#sidebar-wrapper -->
-
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
@@ -81,14 +78,34 @@
                 <span class="hamb-middle"></span>
                 <span class="hamb-bottom"></span>
             </button>
-
         </div>
         <!-- /#page-content-wrapper -->
-        <a class="" href="<?php echo BASE_URL; ?>"><img class="img-responsive_logo " src="<?php echo BASE_URL; ?>/images/<?php echo $settings['siteLogo']; ?>"
-                                                        alt="Hoosk"></a>
-
+        <a class="" href="<?php echo BASE_URL; ?>">
+            <img class="img-responsive_logo " src="<?php echo BASE_URL; ?>/images/<?php echo $settings['siteLogo']; ?>" alt="Hoosk" />
+        </a>
     </div>
-    <ul class="nav navbar-nav login_button"><li><a href="<?= BASE_URL ?>/admin" ><i class="fa fa-sign-in" aria-hidden="true"></i> login </a></li></ul>
+    <ul class="nav navbar-nav login_button">
+        <?php 
+            if(!$UserLoggedIn){
+        ?>
+                <li>
+                    <a href="<?= BASE_URL ?>/register" >
+                        <i class="fa fa-user-plus" aria-hidden="true"></i> Sign Up
+                    </a>
+                </li>
+                <li>
+                    <a href="<?= BASE_URL ?>/admin" >
+                        <i class="fa fa-sign-in" aria-hidden="true"></i> login
+                    </a>
+                </li>
+            <?php }else{ ?>
+                <li>
+                    <a href="<?= BASE_URL ?>/logout" >
+                        <i class="fa fa-sign-out" aria-hidden="true"></i> Logout
+                    </a>
+                </li>
+        <?php } ?>
+    </ul>
     <!-- /#wrapper -->
     <div class="container">
         <div class="navbar-header">
@@ -98,16 +115,13 @@
                 <span class="icon-bar"></span>
             </button>
         </div>
-
         <div class="collapse navbar-collapse right_sidebar">
-
             <div class="searchbar">
                 <form id="demo-2">
                     <input type="search" placeholder="Find an ESIC">
                 </form>
             </div>
             <?php hooskNav('header') ?>
-
             <script type="text/javascript">
                 if(typeof(tosJSON) != "undefined" && tosJSON !== null) {
                     var data_array = JSON.parse(tosJSON);
@@ -115,7 +129,6 @@
                     var data_array = '';
                 }
             </script>
-
             <style>
                 .login_button{
                     float: right;
@@ -230,11 +243,18 @@
                     font-family: "Open Sans";
                     padding-left: 30px;
                 }
+                @media (min-width: 767px){
+                    #navbar-collapse-main{
+                        display: block!important;
+                    }
+                }
+                @media (max-width: 768px){
+                    #navbar-collapse-main{
+                        display: none;
+                    }
+                }
             </style>
-
         </div>
-    </div>
-    <!-- /.container -->
-
+    </div>    <!-- /.container -->
 </nav><!-- /.navbar -->
 

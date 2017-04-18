@@ -14,6 +14,7 @@ if(!isset($ControllerRouteManage) || empty($ControllerRouteManage)){
 if(!isset($PageType) || empty($PageType)){
     $PageType = '';
 }
+
 ?>
 <!--link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css"/-->
 <link rel="stylesheet" href="<?= base_url();?>assets/vendors/select2/css/select2.css"/ >

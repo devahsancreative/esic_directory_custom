@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 class MY_Controller extends CI_Controller{
 	public $base_url;
-    public $tableNameUser  = 'hoosk_user';
+    public $tableNameUser   = 'hoosk_user';
 	/**
 	 * Class constructor
 	 */
@@ -15,7 +15,9 @@ class MY_Controller extends CI_Controller{
 		$this->base_url = BASE_URL;
 		define("HOOSK_ADMIN",1);
 		$this->load->helper(array('admincontrol','hoosk_admin','hoosk_page','email_helper'));
+        $this->load->library('facebook');
         $this->load->model('Hoosk_model');
+        
 		define ('LANG', $this->Hoosk_model->getLang());
 		$this->lang->load('admin', LANG);
 		define ('SITE_NAME', $this->Hoosk_model->getSiteName());
@@ -31,6 +33,30 @@ class MY_Controller extends CI_Controller{
         //Assign Values to Config File.
         $this->config->set_item('facebook_app_id', $config[0]->api_id);
         $this->config->set_item('facebook_app_secret', $config[0]->api_key);
+        if(isUserLoggedIn($this)){
+            $this->data['CurrentUserData'] =  getCurrentUserData($this);
+            $this->data['UserLoggedIn']    = true;
+        }else{
+            $this->data['UserLoggedIn']    = false;
+        }
+
+        $url = str_replace($_SERVER["HTTP_HOST"], '', BASE_URL);
+        $url = $_SERVER["DOCUMENT_ROOT"].''.$url;
+        $url = str_replace('http://', '', $url);
+        $url = str_replace('https://', '', $url);
+        define ('DoucmentUrl', $url);
+
+        $totSegments = $this->uri->total_segments();
+        if(!is_numeric($this->uri->segment($totSegments))){
+            $pageURL = $this->uri->segment($totSegments);
+        }else if(is_numeric($this->uri->segment($totSegments))){
+            $pageURL = $this->uri->segment($totSegments-1);
+        }
+        if ($pageURL == ""){ $pageURL = "home"; }
+        $this->load->model('Hoosk_page_model');
+        $this->data['page']             = $this->Hoosk_page_model->getPage($pageURL);
+        $this->data['settings']         = $this->Hoosk_page_model->getSettings();
+        $this->data['settings_footer']  = $this->Hoosk_model->getSettings();
 	}
 	public function show_admin($viewPath, $data = NULL, $bool = false){
 	    $this->load->view('admin/header',$data, $bool);
@@ -67,25 +93,6 @@ class Listing extends MY_Controller{
 
         $this->load->helper(array('form','viewdefault'));
         $this->load->library('form_validation');
-        $this->load->model('Hoosk_page_model');
-
-        $url = str_replace($_SERVER["HTTP_HOST"], '', BASE_URL);
-        $url = $_SERVER["DOCUMENT_ROOT"].''.$url;
-        $url = str_replace('http://', '', $url);
-        $url = str_replace('https://', '', $url);
-        define ('DoucmentUrl', $url);
-
-        $totSegments = $this->uri->total_segments();
-        if(!is_numeric($this->uri->segment($totSegments))){
-            $pageURL = $this->uri->segment($totSegments);
-        }else if(is_numeric($this->uri->segment($totSegments))){
-            $pageURL = $this->uri->segment($totSegments-1);
-        }
-        if ($pageURL == ""){ $pageURL = "home"; }
-
-        $this->data['page']             = $this->Hoosk_page_model->getPage($pageURL);
-        $this->data['settings']         = $this->Hoosk_page_model->getSettings();
-        $this->data['settings_footer']  = $this->Hoosk_model->getSettings();
 
         $this->data['PageType']               = 'Listing';
         $this->data['LogoDbField']            = $this->LogoDbField;
@@ -96,6 +103,8 @@ class Listing extends MY_Controller{
         $this->data['ControllerRouteName']    = $this->ControllerRouteName;
         $this->data['ControllerRouteManage']  = $this->ControllerRouteManage;
         $this->data['itemStatuses']           = $this->Common_model->select('esic_status_flags');
+
+        $this->data['userFieldsView'] =  $this->load->view('admin/configuration/structure/user_fields_front', $this->data , true);
 
     }
     public function Manage($param=NULL){

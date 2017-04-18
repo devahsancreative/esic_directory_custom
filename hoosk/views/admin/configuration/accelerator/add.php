@@ -14,10 +14,50 @@
                         <div class="box-body">
                             <div class="row">
                                 <input type="hidden" id="hiddenListID" value="">
+                                <!--div class="col-md-12">
+                                    <label for="UserDetailBox">User Details :</label>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                            <div class="col-xs-12 col-sm-4 col-md-6">
+                                                <div class="form-group">
+                                                    <label for="UsernameTextBox">Username</label>
+                                                    <input type="text" name="Username" id="UsernameTextBox" class="form-control" <?= $ReadyOnlyFlag; ?> value="<?= $Username;?>" />
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-4 col-md-6">
+                                                <div class="form-group">
+                                                    <label for="UserEmailBox">Email</label>
+                                                    <input type="text" name="UserEmail" id="UserEmailBox" class="form-control" <?= $ReadyOnlyFlag; ?> value="<?= $UserEmail;?>" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                                <div class="form-group">
+                                                    <label for="FirstNameTextBox">First Name</label>
+                                                    <input type="text" name="FirstName" id="FirstNameTextBox" class="form-control" <?= $ReadyOnlyFlag; ?> value="<?= $FirstName;?>"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                                <div class="form-group">
+                                                    <label for="LastNameTextBox">Last Name</label>
+                                                    <input type="text" name="LastName" id="LastNameTextBox" class="form-control" <?= $ReadyOnlyFlag; ?> value="<?= $LastName;?>" />
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                                <div class="form-group">
+                                                    <label for="UserPhoneTextBox">Phone</label>
+                                                    <input type="text" name="UserPhone" id="UserPhoneTextBox" class="form-control" <?= $ReadyOnlyFlag; ?> value="<?= $UserPhone;?>" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div-->
                                 <div class="col-md-12">
+                                    <label for="<?= $ListingLabel;?>DetailBox"><?= $ListingLabel ; ?> Details :</label>
                                     <div class="form-group">
-                                        <label for="NameTextBox">Name</label>
-                                        <input type="text" name="name" id="NameTextBox" class="form-control" />
+                                        <label for="<?= $ListingLabel ; ?>NameTextBox"><?= $ListingLabel ; ?> Name</label>
+                                        <input type="text" name="name" id="<?= $ListingLabel ; ?>NameTextBox" class="form-control" />
                                     </div>
                                     <div class="form-group">
                                         <label for="WebsiteBox">Website</label>

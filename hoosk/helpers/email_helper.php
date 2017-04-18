@@ -18,9 +18,9 @@ if(!function_exists('sendEmail')) {
     function sendEmail($ci,$subject,$to,$message)
     {
         $ci->load->library('email');
-        $settings = $ci->Hoosk_model->getSettings();
-        $siteEmail = $settings[0]['siteEmail'];
-        $config = getEmailConfig();
+        $settings   = $ci->Hoosk_model->getSettings();
+        $siteEmail  = $settings[0]['siteEmail'];
+        $config     = getEmailConfig();
         $ci->email->initialize($config);
         $ci->email->from($siteEmail, 'From: Esic Directory');
         $ci->email->to($to);

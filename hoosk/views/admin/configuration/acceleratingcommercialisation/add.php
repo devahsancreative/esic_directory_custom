@@ -14,6 +14,7 @@
                             <div class="row">
                                 <input type="hidden" id="hiddenListID" value="">
                                 <div class="col-md-12">
+                                    <label for="ProgrammeDetailBox">Programme Details :</label>
                                     <div class="form-group">
                                         <label for="NameTextBox">Programme Member Name</label>
                                         <input type="text" name="Member" id="NameTextBox" class="form-control" />

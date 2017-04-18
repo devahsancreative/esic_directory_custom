@@ -1,18 +1,40 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class Login2 extends CI_Controller {
-
-    function __construct()
-    {
-
+class Login extends MY_Controller {
+    function __construct(){
         parent::__construct();
-        $this->load->helper('MY_site_helper');
-        $this->load->helper('MY_user_helper');
-        $this->load->model('Users_auth');
-        $this->load->model('Common_model');
-        $this->lang->load('login','english');
     }
 
+    public function login(){
+        $this->load->helper('form');
+        $data['settings'] = $this->Hoosk_model->getSettings();
+        $data['header'] = $this->load->view('admin/headerlog', '', true);
+        $data['footer'] = $this->load->view('admin/footer', '', true);
+        $this->load->view('admin/login',$data);
+    }
+    public function loginCheck(){
+        $username=$this->input->post('username');
+        $password=md5($this->input->post('password').SALT);
+        $result=$this->Hoosk_model->login($username,$password);
+        if($result) {
+            redirect('/admin', 'refresh');
+        }else{
+            $this->data['error'] = "1";
+            $this->login();
+        }
+    }
+    public function logout(){
+        $data = array(
+                'userID'    =>  '',
+                'userName'  =>  '',
+                'logged_in' =>  FALSE,
+        );
+        $this->session->unset_userdata($data);
+        $this->session->sess_destroy();
+        $this->facebook->destroy_session();
+        $this->login();
+    }
+/*
     public function index()
     {
         $data=array();
@@ -52,7 +74,6 @@ class Login2 extends CI_Controller {
 
     public function login(){
 
-
         //Redirect User if did Accessed to This Page Directly
         if(!$this->input->post()){
             redirect(PreviousURL());
@@ -91,5 +112,5 @@ class Login2 extends CI_Controller {
         $this->session->sess_destroy();
         $this->session->set_flashdata('logout_notification', 'logged_out');
         redirect(base_url().'Admin', 'refresh');
-    }
+    }*/
 }

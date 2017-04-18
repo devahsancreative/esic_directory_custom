@@ -15,21 +15,23 @@ class Users_auth extends CI_Model
     }
 
     public function login($Where){
-        $UserTable = 'esic_user';
+        $UserTable = 'hoosk_user';
         $q = $this->db->get_where($UserTable,$Where);
         $users = $q->result_array();
         if(empty($users)){return FALSE;}
         $user = $users[0];
         if(count($user)){
-            //Log the User in if User Record is Returned
-
             $data=array(
-                'Email' => $user['email'],
-                'UserID' => $user['id'],
-                'Username' => $user['username'],
-                'LoggedIn' => TRUE
+                'UserID'    => $user['userID'],  
+                'Username'  => $user['userName'], 
+                'firstName' => $user['firstName'], 
+                'lastName'  => $user['lastName'], 
+                'Email'     => $user['email'],
+                'phone'     => $user['phone'], 
+                'p_image'   => $user['p_image'], 
+                'userrole'  => $user['userRole'], 
+                'LoggedIn'  => TRUE
             );
-
             //Set the User Role ID also in the Session for Later Use.
             if(isset($roleUserID) && !empty($roleUserID) && is_numeric($roleUserID)){
                 $data['UserRoleID'] = $roleUserID;

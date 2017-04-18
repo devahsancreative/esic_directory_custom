@@ -26,8 +26,7 @@ class Admin extends MY_Controller {
         define ('DoucmentUrl', $url);
 	}
 	
-	public function index($status=NULL)
-	{
+	public function index($status=NULL){
 		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		$userRole = $this->session->userdata('userRole');
 		$userID   = $this->session->userdata('userID');
@@ -43,23 +42,12 @@ class Admin extends MY_Controller {
 			$this->data['status']             = $this->Common_model->select('esic_status');
 		    $this->data['header']             = $this->load->view('admin/header', $this->data, true);
 		    $this->data['footer']             = $this->load->view('admin/footer', '', true);
-		
-		 //data table code 
-		 $this->load->view('admin/home', $this->data);
-		}
-		elseif($userRole == "2")
-		{
-		  redirect(base_url().'admin/details/'.$userID); 
-	    }
-		else{
-			 redirect(base_url().'admin/investor/edit_profile/'.$userID);
-			}
-			 
+		 	$this->load->view('admin/home', $this->data);
+	    }else{
+	    	redirect(base_url().'admin/home');
+		}	 
 	}
- 
- 
-public function assessment_dashboard(){
-	  
+	public function assessment_dashboard(){ 
 	 $status = $this->input->post('status');
 	 $selectData = array('
             h_user.userID as UserID,
@@ -103,7 +91,6 @@ public function assessment_dashboard(){
 			}
             return NULL;
 	} 
- 
 	public function upload(){
 		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		$attachment   = $this->input->post('attachment');
@@ -127,53 +114,10 @@ public function assessment_dashboard(){
 		array('Content-Type' => 'application/json')
 		);
 	}
-
-	public function login()
-	{$this->load->helper('form');
-
-        $data['settings'] = $this->Hoosk_model->getSettings();
-        $data['header'] = $this->load->view('admin/headerlog', '', true);
-
-        $data['footer'] = $this->load->view('admin/footer', '', true);
-
-        $this->load->view('admin/login',$data);
-         }
-
-	public function loginCheck()
- 	{
-		$username=$this->input->post('username');
-		$password=md5($this->input->post('password').SALT);
-		$result=$this->Hoosk_model->login($username,$password);
-		if($result) {
-			redirect('/admin', 'refresh');
-		}
-		else
-		{
-			$this->data['error'] = "1";
-			$this->login();
-		}
-	}
-
-	public function logout()
-	{
-		$data = array(
-				'userID'    => 	'',
-				'userName'  => 	'',
-	            'logged_in'	=> 	FALSE,
-		);
-		$this->session->unset_userdata($data);
-		$this->session->sess_destroy();
-        $this->facebook->destroy_session();
-		$this->login();
-	}
-
-
-	public function settings()
-	{
+	public function settings(){
 		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		$userRole = $this->session->userdata('userRole');
 		if($userRole == 1){
-
 			//Load the form helper
 			$this->load->helper('form');
 			$this->load->helper('directory');
@@ -187,62 +131,44 @@ public function assessment_dashboard(){
 			$this->data['footer'] = $this->load->view('admin/footer', '', true);
 			$this->load->view('admin/settings', $this->data);
 		}else{
-			  $this->load->view('admin/page_not_found');
-			 }
+			$this->load->view('admin/page_not_found');
+		}
 	}
-
-	public function updateSettings()
-	{
+	public function updateSettings(){
 		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
-
 		if ($this->input->post('siteLogo') != ""){
-		//path to save the image
-		$path_upload = DoucmentUrl.'/uploads/';
-		$path_images = DoucmentUrl.'/images/';
-		//moving temporary file to images folder
-		if(rename($path_upload . $this->input->post('siteLogo'), $path_images . $this->input->post('siteLogo')))
-		{
-			//if the file was uploaded then update settings
+			//path to save the image
+			$path_upload = DoucmentUrl.'/uploads/';
+			$path_images = DoucmentUrl.'/images/';
+			//moving temporary file to images folder
+			if(rename($path_upload . $this->input->post('siteLogo'), $path_images . $this->input->post('siteLogo'))){
+				//if the file was uploaded then update settings
+				$this->Hoosk_model->updateSettings();
+				redirect('/admin/settings', 'refresh');
+			}else{
+				//return to settings
+				$this->settings();
+			}
+		}else{
 			$this->Hoosk_model->updateSettings();
 			redirect('/admin/settings', 'refresh');
 		}
-		else
-		{
-			//return to settings
-			$this->settings();
-		}
-		}
-		else
-		{
-
-			$this->Hoosk_model->updateSettings();
-			redirect('/admin/settings', 'refresh');
-		}
-
 	}
-
-	public function uploadLogo()
-	{
+	public function uploadLogo(){
 		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		$config['upload_path']          = './uploads/';
 		$config['allowed_types']        = 'gif|jpg|png';
-
 		$this->load->library('upload', $config);
 		foreach ($_FILES as $key => $value) {
-			if ( ! $this->upload->do_upload($key))
-			{
+			if ( ! $this->upload->do_upload($key)){
 					$error = array('error' => $this->upload->display_errors());
 					echo 0;
-			}
-			else
-			{
+			}else{
 					echo '"'.$this->upload->data('file_name').'"';
 			}
 		}
 	}
-
-public function social()
-	{
+	public function social(){
 		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		$userRole = $this->session->userdata('userRole');
 		if($userRole == 1){
