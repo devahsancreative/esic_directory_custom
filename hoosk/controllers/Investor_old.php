@@ -45,9 +45,9 @@ class Investor extends MY_Controller {
         $data['sectors'] = $this->Common_model->select_fields_where('esic_sectors',$selectData, $where, false, '', '', '','','',false);
         $data['company'] = $this->Common_model->select('esic');
 
-        $this->load->view('theme/header', $data);
+        $this->load->view('structure/header', $data);
         $this->load->view('regForm/reg_form_bootstrap2', $data);
-        $this->load->view('theme/footer');
+        $this->load->view('structure/footer');
     }  //not in use
 
     public function investor_search(){
@@ -98,11 +98,11 @@ class Investor extends MY_Controller {
         $data['filterEndDate']      =  $filterEndDate;
         $data['keyword']            =  $keyword;
 
-        $this->load->view('theme/header');
+        $this->load->view('structure/header');
         $data['Title'] = 'Investors';
-        $this->load->view('theme/header',$this->data);
-        $this->load->view('theme/listing',$data);
-        $this->load->view('theme/footer');
+        $this->load->view('structure/header',$this->data);
+        $this->load->view('templates/listing',$data);
+        $this->load->view('structure/footer');
     }
     public function innovator_search(){
         $keyword    = $this->input->post('keyword');
@@ -114,9 +114,9 @@ class Investor extends MY_Controller {
         $orderSelectValue = '';
         $this->load->model('Esic_model');
         $data['list'] = $this->Esic_model->getfilterlist($page,$searchInput,$secSelect,$comSelect,$orderSelect,$orderSelectValue);
-        $this->load->view('theme/header',$this->data);
+        $this->load->view('structure/header',$this->data);
         $this->load->view("box_listing/getlist",$data);
-        $this->load->view('theme/footer');
+        $this->load->view('structure/footer');
     }
     public function investor_list($param=NULL){
 
@@ -271,10 +271,10 @@ class Investor extends MY_Controller {
 
     public function investor_form(){
 
-        $this->load->view('theme/header',$this->data);
-        $this->load->view('theme/'.$this->data['page']['pageTemplate'], $this->data);
+        $this->load->view('structure/header',$this->data);
+        $this->load->view('templates/'.$this->data['page']['pageTemplate'], $this->data);
         $this->load->view('investor/investor-form',$this->data);
-        $this->load->view('theme/footer');
+        $this->load->view('structure/footer');
     }
     public function submit(){             // Insert investor form
 
@@ -418,9 +418,9 @@ class Investor extends MY_Controller {
         }
         else
         {
-            $this->load->view('theme/header');
+            $this->load->view('structure/header');
             $this->load->view('investor/investor-form');
-            $this->load->view('theme/footer');
+            $this->load->view('structure/footer');
         }
 
 

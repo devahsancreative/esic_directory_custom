@@ -151,19 +151,19 @@ class Listing extends MY_Controller{
         return Null;
     }
     public function FrontForm(){
-        $this->load->view('theme/header',$this->data);
+        $this->load->view('structure/header',$this->data);
         if(!empty($this->data['page']['pageTemplate'])){
-            $this->load->view('theme/'.$this->data['page']['pageTemplate'], $this->data);
+            $this->load->view('templates/'.$this->data['page']['pageTemplate'], $this->data);
         }
         $this->show_configuration('admin/configuration/'.$this->ViewFolderName.'/front' ,$this->data);
-        $this->load->view('theme/footer');
+        $this->load->view('structure/footer');
     }
     public function Create(){
         $this->data['PageType'] = 'Message';
         $this->data['return'] = ViewHelperNewSave();
-        $this->load->view('theme/header',$this->data);
+        $this->load->view('structure/header',$this->data);
         $this->show_configuration('admin/configuration/structure/message' , $this->data);
-        $this->load->view('theme/footer');
+        $this->load->view('structure/footer');
         return Null;
     }
 }

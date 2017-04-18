@@ -8,11 +8,11 @@ class Admin extends MY_Controller {
 		$this->load->library('session');
         $this->load->library('facebook');
         $this->load->model('Hoosk_model');
-		define ('LANG', $this->Hoosk_model->getLang());
+		define('LANG', $this->Hoosk_model->getLang());
 		$this->lang->load('admin', LANG);
-		define ('SITE_NAME', $this->Hoosk_model->getSiteName());
+		define('SITE_NAME', $this->Hoosk_model->getSiteName());
 		define('THEME', $this->Hoosk_model->getTheme());
-		define ('THEME_FOLDER', BASE_URL.'/theme/'.THEME);
+		define('THEME_FOLDER', BASE_URL.'/templates/'.THEME);
 
         $this->load->model("Common_model");
         $this->load->model("Imagecreate_model");
@@ -122,7 +122,7 @@ class Admin extends MY_Controller {
 			$this->load->helper('form');
 			$this->load->helper('directory');
 
-			$this->data['themesdir'] = directory_map(DoucmentUrl.'/theme/', 1);
+			$this->data['themesdir'] = directory_map(DoucmentUrl.'/templates/', 1);
 			$this->data['langdir'] = directory_map(APPPATH.'/language/', 1);
 
 			$this->data['settings'] = $this->Hoosk_model->getSettings();

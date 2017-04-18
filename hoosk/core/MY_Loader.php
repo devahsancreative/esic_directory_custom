@@ -63,11 +63,9 @@ class MY_Loader extends CI_Loader {
 		}
 
 		if(!defined('HOOSK_ADMIN')):
-				$_ci_path = 'theme/'.THEME.'/'.$_ci_file; // commented by hamid raza 
+				$_ci_path = 'theme/'.THEME.'/'.$_ci_file; 
 				
-				// added by hamid raza 
-				
-				/*if($_ci_file =='box_listing/db_list.php'){ // added by hamid raza 
+				/*if($_ci_file =='box_listing/db_list.php'){ 
 				echo 	$_ci_path =VIEW_URL.$_ci_file;
 					}
 				else{

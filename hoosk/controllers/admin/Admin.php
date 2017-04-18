@@ -28,7 +28,7 @@ class Admin extends MY_Controller {
 
 		define('THEME', $this->Hoosk_model->getTheme());
 
-		define ('THEME_FOLDER', BASE_URL.'/theme/'.THEME);
+		define ('THEME_FOLDER', BASE_URL.'/templates/'.THEME);
 
 
 
@@ -226,7 +226,7 @@ class Admin extends MY_Controller {
 
 		$this->load->helper('directory');
 
-		$this->data['themesdir'] = directory_map($_SERVER["DOCUMENT_ROOT"].'/esic_directory/theme/', 1);
+		$this->data['themesdir'] = directory_map($_SERVER["DOCUMENT_ROOT"].'/esic_directory/templates/', 1);
 
 		$this->data['langdir'] = directory_map(APPPATH.'/language/', 1);
 

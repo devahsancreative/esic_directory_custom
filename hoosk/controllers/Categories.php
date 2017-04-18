@@ -15,7 +15,7 @@ class Categories extends CI_Controller {
 		$this->data['current'] = $this->uri->segment(2);
 		define ('SITE_NAME', $this->Hoosk_model->getSiteName());
 		define('THEME', $this->Hoosk_model->getTheme());
-		define ('THEME_FOLDER', BASE_URL.'/theme/'.THEME);
+		define ('THEME_FOLDER', BASE_URL.'/templates/'.THEME);
 	}
 
 	public function index()

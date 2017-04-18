@@ -36,8 +36,8 @@ class Esicdetails extends MY_Controller{
 		 
 		$this->data['list'] = $this->Esic_model->getdetails($alias);
         
-		$this->load->view('theme/header', $this->data);
+		$this->load->view('structure/header', $this->data);
         $this->load->view('product_details',$this->data);
-		$this->load->view('theme/footer');
+		$this->load->view('structure/footer');
     }
 }

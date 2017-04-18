@@ -42,9 +42,9 @@ class Contact extends MY_Controller{
 
     public function contact_us(){
 
-        $this->load->view('theme/header',$this->data);
+        $this->load->view('structure/header',$this->data);
         $this->load->view("contact/contact",$this->data);
-        $this->load->view('theme/footer');
+        $this->load->view('structure/footer');
     }
 
     public function submit(){

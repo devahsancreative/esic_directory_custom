@@ -38,9 +38,9 @@ class Esic2 extends MY_Controller{
 
 	    $page = 0;
         $this->data['usersResult'] = $this->Esic_model->getlist($page);
-	    $this->load->view('theme/header', $this->data);
+	    $this->load->view('structure/header', $this->data);
         $this->load->view("box_listing/db_list",$this->data);
-		$this->load->view('theme/footer');
+		$this->load->view('structure/footer');
      }
 
     public function getlist(){
@@ -54,7 +54,7 @@ class Esic2 extends MY_Controller{
 
         if($this->input->post('keyword')){
 
-            $this->load->view('theme/header',$this->data);
+            $this->load->view('structure/header',$this->data);
             $searchInput   = $this->input->post('keyword');
             $data['sectors'] = $this->Common_model->select('esic_sectors');
             $data['company'] = $this->Common_model->select('esic');
@@ -62,7 +62,7 @@ class Esic2 extends MY_Controller{
             $page = 0;
             $data['list'] = $this->Esic_model->getfilterlist($page,$searchInput,'','','','');
             $this->load->view("box_listing/db_search_list",$data);
-            $this->load->view('theme/footer');
+            $this->load->view('structure/footer');
 
         }else if(!empty($_GET)){
 
@@ -81,14 +81,14 @@ class Esic2 extends MY_Controller{
         }else{
             if($this->input->post('resultsFor')){
 
-                $this->load->view('theme/header',$this->data);
+                $this->load->view('structure/header',$this->data);
                 $this->load->view("box_listing/db_search_list",$data);
-                $this->load->view('theme/footer');
+                $this->load->view('structure/footer');
 
             }else{
-               /* //$this->load->view('theme/header',$this->data);
+               /* //$this->load->view('structure/header',$this->data);
                 $this->load->view("box_listing/db_search_list",$data);
-                //$this->load->view('theme/footer');*/
+                //$this->load->view('structure/footer');*/
             }
         }
     }

@@ -17,7 +17,7 @@ class Blog extends MY_Controller {
 		$this->data['current'] = $this->uri->segment(2);
 		define ('SITE_NAME', $this->Hoosk_model->getSiteName());
 		define('THEME', $this->Hoosk_model->getTheme());
-		define ('THEME_FOLDER', BASE_URL.'/theme/'.THEME);
+		define ('THEME_FOLDER', BASE_URL.'/templates/'.THEME);
 
             // use for Header And Footer
         $totSegments = $this->uri->total_segments();
@@ -272,9 +272,9 @@ class Blog extends MY_Controller {
    }
 /*public function lists(){ //display list of blogs on front page 
 	    $this->data['blog_data']       = $this->common_model->get_blog_lists(); 
-	    $this->load->view('theme/header');
+	    $this->load->view('structure/header');
         $this->load->view("blog/blog_list",$this->data);
-		$this->load->view('theme/footer');
+		$this->load->view('structure/footer');
 	 }*/
 public function lists(){ //display list of blogs on front page 
         
@@ -317,9 +317,9 @@ public function lists(){ //display list of blogs on front page
 	  $this->data['blog_list']       = $this->common_model->get_blog_lists_sidebar();
 
 
-	  $this->load->view('theme/header',$this->data);
+	  $this->load->view('structure/header',$this->data);
       $this->load->view("blog/blog_list",$this->data);
-	  $this->load->view('theme/footer');
+	  $this->load->view('structure/footer');
 	 }
 	 
 	 
@@ -333,9 +333,9 @@ public function details($p1=NULL,$p2=NULL){//display single blogs
 		$this->data['esic_comment_reply'] = $this->common_model->esic_comment_reply('esic_comment_reply',$p1);
 
 		
-		$this->load->view('theme/header',$this->data);
+		$this->load->view('structure/header',$this->data);
         $this->load->view("blog/single",$this->data);
-		$this->load->view('theme/footer');
+		$this->load->view('structure/footer');
 	}
 
 

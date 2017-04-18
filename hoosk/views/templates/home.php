@@ -1,4 +1,9 @@
 <?php echo $header; ?>
+    <style>
+        .container-fluid {
+            background: #fff;
+        }
+    </style>
 <!-- JUMBOTRON 
 =================================-->
 <div class="jumbotron text-center <?php if (($page['enableJumbotron'] == 1) && ($page['enableSlider'] == 1)) { echo "carouselpadding"; } elseif (($page['enableJumbotron'] == 1) && ($page['enableSlider'] == 0)) { echo "errorpadding"; } elseif (($page['enableJumbotron'] == 0) && ($page['enableSlider'] == 1)) { echo "slider-padding"; } ?>">

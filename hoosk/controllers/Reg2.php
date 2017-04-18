@@ -59,11 +59,11 @@ class Reg2 extends MY_Controller {
         if ($this->data['page']['pageTemplate'] != "") {
             // end from hoosk Default
 
-            $this->load->view('theme/header', $this->data);
-            $this->load->view('theme/'.$this->data['page']['pageTemplate'], $this->data);
+            $this->load->view('structure/header', $this->data);
+            $this->load->view('templates/'.$this->data['page']['pageTemplate'], $this->data);
             $this->load->view('regForm/reg_form_bootstrap2', $this->data);
 
-            $this->load->view('theme/footer');
+            $this->load->view('structure/footer');
         }
         else {
             $this->error();
