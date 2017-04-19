@@ -32,82 +32,149 @@ input#myInputTextField {
 .nav>li>a:hover, .nav>li>a:active, .nav>li>a:focus {
      cursor: pointer !important;
 	 
-} 		
+} 
+.info-box {
+    min-height: 50px;
+    margin-bottom: 5px;
+    border-bottom: solid 2px #3c8dbc;
+}
+.info-box-content {
+    padding: 5px 5px;
+    margin-left: 50px;
+}
+.info-box-icon {
+    display: block;
+    float: left;
+    height: 50px;
+    width: 50px;
+    font-size: 25px;
+    line-height: 2;
 </style>
  
   <div class="container-fluid">
-
-
-
       <section class="content-header">
           <h1>
               Dashboard
-
           </h1>
           <ol class="breadcrumb">
               <li><a href="<?= base_url();?>admin"><i class="fa fa-dashboard"></i> Dashboard</a></li> 
               <li class="active"></li>
           </ol>
       </section>
-
       <!-- Main content -->
     <section class="content">
         <!-- Info boxes -->
         <div class="row">
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box">
-                    <span class="info-box-icon bg-aqua"><i class="fa fa-university fa-6"></i></span>
-
-                    <div class="info-box-content">
-                        <span class="info-box-text">Universities</span>
-                        <span class="info-box-number"><?php if (isset($total_institution)){ echo $total_institution; }?><small> </small></span>
-                    </div>
-                    <!-- /.info-box-content -->
-                </div>
-                <!-- /.info-box -->
-            </div>
-            <!-- /.col -->
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box">
-                    <span class="info-box-icon bg-red"><i class="fa fa-university fa-6"></i></span>
-
-                    <div class="info-box-content">
-                        <span class="info-box-text">R&D </span>
-                        <span class="info-box-number"><?php if (isset($esic_rnd)){ echo $esic_rnd; }?></span>
-                    </div>
-                    <!-- /.info-box-content -->
-                </div>
-                <!-- /.info-box -->
-            </div>
-            <!-- /.col -->
-
-            <!-- fix for small devices only -->
-            <div class="clearfix visible-sm-block"></div>
-
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box">
-                    <span class="info-box-icon bg-green"><i class="fa fa-university fa-6"></i></span>
-
-                    <div class="info-box-content">
-                        <span class="info-box-text">Acceleration Commercials</span>
-                        <span class="info-box-number"><?php if (isset($c_acceleration_c)){ echo $c_acceleration_c; }?></span>
-                    </div>
-                    <!-- /.info-box-content -->
-                </div>
-                <!-- /.info-box -->
-            </div>
-            <!-- /.col -->
-            <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="col-md-3 col-sm-4 col-xs-6">
                 <div class="info-box">
                     <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
-
                     <div class="info-box-content">
-                    
-                        <span class="info-box-text">Total Members
-                        
-                        
+                        <span class="info-box-text">Users
                         </span>
-                        <span class="info-box-number"><?php if (isset($tUsers)){ echo $tUsers; }?></span>
+                        <span class="info-box-number">
+                            <?php if(isset($TotalUsers)){ echo $TotalUsers; }?>
+                        </span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-4 col-xs-6">
+                <div class="info-box">
+                    <span class="info-box-icon bg-aqua"><i class="fa fa-list fa-6"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Esic
+                        </span>
+                        <span class="info-box-number">
+                            <?php if(isset($TotalEsic)){ echo $TotalEsic; }?>   
+                        </span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-4 col-xs-6">
+                <div class="info-box">
+                    <span class="info-box-icon bg-red"><i class="fa fa-list fa-6"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">R&D Partners</span>
+                        <span class="info-box-number">
+                            <?php if(isset($TotalRndPartners)){ echo $TotalRndPartners; }?>
+                        </span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-4 col-xs-6">
+                <div class="info-box">
+                    <span class="info-box-icon bg-red"><i class="fa fa-list fa-6"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">R&D Tax Consultants</span>
+                        <span class="info-box-number">
+                            <?php if (isset($TotalRndConsultants)){ echo $TotalRndConsultants; }?>
+                        </span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <!-- fix for small devices only -->
+            <div class="clearfix visible-sm-block"></div>
+            <div class="col-md-3 col-sm-4 col-xs-6">
+                <div class="info-box">
+                    <span class="info-box-icon bg-green"><i class="fa fa-list fa-6"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Accelerators</span>
+                        <span class="info-box-number">
+                            <?php if (isset($TotalAccelerators)){ echo $TotalAccelerators; }?>
+                        </span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-4 col-xs-6">
+                <div class="info-box">
+                    <span class="info-box-icon bg-green"><i class="fa fa-list fa-6"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Lawyers</span>
+                        <span class="info-box-number">
+                            <?php if (isset($TotalLawyers)){ echo $TotalLawyers; }?>
+                        </span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-4 col-xs-6">
+                <div class="info-box">
+                    <span class="info-box-icon bg-green"><i class="fa fa-list fa-6"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Grant Consultants</span>
+                        <span class="info-box-number">
+                            <?php if (isset($TotalGrantConsultants)){ echo $TotalGrantConsultants; }?>
+                        </span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-4 col-xs-6">
+                <div class="info-box">
+                    <span class="info-box-icon bg-aqua"><i class="fa fa-university fa-6"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Universities</span>
+                        <span class="info-box-number">
+                            <?php if (isset($TotalUniversities)){ echo $TotalUniversities; }?>
+                        </span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>
@@ -119,7 +186,6 @@ input#myInputTextField {
  
          
         <!-- /.row -->
-
         <!-- Main row -->
         <div class="row">
            <div class="col-md-8">
@@ -145,11 +211,9 @@ input#myInputTextField {
                                 <tr>
                                     <th class="tablet desktop">ID</th>
                                     <th class="mobile tablet desktop">Name</th>
-                                    <th class="tablet desktop">Email</th>
+                                    <th class="tablet desktop">Website</th>
                                     <th class="tablet-l desktop">Status</th>
                                     <th class="mobile tablet desktop">Action</th>
-                                    
-                                   
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -158,7 +222,7 @@ input#myInputTextField {
                                 <tr>
                                     <th class="tablet desktop">ID</th>
                                     <th class="mobile tablet desktop">Name</th>
-                                    <th class="tablet desktop">Email</th>
+                                    <th class="tablet desktop">Website</th>
                                     <th class="tablet-l desktop">Status</th>
                                     <th class="mobile tablet desktop">Action</th>
                                
@@ -174,18 +238,12 @@ input#myInputTextField {
             </div>
             <!-- /.row -->
         </section>
-                               
-                           
-                        </div>  
-                 
-            </div>
-            <div class="col-md-4">
-           
-
+    </div>  
+    </div>
+             <div class="col-md-4">
                 <div class="box box-default">
                     <div class="box-header with-border">
                         <h3 class="box-title">ESIC Pre-Assessment Status</h3>
-
                         <div class="box-tools pull-right">
                             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                             </button>
@@ -228,11 +286,9 @@ input#myInputTextField {
 			  $get_Users_Status = $this->Hoosk_model->get_ass_status($status_value->id);
 			  $nameStatus = $status_value->status;  
 			  $colorStatus = $status_value->color;
-			  $percen = $get_Users_Status/$tUsers*100;
+			  $percen = $get_Users_Status/$TotalEsic*100;
 			  $percen = number_format($percen, 2, '.', '');
-		
-              echo    $percen."%";
-			 
+              echo $percen."%";
 			  $statusArray[$nameStatus]['name'] = $nameStatus;
 			  $statusArray[$nameStatus]['percentage'] = $percen;
 			  $statusArray[$nameStatus]['color'] = $colorStatus;
@@ -252,7 +308,6 @@ input#myInputTextField {
                
             </div>
             <!-- /.col -->
-
             
             <!-- /.col -->
         </div>
@@ -268,16 +323,16 @@ $(function () {
             var url_DT = baseUrl + "admin/assessment_dashboard";
             var aoColumns_DT = [
                   {
-                    "mData": "UserID",
+                    "mData": "ID",
                     "bVisible": true,
                     "bSortable": true,
                     "bSearchable": true
                 },
-                /* Full Name */ {
-                    "mData": "FullName"
+                /* Name */ {
+                    "mData": "Name"
                 },
-                /* Email */ {
-                    "mData": "Email"
+                /* Website */ {
+                    "mData": "Website"
                 },
                 
                 /* Last User Login */ {
@@ -311,8 +366,6 @@ $(function () {
           }); 
 	 
      
-
-
 $(document).on("click",".statuser",function(){
 	var status   = $(this).attr("id");
 	 
@@ -327,7 +380,6 @@ $(document).on("click",".statuser",function(){
 			                  "value": status
 			                });
 						 }});            
-
 			        oTable.fnDraw();
 					oSettings = oSettingsTemp
 				 } 
@@ -337,26 +389,19 @@ $(document).on("click",".statuser",function(){
 	 });
  </script>
 <script src="<?= base_url()?>plugins/chartjs/Chart.min.js"></script>
-
-
-
  <script><!--pie chart script--->
  
   var pieChartCanvas = $("#pieChart").get(0).getContext("2d");
   var pieChart = new Chart(pieChartCanvas);
-
     var jsonObj = [];
     $.each( get_Users_Status, function( key, value ) {
-
         var item = {}
         item ["value"] = value.percentage;
         item ["color"] = value.color;
 		//item ["highlight"] = value.color;
         item ["label"] = value.name;
-
         jsonObj.push(item);
     });
-
     console.log(jsonObj);
  
   var PieData = [
@@ -401,5 +446,4 @@ $(document).on("click",".statuser",function(){
   //- END PIE CHART -
   //-----------------
  </script>
-
 <?php echo $footer; ?>

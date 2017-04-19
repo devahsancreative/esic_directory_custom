@@ -1,5 +1,5 @@
 <?php
-class User extends MY_Model{
+class User_model extends MY_Model{
     private $UserTable    = 'hoosk_user';
     private $tableCurrent = 'hoosk_user';
     function __construct(){

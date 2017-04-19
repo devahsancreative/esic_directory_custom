@@ -1,5 +1,5 @@
 <?php
-class Esic_model extends MY_Model{
+class Esic extends MY_Model{
     private $tableCurrent   = 'esic';
     function __construct(){
         parent::__construct();

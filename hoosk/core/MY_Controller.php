@@ -15,11 +15,13 @@ class MY_Controller extends CI_Controller{
 	 */
 	public function __construct(){
 	parent::__construct();
+        date_default_timezone_set('Australia/Sydney');
 		$this->base_url = BASE_URL;
 		define("HOOSK_ADMIN",1);
-		$this->load->helper(array('admincontrol','hoosk_admin','hoosk_page','email_helper'));
+		$this->load->helper(array('admincontrol','hoosk_admin','url','hoosk_page','email_helper'));
         $this->load->library('facebook');
         $this->load->model('Hoosk_model');
+        $this->load->model(array('User_model','Investor_model','Accelerator_model','Rndpartner_model','Rndconsultant_model','Lawyer_model','Grantconsultant_model','University_model'));
         
 		define ('LANG', $this->Hoosk_model->getLang());
 		$this->lang->load('admin', LANG);

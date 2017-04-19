@@ -2,60 +2,38 @@
 class Admin extends MY_Controller {
 	function __construct(){
 		parent::__construct();
-	
-		define("HOOSK_ADMIN",1);
-		$this->load->helper(array('admincontrol', 'url', 'hoosk_admin'));
-		$this->load->library('session');
-        $this->load->library('facebook');
-        $this->load->model('Hoosk_model');
-		define('LANG', $this->Hoosk_model->getLang());
-		$this->lang->load('admin', LANG);
-		define('SITE_NAME', $this->Hoosk_model->getSiteName());
-		define('THEME', $this->Hoosk_model->getTheme());
-		define('THEME_FOLDER', BASE_URL.'/templates/'.THEME);
-
-        $this->load->model("Common_model");
-        $this->load->model("Imagecreate_model");
-        $this->load->helper('cookie');
-        $this->load->library('resize');
-
-        $url = str_replace($_SERVER["HTTP_HOST"], '', BASE_URL);
-        $url = $_SERVER["DOCUMENT_ROOT"].''.$url;
-        $url = str_replace('http://', '', $url);
-        $url = str_replace('https://', '', $url);
-        define ('DoucmentUrl', $url);
+        Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 	}
-	
 	public function index($status=NULL){
-		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
-		$userRole = $this->session->userdata('userRole');
-		$userID   = $this->session->userdata('userID');
-		
-		if($userRole == "1"){
-			$this->data['current']            = $this->uri->segment(2);
-			$this->data['tUsers']             = $this->Hoosk_model->counttUsers();
-			$this->data['total_institution']  = $this->Hoosk_model->institution();
-			$this->data['esic_rnd']           = $this->Hoosk_model->esic_rnd();
-			$this->data['c_acceleration_c']   = $this->Hoosk_model->c_acceleration_c();
-	        $this->data['Users_By_status']    = $this->Hoosk_model->get_All_Users($status);
-			$this->data['users']              = $this->Hoosk_model->get_tUsers();
-			$this->data['status']             = $this->Common_model->select('esic_status');
-		    $this->data['header']             = $this->load->view('admin/header', $this->data, true);
-		    $this->data['footer']             = $this->load->view('admin/footer', '', true);
+
+		//if($userRole == "1"){
+			$this->data['current']               = $this->uri->segment(2);
+			$this->data['TotalEsic']             = $this->Esic_model->count();
+            $this->data['TotalInvestors']        = $this->Investor_model->count();
+            $this->data['TotalAccelerators']     = $this->Accelerator_model->count();
+			$this->data['TotalRndPartners']      = $this->Rndpartner_model->count();
+            $this->data['TotalRndConsultants']   = $this->Rndconsultant_model->count();
+            $this->data['TotalLawyers']          = $this->Lawyer_model->count();
+            $this->data['TotalGrantConsultants'] = $this->Grantconsultant_model->count();
+            $this->data['TotalUniversities']     = $this->University_model->count();
+	        $this->data['Esic_By_status']        = $this->Esic_model->getEsicByStatus($status);
+			$this->data['TotalUsers']            = $this->User_model->count();
+			$this->data['status']                = $this->Common_model->select('esic_status');
+		    $this->data['header']                = $this->load->view('admin/header', $this->data, true);
+		    $this->data['footer']                = $this->load->view('admin/footer', '', true);  
 		 	$this->load->view('admin/home', $this->data);
-	    }else{
-	    	redirect(base_url().'admin/home');
-		}	 
+	    ///}else{
+	    	//redirect(base_url().'admin/home');
+		//}	 
 	}
 	public function assessment_dashboard(){ 
 	 $status = $this->input->post('status');
 	 $selectData = array('
-            h_user.userID as UserID,
-			CONCAT(`h_user`.`firstName`," ",`h_user`.`lastName`) AS FullName,
-            h_user.email AS Email,
+            esic.id as ID,
+			esic.name AS Name,
+            esic.website AS Website,
 			esic.score AS Score,
-            ES.id as StatusID,
-			name as Company,  
+            ES.id as StatusID, 
             ES.color AS color,
              CASE WHEN ES.id > 0 THEN CONCAT("<span class=\'label \' style=\' background-color:",color,"\'> ", ES.status," </span>") ELSE CONCAT ("<span class=\'label label-warning\'> ", ES.status, " </span>") END AS Status 
             ',false);
@@ -80,7 +58,7 @@ class Admin extends MY_Controller {
 			$where = array('esic.id>'=>"0");
 			}
         $addColumns = array(
-                'ViewEditActionButtons' => array('<a href="'.base_url("admin/details/$1").'"><span aria-hidden="true" class="glyphicon glyphicon-edit text-green "></span></a>','UserID')
+                'ViewEditActionButtons' => array('<a href="'.base_url("admin/details/$1").'"><span aria-hidden="true" class="glyphicon glyphicon-edit text-green "></span></a>','ID')
             );
             $returnedData = $this->Common_model->select_fields_joined_DT($selectData,'esic',$joins,$where,'','','',$addColumns);
 		   

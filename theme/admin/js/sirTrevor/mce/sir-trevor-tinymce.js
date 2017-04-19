@@ -11,18 +11,19 @@
         browser_spellcheck : true,
         contextmenu: false,
         spellchecker_rpc_url: base_url+'assets/tinymce/js/tinymce/plugins/spellchecker/spellchecker.php',
-        plugins: "spellchecker textcolor colorpicker table media code",  //added by hamid raza
+        plugins: "spellchecker textcolor colorpicker table image media code",  //added by hamid raza
 /*        plugins: ['advlist autolink lists link image charmap print preview hr anchor pagebreak',
             'searchreplace wordcount visualblocks visualchars code fullscreen',
             'insertdatetime media nonbreaking save table contextmenu directionality',
             'emoticons template paste textcolor colorpicker textpattern imagetools'
         ],*/
 
-        toolbar: "undo redo | styleselect | fontsizeselect | forecolor | backcolor | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link | table | media | code",
-        fontsize_formats: "8px 10px 12px 14px 18px 24px 28px 30px 36px 40px"
+        toolbar: "undo redo | styleselect | fontsizeselect | forecolor | backcolor | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link | table | link image | media | code",
+        fontsize_formats: "8px 10px 12px 14px 18px 20px 24px 24px 28px 30px 36px 40px",
+        relative_urls: false
 
     };
-    console.log(base_url+'assets/tinymce/js/tinymce/plugins/spellchecker/spellchecker.php');
+    //console.log(base_url+'assets/tinymce/js/tinymce/plugins/spellchecker/spellchecker.php');
 
     super_initialize = SirTrevor.Editor.prototype.initialize;
 

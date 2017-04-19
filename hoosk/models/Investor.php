@@ -1,5 +1,5 @@
 <?php 
-class Investor_model extends MY_Model{
+class Investor extends MY_Model{
     private $tableCurrent   = 'esic_investors';
     function __construct(){
         parent::__construct();
