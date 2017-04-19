@@ -26,7 +26,6 @@ if(isset($userData) && !empty($userData)) {
         padding: 0px 15px;
     }
     .register-box .register-logo {
-        margin-bottom: 5px;
     }
     .register-box-body , .register-box-body form {
         margin-bottom:0px;
@@ -51,6 +50,11 @@ if(isset($userData) && !empty($userData)) {
         font-size:17px;
     }
 
+    @media (max-width: 768px){
+        body a.btn , body button.btn{
+            margin:5px 0px;
+        }   
+    }
 </style>
 <div class="container">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -121,17 +125,17 @@ if(isset($userData) && !empty($userData)) {
                                 <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
                             </div-->
                             <div class="col-md-12">
-                                    <div class="col-md-8">
+                                    <div class="col-xs-12 col-sm-12 col-md-8">
                                         <div class="checkbox icheck">
                                             <label>
                                                 <input type="checkbox" name="terms" checked> I agree to the <a target="_blank" href="<?= BASE_URL; ?>/terms-of-uses">terms & conditions</a>
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-xs-12 col-sm-6 col-md-6">
                                         <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
                                     </div>
-                                   <div class="col-md-6">
+                                   <div class="col-xs-12 col-sm-6 col-md-6">
                                     <a href="<?= BASE_URL; ?>/login" class="btn btn-primary btn-block btn-flat text-center">
                                        Have An Account ?
                                     </a>
@@ -143,17 +147,17 @@ if(isset($userData) && !empty($userData)) {
                     <div class="social-auth-links text-center">
                         <p>- OR Sign up using - </p>
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-sm-4 col-md-4">
                                 <a href="#" class="btn btn-block btn-social btn-facebook btn-flat">
                                     <i class="fa fa-facebook"></i> Facebook
                                 </a>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-sm-4 col-md-4">
                                 <a href="#" class="btn btn-block btn-social btn-google btn-flat">
                                     <i class="fa fa-google-plus"></i> Google+
                                 </a>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-sm-4 col-md-4">
                                 <a href="#" class="btn btn-block btn-social btn-twitter btn-flat">
                                     <i class="fa fa-twitter"></i> Twitter
                                 </a>
