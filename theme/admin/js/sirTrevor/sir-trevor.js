@@ -11173,7 +11173,6 @@ module.exports = Block.extend({
   title: function(){ return i18n.t('blocks:tweet:title'); },
 
   fetchUrl: function(tweetID) {
-    //tweets/
     return "https://twitter.com/statuses/"+ tweetID;
     //return "/tweets/?tweet_id=" + tweetID;
   },
