@@ -435,7 +435,8 @@ class Question extends MY_Controller {
             ];
 
             $updateData = [
-                'type' => $answerType
+                'type' => $answerType,
+                'Solution' => ''
             ];
 
             $boolResult = $this->Common_model->update($this->answersTable,$whereUpdate,$updateData);
@@ -615,8 +616,10 @@ class Question extends MY_Controller {
         //Fetch the Record if Exist
         $result = $this->Common_model->select_fields_where($answersTable,$selectData, $where,true);
         if(!empty($result)){
+
             // This means we have the record, we need to know if we can update the record partially, or fully.
-            if(intval($result->SolutionType) === $this->answerType && !empty($result->Solution)){
+            if((intval($result->SolutionType) === $this->answerType) && !empty($result->Solution)){
+//                $solutionData = json_decode($result->Solution,true);
                 //We have to to partial Update.
                 $solutionData = json_decode($result->Solution,true);
                 $arrayToPush = [
@@ -1539,7 +1542,7 @@ class Question extends MY_Controller {
                     //Seems like record already exists. so just do the update.
                    $boolResult = $this->Common_model->update($this->userAnswersTable,$whereUserAnswerUpdate,$userAnswerUpdateData);
                    if($boolResult === true){
-                       echo 'OK::Record successfully Updated';
+                       echo 'OK::Record successfully Updated::success';
                        return true;
                    }else{
                        echo 'FAIL::Record failed to updated::error';

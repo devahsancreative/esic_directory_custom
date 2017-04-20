@@ -863,11 +863,17 @@ $ci =& get_instance();
                                   }
                                   $data = $possibleSolutions->data;
                                   ?>
-                                  <select class="form-control <?=((isset($possibleSolutions->isMulti) && $possibleSolutions->isMulti === 'Yes')?'customSelect2':'')?>" <?=((isset($possibleSolutions->isMulti) && $possibleSolutions->isMulti === 'Yes')?'multiple="multiple"':'')?>>
+                                  <select class="form-control <?=((isset($possibleSolutions->isMulti) && $possibleSolutions->isMulti === 'Yes')?'customSelect2':'')?>" <?=((isset($possibleSolutions->isMulti) && $possibleSolutions->isMulti === 'Yes')?'multiple="multiple"':'')?> style="width:100%">
                                       <?php
                                       if(!empty($data)){
-                                          foreach($data as $selectOption){
-                                              echo '<option value="'.$selectOption->value.'">'.$selectOption->text.'</option>';
+                                          foreach($data as $key => $selectOption){
+                                              if(in_array($selectOption->value,$providedSolution['selectedSelectValue'])){
+                                                  $selected='selected="selected"';
+                                              }else{
+                                                  $selected = '';
+                                              }
+
+                                              echo '<option value="'.$selectOption->value.'" '.(isset($selected)?$selected:'').'>'.$selectOption->text.'</option>';
                                           }
                                       }
                                       ?>
@@ -1263,6 +1269,7 @@ $ci =& get_instance();
    </div>
 
 <!--Other js is in Admin-details.js -->
+<link rel="stylesheet" href="<?=base_url('assets/css/questions.css')?>">
 <script>
 $(document).ready(function(){ 
 $("#save_social").on("click", function () {
@@ -1416,7 +1423,12 @@ $("#save_social").on("click", function () {
                 data:postData,
                 type:"POST",
                 success:function(output){
-                    console.log(output);
+                    var data=output.trim().split('::');
+                    if(data[0] === 'OK'){
+                        Haider.notification(data[1],data[2]);
+                    }else if(data[0] === 'FAIL'){
+                        Haider.notification(data[1],data[2]);
+                    }
                 }
             });
 

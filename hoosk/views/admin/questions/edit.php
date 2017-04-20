@@ -93,6 +93,17 @@
 
             //Call the Function
             fetchLayoutAnswers(selectedLayoutID,qID);
+
+            //Also do update the db.. As it seems like we will have more issues if we do not update ht the db on change.
+            $.ajax({
+                url:"<?=base_url()?>admin/question/updateAnswerType",
+                data:{qID:qID,type:selectedLayoutID},
+                type:"POST",
+                success:function(output){
+                    var data= output.trim().split('::');
+                    Haider.notification(data[1],data[2]);
+                }
+            });
         });
 
         $('body').on('click','#addNewRadio',function(event){
