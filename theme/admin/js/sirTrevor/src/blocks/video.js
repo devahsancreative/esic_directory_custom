@@ -45,9 +45,9 @@ module.exports = Block.extend({
   },
 
   onContentPasted: function(event){
+     utils.log("onContentPasted Video video.js Line Number 49");
     this.handleDropPaste(event.target.value);
   },
-
   matchVideoProvider: function(provider, index, url) {
     var match = provider.regex.exec(url);
     if(match == null || _.isUndefined(match[1])) { return {}; }
@@ -59,6 +59,7 @@ module.exports = Block.extend({
   },
 
   handleDropPaste: function(url){
+    utils.log("handleDropPaste Video video.js Line Number 63");
     if (!utils.isURI(url)) { return; }
 
     for(var key in this.providers) { 
@@ -70,6 +71,7 @@ module.exports = Block.extend({
   },
 
   onDrop: function(transferData){
+    utils.log("onDrop Video video.js Line Number 75");
     var url = transferData.getData('text/plain');
     this.handleDropPaste(url);
   }

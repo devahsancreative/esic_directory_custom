@@ -145,7 +145,10 @@ $route['Esic/New']    	  	= "Esic/Create";
 $route['Esic/AddSave']      = "Esic/AddSave";
 $route['Esic/Edit/(:any)']  = "Esic/Edit/$1";
 $route['Esic/EditSave']     = "Esic/EditSave";
-$route['esic']  	= "Esic/FrontForm";
+
+
+$route['esic'] 		= "Reg2/index"; // mad
+//$route['esic']  	= "Esic/FrontForm";
 
 $route['admin/Esic/details/(:any)'] = "Admin/details/$1";
 
@@ -160,7 +163,8 @@ $route['Investor/Add']    	   	= "Investor/Add";
 $route['Investor/AddSave']      = "Investor/AddSave";
 $route['Investor/Edit/(:any)']  = "Investor/Edit/$1";
 $route['Investor/EditSave']     = "Investor/EditSave";
-$route['investor']  	= "Investor/FrontForm";
+//$route['investor']  	= "Investor/FrontForm";
+$route['investor']  	= "Investor/investor_form"; // mads
 $route['investor-pre-assessment']  	= "Investor/investor_form";
 
 

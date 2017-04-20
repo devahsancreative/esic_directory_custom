@@ -62,6 +62,10 @@
                                         </div>
                                 </div>
                                 <div class="col-md-12">
+                                     <div class="form-group">
+                                        <label for="businessNameBox">Business Name</label>
+                                        <input type="text" name="businessName" id="businessNameBox" class="form-control"/>
+                                    </div>
                                     <div class="form-group">
                                         <label for="ShortDescriptionBox">Short Description</label>
                                         <textarea type="text" name="ShortDescription" id="ShortDescriptionBox" class="form-control"> </textarea>

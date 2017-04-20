@@ -42,6 +42,7 @@ module.exports = Block.extend({
   },
 
   onContentPasted: function(event){
+    utils.log("onContentPasted Tweet Tweet.js Line Number 45");
     // Content pasted. Delegate to the drop parse method
     var input = event.target,
     val = input.value;
@@ -51,6 +52,7 @@ module.exports = Block.extend({
   },
 
   handleTwitterDropPaste: function(url){
+    utils.log("handleTwitterDropPaste Tweet Tweet.js Line Number 55");
     if (!this.validTweetUrl(url)) {
       utils.log("Invalid Tweet URL");
       return;
@@ -98,6 +100,7 @@ module.exports = Block.extend({
   },
 
   onDrop: function(transferData){
+    utils.log("onDrop Tweet Tweet.js Line Number 103");
     var url = transferData.getData('text/plain');
     this.handleTwitterDropPaste(url);
   }

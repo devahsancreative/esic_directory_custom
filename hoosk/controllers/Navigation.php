@@ -2,7 +2,7 @@
 /**
  * @property common_model $common_model It resides all the methods which can be used in most of the controllers.
  */
-class Navigation extends CI_Controller {
+class Navigation extends MY_Controller {
 
 	function __construct()
 	{

@@ -10316,6 +10316,11 @@ Object.assign(Block.prototype, SimpleBlock.fn, require('./block-validations'), {
                         this.blockStorage.data.remote_id = VideoDataArray.id;
                         this.blockStorage.data.source = VideoDataArray.type;
                       }  
+                      var videoObject =  {
+                          source: VideoDataArray.type,
+                          remote_id: VideoDataArray.id
+                      };
+                      //this.setAndLoadData(videoObject);
                    }
                   
                 }
@@ -10432,11 +10437,15 @@ Object.assign(Block.prototype, SimpleBlock.fn, require('./block-validations'), {
 
   _onBlur: function() {},
 
-  onBlockRender: function() {
+  onBlockRender: function() 
+  {
+    utils.log("onBlockRender Video sir-trevor.js Line Number 10437");
     this.focus();
   },
 
-  onDrop: function(dataTransferObj) {},
+  onDrop: function(dataTransferObj) {
+    utils.log("onDrop Video sir-trevor.js Line Number 10440");
+  },
 
   onDeleteClick: function(ev) {
     ev.preventDefault();
@@ -10502,6 +10511,7 @@ Object.assign(Block.prototype, SimpleBlock.fn, require('./block-validations'), {
 
   _handleContentPaste: function(ev) {
     setTimeout(this.onContentPasted.bind(this, ev, $(ev.currentTarget)), 0);
+    utils.log("_handleContentPaste Video sir-trevor.js Line Number 10514");
   },
 
   _getBlockClass: function() {
@@ -10856,8 +10866,12 @@ module.exports = {
 
     this.$('.st-paste-block')
       .bind('click', function(){ $(this).select(); })
-      .bind('paste', this._handleContentPaste)
-      .bind('submit', this._handleContentPaste);
+      .bind('paste', this._handleContentPaste.bind(this))
+      .bind('submit', this._handleContentPaste.bind(this));
+  },
+  _handleContentPaste: function(e) {
+     setTimeout(this.onContentPasted.bind(this, e, $(e.currentTarget)), 0);
+    utils.log("_handleContentPaste Video sir-trevor.js Line Number 10514");
   }
 
 };
@@ -11159,7 +11173,9 @@ module.exports = Block.extend({
   title: function(){ return i18n.t('blocks:tweet:title'); },
 
   fetchUrl: function(tweetID) {
-    return "/tweets/?tweet_id=" + tweetID;
+    //tweets/
+    return "https://twitter.com/statuses/"+ tweetID;
+    //return "/tweets/?tweet_id=" + tweetID;
   },
 
   icon_name: 'twitter',
@@ -11171,6 +11187,7 @@ module.exports = Block.extend({
   },
 
   onContentPasted: function(event){
+     utils.log("onContentPasted Tweets sir trevor.js Line Number 11184");
     // Content pasted. Delegate to the drop parse method
     var input = $(event.target),
     val = input.val();
@@ -11180,6 +11197,7 @@ module.exports = Block.extend({
   },
 
   handleTwitterDropPaste: function(url){
+    utils.log("handleTwitterDropPaste Tweets sir trevor.js Line Number 11194");
     if (!this.validTweetUrl(url)) {
       utils.log("Invalid Tweet URL");
       return;
@@ -11232,6 +11250,7 @@ module.exports = Block.extend({
   },
 
   onDrop: function(transferData){
+    utils.log("onDrop Tweets sir trevor.js Line Number 11247");
     var url = transferData.getData('text/plain');
     this.handleTwitterDropPaste(url);
   }
@@ -11267,7 +11286,7 @@ module.exports = Block.extend({
   icon_name: 'video',
 
   loadData: function(data){
-
+    utils.log("loadData Video Sir Trevor.js Line Number 11280");
     console.log(data);
     if (!this.providers.hasOwnProperty(data.source)) { return; }
 
@@ -11287,33 +11306,42 @@ module.exports = Block.extend({
         width: this.$editor.width() // for videos like vine
       }));
   },
-
   onContentPasted: function(event){
+    utils.log("onContentPasted Video Sir Trevor.js Line Number 11303");
     this.handleDropPaste(event.target.value);
   },
-
-  matchVideoProvider: function(provider, index, url) {
-    var match = provider.regex.exec(url);
-    if(match == null || _.isUndefined(match[1])) { return {}; }
-
+   matchVideoProvider: function(provider, index, url) {
+    //var match = provider.regex.exec(url);
+    var object = this.parseVideo2(url);
+    //console.log(object);
+    //if(match == null || _.isUndefined(match[1])) { return {}; }
+    return object;
+  }, 
+  parseVideo2: function (url){
+    url.match(/(http:|https:|)\/\/(player.|www.)?(vimeo\.com|youtu(be\.com|\.be|be\.googleapis\.com))\/(video\/|embed\/|watch\?v=|v\/)?([A-Za-z0-9._%-]*)(\&\S+)?/);
+    if (RegExp.$3.indexOf('youtu') > -1) {
+         var type = 'youtube';
+    } else if (RegExp.$3.indexOf('vimeo') > -1) {
+        var type = 'vimeo';
+    }
     return {
-      source: index,
-      remote_id: match[1]
-    };
-  },
-
-  handleDropPaste: function(url){
+      source: type,
+      remote_id: RegExp.$6
+   };
+  }, handleDropPaste: function(url){
+    utils.log("handleDropPaste Video sir-trevor.js Line Number 11310");
     if (!utils.isURI(url)) { return; }
-
     for(var key in this.providers) {
-      if (!this.providers.hasOwnProperty(key)) { continue; }
+      if (!this.providers.hasOwnProperty(key)) { 
+        continue; 
+      }
       this.setAndLoadData(
         this.matchVideoProvider(this.providers[key], key, url)
       );
     }
   },
-
   onDrop: function(transferData){
+    utils.log("onDrop Video sir-trevor.js Line Number 11322");
     var url = transferData.getData('text/plain');
     this.handleDropPaste(url);
   }
@@ -11890,16 +11918,17 @@ module.exports = function(block, file, success, error) {
   EventBus.trigger('onUploadStart');
 
   var uid  = [block.blockID, (new Date()).getTime(), 'raw'].join('-');
+  var NewFileNamePrefix  = [block.blockID, (new Date()).getTime(), 'image'].join('_');
   var data = new FormData();
 
-  data.append('attachment[name]', file.name);
+  data.append('attachment[name]', NewFileNamePrefix+'_'+file.name);//file.name
   data.append('attachment[file]', file);
   data.append('attachment[uid]', uid);
 
   block.resetMessages();
 
   var callbackSuccess = function(data) {
-    utils.log('Upload callback called');
+    utils.log('Upload callback called Sir Trevor 2');
     EventBus.trigger('onUploadStop');
 
     if (!_.isUndefined(success) && _.isFunction(success)) {

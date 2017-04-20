@@ -11811,14 +11811,14 @@ module.exports = function(block, file, success, error) {
   var uid  = [block.blockID, (new Date()).getTime(), 'raw'].join('-');
   var data = new FormData();
 
-  data.append('attachment[name]', file.name);
+  data.append('attachment[name]', file.name); //file.name+'_'+uid
   data.append('attachment[file]', file);
   data.append('attachment[uid]', uid);
 
   block.resetMessages();
 
   var callbackSuccess = function(data) {
-    utils.log('Upload callback called');
+    utils.log('Upload callback called Sir Treavor Js');
     EventBus.trigger('onUploadStop');
 
     if (!_.isUndefined(success) && _.isFunction(success)) {

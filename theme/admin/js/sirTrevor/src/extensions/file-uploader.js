@@ -28,7 +28,7 @@ module.exports = function(block, file, success, error) {
   block.resetMessages();
 
   var callbackSuccess = function(data) {
-    utils.log('Upload callback called');
+    utils.log('Upload callback called Sir Trevor extension Uploader');
     EventBus.trigger('onUploadStop', data);
 
     if (!_.isUndefined(success) && _.isFunction(success)) {
