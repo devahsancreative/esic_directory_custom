@@ -479,6 +479,16 @@ $route['admin/question/trashTextBox'] = "Question/trash_textBox";
 //QuestionListings
 $route['admin/question/updateUserAnswer'] = "Question/updateUserAnswer";
 
+
+
+
+
+//Tweets
+$route['Tweet'] = "Tweet/stream";
+$route['Tweet/(:any)'] = "Tweet/getTweetByID/$1";
+
+
+
 // Default
 $route['(.+)'] = "hoosk_default";
 //$route['default_controller'] = "admin";

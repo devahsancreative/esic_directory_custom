@@ -10807,24 +10807,41 @@ module.exports = {
   initializeFetchable: function(){
     this.withMixin(require('./ajaxable'));
   },
-
   fetch: function(options, success, failure){
-    var uid = _.uniqueId(this.blockID + "_fetch"),
-        xhr = $.ajax(options);
-
+    var uid = _.uniqueId(this.blockID + "_fetch");
+    var xhr = $.ajax(options);
     this.resetMessages();
     this.addQueuedItem(uid, xhr);
-
     if(!_.isUndefined(success)) {
       xhr.done(success.bind(this));
     }
-
     if(!_.isUndefined(failure)) {
       xhr.fail(failure.bind(this));
     }
-
     xhr.always(this.removeQueuedItem.bind(this, uid));
+    return xhr;
+  },
+  createCORSRequest: function(method, url) {
+    var xhr = new XMLHttpRequest();
+    if ("withCredentials" in xhr) {
 
+      // Check if the XMLHttpRequest object has a "withCredentials" property.
+      // "withCredentials" only exists on XMLHTTPRequest2 objects.
+      xhr.open(method, url, true);
+
+    } else if (typeof XDomainRequest != "undefined") {
+
+      // Otherwise, check if XDomainRequest.
+      // XDomainRequest only exists in IE, and is IE's way of making CORS requests.
+      xhr = new XDomainRequest();
+      xhr.open(method, url);
+
+    } else {
+
+      // Otherwise, CORS is not supported by the browser.
+      xhr = null;
+
+    }
     return xhr;
   }
 
@@ -11147,7 +11164,6 @@ module.exports = Block.extend({
 var _ = require('../lodash');
 var $ = (typeof window !== "undefined" ? window.$ : typeof global !== "undefined" ? global.$ : null);
 var utils = require('../utils');
-
 var Block = require('../block');
 
 var tweet_template = _.template([
@@ -11173,7 +11189,8 @@ module.exports = Block.extend({
   title: function(){ return i18n.t('blocks:tweet:title'); },
 
   fetchUrl: function(tweetID) {
-    return "https://twitter.com/statuses/"+ tweetID;
+    return  base_url+"/Tweet/"+ tweetID;
+    //return "https://twitter.com/statuses/"+ tweetID;
     //return "/tweets/?tweet_id=" + tweetID;
   },
 
@@ -11207,12 +11224,14 @@ module.exports = Block.extend({
     if (!_.isEmpty(tweetID)) {
       this.loading();
       tweetID = tweetID[0];
-
+     // $.support.cors = true;
       var ajaxOptions = {
+        crossOrigin: true,
         url: this.fetchUrl(tweetID),
         dataType: "json"
       };
-
+      //console.log('ajax');
+      //console.log(ajaxOptions);
       this.fetch(ajaxOptions, this.onTweetSuccess, this.onTweetFail);
     }
   },
@@ -11224,6 +11243,8 @@ module.exports = Block.extend({
   },
 
   onTweetSuccess: function(data) {
+    //console.log('onTweetSuccess');
+    //console.log(data);
     // Parse the twitter object into something a bit slimmer..
     var obj = {
       user: {

@@ -27,6 +27,9 @@ class ToJsonContext
             case 'img':
                 $this->converter = new ImageConverter();
                 break;
+            case 'tweet':
+                $this->converter = new TweetConverter();
+               break;
             default:
                 $this->converter = new BaseConverter();
                 break;

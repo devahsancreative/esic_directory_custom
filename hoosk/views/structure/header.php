@@ -23,8 +23,9 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
     <link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" integrity="sha384-dNpIIXE8U05kAbPhy3G1cz+yZmTzA6CY8Vg/u2L9xRnHjJiAK76m2BIEaSEV+/aU" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"  integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
-            crossorigin="anonymous"></script>
+    <!--script src="https://code.jquery.com/jquery-1.12.4.js"  integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
+            crossorigin="anonymous"></script-->
+ <script src="<?= base_url();?>theme/admin/js/jquery-1.12.4.js"></script>
     <!--script src="<?= ADMIN_THEME; ?>/js/jquery-1.10.2.min.js"></script-->
     <script src="<?= base_url();?>assets/js/jquery-ui.js" type="text/javascript"></script>
     <script src="<?= base_url();?>assets/js/bootstrap-datepicker.js" type="text/javascript" async defer></script>

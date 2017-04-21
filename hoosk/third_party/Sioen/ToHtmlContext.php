@@ -1,9 +1,7 @@
 <?php
 
 class ToHtmlContext {
-
     protected $converter = null;
-
     public function __construct($type) {
         switch ($type) {
             case 'heading':
@@ -17,7 +15,7 @@ class ToHtmlContext {
                 break;
 			case 'accordion':
                 $this->converter = new AccordionConverter();
-            break;
+                break;
             case 'list':
                 $this->converter = new ListConverter();
                 break;
@@ -36,12 +34,14 @@ class ToHtmlContext {
 			case 'image_extended':
                 $this->converter = new ImageExtendedConverter();
                 break;
+            case 'tweet':
+               $this->converter = new TweetConverter();
+               break;
             default:
                 $this->converter = new BaseConverter();
                 break;
         }
     }
-
     public function getHtml(array $data) {
         return $this->converter->toHtml($data);
     }

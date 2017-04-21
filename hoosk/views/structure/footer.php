@@ -75,8 +75,11 @@
             jQuery('#wrapper').toggleClass('toggled');
         });
         jQuery('#navbar-toggle-button').click(function(){
-            jQuery('#navbar-collapse-main').slideToggle( "slow");
+            jQuery('#navbar-collapse-main').slsideToggle( "slow");
         });
+        if(jQuery('.twitter-widget').length > 2){
+            twttr.widgets.load(jQuery('.twitter-widget'));
+        }
     });
     
     $(function(){
@@ -143,7 +146,7 @@
 $_SESSION['pageHasSlider'] = false;
 
 ?>
-
+<script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 </body>
 </html>

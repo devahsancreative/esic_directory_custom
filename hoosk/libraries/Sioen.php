@@ -21,6 +21,7 @@ class Sioen {
         require_once APPPATH.'third_party/Sioen/Types/AccordionConverter.php';
 		require_once APPPATH.'third_party/Sioen/Types/ImageExtendedConverter.php';
 		require_once APPPATH.'third_party/Sioen/Types/IframeExtendedConverter.php';
+        require_once APPPATH.'third_party/Sioen/Types/TweetConverter.php';
     }
   
 }

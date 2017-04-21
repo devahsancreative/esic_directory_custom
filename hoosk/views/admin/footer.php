@@ -356,7 +356,8 @@ if($this->router->fetch_method() === 'assessments_list' || $this->router->fetch_
 <?php if ($this->router->fetch_class() === 'Navigation' ){ ?>
 <!--script src="<?= base_url();?>assets/js/jquery-2.2.4.js"></script-->
 <?php }else{ ?>
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="<?= base_url();?>theme/admin/js/jquery-1.12.4.js"></script>
+<!--script src="https://code.jquery.com/jquery-1.12.4.js"></script-->
 <?php } ?>
 <?php  $classname = $this->router->fetch_class();
  //echo  $classname;
