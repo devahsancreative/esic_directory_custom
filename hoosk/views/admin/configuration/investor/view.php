@@ -221,6 +221,7 @@
                     <?php if(isset($usersQuestionsAnswers)){
                         $usersQuestionsAnswers = json_decode(json_encode($usersQuestionsAnswers),true);
                         ?>
+
                         <?php foreach ($usersQuestionsAnswers as $key => $value) { ?>
                             <div class="post question-post <?= 'question-'.$value['questionID'];?>" data-id="<?= 'question-'.$value['questionID'];?>">
                                 <div class="user-block">
@@ -239,7 +240,7 @@
                           </span>
                                     <?php
                                     $possibleSolutions = $value['PossibleSolution'];
-                                    $providedSolution = $value['providedSolution'];
+                                    $providedSolution = $value['ProvidedSolution'];
                                     if(!empty($possibleSolutions)){
                                         $possibleSolutions = json_decode($possibleSolutions);
                                         $type = $possibleSolutions->type;
@@ -251,7 +252,37 @@
                                     }
                                     ?>
                                 </div>
-                                <p class="answer-solution"><?= $value['ProvidedSolution'];?></p>
+                                <?php
+                                    //Lets fetch just the provided solution
+                                $solutionString = '';
+                                switch ($type){
+                                    case 'CheckBoxes':
+                                        if(!empty($providedSolution['selectedCheckBoxes'])){
+                                            foreach($providedSolution['selectedCheckBoxes'] as $selectedCheckBox){
+                                                $solutionString.=' <span class="label label-info"><i class="fa fa-check"></i> '.$selectedCheckBox["checkBoxValue"].'</span>';
+                                            }
+                                        }
+                                        break;
+                                    case 'radios':
+                                        if(!empty($providedSolution["selectedValue"])){
+                                            $solutionString.=' <span class="label label-info"><i class="fa fa-dot-circle-o"></i> '.$providedSolution["selectedValue"].'</span>';
+                                        }
+                                        break;
+                                    case 'SelectBox':
+                                        if(isset($providedSolution['selectedSelectValue']) and !empty($providedSolution['selectedSelectValue'])){
+                                            if(is_array($providedSolution['selectedSelectValue'])){
+                                                foreach($providedSolution['selectedSelectValue'] as $selectedValue){
+                                                    $solutionString.=' <span class="label label-info"> <i class="fa fa-list"></i> '.$selectedCheckBox["checkBoxValue"].'</span>';
+                                                }
+                                            }elseif(is_string($providedSolution['selectedSelectValue'])){
+                                                $solutionString.=' <span class="label label-info"> <i class="fa fa-indent"></i> '.$providedSolution["selectedSelectValue"].'</span>';
+                                            }
+
+                                        }
+                                        break;
+                                }
+                                ?>
+                                <p class="answer-solution"><?= (isset($solutionString)?$solutionString:'') ?></p>
                                 <div class="edit-question">
                                     <div class="form-group">
                                         <?php
@@ -288,6 +319,7 @@
                                                 }
                                                 $data = $possibleSolutions->data;
                                                 ?>
+
                                                 <select class="form-control <?=((isset($possibleSolutions->isMulti) && $possibleSolutions->isMulti === 'Yes')?'customSelect2':'')?>" <?=((isset($possibleSolutions->isMulti) && $possibleSolutions->isMulti === 'Yes')?'multiple="multiple"':'')?> style="width:100%">
                                                     <?php
                                                     if(!empty($data)){
@@ -358,6 +390,14 @@
         </div>
         <!-- /.col -->
       </div>
+<link rel="stylesheet" href="<?=base_url('assets/css/questions.css')?>">
+<style type="text/css">
+    div.checkbox{
+        margin:0;
+        padding:0;
+        float: none;
+    }
+</style>
 <script type="text/javascript">
     $(function () {
         $('.question-edit').on('click',function(){
@@ -416,5 +456,9 @@
             });
 
         });
+/*
+        $('body').on('change','select',function(){
+            console.log('Testing Again');
+        });*/
     });
 </script>

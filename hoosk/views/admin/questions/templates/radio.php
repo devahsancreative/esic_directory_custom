@@ -26,7 +26,7 @@
 
 <div id="radios">
 <?php
-if(isset($RadioOptions) and !empty($RadioOptions->data) and is_array($RadioOptions->data)){
+if(isset($RadioOptions) and !empty($RadioOptions->data)){
     $key=0;
     foreach($RadioOptions->data as $key=>$Radio){
         ?>
