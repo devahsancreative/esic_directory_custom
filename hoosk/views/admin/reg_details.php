@@ -905,6 +905,21 @@ $ci =& get_instance();
                                   }
                                   echo '</div>';
                                   break;
+                              case 'textBoxes':
+                                  $data = $possibleSolutions->data;
+                                  if(!empty($data)){
+                                      echo '<div class=row>';
+                                      foreach($data as $textBox){
+                                          ?>
+                                          <div class="form-group <?=$textBox->grid->grid_size?>">
+                                              <label for="<?=$textBox->labelTextBox->textBoxID?>"><?= $textBox->labelTextBox->label ?></label>
+                                              <input type="text" id="<?=$textBox->labelTextBox->textBoxName?>" name="<?=$textBox->labelTextBox->textBoxName?>" class="form-control">
+                                          </div>
+                          <?php
+                                      }//End of Foreach
+                                      echo '</div>';
+                                  }//End of If not empty data
+                                  break;
                           }
                           ?>
                         <?php 
@@ -1381,7 +1396,7 @@ $("#save_social").on("click", function () {
 
 <script type="text/javascript">
     $(function(){
-        $('div.question-post').find('input[type="radio"],input[type="checkbox"], select').on('change',function(){
+        $('div.question-post').find('input[type="radio"],input[type="checkbox"],input[type="text"], select').on('change',function(){
             var changedElement = $(this);
             var selectedQuestionID = $(this).parents('div.question-post').find('.question-edit').attr('data-question-id');
 
@@ -1402,20 +1417,34 @@ $("#save_social").on("click", function () {
                 postData.type='radio';
                 postData.radioID = $(this).attr('id');
 //                console.log('type is radio.');
-            }else if ($(this).parents('div.question-post').find('.checkbox').length > 0){
+            }
+            else if ($(this).parents('div.question-post').find('.checkbox').length > 0){
                 if($(this).is(':checked')){
                     postData.hasCheck = 'Yes';
                 }else{
-                    console.log('checkbox check has been Removed');
                     postData.hasCheck = 'No';
                 };
                 postData.type = 'checkbox';
                 postData.checkBoxID = $(this).attr('id');
                 postData.checkBoxValue = $(this).attr('name');
-            }else if($(this).prop('tagName') === 'SELECT'){
+            }
+            else if($(this).prop('tagName') === 'SELECT'){
                 var selectedSelectValue = $(this).val();
                 postData.type='select';
                 postData.selectedValue = selectedSelectValue;
+            }
+            else if($(this).prop('type') === 'text'){
+                //Lets Update All the fields at once.
+                var textBoxes = [];
+                 var inputTextBoxes = $(this).parents('.edit-question').find('input[type="text"]');
+                 $.each(inputTextBoxes,function ($key, $textBox) {
+                     var textBox = {};
+                     textBox.changedValue = $($textBox).val();
+                     textBox.textBoxID = $($textBox).attr('id');
+                     textBoxes.push(textBox);
+                 });
+                postData.type='text';
+                postData.textBoxes = JSON.stringify(textBoxes);
             }
 
             $.ajax({
