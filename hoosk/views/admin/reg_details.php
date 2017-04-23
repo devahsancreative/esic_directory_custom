@@ -827,6 +827,46 @@ $ci =& get_instance();
                               ?>
 
                       </div>
+                      <?php
+                      //Lets fetch just the provided solution
+                      $solutionString = '';
+                      switch ($type){
+                          case 'CheckBoxes':
+                              if(!empty($providedSolution['selectedCheckBoxes'])){
+                                  foreach($providedSolution['selectedCheckBoxes'] as $selectedCheckBox){
+                                      $solutionString.=' <span class="label label-info"><i class="fa fa-check"></i> '.$selectedCheckBox["checkBoxValue"].'</span>';
+                                  }
+                              }
+                              break;
+                          case 'radios':
+                              if(!empty($providedSolution["selectedValue"])){
+                                  $solutionString.=' <span class="label label-info"><i class="fa fa-dot-circle-o"></i> '.$providedSolution["selectedValue"].'</span>';
+                              }
+                              break;
+                          case 'SelectBox':
+                              if(isset($providedSolution['selectedSelectValue']) and !empty($providedSolution['selectedSelectValue'])){
+                                  if(is_array($providedSolution['selectedSelectValue'])){
+                                      foreach($providedSolution['selectedSelectValue'] as $selectedValue){
+                                          $solutionString.=' <span class="label label-info"> <i class="fa fa-list"></i> '.$selectedValue.'</span>';
+                                      }
+                                  }elseif(is_string($providedSolution['selectedSelectValue'])){
+                                      $solutionString.=' <span class="label label-info"> <i class="fa fa-indent"></i> '.$selectedValue.'</span>';
+                                  }
+
+                              }
+                              break;
+                          case 'textBoxes':
+                                if(isset($providedSolution['textboxes']) and !empty($providedSolution['textboxes'])){
+                                    foreach($providedSolution['textboxes'] as $key=>$textBox){
+                                        if(!empty($textBox['changedValue'])){
+                                            $solutionString.=' <span class="label label-info"><i class="fa fa-question"></i> '.$textBox['changedValue'].'</span>';
+                                        }
+                                    }
+                                }
+                              break;
+                      }
+                      ?>
+                      <p class="answer-solution"><?= (isset($solutionString)?$solutionString:'') ?></p>
                     <div class="edit-question">
                       <div class="form-group">
                           <?php
@@ -909,11 +949,12 @@ $ci =& get_instance();
                                   $data = $possibleSolutions->data;
                                   if(!empty($data)){
                                       echo '<div class=row>';
-                                      foreach($data as $textBox){
+                                      $providedText = $providedSolution['textboxes'];
+                                      foreach($data as $key=>$textBox){
                                           ?>
                                           <div class="form-group <?=$textBox->grid->grid_size?>">
                                               <label for="<?=$textBox->labelTextBox->textBoxID?>"><?= $textBox->labelTextBox->label ?></label>
-                                              <input type="text" id="<?=$textBox->labelTextBox->textBoxName?>" name="<?=$textBox->labelTextBox->textBoxName?>" class="form-control">
+                                              <input type="text" id="<?=$textBox->labelTextBox->textBoxName?>" name="<?=$textBox->labelTextBox->textBoxName?>" class="form-control" value="<?=(!empty($providedText[$key]['changedValue'])?$providedText[$key]['changedValue']:'')?>">
                                           </div>
                           <?php
                                       }//End of Foreach
