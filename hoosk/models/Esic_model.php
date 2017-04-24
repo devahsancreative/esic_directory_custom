@@ -153,15 +153,19 @@ class Esic_model extends MY_Model{
 		}
 		return "NORESULT";
     }
-    public function getdetails($alias){
+    public function getDetails($alias){
             $selectData = array('
-                    esic.id as userID,
+                    esic.id as listingID,
+                    esic.userID as userID,
                     concat(HS.firstName, " ", HS.lastName) as FullName,
                     esic.email as Email,
                     esic.name as Company,
                     esic.address as address,
-                    esic.state as state,
-                    esic.town as town,
+                    esic.address_street_name as StreetName,
+                    esic.address_street_number as StreetNumber,
+                    esic.address_post_code as PostCode,
+                    esic.address_town as town,
+                    esic.address_state as state,
                     esic.business as Business,
                     esic.long_description as BusinessShortDesc,
                     esic.short_description as tinyDescription,
@@ -172,7 +176,7 @@ class Esic_model extends MY_Model{
                     esic.expiry_date as expiry_date,
                     esic.showExpDate as ShowExpDate,
                     esic.acn_number as acn_number,                    
-                    esic.bannerImage as bannerImage,
+                    esic.banner as bannerImage,
                     esic.productImage as productImage,
                     esic.website as Web,
                     esic.thumbsUp as thumbsUp,
@@ -199,7 +203,7 @@ class Esic_model extends MY_Model{
                     ',
                 false
             );
-            $where = "esic.company ='".$alias."' AND Publish = 1";
+            $where = "esic.name ='".$alias."' AND Publish = 1";
             $joins = array(
                 array(
                     'table' => 'hoosk_user HS',
@@ -237,8 +241,14 @@ class Esic_model extends MY_Model{
                     'type' => 'LEFT'
                 )
             );
-            $usersResult = $this->Common_model->select_fields_where_like_join('esic',$selectData,$joins,$where,false,'','','','','',true);
+            $usersResult = $this->Common_model->select_fields_where_like_join('esic',$selectData,$joins,$where,true,'','','','','',true);
 			return $usersResult;
+    }
+    public function getSocialDetail($ListingID){
+            $this->db->where('listingID',$ListingID);
+            $this->db->from('esic_social');
+            $query = $this->db->get();
+            return $query->result();
     }
     public function updatethumbs($userID,$thumbs,$newThumbs){
             if(!isset($userID) || empty($userID)){
@@ -255,7 +265,7 @@ class Esic_model extends MY_Model{
             echo 'OK::'.$thumbs.'::'.$newThumbs;
     }
     public function get_user_details($alias){	   // use to get socail link for front end 
-            $this->db->where('company',$alias);
+            $this->db->where('name',$alias);
             $this->db->from('esic_social');
             $query = $this->db->get();
     		return $query->result_array();

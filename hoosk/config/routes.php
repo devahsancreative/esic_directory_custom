@@ -179,8 +179,9 @@ $route['Lawyer/New']    	  = "Lawyer/Create";
 $route['Lawyer/AddSave']      = "Lawyer/AddSave";
 $route['Lawyer/Edit/(:any)']  = "Lawyer/Edit/$1";
 $route['Lawyer/EditSave']     = "Lawyer/EditSave";
-$route['lawyer']  	= "Lawyer/FrontForm";
-$route['Lawyer/saveIntro']     = "Lawyer/saveIntro";
+$route['lawyer']  			  = "Lawyer/FrontForm";
+$route['lawyer_database']  	  = "Lawyer/Listing";
+$route['Lawyer/saveIntro']    = "Lawyer/saveIntro";
 
 
 //For  Accelerators

@@ -4,8 +4,7 @@ class Pages extends MY_Controller {
 
 	function __construct(){
 		parent::__construct();
-		$userRole = $this->session->userdata('userRole');
-		if($userRole == 1){
+		if(isCurrentUserAdmin($this)){
 			$this->load->helper('file');
 		}else{
 			 $this->load->view('admin/page_not_found');

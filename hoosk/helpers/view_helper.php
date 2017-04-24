@@ -236,4 +236,28 @@
         }
         return false;
     }
+    function ViewHelperListing(){
+        $ci =& get_instance();
+        $selectData = array('
+            '.$ci->tableName.'.*,
+            ES.*,
+            '.$ci->tableName.'.status_flag_id AS Status_ID,
+            ESF.Label AS Status_Label
+            ',false);
+        $where = 'trashed != 1';
+        $joins = array(
+            array(
+                'table' => 'esic_social ES',
+                'condition' => 'ES.listingID = '.$ci->tableName.'.id',
+                'type' => 'LEFT'
+            ),
+            array(
+                'table' => 'esic_status_flags ESF',
+                'condition' => 'ESF.id = '.$ci->tableName.'.status_flag_id',
+                'type' => 'LEFT'
+            )
+        );
+        $returnedData = $ci->Common_model->select_fields_where_like_join($ci->tableName,$selectData,$joins);
+        return $returnedData;   
+    }
 ?>

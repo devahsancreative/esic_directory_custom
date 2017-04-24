@@ -2,42 +2,17 @@
 
 class Esic2 extends MY_Controller{
     protected $perPage;
-    public function __construct()
-    {
+    public function __construct(){
         parent::__construct();
-
-
-
-        $this->load->model("Esic_model");
         $this->perPage = 5;
-
-        // use for Header And Footer
-        $this->load->model('Hoosk_page_model');
-        $this->load->model('Hoosk_model');
-        $totSegments = $this->uri->total_segments();
-        if(!is_numeric($this->uri->segment($totSegments))){
-            $pageURL = $this->uri->segment($totSegments);
-        } else if(is_numeric($this->uri->segment($totSegments))){
-            $pageURL = $this->uri->segment($totSegments-1);
-        }
-        if ($pageURL == ""){ $pageURL = "home"; }
-        $this->data['page']=$this->Hoosk_page_model->getPage($pageURL);
-
-        $this->data['settings']=$this->Hoosk_page_model->getSettings();// use for header title
-        $this->data['settings_footer'] = $this->Hoosk_model->getSettings(); //use for footer
-
-
-
     }
 
     public function index($uriSegment = NULL){
-
-        $this->data['sectors'] = $this->Common_model->select('esic_sectors');
-        $this->data['company'] = $this->Common_model->select('esic');
-        $this->data['Statuss'] = $this->Common_model->select('esic_status');
-
-	    $page = 0;
-        $this->data['usersResult'] = $this->Esic_model->getlist($page);
+        $page = 0;
+        $this->data['sectors']      = $this->Common_model->select('esic_sectors');
+        $this->data['company']      = $this->Common_model->select('esic');
+        $this->data['Statuss']      = $this->Common_model->select('esic_status');
+        $this->data['usersResult']  = $this->Esic_model->getlist($page);
 	    $this->load->view('structure/header', $this->data);
         $this->load->view("box_listing/db_list",$this->data);
 		$this->load->view('structure/footer');

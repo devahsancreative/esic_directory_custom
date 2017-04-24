@@ -163,11 +163,18 @@ class Listing extends MY_Controller{
     }
     public function Create(){
         $this->data['PageType'] = 'Message';
-        $this->data['return'] = ViewHelperNewSave();
+        $this->data['return']   = ViewHelperNewSave();
         $this->load->view('structure/header',$this->data);
         $this->show_configuration('admin/configuration/structure/message' , $this->data);
         $this->load->view('structure/footer');
         return Null;
+    }
+    public function Listing(){
+        $this->data['PageType'] = 'Listing';
+        $this->data['return']   = ViewHelperListing();
+        $this->load->view('structure/header',$this->data);
+        $this->show_configuration('listing/default' ,$this->data);
+        $this->load->view('structure/footer');
     }
 
     //Dont mistake the userid with UserID
