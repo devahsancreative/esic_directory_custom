@@ -34,140 +34,110 @@
 	 
 </style>
 <div class="container-fluid">
-
     <div class="row">
-
         <div class="col-lg-12">
-
             <h1 class="page-header">
-
                 <?php echo $this->lang->line('pages_header'); ?>
-
             </h1>
-
             <ol class="breadcrumb">
-
                 <li>
-
-                <i class="fa fa-dashboard"></i>
-
-                	<a href="<?= BASE_URL?>/admin"><?php echo $this->lang->line('nav_dash'); ?></a>
-
+                    <i class="fa fa-dashboard"></i>
+                    <a href="<?= BASE_URL?>/admin">
+                        <?php echo $this->lang->line('nav_dash'); ?>
+                    </a>
                 </li>
-
                 <li class="active">
-
-                <i class="fa fa-fw fa-file"></i>
-
-                	<a href="<?= BASE_URL?>/admin/pages"><?php echo $this->lang->line('nav_pages_all'); ?></a>
-
+                    <i class="fa fa-fw fa-file"></i>
+                    <a href="<?= BASE_URL?>/admin/pages">
+                        <?php echo $this->lang->line('nav_pages_all'); ?> 
+                    </a>
                 </li>
-
             </ol>
-
         </div>
-
     </div>
-
 </div>
-
-
-
 <div class="container-fluid">
-<div class="box box-info">
-            <div class="box-header with-border">
-              <h3 class="box-title">Filter By</h3>
-              <div class="box-tools pull-right">
-                   <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-              </div>
+    <div class="box box-info">
+        <!--div class="box-header with-border">
+            <h3 class="box-title">Filter By</h3>
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
             </div>
-            <!-- /.box-header -->
-			<div class="box-body">
-             <form action="<?php base_url()?>" method="post">
+        </div-->
+        <!-- /.box-header -->
+	    <div class="box-body">
+            <!--form action="<?php base_url()?>" method="post">
                 <div class="row">
                
                     <div class="col-md-4">
                         <div class="form-group">
                             <label>Page</label>
                             <input type="text" id="Sea" name="page" class="form-control select2" placeholder="Search By Page Name">   
-                        </div><!-- /.form-group -->
-                    </div><!-- /.col -->
+                        </div>
+                    </div>
                     <div class="col-md-4">
                         <div class="form-group form-controlsbutton">
-                            
-                            
-                            <input type="submit" id="" class="btn btn-sm btn-primary" value="Search">   
+                           <input type="submit" id="" class="btn btn-sm btn-primary" value="Search">   
                            <input type="submit" id="" class="btn btn-sm btn-primary" value="Reset"> 
-                        </div><!-- /.form-group -->
-                    </div><!-- /.col -->
-                     
-               
+                        </div>
+                    </div>
                 </div>
-              </form>
-            </div>
-            <!-- /.box-body -->
-            <div class="box-footer clearfix">
-            </div>
-            <!-- /.box-footer -->
-          </div>
-
-  	<div class="row">
-
-      	<div class="col-md-12">
-
-			<table class="table table-striped table-bordered">
-
-                <thead>
-
-                  <tr>
-
-                    <th> <?php echo $this->lang->line('pages_table_page'); ?> </th>
-
-                    <th> <?php echo $this->lang->line('pages_table_updated'); ?> </th>
-
-                    <th> <?php echo $this->lang->line('pages_table_created'); ?> </th>
-
-                    <th class="td-actions"> </th>
-
-                  </tr>
-
-                </thead>
-
-                <tbody>
-
-                    <?php 
-
-	foreach ($pages as $p) {
-
-		echo '<tr>';
-
-		echo '<td>'.$p['navTitle'].'</td>';
-        echo '<td>'.$p['pageUpdated'].'</td>';
-        echo '<td>'.$p['pageCreated'].'</td>';
-        echo '<td class="td-actions">
-        <a href="'.BASE_URL.'/'.$p['pageURL'].'" class="btn btn-small btn-success" target="_blank"><i class="fa fa-eye"> </i></a> 
-        <a href="'.BASE_URL.'/admin/pages/jumbo/'.$p['pageID'].'" class="btn btn-small btn-primary">'.$this->lang->line('btn_jumbotron').'</a> 
-		<a href="'.BASE_URL.'/admin/pages/edit/'.$p['pageID'].'" class="btn btn-small btn-success"><i class="fa fa-pencil"> </i></a> 
-		<a data-toggle="modal" data-target="#ajaxModal" class="btn btn-danger btn-small" href="'.BASE_URL.'/admin/pages/delete/'.$p['pageID'].'"><i class="fa fa-remove"> </i></a></td>';
-        echo '</tr>';
-
-					} ?>
-
-                </tbody>
-
-              </table>
-             
-                <?php echo $this->pagination->create_links(); ?>
- 
+            </form-->
+  	     <div class="row">
+      	    <div class="col-md-12">
+			     <table id="pages-table" class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>S.No </th>
+                            <th><?php echo $this->lang->line('pages_table_page'); ?> </th>
+                            <th><?php echo $this->lang->line('pages_table_updated'); ?> </th>
+                            <th><?php echo $this->lang->line('pages_table_created'); ?> </th>
+                            <th>Jumbotron</th>
+                            <th class="td-actions"> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+<?php 
+$pCount = 1;
+    foreach ($pages as $p) { 
+?>
+		<tr>
+            <td><?= $pCount ?></td>
+		    <td><?= $p['navTitle'] ?></td>
+            <td><?= $p['pageUpdated'] ?></td>
+            <td><?= $p['pageCreated'] ?></td>
+            <td>
+                <a href="<?= BASE_URL.'/admin/pages/jumbo/'.$p['pageID'];?>" class="btn btn-small btn-primary">
+                   <i class="fa fa-image"> </i>
+                </a> 
+            </td>
+            <td class="td-actions">
+                <a href="<?= BASE_URL.'/'.$p['pageURL'] ?>" class="btn btn-small btn-success" target="_blank">
+                    <i class="fa fa-eye"> </i>
+                </a> 
+		        <a href="<?= BASE_URL.'/admin/pages/edit/'.$p['pageID']; ?>" class="btn btn-small btn-success">
+                    <i class="fa fa-pencil"></i>
+                </a> 
+		        <a data-toggle="modal" data-target="#ajaxModal" class="btn btn-danger btn-small" href="<?= BASE_URL.'/admin/pages/delete/'.$p['pageID'];?>">
+                    <i class="fa fa-remove"> </i>
+                </a>
+            </td>
+        </tr>
+<?php       
+    $pCount ++;
+    } 
+?>
+                    </tbody>
+                </table>
+<?php echo $this->pagination->create_links(); ?>
+            </div><!-- /col --> 
+         </div><!-- /row --> 
+        </div><!-- /.box-body -->
+     <div class="box-footer clearfix">
      </div>
+    </div><!-- /.box-info -->
+</div><!-- /.container-fluid -->
 
-      <!-- /colmd12 -->
-
-  </div>
-
-  <!-- /row --> 
-
-</div>
 
 <!-- /container --> 
 

@@ -4,35 +4,21 @@ class Pages extends MY_Controller {
 
 	function __construct(){
 		parent::__construct();
-			$userRole = $this->session->userdata('userRole');
-			if($userRole == 1){
-			define("HOOSK_ADMIN",1);
-			$this->load->model('Hoosk_model');
-			$this->load->helper(array('admincontrol', 'url', 'hoosk_admin', 'file'));
-			$this->load->library('session');
-			define ('LANG', $this->Hoosk_model->getLang());
-			$this->lang->load('admin', LANG);
-			//Define what page we are on for nav
-			$this->data['current'] = $this->uri->segment(2);
-			define ('SITE_NAME', $this->Hoosk_model->getSiteName());
-			define ('THEME', $this->Hoosk_model->getTheme());
-			define ('THEME_FOLDER', BASE_URL.'/theme/'.THEME);
+		$userRole = $this->session->userdata('userRole');
+		if($userRole == 1){
+			$this->load->helper('file');
 		}else{
 			 $this->load->view('admin/page_not_found');
 		}
 	}
 	public function index(){
-		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
-		
 		$search = $this->input->post("page");
-
  		$this->load->library('pagination');
-        $result_per_page = 20;  // the number of result per page
+        $result_per_page = -1;  // the number of result per page
         $config['base_url'] = BASE_URL. '/admin/pages/';
         $config['total_rows'] = $this->Hoosk_model->countPages();
         $config['per_page'] = $result_per_page;
 		$config['full_tag_open'] = '<div class="form-actions">';
-		
 		$config['full_tag_close'] = '</div>';
         $this->pagination->initialize($config);
 		//Get pages from database

@@ -48,7 +48,7 @@ class MY_Controller extends CI_Controller{
         $url = str_replace('http://', '', $url);
         $url = str_replace('https://', '', $url);
         define ('DoucmentUrl', $url);
-
+        $this->data['current'] = $this->uri->segment(2);
         $totSegments = $this->uri->total_segments();
         if(!is_numeric($this->uri->segment($totSegments))){
             $pageURL = $this->uri->segment($totSegments);

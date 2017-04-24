@@ -330,7 +330,9 @@ class Hoosk_model extends CI_Model {
         $this->db->select("*");
         $this->db->join('hoosk_page_content', 'hoosk_page_content.pageID = hoosk_page_attributes.pageID');
         $this->db->join('hoosk_page_meta', 'hoosk_page_meta.pageID = hoosk_page_attributes.pageID');
-		$this->db->limit($limit, $offset);
+        if($limit > 0){
+    		$this->db->limit($limit, $offset);
+        }
        
 	  if(!empty($search)){
 	   $this->db->like('pageTitle',$search);
