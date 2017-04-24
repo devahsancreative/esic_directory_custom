@@ -6,6 +6,11 @@
 
             //Now see if the param is of listing
             if($param === 'listing'){
+                $where = array('');
+                if(!isCurrentUserAdmin($ci)){
+                    $userID = getCurrentUserID($ci);
+                    $where = array('userID' => $userID);    
+                }
                 $selectData = array('
                 '.$ci->tableName.'.id AS ID,
                 '.$ci->tableName.'.name,
@@ -22,7 +27,7 @@
                     'ViewEditActionButtons' => array(
                         '<a href="'.base_url().$ci->Name.'/Edit/$1"><span data-toggle="tooltip" title="Edit" data-placement="left" aria-hidden="true" class="fa fa-pencil text-blue"></span></a> &nbsp; <a href="#" data-target=".approval-modal" data-toggle="modal"><i data-toggle="tooltip" title="Trash" data-placement="right"  class="fa fa-trash-o text-red"></i></a>','ID')
                 );
-                $returnedData = $ci->Common_model->select_fields_joined_DT($selectData,$ci->tableName,'','','','','',$addColumns);
+                $returnedData = $ci->Common_model->select_fields_joined_DT($selectData,$ci->tableName,'',$where,'','','',$addColumns);
                 print_r($returnedData);
                 return NULL;
             }
@@ -170,6 +175,10 @@
             );
 
             $where = array('id' => $ID);
+            if(!isCurrentUserAdmin($ci)){
+                $userID = getCurrentUserID($ci);
+                $where['userID'] = $userID;    
+            }
             $updateResult = $ci->Common_model->update($ci->tableName,$where , $updateData);
             
             if($updateResult){

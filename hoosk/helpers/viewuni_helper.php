@@ -6,6 +6,11 @@
 
             //Now see if the param is of listing
             if($param === 'listing'){
+                $where = array('');
+                if(!isCurrentUserAdmin($ci)){
+                    $userID = getCurrentUserID($ci);
+                    $where = array('userID' => $userID);    
+                }
                 $selectData = array('
                 id AS ID,
                 institution AS Name,
@@ -190,6 +195,10 @@
             );
            
             $where = array('id' => $ID);
+            if(!isCurrentUserAdmin($ci)){
+                $userID = getCurrentUserID($ci);
+                $where['userID'] = $userID;    
+            }
             $updateResult = $ci->Common_model->update($ci->tableName,$where , $updateData);
             
             if($updateResult){

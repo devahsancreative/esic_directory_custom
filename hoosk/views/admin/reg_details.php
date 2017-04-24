@@ -757,7 +757,7 @@ $ci =& get_instance();
             <?php }  
 			             
              $userrole = $this->session->userdata('userRole');
-             if ($userrole == "1") { ?>
+             if(isCurrentUserAdmin($this)){ ?>
             <div class="action-buttons">
              <a href="#" data-target=".approval-modal" data-toggle="modal" class="btn-primary" data-id="<?= $userProfile['userID'];?>">Update Status</a>
              <div class="publish-buttons">

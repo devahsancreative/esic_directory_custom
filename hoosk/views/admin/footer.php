@@ -474,6 +474,17 @@ $(document).ready(function() {
             console.log(info.page);   
         });*/
    }
+   if( $('#users-table').length > 0 ){
+        
+        var pagestable = $('#users-table');
+        pagestable.dataTable({
+            "bPaginate" :true,
+            "sPaginationType": "full_numbers",
+            "bDestroy":true,
+            "iDisplayLength": 6
+        });
+       
+   }
   
     $(".URLField").blur(function() {
         var identbefore=$(".URLField").val();

@@ -1,5 +1,5 @@
 <?php
-class Hoosk_model extends CI_Model {
+class Hoosk_model extends MY_Model {
     function __construct() {
         // Call the Model constructor
         parent::__construct();
@@ -75,7 +75,13 @@ class Hoosk_model extends CI_Model {
 		$this->db->from('esic');
 		return $this->db->count_all_results();
  	}
-				 
+    function get_user_esic_status($id = NULL){
+        $where = $this->getUserWhere();
+        $where['status'] = $id;
+        $this->db->where($where);
+        $this->db->from('esic');
+        return $this->db->count_all_results();
+    }			 
 	function counttUsers(){
           return $this->db->count_all('esic');
  	}

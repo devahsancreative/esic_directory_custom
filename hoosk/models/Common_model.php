@@ -662,6 +662,15 @@ class common_model extends CI_Model
             return false;
         }
     }
+    public function count_rows($table , $where){
+        $this->db->select('count(1) As Total');
+        $this->db->from($table);
+        $this->db->where($where);
+        $query = $this->db->get();
+        $query = $query->row();
+        return $query->Total;
+    }
+    
     //End of Common DataTables Queries
 	
 	

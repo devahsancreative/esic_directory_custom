@@ -75,14 +75,13 @@
 </div>
   
 <div class="container-fluid">
-    <div class="box box-info">
+    <!--div class="box box-info">
         <div class="box-header with-border">
             <h3 class="box-title">Filter By</h3>
             <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
             </div>
         </div>
-        <!-- /.box-header -->
         <div class="box-body">
             <form action="<?php base_url()?>" method="post">
                 <div class="row">
@@ -93,32 +92,30 @@
                             <input type="text" id="Sea" name="username"
                                    class="form-control select2"
                                    placeholder="Search By User Name">
-                        </div><!-- /.form-group -->
-                    </div><!-- /.col -->
+                        </div>
+                    </div>
                     <div class="col-md-4">
                         <div class="form-group form-controlsbutton">
 
 
                             <input type="submit" id="" class="btn btn-sm btn-primary" value="Search">
                             <input type="submit" id="" class="btn btn-sm btn-primary" value="Reset">
-                        </div><!-- /.form-group -->
-                    </div><!-- /.col -->
-
-
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>
-        <!-- /.box-body -->
+        
         <div class="box-footer clearfix">
         </div>
-        <!-- /.box-footer -->
-    </div>
+        
+    </div-->
 
   	<div class="row">
 
       	<div class="col-md-12">
 <form method="post" action="<?= BASE_URL.'/admin/users/email';?>">
-			<table class="table table-striped table-bordered">
+			<table id="users-table" class="table table-striped table-bordered">
 
                 <thead>
 <tr>
@@ -189,7 +186,7 @@
 
               </table>
 </form>
-              <?php echo $this->pagination->create_links(); ?>
+              <?php //echo $this->pagination->create_links(); ?>
 
         	</div>
 

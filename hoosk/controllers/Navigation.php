@@ -25,7 +25,7 @@ class Navigation extends MY_Controller {
 	{
 		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		$userRole = $this->session->userdata('userRole');
-		if($userRole == 1){
+		if(isCurrentUserAdmin($this)){ 
 			$this->load->library('pagination');
 			$result_per_page =15;  // the number of result per page
 			$config['base_url'] = BASE_URL. '/admin/navigation/';
@@ -51,7 +51,7 @@ class Navigation extends MY_Controller {
 	{
 		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		$userRole = $this->session->userdata('userRole');
-		if($userRole == 1){
+		if(isCurrentUserAdmin($this)){ 
 			$this->data['pages'] = $this->Hoosk_model->getPagesAll();
 			$this->load->helper('form');
 			//Load the view
@@ -162,7 +162,7 @@ class Navigation extends MY_Controller {
 	{
 		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		$userRole = $this->session->userdata('userRole');
-		if($userRole == 1){
+		if(isCurrentUserAdmin($this)){ 
 			$this->data['page'] = $this->Hoosk_model->getPageNav($this->uri->segment(3));
 			$this->load->view('admin/nav_add', $this->data);
 		}else{

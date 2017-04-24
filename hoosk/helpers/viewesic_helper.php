@@ -6,6 +6,12 @@
             
             //Now see if the param is of listing
             if($param === 'listing'){
+                $where = array('');
+                if(!isCurrentUserAdmin($ci)){
+                    $userID = getCurrentUserID($ci);
+                    $where = array('userID' => $userID);    
+                }
+               
                 $selectData = array('
                 '.$ci->tableName.'.id AS ID,
                 '.$ci->tableName.'.name AS Name,
@@ -24,6 +30,7 @@
                     'ViewEditActionButtons' => array(
                         '<a href="#" data-target=".publish-modal" data-toggle="modal"><i data-toggle="tooltip" title="Publish Status" data-placement="right"  class="fa fa-check text-blue"></i></a> &nbsp; <a href="'.base_url().$ci->Name.'/Edit/$1"><span data-toggle="tooltip" title="Edit" data-placement="left" aria-hidden="true" class="fa fa-pencil text-blue"></span></a> &nbsp; <a href="#" data-target=".approval-modal" data-toggle="modal"><i data-toggle="tooltip" title="Trashed" data-placement="right"  class="fa fa-trash-o text-red"></i></a>','ID')
                 );
+
                 $joins = array(
                     array(
                         'table' => 'esic_status ES',
@@ -31,7 +38,7 @@
                         'type' => 'LEFT'
                     )
                 );
-                $returnedData = $ci->Common_model->select_fields_joined_DT($selectData,$ci->tableName,$joins,'','','','',$addColumns);
+                $returnedData = $ci->Common_model->select_fields_joined_DT($selectData,$ci->tableName,$joins,$where,'','','',$addColumns);
                 print_r($returnedData);
                 return NULL;
             }
@@ -248,6 +255,10 @@
                 'date_updated'          => $now
             );
             $where = array('id' => $ID);
+            if(!isCurrentUserAdmin($ci)){
+                $userID = getCurrentUserID($ci);
+                $where['userID'] = $userID;    
+            }
             $updateResult = $ci->Common_model->update($ci->tableName,$where , $updateData);
             
             if($updateResult){

@@ -38,20 +38,19 @@ class Blog extends MY_Controller {
      $data = [];
      $data = array('min(`date`) as minDate, max(`date`) as maxDate',false);
         $data['minMaxDate'] = $this->common_model->select_fields('esic_blog',$data, true);
-		if($userRole == 1){
+		if(isCurrentUserAdmin($this)){
 	    $this->show_admin('blog/blog',$data);
 	    return NULL;
-		}
-		else{
+		}else{
 			 $this->load->view('admin/page_not_found');
-			}
+		}
   
   
   }
  public function show($param = NULL){  
       Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
       $userRole = $this->session->userdata('userRole');
-	  if($userRole == 1){
+	 if(isCurrentUserAdmin($this)){
      
       if($param === 'listing'){
             $selectData = array('
@@ -204,7 +203,7 @@ class Blog extends MY_Controller {
 	    Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 		
 		$userRole = $this->session->userdata('userRole');
-		if($userRole == 1){
+		if(isCurrentUserAdmin($this)){
 		 $this->load->helper('form');
 		 if($id)
     		{

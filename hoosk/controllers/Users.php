@@ -1,57 +1,41 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class Users extends MY_Controller {
-	function __construct()
-	{
+	function __construct(){
 		parent::__construct();
-		Admincontrol_helper::is_logged_in($this->session->userdata('userID'));
-		$userRole = $this->session->userdata('userRole');
-		if($userRole == 1){
-			define("HOOSK_ADMIN",1);
-			$this->load->model('Hoosk_model');
-			$this->load->model('common_model');
-			$this->load->helper(array('admincontrol', 'url'));
-			$this->load->library('session');
-			define ('LANG', $this->Hoosk_model->getLang());
-			$this->lang->load('admin', LANG);
-			$this->data['current'] = $this->uri->segment(2);
-			define ('SITE_NAME', $this->Hoosk_model->getSiteName());
-			define('THEME', $this->Hoosk_model->getTheme());
-			define ('THEME_FOLDER', BASE_URL.'/theme/'.THEME);
-		}else{
-			  $this->load->view('admin/page_not_found');
-			  }
+		
 	}
 	public function index()
 	{
 		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
         $userRole = $this->session->userdata('userRole');
-        if($userRole == 1){
+    if(isCurrentUserAdmin($this)){ 
         $this->load->library('pagination');
         $search = $this->input->post('username');
-		$result_per_page =15;  // the number of result per page
-		$config['base_url'] = BASE_URL. '/admin/users/';
-		$config['total_rows'] = $this->Hoosk_model->countUsers();
-		$config['per_page'] = $result_per_page;
-		$config['full_tag_open'] = '<div class="form-actions">';
-		$config['full_tag_close'] = '</div>';
+    		$result_per_page = 100;  // the number of result per page
+    		$config['base_url'] = BASE_URL. '/admin/users/';
+    		$config['total_rows'] = $this->Hoosk_model->countUsers();
+    		$config['per_page'] = $result_per_page;
+    		$config['full_tag_open'] = '<div class="form-actions">';
+    		$config['full_tag_close'] = '</div>';
         $this->pagination->initialize($config);
-		//Get users from database
-		$this->data['users'] = $this->Hoosk_model->getUsers($result_per_page, $this->uri->segment(3),$search);
-		$this->data['roles'] = $this->Hoosk_model->getRoles();
-		//Load the view
- 		$this->data['header'] = $this->load->view('admin/header', $this->data, true);
- 		$this->data['footer'] = $this->load->view('admin/footer', '', true);
- 		$this->load->view('admin/users', $this->data);
-         }else{
-             $this->load->view('admin/page_not_found');
-         }
+    		//Get users from database
+    		$this->data['users'] = $this->Hoosk_model->getUsers($result_per_page, $this->uri->segment(3),$search);
+    		$this->data['roles'] = $this->Hoosk_model->getRoles();
+    		//Load the view
+     		$this->data['header'] = $this->load->view('admin/header', $this->data, true);
+     		$this->data['footer'] = $this->load->view('admin/footer', '', true);
+     		$this->load->view('admin/users', $this->data);
+
+      }else{
+        $this->load->view('admin/page_not_found');
+      }
  	}
 public function addUser()
  	{
  		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
  		//Load the form helper
          $userRole = $this->session->userdata('userRole');
-         if($userRole == 1){
+         if(isCurrentUserAdmin($this)){ 
              $this->load->helper('form');
              //Load the view
              $this->data['roles'] = $this->Hoosk_model->getRoles();
@@ -87,19 +71,32 @@ public function confirm()
  	{
  		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
  		//Load the form helper
-         $userRole = $this->session->userdata('userRole');
-         if($userRole == 1){
-             $this->load->helper('form');
-             //Get user details from database
-            $this->data['users'] = $this->Hoosk_model->getUser($this->uri->segment(4));
+          $this->load->helper('form');
+          $UrlUserID = 0;
+         if(isCurrentUserAdmin($this)){ 
+            $UrlUserID = $this->uri->segment(4);
+            //Get user details from database
+            $this->data['users'] = $this->Hoosk_model->getUser($UrlUserID);
             $this->data['roles'] = $this->Hoosk_model->getRoles();
-            //Load the view
+              //Load the view
             $this->data['header'] = $this->load->view('admin/header', $this->data, true);
             $this->data['footer'] = $this->load->view('admin/footer', '', true);
             $this->load->view('admin/user_edit', $this->data);
-        }else{
-            $this->load->view('admin/page_not_found');
-        }
+         }else{
+            $UrlUserID = $this->session->userdata('userID');
+            if($this->session->userdata('userID') != $this->uri->segment(4)){
+              $this->load->view('admin/header');
+              $this->load->view('admin/NoPermission', $this->data);
+              $this->load->view('admin/footer');
+            }else{
+              $this->data['users'] = $this->Hoosk_model->getUser($UrlUserID);
+              $this->data['roles'] = $this->Hoosk_model->getRoles();
+              $this->data['header'] = $this->load->view('admin/header', $this->data, true);
+              $this->data['footer'] = $this->load->view('admin/footer', '', true);
+              $this->load->view('admin/user_edit', $this->data);
+            }
+         }
+         
 	}
 	public function edited()
 	{
@@ -228,7 +225,7 @@ public function confirm()
 public function email(){   //Email form   
 	 Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
      $userRole = $this->session->userdata('userRole');
-     if($userRole == 1){
+    if(isCurrentUserAdmin($this)){ 
         $this->load->helper('form');
  		$this->data['users_data'] = $this->common_model->select('esic');
  		$this->data['Count_email_message'] = $this->common_model->Count_Tottle_Rows('esic_email');
@@ -301,7 +298,7 @@ public function send_email()    //compose email
 public function sent($param = NULL){ //Mange Sent Emails
     Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
     $userRole = $this->session->userdata('userRole');
-    if($userRole == 1) {
+    if(isCurrentUserAdmin($this)){ 
         if ($param === 'listing') {
             $selectData = array('
            id AS ID,

@@ -137,9 +137,7 @@ class Investor extends Listing{
 
         Admincontrol_helper::is_logged_in($this->session->userdata('userID'));
         $userRole = $this->session->userdata('userRole');
-        if(3 == 3){
-
-            if($param === 'listing'){
+        if($param === 'listing'){
                 $selectData = array('
             userID as UserID,
             CONCAT(`firstName`," ",`lastName`) AS FullName,
@@ -276,11 +274,7 @@ class Investor extends Listing{
                 return NULL;
 
             }
-
-            $this->show_admin("investor/investor_list",$data);
-        }else{
-            $this->load->view('admin/page_not_found');
-        }
+        $this->show_admin("investor/investor_list",$data);
     }
 
     public function investor_form(){
@@ -482,7 +476,7 @@ class Investor extends Listing{
             $this->load->view('admin/footer');
 
         }
-        elseif($userRole == 1){                   // for super admin
+        elseif(isCurrentUserAdmin($this)){                   // for super admin
             $data['User_data']  =$this->Investor_model->get_investor_data('esic_investor',$id);
             $data['User_social']=$this->Investor_model->get_investor_social($id);
             $this->load->view('admin/header');

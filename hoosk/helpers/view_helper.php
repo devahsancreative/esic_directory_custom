@@ -6,6 +6,11 @@
     	    
             //Now see if the param is of listing
             if($param === 'listing'){
+                $where = array('');
+                if(!isCurrentUserAdmin($ci)){
+                    $userID = getCurrentUserID($ci);
+                    $where = array('userID' => $userID);    
+                }
                 $selectData = array('
                 '.$ci->tableName.'.id AS ID,
                 '.$ci->tableName.'.name AS Name,
@@ -29,7 +34,7 @@
                         'type' => 'LEFT'
                     )
                 );
-                $returnedData = $ci->Common_model->select_fields_joined_DT($selectData,$ci->tableName,$joins,'','','','',$addColumns);
+                $returnedData = $ci->Common_model->select_fields_joined_DT($selectData,$ci->tableName,$joins,$where,'','','',$addColumns);
                 print_r($returnedData);
                 return NULL;
             }
@@ -205,6 +210,10 @@
                 'date_updated'          => $now
             );
             $where = array('id' => $ID);
+            if(!isCurrentUserAdmin($ci)){
+                $userID = getCurrentUserID($ci);
+                $where['userID'] = $userID;    
+            }
             $updateResult = $ci->Common_model->update($ci->tableName,$where , $updateData);
             
             if($updateResult){

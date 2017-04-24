@@ -10,8 +10,8 @@ class User_model extends MY_Model{
         $this->db->where($where);
     }
     public function count(){
-        $this->UserIDWhere();
-        return $this->db->count_all($this->tableCurrent);
+        $where = $this->getUserWhere();
+        return $this->Common_model->count_rows($this->tableCurrent,$where);
     }
     public function CreateNewUser($data){
         if($this->FieldAlreadyExist('UserName',$data['username']) == true){

@@ -122,23 +122,9 @@ $method = $this->router->fetch_method();   // it is use only in add new page and
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <?php
-                                    if ($userRole == 1) {
-                                        ?>
-                                        <a href="<?= base_url() ?>admin/users/edit/<?= $userID ?>"
-                                           class="btn btn-default btn-flat">Profile</a>
-                                    <?php } elseif ($userRole == 2) {// super admin logo
-                                        ?>
-                                        <a href="<?= base_url() ?>admin/details/<?= $userID ?>"
-                                           class="btn btn-default btn-flat">Profile</a>
-                                    <?php } elseif ($userRole == 3) {
-                                        ?>
-                                        <a href="<?= base_url() ?>admin/investor/edit_profile/<?= $userID ?>"
-                                           class="btn btn-default btn-flat">Profile</a>
-                                    <?php } else {
-                                        ?>
-                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                    <?php } ?>
+                                    <a href="<?= base_url() ?>admin/users/edit/<?= $userID ?>" class="btn btn-default btn-flat">
+                                        Profile
+                                    </a>
                                 </div>
                                 <div class="pull-right">
                                     <a href="<?php echo BASE_URL; ?>/logout" class="btn btn-default btn-flat">Sign

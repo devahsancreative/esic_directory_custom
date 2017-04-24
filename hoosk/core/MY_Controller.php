@@ -20,15 +20,13 @@ class MY_Controller extends CI_Controller{
 		define("HOOSK_ADMIN",1);
 		$this->load->helper(array('admincontrol','hoosk_admin','url','hoosk_page','email_helper'));
         $this->load->library('facebook');
-        $this->load->model(array('Hoosk_model','User_model','Esic_model','Investor_model','Accelerator_model','Rndpartner_model','Rndconsultant_model','Lawyer_model','Grantconsultant_model','University_model'));
+        $this->load->model(array('Hoosk_model','User_model','Esic_model','Investor_model','Accelerator_model','Rndpartner_model','Rndconsultant_model','Lawyer_model','Grantconsultant_model','University_model','Common_model','Imagecreate_model'));
         
 		define ('LANG', $this->Hoosk_model->getLang());
 		$this->lang->load('admin', LANG);
 		define ('SITE_NAME', $this->Hoosk_model->getSiteName());
 		define('THEME', $this->Hoosk_model->getTheme());
 		define ('THEME_FOLDER', BASE_URL.'/theme/'.THEME);
-        $this->load->model('Common_model');
-		$this->load->model("Imagecreate_model");
 
         //We Need Some Settings from Database.
         //Load Values from DB
@@ -60,6 +58,8 @@ class MY_Controller extends CI_Controller{
         $this->data['page']             = $this->Hoosk_page_model->getPage($pageURL);
         $this->data['settings']         = $this->Hoosk_page_model->getSettings();
         $this->data['settings_footer']  = $this->Hoosk_model->getSettings();
+        $this->data['permissions'] = getCurrentUserPermissions($this);
+
 	}
 	public function show_admin($viewPath, $data = NULL, $bool = false){
 	    $this->load->view('admin/header',$data, $bool);

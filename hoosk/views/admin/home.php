@@ -49,6 +49,10 @@ input#myInputTextField {
     width: 50px;
     font-size: 25px;
     line-height: 2;
+}
+.nav>li>a.statuser{
+    font-size: 12px;
+}
 </style>
  
   <div class="container-fluid">
@@ -57,14 +61,18 @@ input#myInputTextField {
               Dashboard
           </h1>
           <ol class="breadcrumb">
-              <li><a href="<?= base_url();?>admin"><i class="fa fa-dashboard"></i> Dashboard</a></li> 
-              <li class="active"></li>
+              <li class="active">
+                  <a href="<?= base_url();?>admin">
+                    <i class="fa fa-dashboard"></i> Dashboard
+                  </a>
+              </li> 
           </ol>
       </section>
       <!-- Main content -->
     <section class="content">
         <!-- Info boxes -->
         <div class="row">
+            <?php if(isset($TotalUsers)){ ?>
             <div class="col-md-3 col-sm-4 col-xs-6">
                 <div class="info-box">
                     <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
@@ -72,7 +80,7 @@ input#myInputTextField {
                         <span class="info-box-text">Users
                         </span>
                         <span class="info-box-number">
-                            <?php if(isset($TotalUsers)){ echo $TotalUsers; }?>
+                            <?= $TotalUsers; ?>
                         </span>
                     </div>
                     <!-- /.info-box-content -->
@@ -80,6 +88,9 @@ input#myInputTextField {
                 <!-- /.info-box -->
             </div>
             <!-- /.col -->
+           <?php } ?>
+            
+            <?php if(isset($TotalEsic)){ ?>
             <div class="col-md-3 col-sm-4 col-xs-6">
                 <div class="info-box">
                     <span class="info-box-icon bg-aqua"><i class="fa fa-list fa-6"></i></span>
@@ -87,7 +98,7 @@ input#myInputTextField {
                         <span class="info-box-text">Esic
                         </span>
                         <span class="info-box-number">
-                            <?php if(isset($TotalEsic)){ echo $TotalEsic; }?>   
+                            <?= $TotalEsic; ?>
                         </span>
                     </div>
                     <!-- /.info-box-content -->
@@ -95,13 +106,33 @@ input#myInputTextField {
                 <!-- /.info-box -->
             </div>
             <!-- /.col -->
+            <?php } ?>
+
+            <?php if(isset($TotalInvestors)){ ?>
+            <div class="col-md-3 col-sm-4 col-xs-6">
+                <div class="info-box">
+                    <span class="info-box-icon bg-aqua"><i class="fa fa-list fa-6"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Investors
+                        </span>
+                        <span class="info-box-number">
+                            <?= $TotalInvestors; ?>
+                        </span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <?php } ?>
+            <?php if(isset($TotalRndPartners)){ ?>
             <div class="col-md-3 col-sm-4 col-xs-6">
                 <div class="info-box">
                     <span class="info-box-icon bg-red"><i class="fa fa-list fa-6"></i></span>
                     <div class="info-box-content">
                         <span class="info-box-text">R&D Partners</span>
                         <span class="info-box-number">
-                            <?php if(isset($TotalRndPartners)){ echo $TotalRndPartners; }?>
+                            <?= $TotalRndPartners; ?>
                         </span>
                     </div>
                     <!-- /.info-box-content -->
@@ -109,13 +140,15 @@ input#myInputTextField {
                 <!-- /.info-box -->
             </div>
             <!-- /.col -->
+            <?php } ?>
+            <?php if(isset($TotalRndConsultants)){ ?>
             <div class="col-md-3 col-sm-4 col-xs-6">
                 <div class="info-box">
                     <span class="info-box-icon bg-red"><i class="fa fa-list fa-6"></i></span>
                     <div class="info-box-content">
                         <span class="info-box-text">R&D Tax Consultants</span>
                         <span class="info-box-number">
-                            <?php if (isset($TotalRndConsultants)){ echo $TotalRndConsultants; }?>
+                            <?= $TotalRndConsultants; ?>
                         </span>
                     </div>
                     <!-- /.info-box-content -->
@@ -123,6 +156,8 @@ input#myInputTextField {
                 <!-- /.info-box -->
             </div>
             <!-- /.col -->
+            <?php } ?>
+            <?php if(isset($TotalAccelerators)){ ?>
             <!-- fix for small devices only -->
             <div class="clearfix visible-sm-block"></div>
             <div class="col-md-3 col-sm-4 col-xs-6">
@@ -131,7 +166,7 @@ input#myInputTextField {
                     <div class="info-box-content">
                         <span class="info-box-text">Accelerators</span>
                         <span class="info-box-number">
-                            <?php if (isset($TotalAccelerators)){ echo $TotalAccelerators; }?>
+                            <?= $TotalAccelerators; ?>
                         </span>
                     </div>
                     <!-- /.info-box-content -->
@@ -139,13 +174,15 @@ input#myInputTextField {
                 <!-- /.info-box -->
             </div>
             <!-- /.col -->
+            <?php } ?>
+            <?php if(isset($TotalLawyers)){ ?>
             <div class="col-md-3 col-sm-4 col-xs-6">
                 <div class="info-box">
                     <span class="info-box-icon bg-green"><i class="fa fa-list fa-6"></i></span>
                     <div class="info-box-content">
                         <span class="info-box-text">Lawyers</span>
                         <span class="info-box-number">
-                            <?php if (isset($TotalLawyers)){ echo $TotalLawyers; }?>
+                            <?= $TotalLawyers; ?>
                         </span>
                     </div>
                     <!-- /.info-box-content -->
@@ -153,13 +190,15 @@ input#myInputTextField {
                 <!-- /.info-box -->
             </div>
             <!-- /.col -->
+            <?php } ?>
+            <?php if(isset($TotalGrantConsultants)){ ?>
             <div class="col-md-3 col-sm-4 col-xs-6">
                 <div class="info-box">
                     <span class="info-box-icon bg-green"><i class="fa fa-list fa-6"></i></span>
                     <div class="info-box-content">
                         <span class="info-box-text">Grant Consultants</span>
                         <span class="info-box-number">
-                            <?php if (isset($TotalGrantConsultants)){ echo $TotalGrantConsultants; }?>
+                            <?= $TotalGrantConsultants; ?>
                         </span>
                     </div>
                     <!-- /.info-box-content -->
@@ -167,13 +206,15 @@ input#myInputTextField {
                 <!-- /.info-box -->
             </div>
             <!-- /.col -->
+            <?php } ?>
+            <?php if(isset($TotalUniversities)){ ?>
             <div class="col-md-3 col-sm-4 col-xs-6">
                 <div class="info-box">
                     <span class="info-box-icon bg-aqua"><i class="fa fa-university fa-6"></i></span>
                     <div class="info-box-content">
                         <span class="info-box-text">Universities</span>
-                        <span class="info-box-number">
-                            <?php if (isset($TotalUniversities)){ echo $TotalUniversities; }?>
+                        <span class="info-box-number">  
+                            <?= $TotalUniversities; ?>
                         </span>
                     </div>
                     <!-- /.info-box-content -->
@@ -181,6 +222,7 @@ input#myInputTextField {
                 <!-- /.info-box -->
             </div>
             <!-- /.col -->
+            <?php } ?>
         </div>
         <!-- /.row not in use display none  -->
  
@@ -209,22 +251,22 @@ input#myInputTextField {
                             <table id="regListforadmin" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
-                                    <th class="tablet desktop">ID</th>
-                                    <th class="mobile tablet desktop">Name</th>
-                                    <th class="tablet desktop">Website</th>
-                                    <th class="tablet-l desktop">Status</th>
-                                    <th class="mobile tablet desktop">Action</th>
+                                    <th class="">ID</th>
+                                    <th class="">Name</th>
+                                    <th class="">Website</th>
+                                    <th class="">Status</th>
+                                    <th class="">Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 </tbody>
                                 <tfoot>
                                 <tr>
-                                    <th class="tablet desktop">ID</th>
-                                    <th class="mobile tablet desktop">Name</th>
-                                    <th class="tablet desktop">Website</th>
-                                    <th class="tablet-l desktop">Status</th>
-                                    <th class="mobile tablet desktop">Action</th>
+                                    <th class="">ID</th>
+                                    <th class="">Name</th>
+                                    <th class="">Website</th>
+                                    <th class="">Status</th>
+                                    <th class="">Action</th>
                                
                                 </tr>
                                 </tfoot>
@@ -240,50 +282,47 @@ input#myInputTextField {
         </section>
     </div>  
     </div>
-             <div class="col-md-4">
-                <div class="box box-default">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">ESIC Pre-Assessment Status</h3>
-                        <div class="box-tools pull-right">
-                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                            </button>
-                            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+    <?php if(isset($TotalEsic) && !empty($TotalEsic)){ ?>
+    <div class="col-md-4">
+        <div class="box box-default">
+            <div class="box-header with-border">
+                <h3 class="box-title">ESIC Pre-Assessment Status</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                        <i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove">
+                        <i class="fa fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="chart-responsive">
+                            <canvas id="pieChart" height="150"></canvas>
                         </div>
-                    </div>
-                       
-                    <div class="box-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="chart-responsive">
-                                    <canvas id="pieChart" height="150"></canvas>
-                                </div>
                                  
-                            </div>
-                          </div>
-                          
                     </div>
-                     
-                    <div class="box-footer no-padding">
-                     <div class="col-md-12">
-                                <ul class="chart-legend clearfix">
-                                    <li></li>
-                                  
-                                  </ul>
-                            </div>
-   <ul class="nav nav-pills nav-stacked">
-   
-   
+                </div>      
+            </div>        
+            <div class="box-footer no-padding">
+                <div class="col-md-12">
+                    <ul class="chart-legend clearfix">
+                        <li></li>
+                    </ul>
+                </div>
+                <ul class="nav nav-pills nav-stacked">
    <?php  
-   $statusArray = array();
-   foreach($status as $status_value)
-   { ?>
+  $statusArray = array();
+foreach($status as $status_value){ ?>
   <!--  <li><a href="<?base_url()?>admin/status/<?$status_value->id;?>"><i class="fa fa-circle-o" style="color:<?$status_value->color;?>"></i>-->
     
     <li><a class="statuser" id="<?= $status_value->id;?>"><i class="fa fa-circle-o" style="color:<?= $status_value->color;?>"></i><?= $status_value->status;?>
           <span class="pull-right text-red"> 
             <?php 
 			
-			  $get_Users_Status = $this->Hoosk_model->get_ass_status($status_value->id);
+			  $get_Users_Status = $this->Hoosk_model->get_user_esic_status($status_value->id);
 			  $nameStatus = $status_value->status;  
 			  $colorStatus = $status_value->color;
 			  $percen = $get_Users_Status/$TotalEsic*100;
@@ -301,26 +340,20 @@ input#myInputTextField {
 			       var get_Users_Status = <?php echo json_encode($statusArray);?>
 			   </script> 
      
-                      </ul>
-                    </div>
-                     
-                </div>
-               
+                </ul>
             </div>
-            <!-- /.col -->
-            
-            <!-- /.col -->
         </div>
-        <!-- /.row -->
-    </section>
-    <!-- /.content -->
+    </div><!-- /.col -->
+    <?php } ?>
+</div><!-- /.row -->
+</section><!-- Main content -->
 </div>
 <script>
 	 
 $(function () {
            oTable = "";
             var regTableSelector = $("#regListforadmin");
-            var url_DT = baseUrl + "admin/assessment_dashboard";
+            var url_DT = baseUrl + "admin/esicListing";
             var aoColumns_DT = [
                   {
                     "mData": "ID",
@@ -388,8 +421,9 @@ $(document).on("click",".statuser",function(){
 	   
 	 });
  </script>
+  <?php if(isset($TotalEsic) && !empty($TotalEsic)){ ?>
 <script src="<?= base_url()?>plugins/chartjs/Chart.min.js"></script>
- <script><!--pie chart script--->
+ <script>
  
   var pieChartCanvas = $("#pieChart").get(0).getContext("2d");
   var pieChart = new Chart(pieChartCanvas);
@@ -402,7 +436,7 @@ $(document).on("click",".statuser",function(){
         item ["label"] = value.name;
         jsonObj.push(item);
     });
-    console.log(jsonObj);
+   // console.log(jsonObj);
  
   var PieData = [
   <?php {
@@ -446,4 +480,5 @@ $(document).on("click",".statuser",function(){
   //- END PIE CHART -
   //-----------------
  </script>
+  <?php } ?>
 <?php echo $footer; ?>

@@ -5,30 +5,45 @@ class Admin extends MY_Controller {
         Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
 	}
 	public function index($status=NULL){
-
-		//if($userRole == "1"){
 			$this->data['current']               = $this->uri->segment(2);
-			$this->data['TotalEsic']             = $this->Esic_model->count();
-            $this->data['TotalInvestors']        = $this->Investor_model->count();
-            $this->data['TotalAccelerators']     = $this->Accelerator_model->count();
-			$this->data['TotalRndPartners']      = $this->Rndpartner_model->count();
-            $this->data['TotalRndConsultants']   = $this->Rndconsultant_model->count();
-            $this->data['TotalLawyers']          = $this->Lawyer_model->count();
-            $this->data['TotalGrantConsultants'] = $this->Grantconsultant_model->count();
-            $this->data['TotalUniversities']     = $this->University_model->count();
-	        $this->data['Esic_By_status']        = $this->Esic_model->getEsicByStatus($status);
-			$this->data['TotalUsers']            = $this->User_model->count();
-			$this->data['status']                = $this->Common_model->select('esic_status');
+
+            if(checkUserHasRole($this,'Esic') == true){
+    			$this->data['TotalEsic']   = $this->Esic_model->count();
+                $this->data['Esic_By_status']        = $this->Esic_model->getEsicByStatus($status);
+                 $this->data['status']                = $this->Common_model->select('esic_status');
+            }
+            if(checkUserHasRole($this,'Investor') == true){
+                $this->data['TotalInvestors']        = $this->Investor_model->count();
+            }
+            if(checkUserHasRole($this,'Accelerator') == true){
+                $this->data['TotalAccelerators']     = $this->Accelerator_model->count();
+            }
+            if(checkUserHasRole($this,'RndPartner') == true){
+                $this->data['TotalRndPartners']      = $this->Rndpartner_model->count();
+            }
+            if(checkUserHasRole($this,'RndConsultant') == true){
+                $this->data['TotalRndConsultants']   = $this->Rndconsultant_model->count();
+            }
+            if(checkUserHasRole($this,'Lawyer') == true){
+                $this->data['TotalLawyers']          = $this->Lawyer_model->count();
+            }
+            if(checkUserHasRole($this,'GrantConsultant') == true){
+                $this->data['TotalGrantConsultants'] = $this->Grantconsultant_model->count();
+            }
+            if(checkUserHasRole($this) == true){
+                $this->data['TotalUniversities']     = $this->University_model->count();
+                $this->data['TotalUsers']            = $this->User_model->count();
+               
+            }
+
 		    $this->data['header']                = $this->load->view('admin/header', $this->data, true);
 		    $this->data['footer']                = $this->load->view('admin/footer', '', true);  
 		 	$this->load->view('admin/home', $this->data);
-	    ///}else{
-	    	//redirect(base_url().'admin/home');
-		//}	 
 	}
-	public function assessment_dashboard(){ 
-	 $status = $this->input->post('status');
-	 $selectData = array('
+	public function esicDashBoardListing(){ 
+	   $status = $this->input->post('status');
+       $where = $this->User_model->getUserWhere('h_user');
+	   $selectData = array('
             esic.id as ID,
 			esic.name AS Name,
             esic.website AS Website,
@@ -51,23 +66,22 @@ class Admin extends MY_Controller {
                 ),
 				
 			 );
+
+        $whereUser = array('hoosk_user.userID' => $userID);    
         if(!empty($status)){ 
-		    $where =  array('esic.status'=>$status);
-		    }
-		else{
-			$where = array('esic.id>'=>"0");
-			}
+		    $where['esic.status'] = $status;
+		}
         $addColumns = array(
-                'ViewEditActionButtons' => array('<a href="'.base_url("admin/details/$1").'"><span aria-hidden="true" class="glyphicon glyphicon-edit text-green "></span></a>','ID')
-            );
-            $returnedData = $this->Common_model->select_fields_joined_DT($selectData,'esic',$joins,$where,'','','',$addColumns);
+            'ViewEditActionButtons' => array('<a href="'.base_url("admin/details/$1").'"><span aria-hidden="true" class="glyphicon glyphicon-edit text-green "></span></a>','ID')
+        );
+        $returnedData = $this->Common_model->select_fields_joined_DT($selectData,'esic',$joins,$where,'','','',$addColumns);
 		   
-			if(!empty($status)){ 
-				return print_r($returnedData);
-			}else{
-				print_r($returnedData);
-			}
-            return NULL;
+		if(!empty($status)){ 
+			return print_r($returnedData);
+		}else{
+			print_r($returnedData);
+		}
+    return NULL;
 	} 
 	public function upload(){
 		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
@@ -94,8 +108,7 @@ class Admin extends MY_Controller {
 	}
 	public function settings(){
 		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
-		$userRole = $this->session->userdata('userRole');
-		if($userRole == 1){
+		if(isCurrentUserAdmin($this)){
 			//Load the form helper
 			$this->load->helper('form');
 			$this->load->helper('directory');
@@ -148,8 +161,7 @@ class Admin extends MY_Controller {
 	}
 	public function social(){
 		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
-		$userRole = $this->session->userdata('userRole');
-		if($userRole == 1){
+		if(isCurrentUserAdmin($this)){
 	    	//Load the form helper
 			$this->load->helper('form');
 
@@ -179,8 +191,7 @@ public function social_creaditional(){
 
 }
  public function assessments_list($list=NULL){
-	 $userRole = $this->session->userdata('userRole');
-	 if($userRole == 1){
+	 if(isCurrentUserAdmin($this)){
         if($list === 'listing'){
             $selectData = array('
             h_user.userID as UserID,
@@ -442,8 +453,7 @@ public function social_creaditional(){
 		$data['social'] = $this->Esic_model->get_user_Social($userID);
         $data['uID'] = base64_encode($userID);
         $this->show_admin("admin/reg_details",$data);
-    }
-	    elseif($userRole == 1){
+    }elseif(isCurrentUserAdmin($this)){
            $selectData = array('
                     CONCAT(`h_user`.`firstName`," ",`h_user`.`lastName`) AS FullName,
                     h_user.email as Email,
@@ -1065,7 +1075,7 @@ public function social_creaditional(){
 	public function manage_status($param = NULL){
 		Admincontrol_helper::is_logged_in($this->session->userdata('userID'));  
 		$userRole = $this->session->userdata('userRole');
- 	if($userRole == 1){
+ 	if(isCurrentUserAdmin($this)){
 
 
         if($param === 'listing'){
@@ -1330,7 +1340,7 @@ public function manage_universities($param = NULL){
       
 	 Admincontrol_helper::is_logged_in($this->session->userdata('userID'));  
 	 $userRole = $this->session->userdata('userRole');
-	 if($userRole == 1){
+	 if(isCurrentUserAdmin($this)){
 			
         if($param === 'listing'){
 
@@ -1636,7 +1646,7 @@ public function manage_universities($param = NULL){
 public function manage_sectors($param = NULL){
 	Admincontrol_helper::is_logged_in($this->session->userdata('userID'));  
 	$userRole = $this->session->userdata('userRole');
-	if($userRole == 1){
+	if(isCurrentUserAdmin($this)){
         if($param === 'listing'){
             $selectData = array('
             id AS ID,
@@ -1883,7 +1893,7 @@ public function manage_sectors($param = NULL){
 public function manage_rd($param = NULL){
   Admincontrol_helper::is_logged_in($this->session->userdata('userID')); 
   $userRole = $this->session->userdata('userRole');
-  if($userRole == 1){ 
+  if(isCurrentUserAdmin($this)){ 
         if($param === 'listing'){
             $selectData = array('
             id AS ID,
@@ -2191,7 +2201,7 @@ public function manage_rd($param = NULL){
 public function manage_acc_commercials($param= Null){
    Admincontrol_helper::is_logged_in($this->session->userdata('userID'));
    $userRole = $this->session->userdata('userRole');
-   if($userRole == 1){
+   if(isCurrentUserAdmin($this)){
 			  
         if($param === 'listing'){
             $selectData = array('
@@ -2535,7 +2545,7 @@ public function manage_acc_commercials($param= Null){
 public function manage_accelerators($param= Null){
   Admincontrol_helper::is_logged_in($this->session->userdata('userID'));  
   $userRole = $this->session->userdata('userRole');
-  if($userRole == 1){		
+  if(isCurrentUserAdmin($this)){		
 		
         if($param === 'listing'){
             $selectData = array('

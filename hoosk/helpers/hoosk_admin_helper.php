@@ -47,4 +47,94 @@ if(!function_exists('getCurrentUserData')){
     }
 }
 
+/**
+ * @function getCurrentUserPermissions 
+ */
+if(!function_exists('getCurrentUserPermissions')){
+    function getCurrentUserPermissions($ci) {
+        $permissionsArray = array();
+        if(isUserLoggedIn($ci)){
+            $roles = $ci->session->userdata('userRole');
+            $allPermissionIDs = getAllPermissionsIDs($ci,$roles);
+            if(is_array($allPermissionIDs) && !empty($allPermissionIDs)){
+                $permissionsArray = getAllPermissions($ci,$allPermissionIDs);
+            }
+
+        }
+        return $permissionsArray;
+    }
+}
+
+/**
+ * @function getAllPermissionsIDs 
+ */
+if(!function_exists('getAllPermissionsIDs')){
+    function getAllPermissionsIDs($ci,$rolesJson) {
+        $permissionIdsArray = array();
+        $roles = json_decode($rolesJson);
+
+        if(is_array($roles) && !empty($roles)){
+            foreach($roles as $key => $role){
+                $where = array('id' => $role);
+                $permissionIds = $ci->Common_model->select_fields_where($ci->tableNameRoles,'permission_id',$where,true);
+                $permissionIdsJson = json_decode($permissionIds->permission_id);
+                if(is_array($permissionIdsJson) && !empty($permissionIdsJson)){
+                    foreach ($permissionIdsJson as $key => $permissionId) {
+                        if(!in_array($permissionId,$permissionIdsArray) && !empty($permissionId)){
+                            array_push($permissionIdsArray, $permissionId);
+                        }
+                    }
+                }
+            }
+        }
+        return $permissionIdsArray;
+    }
+}
+
+
+/**
+ * @function getAllPermissions 
+ */
+if(!function_exists('getAllPermissions')){
+    function getAllPermissions($ci,$PermissionIds) {
+        $permissionsArray = array();
+        if(is_array($PermissionIds) && !empty($PermissionIds)){
+            foreach($PermissionIds as $key => $PermissionId){
+                $where = array('id' => $PermissionId);
+                $permissions = $ci->Common_model->select_fields_where($ci->tableNamePermission,'label,rights',$where,true);
+                $permissionLabel = $permissions->label;
+                $permissionRight = $permissions->right;
+                if(!in_array($permissionLabel, $permissionsArray) && !empty($permissionLabel) ){
+                    array_push($permissionsArray, $permissionLabel);
+                }
+            }
+        }
+        return $permissionsArray;
+    }
+}
+
+/**
+ * @function getAllUserRoles 
+ */
+if(!function_exists('getAllUserRoles')){
+    function getAllUserRoles($ci) {
+        $rolesArray = array();
+        $rolesJson = $ci->session->userdata('userRole');
+        $roles = json_decode($rolesJson);
+        if(is_array($roles) && !empty($roles)){
+            foreach($roles as $key => $role){
+                $where = array('id' => $role);
+                $RolesDB = $ci->Common_model->select_fields_where($ci->tableNameRoles,'Slug',$where,true);
+                $RolesSlug = $RolesDB->Slug;
+                if(!empty($RolesSlug)){
+                    if(!in_array($RolesSlug,$rolesArray)){
+                        array_push($rolesArray, $RolesSlug);
+                    }
+                }
+            }
+        }
+        return $rolesArray;
+    }
+}
+
 ?>
