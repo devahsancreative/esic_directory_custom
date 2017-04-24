@@ -42,8 +42,6 @@ class Investor extends Listing{
     }
 
     /**From Old Controller **/
-
-
     public function index(){
         $selectData = array('score AS score',false);
 

@@ -170,6 +170,7 @@ class Listing extends MY_Controller{
         return Null;
     }
 
+    //Dont mistake the userid with UserID
     protected function _getUserQAnswers($userID,$listingID){
         if(empty($userID) || !is_numeric($userID)){
             return false;
@@ -204,10 +205,9 @@ class Listing extends MY_Controller{
             ),
             array(
                 'table' => 'esic_question_users_answers UA',
-                'condition' => 'UA.answer_id = EQ.id AND user_id = '.$userID,
+                'condition' => 'UA.answer_id = QPS.id AND user_id = '.$userID,
                 'type' => 'LEFT'
             )
-
         );
         $groupBy = ['EQ.id'];
         $orderBy = ['QL.order'];

@@ -827,6 +827,46 @@ $ci =& get_instance();
                               ?>
 
                       </div>
+                      <?php
+                      //Lets fetch just the provided solution
+                      $solutionString = '';
+                      switch ($type){
+                          case 'CheckBoxes':
+                              if(!empty($providedSolution['selectedCheckBoxes'])){
+                                  foreach($providedSolution['selectedCheckBoxes'] as $selectedCheckBox){
+                                      $solutionString.=' <span class="label label-info"><i class="fa fa-check"></i> '.$selectedCheckBox["checkBoxValue"].'</span>';
+                                  }
+                              }
+                              break;
+                          case 'radios':
+                              if(!empty($providedSolution["selectedValue"])){
+                                  $solutionString.=' <span class="label label-info"><i class="fa fa-dot-circle-o"></i> '.$providedSolution["selectedValue"].'</span>';
+                              }
+                              break;
+                          case 'SelectBox':
+                              if(isset($providedSolution['selectedSelectValue']) and !empty($providedSolution['selectedSelectValue'])){
+                                  if(is_array($providedSolution['selectedSelectValue'])){
+                                      foreach($providedSolution['selectedSelectValue'] as $selectedValue){
+                                          $solutionString.=' <span class="label label-info"> <i class="fa fa-list"></i> '.$selectedValue.'</span>';
+                                      }
+                                  }elseif(is_string($providedSolution['selectedSelectValue'])){
+                                      $solutionString.=' <span class="label label-info"> <i class="fa fa-indent"></i> '.$selectedValue.'</span>';
+                                  }
+
+                              }
+                              break;
+                          case 'textBoxes':
+                                if(isset($providedSolution['textboxes']) and !empty($providedSolution['textboxes'])){
+                                    foreach($providedSolution['textboxes'] as $key=>$textBox){
+                                        if(!empty($textBox['changedValue'])){
+                                            $solutionString.=' <span class="label label-info"><i class="fa fa-question"></i> '.$textBox['changedValue'].'</span>';
+                                        }
+                                    }
+                                }
+                              break;
+                      }
+                      ?>
+                      <p class="answer-solution"><?= (isset($solutionString)?$solutionString:'') ?></p>
                     <div class="edit-question">
                       <div class="form-group">
                           <?php
@@ -863,11 +903,17 @@ $ci =& get_instance();
                                   }
                                   $data = $possibleSolutions->data;
                                   ?>
-                                  <select class="form-control <?=((isset($possibleSolutions->isMulti) && $possibleSolutions->isMulti === 'Yes')?'customSelect2':'')?>" <?=((isset($possibleSolutions->isMulti) && $possibleSolutions->isMulti === 'Yes')?'multiple="multiple"':'')?>>
+                                  <select class="form-control <?=((isset($possibleSolutions->isMulti) && $possibleSolutions->isMulti === 'Yes')?'customSelect2':'')?>" <?=((isset($possibleSolutions->isMulti) && $possibleSolutions->isMulti === 'Yes')?'multiple="multiple"':'')?> style="width:100%">
                                       <?php
                                       if(!empty($data)){
-                                          foreach($data as $selectOption){
-                                              echo '<option value="'.$selectOption->value.'">'.$selectOption->text.'</option>';
+                                          foreach($data as $key => $selectOption){
+                                              if(in_array($selectOption->value,$providedSolution['selectedSelectValue'])){
+                                                  $selected='selected="selected"';
+                                              }else{
+                                                  $selected = '';
+                                              }
+
+                                              echo '<option value="'.$selectOption->value.'" '.(isset($selected)?$selected:'').'>'.$selectOption->text.'</option>';
                                           }
                                       }
                                       ?>
@@ -898,6 +944,22 @@ $ci =& get_instance();
                                       <?php
                                   }
                                   echo '</div>';
+                                  break;
+                              case 'textBoxes':
+                                  $data = $possibleSolutions->data;
+                                  if(!empty($data)){
+                                      echo '<div class=row>';
+                                      $providedText = $providedSolution['textboxes'];
+                                      foreach($data as $key=>$textBox){
+                                          ?>
+                                          <div class="form-group <?=$textBox->grid->grid_size?>">
+                                              <label for="<?=$textBox->labelTextBox->textBoxID?>"><?= $textBox->labelTextBox->label ?></label>
+                                              <input type="text" id="<?=$textBox->labelTextBox->textBoxName?>" name="<?=$textBox->labelTextBox->textBoxName?>" class="form-control" value="<?=(!empty($providedText[$key]['changedValue'])?$providedText[$key]['changedValue']:'')?>">
+                                          </div>
+                          <?php
+                                      }//End of Foreach
+                                      echo '</div>';
+                                  }//End of If not empty data
                                   break;
                           }
                           ?>
@@ -1263,6 +1325,7 @@ $ci =& get_instance();
    </div>
 
 <!--Other js is in Admin-details.js -->
+<link rel="stylesheet" href="<?=base_url('assets/css/questions.css')?>">
 <script>
 $(document).ready(function(){ 
 $("#save_social").on("click", function () {
@@ -1374,7 +1437,7 @@ $("#save_social").on("click", function () {
 
 <script type="text/javascript">
     $(function(){
-        $('div.question-post').find('input[type="radio"],input[type="checkbox"], select').on('change',function(){
+        $('div.question-post').find('input[type="radio"],input[type="checkbox"],input[type="text"], select').on('change',function(){
             var changedElement = $(this);
             var selectedQuestionID = $(this).parents('div.question-post').find('.question-edit').attr('data-question-id');
 
@@ -1395,20 +1458,34 @@ $("#save_social").on("click", function () {
                 postData.type='radio';
                 postData.radioID = $(this).attr('id');
 //                console.log('type is radio.');
-            }else if ($(this).parents('div.question-post').find('.checkbox').length > 0){
+            }
+            else if ($(this).parents('div.question-post').find('.checkbox').length > 0){
                 if($(this).is(':checked')){
                     postData.hasCheck = 'Yes';
                 }else{
-                    console.log('checkbox check has been Removed');
                     postData.hasCheck = 'No';
                 };
                 postData.type = 'checkbox';
                 postData.checkBoxID = $(this).attr('id');
                 postData.checkBoxValue = $(this).attr('name');
-            }else if($(this).prop('tagName') === 'SELECT'){
+            }
+            else if($(this).prop('tagName') === 'SELECT'){
                 var selectedSelectValue = $(this).val();
                 postData.type='select';
                 postData.selectedValue = selectedSelectValue;
+            }
+            else if($(this).prop('type') === 'text'){
+                //Lets Update All the fields at once.
+                var textBoxes = [];
+                 var inputTextBoxes = $(this).parents('.edit-question').find('input[type="text"]');
+                 $.each(inputTextBoxes,function ($key, $textBox) {
+                     var textBox = {};
+                     textBox.changedValue = $($textBox).val();
+                     textBox.textBoxID = $($textBox).attr('id');
+                     textBoxes.push(textBox);
+                 });
+                postData.type='text';
+                postData.textBoxes = JSON.stringify(textBoxes);
             }
 
             $.ajax({
@@ -1416,7 +1493,12 @@ $("#save_social").on("click", function () {
                 data:postData,
                 type:"POST",
                 success:function(output){
-                    console.log(output);
+                    var data=output.trim().split('::');
+                    if(data[0] === 'OK'){
+                        Haider.notification(data[1],data[2]);
+                    }else if(data[0] === 'FAIL'){
+                        Haider.notification(data[1],data[2]);
+                    }
                 }
             });
 

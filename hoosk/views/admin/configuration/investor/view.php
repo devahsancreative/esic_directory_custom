@@ -240,7 +240,7 @@
                           </span>
                                     <?php
                                     $possibleSolutions = $value['PossibleSolution'];
-                                    $providedSolution = $value['providedSolution'];
+                                    $providedSolution = $value['ProvidedSolution'];
                                     if(!empty($possibleSolutions)){
                                         $possibleSolutions = json_decode($possibleSolutions);
                                         $type = $possibleSolutions->type;
@@ -252,12 +252,49 @@
                                     }
                                     ?>
                                 </div>
-                                <p class="answer-solution"><?= $value['ProvidedSolution'];?></p>
+                                <?php
+                                    //Lets fetch just the provided solution
+                                $solutionString = '';
+                                switch ($type){
+                                    case 'CheckBoxes':
+                                        if(!empty($providedSolution['selectedCheckBoxes'])){
+                                            foreach($providedSolution['selectedCheckBoxes'] as $selectedCheckBox){
+                                                $solutionString.=' <span class="label label-info"><i class="fa fa-check"></i> '.$selectedCheckBox["checkBoxValue"].'</span>';
+                                            }
+                                        }
+                                        break;
+                                    case 'radios':
+                                        if(!empty($providedSolution["selectedValue"])){
+                                            $solutionString.=' <span class="label label-info"><i class="fa fa-dot-circle-o"></i> '.$providedSolution["selectedValue"].'</span>';
+                                        }
+                                        break;
+                                    case 'SelectBox':
+                                        if(isset($providedSolution['selectedSelectValue']) and !empty($providedSolution['selectedSelectValue'])){
+                                            if(is_array($providedSolution['selectedSelectValue'])){
+                                                foreach($providedSolution['selectedSelectValue'] as $selectedValue){
+                                                    $solutionString.=' <span class="label label-info"> <i class="fa fa-list"></i> '.$selectedCheckBox["checkBoxValue"].'</span>';
+                                                }
+                                            }elseif(is_string($providedSolution['selectedSelectValue'])){
+                                                $solutionString.=' <span class="label label-info"> <i class="fa fa-indent"></i> '.$providedSolution["selectedSelectValue"].'</span>';
+                                            }
+
+                                        }
+                                        break;
+                                    case 'textBoxes':
+                                        if(isset($providedSolution['textboxes']) and !empty($providedSolution['textboxes'])){
+                                            foreach($providedSolution['textboxes'] as $key=>$textBox){
+                                                if(!empty($textBox['changedValue'])){
+                                                    $solutionString.=' <span class="label label-info"><i class="fa fa-question"></i> '.$textBox['changedValue'].'</span>';
+                                                }
+                                            }
+                                        }
+                                        break;
+                                }
+                                ?>
+                                <p class="answer-solution"><?= (isset($solutionString)?$solutionString:'') ?></p>
                                 <div class="edit-question">
                                     <div class="form-group">
                                         <?php
-
-
                                         switch($type){
                                             case 'CheckBoxes':
                                                 echo '<label>Please Select Answer</label>';
@@ -291,11 +328,18 @@
                                                 }
                                                 $data = $possibleSolutions->data;
                                                 ?>
-                                                <select class="form-control" <?=((isset($possibleSolutions->isMulti) && $possibleSolutions->isMulti === 'Yes')?'multiple="multiple"':'')?>>
+
+                                                <select class="form-control <?=((isset($possibleSolutions->isMulti) && $possibleSolutions->isMulti === 'Yes')?'customSelect2':'')?>" <?=((isset($possibleSolutions->isMulti) && $possibleSolutions->isMulti === 'Yes')?'multiple="multiple"':'')?> style="width:100%">
                                                     <?php
                                                     if(!empty($data)){
-                                                        foreach($data as $selectOption){
-                                                            echo '<option value="'.$selectOption->value.'">'.$selectOption->text.'</option>';
+                                                        foreach($data as $key => $selectOption){
+                                                            if(in_array($selectOption->value,$providedSolution['selectedSelectValue'])){
+                                                                $selected='selected="selected"';
+                                                            }else{
+                                                                $selected = '';
+                                                            }
+
+                                                            echo '<option value="'.$selectOption->value.'" '.(isset($selected)?$selected:'').'>'.$selectOption->text.'</option>';
                                                         }
                                                     }
                                                     ?>
@@ -306,17 +350,42 @@
                                                 echo '<label>Please Select Answer</label>';
                                                 $data = $possibleSolutions->data;
                                                 echo '<div class="form-group">';
+                                                if(isset($providedSolution['type']) and $providedSolution['type'] === 'radio'){
+                                                    $selectedValue=$providedSolution['selectedValue'];
+                                                    $selectedRadioID=$providedSolution['selectedRadioID'];
+                                                }
                                                 foreach($data as $radioButton){
+                                                    if(isset($selectedRadioID) && ($radioButton->id === $selectedRadioID) && ($selectedValue=== $radioButton->value)){
+                                                        $checked = 'checked="checked"';
+                                                    }else{
+                                                        $checked = '';
+                                                    }
                                                     ?>
                                                     <div class="radio">
                                                         <label>
-                                                            <input type="radio" name="radio_<?=$value['questionID']?>" id="<?=$radioButton->id?>" value="<?=$radioButton->value?>">
+                                                            <input type="radio" name="radio_<?=$value['questionID']?>" id="<?=$radioButton->id?>" value="<?=$radioButton->value?>" <?=$checked?>>
                                                             <?=$radioButton->text?>
                                                         </label>
                                                     </div>
                                                     <?php
                                                 }
                                                 echo '</div>';
+                                                break;
+                                            case 'textBoxes':
+                                                $data = $possibleSolutions->data;
+                                                if(!empty($data)){
+                                                    echo '<div class=row>';
+                                                    $providedText = $providedSolution['textboxes'];
+                                                    foreach($data as $key=>$textBox){
+                                                        ?>
+                                                        <div class="form-group <?=$textBox->grid->grid_size?>">
+                                                            <label for="<?=$textBox->labelTextBox->textBoxID?>"><?= $textBox->labelTextBox->label ?></label>
+                                                            <input type="text" id="<?=$textBox->labelTextBox->textBoxName?>" name="<?=$textBox->labelTextBox->textBoxName?>" class="form-control" value="<?=(!empty($providedText[$key]['changedValue'])?$providedText[$key]['changedValue']:'')?>">
+                                                        </div>
+                                                        <?php
+                                                    }//End of Foreach
+                                                    echo '</div>';
+                                                }//End of If not empty data
                                                 break;
                                         }
                                         ?>
@@ -346,10 +415,88 @@
         </div>
         <!-- /.col -->
       </div>
+<link rel="stylesheet" href="<?=base_url('assets/css/questions.css')?>">
+<style type="text/css">
+    div.checkbox{
+        margin:0;
+        padding:0;
+        float: none;
+    }
+</style>
 <script type="text/javascript">
     $(function () {
         $('.question-edit').on('click',function(){
            $(this).parents('.question-post').find('.edit-question').show();
         });
+
+        /////////
+        $('div.question-post').find('input[type="radio"],input[type="checkbox"],input[type="text"], select').on('change',function(){
+            var changedElement = $(this);
+            var selectedQuestionID = $(this).parents('div.question-post').find('.question-edit').attr('data-question-id');
+
+            var userID = "<?=$this->uri->segment(4);?>";
+
+            var type = '';
+
+            var postData = {
+                qID:selectedQuestionID,
+                userID:userID,
+                listingID: 2
+            };
+
+            if($(this).parents('div.question-post').find('.radio').length > 0){
+                var selectedRadio = changedElement.val();
+                postData.selectedRadioValue = selectedRadio;
+                postData.type='radio';
+                postData.radioID = $(this).attr('id');
+//                console.log('type is radio.');
+            }else if ($(this).parents('div.question-post').find('.checkbox').length > 0){
+                if($(this).is(':checked')){
+                    postData.hasCheck = 'Yes';
+                }else{
+                    console.log('checkbox check has been Removed');
+                    postData.hasCheck = 'No';
+                };
+                postData.type = 'checkbox';
+                postData.checkBoxID = $(this).attr('id');
+                postData.checkBoxValue = $(this).attr('name');
+            }else if($(this).prop('tagName') === 'SELECT'){
+                var selectedSelectValue = $(this).val();
+                postData.type='select';
+                postData.selectedValue = selectedSelectValue;
+            }
+            else if($(this).prop('type') === 'text'){
+                //Lets Update All the fields at once.
+                var textBoxes = [];
+                var inputTextBoxes = $(this).parents('.edit-question').find('input[type="text"]');
+                $.each(inputTextBoxes,function ($key, $textBox) {
+                    var textBox = {};
+                    textBox.changedValue = $($textBox).val();
+                    textBox.textBoxID = $($textBox).attr('id');
+                    textBoxes.push(textBox);
+                });
+                postData.type='text';
+                postData.textBoxes = JSON.stringify(textBoxes);
+            }
+
+            $.ajax({
+                url:"<?=base_url();?>admin/question/updateUserAnswer",
+                data:postData,
+                type:"POST",
+                success:function(output){
+                    var data=output.trim().split('::');
+                    if(data[0] === 'OK'){
+                        Haider.notification(data[1],data[2]);
+                    }else if(data[0] === 'FAIL'){
+                        Haider.notification(data[1],data[2]);
+                    }
+                }
+            });
+
+        });
+/*
+        $('body').on('change','select',function(){
+            console.log('Testing Again');
+        });*/
     });
 </script>

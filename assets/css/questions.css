@@ -29,4 +29,8 @@ body .select2-container--default .select2-selection--multiple .select2-selection
     -moz-transform:scale(1);
     -ms-transform:scale(1);
     -o-transform:scale(1);
+
+/*    margin:0;
+    padding: 0;
+    float: none;*/
 }

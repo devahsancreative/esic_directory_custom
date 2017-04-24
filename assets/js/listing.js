@@ -1,6 +1,6 @@
 jQuery(document).ready(function($) {
     if($("select").length > 0){
-        $("select").select2();
+        // $("select").select2();
     }
     if($(".date_picker").length > 0){
         $('.date_picker').datepicker({
