@@ -6,8 +6,8 @@
 			</div>
 			<div class="list">
 			<?php foreach ($return as $key => $item) { 
-				  $item->alias =	str_replace(' ', '_',$item->name);
-				  $short_description = truncateString(strip_tags($item->short_description),200, false);
+				  $item->alias =	str_replace(' ', '_',$item->Member);
+				  $short_description = truncateString(strip_tags($item->Project_Summary),200, false);
 				    if(isset($item->Status_Label)){
 					  switch ($item->Status_Label) {
 					  	case 'Published':
@@ -40,9 +40,16 @@
 					<div class="item-detail">
 						<div class="item-name">
 			        		<a href="<?= base_url().$ListingName.'/'.$item->alias; ?>" class="permalink" data-link= "<?= $item->id;?>">
-			        			<h4><?= $item->name; ?></h4>
+			        			<h4><?= $item->Member; ?></h4>
 			        		</a>
 						</div>
+						<?php if(isset($item->Project_Title)){ ?>
+						<div class="item-project">
+							<span class="">
+								<?= $item->Project_Title; ?>
+							</span>
+						</div>
+						<?php } ?>
 						<?php if(isset($item->Status_Label)){ ?>
 						<div class="item-status">
 							<span class="label label-<?= $label?>" style=" background-color:<?=$bgcolor?> ">

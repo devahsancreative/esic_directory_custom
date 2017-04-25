@@ -288,4 +288,21 @@
         }
         return false;
     }
+    function ViewHelperListing(){
+        $ci =& get_instance();
+        $selectData = array('
+            '.$ci->tableName.'.*,
+            ES.*
+            ',false);
+        $where = 'trashed != 1';
+        $joins = array(
+            array(
+                'table' => 'esic_social ES',
+                'condition' => 'ES.listingID = '.$ci->tableName.'.id',
+                'type' => 'LEFT'
+            )
+        );
+        $returnedData = $ci->Common_model->select_fields_where_like_join($ci->tableName,$selectData,$joins,$where);
+        return $returnedData;   
+    }
 ?>

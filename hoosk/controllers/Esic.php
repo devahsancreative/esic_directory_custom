@@ -15,6 +15,7 @@ class Esic extends Listing{
     public $NameMessage         = 'Esic';
     public $ImagesFolderName    = 'esic';
     public $ViewFolderName      = 'esic';
+    public $ListFileName        = 'esic';
     public $ControllerName      = 'Esic';
     public $ControllerRouteName = 'Esic';
     public $ControllerRouteManage = 'manage_esic';

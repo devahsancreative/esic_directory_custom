@@ -15,6 +15,7 @@ class GrantConsultant extends Listing{
     public $NameMessage         = 'Grant Consultant';
     public $ImagesFolderName    = 'grantconsultant';
     public $ViewFolderName      = 'listing';
+    public $ListFileName        = 'default';
     public $ControllerName      = 'GrantConsultant';
     public $ControllerRouteName = 'GrantConsultant';
     public $ControllerRouteManage = 'manage_grantconsultant';

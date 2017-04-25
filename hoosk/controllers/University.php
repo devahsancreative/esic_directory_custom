@@ -15,6 +15,7 @@ class University extends Listing{
     public $NameMessage         = 'University';
     public $ImagesFolderName    = 'university';
     public $ViewFolderName      = 'university';
+    public $ListFileName        = 'university';
     public $ControllerName      = 'University';
     public $ControllerRouteName = 'University';
     public $ControllerRouteManage = 'manage_university';

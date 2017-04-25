@@ -15,6 +15,7 @@ class Accelerator extends Listing{
     public $NameMessage         = 'Accelerator';
     public $ImagesFolderName    = 'accelerator';
     public $ViewFolderName      = 'accelerator';
+    public $ListFileName        = 'accelerator';
     public $ControllerName      = 'Accelerator';
     public $ControllerRouteName = 'Accelerator';
     public $ControllerRouteManage = 'manage_accelerator';

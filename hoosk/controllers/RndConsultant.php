@@ -15,6 +15,7 @@ class RndConsultant extends Listing {
     public $NameMessage         = 'R&D Tax Consultant';
     public $ImagesFolderName    = 'rndconsultant';
     public $ViewFolderName      = 'listing';
+    public $ListFileName        = 'default';
     public $ControllerName      = 'RndConsultant';
     public $ControllerRouteName = 'RndConsultant';
     public $ControllerRouteManage = 'manage_rndconsultant';

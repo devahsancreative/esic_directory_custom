@@ -528,3 +528,72 @@ ul.dates li:hover .date-edit {
     min-height: 100%;
     border-radius: 0;
 }
+
+
+
+section.listing{
+    background: rgba(238, 238, 238, 0.44);
+}
+section.listing .container{}
+section.listing .filters{}
+section.listing .list{}
+section.listing .list .list-item:hover img{
+    opacity: 0.7;
+    transform: rotate(10deg);
+}
+section.listing .list .list-item{
+    padding: 20px;
+    display: inline-block;
+    position: relative;
+    width: 23.1%;
+    margin: 20px 0.5%;
+    vertical-align: top;
+    border-radius: 8px;
+    padding-bottom: 10px;
+    background: #fff;
+    min-height: 380px;
+}
+section.listing .list .list-item .item-image{}
+section.listing .list .list-item .item-image a{}
+section.listing .list .list-item .item-image div.img-container{
+    margin-bottom: 0px;
+    min-height: 200px;
+} 
+section.listing .list .list-item .item-image span{
+    position: relative;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    display: block;
+    padding-top: 100%;
+    background-color: rgba(0, 0, 0, 0.07);
+    border-radius: 15px 15px 0px 0px;
+} 
+section.listing .list .list-item .item-image img.item-logo{
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    padding: 0px 10%;
+    border-radius: 15px 15px 0 0;
+    transition: .3s ease;
+    cursor: pointer;
+} 
+section.listing .list .list-item .item-detail{}
+section.listing .list .list-item .item-detail .item-name{}
+section.listing .list .list-item .item-detail .item-name a{}
+section.listing .list .list-item .item-detail .item-name h3{
+}
+section.listing .list .list-item .item-detail .item-status{
+    margin: 5px 0px 10px;
+}
+section.listing .list .list-item .item-detail .item-status span{
+}
+section.listing .list .list-item .item-detail .item-brief-detail{}
+section.listing .list .list-item .item-detail .description{}
+section.listing .list .list-item .item-detail .description p{}

@@ -81,7 +81,7 @@ class Esic_model extends MY_Model{
         $offset = 9*$page;
         $pagelimit = 9;
         
-        $total_results = $this->db->count_all("user");
+        $total_results = $this->db->count_all("esic");
         if($offset < $total_results){
 	        $limit = array();
 	         array_push($limit, $pagelimit);

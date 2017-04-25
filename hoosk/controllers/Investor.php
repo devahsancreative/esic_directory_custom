@@ -15,6 +15,7 @@ class Investor extends Listing{
     public $NameMessage         = 'Investor';
     public $ImagesFolderName    = 'investor';
     public $ViewFolderName      = 'investor';
+    public $ListFileName        = 'investor';
     public $ControllerName      = 'Investor';
     public $ControllerRouteName = 'Investor';
     public $ControllerRouteManage = 'manage_investor';

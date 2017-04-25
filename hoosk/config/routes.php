@@ -59,6 +59,8 @@ $route['register'] = "Register/index";
 $route['Register/createmember'] = "Register/signup";
 
 $route['admin/fb'] = "admin/fb";
+$route['databaselistings'] = "Listing/great";
+
 
 $route['sitemap\.xml'] = "Update_sitemap/index";
 //$route['sitemap']        = "Sitemap/index";
@@ -165,6 +167,7 @@ $route['Investor/Edit/(:any)']  = "Investor/Edit/$1";
 $route['Investor/EditSave']     = "Investor/EditSave";
 //$route['investor']  	= "Investor/FrontForm";
 $route['investor']  	= "Investor/investor_form"; // mads
+$route['investor_database']    	= "Investor/Listing";
 $route['investor-pre-assessment']  	= "Investor/investor_form";
 
 
@@ -198,6 +201,7 @@ $route['Accelerator/Add']    	  	= "Accelerator/Add";
 $route['Accelerator/AddSave']      	= "Accelerator/AddSave";
 $route['Accelerator/Edit/(:any)']  	= "Accelerator/Edit/$1";
 $route['Accelerator/EditSave']     	= "Accelerator/EditSave";
+$route['accelerator_database']  	= "Accelerator/Listing";
 $route['accelerator']  	= "Accelerator/FrontForm";
 
 
@@ -215,6 +219,7 @@ $route['AcceleratingCommercialisation/Add']    	   	= "AcceleratingCommercialisa
 $route['AcceleratingCommercialisation/AddSave']      	= "AcceleratingCommercialisation/AddSave";
 $route['AcceleratingCommercialisation/Edit/(:any)']  	= "AcceleratingCommercialisation/Edit/$1";
 $route['AcceleratingCommercialisation/EditSave']      = "AcceleratingCommercialisation/EditSave";
+$route['acceleratingcommercialisation_database']  	= "AcceleratingCommercialisation/Listing";
 $route['acceleratingcommercialisation']  	= "AcceleratingCommercialisation/FrontForm";
 
 //For Grant Consultants
@@ -227,6 +232,7 @@ $route['GrantConsultant/Add']    	   	= "GrantConsultant/Add";
 $route['GrantConsultant/AddSave']      	= "GrantConsultant/AddSave";
 $route['GrantConsultant/Edit/(:any)']  	= "GrantConsultant/Edit/$1";
 $route['GrantConsultant/EditSave']      = "GrantConsultant/EditSave";
+$route['grantconsultant_database']  	= "GrantConsultant/Listing";
 $route['grantconsultant']  	= "GrantConsultant/FrontForm";
 
 //old Rnd Routes but still active for backfall links
@@ -243,6 +249,7 @@ $route['RndConsultant/Add']    	   		= "RndConsultant/Add";
 $route['RndConsultant/AddSave']      	= "RndConsultant/AddSave";
 $route['RndConsultant/Edit/(:any)']  	= "RndConsultant/Edit/$1";
 $route['RndConsultant/EditSave']      	= "RndConsultant/EditSave";
+$route['rndconsultant_database']  		= "RndConsultant/Listing";
 $route['rndconsultant']  	= "RndConsultant/FrontForm";
 
 //For Rnd Partners
@@ -255,6 +262,7 @@ $route['RndPartner/Add']    	   	= "RndPartner/Add";
 $route['RndPartner/AddSave']      	= "RndPartner/AddSave";
 $route['RndPartner/Edit/(:any)']  	= "RndPartner/Edit/$1";
 $route['RndPartner/EditSave']      	= "RndPartner/EditSave";
+$route['rndpartner_database']    	= "RndPartner/Listing";
 $route['rndpartner']  	= "RndPartner/FrontForm";
 
 //For Universities
@@ -271,6 +279,7 @@ $route['University/Add']    	   	= "University/Add";
 $route['University/AddSave']      	= "University/AddSave";
 $route['University/Edit/(:any)']  	= "University/Edit/$1";
 $route['University/EditSave']      	= "University/EditSave";
+$route['university_database']    	= "University/Listing";
 $route['university']  	= "University/FrontForm";
 
 //For manage_sectors

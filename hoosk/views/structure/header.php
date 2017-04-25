@@ -18,6 +18,7 @@
     <link href="<?= base_url();?>assets/css/form2.css" rel="stylesheet">
     <link href="<?= base_url();?>assets/css/boxlisting2.css" rel="stylesheet">
     <link href="<?= base_url();?>assets/vendors/select2/dist/css/select2.min.css" rel="stylesheet" />
+    <!--link href="<?= base_url();?>assets/css/listing.css" rel="stylesheet"-->
     <link href="<?= THEME_FOLDER; ?>/css/socicon.css" rel="stylesheet">
     <link href="<?= THEME_FOLDER; ?>/css/styles.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>

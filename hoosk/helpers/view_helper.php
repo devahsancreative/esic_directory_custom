@@ -257,7 +257,7 @@
                 'type' => 'LEFT'
             )
         );
-        $returnedData = $ci->Common_model->select_fields_where_like_join($ci->tableName,$selectData,$joins);
+        $returnedData = $ci->Common_model->select_fields_where_like_join($ci->tableName,$selectData,$joins,$where);
         return $returnedData;   
     }
 ?>

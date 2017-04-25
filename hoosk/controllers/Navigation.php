@@ -4,28 +4,14 @@
  */
 class Navigation extends MY_Controller {
 
-	function __construct()
-	{
-		parent::__construct();
-	        define("HOOSK_ADMIN",1);
-			$this->load->model('Hoosk_model');
-			$this->load->model('Common_model');
-			$this->load->helper(array('admincontrol', 'url'));
-			$this->load->library('session');
-			define ('LANG', $this->Hoosk_model->getLang());
-			$this->lang->load('admin', LANG);
-			//Define what page we are on for nav
-			$this->data['current'] = $this->uri->segment(2);
-			define ('SITE_NAME', $this->Hoosk_model->getSiteName());
-			define('THEME', $this->Hoosk_model->getTheme());
-			define ('THEME_FOLDER', BASE_URL.'/theme/'.THEME);
-		} 
+	function __construct(){
+	parent::__construct();
+	   if(!isCurrentUserAdmin($this)){ 
+ 			$this->load->view('admin/NoPermission');
+	    }
+	}
 
-	public function index()
-	{
-		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
-		$userRole = $this->session->userdata('userRole');
-		if(isCurrentUserAdmin($this)){ 
+	public function index(){
 			$this->load->library('pagination');
 			$result_per_page =15;  // the number of result per page
 			$config['base_url'] = BASE_URL. '/admin/navigation/';
@@ -42,32 +28,18 @@ class Navigation extends MY_Controller {
 			$this->data['header'] = $this->load->view('admin/header', $this->data, true);
 			$this->data['footer'] = $this->load->view('admin/footer', '', true);
 			$this->load->view('admin/navigation', $this->data);
-		}else{
-			  $this->load->view('admin/page_not_found');
-			 }
+		
 	}
-
-	public function newNav()
-	{
-		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
-		$userRole = $this->session->userdata('userRole');
-		if(isCurrentUserAdmin($this)){ 
-			$this->data['pages'] = $this->Hoosk_model->getPagesAll();
-			$this->load->helper('form');
-			//Load the view
-			$this->data['header'] = $this->load->view('admin/header', $this->data, true);
-			$this->data['footer'] = $this->load->view('admin/footer', '', true);
-			$this->load->view('admin/nav_new', $this->data);
-		}else{
-			  $this->load->view('admin/page_not_found');
-			 }
+	public function newNav(){
+		
+		$this->data['pages'] = $this->Hoosk_model->getPagesAll();
+		$this->load->helper('form');
+		$this->data['header'] = $this->load->view('admin/header', $this->data, true);
+		$this->data['footer'] = $this->load->view('admin/footer', '', true);
+		$this->load->view('admin/nav_new', $this->data);
+		
 	}
-
-	public function editNav()
-	{
-		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
-		$userRole = $this->session->userdata('userRole');
-		if($userRole == 1){
+	public function editNav(){
 			//Get pages from database
 			$this->data['pages'] = $this->Hoosk_model->getPagesAll();
 			//Get navigation from database
@@ -77,22 +49,8 @@ class Navigation extends MY_Controller {
 			$this->data['header'] = $this->load->view('admin/header', $this->data, true);
 			$this->data['footer'] = $this->load->view('admin/footer', '', true);
 			$this->load->view('admin/nav_edit', $this->data);
-		 }else{
-			  $this->load->view('admin/page_not_found');
-			 }	
 	}
-
 	public function updateNavTos(){
-
-        Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
-        $userRole = $this->session->userdata('userRole');
-        //if not belongs to Admin Role then just don't do any thing.
-        if(intval($userRole) !== 1){
-            $this->load->view('admin/page_not_found');
-            return null;
-        }
-        //Now if Passed the Authorization, then we can have the value updated.
-
         //Will be used for enabled and Disabled of Tos for a Particular Menu
         $tosEnable = $this->input->post('enableTos');
         //Menu Href will be used as reference.
@@ -123,7 +81,6 @@ class Navigation extends MY_Controller {
             'tosText'=> json_encode($tosTextMenusArray)
         ];
 
-
         $result = $this->Common_model->update('hoosk_navigation',$where, $dataToUpdate);
         if($result){
             echo "OK::Successfully Added Updated the TOS Configurations for Menu ".$menuTitle."::success";
@@ -132,7 +89,6 @@ class Navigation extends MY_Controller {
         }
 
     }
-
     public function getNavTos(){
 	    $slug = $this->input->post('slug');
 	    $menu = $this->input->post('menu');
@@ -157,23 +113,12 @@ class Navigation extends MY_Controller {
 //        return json_encode($tosDetails);
 //        echo $tosDetails;
     }
-
-	public function navAdd()
-	{
-		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
-		$userRole = $this->session->userdata('userRole');
-		if(isCurrentUserAdmin($this)){ 
+	public function navAdd(){
 			$this->data['page'] = $this->Hoosk_model->getPageNav($this->uri->segment(3));
 			$this->load->view('admin/nav_add', $this->data);
-		}else{
-			  $this->load->view('admin/page_not_found');
-			 }	
 	}
-
-	public function insert()
-	{
-		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
-		//Load the form validation library
+	public function insert(){
+		
 		$this->load->library('form_validation');
 
 		$this->form_validation->set_rules('navSlug', 'nav slug', 'trim|alpha_dash|required|max_length[10]|is_unique[hoosk_navigation.navSlug]');
@@ -190,16 +135,10 @@ class Navigation extends MY_Controller {
 	  	}
 
 	}
-
-
-	public function update()
-	{
-		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
+	public function update(){
 		//Load the form validation library
 		$this->load->library('form_validation');
-
 		$this->form_validation->set_rules('navTitle', 'navigation title', 'trim|required');
-
 		if($this->form_validation->run() == FALSE) {
 			//Validation failed
 			$this->editNav();
@@ -210,11 +149,7 @@ class Navigation extends MY_Controller {
 			redirect('/admin/navigation', 'refresh');
 	  	}
 	}
-
-
-		function deleteNav()
-	{
-		Admincontrol_helper::is_logged_in($this->session->userdata('userName'));
+	function deleteNav(){
 		if($this->input->post('deleteid')):
 			$this->Hoosk_model->removeNav($this->input->post('deleteid'));
 			redirect('/admin/navigation');

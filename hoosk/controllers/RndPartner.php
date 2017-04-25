@@ -15,6 +15,7 @@ class RndPartner extends Listing{
     public $NameMessage         = 'R&D Partner';
     public $ImagesFolderName    = 'rndpartner';
     public $ViewFolderName      = 'rndpartner';
+    public $ListFileName        = 'rndpartner';
     public $ControllerName      = 'RndPartner';
     public $ControllerRouteName = 'RndPartner';
     public $ControllerRouteManage = 'manage_rndpartner';

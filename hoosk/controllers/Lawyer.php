@@ -15,6 +15,7 @@ class Lawyer extends Listing{
     public $NameMessage         = 'Lawyer';
     public $ImagesFolderName    = 'lawyers';
     public $ViewFolderName      = 'listing';
+    public $ListFileName        = 'default';
     public $ControllerName      = 'Lawyer';
     public $ControllerRouteName = 'Lawyer';
     public $ControllerRouteManage = 'manage_lawyer';

@@ -221,4 +221,21 @@
         }
         return false;
     }
+    function ViewHelperListing(){
+        $ci =& get_instance();
+        $selectData = array('
+            '.$ci->tableName.'.*,
+            insS.*
+            ',false);
+        $where = 'trashed != 1';
+        $joins = array(
+            array(
+                'table' => 'institution_social insS',
+                'condition' => 'insS.listingID = '.$ci->tableName.'.id',
+                'type' => 'LEFT'
+            )
+        );
+        $returnedData = $ci->Common_model->select_fields_where_like_join($ci->tableName,$selectData,$joins,$where);
+        return $returnedData;   
+    }
 ?>

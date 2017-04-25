@@ -6,8 +6,8 @@
 			</div>
 			<div class="list">
 			<?php foreach ($return as $key => $item) { 
-				  $item->alias =	str_replace(' ', '_',$item->name);
-				  $short_description = truncateString(strip_tags($item->short_description),200, false);
+				  $item->alias =	str_replace(' ', '_',$item->institution);
+				  $short_description = truncateString(strip_tags($item->programDescription),200, false);
 				    if(isset($item->Status_Label)){
 					  switch ($item->Status_Label) {
 					  	case 'Published':
@@ -32,7 +32,7 @@
 						<a href="<?= base_url().$ListingName.'/'.$item->alias; ?>" class="permalink" data-link= "<?= $item->id;?>">
 							<div class="img-container">
 								<span>
-									<img src="<?= $item->logo; ?>" alt="" class="item-logo"/>
+									<img src="<?= $item->institutionLogo; ?>" alt="" class="item-logo"/>
 								</span>
 							</div>
 						</a>
@@ -40,13 +40,13 @@
 					<div class="item-detail">
 						<div class="item-name">
 			        		<a href="<?= base_url().$ListingName.'/'.$item->alias; ?>" class="permalink" data-link= "<?= $item->id;?>">
-			        			<h4><?= $item->name; ?></h4>
+			        			<h4><?= $item->institution; ?></h4>
 			        		</a>
 						</div>
-						<?php if(isset($item->Status_Label)){ ?>
-						<div class="item-status">
-							<span class="label label-<?= $label?>" style=" background-color:<?=$bgcolor?> ">
-								<?= $item->Status_Label; ?>
+						<?php if(isset($item->state)){ ?>
+						<div class="item-state">
+							<span>
+								<?= $item->state; ?>
 							</span>
 						</div>
 						<?php } ?>

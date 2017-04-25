@@ -8,21 +8,24 @@
 			<?php foreach ($return as $key => $item) { 
 				  $item->alias =	str_replace(' ', '_',$item->name);
 				  $short_description = truncateString(strip_tags($item->short_description),200, false);
-				    if(isset($item->Status_Label)){
-					  switch ($item->Status_Label) {
-					  	case 'Published':
+				  $statusText = '';
+				    if(isset($item->AcceleratorStatus)){
+					  switch ($item->AcceleratorStatus) {
+					  	case 'Pending':
 					  		$label = 'green';
-					  		$bgcolor = 'grey';
-					  		break;
-					  	case 'Feature':
-					  		$label = 'aqua';
 					  		$bgcolor = 'black';
+					  		$statusText = 'Pending';
 					  		break;
-					  	case 'Private':
-					  		$label = 'orange';
-					  		$bgcolor = 'Orange';
+					  	case 'Eligible':
+					  		$label = 'aqua';
+					  		$bgcolor = 'green';
+					  		$statusText = 'Eligible';
 					  		break;
 					  	default:
+					  		$label = 'green';
+					  		$bgcolor = 'black';
+					  		$statusText = 'Pending';
+					  		break;
 					  		break;
 					  }
 				    }
@@ -43,6 +46,13 @@
 			        			<h4><?= $item->name; ?></h4>
 			        		</a>
 						</div>
+						<?php if(isset($item->AcceleratorStatus)){ ?>
+						<div class="item-status">
+							<span class="label label-<?= $label?>" style=" background-color:<?=$bgcolor?> ">
+								<?= $statusText; ?>
+							</span>
+						</div>
+						<?php } ?>
 						<?php if(isset($item->Status_Label)){ ?>
 						<div class="item-status">
 							<span class="label label-<?= $label?>" style=" background-color:<?=$bgcolor?> ">

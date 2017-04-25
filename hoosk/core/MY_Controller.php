@@ -173,7 +173,10 @@ class Listing extends MY_Controller{
         $this->data['PageType'] = 'Listing';
         $this->data['return']   = ViewHelperListing();
         $this->load->view('structure/header',$this->data);
-        $this->show_configuration('listing/default' ,$this->data);
+         if(!empty($this->data['page']['pageTemplate'])){
+            $this->load->view('templates/'.$this->data['page']['pageTemplate'], $this->data);
+        }
+        $this->show_configuration('listing/'.$this->ListFileName ,$this->data);
         $this->load->view('structure/footer');
     }
 

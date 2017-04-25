@@ -15,6 +15,7 @@ class AcceleratingCommercialisation extends Listing{
     public $NameMessage         = 'Accelerating Commercialisation';
     public $ImagesFolderName    = 'acceleratingcommercialisation';
     public $ViewFolderName      = 'acceleratingcommercialisation';
+    public $ListFileName        = 'acceleratingcommercialisation';
     public $ControllerName      = 'AcceleratingCommercialisation';
     public $ControllerRouteName = 'AcceleratingCommercialisation';
     public $ControllerRouteManage = 'manage_acceleratingcommercialisation';

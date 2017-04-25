@@ -40,9 +40,24 @@
 					<div class="item-detail">
 						<div class="item-name">
 			        		<a href="<?= base_url().$ListingName.'/'.$item->alias; ?>" class="permalink" data-link= "<?= $item->id;?>">
-			        			<h4><?= $item->name; ?></h4>
+			        			<h3><?= $item->name; ?></h3>
 			        		</a>
 						</div>
+						<?php if(isset($item->preferred_investment_amount) && !empty($item->preferred_investment_amount)){ ?>
+						<div class="item-type">
+							<label>Investor Type</label>
+							<span>
+								<?= $item->label; ?>
+							</span>
+						</div>
+						<?php } ?>
+						<?php if(isset($item->preferred_investment_amount) && !empty($item->preferred_investment_amount)){ ?>
+						<div class="item-investment">
+							<span>
+								<?= $item->preferred_investment_amount; ?>
+							</span>
+						</div>
+						<?php } ?>
 						<?php if(isset($item->Status_Label)){ ?>
 						<div class="item-status">
 							<span class="label label-<?= $label?>" style=" background-color:<?=$bgcolor?> ">

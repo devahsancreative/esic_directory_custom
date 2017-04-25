@@ -16,7 +16,7 @@
                 Member AS Member,
                 Web_Address AS Web_Address,
                 Project_Title AS Project_Title,
-                Project_Location AS Project_Title,
+                Project_Location AS Project_Location,
                 State_Territory AS State_Territory,
                 accLogo AS Logo,
                 CASE WHEN trashed = 1 THEN CONCAT(\'<span class="label label-danger">YES</span>\') WHEN trashed = 0 THEN CONCAT(\'<span class="label label-success">NO</span>\') ELSE "" END AS Trashed
@@ -204,6 +204,21 @@
             return $return;
         }
         return false;
+    }
+    function ViewHelperListing(){
+        $ci =& get_instance();
+        $selectData = array('
+            '.$ci->tableName.'.*',false);
+        $where = 'trashed != 1';
+        $joins = array(
+            array(
+                'table' => 'acceleration_social ACCS',
+                'condition' => 'ACCS.listingID = '.$ci->tableName.'.id',
+                'type' => 'LEFT'
+            )
+        );
+        $returnedData = $ci->Common_model->select_fields_where_like_join($ci->tableName,$selectData,$joins,$where);
+        return $returnedData;   
     }
 
 ?>
