@@ -5,9 +5,9 @@
 
 			</div>
 			<div class="list">
-			<?php foreach ($return as $key => $item) { 
-				  $item->alias =	str_replace(' ', '_',$item->Member);
-				  $short_description = truncateString(strip_tags($item->Project_Summary),200, false);
+			<?php foreach ($return as $key => $item) {
+				  $item->alias 		 = getAlias($item->Member); 
+				  $short_description = trimString($item->Project_Summary);
 				    if(isset($item->Status_Label)){
 					  switch ($item->Status_Label) {
 					  	case 'Published':

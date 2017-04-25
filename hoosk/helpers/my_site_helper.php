@@ -689,7 +689,9 @@ function findWhere($array, $matching) {
 
     return false;
 }
-
+/**
+ * @function in_array_r 
+ */
 if(!function_exists('in_array_r')){
     function in_array_r($needle, $haystack, $strict = false) {
         foreach ($haystack as $item) {
@@ -701,6 +703,20 @@ if(!function_exists('in_array_r')){
         return false;
     }
 }
+
+/**
+ * @function trimString 
+ */
+ if(!function_exists('trimString')){
+    function trimString($str) {
+      truncateString(strip_tags($str),200, false);
+       return $str;
+    }
+}
+
+/**
+ * @function truncateString 
+ */
 if(!function_exists('truncateString')){
     function truncateString($str, $chars, $to_space, $replacement="...") {
        if($chars > strlen($str)) return $str;
@@ -713,3 +729,17 @@ if(!function_exists('truncateString')){
        return($str . $replacement);
     }
 }
+
+/**
+ * @function getAlias 
+ */
+if(!function_exists('getAlias')){
+    function getAlias($name,$spaceReplacement = '_'){
+        $alias = str_replace(' ',$spaceReplacement ,$name);
+        $alias = strtolower($alias);
+        $alias = preg_replace('/[^A-Za-z0-9\_]/', '', $alias); // Removes special chars.
+        return $alias;
+    }
+}
+
+

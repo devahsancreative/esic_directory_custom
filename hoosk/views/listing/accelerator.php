@@ -6,8 +6,8 @@
 			</div>
 			<div class="list">
 			<?php foreach ($return as $key => $item) { 
-				  $item->alias =	str_replace(' ', '_',$item->name);
-				  $short_description = truncateString(strip_tags($item->short_description),200, false);
+				  $item->alias 		 = getAlias($item->name); 
+				  $short_description = trimString($item->short_description);
 				  $statusText = '';
 				    if(isset($item->AcceleratorStatus)){
 					  switch ($item->AcceleratorStatus) {

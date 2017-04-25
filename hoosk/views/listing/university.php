@@ -6,8 +6,8 @@
 			</div>
 			<div class="list">
 			<?php foreach ($return as $key => $item) { 
-				  $item->alias =	str_replace(' ', '_',$item->institution);
-				  $short_description = truncateString(strip_tags($item->programDescription),200, false);
+				  $item->alias 		 = getAlias($item->institution); 
+				  $short_description = trimString($item->programDescription);
 				    if(isset($item->Status_Label)){
 					  switch ($item->Status_Label) {
 					  	case 'Published':

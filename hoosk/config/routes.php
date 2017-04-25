@@ -59,8 +59,7 @@ $route['register'] = "Register/index";
 $route['Register/createmember'] = "Register/signup";
 
 $route['admin/fb'] = "admin/fb";
-$route['databaselistings'] = "Listing/great";
-
+$route['scriptConvertMake'] = "Script/makeSlug";
 
 $route['sitemap\.xml'] = "Update_sitemap/index";
 //$route['sitemap']        = "Sitemap/index";
@@ -183,7 +182,9 @@ $route['Lawyer/AddSave']      = "Lawyer/AddSave";
 $route['Lawyer/Edit/(:any)']  = "Lawyer/Edit/$1";
 $route['Lawyer/EditSave']     = "Lawyer/EditSave";
 $route['lawyer']  			  = "Lawyer/FrontForm";
+$route['Lawyer']  			  = "Lawyer/FrontForm";
 $route['lawyer_database']  	  = "Lawyer/Listing";
+$route['Lawyer/(:any)']  	  = "Lawyer/detail/(:any)";
 $route['Lawyer/saveIntro']    = "Lawyer/saveIntro";
 
 
