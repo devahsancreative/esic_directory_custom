@@ -161,6 +161,9 @@
             <span>
                 <?= $this->lang->line('nav_settings'); ?>
             </span> 
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
         </a> 
         <ul  class="treeview-menu">
             <li class="<?php if($class == "University"){echo "active";} ?>">
